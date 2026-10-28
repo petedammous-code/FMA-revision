@@ -29,7 +29,7 @@ En quantificateurs : pour toute suite $(f_n)_{n\in\N}$ d'éléments de $\mathcal
 
 **Rôle.** Avec la définition du poly, la sous-suite doit converger vers une vraie fonction $f:\Omega\to\C$ ; par le théorème de Weierstraß ([[ch03-weierstrass]]), $f$ est alors automatiquement holomorphe.
 
-**Si on l'oublie.** Certains livres (Rudin, Stein–Shakarchi pour Montel « généralisé ») admettent aussi la convergence vers $\infty$ ; ce n'est **pas** la convention du poly. Ainsi $\{z^n\}$ sur $\{|z|>1\}$ (qui tend vers $\infty$ localement uniformément) n'est **pas** normale au sens du poly.
+**Si on l'oublie.** Certains ouvrages admettent aussi la convergence vers $\infty$ ; ce n'est **pas** la convention du poly. Ainsi $\{z^n\}$ sur $\{|z|>1\}$ (qui tend vers $\infty$ localement uniformément) n'est **pas** normale au sens du poly.
 
 ### H2 — la limite n'est pas demandée dans $\mathcal F$
 
@@ -45,7 +45,7 @@ En quantificateurs : pour toute suite $(f_n)_{n\in\N}$ d'éléments de $\mathcal
 
 ## Pièges
 
-* > ⚠️ Normale $\ne$ « toute suite converge » : on demande seulement l'existence d'une **sous-suite** convergente. $\{z^n\}\cup\{z^n/2\}$... plus simplement la suite alternée $f_{2n}=0$, $f_{2n+1}=1$ (fonctions constantes) forme une famille normale sans que la suite converge.
+* > ⚠️ Normale $\ne$ « toute suite converge » : on demande seulement l'existence d'une **sous-suite** convergente. La suite alternée $f_{2n}=0$, $f_{2n+1}=1$ (fonctions constantes) forme une famille normale $\{0,1\}$, alors que la suite $(f_n)$ elle-même ne converge pas.
 * La convergence demandée est **localement uniforme**, pas uniforme sur $\Omega$ : $\{z^n\}$ ne converge pas uniformément sur $D(0,1)$ (car $\sup_{D(0,1)}|z^n|=1$), et pourtant la famille est normale.
 * La convention du poly exclut la limite $\infty$ (voir H1).
 * Pour montrer qu'une famille est normale, on n'utilise presque jamais la définition : on vérifie qu'elle est localement uniformément bornée et on applique [[ch03-montel]].
