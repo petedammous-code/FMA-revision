@@ -182,7 +182,7 @@
         "Définition II.1.1"
       ],
       "used_by_hint": "Fournit les exemples usuels d'ouverts simplement connexes (disques, demi-plans, plan coupé $\\mathbb C\\setminus\\mathbb R_-$) ; utilisé dans la preuve de Rouché (II.8.4) avec $D(1,1)$ et pour la détermination principale du logarithme (II.9.3).",
-      "importance": 3,
+      "importance": 2,
       "proof_in_poly": "full",
       "proof_length": "short",
       "counterexample_hints": [
@@ -697,7 +697,7 @@
       "ref": "Remarque II.4.12",
       "title": "Résidu d'un produit $fg$ en un pôle simple de $g$",
       "page": 46,
-      "statement": "Soit $z_0\\in\\Omega$. Si $f$ est une fonction holomorphe au voisinage de $z_0$ et si $g$ est une fonction méromorphe admettant un **pôle simple** en $z_0$, alors $$\\mathrm{res}_{z_0}(fg) = f(z_0)\\,\\mathrm{res}_{z_0}(g).$$ (Preuve : $g(z) = \\frac{a_{-1}}{z-z_0} + h(z)$ avec $h$ holomorphe en $z_0$, $f(z) = f(z_0) + (z-z_0)\\tilde f(z)$ avec $\\tilde f$ holomorphe ; le produit vaut $\\frac{f(z_0)a_{-1}}{z-z_0}$ plus une fonction holomorphe en $z_0$.) Cas particulier d'usage constant : si $z_0$ est un pôle simple de $F$, $\\mathrm{res}_{z_0}(F) = \\lim_{z\\to z_0}(z-z_0)F(z)$ ; si $F = f/q$ avec $q$ holomorphe ayant un zéro simple en $z_0$ et $f$ holomorphe, $\\mathrm{res}_{z_0}(F) = f(z_0)/q'(z_0)$.",
+      "statement": "Soit $z_0\\in\\Omega$. Si $f$ est une fonction holomorphe au voisinage de $z_0$ et si $g$ est une fonction méromorphe admettant un **pôle simple** en $z_0$, alors $$\\mathrm{res}_{z_0}(fg) = f(z_0)\\,\\mathrm{res}_{z_0}(g).$$ (Preuve : $g(z) = \\frac{a_{-1}}{z-z_0} + h(z)$ avec $h$ holomorphe en $z_0$, $f(z) = f(z_0) + (z-z_0)\\tilde f(z)$ avec $\\tilde f$ holomorphe ; le produit vaut $\\frac{f(z_0)a_{-1}}{z-z_0}$ plus une fonction holomorphe en $z_0$.) Complément hors poly (formules d'usage constant) : si $z_0$ est un pôle simple de $F$, $\\mathrm{res}_{z_0}(F) = \\lim_{z\\to z_0}(z-z_0)F(z)$ — c'est la formule effectivement utilisée dans les Exemples II.6.1 et II.9.7 ; si $F = f/q$ avec $q$ holomorphe ayant un zéro simple en $z_0$ et $f$ holomorphe, $\\mathrm{res}_{z_0}(F) = f(z_0)/q'(z_0)$.",
       "hypotheses": [
         "$f$ holomorphe au voisinage de $z_0$",
         "$g$ méromorphe avec pôle **simple** en $z_0$"
@@ -955,10 +955,10 @@
       "proof_in_poly": "full",
       "proof_length": "medium",
       "counterexample_hints": [
-        "Rôle de l'inégalité **stricte** : elle garantit automatiquement que ni $f$ ni $g$ ne s'annule sur $\\Gamma$. Avec seulement $|f-g|\\le|g|$ on peut avoir un zéro de $f$ sur le bord : $f(z) = z-1$, $g\\equiv -1$ sur $C(0,1)$ donnent $|f-g| = |z| = 1 = |g|$ partout et $f$ s'annule en $1\\in\\Gamma$, le comptage n'a plus de sens.",
+        "Rôle de l'inégalité **stricte** : elle garantit automatiquement que ni $f$ ni $g$ ne s'annule sur $\\Gamma$. Avec seulement $|f-g|\\le|g|$ la conclusion tombe : $f(z) = z-1$ et $g(z) = z$ vérifient $|f-g| = 1 = |g|$ sur $C(0,1)$, mais $Z(g,D) = 1$ alors que $Z(f,D) = 0$ (le zéro de $f$ est sur le bord, en $1\\in\\Gamma$).",
         "Fonctions méromorphes : Rouché compare $Z-P$, pas $Z$ seul. Sur $C(0,1)$, $f\\equiv 1$ et $g(z) = \\frac{z-1/5}{z+1/5}$ vérifient $|f-g| = \\frac{2/5}{|z+1/5|}\\le\\frac{1}{2} < \\frac{2}{3}\\le|g|$ ; on a bien $Z-P = 0$ pour les deux, mais $Z(g,D)=1\\ne 0=Z(f,D)$ et $P(g,D)=1\\ne 0=P(f,D)$.",
         "Il faut l'inégalité sur **tout** le bord : $f(z)=z^2 - 1/4$ et $g(z)=z^2$ sur $C(0,1)$ marchent ($|f-g| = 1/4 < 1$) ; sur $C(0,1/2)$ non ($|f-g| = 1/4 = |g|$ en tout point, et $f$ s'annule en $\\pm 1/2\\in\\Gamma$).",
-        "Si $|f-g|<|g|$ échoue en un seul point, la conclusion peut tomber : $f(z) = z$, $g\\equiv 1$ sur $C(0,1)$ : $|f-g| = |z-1|<1$ échoue en $z=-1$, et $Z(f,D) = 1\\ne 0 = Z(g,D)$."
+        "Ce n'est pas le nombre de points où l'inégalité stricte échoue qui compte : si $|f-g|\\le|g|$ sur $\\Gamma$ avec égalité en quelques points mais sans zéro de $f$ ni de $g$ sur $\\Gamma$, alors $h(\\Gamma)\\subset\\bar D(1,1)\\setminus\\{0\\}$ et la preuve passe encore ; le vrai danger est un zéro (ou un pôle) sur le bord."
       ],
       "viz_hint": "« Le chien et son maître » : tracer $g(\\Gamma)$ et $f(\\Gamma)$ ; la laisse $|f-g|$ plus courte que la distance du maître à l'origine force le même nombre de tours autour de $0$."
     },
@@ -1055,7 +1055,7 @@
       "proof_length": "short",
       "counterexample_hints": [
         "$\\Omega = \\mathbb C\\setminus\\{0\\}$, $h(z)=z$ : pas de logarithme global.",
-        "Mais sur un ouvert non simplement connexe un logarithme peut exister pour certaines $h$ : $h(z) = z^2$ sur la couronne $\\{1<|z|<2\\}$ ? Non ($\\int h'/h = 4i\\pi\\ne 0$) ; en revanche $h(z) = e^{z}$ en a un sur tout ouvert ($\\mathrm{Log}\\,h = z$)."
+        "La réciproque est fausse : sur un ouvert non simplement connexe, certaines fonctions sans zéro ont quand même un logarithme ($h(z) = e^z$ sur n'importe quel ouvert, $\\mathrm{Log}\\,h = z$) et d'autres non ($h(z) = z$ ou $h(z) = z^2$ sur la couronne $\\{1<|z|<2\\}$ : $\\int_{C(0,3/2)} h'/h = 2i\\pi$ resp. $4i\\pi \\ne 0$). L'obstruction est $\\int_\\gamma h'/h \\ne 0$ pour un lacet $\\gamma$."
       ],
       "viz_hint": ""
     },
@@ -1105,7 +1105,7 @@
       "proof_length": "short",
       "counterexample_hints": [
         "$(z_1z_2)^\\alpha\\ne z_1^\\alpha z_2^\\alpha$ en général ($\\alpha=1/2$, $z_1=z_2=-1+i\\varepsilon$).",
-        "$(z^\\alpha)^\\beta \\ne z^{\\alpha\\beta}$ en général ($\\alpha = 2$, $\\beta=1/2$, $z=i$ : $(i^2)^{1/2} = \\sqrt{-1}$ non défini sur la coupure)."
+        "$(z^\\alpha)^\\beta \\ne z^{\\alpha\\beta}$ en général : pour $z = e^{3i\\pi/4}$, $z^2 = e^{3i\\pi/2} = e^{-i\\pi/2}$ (argument principal), donc $(z^2)^{1/2} = e^{-i\\pi/4} \\ne z = z^{2\\cdot\\frac12}$."
       ],
       "viz_hint": "Domain coloring de $z^\\alpha$ avec curseur $\\alpha$ réel puis complexe ; visualiser le saut à travers la coupure et la continuité pour $\\alpha\\in\\mathbb Z$."
     },
@@ -1140,7 +1140,7 @@
     {
       "id": "ch02-laurent-couronne-cauchy",
       "kind": "proposition",
-      "ref": "Exercice II.7.4, questions 1) à 4), p. 50",
+      "ref": "Exercice II.7.4 (questions 1 à 4)",
       "title": "Développement de Laurent dans un disque épointé par la formule de Cauchy",
       "page": 50,
       "statement": "Soit $f : D(0,1)\\setminus\\{0\\}\\to\\mathbb C$ holomorphe. 1) Pour $g$ holomorphe sur $D(0,1)\\setminus\\{0\\}$, $r\\mapsto\\frac{1}{2i\\pi}\\int_{\\partial D(0,r)} g(z)\\,dz$ ne dépend pas de $r\\in]0,1[$. 2) Pour $z\\in D(0,1)\\setminus\\{0\\}$, $g(\\zeta) := \\frac{f(z)-f(\\zeta)}{z-\\zeta}$ se prolonge en une fonction holomorphe sur $D(0,1)\\setminus\\{0\\}$. 3) Pour $0<s<|z|<r<1$, $$f(z) = \\frac{1}{2i\\pi}\\int_{\\partial D(0,r)}\\frac{f(\\zeta)}{\\zeta-z}\\,d\\zeta - \\frac{1}{2i\\pi}\\int_{\\partial D(0,s)}\\frac{f(\\zeta)}{\\zeta-z}\\,d\\zeta.$$ 4) $f$ admet dans $D(0,1)\\setminus\\{0\\}$ un développement en série de Laurent $f(z) = \\sum_{n\\in\\mathbb Z} a_n z^n$ avec $$a_n = \\frac{1}{2i\\pi}\\int_{\\partial D(0,r)}\\frac{f(z)}{z^{n+1}}\\,dz,$$ quantité indépendante de $r\\in]0,1[$.",
@@ -1163,7 +1163,7 @@
     {
       "id": "ch02-classification-singularites",
       "kind": "theorem",
-      "ref": "Exercice II.7.4, questions 5) à 8), p. 50-51",
+      "ref": "Exercice II.7.4 (questions 5 à 8)",
       "title": "Classification des singularités isolées ; singularité essentielle ; théorème de Casorati-Weierstrass",
       "page": 50,
       "statement": "Soit $f : D(0,1)\\setminus\\{0\\}\\to\\mathbb C$ holomorphe. 5) $f$ possède un prolongement holomorphe dans $D(0,1)$ si et seulement si $|f(z)|$ reste borné quand $|z|\\to 0$. 6) $f$ est méromorphe, non holomorphe, dans $D(0,1)$ (c'est-à-dire $0$ est un pôle) si et seulement si $|f(z)|\\to+\\infty$ quand $|z|\\to 0$. 7) Si $D(a,r)$ n'intersecte pas $f(D(0,\\epsilon)\\setminus\\{0\\})$, alors $g := \\frac{1}{f-a}$ se prolonge holomorphiquement en $0$. 8) Si $f$ n'est pas méromorphe en $0$ — on dit que $f$ admet une **singularité essentielle** en $0$ — alors pour tout $\\epsilon>0$ l'image de $D(0,\\epsilon)\\setminus\\{0\\}$ par $f$ est dense dans $\\mathbb C$ (Casorati-Weierstrass). Remarque du poly : le théorème (difficile) de Picard affirme que cette image est $\\mathbb C$ tout entier ou $\\mathbb C$ privé d'un seul point.",
@@ -1190,7 +1190,7 @@
     {
       "id": "ch02-automorphismes-de-c",
       "kind": "proposition",
-      "ref": "Exercice II.7.5, p. 51",
+      "ref": "Exercice II.7.5",
       "title": "Automorphismes holomorphes de $\\mathbb C$",
       "page": 51,
       "statement": "Soit $f : \\mathbb C\\to\\mathbb C$ un automorphisme de $\\mathbb C$ (bijection holomorphe de réciproque holomorphe) avec $f(0)=0$. Alors $g(z) := f(1/z)$ est méromorphe en $0$ (via Casorati-Weierstrass : l'image par $f$ d'un voisinage de $\\infty$ évite $f(D(0,1))$ qui est ouvert, donc n'est pas dense) et $f$ est de la forme $z\\mapsto az$ avec $a\\in\\mathbb C^\\times$. Forme générale d'un automorphisme de $\\mathbb C$ : $z\\mapsto az+b$, $a\\in\\mathbb C^\\times$, $b\\in\\mathbb C$.",
@@ -1198,7 +1198,7 @@
         "$f$ bijective holomorphe $\\mathbb C\\to\\mathbb C$ de réciproque holomorphe"
       ],
       "depends_on": [
-        "Exercice II.7.4, questions 5) à 8), p. 50-51",
+        "Exercice II.7.4 (questions 5 à 8)",
         "Exercice II.7.2",
         "Corollaire I.10.2"
       ],
@@ -1215,7 +1215,7 @@
     {
       "id": "ch02-schwarz-reflexion",
       "kind": "theorem",
-      "ref": "Exercice II.7.9, p. 51",
+      "ref": "Exercice II.7.9",
       "title": "Principe de réflexion de Schwarz",
       "page": 51,
       "statement": "Soit $D$ le disque unité, $D^+ = \\{z\\in D : \\Im(z)\\ge 0\\}$ et $D^- = \\{z\\in D : \\Im(z)\\le 0\\}$. 1) Si $f : D\\to\\mathbb C$ est continue sur $D$ et holomorphe sur $D\\setminus]-1,1[$, alors $f$ est holomorphe sur $D$. 2) Si $f : D^+\\to\\mathbb C$ est continue sur $D^+$, holomorphe sur $D^+\\setminus]-1,1[$ et réelle sur $]-1,1[$, la fonction $F$ définie par $F(z) = f(z)$ si $z\\in D^+$ et $F(z) = \\overline{f(\\bar z)}$ si $z\\in D^-$ est holomorphe sur $D$. 3) Généralisation : (1) à un ouvert $\\Omega$ rencontrant $\\mathbb R$ quelconque, (2) à un ouvert $\\Omega$ rencontrant $\\mathbb R$ et stable par conjugaison complexe.",
@@ -1241,7 +1241,7 @@
     {
       "id": "ch02-weierstrass-p-fonction",
       "kind": "proposition",
-      "ref": "Exercice II.7.10, p. 52",
+      "ref": "Exercice II.7.10",
       "title": "Fonctions elliptiques : fonction $\\wp$ de Weierstrass",
       "page": 52,
       "statement": "Soit $\\Lambda = \\mathbb Z\\omega_1\\oplus\\mathbb Z\\omega_2\\subset\\mathbb C$ un réseau ($\\omega_1,\\omega_2$ linéairement indépendants sur $\\mathbb R$) ; on admet que $\\sum_{\\lambda\\in\\Lambda\\setminus\\{0\\}}|\\lambda|^{-k}$ converge pour tout entier $k\\ge 3$. 1) Une fonction holomorphe sur $\\mathbb C$ et $\\Lambda$-périodique ($f(z+\\lambda) = f(z)$ pour tout $\\lambda\\in\\Lambda$) est constante. 2) La série $$\\wp(z) = \\frac{1}{z^2} + \\sum_{\\lambda\\in\\Lambda\\setminus\\{0\\}}\\Big(\\frac{1}{(z+\\lambda)^2} - \\frac{1}{\\lambda^2}\\Big)$$ définit une fonction méromorphe sur $\\mathbb C$, paire, $\\Lambda$-périodique (on calcule $\\wp'$ pour la périodicité), dont les pôles sont les points de $\\Lambda$ (pôles doubles). 3) Pour $k\\ge 3$, $E_k(\\Lambda) = \\sum_{\\lambda\\ne 0}\\lambda^{-k}$ ; de $\\frac{1}{(z+\\lambda)^2}-\\frac{1}{\\lambda^2} = \\sum_{k\\ge 1}(k+1)\\lambda^{-k-2}(-1)^k z^k$ on déduit le développement de Laurent de $\\wp$ en $0$ en fonction des $E_k(\\Lambda)$ ; les $E_k$ d'indice impair sont nuls. 4) $\\wp'(z)^2 = 4\\wp(z)^3 - 60E_4(\\Lambda)\\wp(z) - 140E_6(\\Lambda)$.",
@@ -1707,7 +1707,7 @@
       "results": [
         "Définition II.4.2",
         "Corollaire II.4.7",
-        "Exercice II.7.4, questions 5) à 8), p. 50-51"
+        "Exercice II.7.4 (questions 5 à 8)"
       ]
     },
     {

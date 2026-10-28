@@ -274,9 +274,10 @@
       "ref": "Remarque I.2.6",
       "title": "Holomorphe $\\Leftrightarrow$ de classe $C^1$ (réel) et $\\partial f/\\partial\\bar z=0$ partout",
       "page": 8,
-      "statement": "L'application $z=x+iy\\mapsto f'(z)$ est continue si et seulement si $f$ est $C^1$ comme fonction des deux variables réelles $x$ et $y$. Ainsi, $f$ est holomorphe sur $\\Omega$ si et seulement si $f$ est de classe $C^1$ sur $\\Omega$ et $\\frac{\\partial f}{\\partial\\bar z}=0$ en tout point de $\\Omega$.",
+      "statement": "Si $f$ est $\\C$-dérivable en tout point de $\\Omega$, l'application $z=x+iy\\mapsto f'(z)$ est continue si et seulement si $f$ est $C^1$ comme fonction des deux variables réelles $x$ et $y$. Ainsi, $f$ est holomorphe sur $\\Omega$ si et seulement si $f$ est de classe $C^1$ sur $\\Omega$ et $\\frac{\\partial f}{\\partial\\bar z}=0$ en tout point de $\\Omega$.",
       "hypotheses": [
-        "$f:\\Omega\\to\\C$, $\\Omega$ ouvert"
+        "$f:\\Omega\\to\\C$, $\\Omega$ ouvert",
+        "pour la première phrase : $f$ $\\C$-dérivable en tout point de $\\Omega$ (contexte du poly)"
       ],
       "depends_on": [
         "Corollaire I.2.4",
@@ -786,7 +787,7 @@
       "ref": "Exemple I.5.5",
       "title": "Intégrale sur le cercle : $\\int_\\gamma f(z)\\,dz=ir\\int_0^{2\\pi}f(z_0+re^{it})e^{it}\\,dt$",
       "page": 16,
-      "statement": "Si $\\gamma$ est le lacet décrivant le cercle de centre $z_0$ et de rayon $r>0$ de l'Exemple I.5.3 et si $f$ est définie et continue sur un ouvert contenant ce cercle, alors\n$$\\int_\\gamma f(z)\\,dz=i\\,r\\int_0^{2\\pi}f(z_0+re^{it})\\,e^{it}\\,dt.$$",
+      "statement": "Si $\\gamma$ est le lacet qui décrit le cercle de centre $z_0$ et de rayon $r>0$ de l'Exemple I.5.3 et si $f$ est définie (continue) sur un ouvert contenant ce cercle, nous avons\n$$\\int_\\gamma f(z)\\,dz=i\\,r\\int_0^{2\\pi}f(z_0+re^{it})\\,e^{it}\\,dt.$$",
       "hypotheses": [
         "$f$ continue au voisinage de $C(z_0,r)$"
       ],
@@ -1104,7 +1105,7 @@
       "ref": "Exercice I.8.1",
       "title": "Théorème de Morera (1886) : caractérisation de l'holomorphie par les intégrales sur les triangles",
       "page": 23,
-      "statement": "Soit $f$ une fonction continue sur un ouvert $\\Omega$. On suppose que\n$$\\text{(I.8.1)}\\qquad \\int_{[a,b]}f(z)\\,dz+\\int_{[b,c]}f(z)\\,dz+\\int_{[c,a]}f(z)\\,dz=0,$$\npour tous $a,b,c\\in\\Omega$ tels que le triangle plein de sommets $a,b,c$ est inclus dans $\\Omega$. Alors $f$ est holomorphe sur $\\Omega$ : pour $D(z_0,r)\\subset\\Omega$, la fonction $F(z)=\\int_{[z_0,z]}f(\\zeta)\\,d\\zeta$ est $\\C$-dérivable sur $D(z_0,r)$ avec $F'=f$, donc $F$ est holomorphe et $f=F'$ aussi. Inversement, si $f$ est holomorphe sur $\\Omega$ alors (I.8.1) est vérifié pour tous $a,b,c\\in\\Omega$ tels que le triangle plein de sommets $a,b,c$ est inclus dans $\\Omega$.",
+      "statement": "Soit $f$ une fonction continue sur un ouvert $\\Omega$. On suppose que\n$$\\text{(I.8.1)}\\qquad \\int_{[a,b]}f(z)\\,dz+\\int_{[b,c]}f(z)\\,dz+\\int_{[c,a]}f(z)\\,dz=0,$$\npour tous $a,b,c\\in\\Omega$ tels que le triangle plein de sommets $a,b,c$ est inclus dans $\\Omega$. Alors $f$ est holomorphe sur $\\Omega$. (Schéma de l'exercice : pour $D(z_0,r)\\subset\\Omega$, la fonction $F(z)=\\int_{[z_0,z]}f(\\zeta)\\,d\\zeta$ est $\\C$-dérivable sur $D(z_0,r)$ avec $F'=f$ ; $F'=f$ étant continue, $F\\in\\Hol(D(z_0,r))$, donc $F$ est $C^\\infty$ (Théorème I.7.4) et $f=F'$ est holomorphe.) Inversement, si $f$ est holomorphe sur $\\Omega$ alors (I.8.1) est vérifié pour tous $a,b,c\\in\\Omega$ tels que le triangle plein de sommets $a,b,c$ est inclus dans $\\Omega$.",
       "hypotheses": [
         "$f$ **continue** sur $\\Omega$",
         "(I.8.1) pour tous les triangles pleins inclus dans $\\Omega$ (il suffit en fait de ceux contenus dans un disque $D(z_0,r)\\subset\\Omega$)"
@@ -1260,8 +1261,7 @@
         "$f$ bornée sur $\\C$"
       ],
       "depends_on": [
-        "Corollaire I.7.5",
-        "Théorème I.7.4"
+        "Corollaire I.7.5"
       ],
       "used_by_hint": "Corollaire I.10.2 (d'Alembert–Gauss), Exercice I.10.3 (image dense, croissance polynomiale), Exercice II.7.5 (automorphismes de $\\C$), chapitre III ($\\wp$ de Weierstrass).",
       "importance": 3,
@@ -1289,7 +1289,7 @@
         "Proposition I.3.1"
       ],
       "used_by_hint": "Factorisation des polynômes ; chapitre II (Rouché redonne le résultat avec le compte des racines).",
-      "importance": 2,
+      "importance": 3,
       "proof_in_poly": "exercise",
       "proof_length": "short",
       "counterexample_hints": [
@@ -1342,7 +1342,7 @@
         "Théorème I.7.4",
         "Corollaire I.3.4"
       ],
-      "used_by_hint": "Définition I.11.2, Corollaire I.11.6, Proposition I.11.8, Théorème I.12.1, Exercice I.12.3 (intégrité de $\\Hol(\\Omega)$), Exercice I.14.2 ; chapitre II (zéros/pôles des méromorphes, principe de l'argument).",
+      "used_by_hint": "Définition I.11.2, Corollaire I.11.6, Proposition I.11.8, Théorème I.12.1, Exercice I.12.3 (intégrité de $\\Hol(\\Omega)$, entrée ch01-hol-integre), Exercice I.14.2 ; chapitre II (zéros/pôles des méromorphes, principe de l'argument).",
       "importance": 3,
       "proof_in_poly": "full",
       "proof_length": "medium",
@@ -1580,6 +1580,32 @@
       "viz_hint": "Paysage analytique $|f|$ sur $\\bar D$ : le maximum est toujours sur le cercle ; curseur pour déplacer les zéros de $f$."
     },
     {
+      "id": "ch01-hol-integre",
+      "kind": "proposition",
+      "ref": "Exercice I.12.3",
+      "title": "$\\Hol(\\Omega)$ est une algèbre intègre pour $\\Omega$ connexe ; produit nul sur le bord",
+      "page": 31,
+      "statement": "(Résultat de l'Exercice I.12.3, annoncé par le poly : « si $\\Omega$ est connexe, $\\Hol(\\Omega)$ est une algèbre intègre, ce qui est rare pour une algèbre de fonctions ».) Soit $D:=\\{z\\in\\C : |z|<1\\}$ le disque unité ouvert et $\\bar D$ son adhérence.\n1. Si le produit de deux fonctions holomorphes sur $D$ est nul, l'une des deux fonctions est nulle.\n2. Soient $f,g$ deux fonctions continues sur $\\bar D$, holomorphes sur $D$. Si $fg$ est nulle sur le cercle $\\partial\\bar D=\\bar D\\setminus D$, alors $f$ ou $g$ est nulle sur $\\bar D$.\n3. Ces énoncés se généralisent à un ouvert connexe (borné) $\\Omega$ quelconque : en particulier, si $f,g\\in\\Hol(\\Omega)$ avec $\\Omega$ connexe et $fg=0$ sur $\\Omega$, alors $f=0$ ou $g=0$.",
+      "hypotheses": [
+        "$\\Omega$ **connexe** (sinon $f=\\mathbf 1_{\\Omega_1}$, $g=\\mathbf 1_{\\Omega_2}$ sur deux composantes disjointes donnent $fg=0$)",
+        "pour le point 2 : $f,g$ continues sur $\\bar\\Omega$ compact ($\\Omega$ borné) et holomorphes sur $\\Omega$"
+      ],
+      "depends_on": [
+        "Théorème I.11.1",
+        "Corollaire I.12.2"
+      ],
+      "used_by_hint": "Chapitre II (quotients de fonctions holomorphes, fonctions méromorphes : un dénominateur non identiquement nul n'a que des zéros isolés) ; unicité dans les identités entre fonctions holomorphes.",
+      "importance": 2,
+      "proof_in_poly": "exercise",
+      "proof_length": "short",
+      "counterexample_hints": [
+        "Point 1 : si $f\\not\\equiv0$, ses zéros sont isolés (Théorème I.11.1), donc $g$ s'annule sur l'ouvert dense $D\\setminus Z(f,D)$ et $g\\equiv0$ par continuité.",
+        "Point 2 : $fg$ est continue sur $\\bar D$, holomorphe sur $D$ et nulle sur $\\partial D$ ; le Corollaire I.12.2 donne $\\sup_{\\bar D}|fg|=\\sup_{\\partial D}|fg|=0$, puis le point 1 conclut (et la continuité étend la nullité à $\\bar D$).",
+        "L'algèbre $C^0(\\Omega)$ (ou $C^\\infty(\\Omega)$) n'est pas intègre : deux fonctions à supports disjoints ont un produit nul."
+      ],
+      "viz_hint": ""
+    },
+    {
       "id": "ch01-trois-cercles-hadamard",
       "kind": "theorem",
       "ref": "Exercice I.12.5",
@@ -1621,7 +1647,8 @@
         "Corollaire I.7.5",
         "Théorème I.12.1",
         "Corollaire I.12.2",
-        "Définition I.4.1"
+        "Définition I.4.1",
+        "Proposition I.3.3"
       ],
       "used_by_hint": "Proposition I.13.3 (automorphismes de $D$), Exercice I.13.2, Théorème III.4.1 (représentation conforme de Riemann), Pick, distance hyperbolique (Exercice I.13.4).",
       "importance": 3,
@@ -1647,7 +1674,8 @@
       ],
       "depends_on": [
         "Lemme I.13.1",
-        "Définition I.4.1"
+        "Définition I.4.1",
+        "Remarque I.4.2"
       ],
       "used_by_hint": "Remarque I.4.2 ; Exercice I.13.4 (loi de groupe, transitivité, distance hyperbolique) ; Théorème III.4.1 (unicité dans Riemann) ; les contrôles rappellent souvent cet énoncé.",
       "importance": 3,
@@ -2050,7 +2078,7 @@
       "ref": "Exercice I.12.3",
       "page": 31,
       "topic": "Intégrité de $\\Hol(\\Omega)$ ; produit nul sur le bord",
-      "statement_short": "1. Si $fg=0$ sur $D$ alors $f=0$ ou $g=0$. 2. $f,g$ continues sur $\\bar D$ holomorphes sur $D$ avec $fg=0$ sur le cercle : $f$ ou $g$ est nulle sur $\\bar D$. 3. Généraliser à un ouvert connexe borné.",
+      "statement_short": "1. Si $fg=0$ sur $D$ alors $f=0$ ou $g=0$. 2. $f,g$ continues sur $\\bar D$ holomorphes sur $D$ avec $fg=0$ sur le cercle : $f$ ou $g$ est nulle sur $\\bar D$. 3. Généraliser à un ouvert connexe borné. (Repris comme résultat dans « results », ref Exercice I.12.3.)",
       "chapters_involved": [
         1
       ]
@@ -2095,7 +2123,7 @@
       "ref": "Exercice I.14.2",
       "page": 33,
       "topic": "Preuve du théorème de l'application ouverte",
-      "statement_short": "Par l'absurde : $\\alpha_n\\notin f(\\Omega)$, $\\alpha_n\\to f(z_0)$. 1. Choisir $r$ avec $f(z)\\neq f(z_0)$ sur $\\bar D(z_0,r)\\setminus\\{z_0\\}$ (zéros isolés). 2. $g_n=1/(f-\\alpha_n)$ holomorphe ; principe du maximum donne $z_n\\in C(z_0,r)$ minimisant $|f-\\alpha_n|$. 3. $|f-f(z_0)|\\ge\\epsilon$ sur le cercle ; contradiction. Coquille du poly : « $|f(z_n)-\\alpha_n|\\ge2\\epsilon$ » doit se lire $\\ge\\epsilon/2$ (pour $n$ assez grand, $|f(z_n)-\\alpha_n|\\ge|f(z_n)-f(z_0)|-|f(z_0)-\\alpha_n|\\ge\\epsilon-\\epsilon/2$) ; la question 2 en $z=z_0$ donne alors $|f(z_0)-\\alpha_n|\\ge\\epsilon/2$, contradiction avec $\\alpha_n\\to f(z_0)$.",
+      "statement_short": "Par l'absurde : $\\alpha_n\\notin f(\\Omega)$, $\\alpha_n\\to f(z_0)$. 1. Choisir $r$ avec $f(z)\\neq f(z_0)$ sur $\\bar D(z_0,r)\\setminus\\{z_0\\}$ (zéros isolés). 2. $g_n=1/(f-\\alpha_n)$ holomorphe ; principe du maximum donne $z_n\\in C(z_0,r)$ minimisant $|f-\\alpha_n|$. 3. $|f-f(z_0)|\\ge\\epsilon$ sur le cercle ; contradiction. Le texte du poly, tel qu'extrait du PDF, écrit « $|f(z_n)-\\alpha_n|\\ge2\\epsilon$ » ; la constante correcte est $\\epsilon/2$ (coquille, ou fraction $\\frac{\\epsilon}{2}$ mal extraite) (pour $n$ assez grand, $|f(z_n)-\\alpha_n|\\ge|f(z_n)-f(z_0)|-|f(z_0)-\\alpha_n|\\ge\\epsilon-\\epsilon/2$) ; la question 2 en $z=z_0$ donne alors $|f(z_0)-\\alpha_n|\\ge\\epsilon/2$, contradiction avec $\\alpha_n\\to f(z_0)$.",
       "chapters_involved": [
         1
       ]

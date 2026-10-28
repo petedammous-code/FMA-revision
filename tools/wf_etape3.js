@@ -3,6 +3,7 @@ export const meta = {
   description: 'Étape 3 : vérification indépendante de chaque unité de contenu contre le poly (hypothèses exactes, preuves, corrigés recalculés, flashcards, visualisations) avec correction en place',
   phases: [{ title: 'Vérification', detail: 'un relecteur indépendant par unité ; corrige les erreurs dans les fichiers et les signale' }],
 }
+const MODEL_OPTS = (typeof args === "object" && args && args.model) ? { model: args.model } : {}
 const ROOT = '/home/user/FMA-revision'
 const SCRATCH = '/tmp/claude-0/-home-user-FMA-revision/a354ab57-23c8-54ee-bc46-435d87e86fdf/scratchpad'
 const CH = {
@@ -53,6 +54,6 @@ const units = args.units
 log(`Étape 3 : ${units.length} unités à vérifier`)
 const results = await pipeline(units, u => {
   const p = u.kind === 'theorems' ? theoremsPrompt(u) : u.kind === 'exercises' ? exercisesPrompt(u) : u.kind === 'flashcards' ? flashcardsPrompt(u) : vizPrompt(u)
-  return agent(p, { label: 'verif:' + u.label, phase: 'Vérification', schema: SCHEMA, effort: 'high' })
+  return agent(p, { label: 'verif:' + u.label, phase: 'Vérification', schema: SCHEMA, effort: 'high', ...MODEL_OPTS })
 })
 return results.map((r, i) => ({ unit: units[i].label, ok: !!(r && r.check_passed), n_errors: r ? r.errors.length : -1, grave: r ? r.errors.filter(e => /grave/i.test(e.severity)).length : -1, unfixed: r ? r.errors.filter(e => !e.fixed).map(e => e.file + ': ' + e.description) : ['agent nul'], notes: r ? r.notes : '' }))

@@ -6,6 +6,7 @@ export const meta = {
     { title: 'Vérification carte', detail: 'un agent séparé par chapitre vérifie exhaustivité, refs, pages, dépendances et corrige le JSON' },
   ],
 }
+const MODEL_OPTS = (typeof args === "object" && args && args.model) ? { model: args.model } : {}
 
 const ROOT = '/home/user/FMA-revision'
 const CHAPTERS = [
