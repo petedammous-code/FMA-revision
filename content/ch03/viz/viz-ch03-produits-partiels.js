@@ -6,10 +6,10 @@ FMA.registerViz({
 
 **Les trois produits.**
 * **Sinus (Euler).** $P_N(z)=\pi z\prod_{n\le N}\big(1-\tfrac{z^2}{n^2}\big)$, avec $u_n=-z^2/n^2$ : la série $\sum|u_n|$ converge **normalement sur tout compact**, donc $P_N\to\sin(\pi z)$ localement uniformément (poly, Théorème III.5.1, p. 68, et Exemple III.6.3, p. 70). Chaque facteur ajoute les deux zéros $\pm N$ ; les zéros lointains ne sont pas encore corrects, car la convergence n'est qu'**uniforme sur les compacts**.
-* **$1/\Gamma$ (Weierstraß).** $P_N(z)=z\,e^{\gamma z}\prod_{k\le N}\big(1+\tfrac zk\big)e^{-z/k}\to 1/\Gamma(z)$ (poly, Exemple III.6.4, p. 71-72). Le facteur correcteur $e^{-z/k}$ transforme $u_k=(1+z/k)e^{-z/k}-1=O(|z|^2/k^2)$ : la série $\sum|u_k|$ converge.
-* **Sans correction.** $P_N(z)=z\prod_{k\le N}(1+z/k)$, avec $u_k=z/k$ : $\sum|u_k|$ **diverge** (comme $\log N$) ; le produit se comporte comme $N^{z}/\Gamma(z)$ : il tend vers $0$ pour $\Re z<0$ mais **explose** pour $\Re z>0$, donc il n'y a **pas de limite** sur le plan (poly, Remarque III.5.2, p. 68). Le fond « s'éclaircit » à droite et « s'assombrit » à gauche quand $N$ augmente. Glissez $z_0$ à droite de l'axe imaginaire pour voir $|P_k(z_0)|$ croître sans borne, alors que $S_k$ croît comme $|z_0|\ln k$.
+* **$1/\Gamma$ (Weierstraß).** $P_N(z)=z\,e^{\gamma z}\prod_{k\le N}\big(1+\tfrac zk\big)e^{-z/k}\to 1/\Gamma(z)$ (poly, Exemple III.6.4, p. 71-72). Le facteur correcteur $e^{-z/k}$ donne $u_k=(1+z/k)e^{-z/k}-1$ avec $|u_k(z)|\le C R^2/k^2$ sur $\bar D(0,R)$ : la série $\sum u_k$ converge **normalement sur tout compact**, et le Théorème III.5.1 s'applique.
+* **Sans correction.** $P_N(z)=z\prod_{k\le N}(1+z/k)$, avec $u_k=z/k$ : $\sum|u_k|$ **diverge** (comme $|z|\ln N$) ; la formule de Gauss (poly, p. 71) montre que $P_N(z)\sim N^{z}/\Gamma(z)$ : $P_N$ tend vers $0$ pour $\Re z<0$ **sans qu'aucun facteur ne s'annule** (exactement ce que la Remarque III.5.2, p. 68, veut exclure) et **explose** pour $\Re z>0$ : la suite $(P_N)$ n'a pas de limite sur $\C$. Le fond « s'éclaircit » à droite et « s'assombrit » à gauche quand $N$ augmente. Glissez $z_0$ à droite de l'axe imaginaire pour voir $|P_k(z_0)|$ croître sans borne, alors que $S_k$ croît comme $|z_0|\ln k$.
 
-Comparez, pour $z_0$ fixé, la courbe du haut à son asymptote et la somme du bas : borne = produit convergent, croissance = produit divergent.`,
+Comparez, pour $z_0$ fixé, la courbe du haut à son asymptote et la somme du bas : $S_k$ bornée, c'est la convergence absolue de $\sum u_j(z_0)$, qui garantit la convergence du produit ; $S_k\to+\infty$, plus aucune garantie, et ici le produit diverge en effet.`,
   related: ['ch03-produits-infinis', 'ch03-produits-infinis-remarque', 'ch03-produit-sinus', 'ch03-gamma-produit-weierstrass', 'ch03-log-estimation', 'ch03-exp-estimation'],
   height: 460,
   mount(container, kit) {
@@ -21,17 +21,16 @@ Comparez, pour $z_0$ fixé, la courbe du haut à son asymptote et la somme du ba
 
     // Gamma complexe (Lanczos) et 1/Gamma
     const LC = [0.99999999999980993, 676.5203681218851, -1259.1392167224028, 771.32342877765313, -176.61502916214059, 12.507343278686905, -0.13857109526572012, 9.9843695780195716e-6, 1.5056327351493116e-7];
-    function gamma(z) {
-      if (z[0] < 0.5) { // réflexion : Gamma(z) = pi / (sin(pi z) Gamma(1-z))
-        return C.div([Math.PI, 0], C.mul(C.sin(C.scale(z, Math.PI)), gamma(C.sub([1, 0], z))));
-      }
+    function gammaL(z) { // Lanczos (g = 7), valable et sans pôle pour Re z >= 0.5
       z = C.sub(z, [1, 0]); let x = [LC[0], 0];
       for (let i = 1; i < 9; i++) x = C.add(x, C.div([LC[i], 0], C.add(z, [i, 0])));
       const t = C.add(z, [7.5, 0]);
       const p = C.powc(t, C.add(z, [0.5, 0]));
       return C.scale(C.mul(C.mul(p, C.exp(C.scale(t, -1))), x), Math.sqrt(2 * Math.PI));
     }
-    const rgamma = z => C.mul(C.mul(C.sin(C.scale(z, Math.PI)), gamma(C.sub([1, 0], z))), [1 / Math.PI, 0]); // 1/Gamma(z)
+    // 1/Gamma(z), entière : pour Re z < 1/2 on utilise la réflexion 1/Gamma(z) = sin(pi z) Gamma(1-z) / pi (Re(1-z) > 1/2, donc Gamma(1-z) fini),
+    // sinon 1/gammaL(z) directement ; ainsi aucun 0 x infini (NaN) aux entiers.
+    const rgamma = z => z[0] < 0.5 ? C.scale(C.mul(C.sin(C.scale(z, Math.PI)), gammaL(C.sub([1, 0], z))), 1 / Math.PI) : C.inv(gammaL(z));
 
     const FAM = {
       sin: { lab: 'πz ∏ (1 − z²/n²)  →  sin(πz)', xmax: 5.5, ymax: 3, z0: [1.6, 0.7],
@@ -81,13 +80,28 @@ Comparez, pour $z_0$ fixé, la courbe du haut à son asymptote et la somme du ba
     }
 
     const prodAt = (F, M, z) => { let p = F.P0(z); for (let k = 1; k <= M; k++) p = C.mul(p, F.factor(k, z)); return p; };
-    let cache = null, P = null, PR = null;
+    let cache = null, P = null;
+    // le domain coloring ne dépend pas de z0 : on le met en cache pour que le glissement de la sonde reste fluide
+    let heat = null, heatKey = '';
+    function buildHeat(F) {
+      const step = N > 60 ? 4 : 3; const W = sL.W, H = sL.H;
+      const f = (showLim && F.limit) ? F.limit : (F.partial ? (z => F.partial(N, z)) : (z => prodAt(F, N, z)));
+      const img = sL.ctx.createImageData(Math.ceil(W / step), Math.ceil(H / step)); const d = img.data; let k = 0;
+      for (let j = 0; j < img.height; j++) for (let i = 0; i < img.width; i++) {
+        const [x, y] = P.toWorld(i * step + step / 2, j * step + step / 2); let c;
+        try { c = kit.colorArg(f([x, y]), { lines: true }); } catch (e) { c = [0, 0, 0]; }
+        d[k++] = c[0]; d[k++] = c[1]; d[k++] = c[2]; d[k++] = 255;
+      }
+      const off = document.createElement('canvas'); off.width = img.width; off.height = img.height; off.getContext('2d').putImageData(img, 0, 0);
+      return off;
+    }
     function drawLeft() {
       const F = FAM[fam], ctx = sL.ctx, t = th(); sL.clear();
-      const xmin = F.xmin !== undefined ? F.xmin : -F.xmax; const asp = sL.W / sL.H;
+      const xmin = F.xmin !== undefined ? F.xmin : -F.xmax;
       P = kit.plane(ctx, { xmin, xmax: F.xmax, ymin: -F.ymax, ymax: F.ymax, W: sL.W, H: sL.H });
-      const f = (showLim && F.limit) ? F.limit : (F.partial ? (z => F.partial(N, z)) : (z => prodAt(F, N, z)));
-      kit.domainColor(sL, P, f, { step: N > 60 ? 4 : 3, lines: true });
+      const key = [fam, N, showLim && F.limit ? 'lim' : 'PN', sL.W, sL.H].join('|');
+      if (!heat || key !== heatKey) { heat = buildHeat(F); heatKey = key; }
+      ctx.save(); ctx.imageSmoothingEnabled = true; ctx.drawImage(heat, 0, 0, heat.width, heat.height, 0, 0, sL.W, sL.H); ctx.restore();
       P.axes({ labels: true, step: 1 });
       // zéros théoriques du produit partiel
       const zs = (showLim && F.limit) ? null : F.zeros(N);
@@ -123,7 +137,7 @@ Comparez, pour $z_0$ fixé, la courbe du haut à son asymptote et la somme du ba
         ctx.save(); ctx.strokeStyle = t.axis; ctx.lineWidth = 1; ctx.beginPath(); ctx.moveTo(ml, pn.y0); ctx.lineTo(ml, pn.y1); ctx.lineTo(W - mr, pn.y1); ctx.stroke();
         ctx.fillStyle = t.muted; ctx.font = '10.5px system-ui, sans-serif'; ctx.textAlign = 'right'; ctx.textBaseline = 'middle';
         [0, 0.5, 1].forEach(a => { const v = mx / 1.12 * a; ctx.fillText(kit.fmt(+v.toPrecision(2)), ml - 4, Y(v)); });
-        ctx.fillStyle = t.fg; ctx.textAlign = 'left'; ctx.textBaseline = 'bottom'; ctx.fillText(pn.title, ml + 4, pn.y0 + 10);
+        ctx.fillStyle = t.fg; ctx.textAlign = 'left'; ctx.textBaseline = 'bottom'; ctx.fillText(pn.title, ml + 36, pn.y0 + 10); // décalé pour ne pas chevaucher le transitoire en k = 0
         ctx.restore();
         if (pn.lim != null) { ctx.save(); ctx.strokeStyle = pal[2]; ctx.lineWidth = 1.6; ctx.setLineDash([6, 4]); ctx.beginPath(); ctx.moveTo(ml, Y(pn.lim)); ctx.lineTo(W - mr, Y(pn.lim)); ctx.stroke(); ctx.setLineDash([]); ctx.fillStyle = pal[2]; ctx.textAlign = 'right'; ctx.textBaseline = 'bottom'; ctx.font = '10.5px system-ui, sans-serif'; ctx.fillText('limite', W - mr - 2, Y(pn.lim) - 2); ctx.restore(); }
         ctx.save(); ctx.strokeStyle = pn.color; ctx.lineWidth = 2; ctx.beginPath(); pn.data.forEach((v, k) => { const px = X(k), py = Y(v); k ? ctx.lineTo(px, py) : ctx.moveTo(px, py); }); ctx.stroke();

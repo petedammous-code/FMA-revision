@@ -1154,12 +1154,12 @@ FMA.registerViz({
   id: 'viz-ch03-convergence-locale-uniforme',
   chapter: 3,
   title: "Convergence localement uniforme : sur tout compact, mais pas sur tout le disque",
-  description: String.raw`**Ce que l'on voit.** On étudie une suite de fonctions $f_n$ qui converge simplement vers une limite $f$ sur un ouvert $\Omega$. À gauche, la **carte de l'erreur** $z\mapsto\log_{10}|f_n(z)-f(z)|$ (bleu foncé = erreur minuscule, jaune/blanc = erreur de l'ordre de $1$ ou plus) ; le cercle pointillé est le bord de $\bar D(0,r)$. À droite, le graphe de $r\mapsto\sup_{\bar D(0,r)}|f_n-f|$ en échelle logarithmique, pour le $n$ choisi (trait épais) et quelques autres valeurs de $n$ (traits fins) ; la droite horizontale est le seuil $\varepsilon$. **Glissez** le curseur $r$ (ou cliquez-glissez sur l'un des deux graphiques).
+  description: String.raw`**Ce que l'on voit.** On étudie une suite de fonctions $f_n$ qui converge simplement vers une limite $f$ sur un ouvert $\Omega$. À gauche, la **carte de l'erreur** $z\mapsto\log_{10}|f_n(z)-f(z)|$ (bleu foncé = erreur minuscule, jaune/orange = erreur de l'ordre de $1$, rouge = erreur supérieure à $1$) ; le cercle pointillé est le bord de $\bar D(0,r)$. À droite, le graphe de $r\mapsto\sup_{\bar D(0,r)}|f_n-f|$ en échelle logarithmique, pour le $n$ choisi (trait épais) et quelques autres valeurs de $n$ (traits fins) ; la droite horizontale est le seuil $\varepsilon$. **Glissez** le curseur $r$ (ou cliquez-glissez sur l'un des deux graphiques).
 
 **Ce qu'il faut regarder.**
 * Pour $r<1$ fixé, le $\sup$ sur $\bar D(0,r)$ (un **compact** de $\Omega=D(0,1)$) tend vers $0$ quand $n$ augmente : c'est la convergence **uniforme sur tout compact**, équivalente à la convergence **localement uniforme** (poly, Proposition III.1.2, p. 59).
 * Mais la zone « chaude » se **colle au bord** $|z|=1$ : le $\sup$ sur tout $D(0,1)$ reste égal à $1$ pour $z^n$ (et vaut $+\infty$ pour $\sum z^k$). La convergence n'est **pas uniforme sur $\Omega$** ; c'est pourquoi les théorèmes du chapitre (Weierstraß, Hurwitz, Montel) sont énoncés « sur tout compact » (poly, Définition III.1.1, p. 59).
-* L'entier $n_{\min}(r,\varepsilon)$ affiché (plus petit $n$ tel que $\sup_{\bar D(0,r)}|f_n-f|\le\varepsilon$) **explose quand $r\to1$** : aucun $n$ ne convient pour tout $r<1$ à la fois. Le contre-exemple $z^n/n$ converge au contraire uniformément sur $D(0,1)$ (le $\sup$ vaut $1/n$).
+* L'entier $n_{\min}(r,\varepsilon)$ affiché (plus petit $n$ tel que $\sup_{\bar D(0,r)}|f_n-f|\le\varepsilon$) **explose quand $r\to1$** : aucun $n$ ne convient pour tout $r<1$ à la fois. À l'inverse, la suite $z^n/n$ converge uniformément sur $D(0,1)$ tout entier (le $\sup$ vaut $1/n$) : la convergence uniforme sur $\Omega$ est possible, mais n'est pas la règle.
 * Dans la famille $\sum_{k\le n}z^k/k!$ sur $\mathbb C$ tout entier, la convergence vers $e^z$ est localement uniforme (et même normale sur tout disque) : essayez $r$ grand, il faut juste un $n$ plus grand.`,
   related: ['ch03-convergence-localement-uniforme', 'ch03-convergence-uniforme-compacts', 'ch03-weierstrass', 'ch03-convergence-normale-definition'],
   height: 440,
@@ -1337,11 +1337,11 @@ FMA.registerViz({
   description: String.raw`**Ce que l'on voit.** Une suite $(f_n)$ de fonctions holomorphes sur un ouvert $\Omega$ qui converge localement uniformément vers $f$. Les **points pleins** sont les zéros de $f_n$ (pour le $n$ du curseur), les **croix** les zéros de la limite $f$ (avec multiplicité) ; les points pâles retracent les zéros des $f_m$, $m<n$ (case « trajectoires »). Le fond est le domain coloring de $f_n$. Le **disque $D$** (cercle blanc) se **déplace en le glissant** ; son rayon $\rho$ se règle au curseur. On affiche $Z(f_n,D)$ et $Z(f,D)$, nombres de zéros comptés avec multiplicité.
 
 **Ce qu'il faut regarder.**
-* **Famille $z^2-1/n$.** Les deux zéros simples $\pm1/\sqrt n$ se rapprochent et **fusionnent** en le zéro double de $z^2$ : dès que $D$ contient $0$ et que son bord évite les zéros de $f$, on a $Z(f_n,D)=Z(f,D)=2$ pour $n$ grand (poly, Remarque III.2.3, p. 63). Faites passer le bord de $D$ **exactement** par un zéro de $f$ : l'égalité peut alors tomber en défaut, d'où l'hypothèse « $\partial D$ ne rencontre pas les zéros de $f$ ».
-* **Sommes partielles de $e^z$.** La limite $e^z$ n'a **aucun** zéro, donc (Hurwitz) tout disque fixe finit par ne plus contenir de zéro de $f_n$ : les zéros de $\sum_{k\le n}z^k/k!$ **fuient vers l'infini** (ils longent la courbe de Szegő).
-* **Famille $z^n$ sur le disque épointé $D(0,1)\setminus\{0\}$.** Les $f_n$ ne s'annulent pas sur $\Omega$ mais la limite est $f\equiv0$ : c'est le cas **exclu** par le théorème (poly, Remarque III.2.2, p. 63). Un « zéro » de la limite n'a pas de sens ici, et rien n'est contredit.
-* **Sommes $\sum_{k\le n}z^k$ sur $D(0,1)$.** Leurs zéros sont les racines de l'unité (sauf $1$), situées **sur le bord de $\Omega$** donc hors de $\Omega$ : $f=1/(1-z)$ sans zéro, ce qui est cohérent. Si $D$ sort de $\Omega$, l'application du théorème n'est plus permise (l'indicateur le signale).
-* Le théorème de Hurwitz s'énonce **pour un disque $D$ avec $\bar D\subset\Omega$** (poly, Théorème III.2.1, p. 62).`,
+* **Famille $z^2-1/n$.** Les deux zéros simples $\pm1/\sqrt n$ se rapprochent et **fusionnent** en le zéro double de $z^2$ : dès que $\bar D\subset\Omega$, que $D$ contient $0$ et que son bord évite les zéros de $f$, on a $Z(f_n,D)=Z(f,D)=2$ pour $n$ grand. C'est ce que donne la preuve du théorème (principe de l'argument sur $\partial D$, poly p. 62-63) ; la Remarque III.2.3 (p. 63) l'énonce pour un petit disque autour de chaque point. Faites passer le bord de $D$ **exactement** par un zéro de $f$ : l'égalité peut alors tomber en défaut (par exemple $Z(f_n,D)=1$ et $Z(f,D)=0$), d'où l'hypothèse « $\partial D$ ne rencontre pas les zéros de $f$ ».
+* **Sommes partielles de $e^z$.** La limite $e^z$ n'a **aucun** zéro, donc (Hurwitz, point 1 lu à l'envers) tout disque fixe finit par ne plus contenir de zéro de $f_n$ : les zéros de $\sum_{k\le n}z^k/k!$ **fuient vers l'infini** (divisés par $n$, ils s'accumulent sur la courbe de Szegő $|z\,e^{1-z}|=1$, $|z|\le1$).
+* **Famille $z^n$ sur le disque épointé $D(0,1)\setminus\{0\}$.** Les $f_n$ ne s'annulent pas sur $\Omega$ mais la limite est $f\equiv0$ : c'est la seconde branche de l'alternative du théorème, qui se produit vraiment (poly, Remarque III.2.2, p. 63). Tout point est alors un zéro de $f$, le théorème n'affirme rien de plus, et rien n'est contredit.
+* **Sommes $\sum_{k\le n}z^k$ sur $D(0,1)$.** Leurs zéros sont les racines $(n+1)$-ièmes de l'unité autres que $1$, situées **sur le bord de $\Omega$** donc hors de $\Omega$ : $f=1/(1-z)$ sans zéro, ce qui est cohérent avec le point 1 du théorème. Si $\bar D$ sort de $\Omega$, l'application du théorème n'est plus permise (l'indicateur le signale).
+* **Énoncé exact du poly** (Théorème III.2.1, p. 62) : $\Omega$ ouvert **connexe**, $(f_n)$ holomorphes convergeant localement uniformément vers $f$ ; si aucune $f_n$ ne s'annule sur $\Omega$, alors $f$ ne s'annule pas ou $f\equiv0$ ; si toutes les $f_n$ sont injectives, alors $f$ est injective ou constante. La forme « comptage » $Z(f_n,D)\to Z(f,D)$ affichée ici, pour un disque $D$ avec $\bar D\subset\Omega$ et $f$ sans zéro sur $\partial D$, est exactement ce que démontre la preuve du poly.`,
   related: ['ch03-hurwitz', 'ch03-hurwitz-contre-exemple', 'ch03-hurwitz-zeros-locaux', 'ch03-weierstrass'],
   height: 560,
   mount(container, kit) {
@@ -1364,7 +1364,7 @@ FMA.registerViz({
           let den = [1, 0]; for (let k = 0; k < d; k++) if (k !== j) den = C.mul(den, C.sub(z[j], z[k]));
           const dl = C.div(ev(z[j]), den); z[j] = C.sub(z[j], dl); mx = Math.max(mx, C.abs(dl));
         }
-        if (mx < 1e-13 * Math.max(1, R)) break;
+        if (mx < 1e-10 * Math.max(1, R)) break; // 1e-13 n'est pas atteignable en double pour d = 30 (500 itérations inutiles)
       }
       return z;
     }
@@ -1386,7 +1386,7 @@ FMA.registerViz({
         evalf: (n, z) => pw(z, n), roots: n => [], lim: null, limTxt: '0', zero: true },
       cub: { lab: 'z²(z−1) − (1+i)/n  →  z²(z−1)', nmax: 60, n0: 3, view: 1.7, rhoMax: 1.6, rho0: 0.5, c0: [0, 0], omega: 'C',
         evalf: (n, z) => C.sub(C.mul(C.mul(z, z), C.sub(z, [1, 0])), [1 / n, 1 / n]),
-        roots: n => { const e = 1 / n; /* z^3 - z^2 - (1+i)e */ return polyRoots([-e, 0, -1, 1]).length ? cubic(n) : []; }, lim: [[[0, 0], 2], [[1, 0], 1]], limTxt: 'z^2(z-1)', zero: false },
+        roots: n => cubic(n), /* racines de z^3 - z^2 - (1+i)/n */ lim: [[[0, 0], 2], [[1, 0], 1]], limTxt: 'z^2(z-1)', zero: false },
     };
     // racines de z^3 - z^2 - (1+i) e : Durand-Kerner complexe
     function cubic(n) {
@@ -1463,7 +1463,8 @@ FMA.registerViz({
           const dd = Math.hypot(zz[0] - cen[0], zz[1] - cen[1]); if (dd < rho) cntF += mult; if (Math.abs(dd - rho) < 0.02 * Math.max(1, F.view / 2)) edge = true;
         }
         // lecture
-        const inOm = (F.omega === 'C') || (Math.hypot(cen[0], cen[1]) + rho < 1 - 1e-9);
+        // D̄ ⊂ Ω : pour le disque, |c| + ρ < 1 ; pour le disque épointé, il faut de plus 0 ∉ D̄, i.e. |c| > ρ
+        const inOm = (F.omega === 'C') || ((Math.hypot(cen[0], cen[1]) + rho < 1 - 1e-9) && (F.omega !== 'P' || Math.hypot(cen[0], cen[1]) > rho + 1e-9));
         const fz = F.lim === null;
         ro1.set('Z(f_n,D) = ' + cntN, true);
         ro2.set(fz ? 'f \\equiv 0' : 'Z(f,D) = ' + cntF, true);
@@ -1494,10 +1495,10 @@ FMA.registerViz({
 
 **Les trois produits.**
 * **Sinus (Euler).** $P_N(z)=\pi z\prod_{n\le N}\big(1-\tfrac{z^2}{n^2}\big)$, avec $u_n=-z^2/n^2$ : la série $\sum|u_n|$ converge **normalement sur tout compact**, donc $P_N\to\sin(\pi z)$ localement uniformément (poly, Théorème III.5.1, p. 68, et Exemple III.6.3, p. 70). Chaque facteur ajoute les deux zéros $\pm N$ ; les zéros lointains ne sont pas encore corrects, car la convergence n'est qu'**uniforme sur les compacts**.
-* **$1/\Gamma$ (Weierstraß).** $P_N(z)=z\,e^{\gamma z}\prod_{k\le N}\big(1+\tfrac zk\big)e^{-z/k}\to 1/\Gamma(z)$ (poly, Exemple III.6.4, p. 71-72). Le facteur correcteur $e^{-z/k}$ transforme $u_k=(1+z/k)e^{-z/k}-1=O(|z|^2/k^2)$ : la série $\sum|u_k|$ converge.
-* **Sans correction.** $P_N(z)=z\prod_{k\le N}(1+z/k)$, avec $u_k=z/k$ : $\sum|u_k|$ **diverge** (comme $\log N$) ; le produit se comporte comme $N^{z}/\Gamma(z)$ : il tend vers $0$ pour $\Re z<0$ mais **explose** pour $\Re z>0$, donc il n'y a **pas de limite** sur le plan (poly, Remarque III.5.2, p. 68). Le fond « s'éclaircit » à droite et « s'assombrit » à gauche quand $N$ augmente. Glissez $z_0$ à droite de l'axe imaginaire pour voir $|P_k(z_0)|$ croître sans borne, alors que $S_k$ croît comme $|z_0|\ln k$.
+* **$1/\Gamma$ (Weierstraß).** $P_N(z)=z\,e^{\gamma z}\prod_{k\le N}\big(1+\tfrac zk\big)e^{-z/k}\to 1/\Gamma(z)$ (poly, Exemple III.6.4, p. 71-72). Le facteur correcteur $e^{-z/k}$ donne $u_k=(1+z/k)e^{-z/k}-1$ avec $|u_k(z)|\le C R^2/k^2$ sur $\bar D(0,R)$ : la série $\sum u_k$ converge **normalement sur tout compact**, et le Théorème III.5.1 s'applique.
+* **Sans correction.** $P_N(z)=z\prod_{k\le N}(1+z/k)$, avec $u_k=z/k$ : $\sum|u_k|$ **diverge** (comme $|z|\ln N$) ; la formule de Gauss (poly, p. 71) montre que $P_N(z)\sim N^{z}/\Gamma(z)$ : $P_N$ tend vers $0$ pour $\Re z<0$ **sans qu'aucun facteur ne s'annule** (exactement ce que la Remarque III.5.2, p. 68, veut exclure) et **explose** pour $\Re z>0$ : la suite $(P_N)$ n'a pas de limite sur $\C$. Le fond « s'éclaircit » à droite et « s'assombrit » à gauche quand $N$ augmente. Glissez $z_0$ à droite de l'axe imaginaire pour voir $|P_k(z_0)|$ croître sans borne, alors que $S_k$ croît comme $|z_0|\ln k$.
 
-Comparez, pour $z_0$ fixé, la courbe du haut à son asymptote et la somme du bas : borne = produit convergent, croissance = produit divergent.`,
+Comparez, pour $z_0$ fixé, la courbe du haut à son asymptote et la somme du bas : $S_k$ bornée, c'est la convergence absolue de $\sum u_j(z_0)$, qui garantit la convergence du produit ; $S_k\to+\infty$, plus aucune garantie, et ici le produit diverge en effet.`,
   related: ['ch03-produits-infinis', 'ch03-produits-infinis-remarque', 'ch03-produit-sinus', 'ch03-gamma-produit-weierstrass', 'ch03-log-estimation', 'ch03-exp-estimation'],
   height: 460,
   mount(container, kit) {
@@ -1509,17 +1510,16 @@ Comparez, pour $z_0$ fixé, la courbe du haut à son asymptote et la somme du ba
 
     // Gamma complexe (Lanczos) et 1/Gamma
     const LC = [0.99999999999980993, 676.5203681218851, -1259.1392167224028, 771.32342877765313, -176.61502916214059, 12.507343278686905, -0.13857109526572012, 9.9843695780195716e-6, 1.5056327351493116e-7];
-    function gamma(z) {
-      if (z[0] < 0.5) { // réflexion : Gamma(z) = pi / (sin(pi z) Gamma(1-z))
-        return C.div([Math.PI, 0], C.mul(C.sin(C.scale(z, Math.PI)), gamma(C.sub([1, 0], z))));
-      }
+    function gammaL(z) { // Lanczos (g = 7), valable et sans pôle pour Re z >= 0.5
       z = C.sub(z, [1, 0]); let x = [LC[0], 0];
       for (let i = 1; i < 9; i++) x = C.add(x, C.div([LC[i], 0], C.add(z, [i, 0])));
       const t = C.add(z, [7.5, 0]);
       const p = C.powc(t, C.add(z, [0.5, 0]));
       return C.scale(C.mul(C.mul(p, C.exp(C.scale(t, -1))), x), Math.sqrt(2 * Math.PI));
     }
-    const rgamma = z => C.mul(C.mul(C.sin(C.scale(z, Math.PI)), gamma(C.sub([1, 0], z))), [1 / Math.PI, 0]); // 1/Gamma(z)
+    // 1/Gamma(z), entière : pour Re z < 1/2 on utilise la réflexion 1/Gamma(z) = sin(pi z) Gamma(1-z) / pi (Re(1-z) > 1/2, donc Gamma(1-z) fini),
+    // sinon 1/gammaL(z) directement ; ainsi aucun 0 x infini (NaN) aux entiers.
+    const rgamma = z => z[0] < 0.5 ? C.scale(C.mul(C.sin(C.scale(z, Math.PI)), gammaL(C.sub([1, 0], z))), 1 / Math.PI) : C.inv(gammaL(z));
 
     const FAM = {
       sin: { lab: 'πz ∏ (1 − z²/n²)  →  sin(πz)', xmax: 5.5, ymax: 3, z0: [1.6, 0.7],
@@ -1569,13 +1569,28 @@ Comparez, pour $z_0$ fixé, la courbe du haut à son asymptote et la somme du ba
     }
 
     const prodAt = (F, M, z) => { let p = F.P0(z); for (let k = 1; k <= M; k++) p = C.mul(p, F.factor(k, z)); return p; };
-    let cache = null, P = null, PR = null;
+    let cache = null, P = null;
+    // le domain coloring ne dépend pas de z0 : on le met en cache pour que le glissement de la sonde reste fluide
+    let heat = null, heatKey = '';
+    function buildHeat(F) {
+      const step = N > 60 ? 4 : 3; const W = sL.W, H = sL.H;
+      const f = (showLim && F.limit) ? F.limit : (F.partial ? (z => F.partial(N, z)) : (z => prodAt(F, N, z)));
+      const img = sL.ctx.createImageData(Math.ceil(W / step), Math.ceil(H / step)); const d = img.data; let k = 0;
+      for (let j = 0; j < img.height; j++) for (let i = 0; i < img.width; i++) {
+        const [x, y] = P.toWorld(i * step + step / 2, j * step + step / 2); let c;
+        try { c = kit.colorArg(f([x, y]), { lines: true }); } catch (e) { c = [0, 0, 0]; }
+        d[k++] = c[0]; d[k++] = c[1]; d[k++] = c[2]; d[k++] = 255;
+      }
+      const off = document.createElement('canvas'); off.width = img.width; off.height = img.height; off.getContext('2d').putImageData(img, 0, 0);
+      return off;
+    }
     function drawLeft() {
       const F = FAM[fam], ctx = sL.ctx, t = th(); sL.clear();
-      const xmin = F.xmin !== undefined ? F.xmin : -F.xmax; const asp = sL.W / sL.H;
+      const xmin = F.xmin !== undefined ? F.xmin : -F.xmax;
       P = kit.plane(ctx, { xmin, xmax: F.xmax, ymin: -F.ymax, ymax: F.ymax, W: sL.W, H: sL.H });
-      const f = (showLim && F.limit) ? F.limit : (F.partial ? (z => F.partial(N, z)) : (z => prodAt(F, N, z)));
-      kit.domainColor(sL, P, f, { step: N > 60 ? 4 : 3, lines: true });
+      const key = [fam, N, showLim && F.limit ? 'lim' : 'PN', sL.W, sL.H].join('|');
+      if (!heat || key !== heatKey) { heat = buildHeat(F); heatKey = key; }
+      ctx.save(); ctx.imageSmoothingEnabled = true; ctx.drawImage(heat, 0, 0, heat.width, heat.height, 0, 0, sL.W, sL.H); ctx.restore();
       P.axes({ labels: true, step: 1 });
       // zéros théoriques du produit partiel
       const zs = (showLim && F.limit) ? null : F.zeros(N);
@@ -1611,7 +1626,7 @@ Comparez, pour $z_0$ fixé, la courbe du haut à son asymptote et la somme du ba
         ctx.save(); ctx.strokeStyle = t.axis; ctx.lineWidth = 1; ctx.beginPath(); ctx.moveTo(ml, pn.y0); ctx.lineTo(ml, pn.y1); ctx.lineTo(W - mr, pn.y1); ctx.stroke();
         ctx.fillStyle = t.muted; ctx.font = '10.5px system-ui, sans-serif'; ctx.textAlign = 'right'; ctx.textBaseline = 'middle';
         [0, 0.5, 1].forEach(a => { const v = mx / 1.12 * a; ctx.fillText(kit.fmt(+v.toPrecision(2)), ml - 4, Y(v)); });
-        ctx.fillStyle = t.fg; ctx.textAlign = 'left'; ctx.textBaseline = 'bottom'; ctx.fillText(pn.title, ml + 4, pn.y0 + 10);
+        ctx.fillStyle = t.fg; ctx.textAlign = 'left'; ctx.textBaseline = 'bottom'; ctx.fillText(pn.title, ml + 36, pn.y0 + 10); // décalé pour ne pas chevaucher le transitoire en k = 0
         ctx.restore();
         if (pn.lim != null) { ctx.save(); ctx.strokeStyle = pal[2]; ctx.lineWidth = 1.6; ctx.setLineDash([6, 4]); ctx.beginPath(); ctx.moveTo(ml, Y(pn.lim)); ctx.lineTo(W - mr, Y(pn.lim)); ctx.stroke(); ctx.setLineDash([]); ctx.fillStyle = pal[2]; ctx.textAlign = 'right'; ctx.textBaseline = 'bottom'; ctx.font = '10.5px system-ui, sans-serif'; ctx.fillText('limite', W - mr - 2, Y(pn.lim) - 2); ctx.restore(); }
         ctx.save(); ctx.strokeStyle = pn.color; ctx.lineWidth = 2; ctx.beginPath(); pn.data.forEach((v, k) => { const px = X(k), py = Y(v); k ? ctx.lineTo(px, py) : ctx.moveTo(px, py); }); ctx.stroke();

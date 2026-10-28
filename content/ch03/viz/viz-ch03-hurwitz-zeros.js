@@ -5,11 +5,11 @@ FMA.registerViz({
   description: String.raw`**Ce que l'on voit.** Une suite $(f_n)$ de fonctions holomorphes sur un ouvert $\Omega$ qui converge localement uniformément vers $f$. Les **points pleins** sont les zéros de $f_n$ (pour le $n$ du curseur), les **croix** les zéros de la limite $f$ (avec multiplicité) ; les points pâles retracent les zéros des $f_m$, $m<n$ (case « trajectoires »). Le fond est le domain coloring de $f_n$. Le **disque $D$** (cercle blanc) se **déplace en le glissant** ; son rayon $\rho$ se règle au curseur. On affiche $Z(f_n,D)$ et $Z(f,D)$, nombres de zéros comptés avec multiplicité.
 
 **Ce qu'il faut regarder.**
-* **Famille $z^2-1/n$.** Les deux zéros simples $\pm1/\sqrt n$ se rapprochent et **fusionnent** en le zéro double de $z^2$ : dès que $D$ contient $0$ et que son bord évite les zéros de $f$, on a $Z(f_n,D)=Z(f,D)=2$ pour $n$ grand (poly, Remarque III.2.3, p. 63). Faites passer le bord de $D$ **exactement** par un zéro de $f$ : l'égalité peut alors tomber en défaut, d'où l'hypothèse « $\partial D$ ne rencontre pas les zéros de $f$ ».
-* **Sommes partielles de $e^z$.** La limite $e^z$ n'a **aucun** zéro, donc (Hurwitz) tout disque fixe finit par ne plus contenir de zéro de $f_n$ : les zéros de $\sum_{k\le n}z^k/k!$ **fuient vers l'infini** (ils longent la courbe de Szegő).
-* **Famille $z^n$ sur le disque épointé $D(0,1)\setminus\{0\}$.** Les $f_n$ ne s'annulent pas sur $\Omega$ mais la limite est $f\equiv0$ : c'est le cas **exclu** par le théorème (poly, Remarque III.2.2, p. 63). Un « zéro » de la limite n'a pas de sens ici, et rien n'est contredit.
-* **Sommes $\sum_{k\le n}z^k$ sur $D(0,1)$.** Leurs zéros sont les racines de l'unité (sauf $1$), situées **sur le bord de $\Omega$** donc hors de $\Omega$ : $f=1/(1-z)$ sans zéro, ce qui est cohérent. Si $D$ sort de $\Omega$, l'application du théorème n'est plus permise (l'indicateur le signale).
-* Le théorème de Hurwitz s'énonce **pour un disque $D$ avec $\bar D\subset\Omega$** (poly, Théorème III.2.1, p. 62).`,
+* **Famille $z^2-1/n$.** Les deux zéros simples $\pm1/\sqrt n$ se rapprochent et **fusionnent** en le zéro double de $z^2$ : dès que $\bar D\subset\Omega$, que $D$ contient $0$ et que son bord évite les zéros de $f$, on a $Z(f_n,D)=Z(f,D)=2$ pour $n$ grand. C'est ce que donne la preuve du théorème (principe de l'argument sur $\partial D$, poly p. 62-63) ; la Remarque III.2.3 (p. 63) l'énonce pour un petit disque autour de chaque point. Faites passer le bord de $D$ **exactement** par un zéro de $f$ : l'égalité peut alors tomber en défaut (par exemple $Z(f_n,D)=1$ et $Z(f,D)=0$), d'où l'hypothèse « $\partial D$ ne rencontre pas les zéros de $f$ ».
+* **Sommes partielles de $e^z$.** La limite $e^z$ n'a **aucun** zéro, donc (Hurwitz, point 1 lu à l'envers) tout disque fixe finit par ne plus contenir de zéro de $f_n$ : les zéros de $\sum_{k\le n}z^k/k!$ **fuient vers l'infini** (divisés par $n$, ils s'accumulent sur la courbe de Szegő $|z\,e^{1-z}|=1$, $|z|\le1$).
+* **Famille $z^n$ sur le disque épointé $D(0,1)\setminus\{0\}$.** Les $f_n$ ne s'annulent pas sur $\Omega$ mais la limite est $f\equiv0$ : c'est la seconde branche de l'alternative du théorème, qui se produit vraiment (poly, Remarque III.2.2, p. 63). Tout point est alors un zéro de $f$, le théorème n'affirme rien de plus, et rien n'est contredit.
+* **Sommes $\sum_{k\le n}z^k$ sur $D(0,1)$.** Leurs zéros sont les racines $(n+1)$-ièmes de l'unité autres que $1$, situées **sur le bord de $\Omega$** donc hors de $\Omega$ : $f=1/(1-z)$ sans zéro, ce qui est cohérent avec le point 1 du théorème. Si $\bar D$ sort de $\Omega$, l'application du théorème n'est plus permise (l'indicateur le signale).
+* **Énoncé exact du poly** (Théorème III.2.1, p. 62) : $\Omega$ ouvert **connexe**, $(f_n)$ holomorphes convergeant localement uniformément vers $f$ ; si aucune $f_n$ ne s'annule sur $\Omega$, alors $f$ ne s'annule pas ou $f\equiv0$ ; si toutes les $f_n$ sont injectives, alors $f$ est injective ou constante. La forme « comptage » $Z(f_n,D)\to Z(f,D)$ affichée ici, pour un disque $D$ avec $\bar D\subset\Omega$ et $f$ sans zéro sur $\partial D$, est exactement ce que démontre la preuve du poly.`,
   related: ['ch03-hurwitz', 'ch03-hurwitz-contre-exemple', 'ch03-hurwitz-zeros-locaux', 'ch03-weierstrass'],
   height: 560,
   mount(container, kit) {
@@ -32,7 +32,7 @@ FMA.registerViz({
           let den = [1, 0]; for (let k = 0; k < d; k++) if (k !== j) den = C.mul(den, C.sub(z[j], z[k]));
           const dl = C.div(ev(z[j]), den); z[j] = C.sub(z[j], dl); mx = Math.max(mx, C.abs(dl));
         }
-        if (mx < 1e-13 * Math.max(1, R)) break;
+        if (mx < 1e-10 * Math.max(1, R)) break; // 1e-13 n'est pas atteignable en double pour d = 30 (500 itérations inutiles)
       }
       return z;
     }
@@ -54,7 +54,7 @@ FMA.registerViz({
         evalf: (n, z) => pw(z, n), roots: n => [], lim: null, limTxt: '0', zero: true },
       cub: { lab: 'z²(z−1) − (1+i)/n  →  z²(z−1)', nmax: 60, n0: 3, view: 1.7, rhoMax: 1.6, rho0: 0.5, c0: [0, 0], omega: 'C',
         evalf: (n, z) => C.sub(C.mul(C.mul(z, z), C.sub(z, [1, 0])), [1 / n, 1 / n]),
-        roots: n => { const e = 1 / n; /* z^3 - z^2 - (1+i)e */ return polyRoots([-e, 0, -1, 1]).length ? cubic(n) : []; }, lim: [[[0, 0], 2], [[1, 0], 1]], limTxt: 'z^2(z-1)', zero: false },
+        roots: n => cubic(n), /* racines de z^3 - z^2 - (1+i)/n */ lim: [[[0, 0], 2], [[1, 0], 1]], limTxt: 'z^2(z-1)', zero: false },
     };
     // racines de z^3 - z^2 - (1+i) e : Durand-Kerner complexe
     function cubic(n) {
@@ -131,7 +131,8 @@ FMA.registerViz({
           const dd = Math.hypot(zz[0] - cen[0], zz[1] - cen[1]); if (dd < rho) cntF += mult; if (Math.abs(dd - rho) < 0.02 * Math.max(1, F.view / 2)) edge = true;
         }
         // lecture
-        const inOm = (F.omega === 'C') || (Math.hypot(cen[0], cen[1]) + rho < 1 - 1e-9);
+        // D̄ ⊂ Ω : pour le disque, |c| + ρ < 1 ; pour le disque épointé, il faut de plus 0 ∉ D̄, i.e. |c| > ρ
+        const inOm = (F.omega === 'C') || ((Math.hypot(cen[0], cen[1]) + rho < 1 - 1e-9) && (F.omega !== 'P' || Math.hypot(cen[0], cen[1]) > rho + 1e-9));
         const fz = F.lim === null;
         ro1.set('Z(f_n,D) = ' + cntN, true);
         ro2.set(fz ? 'f \\equiv 0' : 'Z(f,D) = ' + cntF, true);
