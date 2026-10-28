@@ -48,6 +48,9 @@ Pourquoi : $T_pS=\ker dF_p$ (Proposition IX.7.13), et $df_p=dg_p{}_{|T_pS}$ est 
 
     const selC = kit.select(controls, { label: 'contrainte', options: Object.keys(CONS).map(k => [CONS[k].name, k]), value: ck, onChange: v => { ck = v; if (v === 'cusp' && gk !== 'x') { gk = 'x'; selG.value = 'x'; } tcur = tclamp(tcur); if (v === 'cusp') tcur = 0.8; sync(); recompute(); draw(); } });
     const selG = kit.select(controls, { label: 'fonction', options: Object.keys(GS).map(k => [GS[k].name, k]), value: gk, onChange: v => { gk = v; recompute(); draw(); } });
+
+    const fitSel = x => { x.el.style.flex = '1 1 100%'; x.el.style.minWidth = '0'; x.el.style.maxWidth = '100%'; x.select.style.flex = '1 1 0'; x.select.style.width = '100%'; x.select.style.minWidth = '0'; };
+    fitSel(selC); selC.el.style.flex = '1 1 230px'; fitSel(selG); selG.el.style.flex = '1 1 200px';
     const row = kit.row(controls);
     const tS = kit.slider(row, { label: 'position $t$', min: 0, max: 2 * PI, step: 0.005, value: tcur, onChange: v => { stop(); tcur = v; draw(); } });
     const cLev = kit.checkbox(row, { label: 'lignes de niveau', checked: true, onChange: draw });
@@ -177,14 +180,14 @@ Pourquoi : $T_pS=\ker dF_p$ (Proposition IX.7.13), et $df_p=dg_p{}_{|T_pS}$ est 
       const gF = C.gF(px, py), gg = g.gg(px, py);
       const det = gg[0] * gF[1] - gg[1] * gF[0];
       const nF = Math.hypot(gF[0], gF[1]);
-      let r = `p = (${px.toFixed(2)}, ${py.toFixed(2)}) &nbsp; ∇F = (${gF[0].toFixed(2)}, ${gF[1].toFixed(2)}) &nbsp; ∇g = (${gg[0].toFixed(2)}, ${gg[1].toFixed(2)}) &nbsp; det(∇g,∇F) = ${det.toFixed(3)}`;
+      let r = `p = (${px.toFixed(2)}, ${py.toFixed(2)}) &nbsp; ∇F = (${gF[0].toFixed(2)}, ${gF[1].toFixed(2)}) &nbsp; ∇g = (${gg[0].toFixed(2)}, ${gg[1].toFixed(2)}) &nbsp; det(∇g,∇F) = ${(Math.abs(det) < 5e-4 ? 0 : det).toFixed(3)}`;
       let m = '', col = '';
       if (nF < 1e-6) {
         m = '∇F(p) = 0 : 0 n\u2019est pas valeur régulière de F en p. Le théorème des multiplicateurs ne s\u2019applique pas ici (et S n\u2019est pas une sous-variété en p).';
         col = '#d03030';
       } else if (Math.abs(det) < 0.02 * Math.max(1e-9, Math.hypot(gg[0], gg[1]) * nF) + 1e-9) {
         const w = (gg[0] * gF[0] + gg[1] * gF[1]) / (nF * nF);
-        r += ` &nbsp; w = ${w.toFixed(3)}`;
+        r += ` &nbsp; w = ${(Math.abs(w) < 5e-4 ? 0 : w).toFixed(3)}`;
         m = 'Gradients colinéaires : ∇g(p) = w ∇F(p). C\u2019est un point critique de g|S ; la ligne de niveau est tangente à S.';
         if (gk === 'x3' && Math.hypot(gg[0], gg[1]) < 1e-6) m += ' Ici ∇g(p) = 0 (w = 0) mais f a un point d\u2019inflexion : condition nécessaire, pas suffisante.';
         col = '#1b9e77';

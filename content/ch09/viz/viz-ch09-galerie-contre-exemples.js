@@ -120,7 +120,8 @@ FMA.registerViz({
     const stR = kit.canvas(cellR, { height: 290 });
     const controls = kit.controls(container);
     const sel = kit.select(controls, { label: 'ensemble', options: Object.keys(SETS).map(k => [SETS[k].name, k]), value: key, onChange: v => { key = v; stop(); build(); setInfo(); syncPos(); draw(); } });
-    sel.el.style.flex = '1 1 100%'; sel.select.style.maxWidth = '100%';
+    const fitSel = x => { x.el.style.flex = '1 1 100%'; x.el.style.minWidth = '0'; x.el.style.maxWidth = '100%'; x.select.style.flex = '1 1 0'; x.select.style.width = '100%'; x.select.style.minWidth = '0'; };
+    fitSel(sel);
     const row = kit.row(controls);
     const rhoS = kit.slider(row, { label: '$\\rho$', min: 0.05, max: 2, step: 0.01, value: 0.35, onChange: draw });
     const posS = kit.slider(row, { label: 'position de $p$', min: 0, max: 1, step: 0.001, value: 0, format: v => (+v).toFixed(2), onChange: v => { stop(); pi = Math.round(v * (data.flat.length - 1)); draw(); } });

@@ -43,6 +43,9 @@ et le plan qu'ils engendrent est l'**espace tangent** $T_pS=dx_q(\mathbb R^2)$ (
     let yaw = -0.7, pitch = 0.5;
 
     const sel = kit.select(controls, { label: 'surface', options: Object.keys(SURF).map(k => [SURF[k].name, k]), value: cur, onChange: v => { cur = v; q = SURF[cur].q0.slice(); syncSliders(); draw(); } });
+
+    const fitSel = x => { x.el.style.flex = '1 1 100%'; x.el.style.minWidth = '0'; x.el.style.maxWidth = '100%'; x.select.style.flex = '1 1 0'; x.select.style.width = '100%'; x.select.style.minWidth = '0'; };
+    fitSel(sel);
     const rowS = kit.row(controls);
     const su = kit.slider(rowS, { label: '$u$', min: -3.14, max: 3.14, step: 0.01, value: q[0], onChange: v => { q[0] = clampU(v); draw(); } });
     const sv = kit.slider(rowS, { label: '$v$', min: -3.14, max: 3.14, step: 0.01, value: q[1], onChange: v => { q[1] = clampV(v); draw(); } });
@@ -127,7 +130,7 @@ et le plan qu'ils engendrent est l'**espace tangent** $T_pS=dx_q(\mathbb R^2)$ (
       ctx.textAlign = 'left'; ctx.textBaseline = 'top'; ctx.fillStyle = t.fg; ctx.font = '12px system-ui, sans-serif';
       ctx.fillText('ouvert U ⊂ ℝ²', bx0 + 6, by1 + 4);
       // point q
-      const degenerate = currentArea() < 0.05;
+      const degenerate = currentArea() < 0.1;
       ctx.fillStyle = degenerate ? '#d03030' : t.accent4; ctx.strokeStyle = t.bg; ctx.lineWidth = 2;
       ctx.beginPath(); ctx.arc(px(q[0]), py(q[1]), 7, 0, 2 * PI); ctx.fill(); ctx.stroke();
       ctx.fillStyle = t.fg; ctx.textAlign = 'left'; ctx.textBaseline = 'bottom'; ctx.fillText('q', px(q[0]) + 9, py(q[1]) - 6);
@@ -199,7 +202,7 @@ et le plan qu'ils engendrent est l'**espace tangent** $T_pS=dx_q(\mathbb R^2)$ (
         if (L > 1e-6) { n = mulk(n, 0.5 * S.R / L); const tn = P(add(p, n)); ctx.setLineDash([4, 3]); kit.arrow(ctx, sp[0], sp[1], tn[0], tn[1], { color: t.fg, width: 1.6, head: 7 }); ctx.setLineDash([]); ctx.fillStyle = t.fg; ctx.fillText('x_u × x_v', tn[0] + 5, tn[1]); }
       }
       // point p
-      const degenerate = currentArea() < 0.05;
+      const degenerate = currentArea() < 0.1;
       ctx.fillStyle = degenerate ? '#d03030' : t.accent4; ctx.strokeStyle = t.bg; ctx.lineWidth = 2;
       ctx.beginPath(); ctx.arc(sp[0], sp[1], 6, 0, 2 * PI); ctx.fill(); ctx.stroke();
       ctx.fillStyle = t.fg; ctx.textBaseline = 'bottom'; ctx.fillText('p = x(q)', sp[0] + 9, sp[1] - 6);
@@ -212,7 +215,7 @@ et le plan qu'ils engendrent est l'**espace tangent** $T_pS=dx_q(\mathbb R^2)$ (
       const p = SURF[cur].f(q[0], q[1]);
       const f2 = a => a.map(z => (+z.toFixed(2)).toString()).join(', ');
       ro.set(`q = (${q[0].toFixed(2)}, ${q[1].toFixed(2)}) &nbsp; p = (${f2(p)}) &nbsp; |x<sub>u</sub>×x<sub>v</sub>| = ${A.toFixed(3)}`);
-      if (A < 0.05) {
+      if (A < 0.1) {
         warn.style.color = '#d03030';
         warn.textContent = 'Ici dx_q n’est PAS injective (' + (SURF[cur].warn || 'x_u et x_v presque colinéaires') + ') : x n’est pas un paramétrage local en ce point, le « plan tangent » dégénère.';
       } else {
