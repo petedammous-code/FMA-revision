@@ -2236,6 +2236,453 @@
      ]
     }
    ]
+  },
+  {
+   "num": 9,
+   "nn": "09",
+   "roman": "IX",
+   "title": "Sous-variétés",
+   "printed_pages": [
+    147,
+    178
+   ],
+   "summary": "Le chapitre IX introduit les sous-variétés de $\\mathbb R^N$ : des sous-ensembles $S$ qui, localement, « ressemblent » à un ouvert de $\\mathbb R^m$. Après un rappel sur les immersions et submersions (Définition IX.1.1) et la Proposition IX.1.2 (une immersion en un point est localement un homéomorphisme sur son image, via le théorème d'inversion locale VI.3.2), la Définition IX.2.1 pose la définition par paramétrages locaux (homéomorphisme $x : U \\to V\\cap S$ de classe $C^k$ dont la différentielle est injective) et une série d'exemples et de contre-exemples (demi-droite fermée, croix $xy=0$, cusp, point multiple, folium de Descartes) montre le rôle de chacune des trois conditions. Le fil logique est ensuite l'équivalence de quatre points de vue : paramétrage local (IX.2.1), redressement par un difféomorphisme ambiant $\\Phi(V'\\cap S)=(\\mathbb R^m\\times\\{0\\})\\cap W$ (Proposition IX.3.1), équation locale $S\\cap V=\\Psi^{-1}(0)$ avec $0$ valeur régulière (Propositions IX.4.1, IX.4.5, IX.4.6) et graphe local à isomorphisme linéaire près (Propositions IX.5.1-IX.5.3) ; toutes les preuves reposent sur une seule idée : compléter une immersion ou une submersion en un difféomorphisme local et appliquer l'inversion locale. La Proposition IX.6.1 (le changement de paramétrage $x_1^{-1}\\circ x_2$ est un $C^k$-difféomorphisme) permet alors de définir intrinsèquement, via les paramétrages, les fonctions différentiables sur $S$ (IX.7.1, IX.7.5), l'espace tangent $T_pS = dx_q(\\mathbb R^m)$ (IX.7.8-IX.7.13, avec $T_pS=\\ker dF_p$ pour une sous-variété d'équation $F=0$), la différentielle $d\\varphi_p : T_pS_1\\to T_{\\varphi(p)}S_2$ (IX.7.15) et sa règle de composition (IX.7.17), puis de transporter les théorèmes du calcul différentiel : inversion locale sur les sous-variétés (Théorème IX.7.26), immersions/submersions (IX.7.29), $df=0$ sur un connexe implique $f$ constante (IX.7.30), extremum local implique $df_p=0$ (IX.7.31), multiplicateurs de Lagrange (Proposition IX.7.35), hessienne en un point critique (Définition IX.7.38) et lemme de Morse (Remarque IX.7.40). La section IX.8 relie le chapitre aux équations différentielles du chapitre VII : une courbe intégrale d'un champ tangent à une sous-variété fermée y reste (Proposition IX.8.1), les champs de vecteurs tangents ont un flot local (Théorème IX.8.5) et global (Définition IX.8.7, Théorème IX.8.8), et sur une sous-variété compacte le flot est défini sur $\\mathbb R\\times S$ et fournit un morphisme de groupes $t\\mapsto F_t$ de $\\mathbb R$ dans $\\mathrm{Diff}^r(S)$ (Théorème IX.8.9, Corollaire IX.8.10). Les cinq résultats centraux : Définition IX.2.1 et les caractérisations équivalentes IX.3.1 / IX.4.1-IX.4.6 / IX.5.3 ; Proposition IX.7.9 et IX.7.13 (espace tangent) ; Théorème IX.7.26 (inversion locale) ; Théorème IX.7.31 et Proposition IX.7.35 (extrema liés, multiplicateurs de Lagrange) ; Proposition IX.8.1 et Théorème IX.8.9 (champs tangents, flot sur une compacte).",
+   "sections": [
+    {
+     "num": "IX.1",
+     "title": "Immersions et submersions",
+     "page": 147
+    },
+    {
+     "num": "IX.2",
+     "title": "Paramétrage local. Système de coordonnées",
+     "page": 148
+    },
+    {
+     "num": "IX.3",
+     "title": "Autre définition des sous-variétés",
+     "page": 151
+    },
+    {
+     "num": "IX.4",
+     "title": "Sous-variétés définies par des équations",
+     "page": 152
+    },
+    {
+     "num": "IX.5",
+     "title": "Sous-variétés définies par des graphes",
+     "page": 156
+    },
+    {
+     "num": "IX.6",
+     "title": "Changements de paramétrage",
+     "page": 157
+    },
+    {
+     "num": "IX.7",
+     "title": "Calcul différentiel sur les sous-variétés",
+     "page": 159
+    },
+    {
+     "num": "IX.7.1",
+     "title": "Applications différentiables sur les sous-variétés",
+     "page": 159
+    },
+    {
+     "num": "IX.7.2",
+     "title": "Espace tangent",
+     "page": 160
+    },
+    {
+     "num": "IX.7.3",
+     "title": "Différentielle d'une application différentiable",
+     "page": 162
+    },
+    {
+     "num": "IX.7.4",
+     "title": "Difféomorphisme local. Inversion locale",
+     "page": 165
+    },
+    {
+     "num": "IX.7.5",
+     "title": "Points critiques. Maxima et minima locaux",
+     "page": 167
+    },
+    {
+     "num": "IX.7.6",
+     "title": "Hessienne",
+     "page": 169
+    },
+    {
+     "num": "IX.8",
+     "title": "Equations différentielles sur les sous-variétés",
+     "page": 171
+    },
+    {
+     "num": "IX.8.1",
+     "title": "Champs tangents à une sous-variété",
+     "page": 171
+    },
+    {
+     "num": "IX.9",
+     "title": "Exercices",
+     "page": 175
+    }
+   ],
+   "pitfalls": [
+    "Une immersion (même injective) n'a pas forcément pour image une sous-variété : point multiple (Exemple IX.2.14) et folium de Descartes (Exemple IX.2.15). La condition « homéomorphisme sur $V\\cap S$ pour la topologie induite » est indispensable et c'est elle qu'on oublie le plus souvent de vérifier.",
+    "Réciproquement un homéomorphisme $C^\\infty$ sur son image n'est pas un paramétrage si sa différentielle s'annule : cusp $t\\mapsto(t^2,t^3)$ (Exercice IX.2.13). Vérifier séparément les trois conditions de la Définition IX.2.1.",
+    "« $0$ valeur régulière de $F$ » signifie $dF_p$ surjective en TOUT point $p$ de la fibre $F^{-1}(0)$, pas seulement en un point ; et la surjectivité de $dF_p$ dans $\\mathbb R^{N-m}$ équivaut à l'indépendance linéaire des $d(F_i)_p$ (pas seulement « $dF_p\\neq0$ » quand $N-m\\ge2$).",
+    "La Proposition IX.4.1 n'est pas une équivalence : une fibre d'une valeur critique peut être une sous-variété ($f(x)=x^2$, fibre de $0$ ; $f(x,y)=(x^2+y^2-1)^2$, fibre de $0$ = cercle). Pour montrer qu'un ensemble N'EST PAS une sous-variété, il faut un argument direct (composantes connexes après retrait d'un point, espace tangent par les courbes non vectoriel, dimension locale incompatible).",
+    "Une sous-variété n'est ni supposée connexe ni fermée (Remarques IX.2.16-IX.2.17). Les hypothèses « connexe » (Théorème IX.7.30, Exercices IX.7.37, IX.9.7, IX.9.8, IX.9.11), « fermée » (Proposition IX.8.1) et « compacte » (Théorème IX.8.9, existence d'extrema) doivent être écrites et vérifiées.",
+    "Dans la preuve de la Proposition IX.6.1 (et partout où apparaît une carte $x^{-1}$), on ne peut pas dire « $x^{-1}$ est différentiable » avant d'avoir défini la différentiabilité sur $S$ : on passe par le redressement $\\Phi$ défini sur un ouvert de $\\mathbb R^N$ et on écrit $x_1^{-1}\\circ x_2=p_1\\circ\\Phi\\circ x_2$.",
+    "La régularité d'une fonction sur $S$ est limitée par celle de $S$ ($r\\le k$) : sur une sous-variété $C^1$, « $f$ de classe $C^2$ » n'a pas de sens intrinsèque.",
+    "Point critique de la restriction $f=g|_S$ : la condition est $dg_p|_{T_pS}=0$ (i.e. $\\nabla g(p)\\perp T_pS$, Lagrange), PAS $dg_p=0$. Erreur classique : chercher les points critiques de $g$ sur $\\mathbb R^N$ au lieu des points critiques de $f$ sur $S$.",
+    "Les multiplicateurs de Lagrange ne donnent qu'une condition NÉCESSAIRE (points critiques), et seulement sous l'hypothèse « $0$ valeur régulière » ; l'existence d'un extremum vient de la compacité (ou d'un argument de coercivité), jamais de Lagrange seul. Toujours : (1) existence par compacité, (2) Lagrange pour localiser, (3) comparer les valeurs.",
+    "La hessienne $d^2f_p$ n'est définie qu'en un point critique (formule (IX.7.2) : sinon elle dépend du paramétrage). Et pour $f=g|_S$, $d^2f_p\\neq d^2g_p|_{T_pS}$ en général : il manque le terme $dg_p(\\alpha''(0))$ de courbure (sauf si $dg_p=0$).",
+    "Inversion locale sur les sous-variétés (Théorème IX.7.26) : l'hypothèse est « $d\\varphi_p$ isomorphisme », ce qui impose $\\dim S_1=\\dim S_2$ ; la conclusion est locale ; un difféomorphisme local bijectif est un difféomorphisme global, mais « difféo local partout » n'implique pas injectif ($\\mathbb R\\to\\mathbb S^1$).",
+    "Proposition IX.7.29 : la Proposition IX.4.1 s'applique à une application définie sur un OUVERT de $\\mathbb R^N$ ; quand la source est une sous-variété il faut aussi passer en carte à la source (piège explicitement signalé par le poly).",
+    "Dans la Proposition IX.8.1, la tangence $X(t,x)\\in T_xS$ ne suffit pas : il faut l'unicité de Cauchy-Lipschitz (champ localement lipschitzien) ET la fermeture de $S$ pour que $\\gamma(\\tau)\\in S$ au temps $\\tau=\\sup\\{\\dots\\}$. L'énoncé d'unicité du Théorème IX.8.5 porte sur des courbes $\\gamma$ à valeurs dans $\\mathbb R^N$, non supposées tracées sur $S$.",
+    "Le Théorème IX.8.9 (flot complet) demande la COMPACITÉ de $S$, pas seulement la fermeture : sur $S=\\mathbb R$ le champ $x^2$ explose en temps fini.",
+    "La formule de groupe $F_s\\cdot(F_t\\cdot x)=F_{t+s}\\cdot x$ n'a de sens que lorsque les points sont dans le domaine $D_0$ ; sans compacité on n'a qu'un groupe LOCAL à un paramètre.",
+    "Dimension : une sous-variété de dimension 0 est un ensemble discret, un ouvert de $\\mathbb R^N$ est une sous-variété de dimension $N$ ; ne pas confondre dimension $m$ et codimension $N-m$ (le nombre d'équations)."
+   ],
+   "proof_techniques": [
+    "Compléter une immersion en un difféomorphisme local : $F(u,t)=x(u)+\\varphi(t)$ sur $U\\times\\mathbb R^{N-m}$ ($\\varphi$ isomorphisme sur un supplémentaire de $\\mathrm{Im}\\,dx_q$), $dF_{(q,0)}$ est bijective par égalité des dimensions, puis théorème d'inversion locale VI.3.2 (Propositions IX.1.2, IX.3.1, IX.6.1).",
+    "Compléter une submersion en un difféomorphisme local : $\\Psi(p+x+y)=(\\varphi(x),f(p+x+y))$ avec $E=\\ker df_p$, $F$ supplémentaire ; la fibre $f^{-1}(a)$ devient $\\Psi^{-1}(U\\times\\{a\\})$ (Proposition IX.4.1, puis IX.7.29).",
+    "Argument « surjective + égalité des dimensions = isomorphisme » (théorème du rang) pour vérifier l'hypothèse de l'inversion locale.",
+    "Localité de la définition de sous-variété : il suffit de construire un paramétrage/une équation/un graphe au voisinage de chaque point ; passage « local ⇒ global » gratuit (Propositions IX.4.5, IX.5.2, Exemples IX.2.6, IX.2.8).",
+    "Redresser puis raisonner dans $\\mathbb R^m\\times\\{0\\}$ : utiliser $\\Phi$ de IX.3.1 pour ramener un énoncé sur $S$ à un énoncé sur un ouvert de $\\mathbb R^m$ (Propositions IX.4.6, IX.6.1, IX.7.29, IX.8.1).",
+    "Lecture dans les cartes : une propriété de $f : S\\to\\mathbb R$ ou $\\varphi : S_1\\to S_2$ se définit et se démontre via $f\\circ x$ ou $x_2^{-1}\\circ\\varphi\\circ x_1$ ; l'indépendance du choix des cartes découle toujours de la Proposition IX.6.1 (Définitions IX.7.1, IX.7.5, IX.7.15, IX.7.38).",
+    "Transport des théorèmes du calcul différentiel ordinaire par un paramétrage : inversion locale, $df=0\\Rightarrow$ constante, extremum $\\Rightarrow df_p=0$, lemme de Morse (Théorèmes IX.7.26, IX.7.30, IX.7.31, Remarque IX.7.40).",
+    "Deux descriptions des vecteurs tangents (vitesse de courbe / image par $dx_q$) et va-et-vient entre elles : $\\beta=x^{-1}\\circ\\alpha$ pour l'inclusion $T_pS\\subset dx_q(\\mathbb R^m)$, $\\alpha=x\\circ(q+t\\vec w)$ pour l'autre (Proposition IX.7.9, Définition IX.7.15).",
+    "Restriction d'une fonction ambiante : $f=g|_S$ est différentiable et $df_p=dg_p|_{T_pS}$ (Remarques IX.7.16) ; pour les points critiques, $T_pS\\subset\\ker dg_p$ puis algèbre linéaire ($\\ker dF_p\\subset\\ker dg_p\\iff dg_p\\in\\mathrm{Vect}(d(F_i)_p)$) (Proposition IX.7.35).",
+    "Schéma « extrema liés » : existence par compacité (fonction continue sur une sous-variété compacte), localisation par Lagrange ou par $df_p=0$ sur $T_pS$, conclusion géométrique (normale passant par un point, plan tangent parallèle) (Exercices IX.7.36, IX.7.37, IX.9.5, IX.9.7-IX.9.10, IX.9.15).",
+    "Argument de connexité « $df=0$ sur un connexe ⇒ constante » pour passer d'une propriété locale (normales concourantes, surface localement plane) à une propriété globale (Théorème IX.7.30, Exercices IX.7.37, IX.9.7, IX.9.8, IX.9.11).",
+    "Argument de borne supérieure du temps de séjour : $\\tau=\\sup\\{t\\mid\\gamma([0;t])\\subset S\\}$, fermeture ⇒ $\\gamma(\\tau)\\in S$, puis unicité locale de Cauchy-Lipschitz dans une carte redressante ⇒ contradiction avec la maximalité (Proposition IX.8.1).",
+    "Transport d'un champ de vecteurs par un difféomorphisme : $Y(t,\\Phi(x))=d\\Phi_x(X(t,x))$, les courbes intégrales se correspondent ($\\sigma=\\Phi\\circ\\gamma$) ; un champ tangent redressé devient horizontal (preuve de IX.8.1, Théorème IX.8.5).",
+    "Lemme des bouts : sur une compacte, toute courbe intégrale maximale a un temps de vie infini (Théorème IX.8.9 via VII.3.10), puis $F_0=\\mathrm{Id}$ et la loi de groupe donnent que chaque $F_t$ est un difféomorphisme (Corollaire IX.8.10)."
+   ],
+   "viz_opportunities": [
+    {
+     "title": "Paramétrage local et plan tangent",
+     "shows": "Une surface de $\\mathbb R^3$ (sphère, tore, graphe) avec un ouvert $U\\subset\\mathbb R^2$ et le paramétrage $x$ ; en déplaçant $q=(u,v)$ dans $U$ on voit $p=x(q)$, les vecteurs $x_u$, $x_v$ et le plan tangent $p+T_pS$ qu'ils engendrent ; on voit aussi la carte $x^{-1}$ comme un « quadrillage » dessiné sur la surface.",
+     "results": [
+      "Définition IX.2.1",
+      "Proposition IX.7.9",
+      "Corollaire IX.7.11"
+     ]
+    },
+    {
+     "title": "Galerie des contre-exemples",
+     "shows": "Les cinq ensembles qui ne sont pas des sous-variétés (demi-droite fermée, croix $xy=0$, cusp, boucle à point double, folium de Descartes) et, pour chacun, la condition de la Définition IX.2.1 qui échoue : compter les composantes connexes de $S\\setminus\\{p\\}$ (zoom sur le point), animer le paramètre $t$ pour voir le folium revenir en $(0,0)$ sans que $t\\to0$, afficher $dx_t$ s'annulant au cusp.",
+     "results": [
+      "Définition IX.2.1",
+      "Exemple IX.2.11",
+      "Exemple IX.2.12",
+      "Exercice IX.2.13",
+      "Exemple IX.2.14",
+      "Exemple IX.2.15"
+     ]
+    },
+    {
+     "title": "Surfaces de niveau et valeurs régulières",
+     "shows": "Pour $f(x,y,z)=x^2+y^2-z^2$ (et le tore), un curseur sur la valeur $a$ : la surface $f^{-1}(a)$ (hyperboloïde à une nappe, cône, deux nappes) et le gradient $\\nabla f$ en un point mobile ; au passage de la valeur critique $a=0$ la surface se pince au point critique où $\\nabla f=0$. Illustre $T_pS=\\ker df_p=\\nabla f(p)^\\perp$.",
+     "results": [
+      "Proposition IX.4.1",
+      "Définition IX.1.3",
+      "Exemple IX.4.3",
+      "Exemple IX.4.4",
+      "Proposition IX.7.13"
+     ]
+    },
+    {
+     "title": "Les quatre définitions équivalentes",
+     "shows": "Sur un même morceau de surface, afficher simultanément : le paramétrage $x$, le redressement $\\Phi$ qui l'aplatit sur $\\mathbb R^2\\times\\{0\\}$, l'équation locale $\\Psi=0$ et le graphe local $z=h(x,y)$ au-dessus du plan tangent ; montrer en quoi la construction $F(u,t)=x(u)+\\varphi(t)$ (épaississement normal) relie paramétrage et redressement, et où le graphe en $(x,y)$ échoue (plan tangent vertical).",
+     "results": [
+      "Proposition IX.3.1",
+      "Proposition IX.4.6",
+      "Proposition IX.5.3",
+      "Corollaire IX.7.27"
+     ]
+    },
+    {
+     "title": "Différentielle d'une application entre surfaces",
+     "shows": "Une courbe $\\alpha$ sur $S_1$ passant par $p$ et son image $\\varphi\\circ\\alpha$ sur $S_2$ ; le vecteur $\\alpha'(0)$ et son image $d\\varphi_p(\\alpha'(0))=(\\varphi\\circ\\alpha)'(0)$ ; changer la courbe à vecteur tangent fixé ne change pas l'image (bonne définition), et l'application $T_pS_1\\to T_{\\varphi(p)}S_2$ est linéaire (image d'un petit cercle tangent = ellipse). Exemple : projection radiale $\\pi(p)=p/\\|p\\|$ d'un ellipsoïde sur la sphère.",
+     "results": [
+      "Définition IX.7.15",
+      "Proposition IX.7.17",
+      "Théorème IX.7.26"
+     ]
+    },
+    {
+     "title": "Extrema liés et multiplicateurs de Lagrange",
+     "shows": "Dans le plan : la courbe de contrainte $F=0$ (ellipse, lemniscate) et les lignes de niveau de $g$ ; en déplaçant un point sur la contrainte, afficher $\\nabla g$ et $\\nabla F$ : aux extrema de $g|_S$ les deux gradients sont colinéaires et la ligne de niveau est tangente à la contrainte. En 3D : fonction hauteur sur un tore vertical avec ses 4 points critiques (min, deux cols, max) et la signature de la hessienne via le graphe local.",
+     "results": [
+      "Théorème IX.7.31",
+      "Exemple IX.7.33",
+      "Proposition IX.7.35",
+      "Définition IX.7.38",
+      "Remarque IX.7.40"
+     ]
+    },
+    {
+     "title": "Champs tangents et flot sur une sous-variété",
+     "shows": "Un champ tangent sur la sphère ($X(x)=\\omega\\wedge x$, ou le champ de l'Exercice IX.9.14) et sur le tore, avec les trajectoires du flot qui restent sur la surface pour tout temps (compacité) ; comparer avec un champ non tangent dont les trajectoires quittent la surface, et avec une sous-variété non fermée (droite privée d'un point) où la trajectoire « tombe dans le trou ». Portrait de phase du pendule $H=p^2/2-\\cos q$ : les trajectoires suivent les lignes de niveau de $H$ (conservation de l'énergie).",
+     "results": [
+      "Proposition IX.8.1",
+      "Exemples IX.8.2",
+      "Théorème IX.8.5",
+      "Théorème IX.8.9",
+      "Corollaire IX.8.10"
+     ]
+    },
+    {
+     "title": "Changement de paramétrage",
+     "shows": "Deux paramétrages $x_1$, $x_2$ d'un même morceau de surface (par ex. coordonnées sphériques et projection stéréographique sur la sphère) ; le domaine commun $W$ et le difféomorphisme $\\theta=x_1^{-1}\\circ x_2$ entre les deux préimages, visualisé par le transport d'un quadrillage.",
+     "results": [
+      "Proposition IX.6.1",
+      "Remarque IX.7.2"
+     ]
+    }
+   ],
+   "poly_exercises": [
+    {
+     "ref": "Exercice IX.2.10",
+     "page": 150,
+     "topic": "Le cercle est une sous-variété",
+     "statement_short": "Montrer que le cercle $C(a,r)$ de centre $a$ et de rayon $r$ dans $\\mathbb R^2$ est une sous-variété de $\\mathbb R^2$ (paramétrages par l'angle sur deux arcs, ou équation $\\|x-a\\|^2=r^2$).",
+     "chapters_involved": [
+      9
+     ]
+    },
+    {
+     "ref": "Exercice IX.2.13",
+     "page": 150,
+     "topic": "Point de rebroussement : la condition d'immersion est nécessaire",
+     "statement_short": "$S=\\{(t^2,t^3),\\ t\\in\\mathbb R\\}$ ; montrer qu'on ne peut trouver aucun paramétrage local en $(0,0)$ vérifiant la condition 3 (différentielle injective) de la Définition IX.2.1.",
+     "chapters_involved": [
+      9
+     ]
+    },
+    {
+     "ref": "Exercice IX.7.3",
+     "page": 159,
+     "topic": "Prolongement local d'une fonction $C^r$ sur $S$",
+     "statement_short": "Pour toute $f$ de classe $C^r$ sur $S$ et tout $p\\in S$, il existe un voisinage ouvert $V$ de $p$ dans $\\mathbb R^N$ et $F\\in C^r(V,\\mathbb R)$ telle que $f=F|_{V\\cap S}$ (utiliser le redressement de IX.3.1 : $F=f\\circ x\\circ p_1\\circ\\Phi$).",
+     "chapters_involved": [
+      9
+     ]
+    },
+    {
+     "ref": "Exercice IX.7.12",
+     "page": 161,
+     "topic": "Le cône n'est pas une sous-variété",
+     "statement_short": "Montrer que le cône $C=\\{x^2+y^2-z^2=0\\}$ de $\\mathbb R^3$ n'est pas une sous-variété (au sommet $0$ : espace tangent par les courbes non vectoriel, ou $C\\setminus\\{0\\}$ a deux composantes connexes alors qu'un ouvert connexe de $\\mathbb R^2$ privé d'un point est connexe).",
+     "chapters_involved": [
+      9
+     ]
+    },
+    {
+     "ref": "Exercice IX.7.14",
+     "page": 162,
+     "topic": "Espace tangent d'un graphe et d'une équation",
+     "statement_short": "Démontrer la Proposition IX.7.13 : $T_pS$ = graphe de $df_u$ pour un graphe, $T_pS=\\ker dF_p$ pour $S=\\{F=0\\}$ avec $0$ valeur régulière.",
+     "chapters_involved": [
+      9
+     ]
+    },
+    {
+     "ref": "Exercice IX.7.19",
+     "page": 164,
+     "topic": "Applications $C^\\infty$ élémentaires sur une sous-variété",
+     "statement_short": "Montrer que l'inclusion $i : S\\to\\mathbb R^N$, les applications constantes, l'identité $\\mathrm{Id}_S$ sont $C^\\infty$, et que la restriction à $S$ d'une fonction $C^r$ sur un ouvert $V\\supset S$ est $C^r$.",
+     "chapters_involved": [
+      9
+     ]
+    },
+    {
+     "ref": "Exercice IX.7.23",
+     "page": 164,
+     "topic": "Différentielle de la fonction distance",
+     "statement_short": "Calculer $df_p$ pour $f(p)=\\|p-p_0\\|$ sur $S$, $p_0\\notin S$ (réponse : $df_p(v)=\\langle v,p-p_0\\rangle/\\|p-p_0\\|$).",
+     "chapters_involved": [
+      9,
+      5
+     ]
+    },
+    {
+     "ref": "Exercice IX.7.36",
+     "page": 169,
+     "topic": "Diagonalisation des matrices symétriques par les extrema liés",
+     "statement_short": "$A$ symétrique, $f(v)=\\langle Av,v\\rangle$ sur $\\mathbb S^{N-1}$ : $v$ critique $\\iff Av=f(v)v$ ; en déduire un vecteur propre (compacité + Théorème IX.7.31), puis la diagonalisation en base orthonormale (récurrence sur $v^\\perp$).",
+     "chapters_involved": [
+      9,
+      5
+     ]
+    },
+    {
+     "ref": "Exercice IX.7.37",
+     "page": 169,
+     "topic": "Droites normales à une hypersurface ; hypersurface contenue dans une sphère",
+     "statement_short": "$S$ hypersurface compacte, $f(p)=\\|p-p_0\\|^2$ : il existe une droite normale à $S$ passant par $p_0$. Si $S$ est connexe et toutes les normales passent par $p_0$, alors $S$ est contenue dans une sphère (montrer $df=0$ et utiliser le Théorème IX.7.30).",
+     "chapters_involved": [
+      9
+     ]
+    },
+    {
+     "ref": "Exercice IX.7.39",
+     "page": 171,
+     "topic": "Hessienne le long d'une courbe",
+     "statement_short": "$f : S_1\\to S_2$ de classe $C^2$, $df_p=0$, $\\alpha$ courbe $C^2$ sur $S_1$ avec $\\alpha(0)=p$, $\\alpha'(0)=v$ : montrer $d^2f_p(v,v)=\\frac{d^2}{dt^2}_{|t=0}f(\\alpha(t))$.",
+     "chapters_involved": [
+      9,
+      5
+     ]
+    },
+    {
+     "ref": "Exercice IX.9.1",
+     "page": 175,
+     "topic": "Image d'une sous-variété par un difféomorphisme entre ouverts",
+     "statement_short": "$S\\subset V$ ouvert, $\\phi : V\\to W$ difféomorphisme : montrer que $\\phi(S)$ est une sous-variété de $\\mathbb R^N$ difféomorphe à $S$ (paramétrages $\\phi\\circ x$).",
+     "chapters_involved": [
+      9,
+      6
+     ]
+    },
+    {
+     "ref": "Exercice IX.9.2",
+     "page": 175,
+     "topic": "$SO(n)$ est une sous-variété de $M_n(\\mathbb R)$",
+     "statement_short": "Montrer que $SO(n)$ est une sous-variété de $M_n(\\mathbb R)$ (équation $F(M)={}^tMM-I_n$ à valeurs dans $\\mathrm{Sym}_n$, $dF_M(H)={}^tHM+{}^tMH$ surjective sur $O(n)$ ; dimension $n(n-1)/2$ ; $\\det=1$ sélectionne une composante ouverte).",
+     "chapters_involved": [
+      9,
+      5
+     ]
+    },
+    {
+     "ref": "Exercice IX.9.3",
+     "page": 175,
+     "topic": "Fibré tangent",
+     "statement_short": "Montrer que $TS=\\{(p,v)\\ ;\\ p\\in S,\\ v\\in T_pS\\}$ est une sous-variété de $\\mathbb R^N\\times\\mathbb R^N$ (de dimension $2m$ ; paramétrage $(u,h)\\mapsto(x(u),dx_u(h))$, ou équation locale $(\\Psi(p),d\\Psi_p(v))=0$).",
+     "chapters_involved": [
+      9
+     ]
+    },
+    {
+     "ref": "Exercice IX.9.4",
+     "page": 175,
+     "topic": "Plongement : immersion + homéomorphisme sur l'image ; surfaces radialement transverses",
+     "statement_short": "$\\phi : S\\to\\mathbb R^N$ différentiable, immersion en tout point et homéomorphisme sur $\\phi(S)$ : montrer que $\\phi(S)$ est une sous-variété et $\\phi$ un difféomorphisme sur son image. Application : $S(f)=\\{f(p)p,\\ p\\in\\mathbb S^2\\}$, $f : \\mathbb S^2\\to\\mathbb R_+^\\times$ $C^\\infty$, est une surface compacte difféomorphe à $\\mathbb S^2$, radialement transverse ; réciproquement, si $S$ est radialement transverse, la projection radiale $\\pi : S\\to\\mathbb S^2$ est une immersion.",
+     "chapters_involved": [
+      9,
+      6
+     ]
+    },
+    {
+     "ref": "Exercice IX.9.5",
+     "page": 176,
+     "topic": "Surface définie par une équation et extrema liés",
+     "statement_short": "$S=\\{x^4+x^2z^2+y^4+2z^2-1=0\\}\\subset\\mathbb R^3$ : montrer que c'est une sous-variété ; $f(x,y,z)=x^2+y^2+z^2$ est $C^\\infty$ sur $S$ ; trouver ses extrema (compacité + multiplicateurs de Lagrange).",
+     "chapters_involved": [
+      9
+     ]
+    },
+    {
+     "ref": "Exercice IX.9.6",
+     "page": 176,
+     "topic": "Surface $e^{x^2}+e^{y^2}+e^{z^2}=a$ difféomorphe à la sphère",
+     "statement_short": "Pour $a>3$, $S=\\{e^{x^2}+e^{y^2}+e^{z^2}=a\\}$ est une sous-variété de $\\mathbb R^3$ ; exhiber un difféomorphisme entre $S$ et $\\mathbb S^2$ (projection radiale, $S$ est radialement transverse / étoilée).",
+     "chapters_involved": [
+      9,
+      6
+     ]
+    },
+    {
+     "ref": "Exercice IX.9.7",
+     "page": 176,
+     "topic": "Normales parallèles à un vecteur ; surface contenue dans un plan",
+     "statement_short": "$S$ surface de $\\mathbb R^3$, $\\|a\\|=1$. (1) Si $S$ est compacte, il existe $p$ dont la normale est parallèle à $a$ (extremum de la fonction hauteur). (2) Si $S$ est connexe et toutes les normales sont parallèles à $a$, $S$ est contenue dans un plan orthogonal à $a$.",
+     "chapters_involved": [
+      9
+     ]
+    },
+    {
+     "ref": "Exercice IX.9.8",
+     "page": 176,
+     "topic": "Normales coupant une droite perpendiculairement ; surface contenue dans un cylindre",
+     "statement_short": "$S$ surface, $D$ droite. (1) Si $S$ est compacte, il existe $p$ dont la normale coupe $D$ perpendiculairement (extremum de la distance à $D$). (2) Si $S$ est connexe et toutes les normales coupent $D$ perpendiculairement, $S$ est contenue dans un cylindre d'axe $D$.",
+     "chapters_involved": [
+      9
+     ]
+    },
+    {
+     "ref": "Exercice IX.9.9",
+     "page": 177,
+     "topic": "Droite normale en deux points (cordes doublement normales)",
+     "statement_short": "(1) Une surface compacte admet une droite qui la coupe perpendiculairement en au moins deux points (maximiser $\\|p-q\\|^2$ sur $S\\times S$). (2) Deux surfaces compactes disjointes admettent une droite perpendiculaire à l'une en un point et à l'autre en un autre (minimiser la distance sur $S_1\\times S_2$).",
+     "chapters_involved": [
+      9
+     ]
+    },
+    {
+     "ref": "Exercice IX.9.10",
+     "page": 177,
+     "topic": "Surface dans un demi-espace : tangence au plan frontière",
+     "statement_short": "$S$ surface contenue dans un demi-espace fermé délimité par un plan $P$ : montrer que $S$ et $P$ sont tangents en chaque point de $S\\cap P$ (la fonction hauteur atteint un minimum en ces points).",
+     "chapters_involved": [
+      9
+     ]
+    },
+    {
+     "ref": "Exercice IX.9.11",
+     "page": 177,
+     "topic": "Localement plane / sphérique implique globalement",
+     "statement_short": "Si chaque point d'une surface $S$ a un voisinage contenu dans un plan (resp. une sphère), montrer que $S$ est contenue dans un plan (resp. une sphère) — attention, il faut $S$ connexe (argument de connexité : le plan/la sphère local est localement constant).",
+     "chapters_involved": [
+      9
+     ]
+    },
+    {
+     "ref": "Exercice IX.9.12",
+     "page": 177,
+     "topic": "Connexité par arcs $C^1$",
+     "statement_short": "Deux points d'une sous-variété connexe peuvent être reliés par un arc de classe $C^1$ (connexité par arcs dans les cartes, recollement $C^1$ par reparamétrage).",
+     "chapters_involved": [
+      9
+     ]
+    },
+    {
+     "ref": "Exercice IX.9.13",
+     "page": 177,
+     "topic": "Redressement d'un champ de vecteurs tangent",
+     "statement_short": "$X$ champ tangent $C^\\infty$ sur $S$, $X(p_0)\\neq0$ : il existe un paramétrage local $x : U\\to S$ en $p_0$ tel que $X(x(q))=x_{u_1}(q)$ (utiliser le flot : $x(u_1,u')=F_{u_1}\\cdot y(0,u')$ et l'inversion locale IX.7.26).",
+     "chapters_involved": [
+      9,
+      7,
+      6
+     ]
+    },
+    {
+     "ref": "Exercice IX.9.14",
+     "page": 177,
+     "topic": "Champs tangents sur $\\mathbb S^{2n-1}$ ; fibré tangent trivial de $\\mathbb S^3$",
+     "statement_short": "(1) $X=\\sum_i(-x_{2i}\\partial_{x_{2i-1}}+x_{2i-1}\\partial_{x_{2i}})$ est tangent à $\\mathbb S^{2n-1}$. (2) Pour $n=2$, construire $Y$, $Z$ tangents tels que $X,Y,Z$ soient indépendants en tout point de $\\mathbb S^3$ (quaternions : la matrice indiquée vérifie $M^2=-I$ pour $(a,b,c,d)\\in\\mathbb S^3$). (3) En déduire que $T\\mathbb S^3$ est difféomorphe à $\\mathbb S^3\\times\\mathbb R^3$.",
+     "chapters_involved": [
+      9
+     ]
+    },
+    {
+     "ref": "Exercice IX.9.15",
+     "page": 177,
+     "topic": "Inégalité de Hadamard par les extrema liés",
+     "statement_short": "$f(v_1,\\dots,v_n)=\\det(v_1|\\dots|v_n)$ : (1) calculer $df$ (multilinéarité). (2) Si $(v_i)\\in(\\mathbb S^{n-1})^n$ libre est un point critique de $g=f|_{(\\mathbb S^{n-1})^n}$, alors $T_{v_i}\\mathbb S^{n-1}\\subset\\mathrm{Vect}(v_j,j\\neq i)$, donc $(v_i)$ est une base orthonormée. (3) En déduire $\\det(v_1|\\dots|v_n)\\le\\|v_1\\|\\cdots\\|v_n\\|$.",
+     "chapters_involved": [
+      9,
+      5
+     ]
+    }
+   ]
   }
  ],
  "results": [
@@ -10626,11 +11073,10 @@
    "chapter": 8,
    "order": 5,
    "depends_ids": [
+    "ch08-du-bois-reymond",
     "ch05-primitive-integrale"
    ],
-   "depends_unresolved": [
-    "Question 3, p. 144 (lemme de du Bois-Reymond)"
-   ]
+   "depends_unresolved": []
   },
   {
    "id": "ch08-euler-lagrange",
@@ -10660,12 +11106,12 @@
    "viz_hint": "Pour $V=\\mathbb R$, $L=\\tfrac12v^2-U(q)$ : déformer interactivement une courbe reliant $a$ à $b$ et voir $\\hat L$ varier ; la solution de (E.L) est la courbe où la « pente » de $\\hat L$ dans toutes les directions $h$ s'annule. Afficher le résidu $\\frac{d}{dt}\\partial_vL-\\partial_qL$ le long de la courbe.",
    "chapter": 8,
    "order": 6,
-   "depends_ids": [],
-   "depends_unresolved": [
-    "Question 1, p. 143 (structure affine de $E_{a,b}$, espace directeur $E_{0,0}$)",
-    "Question 2, p. 143 (formule de $d\\hat L_\\gamma$)",
-    "Question 4, p. 144 (variante du lemme de du Bois-Reymond)"
-   ]
+   "depends_ids": [
+    "ch08-eab-complet-affine",
+    "ch08-lhat-c1-differentielle",
+    "ch08-du-bois-reymond-derivee"
+   ],
+   "depends_unresolved": []
   },
   {
    "id": "ch08-energie-conservee",
@@ -10696,12 +11142,11 @@
    "chapter": 8,
    "order": 7,
    "depends_ids": [
+    "ch08-euler-lagrange",
     "ch05-composition-differentielles",
     "ch05-differentielles-partielles"
    ],
-   "depends_unresolved": [
-    "Question 5, p. 144 (équation d'Euler-Lagrange)"
-   ]
+   "depends_unresolved": []
   },
   {
    "id": "ch08-equation-newton",
@@ -10729,11 +11174,10 @@
    "chapter": 8,
    "order": 8,
    "depends_ids": [
+    "ch08-euler-lagrange",
     "ch05-gradient-hilbert"
    ],
-   "depends_unresolved": [
-    "Question 5, p. 144 (équation d'Euler-Lagrange)"
-   ]
+   "depends_unresolved": []
   },
   {
    "id": "ch08-courbes-confinees-ouverts",
@@ -10810,12 +11254,12 @@
    "viz_hint": "",
    "chapter": 8,
    "order": 11,
-   "depends_ids": [],
-   "depends_unresolved": [
-    "Question 8, p. 144 (voisinage d'un compact dans un ouvert)",
-    "Question 2, p. 143 (différentielle de $\\hat L$)",
-    "Question 5, p. 144 (équation d'Euler-Lagrange)"
-   ]
+   "depends_ids": [
+    "ch08-voisinage-compact-dans-ouvert",
+    "ch08-lhat-c1-differentielle",
+    "ch08-euler-lagrange"
+   ],
+   "depends_unresolved": []
   },
   {
    "id": "ch08-changement-de-variables",
@@ -10850,12 +11294,11 @@
    "depends_ids": [
     "ch05-composition-differentielles",
     "ch05-differentielles-partielles",
-    "ch05-lemme-schwarz"
+    "ch05-lemme-schwarz",
+    "ch08-euler-lagrange",
+    "ch08-lhat-c1-differentielle"
    ],
-   "depends_unresolved": [
-    "Question 5, p. 144 (équation d'Euler-Lagrange)",
-    "Question 2, p. 143 (différentielle de $\\hat L$)"
-   ]
+   "depends_unresolved": []
   },
   {
    "id": "ch08-groupe-un-parametre-invariance",
@@ -10963,12 +11406,11 @@
    "chapter": 8,
    "order": 15,
    "depends_ids": [
+    "ch08-invariance-infinitesimale",
+    "ch08-euler-lagrange",
     "ch05-composition-differentielles"
    ],
-   "depends_unresolved": [
-    "Question 11, p. 145 (forme infinitésimale de l'invariance)",
-    "Question 5, p. 144 (équation d'Euler-Lagrange)"
-   ]
+   "depends_unresolved": []
   },
   {
    "id": "ch08-moment-cinetique",
@@ -10997,12 +11439,12 @@
    "viz_hint": "Orbite képlérienne en 3D avec le vecteur $\\gamma\\wedge\\gamma'$ fixe (plan de l'orbite) ; à comparer avec un potentiel non central où ce vecteur tourne.",
    "chapter": 8,
    "order": 16,
-   "depends_ids": [],
-   "depends_unresolved": [
-    "Question 12, p. 145 (théorème de Noether)",
-    "Question 7, p. 144 (équation de Newton)",
-    "Question 9, p. 145 (Lagrangien sur un ouvert)"
-   ]
+   "depends_ids": [
+    "ch08-noether",
+    "ch08-equation-newton",
+    "ch08-ouverture-courbes-confinees"
+   ],
+   "depends_unresolved": []
   },
   {
    "id": "ch08-lagrangien-regulier",
@@ -11102,15 +11544,14 @@
    "chapter": 8,
    "order": 19,
    "depends_ids": [
+    "ch08-legendre-inversion-locale",
+    "ch08-euler-lagrange",
     "ch07-cauchy-lipschitz",
     "ch07-restriction-domaine-c1-lipschitz",
     "ch07-champ-vecteurs-courbe-integrale-def",
     "ch05-accroissements-finis"
    ],
-   "depends_unresolved": [
-    "Question 13, p. 146 (transformation de Legendre)",
-    "Question 5, p. 144 (équation d'Euler-Lagrange)"
-   ]
+   "depends_unresolved": []
   },
   {
    "id": "ch08-existence-unicite-locale",
@@ -11143,13 +11584,2223 @@
    "chapter": 8,
    "order": 20,
    "depends_ids": [
+    "ch08-systeme-premier-ordre-cauchy-lipschitz",
+    "ch08-legendre-inversion-locale",
     "ch07-cauchy-lipschitz",
     "ch07-unicite-globale"
    ],
-   "depends_unresolved": [
-    "Question 14, p. 146 (système du premier ordre)",
-    "Question 13, p. 146 (transformation de Legendre)"
-   ]
+   "depends_unresolved": []
+  },
+  {
+   "id": "ch09-immersion-submersion-def",
+   "kind": "definition",
+   "ref": "Définition IX.1.1",
+   "title": "Immersion, submersion",
+   "page": 147,
+   "statement": "Soit $f : U \\to \\mathbb R^q$ une application différentiable définie sur un ouvert $U$ de $\\mathbb R^p$. On dit que $f$ est une **immersion** (resp. une **submersion**) en $a\\in U$ si $df_a$ est injective (resp. surjective) de $\\mathbb R^p$ dans $\\mathbb R^q$. On dit que $f$ est une immersion (resp. une submersion) si c'est une immersion (resp. une submersion) en tout point de $U$.",
+   "hypotheses": [
+    "$f$ différentiable sur un ouvert $U$ de $\\mathbb R^p$",
+    "condition ponctuelle sur $df_a$ (injective / surjective)"
+   ],
+   "depends_on": [],
+   "used_by_hint": "Condition 3 de la Définition IX.2.1 (un paramétrage local est une immersion) ; Proposition IX.1.2 ; Proposition IX.4.1 (submersion) ; généralisée aux applications entre sous-variétés dans la Définition IX.7.28.",
+   "importance": 3,
+   "proof_in_poly": "none",
+   "proof_length": "short",
+   "counterexample_hints": [
+    "Immersion en tout point n'implique pas injectivité globale : $t\\mapsto(t^3-4t,t^2-4)$ (Exemple IX.2.14).",
+    "Une immersion injective n'est pas forcément un homéomorphisme sur son image : folium de Descartes (Exemple IX.2.15)."
+   ],
+   "viz_hint": "Montrer $df_a$ comme application linéaire : image de $\\mathbb R^p$ dans $\\mathbb R^q$ (plan tangent pour une immersion $\\mathbb R^2\\to\\mathbb R^3$) et noyau pour une submersion $\\mathbb R^3\\to\\mathbb R$ (le gradient non nul).",
+   "chapter": 9,
+   "order": 0,
+   "depends_ids": [],
+   "depends_unresolved": []
+  },
+  {
+   "id": "ch09-immersion-locale-homeo",
+   "kind": "proposition",
+   "ref": "Proposition IX.1.2",
+   "title": "Une immersion en un point est localement une immersion et un homéomorphisme sur son image",
+   "page": 147,
+   "statement": "Soit $f : U\\to\\mathbb R^N$ une application de classe $C^1$ définie sur un ouvert $U$ de $\\mathbb R^m$. Soit $a\\in U$ tel que $df_a : \\mathbb R^m\\to\\mathbb R^N$ soit injective. Alors il existe un voisinage ouvert $U_1$ de $a$ dans $U$ tel que la restriction de $f$ à $U_1$ soit une immersion en tout point, et de plus, $f$ réalise un homéomorphisme entre $U_1$ et son image $f(U_1)$.",
+   "hypotheses": [
+    "$f$ de classe $C^1$ sur un ouvert $U\\subset\\mathbb R^m$",
+    "$df_a$ injective en un point $a$"
+   ],
+   "depends_on": [
+    "Théorème VI.3.2"
+   ],
+   "used_by_hint": "Exemple IX.2.9 (l'image $f(U_1)$ est une sous-variété) ; la technique (étendre $f$ en $F(q,t)=f(q)+t$ sur $U\\times H$, $H$ supplémentaire de $\\mathrm{Im}\\,df_a$) est réutilisée dans les preuves des Propositions IX.3.1 et IX.6.1 ; Proposition IX.7.29.",
+   "importance": 2,
+   "proof_in_poly": "full",
+   "proof_length": "short",
+   "counterexample_hints": [
+    "Sans la classe $C^1$ (seulement différentiable en $a$), on ne contrôle pas $df_q$ pour $q$ voisin de $a$ : l'inversion locale ne s'applique pas.",
+    "Le résultat est local : globalement une immersion peut ne pas être injective (Exemple IX.2.14)."
+   ],
+   "viz_hint": "La « construction du cylindre » : on épaissit la nappe $f(U)$ dans la direction d'un supplémentaire $H$ pour obtenir un difféomorphisme local $F$ de $U\\times H$ sur un voisinage de $f(a)$.",
+   "chapter": 9,
+   "order": 1,
+   "depends_ids": [
+    "ch06-inversion-locale"
+   ],
+   "depends_unresolved": []
+  },
+  {
+   "id": "ch09-point-critique-valeur-reguliere-def",
+   "kind": "definition",
+   "ref": "Définition IX.1.3",
+   "title": "Point critique, valeur critique, point régulier, valeur régulière",
+   "page": 148,
+   "statement": "Soit $f : V\\to\\mathbb R^N$ une fonction différentiable définie sur un ouvert $V$ de $\\mathbb R^m$. Si $x\\in V$ est tel que $df_x : \\mathbb R^m\\to\\mathbb R^N$ n'est pas surjective, $x$ est appelé **point critique** de $f$ et $a=f(x)\\in\\mathbb R^N$ est appelée **valeur critique** de $f$. Si $x\\in V$ n'est pas un point critique, c'est un **point régulier**. Si $a\\in\\mathbb R^N$ n'est pas une valeur critique, c'est une **valeur régulière**. C'est en particulier le cas lorsque $a$ n'est pas dans l'image de $f$.",
+   "hypotheses": [
+    "$f$ différentiable sur un ouvert $V\\subset\\mathbb R^m$"
+   ],
+   "depends_on": [],
+   "used_by_hint": "Proposition IX.4.1 (2) : $f^{-1}(\\{a\\})$ est une sous-variété si $a$ est valeur régulière ; Propositions IX.4.5, IX.4.6, IX.7.13, IX.7.35 ; la Définition IX.7.32 étend la notion aux applications entre sous-variétés.",
+   "importance": 3,
+   "proof_in_poly": "none",
+   "proof_length": "short",
+   "counterexample_hints": [
+    "Attention : « valeur régulière » porte sur TOUS les points de la fibre $f^{-1}(\\{a\\})$ ; pour $f(x,y)=xy$, $0$ est valeur critique car $(0,0)$ est un point critique, et $f^{-1}(0)$ n'est pas une sous-variété.",
+    "Une valeur hors de l'image est régulière par convention (fibre vide)."
+   ],
+   "viz_hint": "Pour $f:\\mathbb R^2\\to\\mathbb R$ (par ex. $f(x,y)=x^2-y^2$ ou $f=x^2+y^2$), tracer les lignes de niveau $f=a$ et le gradient : la fibre est une courbe lisse quand $a$ est régulière et se singularise à une valeur critique.",
+   "chapter": 9,
+   "order": 2,
+   "depends_ids": [],
+   "depends_unresolved": []
+  },
+  {
+   "id": "ch09-rang-constant-rappel",
+   "kind": "remark",
+   "ref": "Remarque IX.1.4",
+   "title": "Théorème du rang constant (rappel)",
+   "page": 148,
+   "statement": "Le théorème du rang constant, démontré en exercice au chapitre précédent (exercice VI.4.9) : si $f : U\\to\\mathbb R^m$ est de classe $C^p$ sur un ouvert $U$ de $\\mathbb R^n$ et si $df_x$ est de rang constant égal à $r$ au voisinage de $a$, alors, à des difféomorphismes près à la source et au but, $f$ s'écrit localement $(x_1,\\dots,x_n)\\mapsto(x_1,\\dots,x_r,0,\\dots,0)$. Les cas particuliers des immersions et des submersions y sont traités séparément.",
+   "hypotheses": [
+    "$f$ de classe $C^p$ ($p\\ge1$) sur un ouvert de $\\mathbb R^n$",
+    "rang de $df_x$ constant égal à $r$ sur un voisinage de $a$"
+   ],
+   "depends_on": [
+    "Exercice VI.4.9"
+   ],
+   "used_by_hint": "Forme normale locale des immersions ($r=n$) et des submersions ($r=m$) : c'est le cœur des Propositions IX.3.1 et IX.4.1.",
+   "importance": 2,
+   "proof_in_poly": "exercise",
+   "proof_length": "medium",
+   "counterexample_hints": [
+    "Le rang doit être constant au voisinage de $a$, pas seulement en $a$ : $f(x)=x^2$ a rang 0 en $0$ et 1 ailleurs, et n'est pas localement de la forme $x\\mapsto 0$."
+   ],
+   "viz_hint": "",
+   "chapter": 9,
+   "order": 3,
+   "depends_ids": [
+    "ch06-theoreme-rang-constant"
+   ],
+   "depends_unresolved": []
+  },
+  {
+   "id": "ch09-sous-variete-def",
+   "kind": "definition",
+   "ref": "Définition IX.2.1",
+   "title": "Sous-variété de $\\mathbb R^N$, paramétrage local, carte, codimension, surface, hypersurface",
+   "page": 148,
+   "statement": "Soient $m\\in\\mathbb N$ et $k\\in\\mathbb N^\\times\\cup\\{\\infty\\}$. Un sous-ensemble $S$ de $\\mathbb R^N$ est une **sous-variété de dimension $m$ de classe $C^k$** si pour tout $p\\in S$, il existe un ouvert $U$ de $\\mathbb R^m$, un voisinage ouvert $V$ de $p$ dans $\\mathbb R^N$ et une application $x : U\\to V$ tels que :\n1. l'application $x$ est différentiable de classe $C^k$,\n2. l'application $x$ est un homéomorphisme de $U$ sur $V\\cap S$,\n3. (condition de régularité) en tout point $q\\in U$, la différentielle $dx_q : \\mathbb R^m\\to\\mathbb R^N$ est injective (autrement dit, $x$ est une immersion).\n\nL'application $x$ est un **paramétrage local** de la sous-variété $S$ en $p$. Son inverse $x^{-1} : V\\cap S\\to U$ est une **carte** ou encore un **système de coordonnées (locales)** de la sous-variété $S$ en $p$. La **codimension** d'une sous-variété $S$ de dimension $m$ de $\\mathbb R^N$ est $N-m$. Une sous-variété de dimension 2 est appelée **surface**. Une sous-variété de codimension 1 est appelée **hypersurface**.\n\nAu point 2, la topologie sur $S$ est celle induite par la topologie usuelle de $\\mathbb R^N$.",
+   "hypotheses": [
+    "$x$ de classe $C^k$, $k\\ge1$",
+    "$x$ homéomorphisme de $U$ sur $V\\cap S$ (topologie induite)",
+    "$dx_q$ injective en tout point $q\\in U$"
+   ],
+   "depends_on": [],
+   "used_by_hint": "Définition de base de tout le chapitre ; reformulée de façon équivalente par les Propositions IX.3.1, IX.4.5-IX.4.6, IX.5.2-IX.5.3.",
+   "importance": 3,
+   "proof_in_poly": "none",
+   "proof_length": "short",
+   "counterexample_hints": [
+    "Sans la condition 2 (homéomorphisme sur $V\\cap S$) : folium de Descartes (Exemple IX.2.15), immersion injective dont l'image n'est pas une sous-variété ; demi-droite $[0;+\\infty[$ (Exemple IX.2.11) et croix $xy=0$ (Exemple IX.2.12) ne sont homéomorphes à aucun ouvert de $\\mathbb R^m$ au voisinage de $0$.",
+    "Sans la condition 3 (immersion) : le cusp $t\\mapsto(t^2,t^3)$ (Exercice IX.2.13) est un homéomorphisme $C^\\infty$ sur son image, mais $dx_0=0$ ; le cône $x^2+y^2-z^2=0$ (Exercice IX.7.12).",
+    "Point multiple : $t\\mapsto(t^3-4t,t^2-4)$ est une immersion non injective (Exemple IX.2.14)."
+   ],
+   "viz_hint": "Figure p. 149 : un ouvert $U$ de $\\mathbb R^2$ envoyé par $x$ sur un morceau $V\\cap S$ d'une surface de $\\mathbb R^3$ ; faire bouger $q=(u,v)$ et voir $p=x(q)$ et les vecteurs $x_u,x_v$.",
+   "chapter": 9,
+   "order": 4,
+   "depends_ids": [],
+   "depends_unresolved": []
+  },
+  {
+   "id": "ch09-sous-variete-remarques",
+   "kind": "remark",
+   "ref": "Remarques IX.2.2",
+   "title": "Conséquences immédiates de la définition : $m\\le N$, régularité, espace ambiant",
+   "page": 148,
+   "statement": "1. La condition 3 implique que $m\\le N$.\n2. Nous n'insisterons pas toujours sur les hypothèses de régularité minimales requises pour définir les notions et obtenir les résultats qui suivent. Le lecteur pourra soit supposer que les sous-variétés considérées sont toujours lisses (i.e. $k=\\infty$) et que toutes les applications sont de classe $C^\\infty$, soit s'il est courageux, déterminer pour quelles classes de régularité les énoncés ont un sens et sont valides.\n3. On peut remplacer $\\mathbb R^N$ dans la définition ci-dessus par n'importe quel espace vectoriel réel de dimension finie $E$.",
+   "hypotheses": [],
+   "depends_on": [
+    "Définition IX.2.1"
+   ],
+   "used_by_hint": "Point 3 utilisé implicitement dans l'Exercice IX.9.2 ($SO(n)\\subset M_n(\\mathbb R)$).",
+   "importance": 1,
+   "proof_in_poly": "none",
+   "proof_length": "short",
+   "counterexample_hints": [],
+   "viz_hint": "",
+   "chapter": 9,
+   "order": 5,
+   "depends_ids": [
+    "ch09-sous-variete-def"
+   ],
+   "depends_unresolved": []
+  },
+  {
+   "id": "ch09-ex-ouvert-sous-variete",
+   "kind": "example",
+   "ref": "Exemple IX.2.3",
+   "title": "Un ouvert de $\\mathbb R^N$ est une sous-variété",
+   "page": 149,
+   "statement": "Un ouvert $U$ de $\\mathbb R^N$ est une sous-variété de $\\mathbb R^N$ (de dimension $N$). En tout point de $U$, on peut choisir comme paramétrage local l'inclusion de $U$ dans $\\mathbb R^N$.",
+   "hypotheses": [
+    "$U$ ouvert de $\\mathbb R^N$"
+   ],
+   "depends_on": [
+    "Définition IX.2.1"
+   ],
+   "used_by_hint": "Permet de voir le calcul différentiel ordinaire comme cas particulier (Remarques IX.7.16, point 1 : $T_pU=\\mathbb R^N$).",
+   "importance": 1,
+   "proof_in_poly": "sketch",
+   "proof_length": "short",
+   "counterexample_hints": [],
+   "viz_hint": "",
+   "chapter": 9,
+   "order": 6,
+   "depends_ids": [
+    "ch09-sous-variete-def"
+   ],
+   "depends_unresolved": []
+  },
+  {
+   "id": "ch09-ex-dimension-zero",
+   "kind": "example",
+   "ref": "Exemple IX.2.4",
+   "title": "Sous-variétés de dimension 0",
+   "page": 149,
+   "statement": "Une sous-variété de dimension $0$ de $\\mathbb R^N$ est un ensemble discret.",
+   "hypotheses": [],
+   "depends_on": [
+    "Définition IX.2.1"
+   ],
+   "used_by_hint": "",
+   "importance": 1,
+   "proof_in_poly": "none",
+   "proof_length": "short",
+   "counterexample_hints": [
+    "$\\{1/n\\}\\cup\\{0\\}$ n'est pas une sous-variété de dimension 0 : $0$ n'est pas isolé ; $\\{1/n,\\ n\\ge1\\}$ l'est (discret, non fermé, cf. Remarque IX.2.17)."
+   ],
+   "viz_hint": "",
+   "chapter": 9,
+   "order": 7,
+   "depends_ids": [
+    "ch09-sous-variete-def"
+   ],
+   "depends_unresolved": []
+  },
+  {
+   "id": "ch09-ex-sous-espace-affine",
+   "kind": "example",
+   "ref": "Exemple IX.2.5",
+   "title": "Sous-espaces vectoriels ou affines",
+   "page": 149,
+   "statement": "Un sous-espace vectoriel ou affine de $\\mathbb R^N$ de dimension $m$ est une sous-variété (de dimension $m$).",
+   "hypotheses": [],
+   "depends_on": [
+    "Définition IX.2.1"
+   ],
+   "used_by_hint": "Modèle local de toute sous-variété (Proposition IX.3.1) ; espace tangent affine (Définition IX.7.10).",
+   "importance": 1,
+   "proof_in_poly": "none",
+   "proof_length": "short",
+   "counterexample_hints": [],
+   "viz_hint": "",
+   "chapter": 9,
+   "order": 8,
+   "depends_ids": [
+    "ch09-sous-variete-def"
+   ],
+   "depends_unresolved": []
+  },
+  {
+   "id": "ch09-ex-ouvert-de-sous-variete",
+   "kind": "example",
+   "ref": "Exemple IX.2.6",
+   "title": "Un ouvert d'une sous-variété est une sous-variété",
+   "page": 149,
+   "statement": "Un ouvert d'une sous-variété $S$ de $\\mathbb R^N$ est une sous-variété de $\\mathbb R^N$ (de même classe de régularité et de même dimension).",
+   "hypotheses": [
+    "ouvert pour la topologie induite sur $S$"
+   ],
+   "depends_on": [
+    "Définition IX.2.1"
+   ],
+   "used_by_hint": "Preuve de la Proposition IX.5.3 ($x(U')$ ouvert de $S$ s'écrit $V\\cap S$) ; Remarque IX.8.6 ; Notations IX.7.18.",
+   "importance": 2,
+   "proof_in_poly": "none",
+   "proof_length": "short",
+   "counterexample_hints": [],
+   "viz_hint": "",
+   "chapter": 9,
+   "order": 9,
+   "depends_ids": [
+    "ch09-sous-variete-def"
+   ],
+   "depends_unresolved": []
+  },
+  {
+   "id": "ch09-ex-produit",
+   "kind": "example",
+   "ref": "Exemple IX.2.7",
+   "title": "Produit de deux sous-variétés",
+   "page": 149,
+   "statement": "Soient $S_1$ et $S_2$ des sous-variétés, respectivement de $\\mathbb R^{N_1}$ et $\\mathbb R^{N_2}$. Alors $S_1\\times S_2$ est une sous-variété de $\\mathbb R^{N_1}\\times\\mathbb R^{N_2}$ (de dimension $\\dim S_1+\\dim S_2$).",
+   "hypotheses": [],
+   "depends_on": [
+    "Définition IX.2.1"
+   ],
+   "used_by_hint": "$(\\mathbb S^{n-1})^n$ dans l'Exercice IX.9.15 ; tore $\\mathbb S^1\\times\\mathbb S^1$ ; $\\mathbb S^3\\times\\mathbb R^3$ dans l'Exercice IX.9.14.",
+   "importance": 1,
+   "proof_in_poly": "none",
+   "proof_length": "short",
+   "counterexample_hints": [],
+   "viz_hint": "",
+   "chapter": 9,
+   "order": 10,
+   "depends_ids": [
+    "ch09-sous-variete-def"
+   ],
+   "depends_unresolved": []
+  },
+  {
+   "id": "ch09-ex-image-diffeomorphisme",
+   "kind": "example",
+   "ref": "Exemple IX.2.8",
+   "title": "Image d'une sous-variété par un difféomorphisme de $\\mathbb R^N$",
+   "page": 149,
+   "statement": "Soit $S$ une sous-variété de $\\mathbb R^N$ et soit $\\Phi$ un difféomorphisme de $\\mathbb R^N$ sur lui-même. Alors $\\Phi(S)$ est encore une sous-variété de $\\mathbb R^N$.",
+   "hypotheses": [
+    "$\\Phi$ difféomorphisme global de $\\mathbb R^N$"
+   ],
+   "depends_on": [
+    "Définition IX.2.1"
+   ],
+   "used_by_hint": "Proposition IX.5.2 (image d'un graphe par un isomorphisme linéaire $A$) ; généralisé à un difféomorphisme entre ouverts dans l'Exercice IX.9.1.",
+   "importance": 2,
+   "proof_in_poly": "none",
+   "proof_length": "short",
+   "counterexample_hints": [
+    "Si $\\Phi$ est seulement un homéomorphisme, l'image peut perdre la régularité : l'homéomorphisme $(x,y)\\mapsto(x,y+|x|)$ de $\\mathbb R^2$ envoie la droite $y=0$ sur le graphe de $|x|$, qui n'est pas une sous-variété $C^1$."
+   ],
+   "viz_hint": "",
+   "chapter": 9,
+   "order": 11,
+   "depends_ids": [
+    "ch09-sous-variete-def"
+   ],
+   "depends_unresolved": []
+  },
+  {
+   "id": "ch09-ex-image-immersion-locale",
+   "kind": "example",
+   "ref": "Exemple IX.2.9",
+   "title": "L'image locale d'une immersion est une sous-variété",
+   "page": 149,
+   "statement": "Soit $f : U\\to\\mathbb R^N$ une application de classe $C^1$ définie sur un ouvert $U$ de $\\mathbb R^m$. Soit $q\\in U$ tel que $df_q$ soit injective. D'après la proposition IX.1.2, il existe un voisinage ouvert $U_1$ de $q$ dans $U$ tel que la restriction de $f$ à $U_1$ soit une immersion en tout point réalisant un homéomorphisme sur son image. Ainsi $S=f(U_1)$ est une sous-variété de $\\mathbb R^N$ paramétrée par $f : U_1\\to S$.",
+   "hypotheses": [
+    "$f$ de classe $C^1$",
+    "$df_q$ injective"
+   ],
+   "depends_on": [
+    "Proposition IX.1.2",
+    "Définition IX.2.1"
+   ],
+   "used_by_hint": "Preuve de la Proposition IX.7.29 (deux fois).",
+   "importance": 2,
+   "proof_in_poly": "sketch",
+   "proof_length": "short",
+   "counterexample_hints": [
+    "Globalement $f(U)$ peut ne pas être une sous-variété : Exemples IX.2.14 et IX.2.15."
+   ],
+   "viz_hint": "",
+   "chapter": 9,
+   "order": 12,
+   "depends_ids": [
+    "ch09-immersion-locale-homeo",
+    "ch09-sous-variete-def"
+   ],
+   "depends_unresolved": []
+  },
+  {
+   "id": "ch09-contre-ex-demi-droite",
+   "kind": "example",
+   "ref": "Exemple IX.2.11",
+   "title": "Contre-exemple : la demi-droite fermée $[0;+\\infty[$",
+   "page": 150,
+   "statement": "$S=[0;+\\infty[$ n'est pas une sous-variété de $\\mathbb R$. Tout voisinage ouvert connexe de $0$ dans $S$ est de la forme $[0;a[$, $a>0$, qui n'est jamais homéomorphe à un ouvert connexe de $\\mathbb R^m$. C'est évident si $m=0$. Pour $m=1$, on remarque que $[0;a[\\setminus\\{0\\}$ est connexe, alors qu'un intervalle ouvert privé d'un de ses points a deux composantes connexes. Pour $m\\ge2$, $[0;a[\\setminus\\{b\\}$ a deux composantes connexes pour tout $b\\in]0;a[$, alors qu'un ouvert connexe de $\\mathbb R^m$ privé d'un de ses points reste connexe.",
+   "hypotheses": [],
+   "depends_on": [
+    "Définition IX.2.1"
+   ],
+   "used_by_hint": "Technique « compter les composantes connexes après retrait d'un point » pour nier la condition 2 ; même argument pour la croix (Exemple IX.2.12).",
+   "importance": 2,
+   "proof_in_poly": "full",
+   "proof_length": "short",
+   "counterexample_hints": [],
+   "viz_hint": "",
+   "chapter": 9,
+   "order": 13,
+   "depends_ids": [
+    "ch09-sous-variete-def"
+   ],
+   "depends_unresolved": []
+  },
+  {
+   "id": "ch09-contre-ex-croix",
+   "kind": "example",
+   "ref": "Exemple IX.2.12",
+   "title": "Contre-exemple : la croix $(\\mathbb R\\times\\{0\\})\\cup(\\{0\\}\\times\\mathbb R)$",
+   "page": 150,
+   "statement": "$S=(\\mathbb R\\times\\{0\\})\\cup(\\{0\\}\\times\\mathbb R)$ (l'ensemble $xy=0$) n'est pas une sous-variété de $\\mathbb R^2$. Tout voisinage connexe de $(0,0)$ dans $S$ est encore homéomorphe à $S$. Or $S\\setminus\\{(0,0)\\}$ possède 4 composantes connexes, ce qui montre que $S$ ne peut être homéomorphe à un ouvert de $\\mathbb R^m$ : un tel ouvert connexe privé d'un point a au plus deux composantes connexes.",
+   "hypotheses": [],
+   "depends_on": [
+    "Définition IX.2.1"
+   ],
+   "used_by_hint": "Montre que $f^{-1}(0)$ pour $f(x,y)=xy$ n'est pas une sous-variété : $0$ est une valeur critique (introduction de la section IX.4).",
+   "importance": 2,
+   "proof_in_poly": "full",
+   "proof_length": "short",
+   "counterexample_hints": [],
+   "viz_hint": "Retirer le point $(0,0)$ et colorier les 4 branches ; comparer avec un intervalle ouvert privé d'un point (2 morceaux).",
+   "chapter": 9,
+   "order": 14,
+   "depends_ids": [
+    "ch09-sous-variete-def"
+   ],
+   "depends_unresolved": []
+  },
+  {
+   "id": "ch09-contre-ex-point-multiple",
+   "kind": "example",
+   "ref": "Exemple IX.2.14",
+   "title": "Contre-exemple : immersion avec point multiple",
+   "page": 150,
+   "statement": "Le paramétrage $x : t\\in\\mathbb R\\mapsto(t^3-4t,t^2-4)$ est une immersion en tout point, mais l'image n'est pas une sous-variété de $\\mathbb R^2$ à cause du point multiple en $(0,0)$ (atteint pour $t=\\pm2$).",
+   "hypotheses": [],
+   "depends_on": [
+    "Définition IX.2.1"
+   ],
+   "used_by_hint": "Montre que la condition 3 (immersion) n'implique pas la condition 2 (injectivité / homéomorphisme).",
+   "importance": 2,
+   "proof_in_poly": "none",
+   "proof_length": "short",
+   "counterexample_hints": [],
+   "viz_hint": "Tracer la courbe (boucle) et marquer le point double ; au voisinage de $(0,0)$, l'image privée du point a 4 branches.",
+   "chapter": 9,
+   "order": 15,
+   "depends_ids": [
+    "ch09-sous-variete-def"
+   ],
+   "depends_unresolved": []
+  },
+  {
+   "id": "ch09-contre-ex-folium",
+   "kind": "example",
+   "ref": "Exemple IX.2.15",
+   "title": "Contre-exemple : immersion injective dont l'image n'est pas une sous-variété (folium de Descartes)",
+   "page": 150,
+   "statement": "Le paramétrage $x : t\\in]-1;+\\infty[\\mapsto\\left(\\dfrac{3t}{1+t^3},\\dfrac{3t^2}{1+t^3}\\right)$ est une immersion en tout point, et de plus injectif. Néanmoins, l'image n'est pas une sous-variété à cause du point $(0,0)$ qui n'admet pas de paramétrage local satisfaisant la condition 2 de la définition (la branche $t\\to+\\infty$ revient s'accumuler sur $(0,0)$ : $x$ n'est pas un homéomorphisme sur son image).",
+   "hypotheses": [],
+   "depends_on": [
+    "Définition IX.2.1"
+   ],
+   "used_by_hint": "Justifie l'hypothèse « homéomorphisme sur l'image » dans la Définition IX.2.1 et dans l'Exercice IX.9.4 (b).",
+   "importance": 2,
+   "proof_in_poly": "none",
+   "proof_length": "short",
+   "counterexample_hints": [],
+   "viz_hint": "Tracer le folium et animer $t\\to+\\infty$ : le point $x(t)$ tend vers $(0,0)=x(0)$ sans que $t\\to0$ : l'inverse $x^{-1}$ n'est pas continu en $(0,0)$.",
+   "chapter": 9,
+   "order": 16,
+   "depends_ids": [
+    "ch09-sous-variete-def"
+   ],
+   "depends_unresolved": []
+  },
+  {
+   "id": "ch09-remarque-connexite",
+   "kind": "remark",
+   "ref": "Remarque IX.2.16",
+   "title": "Une sous-variété n'est pas supposée connexe",
+   "page": 151,
+   "statement": "On ne suppose pas qu'une sous-variété est connexe. Toute composante connexe de $S$ est encore une sous-variété de $\\mathbb R^N$ de même classe de régularité et de même dimension.",
+   "hypotheses": [],
+   "depends_on": [
+    "Définition IX.2.1"
+   ],
+   "used_by_hint": "L'hyperboloïde à deux nappes (p. 155) ; l'hypothèse « connexe » est explicitement ajoutée dans le Théorème IX.7.30 et les Exercices IX.7.37, IX.9.7, IX.9.8, IX.9.12.",
+   "importance": 1,
+   "proof_in_poly": "none",
+   "proof_length": "short",
+   "counterexample_hints": [],
+   "viz_hint": "",
+   "chapter": 9,
+   "order": 17,
+   "depends_ids": [
+    "ch09-sous-variete-def"
+   ],
+   "depends_unresolved": []
+  },
+  {
+   "id": "ch09-remarque-fermeture",
+   "kind": "remark",
+   "ref": "Remarque IX.2.17",
+   "title": "Une sous-variété n'est pas supposée fermée (spirale)",
+   "page": 151,
+   "statement": "On ne suppose pas qu'une sous-variété de $\\mathbb R^N$ soit fermée dans $\\mathbb R^N$. Par exemple, dans $\\mathbb R^2$, la spirale définie par le paramétrage $x : \\mathbb R\\to\\mathbb R^2$, $s\\mapsto(e^s\\cos s,e^s\\sin s)$ a dans son adhérence le point $(0,0)$ qui n'est pas un point de la sous-variété. Comme autre exemple, on peut citer celui d'une droite privée d'un point.",
+   "hypotheses": [],
+   "depends_on": [
+    "Définition IX.2.1"
+   ],
+   "used_by_hint": "L'hypothèse « fermée » est essentielle dans la Proposition IX.8.1 (sinon la courbe intégrale peut sortir de $S$ en atteignant un point de $\\bar S\\setminus S$).",
+   "importance": 2,
+   "proof_in_poly": "none",
+   "proof_length": "short",
+   "counterexample_hints": [],
+   "viz_hint": "Spirale logarithmique s'enroulant vers l'origine : l'origine est dans l'adhérence mais pas dans $S$.",
+   "chapter": 9,
+   "order": 18,
+   "depends_ids": [
+    "ch09-sous-variete-def"
+   ],
+   "depends_unresolved": []
+  },
+  {
+   "id": "ch09-redressement-local",
+   "kind": "proposition",
+   "ref": "Proposition IX.3.1",
+   "title": "Caractérisation par redressement : une sous-variété est localement difféomorphe à $\\mathbb R^m\\times\\{0\\}$",
+   "page": 151,
+   "statement": "Soient $m\\in\\mathbb N$ et $k\\in\\mathbb N^\\times\\cup\\{\\infty\\}$ et $S$ une partie de $\\mathbb R^N$. Alors $S$ est une sous-variété de dimension $m$ de classe $C^k$ si et seulement si pour tout $p\\in S$, il existe un voisinage ouvert $V'$ de $p$ dans $\\mathbb R^N$, un ouvert $W$ dans $\\mathbb R^N$ et un $C^k$-difféomorphisme $\\Phi : V'\\to W$ tels que\n$$\\Phi(V'\\cap S)=(\\mathbb R^m\\times\\{0\\})\\cap W.$$",
+   "hypotheses": [
+    "$S\\subset\\mathbb R^N$ quelconque",
+    "$\\Phi$ difféomorphisme de classe $C^k$ entre ouverts de $\\mathbb R^N$",
+    "$\\Phi$ envoie exactement $V'\\cap S$ sur $(\\mathbb R^m\\times\\{0\\})\\cap W$"
+   ],
+   "depends_on": [
+    "Définition IX.2.1",
+    "Théorème VI.3.2"
+   ],
+   "used_by_hint": "Preuves des Propositions IX.4.6, IX.6.1, IX.7.29 et IX.8.1 (on « redresse » $S$ avant de raisonner) ; la construction $F(u,t)=x(u)+\\varphi(t)$ de la preuve est reprise dans IX.6.1.",
+   "importance": 3,
+   "proof_in_poly": "full",
+   "proof_length": "medium",
+   "counterexample_hints": [
+    "Si $\\Phi$ n'est qu'un homéomorphisme, la caractérisation échoue : le cusp $\\{(t^2,t^3)\\}$ est homéomorphe à une droite via un homéomorphisme ambiant mais n'est pas une sous-variété.",
+    "La condition $\\Phi(V'\\cap S)=(\\mathbb R^m\\times\\{0\\})\\cap W$ exige l'égalité, pas seulement l'inclusion $\\subset$ (sinon la croix $xy=0$ vérifierait l'inclusion dans une droite ? non, mais un sous-ensemble arbitraire d'une droite la vérifierait)."
+   ],
+   "viz_hint": "Figure p. 152 : la surface $S\\cap V$ et son image aplatie $(\\mathbb R^2\\times\\{0\\})\\cap W$ par $\\Phi=F^{-1}$ ; animer la déformation $F(u,t)=x(u)+\\varphi(t)$ qui épaissit la nappe le long des normales.",
+   "chapter": 9,
+   "order": 19,
+   "depends_ids": [
+    "ch09-sous-variete-def",
+    "ch06-inversion-locale"
+   ],
+   "depends_unresolved": []
+  },
+  {
+   "id": "ch09-sous-variete-equation-valeur-reguliere",
+   "kind": "proposition",
+   "ref": "Proposition IX.4.1",
+   "title": "Image réciproque d'une valeur régulière (sous-variété définie par une équation)",
+   "page": 152,
+   "statement": "Soient $N$ et $m$ deux entiers, $N>m$. Soit $f : V\\to\\mathbb R^{N-m}$ une fonction de classe $C^k$ définie sur un ouvert $V$ de $\\mathbb R^N$.\n1. Soit $p\\in V$ tel que $df_p$ soit surjective. Posons $a=f(p)$. Alors il existe un voisinage ouvert $V_1$ de $p$ dans $V$ tel que $f^{-1}(\\{a\\})\\cap V_1$ est une sous-variété de dimension $m$ et de classe $C^k$ de $\\mathbb R^N$.\n2. Soit $a$ une valeur régulière de $f$. Alors $S=f^{-1}(\\{a\\})$ est une sous-variété de dimension $m$ et de classe $C^k$ de $\\mathbb R^N$.",
+   "hypotheses": [
+    "$f$ de classe $C^k$ sur un ouvert $V$ de $\\mathbb R^N$, à valeurs dans $\\mathbb R^{N-m}$",
+    "(1) $df_p$ surjective en $p$",
+    "(2) $a$ valeur régulière : $df_p$ surjective pour tout $p\\in f^{-1}(\\{a\\})$"
+   ],
+   "depends_on": [
+    "Théorème VI.3.2",
+    "Définition IX.1.3",
+    "Définition IX.2.1"
+   ],
+   "used_by_hint": "Exemples IX.4.2-IX.4.4 (sphère, quadriques, tore) ; Proposition IX.4.5 ; preuve de la Proposition IX.7.29 (1) ; Exercices IX.9.2, IX.9.5, IX.9.6, IX.9.14 ; outil n°1 pour montrer qu'un ensemble est une sous-variété.",
+   "importance": 3,
+   "proof_in_poly": "full",
+   "proof_length": "medium",
+   "counterexample_hints": [
+    "$f(x,y)=xy$, $a=0$ : $df_{(0,0)}=0$ n'est pas surjective, $f^{-1}(0)$ est la croix (pas une sous-variété).",
+    "$f(x,y,z)=x^2+y^2-z^2$, $a=0$ : le cône (Exercice IX.7.12).",
+    "La réciproque est fausse : $f(x)=x^2$ sur $\\mathbb R$ a pour fibre $f^{-1}(0)=\\{0\\}$, qui est une sous-variété (dimension 0) alors que $0$ est valeur critique ; de même $f(x,y)=(x^2+y^2)^2$ a pour fibre $f^{-1}(1)$ le cercle, bien que la fibre de la valeur critique $0$ soit un point."
+   ],
+   "viz_hint": "Surfaces de niveau $f=a$ d'une fonction $\\mathbb R^3\\to\\mathbb R$ (ellipsoïde, hyperboloïdes p. 153-155) ; curseur sur $a$ : passage par la valeur critique $a=0$ de $x^2+y^2-z^2$ (hyperboloïde à une nappe, cône, deux nappes).",
+   "chapter": 9,
+   "order": 20,
+   "depends_ids": [
+    "ch06-inversion-locale",
+    "ch09-point-critique-valeur-reguliere-def",
+    "ch09-sous-variete-def"
+   ],
+   "depends_unresolved": []
+  },
+  {
+   "id": "ch09-ex-sphere",
+   "kind": "example",
+   "ref": "Exemple IX.4.2",
+   "title": "La sphère $\\mathbb S^n$ est une sous-variété de $\\mathbb R^{n+1}$",
+   "page": 153,
+   "statement": "La sphère $\\mathbb S^n$ est une sous-variété de $\\mathbb R^{n+1}$ (de dimension $n$), car $\\mathbb S^n=f^{-1}(\\{1\\})$ où $f : \\mathbb R^{n+1}\\setminus\\{0\\}\\to\\mathbb R$, $f(x)=\\|x\\|^2$ est différentiable, de différentielle $df_x(v)=2\\langle x,v\\rangle$ ($x\\in\\mathbb R^{n+1}\\setminus\\{0\\}$, $v\\in\\mathbb R^{n+1}$), donc est une submersion en tout point $x$.",
+   "hypotheses": [],
+   "depends_on": [
+    "Proposition IX.4.1"
+   ],
+   "used_by_hint": "Exemples IX.8.2 (1), Exercices IX.7.36, IX.9.4, IX.9.6, IX.9.14, IX.9.15 ; $T_x\\mathbb S^n=x^\\perp$ via la Proposition IX.7.13.",
+   "importance": 2,
+   "proof_in_poly": "full",
+   "proof_length": "short",
+   "counterexample_hints": [
+    "Le même $f$ sur $\\mathbb R^{n+1}$ entier a $0$ pour point critique, mais $0\\notin f^{-1}(1)$ : on restreint à $\\mathbb R^{n+1}\\setminus\\{0\\}$ ou on vérifie la surjectivité seulement sur la fibre."
+   ],
+   "viz_hint": "Sphère avec gradient $2x$ normal et plan tangent $x^\\perp$ en un point mobile.",
+   "chapter": 9,
+   "order": 21,
+   "depends_ids": [
+    "ch09-sous-variete-equation-valeur-reguliere"
+   ],
+   "depends_unresolved": []
+  },
+  {
+   "id": "ch09-ex-quadriques",
+   "kind": "example",
+   "ref": "Exemple IX.4.3",
+   "title": "Les quadriques $\\sum a_ix_i^2=1$ sont des sous-variétés",
+   "page": 154,
+   "statement": "Plus généralement, toutes les quadriques de $\\mathbb R^N$, c'est-à-dire les sous-ensembles de $\\mathbb R^N$ définis par une équation de la forme $\\sum_{i=1}^N a_ix_i^2=1$, où les $a_i$ sont dans $\\mathbb R$ et non tous nuls, sont des sous-variétés de $\\mathbb R^N$ (hypersurfaces). Figures : ellipsoïde $\\sum a_ix_i^2=1$, $a_i>0$ ; hyperboloïde à une nappe $x^2+y^2-z^2=1$ ; hyperboloïde à deux nappes $z^2-x^2-y^2=1$.",
+   "hypotheses": [
+    "second membre $1\\neq0$ (la quadrique ne passe pas par $0$, seul point critique de $f(x)=\\sum a_ix_i^2$)",
+    "$(a_i)$ non tous nuls"
+   ],
+   "depends_on": [
+    "Proposition IX.4.1"
+   ],
+   "used_by_hint": "",
+   "importance": 1,
+   "proof_in_poly": "none",
+   "proof_length": "short",
+   "counterexample_hints": [
+    "Avec second membre $0$ : le cône $x^2+y^2-z^2=0$ n'est pas une sous-variété (Exercice IX.7.12) ; $x^2+y^2=0$ est un point (dimension 0, pas 2)."
+   ],
+   "viz_hint": "Les trois quadriques de révolution p. 153-155, et la famille $x^2+y^2-z^2=c$ quand $c$ traverse 0.",
+   "chapter": 9,
+   "order": 22,
+   "depends_ids": [
+    "ch09-sous-variete-equation-valeur-reguliere"
+   ],
+   "depends_unresolved": []
+  },
+  {
+   "id": "ch09-ex-tore",
+   "kind": "example",
+   "ref": "Exemple IX.4.4",
+   "title": "Le tore $(\\sqrt{x^2+y^2}-a)^2+z^2=r^2$",
+   "page": 154,
+   "statement": "Soit $S$ le tore d'axe $D=\\{x=y=0\\}$ dont les distances respectivement minimale et maximale à l'axe sont $a-r$ et $a+r$, où $a$ et $r$ sont deux réels tels que $0<r<a$, défini par l'équation $(\\sqrt{x^2+y^2}-a)^2+z^2=r^2$. Comme $0<r<a$, le tore ne rencontre pas l'axe : $S\\cap D=\\emptyset$. On a donc $S=f^{-1}(\\{r^2\\})$ où $f : \\mathbb R^3\\setminus D\\to\\mathbb R$, $f(x,y,z)=(\\sqrt{x^2+y^2}-a)^2+z^2$. La fonction $f$ est différentiable sur l'ouvert $\\mathbb R^3\\setminus D$ et\n$$\\frac{\\partial f}{\\partial x}=\\frac{2x(\\sqrt{x^2+y^2}-a)}{\\sqrt{x^2+y^2}},\\quad\\frac{\\partial f}{\\partial y}=\\frac{2y(\\sqrt{x^2+y^2}-a)}{\\sqrt{x^2+y^2}},\\quad\\frac{\\partial f}{\\partial z}=2z.$$\nLa différentielle $df_p$ ne s'annule pas en $p\\in S$ : si $z\\neq0$, alors $\\partial f/\\partial z\\neq0$ ; si $z=0$, alors $(\\sqrt{x^2+y^2}-a)^2=r^2$ donne $\\sqrt{x^2+y^2}=a\\pm r\\neq a$, de sorte que $(x,y)\\neq(0,0)$ et que $\\partial f/\\partial x$ et $\\partial f/\\partial y$ ne sont pas toutes deux nulles. Ceci montre que $S$ est une sous-variété de $\\mathbb R^3$. On notera $\\mathbb T^2$ le tore obtenu en prenant $a=2$ et $r=1$.",
+   "hypotheses": [
+    "$0<r<a$"
+   ],
+   "depends_on": [
+    "Proposition IX.4.1"
+   ],
+   "used_by_hint": "Exemple type de vérification « $df_p\\neq0$ sur la fibre » ; notation $\\mathbb T^2$.",
+   "importance": 2,
+   "proof_in_poly": "full",
+   "proof_length": "short",
+   "counterexample_hints": [
+    "Si $r=a$, le tore « pincé » touche l'axe en $(0,0,0)$ et n'est plus une sous-variété.",
+    "Si $r>a$, la surface $f^{-1}(r^2)$ dans $\\mathbb R^3\\setminus D$ reste une sous-variété non fermée dans $\\mathbb R^3$ (tore à fuseau), mais ce n'est plus le tore usuel."
+   ],
+   "viz_hint": "Tore de révolution p. 155 avec $a$, $r$ réglables ; dégénérescence quand $r\\to a$.",
+   "chapter": 9,
+   "order": 23,
+   "depends_ids": [
+    "ch09-sous-variete-equation-valeur-reguliere"
+   ],
+   "depends_unresolved": []
+  },
+  {
+   "id": "ch09-caracterisation-equations-locales",
+   "kind": "proposition",
+   "ref": "Proposition IX.4.5",
+   "title": "Un ensemble localement défini par une équation régulière est une sous-variété",
+   "page": 155,
+   "statement": "Soit $S$ une partie de $\\mathbb R^N$ et supposons que pour tout point $p$ de $S$, il existe un voisinage ouvert $V$ de $p$ dans $\\mathbb R^N$ et une fonction $\\Psi : V\\to\\mathbb R^{N-m}$ de classe $C^k$ dont $0$ est valeur régulière tels que\n$$S\\cap V=\\{x\\in V\\mid\\Psi(x)=0\\}.$$\nAlors $S$ est une sous-variété de dimension $m$ de $\\mathbb R^N$ (de classe $C^k$).",
+   "hypotheses": [
+    "pour chaque $p$ : $\\Psi$ de classe $C^k$ sur un voisinage ouvert $V$ de $p$",
+    "$0$ valeur régulière de $\\Psi$ ($d\\Psi_x$ surjective pour tout $x\\in\\Psi^{-1}(0)$)",
+    "égalité $S\\cap V=\\Psi^{-1}(0)$"
+   ],
+   "depends_on": [
+    "Proposition IX.4.1",
+    "Définition IX.2.1"
+   ],
+   "used_by_hint": "Avec la Proposition IX.4.6 : définition alternative des sous-variétés (Remarque IX.4.7).",
+   "importance": 2,
+   "proof_in_poly": "sketch",
+   "proof_length": "short",
+   "counterexample_hints": [],
+   "viz_hint": "",
+   "chapter": 9,
+   "order": 24,
+   "depends_ids": [
+    "ch09-sous-variete-equation-valeur-reguliere",
+    "ch09-sous-variete-def"
+   ],
+   "depends_unresolved": []
+  },
+  {
+   "id": "ch09-sous-variete-localement-equation",
+   "kind": "proposition",
+   "ref": "Proposition IX.4.6",
+   "title": "Toute sous-variété est localement définie par une équation régulière",
+   "page": 156,
+   "statement": "Soit $S$ une sous-variété de dimension $m$ de classe $C^k$ de $\\mathbb R^N$. Alors pour tout point $p$ de $S$, il existe un voisinage ouvert $V$ de $p$ dans $\\mathbb R^N$ et une fonction $\\Psi : V\\to\\mathbb R^{N-m}$ de classe $C^k$ tels que\n$$S\\cap V=\\{x\\in V\\mid\\Psi(x)=0\\},$$\net $0$ est une valeur régulière de $\\Psi$.",
+   "hypotheses": [
+    "$S$ sous-variété de dimension $m$ et de classe $C^k$"
+   ],
+   "depends_on": [
+    "Proposition IX.3.1"
+   ],
+   "used_by_hint": "Permet d'appliquer la Proposition IX.7.13 ($T_pS=\\ker d\\Psi_p$) et la Proposition IX.7.35 (multiplicateurs de Lagrange) à toute sous-variété, localement ; Exercice IX.9.3 (fibré tangent).",
+   "importance": 3,
+   "proof_in_poly": "full",
+   "proof_length": "short",
+   "counterexample_hints": [
+    "Le résultat est local : une sous-variété n'est pas toujours globalement $\\Psi^{-1}(0)$ avec $0$ régulière sur tout $\\mathbb R^N$ (par ex. une sous-variété non fermée, Remarque IX.2.17, puisque $\\Psi^{-1}(0)$ serait fermée dans le domaine)."
+   ],
+   "viz_hint": "",
+   "chapter": 9,
+   "order": 25,
+   "depends_ids": [
+    "ch09-redressement-local"
+   ],
+   "depends_unresolved": []
+  },
+  {
+   "id": "ch09-remarque-def-par-equations",
+   "kind": "remark",
+   "ref": "Remarque IX.4.7",
+   "title": "Définition équivalente par équations locales",
+   "page": 156,
+   "statement": "Les deux propositions qui précèdent (IX.4.5 et IX.4.6) fournissent encore une autre définition d'une sous-variété de dimension $m$ de $\\mathbb R^N$ : c'est une partie $S$ de $\\mathbb R^N$ vérifiant les hypothèses de la proposition IX.4.5.",
+   "hypotheses": [],
+   "depends_on": [
+    "Proposition IX.4.5",
+    "Proposition IX.4.6"
+   ],
+   "used_by_hint": "",
+   "importance": 1,
+   "proof_in_poly": "none",
+   "proof_length": "short",
+   "counterexample_hints": [],
+   "viz_hint": "",
+   "chapter": 9,
+   "order": 26,
+   "depends_ids": [
+    "ch09-caracterisation-equations-locales",
+    "ch09-sous-variete-localement-equation"
+   ],
+   "depends_unresolved": []
+  },
+  {
+   "id": "ch09-graphe-sous-variete",
+   "kind": "proposition",
+   "ref": "Proposition IX.5.1",
+   "title": "Le graphe d'une application $C^k$ est une sous-variété",
+   "page": 156,
+   "statement": "Soit $f : U\\to\\mathbb R^{N-m}$ une fonction différentiable de classe $C^k$ définie sur un ouvert $U$ de $\\mathbb R^m$. Le graphe de $f$\n$$\\mathrm{Graphe}(f)=\\{(u,f(u)),\\ (u\\in U)\\}$$\nest une sous-variété de $\\mathbb R^m\\times\\mathbb R^{N-m}=\\mathbb R^N$ de dimension $m$ (de classe $C^k$), un paramétrage global étant $x : U\\to\\mathbb R^N$, $u\\mapsto(u,f(u))$.",
+   "hypotheses": [
+    "$f$ de classe $C^k$, $k\\ge1$, sur un ouvert $U$ de $\\mathbb R^m$"
+   ],
+   "depends_on": [
+    "Définition IX.2.1"
+   ],
+   "used_by_hint": "Propositions IX.5.2, IX.5.3, IX.7.13 (espace tangent d'un graphe = graphe de $df_u$), Corollaire IX.7.27.",
+   "importance": 2,
+   "proof_in_poly": "full",
+   "proof_length": "short",
+   "counterexample_hints": [
+    "Si $f$ est seulement continue (par ex. $f(u)=|u|$), le graphe est homéomorphe à $U$ mais n'est pas une sous-variété $C^1$ (pas de paramétrage $C^1$ immersif en $0$)."
+   ],
+   "viz_hint": "Graphe d'une fonction $\\mathbb R^2\\to\\mathbb R$ avec le paramétrage $u\\mapsto(u,f(u))$ et les vecteurs $x_{u_i}=(e_i,\\partial_if)$.",
+   "chapter": 9,
+   "order": 27,
+   "depends_ids": [
+    "ch09-sous-variete-def"
+   ],
+   "depends_unresolved": []
+  },
+  {
+   "id": "ch09-localement-graphe-implique-sous-variete",
+   "kind": "proposition",
+   "ref": "Proposition IX.5.2",
+   "title": "Un ensemble localement graphe (à isomorphisme linéaire près) est une sous-variété",
+   "page": 157,
+   "statement": "Soit $S$ une partie de $\\mathbb R^N$ et supposons que pour tout point $p$ de $S$, il existe un voisinage ouvert $V$ de $p$ dans $\\mathbb R^N$, un isomorphisme linéaire $A : \\mathbb R^N\\to\\mathbb R^N$, un ouvert $U$ de $\\mathbb R^m$ et une application $f : U\\to\\mathbb R^{N-m}$ de classe $C^k$ tels que\n$$V\\cap S=V\\cap\\{A((u,f(u)));\\ u\\in U\\}.$$\nAlors $S$ est une sous-variété de dimension $m$ de $\\mathbb R^N$ (de classe $C^k$).",
+   "hypotheses": [
+    "pour chaque $p$ : $A$ isomorphisme linéaire de $\\mathbb R^N$, $f$ de classe $C^k$",
+    "égalité $V\\cap S=V\\cap A(\\mathrm{Graphe}(f))$"
+   ],
+   "depends_on": [
+    "Proposition IX.5.1",
+    "Exemple IX.2.8",
+    "Définition IX.2.1"
+   ],
+   "used_by_hint": "Avec la Proposition IX.5.3 : définition alternative (Remarque IX.5.4).",
+   "importance": 2,
+   "proof_in_poly": "sketch",
+   "proof_length": "short",
+   "counterexample_hints": [],
+   "viz_hint": "",
+   "chapter": 9,
+   "order": 28,
+   "depends_ids": [
+    "ch09-graphe-sous-variete",
+    "ch09-ex-image-diffeomorphisme",
+    "ch09-sous-variete-def"
+   ],
+   "depends_unresolved": []
+  },
+  {
+   "id": "ch09-sous-variete-localement-graphe",
+   "kind": "proposition",
+   "ref": "Proposition IX.5.3",
+   "title": "Toute sous-variété est localement un graphe (à isomorphisme linéaire près)",
+   "page": 157,
+   "statement": "Soit $S$ une sous-variété de dimension $m$ de classe $C^k$ de $\\mathbb R^N$. Alors pour tout point $p$ de $S$, il existe un voisinage ouvert $V$ de $p$ dans $\\mathbb R^N$, un isomorphisme linéaire $A : \\mathbb R^N\\to\\mathbb R^N$, un ouvert $U$ de $\\mathbb R^m$ et une application $f : U\\to\\mathbb R^{N-m}$ de classe $C^k$ telle que\n$$V\\cap S=V\\cap\\{A((u,f(u)));\\ u\\in U\\}.$$",
+   "hypotheses": [
+    "$S$ sous-variété de dimension $m$ et de classe $C^k$"
+   ],
+   "depends_on": [
+    "Définition IX.2.1",
+    "Théorème VI.3.2",
+    "Exemple IX.2.6"
+   ],
+   "used_by_hint": "Complété par le Corollaire IX.7.27 (on peut prendre le graphe au-dessus du plan tangent $T_pS$) ; sert dans les exercices pour « redresser » localement une surface en $z=f(x,y)$.",
+   "importance": 3,
+   "proof_in_poly": "full",
+   "proof_length": "medium",
+   "counterexample_hints": [
+    "Le résultat est local et nécessite en général le changement de coordonnées $A$ : le cercle n'est pas globalement un graphe, et au point $(1,0)$ il n'est pas un graphe en $x$ mais en $y$ (ici $A$ est la permutation des coordonnées)."
+   ],
+   "viz_hint": "Cercle ou sphère : au voisinage de chaque point, la surface est le graphe $z=f(x,y)$ au-dessus d'un plan de coordonnées bien choisi ; montrer où le choix « $z$ fonction de $(x,y)$ » échoue (points où le plan tangent est vertical).",
+   "chapter": 9,
+   "order": 29,
+   "depends_ids": [
+    "ch09-sous-variete-def",
+    "ch06-inversion-locale",
+    "ch09-ex-ouvert-de-sous-variete"
+   ],
+   "depends_unresolved": []
+  },
+  {
+   "id": "ch09-remarque-def-par-graphes",
+   "kind": "remark",
+   "ref": "Remarque IX.5.4",
+   "title": "Définition équivalente par graphes locaux",
+   "page": 157,
+   "statement": "Les deux propositions qui précèdent (IX.5.2 et IX.5.3) fournissent une autre définition d'une sous-variété de dimension $m$ de $\\mathbb R^N$ : c'est une partie $S$ de $\\mathbb R^N$ vérifiant les hypothèses de la proposition IX.5.2.",
+   "hypotheses": [],
+   "depends_on": [
+    "Proposition IX.5.2",
+    "Proposition IX.5.3"
+   ],
+   "used_by_hint": "",
+   "importance": 1,
+   "proof_in_poly": "none",
+   "proof_length": "short",
+   "counterexample_hints": [],
+   "viz_hint": "",
+   "chapter": 9,
+   "order": 30,
+   "depends_ids": [
+    "ch09-localement-graphe-implique-sous-variete",
+    "ch09-sous-variete-localement-graphe"
+   ],
+   "depends_unresolved": []
+  },
+  {
+   "id": "ch09-changement-parametrage",
+   "kind": "proposition",
+   "ref": "Proposition IX.6.1",
+   "title": "Le changement de paramétrage est un $C^k$-difféomorphisme",
+   "page": 158,
+   "statement": "Soit $p$ un point d'une sous-variété $S$ de dimension $m$ de $\\mathbb R^N$ et soient $x_1 : U_1\\to S$, $x_2 : U_2\\to S$ deux paramétrages de $S$ au voisinage de $p$. Notons $W=x_1(U_1)\\cap x_2(U_2)$. C'est un voisinage de $p$ dans $S$, et le changement de paramétrage\n$$\\theta=x_1^{-1}\\circ x_2 : x_2^{-1}(W)\\longrightarrow x_1^{-1}(W)$$\nest un homéomorphisme. Si les deux paramétrages sont de classe $C^k$, $k\\ge1$, le changement de paramétrage est un $C^k$-difféomorphisme.",
+   "hypotheses": [
+    "$x_1$, $x_2$ paramétrages locaux de $S$ en $p$ (homéomorphismes sur leur image, immersions)",
+    "classe $C^k$, $k\\ge1$, pour la conclusion « difféomorphisme »"
+   ],
+   "depends_on": [
+    "Proposition IX.3.1",
+    "Théorème VI.3.2",
+    "Définition IX.2.1"
+   ],
+   "used_by_hint": "Clé de voûte de la section IX.7 : garantit que les Définitions IX.7.1, IX.7.5, IX.7.15, IX.7.38 ne dépendent pas du paramétrage (Remarque IX.7.2, Remarques IX.7.7 (1)).",
+   "importance": 3,
+   "proof_in_poly": "full",
+   "proof_length": "medium",
+   "counterexample_hints": [
+    "Le point subtil : $x_1^{-1}$ est défini sur un ouvert de $S$, où « différentiable » n'a pas encore de sens ; on écrit $x_1^{-1}\\circ x_2=p_1\\circ\\Phi\\circ x_2$ avec $\\Phi$ le redressement de IX.3.1, défini sur un ouvert de $\\mathbb R^N$.",
+    "Sans la condition d'immersion sur $x_1$, le changement de paramétrage peut être un homéomorphisme non différentiable : $x_1(t)=t^3$, $x_2(t)=t$ paramètrent $\\mathbb R$ et $x_1^{-1}\\circ x_2(t)=t^{1/3}$."
+   ],
+   "viz_hint": "Figure p. 158 : deux ouverts $U_1,U_2$ de $\\mathbb R^2$ paramétrant la même portion $W$ de surface ; le difféomorphisme $\\theta$ entre les préimages, et le rôle du redressement $\\Psi$.",
+   "chapter": 9,
+   "order": 31,
+   "depends_ids": [
+    "ch09-redressement-local",
+    "ch06-inversion-locale",
+    "ch09-sous-variete-def"
+   ],
+   "depends_unresolved": []
+  },
+  {
+   "id": "ch09-fonction-differentiable-sur-sous-variete-def",
+   "kind": "definition",
+   "ref": "Définition IX.7.1",
+   "title": "Fonction différentiable / de classe $C^r$ sur une sous-variété",
+   "page": 159,
+   "statement": "Soit $f : S\\to\\mathbb R$ une fonction définie sur une sous-variété $S$ de dimension $m$ et de classe $C^k$ de $\\mathbb R^N$. On dit que $f$ est **différentiable en $p\\in S$** si pour tout paramétrage $x : U\\to S$ avec $p\\in x(U)\\subset S$, la fonction $f\\circ x : U\\to\\mathbb R$ est différentiable en $q=x^{-1}(p)$. On dit que $f$ est **différentiable sur $S$** si elle est différentiable en tout point de $S$. On dit que $f$ est **de classe $C^r$**, $r\\le k$, sur $S$ si pour tout paramétrage $x : U\\to S$ la fonction $f\\circ x : U\\to\\mathbb R$ est de classe $C^r$ sur $U$.",
+   "hypotheses": [
+    "$S$ de classe $C^k$",
+    "$r\\le k$ (on ne peut pas demander plus de régularité à $f$ qu'à $S$)"
+   ],
+   "depends_on": [
+    "Définition IX.2.1"
+   ],
+   "used_by_hint": "Généralisée aux applications entre sous-variétés (Définition IX.7.5) ; Remarque IX.7.2 (un seul paramétrage suffit) ; Exercice IX.7.3 (prolongement local).",
+   "importance": 3,
+   "proof_in_poly": "none",
+   "proof_length": "short",
+   "counterexample_hints": [
+    "La condition $r\\le k$ est nécessaire : sur une sous-variété seulement $C^1$, « $f$ de classe $C^2$ » n'a pas de sens intrinsèque, car les changements de paramétrage ne sont que $C^1$."
+   ],
+   "viz_hint": "",
+   "chapter": 9,
+   "order": 32,
+   "depends_ids": [
+    "ch09-sous-variete-def"
+   ],
+   "depends_unresolved": []
+  },
+  {
+   "id": "ch09-remarque-un-parametrage-suffit",
+   "kind": "remark",
+   "ref": "Remarque IX.7.2",
+   "title": "Un seul paramétrage local suffit pour tester la différentiabilité",
+   "page": 159,
+   "statement": "D'après la proposition IX.6.1, pour que $f$ soit différentiable en $p\\in S$, il suffit que $f\\circ x : U\\to\\mathbb R$ soit différentiable en $q=x^{-1}(p)$ pour un paramétrage local $x$. De même, si $r\\le k$, pour que $f$ soit de classe $C^r$ dans un voisinage de $p$, il suffit que $f\\circ x : U\\to\\mathbb R$ soit de classe $C^r$ pour un paramétrage local $x$ de $S$ en $p$.",
+   "hypotheses": [
+    "$r\\le k$"
+   ],
+   "depends_on": [
+    "Proposition IX.6.1",
+    "Définition IX.7.1"
+   ],
+   "used_by_hint": "Utilisé systématiquement dans les exercices : on vérifie la régularité dans une carte commode.",
+   "importance": 2,
+   "proof_in_poly": "sketch",
+   "proof_length": "short",
+   "counterexample_hints": [],
+   "viz_hint": "",
+   "chapter": 9,
+   "order": 33,
+   "depends_ids": [
+    "ch09-changement-parametrage",
+    "ch09-fonction-differentiable-sur-sous-variete-def"
+   ],
+   "depends_unresolved": []
+  },
+  {
+   "id": "ch09-remarque-valeurs-vectorielles",
+   "kind": "remark",
+   "ref": "Remarque IX.7.4",
+   "title": "Fonctions à valeurs dans $\\mathbb R^n$",
+   "page": 159,
+   "statement": "Soit $S$ une sous-variété de dimension $m$ et de classe $C^k$ de $\\mathbb R^N$ et soit $n\\in\\mathbb N^\\times$. On peut étendre immédiatement les définitions de fonction différentiable en un point $p$ de $S$ ou de fonction de classe $C^r$ sur $S$ aux fonctions à valeurs dans $\\mathbb R^n$.",
+   "hypotheses": [],
+   "depends_on": [
+    "Définition IX.7.1"
+   ],
+   "used_by_hint": "Remarques IX.7.7 (2) : équivalence entre $\\varphi : S_1\\to S_2$ de classe $C^r$ et $\\varphi : S_1\\to\\mathbb R^{N_2}$ de classe $C^r$.",
+   "importance": 1,
+   "proof_in_poly": "none",
+   "proof_length": "short",
+   "counterexample_hints": [],
+   "viz_hint": "",
+   "chapter": 9,
+   "order": 34,
+   "depends_ids": [
+    "ch09-fonction-differentiable-sur-sous-variete-def"
+   ],
+   "depends_unresolved": []
+  },
+  {
+   "id": "ch09-application-cr-entre-sous-varietes-def",
+   "kind": "definition",
+   "ref": "Définition IX.7.5",
+   "title": "Application de classe $C^r$ / différentiable entre sous-variétés",
+   "page": 160,
+   "statement": "Soit $\\varphi : S_1\\to S_2$ une application continue entre les sous-variétés (supposées de classe au moins $C^r$, $r\\ge1$) $S_1$ et $S_2$ respectivement de $\\mathbb R^{N_1}$ et $\\mathbb R^{N_2}$. On dit que $\\varphi$ est **de classe $C^r$** (resp. **différentiable en $p\\in S_1$**) si quels que soient les paramétrages $x_1 : U_1\\to S_1$, $x_2 : U_2\\to S_2$ de $S_1$ et $S_2$, l'application $x_2^{-1}\\circ\\varphi\\circ x_1$ définie sur $x_1^{-1}\\big(\\varphi^{-1}(x_2(U_2))\\cap x_1(U_1)\\big)$ à valeurs dans $U_2$ est de classe $C^r$ (resp. différentiable en $x_1^{-1}(p)$).",
+   "hypotheses": [
+    "$\\varphi$ continue (pour que le domaine $x_1^{-1}(\\varphi^{-1}(x_2(U_2))\\cap x_1(U_1))$ soit ouvert)",
+    "$S_1$, $S_2$ de classe au moins $C^r$"
+   ],
+   "depends_on": [
+    "Définition IX.2.1"
+   ],
+   "used_by_hint": "Base des Définitions IX.7.15 (différentielle), IX.7.24 (difféomorphisme), IX.7.28, IX.7.32 ; Exemple IX.7.6 ; Remarques IX.7.7.",
+   "importance": 3,
+   "proof_in_poly": "none",
+   "proof_length": "short",
+   "counterexample_hints": [
+    "L'hypothèse de continuité préalable n'est pas anodine : sans elle, l'ensemble sur lequel on teste $x_2^{-1}\\circ\\varphi\\circ x_1$ n'est pas forcément ouvert."
+   ],
+   "viz_hint": "Diagramme : $U_1\\xrightarrow{x_1}S_1\\xrightarrow{\\varphi}S_2\\xrightarrow{x_2^{-1}}U_2$ ; « lire $\\varphi$ dans les cartes ».",
+   "chapter": 9,
+   "order": 35,
+   "depends_ids": [
+    "ch09-sous-variete-def"
+   ],
+   "depends_unresolved": []
+  },
+  {
+   "id": "ch09-ex-parametrages-cartes-cr",
+   "kind": "example",
+   "ref": "Exemple IX.7.6",
+   "title": "Les paramétrages locaux et les cartes sont de classe $C^r$",
+   "page": 160,
+   "statement": "Les paramétrages locaux d'une sous-variété de classe $C^r$ sont des applications de classe $C^r$ (de l'ouvert $U\\subset\\mathbb R^m$, vu comme sous-variété, dans $S$), et il en va de même des cartes : si $x : U\\to S$ est un paramétrage local, la carte $x^{-1}$ est de classe $C^r$, puisque $x^{-1}\\circ x=\\mathrm{Id}_U$ l'est.",
+   "hypotheses": [],
+   "depends_on": [
+    "Définition IX.7.5",
+    "Proposition IX.6.1"
+   ],
+   "used_by_hint": "Preuve de la Proposition IX.7.9 ($\\beta=x^{-1}\\circ\\alpha$ est $C^1$) ; preuve du Théorème IX.7.26 ; Exercice IX.7.19.",
+   "importance": 2,
+   "proof_in_poly": "sketch",
+   "proof_length": "short",
+   "counterexample_hints": [],
+   "viz_hint": "",
+   "chapter": 9,
+   "order": 36,
+   "depends_ids": [
+    "ch09-application-cr-entre-sous-varietes-def",
+    "ch09-changement-parametrage"
+   ],
+   "depends_unresolved": []
+  },
+  {
+   "id": "ch09-remarques-applications-cr",
+   "kind": "remark",
+   "ref": "Remarques IX.7.7",
+   "title": "Propriétés des applications $C^r$ entre sous-variétés (un couple de cartes suffit, composition, courbes)",
+   "page": 160,
+   "statement": "1. La proposition IX.6.1 montre que $\\varphi$ est de classe $C^r$ si l'on peut trouver pour tout $p\\in S_1$ des paramétrages locaux $x_1$ et $x_2$ respectivement de $S_1$ en $p$ et de $S_2$ en $\\varphi(p)$ tels que $x_2^{-1}\\circ\\varphi\\circ x_1$ soit de classe $C^r$ sur $x_1^{-1}\\big(\\varphi^{-1}(x_2(U_2))\\cap x_1(U_1)\\big)$.\n2. On peut voir $\\varphi : S_1\\to S_2$ comme une application de $S_1$ dans $\\mathbb R^{N_2}$, et parler en tant que telle de sa différentiabilité en un point ou son caractère $C^r$ (cf. remarque IX.7.4). On vérifie que $\\varphi : S_1\\to S_2$ est de classe $C^r$ au sens de la définition IX.7.5 si et seulement si $\\varphi : S_1\\to\\mathbb R^{N_2}$ est de classe $C^r$ au sens de la remarque IX.7.4.\n3. La composée de deux applications différentiables (resp. de classe $C^r$) est une application différentiable (resp. de classe $C^r$).\n4. Soit $I$ un intervalle ouvert de $\\mathbb R$ et soit $\\alpha : I\\to S_1$ une courbe paramétrée de classe $C^r$ tracée dans une sous-variété $S_1$ (de classe au moins $C^r$) de $\\mathbb R^{N_1}$. C'est une application de classe $C^r$ de $I$ dans $\\mathbb R^{N_1}$ dont l'image est dans $S_1$, que l'on peut aussi voir comme une application de classe $C^r$ de la sous-variété $I$ dans la sous-variété $S_1$ au sens de la définition IX.7.5, d'après le point 2. Soit $\\varphi : S_1\\to S_2$ une application de classe $C^r$. Le point 3 montre alors que $\\beta=\\varphi\\circ\\alpha : I\\to S_2$ est de classe $C^r$.",
+   "hypotheses": [],
+   "depends_on": [
+    "Proposition IX.6.1",
+    "Remarque IX.7.4",
+    "Définition IX.7.5"
+   ],
+   "used_by_hint": "Point 4 utilisé dans la preuve de la Proposition IX.7.9 et dans la construction de la différentielle (Définition IX.7.15) ; point 2 est le pont « intrinsèque / extrinsèque » utilisé partout (Exemples IX.7.20-IX.7.22).",
+   "importance": 2,
+   "proof_in_poly": "sketch",
+   "proof_length": "short",
+   "counterexample_hints": [],
+   "viz_hint": "",
+   "chapter": 9,
+   "order": 37,
+   "depends_ids": [
+    "ch09-changement-parametrage",
+    "ch09-remarque-valeurs-vectorielles",
+    "ch09-application-cr-entre-sous-varietes-def"
+   ],
+   "depends_unresolved": []
+  },
+  {
+   "id": "ch09-vecteur-tangent-espace-tangent-def",
+   "kind": "definition",
+   "ref": "Définition IX.7.8",
+   "title": "Vecteur tangent, espace tangent (par les courbes)",
+   "page": 160,
+   "statement": "Soit $S$ une sous-variété de dimension $m$ de $\\mathbb R^N$. On dit que $\\vec v$ est un **vecteur tangent à $S$ en $p$** s'il existe une courbe paramétrée $\\alpha : I\\to\\mathbb R^N$ de classe $C^1$, où $I$ est un intervalle ouvert contenant $0$, dont la trace est contenue dans $S$, telle que $\\alpha(0)=p$ et $\\alpha'(0)=\\vec v$. On appelle **espace tangent à $S$ en $p$** l'ensemble des vecteurs tangents à $S$ en $p$.",
+   "hypotheses": [
+    "$\\alpha$ de classe $C^1$ à valeurs dans $S$",
+    "$\\alpha(0)=p$"
+   ],
+   "depends_on": [
+    "Définition IX.2.1"
+   ],
+   "used_by_hint": "Proposition IX.7.9 (c'est un sous-espace vectoriel de dimension $m$) ; Définition IX.7.15 (2) ; définition des champs tangents (IX.8.3).",
+   "importance": 3,
+   "proof_in_poly": "none",
+   "proof_length": "short",
+   "counterexample_hints": [
+    "Pour un ensemble qui n'est pas une sous-variété (cône, croix), l'ensemble des vecteurs tangents par les courbes n'est pas un sous-espace vectoriel (le cône $x^2+y^2=z^2$ a pour « tangent » en $0$ le cône lui-même, cf. Exercice IX.7.12)."
+   ],
+   "viz_hint": "Courbes tracées sur une surface passant par $p$, leurs vecteurs vitesses en $p$ balayant le plan tangent.",
+   "chapter": 9,
+   "order": 38,
+   "depends_ids": [
+    "ch09-sous-variete-def"
+   ],
+   "depends_unresolved": []
+  },
+  {
+   "id": "ch09-espace-tangent-image-dx",
+   "kind": "proposition",
+   "ref": "Proposition IX.7.9",
+   "title": "$T_pS=dx_q(\\mathbb R^m)$ : l'espace tangent est un sous-espace vectoriel de dimension $m$",
+   "page": 161,
+   "statement": "Soit $S$ une sous-variété de dimension $m$ de $\\mathbb R^N$. Soient $p\\in S$ et $x : U\\to S$ un paramétrage local en $p$. Posons $q=x^{-1}(p)$. Alors l'espace tangent à $S$ en $p$ s'identifie à l'image de $\\mathbb R^m$ par l'application $dx_q$. En particulier c'est un sous-espace vectoriel de dimension $m$ de $\\mathbb R^N$.",
+   "hypotheses": [
+    "$x$ paramétrage local en $p$ (homéomorphisme sur $x(U)$, $dx_q$ injective)"
+   ],
+   "depends_on": [
+    "Définition IX.7.8",
+    "Remarques IX.7.7",
+    "Exemple IX.7.6"
+   ],
+   "used_by_hint": "Corollaire IX.7.11, Proposition IX.7.13, Définition IX.7.15, Théorème IX.7.26, Proposition IX.7.29, Exercice IX.9.3.",
+   "importance": 3,
+   "proof_in_poly": "full",
+   "proof_length": "short",
+   "counterexample_hints": [
+    "L'inclusion $T_pS\\subset dx_q(\\mathbb R^m)$ utilise que $x^{-1}\\circ\\alpha$ est $C^1$, ce qui repose sur la Proposition IX.6.1 (régularité des cartes) : sans la condition d'immersion, $x^{-1}$ ne serait pas différentiable.",
+    "La dimension $m$ vient de l'injectivité de $dx_q$ : pour le cusp $x(t)=(t^2,t^3)$ (qui n'est pas un paramétrage local au sens de IX.2.1), $dx_0(\\mathbb R)=\\{0\\}$, de dimension $0$ au lieu de $1$."
+   ],
+   "viz_hint": "Déformer la base $(e_1,\\dots,e_m)$ de $\\mathbb R^m$ par $dx_q$ : image = plan tangent, engendré par $x_{u_1}(q),\\dots,x_{u_m}(q)$.",
+   "chapter": 9,
+   "order": 39,
+   "depends_ids": [
+    "ch09-vecteur-tangent-espace-tangent-def",
+    "ch09-remarques-applications-cr",
+    "ch09-ex-parametrages-cartes-cr"
+   ],
+   "depends_unresolved": []
+  },
+  {
+   "id": "ch09-notation-tps",
+   "kind": "definition",
+   "ref": "Définition IX.7.10",
+   "title": "Notation $T_pS$ ; espace tangent affine",
+   "page": 161,
+   "statement": "Soit $S$ une sous-variété. On note $T_pS$ l'espace tangent à $S$ en un point $p\\in S$. C'est un sous-espace vectoriel de l'espace ambiant $\\mathbb R^N$. On note $\\mathbf T_pS$ le sous-espace tangent affine à $S$ en $p$, c'est-à-dire le sous-espace affine passant par $p$ et parallèle à $T_pS$.",
+   "hypotheses": [],
+   "depends_on": [
+    "Proposition IX.7.9"
+   ],
+   "used_by_hint": "Notation utilisée dans tout le reste du chapitre ; le plan affine $P=p+T_pS$ du Corollaire IX.7.27 ; droite normale $p+(T_pS)^\\perp$ (Exercices IX.7.37, IX.9.7-IX.9.10).",
+   "importance": 2,
+   "proof_in_poly": "none",
+   "proof_length": "short",
+   "counterexample_hints": [],
+   "viz_hint": "Distinguer le sous-espace vectoriel $T_pS$ (passant par $0$) du plan tangent affine $p+T_pS$ dessiné sur la surface.",
+   "chapter": 9,
+   "order": 40,
+   "depends_ids": [
+    "ch09-espace-tangent-image-dx"
+   ],
+   "depends_unresolved": []
+  },
+  {
+   "id": "ch09-base-espace-tangent",
+   "kind": "corollary",
+   "ref": "Corollaire IX.7.11",
+   "title": "Base $(x_{u_1}(u),\\dots,x_{u_m}(u))$ de l'espace tangent ; formule (IX.7.1)",
+   "page": 161,
+   "statement": "Soient $S$ une sous-variété de dimension $m$ de $\\mathbb R^N$, $p$ un point de $S$ et $x : U\\to S$ un paramétrage local de $S$ en $p$. Notons $u=(u_1,\\dots,u_m)$ la variable d'une fonction définie sur $U\\subset\\mathbb R^m$. Soit $(e_1,\\dots,e_m)$ la base canonique de $\\mathbb R^m$. Posons\n$$\\text{(IX.7.1)}\\qquad x_{u_i}(u)=dx_u(e_i)=\\frac{d}{dt}_{|t=0}x(u+te_i)=\\frac{\\partial x}{\\partial u_i}(u).$$\nAlors pour tout $u\\in U$, $(x_{u_1}(u),\\dots,x_{u_m}(u))$ est une base de $T_{x(u)}S$.",
+   "hypotheses": [
+    "$x$ paramétrage local (immersion)"
+   ],
+   "depends_on": [
+    "Proposition IX.7.9"
+   ],
+   "used_by_hint": "Notation $x_{u_i}$ utilisée dans l'Exercice IX.9.13 (redressement d'un champ : $X(x(q))=x_{u_1}(q)$) ; calculs pratiques de plans tangents (sphère en coordonnées sphériques, tore).",
+   "importance": 2,
+   "proof_in_poly": "sketch",
+   "proof_length": "short",
+   "counterexample_hints": [],
+   "viz_hint": "Sur une surface paramétrée (sphère, tore), afficher $x_u$ et $x_v$ en un point mobile et le plan qu'ils engendrent.",
+   "chapter": 9,
+   "order": 41,
+   "depends_ids": [
+    "ch09-espace-tangent-image-dx"
+   ],
+   "depends_unresolved": []
+  },
+  {
+   "id": "ch09-espace-tangent-graphe-equation",
+   "kind": "proposition",
+   "ref": "Proposition IX.7.13",
+   "title": "Espace tangent d'un graphe et d'une sous-variété définie par équation : $T_pS=\\ker dF_p$",
+   "page": 162,
+   "statement": "Si $S=\\{(u,f(u))\\}$ est une sous-variété de $\\mathbb R^N$ définie par le graphe d'une application $f : U\\subset\\mathbb R^m\\to\\mathbb R^{N-m}$ comme dans la section IX.5, alors l'espace tangent en $p=(u,f(u))$ est le graphe de $df_u$ : $T_pS=\\{(h,df_u(h)),\\ h\\in\\mathbb R^m\\}$.\nSi $S$ est une sous-variété de $\\mathbb R^N$ définie par $S=\\{x\\in\\mathbb R^N\\mid F(x)=0\\}$, où $0$ est valeur régulière de $F$, alors pour tout $p\\in S$, $T_pS=\\ker dF_p$.",
+   "hypotheses": [
+    "(graphe) $f$ de classe $C^1$",
+    "(équation) $F$ de classe $C^1$ et $0$ valeur régulière de $F$ ($dF_p$ surjective)"
+   ],
+   "depends_on": [],
+   "used_by_hint": "Preuve laissée en Exercice IX.7.14 (utiliser la Proposition IX.7.9 avec le paramétrage de la Proposition IX.5.1, et pour l'équation : $F\\circ\\alpha=0\\Rightarrow dF_p(\\alpha'(0))=0$ donne $T_pS\\subset\\ker dF_p$, puis égalité des dimensions). Utilisé dans la Proposition IX.7.35 (Lagrange), les Exemples IX.8.2, le Corollaire IX.7.27, et presque tous les exercices ($T_x\\mathbb S^n=x^\\perp$).",
+   "importance": 3,
+   "proof_in_poly": "exercise",
+   "proof_length": "short",
+   "counterexample_hints": [
+    "Si $0$ n'est pas valeur régulière, $\\ker dF_p$ peut être trop gros : pour le cône $F=x^2+y^2-z^2$, $\\ker dF_0=\\mathbb R^3$.",
+    "L'inclusion $T_pS\\subset\\ker dF_p$ est toujours vraie ($F$ constante sur $S$) ; c'est l'égalité qui demande la surjectivité de $dF_p$ (comparaison des dimensions $m=N-(N-m)$)."
+   ],
+   "viz_hint": "Sphère : gradient $\\nabla F(p)=2p$ normal, plan tangent $=p^\\perp$ ; pour un graphe $z=f(x,y)$, plan tangent = graphe de la différentielle (approximation linéaire).",
+   "chapter": 9,
+   "order": 42,
+   "depends_ids": [],
+   "depends_unresolved": []
+  },
+  {
+   "id": "ch09-differentielle-entre-sous-varietes-def",
+   "kind": "definition",
+   "ref": "Définition IX.7.15",
+   "title": "Différentielle $d\\varphi_p : T_pS_1\\to T_{\\varphi(p)}S_2$ d'une application entre sous-variétés",
+   "page": 163,
+   "statement": "Soit $\\varphi : S_1\\to S_2$ une application continue entre les sous-variétés $S_1$ et $S_2$ et $p$ un point de $S_1$ où elle est différentiable. Alors il existe une application linéaire\n$$d\\varphi_p : T_pS_1\\longrightarrow T_{\\varphi(p)}S_2$$\ncaractérisée par l'une des propriétés suivantes :\n1. si $\\vec v\\in T_pS_1$ s'écrit $\\vec v=dx_q(\\vec w)$, où $x : U\\to S_1$ est un paramétrage local en $p$ tel que $x(q)=p$ avec $\\vec w\\in\\mathbb R^m$, alors $d\\varphi_p(\\vec v)=d(\\varphi\\circ x)_q(\\vec w)$ ;\n2. si $\\vec v\\in T_pS_1$ s'écrit $\\vec v=\\alpha'(0)$, où $\\alpha : I\\to S_1$ est une courbe paramétrée de classe $C^1$ d'un intervalle ouvert $I$ contenant $0$ dans $S_1$ telle que $\\alpha(0)=p$, alors $d\\varphi_p(\\vec v)=\\beta'(0)$ où $\\beta=\\varphi\\circ\\alpha : I\\to S_2$.\n\nL'application linéaire $d\\varphi_p$ est appelée la **différentielle de $\\varphi$ au point $p$**. (Le texte qui précède la définition montre que $\\beta'(0)=d(\\varphi\\circ x)_q(\\vec w)$ ne dépend ni de la courbe $\\alpha$ ni du paramétrage $x$, et que $\\vec v\\mapsto\\beta'(0)$ est linéaire.)",
+   "hypotheses": [
+    "$\\varphi$ continue et différentiable en $p$ (au sens de la Définition IX.7.5)"
+   ],
+   "depends_on": [
+    "Proposition IX.7.9",
+    "Remarques IX.7.7",
+    "Définition IX.7.8"
+   ],
+   "used_by_hint": "Toute la suite : Remarques IX.7.16, Proposition IX.7.17 (composition), IX.7.25, Théorème IX.7.26, Définitions IX.7.28, IX.7.32, Proposition IX.7.35, Définition IX.7.38.",
+   "importance": 3,
+   "proof_in_poly": "full",
+   "proof_length": "short",
+   "counterexample_hints": [],
+   "viz_hint": "Figure p. 163 : une courbe $\\alpha$ sur $S_1$ passant par $p$ avec $\\alpha'(0)$, son image $\\beta=\\varphi\\circ\\alpha$ sur $S_2$ avec $\\beta'(0)=d\\varphi_p(\\alpha'(0))$.",
+   "chapter": 9,
+   "order": 43,
+   "depends_ids": [
+    "ch09-espace-tangent-image-dx",
+    "ch09-remarques-applications-cr",
+    "ch09-vecteur-tangent-espace-tangent-def"
+   ],
+   "depends_unresolved": []
+  },
+  {
+   "id": "ch09-remarques-differentielle-cas-euclidien",
+   "kind": "remark",
+   "ref": "Remarques IX.7.16",
+   "title": "Différentielle quand $S_2=\\mathbb R^{N_2}$ : cas d'un ouvert, d'une restriction, développement limité",
+   "page": 163,
+   "statement": "Plaçons-nous dans le cas où $S_2=\\mathbb R^{N_2}$.\n1. Si $S_1$ est un ouvert de $\\mathbb R^N$, on a pour tout $p\\in S_1$, $T_pS_1=\\mathbb R^N$ et l'on retrouve la définition usuelle de $d\\varphi$.\n2. Si $\\varphi$ est la restriction d'une fonction différentiable $F$ définie sur un voisinage ouvert $V$ de $S_1$ dans $\\mathbb R^{N_1}$, $d\\varphi_p$ est la restriction de $dF_p$ à $T_pS_1$.\n3. Si $x : U\\to S_1$ est un paramétrage local en $p$ avec $x(q)=p$, l'application linéaire $d\\varphi_p : T_pS_1\\to\\mathbb R^{N_2}$ est caractérisée par la propriété suivante\n$$\\varphi(x(q+h))=\\varphi(p)+d\\varphi_p(dx_q(h))+o(h)$$\n(comme fonction de $h$ définie dans un voisinage approprié de $q$ dans $\\mathbb R^m$).",
+   "hypotheses": [],
+   "depends_on": [
+    "Définition IX.7.15"
+   ],
+   "used_by_hint": "Point 2 : outil de calcul principal (Exemples IX.7.20-IX.7.22, Exemple IX.7.33, Proposition IX.7.35, Corollaire IX.7.27) ; Exercice IX.7.19 (4).",
+   "importance": 2,
+   "proof_in_poly": "none",
+   "proof_length": "short",
+   "counterexample_hints": [
+    "Le point 2 montre que $d\\varphi_p$ ne dépend que de $dF_p$ sur $T_pS_1$ : deux prolongements $F$, $\\tilde F$ différents de $\\varphi$ ont la même restriction à $T_pS$ mais des $dF_p$ différents sur $(T_pS)^\\perp$ ; c'est pourquoi « $dg_p=0$ » n'est pas la condition de point critique de la restriction (Exemple IX.7.33, Lagrange)."
+   ],
+   "viz_hint": "",
+   "chapter": 9,
+   "order": 44,
+   "depends_ids": [
+    "ch09-differentielle-entre-sous-varietes-def"
+   ],
+   "depends_unresolved": []
+  },
+  {
+   "id": "ch09-composition-differentielles",
+   "kind": "proposition",
+   "ref": "Proposition IX.7.17",
+   "title": "Règle de composition des différentielles sur les sous-variétés",
+   "page": 163,
+   "statement": "Soient $S_1$, $S_2$ et $S_3$ des sous-variétés (respectivement de $\\mathbb R^{N_1}$, $\\mathbb R^{N_2}$ et $\\mathbb R^{N_3}$) et supposons que les applications $\\varphi_1 : S_1\\to S_2$, $\\varphi_2 : S_2\\to S_3$ sont telles que $\\varphi_1$ est différentiable en $p$, et $\\varphi_2$ différentiable en $\\varphi_1(p)$. Alors $\\varphi_2\\circ\\varphi_1$ est différentiable en $p$, et\n$$d(\\varphi_2\\circ\\varphi_1)_p=d(\\varphi_2)_{\\varphi_1(p)}\\circ d(\\varphi_1)_p.$$",
+   "hypotheses": [
+    "$\\varphi_1$ différentiable en $p$",
+    "$\\varphi_2$ différentiable en $\\varphi_1(p)$"
+   ],
+   "depends_on": [
+    "Définition IX.7.15"
+   ],
+   "used_by_hint": "Proposition IX.7.25 (différentielle d'un difféomorphisme), Théorème IX.7.26, Remarque IX.7.40, Exercice IX.7.39.",
+   "importance": 3,
+   "proof_in_poly": "sketch",
+   "proof_length": "short",
+   "counterexample_hints": [],
+   "viz_hint": "",
+   "chapter": 9,
+   "order": 45,
+   "depends_ids": [
+    "ch09-differentielle-entre-sous-varietes-def"
+   ],
+   "depends_unresolved": []
+  },
+  {
+   "id": "ch09-ex-fonction-hauteur",
+   "kind": "example",
+   "ref": "Exemple IX.7.20",
+   "title": "Fonction hauteur $h(p)=\\langle p-p_0,a\\rangle$ et sa différentielle",
+   "page": 164,
+   "statement": "Soit $S$ une sous-variété de $\\mathbb R^N$ de classe $C^\\infty$. Soit $P$ un hyperplan de $\\mathbb R^N$ passant par le point $p_0\\in\\mathbb R^N$, et soit $a\\in\\mathbb R^N$ un vecteur normal unitaire à $P$ en $p_0$ (c'est-à-dire $\\langle x-p_0,a\\rangle=0$ pour tout $x\\in P$ et $\\|a\\|=1$). La fonction hauteur $h : S\\to\\mathbb R$, $p\\mapsto\\langle p-p_0,a\\rangle$ est de classe $C^\\infty$ car c'est la restriction d'une fonction $C^\\infty$ définie sur l'espace $\\mathbb R^N$. Sa différentielle en $p\\in S$ est donnée par $dh_p : T_pS\\to\\mathbb R$, $v\\mapsto\\langle v,a\\rangle$.",
+   "hypotheses": [
+    "$S$ de classe $C^\\infty$",
+    "$\\|a\\|=1$, $a\\perp P$"
+   ],
+   "depends_on": [
+    "Remarques IX.7.16",
+    "Remarques IX.7.7"
+   ],
+   "used_by_hint": "Exercices IX.9.7 et IX.9.10 : les points critiques de $h$ sont ceux où $a\\perp T_pS$ (plan tangent parallèle à $P$) ; sur une surface compacte $h$ atteint ses extrema (Théorème IX.7.31).",
+   "importance": 2,
+   "proof_in_poly": "full",
+   "proof_length": "short",
+   "counterexample_hints": [],
+   "viz_hint": "Surface compacte et plan mobile $h=c$ : points de contact aux extrema = points où le plan tangent est horizontal (Morse).",
+   "chapter": 9,
+   "order": 46,
+   "depends_ids": [
+    "ch09-remarques-differentielle-cas-euclidien",
+    "ch09-remarques-applications-cr"
+   ],
+   "depends_unresolved": []
+  },
+  {
+   "id": "ch09-ex-distance-carre",
+   "kind": "example",
+   "ref": "Exemple IX.7.21",
+   "title": "Fonction distance au carré $f(p)=\\|p-p_0\\|^2$ et sa différentielle",
+   "page": 164,
+   "statement": "Soit $S$ une sous-variété de $\\mathbb R^N$ de classe $C^\\infty$. Soit $p_0\\in\\mathbb R^N$. La fonction distance au carré $f : S\\to\\mathbb R$, $p\\mapsto\\langle p-p_0,p-p_0\\rangle=\\|p-p_0\\|^2$ est de classe $C^\\infty$ car c'est la restriction d'une fonction $C^\\infty$ définie sur l'espace $\\mathbb R^N$. Sa différentielle en $p\\in S$ est donnée par $df_p : T_pS\\to\\mathbb R$, $v\\mapsto2\\langle v,p-p_0\\rangle$.",
+   "hypotheses": [
+    "$S$ de classe $C^\\infty$"
+   ],
+   "depends_on": [
+    "Remarques IX.7.16",
+    "Remarques IX.7.7"
+   ],
+   "used_by_hint": "Exercice IX.7.37 (droites normales, $S$ dans une sphère), Exercices IX.9.8, IX.9.9, IX.9.11 : $p$ critique $\\iff$ $p-p_0\\perp T_pS$ (droite normale passant par $p_0$).",
+   "importance": 2,
+   "proof_in_poly": "full",
+   "proof_length": "short",
+   "counterexample_hints": [],
+   "viz_hint": "Sphères centrées en $p_0$ de rayon croissant jusqu'au premier contact avec $S$ : le point de contact est un minimum de $f$, et la normale passe par $p_0$.",
+   "chapter": 9,
+   "order": 47,
+   "depends_ids": [
+    "ch09-remarques-differentielle-cas-euclidien",
+    "ch09-remarques-applications-cr"
+   ],
+   "depends_unresolved": []
+  },
+  {
+   "id": "ch09-ex-distance",
+   "kind": "example",
+   "ref": "Exemple IX.7.22",
+   "title": "Fonction distance $f(p)=\\|p-p_0\\|$, $p_0\\notin S$",
+   "page": 164,
+   "statement": "Soit $S$ une sous-variété de $\\mathbb R^N$ de classe $C^\\infty$. Soit $p_0\\in\\mathbb R^N\\setminus S$. La fonction distance $f : S\\to\\mathbb R$, $p\\mapsto\\|p-p_0\\|$ est de classe $C^\\infty$ car c'est la restriction d'une fonction $C^\\infty$ définie sur l'espace $\\mathbb R^N\\setminus\\{p_0\\}$. (Exercice IX.7.23 : $df_p(v)=\\langle v,p-p_0\\rangle/\\|p-p_0\\|$.)",
+   "hypotheses": [
+    "$p_0\\notin S$ (la norme n'est pas différentiable en $0$)"
+   ],
+   "depends_on": [
+    "Remarques IX.7.16"
+   ],
+   "used_by_hint": "Exercice IX.7.23.",
+   "importance": 1,
+   "proof_in_poly": "full",
+   "proof_length": "short",
+   "counterexample_hints": [
+    "Si $p_0\\in S$, $f$ n'est pas différentiable en $p_0$ (comme $|x|$ en $0$) : on travaille alors avec le carré de la distance (Exemple IX.7.21)."
+   ],
+   "viz_hint": "",
+   "chapter": 9,
+   "order": 48,
+   "depends_ids": [
+    "ch09-remarques-differentielle-cas-euclidien"
+   ],
+   "depends_unresolved": []
+  },
+  {
+   "id": "ch09-diffeomorphisme-sous-varietes-def",
+   "kind": "definition",
+   "ref": "Définition IX.7.24",
+   "title": "$C^k$-difféomorphisme entre sous-variétés",
+   "page": 165,
+   "statement": "Soient $S_1$ et $S_2$ deux sous-variétés (respectivement de $\\mathbb R^{N_1}$ et $\\mathbb R^{N_2}$) de classe au moins $C^k$ et soit $\\varphi : S_1\\to S_2$ une application de $S_1$ dans $S_2$. On dit que $\\varphi$ est un **$C^k$-difféomorphisme** si c'est un homéomorphisme et si $\\varphi$ et $\\varphi^{-1}$ sont de classe $C^k$. On dit alors que $S_1$ et $S_2$ sont **$C^k$-difféomorphes**.",
+   "hypotheses": [
+    "$\\varphi$ bijective, continue, d'inverse continu",
+    "$\\varphi$ et $\\varphi^{-1}$ de classe $C^k$"
+   ],
+   "depends_on": [
+    "Définition IX.7.5"
+   ],
+   "used_by_hint": "Proposition IX.7.25, Théorème IX.7.26, Corollaire IX.8.10 (groupe $\\mathrm{Diff}^r(S)$) ; Exercices IX.9.1, IX.9.4, IX.9.6, IX.9.14.",
+   "importance": 3,
+   "proof_in_poly": "none",
+   "proof_length": "short",
+   "counterexample_hints": [
+    "Une bijection $C^k$ n'est pas forcément un difféomorphisme : $t\\mapsto t^3$ de $\\mathbb R$ sur $\\mathbb R$ (inverse non différentiable en $0$) ; il faut $d\\varphi_p$ inversible en tout point (Proposition IX.7.25)."
+   ],
+   "viz_hint": "",
+   "chapter": 9,
+   "order": 49,
+   "depends_ids": [
+    "ch09-application-cr-entre-sous-varietes-def"
+   ],
+   "depends_unresolved": []
+  },
+  {
+   "id": "ch09-differentielle-diffeomorphisme-isomorphisme",
+   "kind": "proposition",
+   "ref": "Proposition IX.7.25",
+   "title": "La différentielle d'un difféomorphisme est un isomorphisme ; invariance de la dimension",
+   "page": 165,
+   "statement": "Soient $S_1$ et $S_2$ deux sous-variétés (respectivement de $\\mathbb R^{N_1}$ et $\\mathbb R^{N_2}$) et soit $\\varphi : S_1\\to S_2$ un difféomorphisme. Alors pour tout $p\\in S_1$, $d\\varphi_p : T_pS_1\\to T_{\\varphi(p)}S_2$ est un isomorphisme, d'inverse $d(\\varphi^{-1})_{\\varphi(p)} : T_{\\varphi(p)}S_2\\to T_pS_1$. En particulier, les dimensions de $S_1$ et $S_2$ sont les mêmes.",
+   "hypotheses": [
+    "$\\varphi$ difféomorphisme (au moins $C^1$)"
+   ],
+   "depends_on": [
+    "Proposition IX.7.17",
+    "Définition IX.7.24"
+   ],
+   "used_by_hint": "Argument d'obstruction : deux sous-variétés de dimensions différentes ne sont pas difféomorphes ; preuve du Théorème IX.7.26.",
+   "importance": 2,
+   "proof_in_poly": "sketch",
+   "proof_length": "short",
+   "counterexample_hints": [
+    "Réciproque fausse globalement : $d\\varphi_p$ isomorphisme partout n'implique pas difféomorphisme ($t\\mapsto e^{it}$ de $\\mathbb R$ sur $\\mathbb S^1$) ; c'est seulement local (Théorème IX.7.26)."
+   ],
+   "viz_hint": "",
+   "chapter": 9,
+   "order": 50,
+   "depends_ids": [
+    "ch09-composition-differentielles",
+    "ch09-diffeomorphisme-sous-varietes-def"
+   ],
+   "depends_unresolved": []
+  },
+  {
+   "id": "ch09-inversion-locale-sous-varietes",
+   "kind": "theorem",
+   "ref": "Théorème IX.7.26",
+   "title": "Théorème d'inversion locale sur les sous-variétés",
+   "page": 166,
+   "statement": "Soient $S_1$ et $S_2$ deux sous-variétés (respectivement de $\\mathbb R^{N_1}$ et $\\mathbb R^{N_2}$) de classe au moins $C^k$, soit $p\\in S_1$, soit $\\varphi : S_1\\to S_2$ une application de classe $C^k$ telle que $d\\varphi_p : T_pS_1\\to T_{\\varphi(p)}S_2$ soit un isomorphisme linéaire. Alors il existe un voisinage ouvert $V_1$ de $p$ dans $S_1$ et un voisinage ouvert $V_2$ de $\\varphi(p)$ dans $S_2$ tel que $\\varphi(V_1)=V_2$ et la restriction de $\\varphi$ à $V_1$ réalise un $C^k$-difféomorphisme de $V_1$ sur $V_2$.",
+   "hypotheses": [
+    "$S_1$, $S_2$ de classe au moins $C^k$, $k\\ge1$",
+    "$\\varphi$ de classe $C^k$",
+    "$d\\varphi_p$ isomorphisme linéaire (donc en particulier $\\dim S_1=\\dim S_2$)"
+   ],
+   "depends_on": [
+    "Théorème VI.3.2",
+    "Proposition IX.7.17",
+    "Proposition IX.7.9",
+    "Exemple IX.7.6"
+   ],
+   "used_by_hint": "Corollaire IX.7.27 ; Exercice IX.9.4 (immersion + homéomorphisme sur l'image = plongement) ; Exercice IX.9.13 (redressement d'un champ) ; toute question « montrer que $\\varphi$ est un difféomorphisme local ».",
+   "importance": 3,
+   "proof_in_poly": "full",
+   "proof_length": "short",
+   "counterexample_hints": [
+    "Si $d\\varphi_p$ est seulement injective ($\\dim S_1<\\dim S_2$) on a une immersion (Proposition IX.7.29 (2)), pas un difféomorphisme local.",
+    "Global faux : $\\varphi : \\mathbb R\\to\\mathbb S^1$, $t\\mapsto(\\cos t,\\sin t)$, est un difféomorphisme local en tout point mais pas injectif."
+   ],
+   "viz_hint": "Lecture dans les cartes : $x_2^{-1}\\circ\\varphi\\circ x_1 : U_1\\to U_2$ entre ouverts de $\\mathbb R^m$, à laquelle on applique l'inversion locale usuelle.",
+   "chapter": 9,
+   "order": 51,
+   "depends_ids": [
+    "ch06-inversion-locale",
+    "ch09-composition-differentielles",
+    "ch09-espace-tangent-image-dx",
+    "ch09-ex-parametrages-cartes-cr"
+   ],
+   "depends_unresolved": []
+  },
+  {
+   "id": "ch09-graphe-au-dessus-du-plan-tangent",
+   "kind": "corollary",
+   "ref": "Corollaire IX.7.27",
+   "title": "Une sous-variété est localement le graphe d'une fonction au-dessus de son plan tangent",
+   "page": 166,
+   "statement": "Soit $S$ une sous-variété de dimension $m$ de $\\mathbb R^N$ et soit $p\\in S$. Soit $P$ le sous-espace affine passant par $p$ et parallèle à $T_pS$. Il existe un voisinage ouvert $W$ de $p$ dans $S$, un voisinage ouvert $V$ de $p$ dans $P$, un sous-espace vectoriel $H$ de dimension $N-m$ de $\\mathbb R^N$ et une fonction différentiable $h : V\\to H$ tels que $W$ est le graphe de $h$ (en identifiant $\\mathbb R^N$ à $T_pS\\times H$ via $T_pS\\oplus H=\\mathbb R^N$ ; dans la preuve $H=(T_pS)^\\perp$ et $h(u)=\\pi(g(u)-p)$ où $g$ est l'inverse local de la projection orthogonale $S\\to P$).",
+   "hypotheses": [
+    "$S$ sous-variété (au moins $C^1$)"
+   ],
+   "depends_on": [
+    "Théorème IX.7.26",
+    "Remarques IX.7.16",
+    "Proposition IX.5.3"
+   ],
+   "used_by_hint": "Précise la Proposition IX.5.3 : le « bon » plan de projection est $T_pS$ ; alors $dh_p=0$, ce qui rend les développements limités d'ordre 2 (courbure, hessienne) lisibles.",
+   "importance": 2,
+   "proof_in_poly": "full",
+   "proof_length": "short",
+   "counterexample_hints": [
+    "La projection orthogonale $S\\to P$ n'est en général pas injective globalement (sphère : les deux hémisphères se projettent sur le même disque) : le résultat est local."
+   ],
+   "viz_hint": "Surface et son plan tangent en $p$ ; projection orthogonale d'un voisinage de $p$ sur le plan tangent et graphe de la « hauteur » $h$ au-dessus de ce plan.",
+   "chapter": 9,
+   "order": 52,
+   "depends_ids": [
+    "ch09-inversion-locale-sous-varietes",
+    "ch09-remarques-differentielle-cas-euclidien",
+    "ch09-sous-variete-localement-graphe"
+   ],
+   "depends_unresolved": []
+  },
+  {
+   "id": "ch09-immersion-submersion-sous-varietes-def",
+   "kind": "definition",
+   "ref": "Définition IX.7.28",
+   "title": "Immersion et submersion entre sous-variétés",
+   "page": 167,
+   "statement": "Soient $S_1$ et $S_2$ deux sous-variétés (respectivement de $\\mathbb R^{N_1}$ et $\\mathbb R^{N_2}$) et $\\varphi : S_1\\to S_2$ une application de classe $C^k$. On dit que $\\varphi$ est une **immersion** (resp. une **submersion**) au point $p\\in S_1$ si sa différentielle $d\\varphi_p : T_pS_1\\to T_{\\varphi(p)}S_2$ est injective (resp. surjective). On dit que $\\varphi$ est une immersion (resp. une submersion) si c'est une immersion (resp. une submersion) en tout point $p\\in S_1$.",
+   "hypotheses": [
+    "$\\varphi$ de classe $C^k$, $k\\ge1$"
+   ],
+   "depends_on": [
+    "Définition IX.7.15",
+    "Définition IX.1.1"
+   ],
+   "used_by_hint": "Proposition IX.7.29 ; Exercice IX.9.4 (projection radiale immersion).",
+   "importance": 2,
+   "proof_in_poly": "none",
+   "proof_length": "short",
+   "counterexample_hints": [],
+   "viz_hint": "",
+   "chapter": 9,
+   "order": 53,
+   "depends_ids": [
+    "ch09-differentielle-entre-sous-varietes-def",
+    "ch09-immersion-submersion-def"
+   ],
+   "depends_unresolved": []
+  },
+  {
+   "id": "ch09-fibres-submersion-image-immersion",
+   "kind": "proposition",
+   "ref": "Proposition IX.7.29",
+   "title": "Fibre locale d'une submersion et image locale d'une immersion sont des sous-variétés",
+   "page": 167,
+   "statement": "Soient $S_1$ et $S_2$ deux sous-variétés (respectivement de $\\mathbb R^{N_1}$ et $\\mathbb R^{N_2}$), et $\\varphi : S_1\\to S_2$ une application de classe $C^k$.\n1. Supposons que $\\varphi$ soit une submersion en $p\\in S_1$. Alors il existe un voisinage $W_1$ de $p$ dans $S_1$ tel que $W_1\\cap\\varphi^{-1}(\\{\\varphi(p)\\})$ soit une sous-variété de $\\mathbb R^{N_1}$, incluse dans $S_1$ (de dimension $\\dim S_1-\\dim S_2$).\n2. Supposons que $\\varphi$ soit une immersion en $p\\in S_1$. Alors il existe un voisinage $W_1$ de $p$ dans $S_1$ tel que $\\varphi(W_1)$ soit une sous-variété de $\\mathbb R^{N_2}$, incluse dans $S_2$ (de dimension $\\dim S_1$).",
+   "hypotheses": [
+    "$\\varphi$ de classe $C^k$, $k\\ge1$",
+    "(1) $d\\varphi_p$ surjective",
+    "(2) $d\\varphi_p$ injective"
+   ],
+   "depends_on": [
+    "Proposition IX.3.1",
+    "Proposition IX.4.1",
+    "Exemple IX.2.9",
+    "Proposition IX.7.9"
+   ],
+   "used_by_hint": "Version « sous-variétés » des Propositions IX.1.2 et IX.4.1 ; point de départ pour montrer que $\\varphi^{-1}(c)$ est une sous-variété de $S_1$ quand $c$ est valeur régulière de $\\varphi : S_1\\to S_2$.",
+   "importance": 2,
+   "proof_in_poly": "full",
+   "proof_length": "medium",
+   "counterexample_hints": [
+    "Piège signalé par le poly : la Proposition IX.4.1 s'applique à une application définie sur un OUVERT de $\\mathbb R^N$ ; redresser le but ne suffit pas, il faut aussi passer en carte à la source ($\\theta=p_1\\circ\\varphi\\circ x_1$)."
+   ],
+   "viz_hint": "",
+   "chapter": 9,
+   "order": 54,
+   "depends_ids": [
+    "ch09-redressement-local",
+    "ch09-sous-variete-equation-valeur-reguliere",
+    "ch09-ex-image-immersion-locale",
+    "ch09-espace-tangent-image-dx"
+   ],
+   "depends_unresolved": []
+  },
+  {
+   "id": "ch09-differentielle-nulle-constante",
+   "kind": "theorem",
+   "ref": "Théorème IX.7.30",
+   "title": "Différentielle nulle sur une sous-variété connexe implique application constante",
+   "page": 167,
+   "statement": "Soient $S_1$ et $S_2$ deux sous-variétés (respectivement de $\\mathbb R^{N_1}$ et $\\mathbb R^{N_2}$) avec $S_1$ connexe, et soit $f : S_1\\to S_2$ une application différentiable telle que $df_p=0$ pour tout $p\\in S_1$. Alors $f$ est constante.",
+   "hypotheses": [
+    "$S_1$ connexe",
+    "$f$ différentiable en tout point",
+    "$df_p=0$ pour tout $p\\in S_1$"
+   ],
+   "depends_on": [],
+   "used_by_hint": "Preuve non écrite (« découle aisément » de l'analogue sur un ouvert de $\\mathbb R^m$ via les paramétrages, puis argument de connexité : $f$ localement constante). Utilisé dans les Exercices IX.7.37, IX.9.7, IX.9.8, IX.9.11 (deuxièmes parties « $S$ connexe ⇒ contenue dans un plan / une sphère »).",
+   "importance": 2,
+   "proof_in_poly": "none",
+   "proof_length": "short",
+   "counterexample_hints": [
+    "Sans connexité : $f$ valant $0$ sur une nappe et $1$ sur l'autre de l'hyperboloïde à deux nappes.",
+    "Comparer à l'Exercice IX.9.12 : les deux points d'une sous-variété connexe sont reliés par un arc $C^1$, ce qui donne une preuve directe."
+   ],
+   "viz_hint": "",
+   "chapter": 9,
+   "order": 55,
+   "depends_ids": [],
+   "depends_unresolved": []
+  },
+  {
+   "id": "ch09-extremum-local-differentielle-nulle",
+   "kind": "theorem",
+   "ref": "Théorème IX.7.31",
+   "title": "Condition nécessaire d'extremum local : $df_p=0$ sur $T_pS$",
+   "page": 168,
+   "statement": "Soit $S$ une sous-variété de dimension $m$ de $\\mathbb R^N$ et soit $f : S\\to\\mathbb R$ une fonction différentiable de $S$ à valeurs réelles. Si $p$ est un point d'extremum local de $f$, alors $df_p=0$ sur $T_pS$.",
+   "hypotheses": [
+    "$f$ différentiable en $p$ (au sens de la Définition IX.7.1)",
+    "$p$ extremum local de $f$ sur $S$ (pour la topologie induite)"
+   ],
+   "depends_on": [],
+   "used_by_hint": "Preuve non écrite (composer avec un paramétrage : $q$ est un extremum local de $f\\circ x$ sur l'ouvert $U$, donc $d(f\\circ x)_q=0$). Avec la compacité (une fonction continue sur une sous-variété compacte atteint ses bornes) et les multiplicateurs de Lagrange (Proposition IX.7.35), c'est l'outil des Exercices IX.7.36, IX.7.37, IX.9.5, IX.9.7-IX.9.9, IX.9.15.",
+   "importance": 3,
+   "proof_in_poly": "none",
+   "proof_length": "short",
+   "counterexample_hints": [
+    "Condition nécessaire, pas suffisante : point selle (col) sur un tore pour la fonction hauteur.",
+    "Si $S$ est remplacée par un ensemble à bord ($[0;+\\infty[$), l'extremum peut être au bord sans que la dérivée s'annule : la Définition IX.2.1 exclut les bords."
+   ],
+   "viz_hint": "Fonction hauteur sur un tore vertical : 4 points critiques (min, deux cols, max) ; plan tangent horizontal en chacun.",
+   "chapter": 9,
+   "order": 56,
+   "depends_ids": [],
+   "depends_unresolved": []
+  },
+  {
+   "id": "ch09-point-critique-sous-variete-def",
+   "kind": "definition",
+   "ref": "Définition IX.7.32",
+   "title": "Point critique d'une application entre sous-variétés",
+   "page": 168,
+   "statement": "Soient $S_1$ et $S_2$ deux sous-variétés (respectivement de $\\mathbb R^{N_1}$ et $\\mathbb R^{N_2}$), et soit $\\varphi : S_1\\to S_2$ une application différentiable. Si, en un point $p\\in S_1$, la différentielle $d\\varphi_p : T_pS_1\\to T_{\\varphi(p)}S_2$ n'est pas surjective, on dit que $p$ est un **point critique** de $\\varphi$. Dans le cas d'une fonction différentiable $f : S\\to\\mathbb R$ d'une sous-variété $S$ de $\\mathbb R^N$, $p\\in S$ est un point critique de $f$ si et seulement si $df_p$ s'annule. On définit de même comme dans la définition IX.1.3 les **points réguliers**, **valeurs critiques** et **valeurs régulières**.",
+   "hypotheses": [
+    "$\\varphi$ différentiable"
+   ],
+   "depends_on": [
+    "Définition IX.7.15",
+    "Définition IX.1.3"
+   ],
+   "used_by_hint": "Exemples IX.7.33-IX.7.34, Proposition IX.7.35, Définition IX.7.38 (hessienne définie seulement en un point critique), Remarque IX.7.40.",
+   "importance": 3,
+   "proof_in_poly": "none",
+   "proof_length": "short",
+   "counterexample_hints": [],
+   "viz_hint": "",
+   "chapter": 9,
+   "order": 57,
+   "depends_ids": [
+    "ch09-differentielle-entre-sous-varietes-def",
+    "ch09-point-critique-valeur-reguliere-def"
+   ],
+   "depends_unresolved": []
+  },
+  {
+   "id": "ch09-ex-point-critique-restriction",
+   "kind": "example",
+   "ref": "Exemple IX.7.33",
+   "title": "Point critique de la restriction d'une fonction : $T_pS\\subset\\ker dg_p$",
+   "page": 168,
+   "statement": "Supposons que $f : S\\to\\mathbb R$ soit la restriction à $S$ d'une fonction différentiable $g$ définie sur un ouvert $U$ de $\\mathbb R^N$ contenant $S$. Alors $p\\in S$ est un point critique de $f$ si et seulement si $dg_p(T_pS)=0$, autrement dit $T_pS\\subset\\ker dg_p$ (i.e. le gradient $\\nabla g(p)$ est orthogonal à $T_pS$).",
+   "hypotheses": [
+    "$g$ différentiable sur un ouvert contenant $S$"
+   ],
+   "depends_on": [
+    "Remarques IX.7.16",
+    "Définition IX.7.32"
+   ],
+   "used_by_hint": "Formulation géométrique des multiplicateurs de Lagrange (Proposition IX.7.35) ; Exercices IX.7.36, IX.7.37, IX.9.5, IX.9.15.",
+   "importance": 2,
+   "proof_in_poly": "sketch",
+   "proof_length": "short",
+   "counterexample_hints": [
+    "$dg_p=0$ n'est pas nécessaire : pour $g(x)=\\|x\\|^2$ restreinte à la sphère, $f$ est constante (tout point est critique) alors que $dg_p=2\\langle p,\\cdot\\rangle\\neq0$."
+   ],
+   "viz_hint": "Lignes de niveau de $g$ et courbe $S$ dans le plan : les points critiques de $g|_S$ sont les points de tangence entre $S$ et une ligne de niveau.",
+   "chapter": 9,
+   "order": 58,
+   "depends_ids": [
+    "ch09-remarques-differentielle-cas-euclidien",
+    "ch09-point-critique-sous-variete-def"
+   ],
+   "depends_unresolved": []
+  },
+  {
+   "id": "ch09-ex-point-critique-parametrage",
+   "kind": "example",
+   "ref": "Exemple IX.7.34",
+   "title": "Point critique lu dans un paramétrage",
+   "page": 168,
+   "statement": "Si $x : U\\to S$ est un paramétrage local de $S$ en $p$, $p$ est un point critique de $f$ si et seulement si $d(f\\circ x)_q=0$, où $q=x^{-1}(p)$.",
+   "hypotheses": [],
+   "depends_on": [
+    "Définition IX.7.15",
+    "Définition IX.7.32"
+   ],
+   "used_by_hint": "Méthode pratique quand on dispose d'un paramétrage explicite (sphère en coordonnées sphériques, tore).",
+   "importance": 1,
+   "proof_in_poly": "none",
+   "proof_length": "short",
+   "counterexample_hints": [],
+   "viz_hint": "",
+   "chapter": 9,
+   "order": 59,
+   "depends_ids": [
+    "ch09-differentielle-entre-sous-varietes-def",
+    "ch09-point-critique-sous-variete-def"
+   ],
+   "depends_unresolved": []
+  },
+  {
+   "id": "ch09-multiplicateurs-lagrange",
+   "kind": "proposition",
+   "ref": "Proposition IX.7.35",
+   "title": "Multiplicateurs de Lagrange (extrema liés)",
+   "page": 168,
+   "statement": "Soit $F : V\\to\\mathbb R^{N-m}$ une application de classe $C^k$ définie sur un ouvert $V$ de $\\mathbb R^N$ dont $0$ est valeur régulière et soit $S$ la sous-variété de dimension $m$ de $\\mathbb R^N$ définie par $S=\\{x\\in V\\mid F(x)=0\\}$. Soit $g : V\\to\\mathbb R$ une fonction différentiable définie sur $V$ et soit $f$ la restriction de $g$ à $S$. Posons $F(x)=(F_1(x),\\dots,F_{N-m}(x))$. Alors un point $p\\in S$ est point critique de $f$, c'est-à-dire $df_p=0$, si et seulement s'il existe des réels $w_1,\\dots,w_{N-m}$ tels que\n$$dg_p=w_1\\,d(F_1)_p+\\dots+w_{N-m}\\,d(F_{N-m})_p.$$\nLes composantes du vecteur $w=(w_1,\\dots,w_{N-m})$ s'appellent les **multiplicateurs de Lagrange**.",
+   "hypotheses": [
+    "$F$ de classe $C^k$ ($k\\ge1$) sur un ouvert $V$",
+    "$0$ valeur régulière de $F$ (les $d(F_i)_p$ sont linéairement indépendantes)",
+    "$g$ différentiable sur $V$, $f=g|_S$"
+   ],
+   "depends_on": [
+    "Proposition IX.7.13",
+    "Remarques IX.7.16",
+    "Définition IX.7.32"
+   ],
+   "used_by_hint": "Avec le Théorème IX.7.31 et la compacité : Exercices IX.7.36 (diagonalisation des matrices symétriques), IX.9.5 (extrema de $x^2+y^2+z^2$ sur une surface), IX.9.15 (inégalité de Hadamard sur le déterminant). Le lemme d'algèbre linéaire (une forme linéaire nulle sur $\\bigcap\\ker\\ell_i$ est combinaison des $\\ell_i$) est « à faire absolument en exercice ».",
+   "importance": 3,
+   "proof_in_poly": "full",
+   "proof_length": "short",
+   "counterexample_hints": [
+    "Si $0$ n'est pas valeur régulière, la condition échoue : minimiser $g(x,y)=x$ sous la contrainte $F(x,y)=y^2-x^3=0$ (cusp) : le minimum est en $(0,0)$ où $dF=0$, et $dg_{(0,0)}=dx\\neq w\\,dF_{(0,0)}=0$.",
+    "Condition nécessaire seulement : les points de Lagrange ne sont pas tous des extrema (cols)."
+   ],
+   "viz_hint": "Dans le plan : courbe de contrainte $F=0$ et lignes de niveau de $g$ ; au point critique, les gradients $\\nabla g$ et $\\nabla F$ sont colinéaires (lignes de niveau tangentes à la contrainte).",
+   "chapter": 9,
+   "order": 60,
+   "depends_ids": [
+    "ch09-espace-tangent-graphe-equation",
+    "ch09-remarques-differentielle-cas-euclidien",
+    "ch09-point-critique-sous-variete-def"
+   ],
+   "depends_unresolved": []
+  },
+  {
+   "id": "ch09-changement-parametrage-differentielle-seconde",
+   "kind": "formula",
+   "ref": "Formule (IX.7.2)",
+   "title": "Comportement de $d^2(f\\circ x)$ par changement de paramétrage ; pourquoi la hessienne n'est définie qu'aux points critiques (formules (IX.7.2)-(IX.7.4))",
+   "page": 170,
+   "statement": "Soient $S_1$, $S_2$ et $f : S_1\\to S_2$ de classe au moins $C^2$, $x : U\\to S_1$ un paramétrage local en $p$, $q=x^{-1}(p)$, et $x_1=x\\circ h : U_1\\to S_1$ un autre paramétrage, où $h : U_1\\to U$ est un difféomorphisme, $p=x_1(q_1)$. Alors\n$$\\text{(IX.7.2)}\\qquad d^2(f\\circ x_1)_{q_1}=d(f\\circ x)_q\\circ d^2h_{q_1}+d^2(f\\circ x)_q(dh_{q_1},dh_{q_1}).$$\nLe premier terme dépend du paramétrage (via $d^2h$) : on ne peut pas en général définir de différentielle seconde de $f$ en $p$. En revanche, si $df_p=0$, alors $d(f\\circ x)_q=df_p\\circ dx_q=0$ et\n$$\\text{(IX.7.3)}\\qquad d^2(f\\circ x_1)_{q_1}=d^2(f\\circ x)_q(dh_{q_1},dh_{q_1}),$$\nce qui permet de définir pour tout $v,w\\in T_pS$\n$$\\text{(IX.7.4)}\\qquad d^2f_p(v,w)=d^2(f\\circ x)_q\\big(d(x^{-1})_p(v),d(x^{-1})_p(w)\\big),$$\nquantité indépendante du paramétrage d'après (IX.7.3).",
+   "hypotheses": [
+    "$S_1$, $S_2$, $f$ de classe au moins $C^2$",
+    "(IX.7.3)-(IX.7.4) : $df_p=0$"
+   ],
+   "depends_on": [
+    "Proposition IX.6.1",
+    "Définition IX.7.15"
+   ],
+   "used_by_hint": "Justifie la Définition IX.7.38 ; explique un piège classique (la « hessienne » d'une fonction sur une surface en un point non critique n'a pas de sens intrinsèque).",
+   "importance": 2,
+   "proof_in_poly": "full",
+   "proof_length": "medium",
+   "counterexample_hints": [
+    "Sur $S=\\mathbb R$, $f(x)=x$, paramétrages $x(u)=u$ et $x_1(u)=u+u^2$ : $d^2(f\\circ x)=0$ mais $d^2(f\\circ x_1)=2\\neq0$ : la différentielle seconde dépend du paramétrage là où $df\\neq0$."
+   ],
+   "viz_hint": "",
+   "chapter": 9,
+   "order": 61,
+   "depends_ids": [
+    "ch09-changement-parametrage",
+    "ch09-differentielle-entre-sous-varietes-def"
+   ],
+   "depends_unresolved": []
+  },
+  {
+   "id": "ch09-hessienne-def",
+   "kind": "definition",
+   "ref": "Définition IX.7.38",
+   "title": "Hessienne d'une fonction en un point critique",
+   "page": 170,
+   "statement": "Supposons que $p$ soit un point critique de la fonction $f : S\\to\\mathbb R$ de classe $C^2$ (sur une sous-variété $S$ de classe au moins $C^2$). Posons alors, quels que soient $v,w\\in T_pS$,\n$$d^2f_p(v,w)=d^2(f\\circ x)_q\\big(dx^{-1}_p(v),dx^{-1}_p(w)\\big)$$\noù $x$ est un paramétrage local de $S$ en $p$ et $q=x^{-1}(p)$. On a montré que cette définition est indépendante du paramétrage choisi. $d^2f_p$ est une forme bilinéaire symétrique sur $T_pS$, appelée la **hessienne** de $f$ au point critique $p$.",
+   "hypotheses": [
+    "$f$ de classe $C^2$",
+    "$p$ point critique de $f$ ($df_p=0$) — indispensable"
+   ],
+   "depends_on": [
+    "Formule (IX.7.2)",
+    "Définition IX.7.32"
+   ],
+   "used_by_hint": "Conditions d'ordre 2 pour les extrema (énoncé non numéroté p. 171), Exercice IX.7.39 (calcul le long d'une courbe), Remarque IX.7.40 (lemme de Morse).",
+   "importance": 3,
+   "proof_in_poly": "full",
+   "proof_length": "short",
+   "counterexample_hints": [
+    "En un point non critique la formule dépend du paramétrage (contre-exemple de la fiche (IX.7.2)).",
+    "Attention : si $f=g|_S$ avec $g$ définie sur $\\mathbb R^N$, $d^2f_p\\neq d^2g_p|_{T_pS}$ en général : il faut ajouter un terme de courbure ($d^2f_p(v,v)=d^2g_p(v,v)+dg_p(\\alpha''(0))$ pour une courbe $\\alpha$ sur $S$, cf. Exercice IX.7.39) — sauf si $dg_p=0$."
+   ],
+   "viz_hint": "Point critique d'une fonction hauteur sur une surface : la hessienne est la forme quadratique du graphe local au-dessus de $T_pS$ (paraboloïde elliptique / hyperbolique).",
+   "chapter": 9,
+   "order": 62,
+   "depends_ids": [
+    "ch09-changement-parametrage-differentielle-seconde",
+    "ch09-point-critique-sous-variete-def"
+   ],
+   "depends_unresolved": []
+  },
+  {
+   "id": "ch09-hessienne-extrema-ordre-deux",
+   "kind": "proposition",
+   "ref": "non numéroté, section IX.7.6, p. 171",
+   "title": "Conditions d'ordre 2 : signe de la hessienne et extrema locaux",
+   "page": 171,
+   "statement": "Il découle des propriétés des différentielles secondes en calcul différentiel ordinaire que $d^2f_p$ est une forme bilinéaire symétrique sur $T_pS$. D'autre part, si la fonction $f$ (de classe $C^2$, $p$ point critique) admet un maximum (resp. minimum) local en $p$, alors $d^2f_p$ est négative (resp. positive) ; inversement, sous l'hypothèse plus forte où $d^2f_p$ est définie négative (resp. définie positive), $f$ admet un maximum (resp. minimum) local isolé en $p$.",
+   "hypotheses": [
+    "$f$ de classe $C^2$, $p$ point critique",
+    "condition nécessaire : hessienne (semi-)négative/positive",
+    "condition suffisante : hessienne DÉFINIE négative/positive"
+   ],
+   "depends_on": [
+    "Définition IX.7.38"
+   ],
+   "used_by_hint": "Transport via un paramétrage des résultats du chapitre V sur les extrema d'une fonction sur un ouvert de $\\mathbb R^m$ ; classification des points critiques dans les exercices (tore, Exercice IX.9.5).",
+   "importance": 2,
+   "proof_in_poly": "sketch",
+   "proof_length": "short",
+   "counterexample_hints": [
+    "Hessienne semi-définie mais pas d'extremum : $f(u)=u^3$ en $0$ ; $f(u_1,u_2)=u_1^2-u_2^4$ en $0$.",
+    "Hessienne nulle avec minimum : $f(u)=u^4$."
+   ],
+   "viz_hint": "Graphe local au point critique selon la signature $(r,s)$ : bol, col, bol renversé.",
+   "chapter": 9,
+   "order": 63,
+   "depends_ids": [
+    "ch09-hessienne-def"
+   ],
+   "depends_unresolved": []
+  },
+  {
+   "id": "ch09-lemme-morse-sous-variete",
+   "kind": "remark",
+   "ref": "Remarque IX.7.40",
+   "title": "Lemme de Morse sur une sous-variété",
+   "page": 171,
+   "statement": "Soient $S$ une sous-variété de dimension $m$ de $\\mathbb R^N$ de classe $C^\\infty$, $f : S\\to\\mathbb R$ une fonction de classe $C^\\infty$ et $p$ un point critique de $f$. Supposons que la hessienne $d^2f_p$ soit une forme bilinéaire symétrique non dégénérée sur $T_pS$, de signature $(r,s)$, avec $r+s=m$. Alors il existe un paramétrage local $x : U\\to S$ de $S$ en $p$, avec $0\\in U$ et $x(0)=p$, tel que\n$$f(x(u))=f(p)+\\sum_{i=1}^ru_i^2-\\sum_{i=r+1}^mu_i^2,\\qquad u=(u_1,\\dots,u_m)\\in U.$$\nPreuve : tout se transporte par un paramétrage $y : U_1\\to S$ en $p$, $y(q_0)=p$ ; $g=f\\circ y$ a $q_0$ pour point critique, $d^2g_{q_0}(h,k)=d^2f_p(dy_{q_0}(h),dy_{q_0}(k))$ est non dégénérée de même signature car $dy_{q_0}$ est un isomorphisme de $\\mathbb R^m$ sur $T_pS$ ; l'exercice VI.3.4 fournit un difféomorphisme $\\psi$ d'un voisinage de $0$ sur un voisinage de $q_0$, $\\psi(0)=q_0$, mettant $g$ sous la forme voulue ; le paramétrage cherché est $x=y\\circ\\psi$.",
+   "hypotheses": [
+    "$S$ et $f$ de classe $C^\\infty$",
+    "$p$ point critique",
+    "$d^2f_p$ non dégénérée (point critique de Morse)"
+   ],
+   "depends_on": [
+    "Exercice VI.3.4",
+    "Définition IX.7.38",
+    "Proposition IX.7.9"
+   ],
+   "used_by_hint": "Classification locale des points critiques non dégénérés : $r=m$ minimum, $r=0$ maximum, $0<r<m$ col ; isolement des points critiques non dégénérés.",
+   "importance": 2,
+   "proof_in_poly": "full",
+   "proof_length": "short",
+   "counterexample_hints": [
+    "Hessienne dégénérée : $f(u)=u^3$ ou $u^4$ ne se met pas sous forme quadratique ; les points critiques dégénérés peuvent ne pas être isolés ($f(u_1,u_2)=u_1^2$)."
+   ],
+   "viz_hint": "Fonction hauteur sur un tore : au col, les lignes de niveau forment localement une croix $u_1^2-u_2^2=c$ ; au min/max, des cercles.",
+   "chapter": 9,
+   "order": 64,
+   "depends_ids": [
+    "ch06-lemme-de-morse",
+    "ch09-hessienne-def",
+    "ch09-espace-tangent-image-dx"
+   ],
+   "depends_unresolved": []
+  },
+  {
+   "id": "ch09-courbe-integrale-reste-dans-sous-variete-fermee",
+   "kind": "proposition",
+   "ref": "Proposition IX.8.1",
+   "title": "Une courbe intégrale d'un champ tangent à une sous-variété fermée y reste",
+   "page": 172,
+   "statement": "Soit $S$ une sous-variété fermée de $\\mathbb R^N$ et $X : I\\times U\\to\\mathbb R^N$ un champ de vecteurs dépendant du temps, vérifiant les conditions du théorème VII.2.12 (continu, localement lipschitzien en la seconde variable), où $U$ est un ouvert de $\\mathbb R^N$ contenant $S$ et $I$ un intervalle ouvert de $\\mathbb R$ contenant $0$. Supposons que pour tout $t\\in I$, pour tout $x\\in S$, $X(t,x)\\in T_xS$. Soit $\\gamma$ une courbe intégrale de $X$ définie sur un intervalle $]a;b[$ contenant $0$, telle que $\\gamma(0)\\in S$, alors pour tout $t\\in]a;b[$, $\\gamma(t)\\in S$.",
+   "hypotheses": [
+    "$S$ FERMÉE dans $\\mathbb R^N$",
+    "$X$ vérifie les hypothèses de Cauchy-Lipschitz (Théorème VII.2.12) sur $I\\times U$, $U\\supset S$ ouvert",
+    "tangence : $X(t,x)\\in T_xS$ pour tout $t\\in I$, $x\\in S$",
+    "$\\gamma(0)\\in S$"
+   ],
+   "depends_on": [
+    "Proposition IX.3.1",
+    "Théorème VII.2.1",
+    "Théorème VII.2.12"
+   ],
+   "used_by_hint": "Exemples IX.8.2 (sphère, hamiltonien, moment cinétique) ; modèle de preuve pour le Théorème IX.8.5 ; argument type « borne sup du temps de séjour + fermeture + unicité locale » réutilisé en exercice (contrôle 2022, champ tangent au cercle).",
+   "importance": 3,
+   "proof_in_poly": "full",
+   "proof_length": "long",
+   "counterexample_hints": [
+    "Sans fermeture : $S=(\\mathbb R\\times\\{0\\})\\setminus\\{(0,0)\\}$ (droite privée d'un point) et $X=(1,0)$ constant, tangent à $S$ : la courbe intégrale $\\gamma(t)=(t-1,0)$ issue de $(-1,0)\\in S$ passe par $(0,0)\\notin S$ en $t=1$ et « sort » de $S$. Même phénomène pour la spirale de la Remarque IX.2.17 avec le champ $X(x(s))=x'(s)$, qui s'enroule vers $0\\notin S$ en temps infini seulement ; la version non fermée empêche l'argument « $\\gamma(\\tau)\\in S$ ».",
+    "Sans unicité (champ seulement continu) : le résultat peut tomber en défaut (une courbe intégrale pourrait quitter $S$ en un temps fini à partir d'un point où plusieurs solutions existent)."
+   ],
+   "viz_hint": "Champ de vecteurs tangent à une sphère ($X(x)=\\omega\\wedge x$) : les trajectoires sont des cercles sur la sphère ; comparer à un champ non tangent qui fait sortir les trajectoires.",
+   "chapter": 9,
+   "order": 65,
+   "depends_ids": [
+    "ch09-redressement-local",
+    "ch07-cauchy-lipschitz",
+    "ch07-existence-flot-local"
+   ],
+   "depends_unresolved": []
+  },
+  {
+   "id": "ch09-ex-champs-tangents-physique",
+   "kind": "example",
+   "ref": "Exemples IX.8.2",
+   "title": "Champs tangents : sphère, champ hamiltonien $X_H$, moment cinétique",
+   "page": 172,
+   "statement": "1. Avec les notations de la Proposition IX.8.1, si $X$ est tel que $X(t,x)$ est toujours orthogonal à $x$, alors $\\gamma(t)$ reste sur une sphère (centrée en $0$).\n2. Soit $H(q,p)$ une fonction sur $\\mathbb R^n\\times\\mathbb R^n$. Posons $X_H=\\left(\\dfrac{\\partial H}{\\partial p},-\\dfrac{\\partial H}{\\partial q}\\right)$. Comme $dH_{(q,p)}(X_H(q,p))=0$, $X_H$ est un champ de vecteurs tangents aux hypersurfaces $H(q,p)=c$ (on suppose $H$ de classe $C^1$ et $c$ valeur régulière de $H$, de sorte que l'équation $H(q,p)=c$ définit bien une sous-variété). En mécanique classique, $H$ est le hamiltonien d'un système, $q$ la position et $p$ l'impulsion, et le résultat dit que l'énergie est conservée au cours du temps.\n3. L'équation différentielle $M'(t)=\\Omega(t)\\wedge M(t)$, où $\\Omega$ et $M$ sont dans $\\mathbb R^3$, décrit le mouvement libre d'un solide de moment cinétique $M$ et de vitesse angulaire $\\Omega$. On a $\\frac{d}{dt}\\left(\\frac12\\|M(t)\\|^2\\right)=\\langle M'(t),M(t)\\rangle=\\langle\\Omega(t)\\wedge M(t),M(t)\\rangle=0$ : la norme du moment cinétique est préservée.",
+   "hypotheses": [
+    "(2) $H$ de classe $C^1$ et $c$ valeur régulière ; pour appliquer IX.8.1 il faut aussi $X_H$ localement lipschitzien (par ex. $H$ de classe $C^2$)"
+   ],
+   "depends_on": [
+    "Proposition IX.8.1",
+    "Proposition IX.7.13",
+    "Exemple IX.4.2"
+   ],
+   "used_by_hint": "Lien avec les intégrales premières (sujet 2022) ; Exercice IX.9.14 (champ tangent à $\\mathbb S^{2n-1}$).",
+   "importance": 2,
+   "proof_in_poly": "sketch",
+   "proof_length": "short",
+   "counterexample_hints": [],
+   "viz_hint": "Portrait de phase du pendule $H=p^2/2-\\cos q$ : les trajectoires suivent les lignes de niveau de $H$ ; en 3D, trajectoires de $M'=\\Omega\\wedge M$ sur la sphère $\\|M\\|=$ cte.",
+   "chapter": 9,
+   "order": 66,
+   "depends_ids": [
+    "ch09-courbe-integrale-reste-dans-sous-variete-fermee",
+    "ch09-espace-tangent-graphe-equation",
+    "ch09-ex-sphere"
+   ],
+   "depends_unresolved": []
+  },
+  {
+   "id": "ch09-champ-tangent-courbe-integrale-flot-local-def",
+   "kind": "definition",
+   "ref": "Définition IX.8.3",
+   "title": "Champ de vecteurs tangents dépendant du temps, courbe intégrale, flot local sur une sous-variété",
+   "page": 173,
+   "statement": "On appelle **champ de vecteurs tangents dépendant du temps** sur une sous-variété $S$ de $\\mathbb R^N$ une application continue $X : I\\times S\\to\\mathbb R^N$, où $I$ est un intervalle ouvert et où pour tout $t\\in I$ et pour tout $x\\in S$, $X(t,x)\\in T_xS$. On appelle **courbe intégrale** de classe $C^p$ du champ de vecteurs $X$ une courbe paramétrée $\\alpha : J\\to S$ de classe $C^p$ définie sur un intervalle ouvert $J$ de $\\mathbb R$ contenu dans $I$, telle que pour tout $t\\in J$, $\\alpha'(t)=X(t,\\alpha(t))$. Cette courbe intégrale est dite de **condition initiale** $(t_0,x)\\in I\\times S$ si $\\alpha(t_0)=x$.\nOn appelle **flot local** de $X$ en $(\\tau_0,x_0)\\in I\\times S$ la donnée d'un voisinage ouvert $U$ de $x_0$ dans $S$, d'un intervalle ouvert $J$ contenu dans $I$ et contenant $\\tau_0$, d'un $\\epsilon>0$ tels que pour tout $t_0\\in J$, pour tout $x\\in U$, il existe une unique courbe intégrale $\\alpha_{t_0,x}$ de $X$ de condition initiale $(t_0,x)$ définie sur $]t_0-\\epsilon,t_0+\\epsilon[$. On note alors\n$$E=E(J,\\epsilon)=\\{(t_0,t)\\in J\\times\\mathbb R\\mid t\\in]t_0-\\epsilon,t_0+\\epsilon[\\}$$\net $F : E\\times U\\to S$, $(t_0,t,x)\\mapsto\\alpha_{t_0,x}(t)$. On note $(E(J,\\epsilon),U,F)$ ce flot local.",
+   "hypotheses": [
+    "$X$ continue",
+    "tangence $X(t,x)\\in T_xS$"
+   ],
+   "depends_on": [
+    "Définition IX.7.8",
+    "Définition VII.1.1",
+    "Définition VII.2.9"
+   ],
+   "used_by_hint": "Théorème IX.8.5, Définition IX.8.7, Théorèmes IX.8.8-IX.8.9 ; Exercices IX.9.13, IX.9.14.",
+   "importance": 3,
+   "proof_in_poly": "none",
+   "proof_length": "short",
+   "counterexample_hints": [],
+   "viz_hint": "",
+   "chapter": 9,
+   "order": 67,
+   "depends_ids": [
+    "ch09-vecteur-tangent-espace-tangent-def",
+    "ch07-champ-vecteurs-courbe-integrale-def",
+    "ch07-flot-local-def"
+   ],
+   "depends_unresolved": []
+  },
+  {
+   "id": "ch09-remarque-champ-autonome",
+   "kind": "remark",
+   "ref": "Remarque IX.8.4",
+   "title": "Cas d'un champ tangent indépendant du temps",
+   "page": 173,
+   "statement": "Comme dans la remarque VII.2.6, un cas important est celui où le champ de vecteurs tangents $X$ ne dépend pas du temps. Dans la définition ci-dessus, il n'y a alors pas la contrainte que l'intervalle $J$ dans le domaine de définition du flot local soit contenu dans un intervalle prescrit $I$, ou en d'autres termes, on peut prendre $I=\\mathbb R$.",
+   "hypotheses": [],
+   "depends_on": [
+    "Remarque VII.2.6",
+    "Définition IX.8.3"
+   ],
+   "used_by_hint": "Notations simplifiées $J(x_0)$, $F(t,x_0)$, $F_t\\cdot x$ après la Définition IX.8.7 ; Théorème IX.8.9.",
+   "importance": 1,
+   "proof_in_poly": "none",
+   "proof_length": "short",
+   "counterexample_hints": [],
+   "viz_hint": "",
+   "chapter": 9,
+   "order": 68,
+   "depends_ids": [
+    "ch07-equation-autonome-def",
+    "ch09-champ-tangent-courbe-integrale-flot-local-def"
+   ],
+   "depends_unresolved": []
+  },
+  {
+   "id": "ch09-flot-local-sous-variete",
+   "kind": "theorem",
+   "ref": "Théorème IX.8.5",
+   "title": "Existence et unicité du flot local d'un champ tangent (Cauchy-Lipschitz sur une sous-variété)",
+   "page": 174,
+   "statement": "Soient $X : I\\times S\\to\\mathbb R^N$ un champ de vecteurs tangents dépendant du temps sur une sous-variété $S$ de $\\mathbb R^N$ et $(\\tau_0,x_0)\\in I\\times S$. Supposons que $X$ soit localement lipschitzien en la seconde variable. Alors il existe un intervalle $J$ ouvert contenant $\\tau_0$, une constante $\\epsilon>0$ et un voisinage ouvert $U$ de $x_0$ dans $S$ définissant un flot local $(E(J,\\epsilon),U,F)$ en $(\\tau_0,x_0)$. Si le champ de vecteurs tangents $X$ est de classe $C^p$, alors $F$ aussi.\nDe plus, on a un énoncé d'unicité : soient $t_0\\in J$, $x\\in U$. Si $\\gamma :]t_0-\\epsilon',t_0+\\epsilon'[\\to\\mathbb R^N$ avec $\\epsilon'\\le\\epsilon$ vérifie $\\gamma'(t)=X(t,\\gamma(t))$ et $\\gamma(t_0)=x$, alors $\\gamma(t)=\\alpha_{t_0,x}(t)=F(t_0,t,x)$ pour tout $t\\in]t_0-\\epsilon',t_0+\\epsilon'[$.",
+   "hypotheses": [
+    "$X$ champ tangent continu sur $I\\times S$",
+    "$X$ localement lipschitzien en la seconde variable",
+    "classe $C^p$ pour la régularité de $F$"
+   ],
+   "depends_on": [
+    "Théorème VII.2.12",
+    "Proposition IX.8.1",
+    "Proposition IX.3.1"
+   ],
+   "used_by_hint": "Preuve laissée au lecteur (se ramener au Théorème VII.2.12 via les paramétrages locaux, en s'inspirant de la preuve de IX.8.1). Fondement de la Définition IX.8.7 et des Théorèmes IX.8.8-IX.8.9.",
+   "importance": 3,
+   "proof_in_poly": "sketch",
+   "proof_length": "medium",
+   "counterexample_hints": [
+    "Sans le caractère lipschitzien : non-unicité (analogue de $x'=\\sqrt{|x|}$ sur $S=\\mathbb R$).",
+    "Remarquer que l'énoncé d'unicité porte sur des $\\gamma$ à valeurs dans $\\mathbb R^N$ (pas supposées dans $S$) : c'est une unicité « ambiante »."
+   ],
+   "viz_hint": "Champ tangent sur une sphère ou un tore et ses trajectoires locales ; lecture dans une carte : le champ transporté $Y=d\\Phi(X)$ est horizontal.",
+   "chapter": 9,
+   "order": 69,
+   "depends_ids": [
+    "ch07-existence-flot-local",
+    "ch09-courbe-integrale-reste-dans-sous-variete-fermee",
+    "ch09-redressement-local"
+   ],
+   "depends_unresolved": []
+  },
+  {
+   "id": "ch09-remarque-ouvert-de-s",
+   "kind": "remark",
+   "ref": "Remarque IX.8.6",
+   "title": "Pas besoin d'énoncer le théorème sur un ouvert de $S$",
+   "page": 174,
+   "statement": "Comme un ouvert d'une sous-variété est une sous-variété, il n'y a pas lieu d'énoncer le théorème avec un ouvert de $S$ remplaçant $S$. En revanche, la démonstration se ramène au théorème VII.2.12 via les paramétrages locaux.",
+   "hypotheses": [],
+   "depends_on": [
+    "Exemple IX.2.6",
+    "Théorème VII.2.12"
+   ],
+   "used_by_hint": "",
+   "importance": 1,
+   "proof_in_poly": "none",
+   "proof_length": "short",
+   "counterexample_hints": [],
+   "viz_hint": "",
+   "chapter": 9,
+   "order": 70,
+   "depends_ids": [
+    "ch09-ex-ouvert-de-sous-variete",
+    "ch07-existence-flot-local"
+   ],
+   "depends_unresolved": []
+  },
+  {
+   "id": "ch09-courbe-integrale-maximale-sous-variete",
+   "kind": "definition",
+   "ref": "non numéroté, section IX.8.1, p. 174",
+   "title": "Intervalle de vie $J_{\\tau_0}(x_0)$ et courbe intégrale maximale sur une sous-variété",
+   "page": 174,
+   "statement": "Soit $X : I\\times S\\to\\mathbb R^N$ un champ de vecteurs tangents dépendant du temps sur une sous-variété $S$ de $\\mathbb R^N$, localement lipschitzien en la seconde variable. Soit $(\\tau_0,x_0)\\in I\\times S$. Comme dans les définitions VII.3.3 et VII.3.4, on peut définir $J_{\\tau_0}(x_0)$ comme l'union de tous les intervalles ouverts $J$ contenant $\\tau_0$ tels qu'il existe une courbe intégrale $\\alpha : J\\to S$ de condition initiale $(\\tau_0,x_0)$, et montrer qu'il existe une unique courbe intégrale $\\alpha_{\\tau_0,x_0}$ de condition initiale $(\\tau_0,x_0)$ définie sur $J_{\\tau_0}(x_0)$ (la **courbe intégrale maximale** de $X$ de condition initiale $(\\tau_0,x_0)$).",
+   "hypotheses": [
+    "$X$ localement lipschitzien en la seconde variable (unicité locale, Théorème IX.8.5)"
+   ],
+   "depends_on": [
+    "Théorème IX.8.5",
+    "Définition VII.3.3",
+    "Définition VII.3.4",
+    "Proposition VII.3.1"
+   ],
+   "used_by_hint": "Définition IX.8.7 (flot global).",
+   "importance": 2,
+   "proof_in_poly": "sketch",
+   "proof_length": "short",
+   "counterexample_hints": [],
+   "viz_hint": "",
+   "chapter": 9,
+   "order": 71,
+   "depends_ids": [
+    "ch09-flot-local-sous-variete",
+    "ch07-courbe-integrale-maximale-def",
+    "ch07-flot-global-def",
+    "ch07-unicite-globale"
+   ],
+   "depends_unresolved": []
+  },
+  {
+   "id": "ch09-flot-global-sous-variete-def",
+   "kind": "definition",
+   "ref": "Définition IX.8.7",
+   "title": "Flot global d'un champ tangent et son domaine $D$",
+   "page": 174,
+   "statement": "Posons $D=\\{(\\tau_0,t,x_0)\\in I\\times I\\times S\\mid t\\in J_{\\tau_0}(x_0)\\}$. L'application $F : D\\to S$, $F(\\tau_0,t,x_0)=\\alpha_{\\tau_0,x_0}(t)$, où $\\alpha_{\\tau_0,x_0}$ est la courbe intégrale maximale de $X$ de condition initiale $(\\tau_0,x_0)$, définie sur $J_{\\tau_0}(x_0)$, est appelée **flot global** de $X$, et $D$ est son **domaine de définition**. Pour tout $\\tau_0\\in I$, on pose $D_{\\tau_0}=\\{(t,x_0)\\in I\\times S\\mid t\\in J_{\\tau_0}(x_0)\\}$.\nDans le cas où le champ $X$ est indépendant du temps, on prend $I=\\mathbb R$, on fixe $\\tau_0=0$ et on note simplement $J(x_0)$ pour $J_0(x_0)$, $F(t,x_0)$ pour $F(0,t,x_0)$, $F_t\\cdot x$ pour $F(t,x)$, etc.",
+   "hypotheses": [
+    "$X$ champ tangent localement lipschitzien en la seconde variable"
+   ],
+   "depends_on": [
+    "Théorème IX.8.5",
+    "Définition VII.3.4"
+   ],
+   "used_by_hint": "Formule (IX.8.3), Théorèmes IX.8.8-IX.8.9, Corollaire IX.8.10.",
+   "importance": 3,
+   "proof_in_poly": "none",
+   "proof_length": "short",
+   "counterexample_hints": [],
+   "viz_hint": "",
+   "chapter": 9,
+   "order": 72,
+   "depends_ids": [
+    "ch09-flot-local-sous-variete",
+    "ch07-flot-global-def"
+   ],
+   "depends_unresolved": []
+  },
+  {
+   "id": "ch09-flot-propriete-groupe",
+   "kind": "formula",
+   "ref": "Formule (IX.8.3)",
+   "title": "Formule de composition du flot ; propriété de groupe à un paramètre $F_s\\cdot(F_t\\cdot x)=F_{t+s}\\cdot x$",
+   "page": 174,
+   "statement": "Soit $(t_0,x)\\in I\\times S$. Supposons que $s$ et $s+t$ soient dans $J_{t_0}(x)$. La formule de composition\n$$F(t_0,s+t,x)=F(s,s+t,F(t_0,s,x))$$\ndu théorème VII.3.7 est encore valide dans ce cadre. Lorsque le champ de vecteurs tangents $X$ ne dépend pas du temps, on fixe $\\tau_0=0$, et cette formule devient, lorsque $(t,x)$ et $(s,F_t\\cdot x)$ sont dans $D_0$,\n$$\\text{(IX.8.3)}\\qquad F_s\\cdot(F_t\\cdot x)=F_{t+s}\\cdot x.$$",
+   "hypotheses": [
+    "$X$ localement lipschitzien",
+    "les temps considérés sont dans les intervalles de vie ($(t,x)$ et $(s,F_t\\cdot x)$ dans $D_0$)"
+   ],
+   "depends_on": [
+    "Théorème VII.3.7",
+    "Définition IX.8.7"
+   ],
+   "used_by_hint": "Corollaire IX.8.10 (morphisme de groupes) ; Exercice IX.9.13.",
+   "importance": 2,
+   "proof_in_poly": "none",
+   "proof_length": "short",
+   "counterexample_hints": [
+    "La formule exige que les temps soient dans le domaine : si $F_t\\cdot x$ n'est pas défini (explosion), le membre de gauche n'a pas de sens même si $t+s\\in J(x)$."
+   ],
+   "viz_hint": "Suivre un point sur une sphère sous le flot de rotation $X(x)=\\omega\\wedge x$ : $F_t$ = rotation d'angle $t\\|\\omega\\|$, et la loi de groupe est l'addition des angles.",
+   "chapter": 9,
+   "order": 73,
+   "depends_ids": [
+    "ch07-composition-flot",
+    "ch09-flot-global-sous-variete-def"
+   ],
+   "depends_unresolved": []
+  },
+  {
+   "id": "ch09-flot-global-ouvert-regulier",
+   "kind": "theorem",
+   "ref": "Théorème IX.8.8",
+   "title": "Le domaine du flot global est ouvert et le flot est $C^p$",
+   "page": 175,
+   "statement": "Soit $X : I\\times S\\to\\mathbb R^N$ un champ de vecteurs tangents dépendant du temps sur une sous-variété $S$ de $\\mathbb R^N$. Supposons que $X$ soit localement lipschitzien en la seconde variable. Alors :\na. $D$ est un ouvert de $I\\times I\\times S$.\nb. Si $X$ est de classe $C^p$, $F$ est de classe $C^p$ sur $D$.",
+   "hypotheses": [
+    "$X$ localement lipschitzien en la seconde variable",
+    "(b) $X$ de classe $C^p$"
+   ],
+   "depends_on": [
+    "Théorème VII.3.9",
+    "Théorème IX.8.5"
+   ],
+   "used_by_hint": "Analogue du Théorème VII.3.9 (« on obtient aussi bien sûr ») ; régularité des $F_t$ dans le Corollaire IX.8.10 ; Exercice IX.9.13.",
+   "importance": 2,
+   "proof_in_poly": "none",
+   "proof_length": "medium",
+   "counterexample_hints": [],
+   "viz_hint": "",
+   "chapter": 9,
+   "order": 74,
+   "depends_ids": [
+    "ch07-flot-global-ouvert-regulier",
+    "ch09-flot-local-sous-variete"
+   ],
+   "depends_unresolved": []
+  },
+  {
+   "id": "ch09-flot-complet-compacte",
+   "kind": "theorem",
+   "ref": "Théorème IX.8.9",
+   "title": "Sur une sous-variété compacte, le flot d'un champ tangent est défini sur $\\mathbb R\\times S$",
+   "page": 175,
+   "statement": "Soit $X$ un champ de vecteurs tangents qui ne dépend pas du temps et lipschitzien sur une sous-variété compacte $S$ de $\\mathbb R^N$. Alors le domaine de définition de son flot global est $D_0=\\mathbb R\\times S$. (Autrement dit, toutes les courbes intégrales sont définies sur $\\mathbb R$ tout entier.)",
+   "hypotheses": [
+    "$X$ indépendant du temps",
+    "$X$ lipschitzien",
+    "$S$ COMPACTE"
+   ],
+   "depends_on": [
+    "Théorème VII.3.10",
+    "Définition IX.8.7"
+   ],
+   "used_by_hint": "Corollaire IX.8.10 ; Exercice IX.9.14 (champs sur $\\mathbb S^3$) ; argument-type d'examen : « $S$ compacte, donc les solutions de $x'=X(x)$ tangentes sont globales ».",
+   "importance": 3,
+   "proof_in_poly": "sketch",
+   "proof_length": "short",
+   "counterexample_hints": [
+    "Sans compacité : $S=\\mathbb R$, $X(x)=x^2$, explosion en temps fini ; $S=]0;1[$, $X=1$, sortie en temps fini.",
+    "La fermeture seule ne suffit pas ($S=\\mathbb R$ est fermée) : c'est la compacité (lemme des bouts VII.3.10 : une courbe intégrale maximale qui reste dans un compact a un temps de vie infini) qui compte."
+   ],
+   "viz_hint": "Champ tangent sur la sphère/le tore : toutes les trajectoires tournent indéfiniment ; comparer avec un champ sur le plan qui explose.",
+   "chapter": 9,
+   "order": 75,
+   "depends_ids": [
+    "ch07-lemme-des-bouts",
+    "ch09-flot-global-sous-variete-def"
+   ],
+   "depends_unresolved": []
+  },
+  {
+   "id": "ch09-flot-morphisme-groupes-diffeos",
+   "kind": "corollary",
+   "ref": "Corollaire IX.8.10",
+   "title": "$t\\mapsto F_t$ est un morphisme de groupes de $\\mathbb R$ dans $\\mathrm{Diff}^r(S)$",
+   "page": 175,
+   "statement": "Soit $X$ un champ de vecteurs tangents indépendant du temps sur une sous-variété compacte $S$ de $\\mathbb R^N$, de classe $C^r$, $r\\ge1$. Pour tout $t\\in\\mathbb R$, $F_t : x\\mapsto F_t\\cdot x=F(t,x)$ est un difféomorphisme de classe $C^r$ de $S$ d'inverse $F_{-t}$ (car $F_0$ est l'identité de $S$, les $F_t$ sont de classe $C^r$ puisque le flot global $F$ l'est, et (IX.8.3) donne $F_{-t}\\circ F_t=F_0$). Notons $\\mathrm{Diff}^r(S)$ le groupe des difféomorphismes de classe $C^r$ de $S$. L'application $t\\mapsto F_t$ est un morphisme de groupes de $\\mathbb R$ dans $\\mathrm{Diff}^r(S)$.",
+   "hypotheses": [
+    "$S$ compacte",
+    "$X$ indépendant du temps, de classe $C^r$, $r\\ge1$ (donc localement lipschitzien, et lipschitzien sur la compacte $S$)"
+   ],
+   "depends_on": [
+    "Théorème IX.8.9",
+    "Formule (IX.8.3)",
+    "Théorème IX.8.8"
+   ],
+   "used_by_hint": "Sous-groupes à un paramètre de difféomorphismes ; Exercice IX.9.14 (fibré tangent trivial de $\\mathbb S^3$).",
+   "importance": 2,
+   "proof_in_poly": "sketch",
+   "proof_length": "short",
+   "counterexample_hints": [
+    "Sans compacité, $F_t$ n'est défini que sur un ouvert $\\{x\\mid t\\in J(x)\\}$ de $S$ : on n'a qu'un « groupe local » à un paramètre."
+   ],
+   "viz_hint": "Rotation de la sphère : $t\\mapsto F_t$ = sous-groupe à un paramètre de $SO(3)$ agissant sur $\\mathbb S^2$.",
+   "chapter": 9,
+   "order": 76,
+   "depends_ids": [
+    "ch09-flot-complet-compacte",
+    "ch09-flot-propriete-groupe",
+    "ch09-flot-global-ouvert-regulier"
+   ],
+   "depends_unresolved": []
   }
  ]
 }

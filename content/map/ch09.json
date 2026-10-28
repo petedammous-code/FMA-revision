@@ -788,7 +788,7 @@
         "Définition IX.2.1"
       ],
       "used_by_hint": "Généralisée aux applications entre sous-variétés (Définition IX.7.5) ; Remarque IX.7.2 (un seul paramétrage suffit) ; Exercice IX.7.3 (prolongement local).",
-      "importance": 3,
+      "importance": 2,
       "proof_in_poly": "none",
       "proof_length": "short",
       "counterexample_hints": [
@@ -946,7 +946,7 @@
       "viz_hint": "Déformer la base $(e_1,\\dots,e_m)$ de $\\mathbb R^m$ par $dx_q$ : image = plan tangent, engendré par $x_{u_1}(q),\\dots,x_{u_m}(q)$."
     },
     {
-      "id": "ch09-notation-TpS",
+      "id": "ch09-notation-tps",
       "kind": "definition",
       "ref": "Définition IX.7.10",
       "title": "Notation $T_pS$ ; espace tangent affine",
@@ -1062,7 +1062,7 @@
         "Définition IX.7.15"
       ],
       "used_by_hint": "Proposition IX.7.25 (différentielle d'un difféomorphisme), Théorème IX.7.26, Remarque IX.7.40, Exercice IX.7.39.",
-      "importance": 3,
+      "importance": 2,
       "proof_in_poly": "sketch",
       "proof_length": "short",
       "counterexample_hints": [],
@@ -1148,7 +1148,7 @@
         "Définition IX.7.5"
       ],
       "used_by_hint": "Proposition IX.7.25, Théorème IX.7.26, Corollaire IX.8.10 (groupe $\\mathrm{Diff}^r(S)$) ; Exercices IX.9.1, IX.9.4, IX.9.6, IX.9.14.",
-      "importance": 3,
+      "importance": 2,
       "proof_in_poly": "none",
       "proof_length": "short",
       "counterexample_hints": [
@@ -1339,7 +1339,7 @@
         "Définition IX.1.3"
       ],
       "used_by_hint": "Exemples IX.7.33-IX.7.34, Proposition IX.7.35, Définition IX.7.38 (hessienne définie seulement en un point critique), Remarque IX.7.40.",
-      "importance": 3,
+      "importance": 2,
       "proof_in_poly": "none",
       "proof_length": "short",
       "counterexample_hints": [],
@@ -1454,7 +1454,7 @@
         "Définition IX.7.32"
       ],
       "used_by_hint": "Conditions d'ordre 2 pour les extrema (énoncé non numéroté p. 171), Exercice IX.7.39 (calcul le long d'une courbe), Remarque IX.7.40 (lemme de Morse).",
-      "importance": 3,
+      "importance": 2,
       "proof_in_poly": "full",
       "proof_length": "short",
       "counterexample_hints": [
@@ -1581,7 +1581,7 @@
         "Définition VII.2.9"
       ],
       "used_by_hint": "Théorème IX.8.5, Définition IX.8.7, Théorèmes IX.8.8-IX.8.9 ; Exercices IX.9.13, IX.9.14.",
-      "importance": 3,
+      "importance": 2,
       "proof_in_poly": "none",
       "proof_length": "short",
       "counterexample_hints": [],
@@ -1634,7 +1634,7 @@
       "viz_hint": "Champ tangent sur une sphère ou un tore et ses trajectoires locales ; lecture dans une carte : le champ transporté $Y=d\\Phi(X)$ est horizontal."
     },
     {
-      "id": "ch09-remarque-ouvert-de-S",
+      "id": "ch09-remarque-ouvert-de-s",
       "kind": "remark",
       "ref": "Remarque IX.8.6",
       "title": "Pas besoin d'énoncer le théorème sur un ouvert de $S$",
@@ -1690,7 +1690,7 @@
         "Définition VII.3.4"
       ],
       "used_by_hint": "Formule (IX.8.3), Théorèmes IX.8.8-IX.8.9, Corollaire IX.8.10.",
-      "importance": 3,
+      "importance": 2,
       "proof_in_poly": "none",
       "proof_length": "short",
       "counterexample_hints": [],

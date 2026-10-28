@@ -371,3 +371,61 @@
 | $p=\frac{\partial L}{\partial v}(u,q,v)$, $p(t)=\frac{\partial L}{\partial v}(t,\gamma(t),\gamma'(t))$ | variable conjuguée (impulsion), élément de $L(V;\mathbb R)$ | VIII | 146 |
 | $v=g(u,q,p)$ | inverse local de la transformation de Legendre : vitesse exprimée en fonction de $(u,q,p)$, de classe $C^1$ | VIII | 146 |
 | $J$ | intervalle ouvert $J\subset\,]0,1[$ contenant $t_0$ sur lequel la solution locale de (E.L) est définie | VIII | 146 |
+| $C^k$, $k\in\mathbb N^\times\cup\{\infty\}$ | classe de régularité ; dans tout le chapitre $k\ge1$ ou $k=+\infty$ | IX | 147 |
+| immersion / submersion en $a$ | $df_a$ injective / surjective (Définition IX.1.1) | IX | 147 |
+| $\mathbb R^N=df_a(\mathbb R^m)\oplus H$ | $H$ supplémentaire de l'image de $df_a$ (construction d'extension $F(q,t)=f(q)+t$) | IX | 147 |
+| point critique / valeur critique / point régulier / valeur régulière | $x$ critique si $df_x$ non surjective ; $a=f(x)$ valeur critique ; régulier sinon (Définition IX.1.3) | IX | 148 |
+| $S$ | sous-variété de $\mathbb R^N$ (de dimension $m$, classe $C^k$) | IX | 148 |
+| $x : U\to V\cap S$ | paramétrage local de $S$ en $p$ ($U$ ouvert de $\mathbb R^m$, $V$ voisinage ouvert de $p$ dans $\mathbb R^N$) | IX | 148 |
+| $x^{-1} : V\cap S\to U$ | carte, ou système de coordonnées (locales) de $S$ en $p$ | IX | 148 |
+| $q=x^{-1}(p)$ | point de $U$ correspondant à $p\in S$ dans le paramétrage $x$ | IX | 148 |
+| $N-m$ | codimension d'une sous-variété de dimension $m$ de $\mathbb R^N$ | IX | 148 |
+| surface / hypersurface | sous-variété de dimension 2 / de codimension 1 | IX | 148 |
+| $\mathbb R^m\times\{0\}\subset\mathbb R^N$ | sous-espace modèle sur lequel on « redresse » localement $S$ : $\Phi(V'\cap S)=(\mathbb R^m\times\{0\})\cap W$ | IX | 151 |
+| $\Phi : V'\to W$ | $C^k$-difféomorphisme de redressement local (Proposition IX.3.1), $\Phi=F^{-1}$ | IX | 151 |
+| $\varphi : \mathbb R^{N-m}\to H$ | isomorphisme linéaire sur un supplémentaire $H$ de $dx_q(\mathbb R^m)$ ; $F(u,t)=x(u)+\varphi(t)$ | IX | 151 |
+| $f^{-1}(\{a\})$ | fibre (image réciproque) de $a$ ; sous-variété de dimension $m$ si $a$ est valeur régulière de $f : V\subset\mathbb R^N\to\mathbb R^{N-m}$ | IX | 152 |
+| $p_2$ | projection canonique de $\mathbb R^m\times\mathbb R^{N-m}$ sur $\mathbb R^{N-m}$ (et $p_1$ sur $\mathbb R^m$) | IX | 153 |
+| $\mathbb S^n$ | sphère unité de $\mathbb R^{n+1}$, $\mathbb S^n=\{x\mid\\|x\\|^2=1\}$ | IX | 153 |
+| $\sum_{i=1}^Na_ix_i^2=1$ | quadrique de $\mathbb R^N$ (ellipsoïde si $a_i>0$, hyperboloïdes sinon) | IX | 154 |
+| $\mathbb T^2$ | tore $(\sqrt{x^2+y^2}-a)^2+z^2=r^2$ avec $a=2$, $r=1$ | IX | 155 |
+| $\Psi : V\to\mathbb R^{N-m}$, $S\cap V=\{\Psi=0\}$ | équation locale de $S$ ($0$ valeur régulière de $\Psi$) | IX | 155 |
+| $\mathrm{Graphe}(f)=\{(u,f(u)),\ u\in U\}$ | graphe de $f : U\subset\mathbb R^m\to\mathbb R^{N-m}$, sous-variété de $\mathbb R^N$ | IX | 156 |
+| $A : \mathbb R^N\to\mathbb R^N$ | isomorphisme linéaire de l'espace ambiant (redressement « à isomorphisme près » d'un graphe) | IX | 157 |
+| $\theta=x_1^{-1}\circ x_2 : x_2^{-1}(W)\to x_1^{-1}(W)$ | changement de paramétrage, $W=x_1(U_1)\cap x_2(U_2)$ | IX | 158 |
+| $f\circ x : U\to\mathbb R$ | lecture de $f : S\to\mathbb R$ dans le paramétrage $x$ (sert à définir la différentiabilité sur $S$) | IX | 159 |
+| $x_2^{-1}\circ\varphi\circ x_1$ | lecture dans les cartes d'une application $\varphi : S_1\to S_2$, définie sur $x_1^{-1}(\varphi^{-1}(x_2(U_2))\cap x_1(U_1))$ | IX | 160 |
+| $\vec v$ vecteur tangent, $\alpha : I\to S$, $\alpha(0)=p$, $\alpha'(0)=\vec v$ | vecteur tangent en $p$ = vitesse en $0$ d'une courbe $C^1$ tracée sur $S$ passant par $p$ | IX | 160 |
+| $T_pS$ | espace tangent (vectoriel) à $S$ en $p$ ; $T_pS=dx_q(\mathbb R^m)$, sous-espace de dimension $m$ de $\mathbb R^N$ | IX | 161 |
+| $\mathbf T_pS$ (gras) | espace tangent affine : sous-espace affine passant par $p$ et parallèle à $T_pS$ | IX | 161 |
+| $x_{u_i}(u)=dx_u(e_i)=\dfrac{\partial x}{\partial u_i}(u)$ (IX.7.1) | vecteurs de base de $T_{x(u)}S$ associés au paramétrage $x$, $u=(u_1,\dots,u_m)$, $(e_i)$ base canonique de $\mathbb R^m$ | IX | 161 |
+| $T_pS=\ker dF_p$ | espace tangent d'une sous-variété $S=\{F=0\}$, $0$ valeur régulière | IX | 162 |
+| $d\varphi_p : T_pS_1\to T_{\varphi(p)}S_2$ | différentielle en $p$ d'une application entre sous-variétés ; $d\varphi_p(dx_q(\vec w))=d(\varphi\circ x)_q(\vec w)$, $d\varphi_p(\alpha'(0))=(\varphi\circ\alpha)'(0)$ | IX | 163 |
+| $C^r(W_1,S_2)$ | espace des applications de classe $C^r$ d'un ouvert $W_1$ de $S_1$ dans $S_2$ (Notations IX.7.18) | IX | 164 |
+| $h(p)=\langle p-p_0,a\rangle$ | fonction hauteur relative à l'hyperplan $P\ni p_0$ de normale unitaire $a$ ; $dh_p(v)=\langle v,a\rangle$ | IX | 164 |
+| $f(p)=\|p-p_0\|^2$ | fonction distance au carré ; $df_p(v)=2\langle v,p-p_0\rangle$ | IX | 164 |
+| $C^k$-difféomorphisme, $S_1$ et $S_2$ $C^k$-difféomorphes | homéomorphisme $\varphi$ avec $\varphi$, $\varphi^{-1}$ de classe $C^k$ | IX | 165 |
+| $P=p+T_pS$, $H=(T_pS)^\perp$, $\pi$ | plan tangent affine, son orthogonal, projection orthogonale sur $H$ (Corollaire IX.7.27) | IX | 166 |
+| $w=(w_1,\dots,w_{N-m})$ | multiplicateurs de Lagrange : $dg_p=\sum w_i\,d(F_i)_p$ | IX | 168 |
+| $F=(F_1,\dots,F_{N-m})$ | composantes de l'équation $F=0$ définissant $S$ ; $\ker dF_p=\bigcap_i\ker d(F_i)_p$ | IX | 168 |
+| $\mathcal L(\mathbb R^m;\mathcal L(\mathbb R^m;\mathbb R^{N_2}))\simeq\mathcal L(\mathbb R^m,\mathbb R^m;\mathbb R^{N_2})$ | espace des différentielles secondes (applications bilinéaires) | IX | 169 |
+| $d^2f_p(v,w)=d^2(f\circ x)_q(dx^{-1}_p(v),dx^{-1}_p(w))$ | hessienne de $f$ au point critique $p$, forme bilinéaire symétrique sur $T_pS$ (Définition IX.7.38) | IX | 170 |
+| signature $(r,s)$, $r+s=m$ | signature de la hessienne non dégénérée (lemme de Morse : $f(x(u))=f(p)+\sum_{i\le r}u_i^2-\sum_{i>r}u_i^2$) | IX | 171 |
+| $X : I\times U\to\mathbb R^N$ avec $X(t,x)\in T_xS$ | champ de vecteurs (dépendant du temps) de l'espace ambiant tangent à $S$ | IX | 171 |
+| $\gamma$, $\sigma=\Phi\circ\gamma=(x(t),y(t))$, $Y(t,\Phi(x))=d\Phi_x(X(t,x))$ | courbe intégrale, sa lecture dans la carte redressante et champ transporté (preuve de IX.8.1, formules (IX.8.1)-(IX.8.2)) | IX | 172 |
+| $X_H=\left(\dfrac{\partial H}{\partial p},-\dfrac{\partial H}{\partial q}\right)$ | champ hamiltonien associé à $H(q,p)$ sur $\mathbb R^n\times\mathbb R^n$ ; tangent aux hypersurfaces $H=c$ | IX | 172 |
+| $M'(t)=\Omega(t)\wedge M(t)$ | équation du moment cinétique $M$ d'un solide libre, $\Omega$ vitesse angulaire ($\wedge$ produit vectoriel de $\mathbb R^3$) | IX | 173 |
+| $X : I\times S\to\mathbb R^N$, $X(t,x)\in T_xS$ | champ de vecteurs tangents dépendant du temps sur la sous-variété $S$ (Définition IX.8.3) | IX | 173 |
+| $\alpha_{t_0,x}$ | courbe intégrale de $X$ de condition initiale $(t_0,x)$ : $\alpha'(t)=X(t,\alpha(t))$, $\alpha(t_0)=x$ | IX | 173 |
+| $E=E(J,\epsilon)=\{(t_0,t)\in J\times\mathbb R\mid t\in]t_0-\epsilon,t_0+\epsilon[\}$ | domaine en temps du flot local | IX | 173 |
+| $(E(J,\epsilon),U,F)$, $F : E\times U\to S$, $F(t_0,t,x)=\alpha_{t_0,x}(t)$ | flot local de $X$ en $(\tau_0,x_0)$ | IX | 173 |
+| $J_{\tau_0}(x_0)$ | intervalle de vie : union des intervalles ouverts $J\ni\tau_0$ portant une courbe intégrale de condition initiale $(\tau_0,x_0)$ | IX | 174 |
+| $D=\{(\tau_0,t,x_0)\in I\times I\times S\mid t\in J_{\tau_0}(x_0)\}$, $F : D\to S$ | domaine et flot global de $X$ (Définition IX.8.7) | IX | 174 |
+| $D_{\tau_0}=\{(t,x_0)\in I\times S\mid t\in J_{\tau_0}(x_0)\}$ | domaine du flot à instant initial $\tau_0$ fixé ; $D_0$ dans le cas autonome | IX | 174 |
+| $J(x_0)$, $F(t,x_0)$, $F_t\cdot x$ | notations simplifiées du cas autonome ($I=\mathbb R$, $\tau_0=0$) | IX | 174 |
+| $F_s\cdot(F_t\cdot x)=F_{t+s}\cdot x$ (IX.8.3) | propriété de groupe à un paramètre du flot autonome | IX | 174 |
+| $\mathrm{Diff}^r(S)$ | groupe des difféomorphismes de classe $C^r$ de $S$ | IX | 175 |
+| $SO(n)\subset M_n(\mathbb R)$ | groupe des matrices orthogonales de déterminant 1 (Exercice IX.9.2) | IX | 175 |
+| $TS=\{(p,v)\ ;\ p\in S,\ v\in T_pS\}$ | fibré tangent de $S$, sous-variété de $\mathbb R^N\times\mathbb R^N$ (Exercice IX.9.3) | IX | 175 |
+| $S(f)=\{f(p)p\ ;\ p\in\mathbb S^2\}$, surface radialement transverse, $\pi(p)=p/\|p\|$ | surface « étoilée par rapport à $0$ », projection radiale (Exercice IX.9.4) | IX | 176 |
+| $(v_1|v_2|\dots|v_n)$, $\mathrm{Vect}(u_1,\dots,u_k)$ | matrice de colonnes $v_i$ ; sous-espace engendré (Exercice IX.9.15) | IX | 177 |

@@ -20,6 +20,7 @@ for (const r of results) {
     if (ids.has(dep)) { r.depends_ids.push(dep); continue; }
     const k = normRef(dep); let id = byRef[k];
     if (!id) { const m = String(dep).match(/([IVX]+\.\d+(?:\.\d+)?)/); if (m && byNum[m[1]] && byNum[m[1]].length === 1) id = byNum[m[1]][0]; }
+    if (!id) { const q = String(dep).match(/^Questions?\s+(\d+)\b/); if (q) { const cands = results.filter(x => x.chapter === r.chapter && new RegExp('^Questions?\\s+' + q[1] + '\\b').test(String(x.ref))); if (cands.length === 1) id = cands[0].id; } }
     if (id && id !== r.id) r.depends_ids.push(id); else if (!id) { r.depends_unresolved.push(dep); unresolved.push(`${r.id}: ${dep}`); }
   }
   r.depends_ids = [...new Set(r.depends_ids)];
