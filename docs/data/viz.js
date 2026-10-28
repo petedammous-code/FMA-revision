@@ -1884,8 +1884,7 @@ $$R(\rho)=\max_{\|h\|=\rho}\frac{\|f(a+h)-f(a)-\ell(h)\|}{\|h\|}$$
       ctx.strokeStyle = t.accent; ctx.lineWidth = 2.2; ctx.beginPath();
       for (let i = 0; i < N; i++) { const px = X(ts[i]), py = Y(ys[i]); i ? ctx.lineTo(px, py) : ctx.moveTo(px, py); } ctx.stroke();
       ctx.restore();
-      text(ctx, 'f(a+su) − f(a)', 8, 4, { color: t.accent }); text(ctx, 'ℓ(su)', 120, 4, { color: t.accent2 });
-      text(ctx, '(trait plein : f ; tirets : approximation linéaire)', 160, 4);
+      text(ctx, 'f(a+su) − f(a)', 8, 4, { color: t.accent }); text(ctx, '- - ℓ(su) linéaire', 110, 4, { color: t.accent2 });
       text(ctx, '±' + kit.fmt(+span.toPrecision(2)), L - 4, T, { align: 'right' }); text(ctx, '−' + kit.fmt(+span.toPrecision(2)), L - 4, H - B, { align: 'right', base: 'bottom' });
       text(ctx, '−ρ = −' + kit.fmt(+rho.toPrecision(2)), L, H - B + 4); text(ctx, 's', X(0), H - B + 4, { align: 'center' }); text(ctx, 'ρ', W - R, H - B + 4, { align: 'right' });
     }
@@ -1911,8 +1910,7 @@ $$R(\rho)=\max_{\|h\|=\rho}\frac{\|f(a+h)-f(a)-\ell(h)\|}{\|h\|}$$
       ctx.strokeStyle = t.accent; ctx.beginPath(); pts.forEach((p, i) => i ? ctx.lineTo(p[0], p[1]) : ctx.moveTo(p[0], p[1])); ctx.stroke();
       const lr = zoomS.value; ctx.strokeStyle = t.accent4; ctx.lineWidth = 1.5; ctx.beginPath(); ctx.moveTo(X(lr), T); ctx.lineTo(X(lr), H - B); ctx.stroke();
       ctx.restore();
-      text(ctx, 'R(ρ) (max sur les directions)', 8, 4, { color: t.accent }); text(ctx, 'direction θ seule', 190, 4, { color: t.accent3 });
-      text(ctx, 'ρ (échelle log)', W - R, H - 12, { align: 'right', base: 'bottom' });
+      text(ctx, 'R(ρ), max sur θ', 8, 4, { color: t.accent }); text(ctx, '- - θ seule', 110, 4, { color: t.accent3 }); text(ctx, 'abscisse : ρ (log)', W - 8, 4, { align: 'right' });
     }
     function draw() {
       try {
@@ -2175,10 +2173,10 @@ FMA.registerViz({
           { const nf = Math.hypot(fc[0], fc[1]) || 1, sc = 50 / nf, ln = [[pc[0] - fc[0] * sc, pc[1] - fc[1] * sc], [pc[0] + fc[0] * sc, pc[1] + fc[1] * sc]]; P.curve(ln, { color: t.accent4, width: 1, dash: [4, 4] }); }
           P.vector(pc[0], pc[1], fc[0], fc[1], { color: t.accent4, width: 2.5, head: 10 }); P.point(pc[0], pc[1], { r: 4, color: t.accent4, label: 'f(c)' });
           P.point(fa[0], fa[1], { r: 5, color: t.accent, label: 'f(a)' }); P.point(fb[0], fb[1], { r: 5, color: t.accent, label: 'f(b)' });
-          text(ctx, 'plan de f : corde f(b)−f(a) (vert), vitesse f′(c) en f(c) (orange)', 8, 5);
+          text(ctx, 'corde f(b)−f(a) (vert), vitesse f′(c) (orange)', 8, 5);
         }
         // right
-        const Hh = hull(hod); const dist = hod.reduce((mn, d) => Math.min(mn, Math.hypot(d[0] - m[0], d[1] - m[1])), Infinity);
+        const Hh = hull(hod); let dist = Infinity; for (let i = 0; i <= 800; i++) { const d = c.d(a + L * i / 800); dist = Math.min(dist, Math.hypot(d[0] - m[0], d[1] - m[1])); }
         sR.clear(); { const { ctx, W, H } = sR;
           const box = boxOf(hb ? [[hb.xmin, hb.ymin], [hb.xmax, hb.ymax]] : [], [m, [sup, sup], [-sup, -sup]]);
           const P = kit.plane(ctx, { xmin: box.xmin, xmax: box.xmax, ymin: box.ymin, ymax: box.ymax, W, H });
@@ -2189,14 +2187,14 @@ FMA.registerViz({
           P.vector(0, 0, fc[0], fc[1], { color: t.accent4, width: 2.5, head: 9 });
           P.point(fc[0], fc[1], { r: 4, color: t.accent4, label: "f′(c)" });
           P.point(m[0], m[1], { r: 6, color: t.accent3, stroke: '#fff', label: 'm' });
-          text(ctx, 'hodographe t ↦ f′(t) ; cercle pointillé : rayon sup‖f′‖', 8, 5);
+          text(ctx, 'hodographe f′(t) ; pointillé : rayon sup‖f′‖', 8, 5);
           text(ctx, 'zone teintée : enveloppe convexe', 8, 19);
         }
         const nrm = Math.hypot(chord[0], chord[1]);
-        const inside = inHull(Hh, m, 1e-9 * (1 + sup));
+        const inside = inHull(Hh, m, 1e-9 * (1 + sup)) || dist < 1e-3 * (1 + sup);
         const f3 = v => (Math.abs(v) < 5e-4 ? '0' : v.toFixed(3)).replace('-', '−');
         ro1.set(`‖f(b)−f(a)‖ = <b>${f3(nrm)}</b> ≤ sup‖f′‖·(b−a) = <b>${f3(sup * L)}</b>`);
-        ro2.set(`distance de m à l'hodographe = <b>${f3(dist)}</b> : ` + (dist > 0.02 * (1 + sup) ? '<b style="color:var(--accent-2)">aucun c ne vérifie f(b)−f(a)=f′(c)(b−a)</b>' : '<b style="color:var(--accent-3)">il existe (ici) un c avec égalité</b>') + ` ; m ∈ enveloppe convexe : <b>${inside ? 'oui' : 'non'}</b>`);
+        ro2.set(`distance de m à l'hodographe = <b>${f3(dist)}</b> : ` + (dist > 2e-3 * (1 + sup) ? '<b style="color:var(--accent-2)">aucun c ne vérifie f(b)−f(a)=f′(c)(b−a)</b>' : '<b style="color:var(--accent-3)">il existe (ici) un c avec égalité</b>') + ` ; m ∈ enveloppe convexe : <b>${inside ? 'oui' : 'non'}</b>`);
       } catch (e) { console.error(e); }
     }
     sL.onResize = draw; sR.onResize = draw;
