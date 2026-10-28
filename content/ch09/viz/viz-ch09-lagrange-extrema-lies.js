@@ -61,25 +61,35 @@ Pourquoi : $T_pS=\ker dF_p$ (Proposition IX.7.13), et $df_p=dg_p{}_{|T_pS}$ est 
     function sync() { const C = CONS[ck]; tS.input.min = C.t0; tS.input.max = C.t1; tS.value = tcur; }
 
     // ------------ données numériques ------------
-    let curve = [], fvals = [], lag = [], gridVals = null, G = { nx: 0, ny: 0, min: 0, max: 0, x0: 0, y0: 0, dx: 0, dy: 0 };
+    let curve = [], fvals = [], lag = [], sing = [], gridVals = null, G = { nx: 0, ny: 0, min: 0, max: 0, x0: 0, y0: 0, dx: 0, dy: 0 };
     const N = 600;
     const detAt = t => { const C = CONS[ck], g = GS[gk]; const [x, y] = C.X(t); const a = g.gg(x, y), b = C.gF(x, y); return a[0] * b[1] - a[1] * b[0]; };
     function recompute() {
       const C = CONS[ck], g = GS[gk];
       curve = []; fvals = [];
       for (let i = 0; i <= N; i++) { const t = C.t0 + (C.t1 - C.t0) * i / N; const p = C.X(t); curve.push(p); fvals.push(g.g(p[0], p[1])); }
-      // points de Lagrange : changements de signe du déterminant, ou zéros
-      lag = []; let prev = detAt(C.t0);
-      const tol = 1e-9;
+      // points de Lagrange : zéros de det(grad g, grad F) (changements de signe ou zéros doubles) ; points où grad F = 0 : singuliers
+      lag = []; sing = [];
+      const dA = [], tA = [];
+      for (let i = 0; i <= N; i++) { const t = C.t0 + (C.t1 - C.t0) * i / N; tA.push(t); dA.push(detAt(t)); }
+      const cand = [];
       for (let i = 1; i <= N; i++) {
-        const t = C.t0 + (C.t1 - C.t0) * i / N; const d = detAt(t);
-        if (prev * d < 0 || (Math.abs(d) < tol && Math.abs(prev) >= tol)) {
-          // bissection
-          let a = C.t0 + (C.t1 - C.t0) * (i - 1) / N, b = t, da = prev;
+        if (dA[i - 1] * dA[i] < 0) {
+          let a = tA[i - 1], b = tA[i], da = dA[i - 1];
           for (let k = 0; k < 40; k++) { const m = (a + b) / 2, dm = detAt(m); if (da * dm <= 0) b = m; else { a = m; da = dm; } }
-          const tt = (a + b) / 2; if (!lag.some(s => Math.abs(s - tt) < 0.02 || (C.closed && Math.abs(Math.abs(s - tt) - (C.t1 - C.t0)) < 0.02))) lag.push(tt);
+          cand.push((a + b) / 2);
         }
-        prev = d;
+      }
+      for (let i = 1; i < N; i++) {
+        const ai = Math.abs(dA[i]);
+        if (ai < 1e-3 && ai <= Math.abs(dA[i - 1]) && ai <= Math.abs(dA[i + 1])) cand.push(tA[i]);
+      }
+      const per = C.t1 - C.t0;
+      cand.sort((x, y) => x - y);
+      for (const tt of cand) {
+        const q = C.X(tt), gF = C.gF(q[0], q[1]);
+        const list = Math.hypot(gF[0], gF[1]) < 2e-3 ? sing : lag;
+        if (!list.some(u => Math.abs(u - tt) < 0.03 || (C.closed && Math.abs(Math.abs(u - tt) - per) < 0.03))) list.push(tt);
       }
       // grille pour les lignes de niveau de g
       G.nx = 90; G.ny = 78; G.x0 = VIEW[0]; G.y0 = VIEW[2]; G.dx = (VIEW[1] - VIEW[0]) / G.nx; G.dy = (VIEW[3] - VIEW[2]) / G.ny;
@@ -122,6 +132,7 @@ Pourquoi : $T_pS=\ker dF_p$ (Proposition IX.7.13), et $df_p=dg_p{}_{|T_pS}$ est 
       P.curve(curve, { color: t.accent, width: 3 });
       // points de Lagrange
       lag.forEach(s => { const q = C.X(s); const [a, b] = P.toPx(q[0], q[1]); ctx.strokeStyle = t.fg; ctx.lineWidth = 1.8; ctx.beginPath(); ctx.arc(a, b, 8, 0, 2 * PI); ctx.stroke(); });
+      sing.forEach(s => { const q = C.X(s); const [a, b] = P.toPx(q[0], q[1]); ctx.strokeStyle = '#d03030'; ctx.lineWidth = 2.4; ctx.beginPath(); ctx.moveTo(a - 6, b - 6); ctx.lineTo(a + 6, b + 6); ctx.moveTo(a - 6, b + 6); ctx.lineTo(a + 6, b - 6); ctx.stroke(); });
       // gradients et tangente
       const gF = C.gF(px, py), gg = g.gg(px, py);
       const nF = Math.hypot(gF[0], gF[1]), ng = Math.hypot(gg[0], gg[1]);
@@ -137,6 +148,7 @@ Pourquoi : $T_pS=\ker dF_p$ (Proposition IX.7.13), et $df_p=dg_p{}_{|T_pS}$ est 
       ctx.fillStyle = t.accent2; ctx.fillText('∇g(p)', 8, 38);
       ctx.fillStyle = t.accent4; ctx.fillText('ligne de niveau de g par p', 8, 54);
       ctx.fillStyle = t.fg; ctx.fillText('○ = points de Lagrange', 8, 70);
+      if (sing.length) { ctx.fillStyle = '#d03030'; ctx.fillText('× = ∇F = 0 (point singulier)', 8, 86); }
     }
     function drawGraph() {
       const { ctx, W, H } = stG; const t = T(); const C = CONS[ck];
