@@ -139,7 +139,7 @@ Idée de la preuve du lemme des bouts : sur le compact $K$, le flot local existe
         if (!inK0) msg = 'x₀ ∉ K : agrandis K (curseur R)';
         else {
           const tp = exitTime(f, J, K, 1), tm = exitTime(f, J, K, -1);
-          for (const te of [tp, tm]) if (te !== null && te > P.xmin && te < P.xmax) { const v = f(te); P.circle(te, v, 0, {}); const [px, py] = P.toPx(te, v); ctx.save(); ctx.strokeStyle = T.accent4; ctx.lineWidth = 2.5; ctx.beginPath(); ctx.arc(px, py, 7, 0, 2 * Math.PI); ctx.stroke(); ctx.restore(); }
+          for (const te of [tp, tm]) if (te !== null && te > P.xmin && te < P.xmax) { const v = f(te); const [px, py] = P.toPx(te, v); ctx.save(); ctx.strokeStyle = T.accent4; ctx.lineWidth = 2.5; ctx.beginPath(); ctx.arc(px, py, 7, 0, 2 * Math.PI); ctx.stroke(); ctx.restore(); }
           const fwd = tp === null ? (J[1] === INF ? 'α([τ₀ ; b[) ⊂ K et b = +∞ ✓' : '—') : `sortie de K à t = ${fmt(tp)} < b = ${fmt(J[1])}`;
           msg = `K = [${fmt(K[0])} ; ${fmt(K[1])}] · ${fwd}`;
         }
