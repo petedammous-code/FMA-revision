@@ -4009,7 +4009,7 @@ FMA.registerViz({
 * **Folium** $t\mapsto\bigl(\frac{3t}{1+t^3},\frac{3t^2}{1+t^3}\bigr)$, $t>-1$ : immersion **injective**, et pourtant $3$ composantes en $(0,0)=x(0)$. Lancez **Parcourir** : quand $t\to+\infty$, $x(t)$ revient s'écraser sur $(0,0)$ alors que $t$ est loin de $0$ (voir $|x(t)-x(0)|$ petit et $|t-0|$ grand) : $x^{-1}$ n'est pas continue.
 * **Rebroussement** $t\mapsto(t^2,t^3)$ : le test des composantes est *réussi* ($2$ branches), mais c'est la condition 3 qui échoue : la flèche vitesse $x'(t)=(2t,3t^2)$ s'éteint en $t=0$ ($dx_0$ n'est pas injective ; Exercice IX.2.13). Un ensemble peut passer un test et échouer à l'autre.`,
   related: ['ch09-sous-variete-def', 'ch09-contre-ex-demi-droite', 'ch09-contre-ex-croix', 'ch09-contre-ex-point-multiple', 'ch09-contre-ex-folium'],
-  height: 640,
+  height: 560,
   mount(container, kit) {
     const T = () => kit.theme();
     const PI = Math.PI;
@@ -4318,9 +4318,10 @@ Pourquoi : $T_pS=\ker dF_p$ (Proposition IX.7.13), et $df_p=dg_p{}_{|T_pS}$ est 
           cand.push((a + b) / 2);
         }
       }
-      for (let i = 1; i < N; i++) {
+      for (let i = 0; i <= N; i++) {
         const ai = Math.abs(dA[i]);
-        if (ai < 1e-3 && ai <= Math.abs(dA[i - 1]) && ai <= Math.abs(dA[i + 1])) cand.push(tA[i]);
+        const im = i > 0 ? i - 1 : (C.closed ? N - 1 : 0), ip = i < N ? i + 1 : (C.closed ? 1 : N);
+        if (ai < 1e-3 && ai <= Math.abs(dA[im]) && ai <= Math.abs(dA[ip])) cand.push(tA[i]);
       }
       const per = C.t1 - C.t0;
       cand.sort((x, y) => x - y);
@@ -4370,7 +4371,6 @@ Pourquoi : $T_pS=\ker dF_p$ (Proposition IX.7.13), et $df_p=dg_p{}_{|T_pS}$ est 
       P.curve(curve, { color: t.accent, width: 3 });
       // points de Lagrange
       lag.forEach(s => { const q = C.X(s); const [a, b] = P.toPx(q[0], q[1]); ctx.strokeStyle = t.fg; ctx.lineWidth = 1.8; ctx.beginPath(); ctx.arc(a, b, 8, 0, 2 * PI); ctx.stroke(); });
-      sing.forEach(s => { const q = C.X(s); const [a, b] = P.toPx(q[0], q[1]); ctx.strokeStyle = '#d03030'; ctx.lineWidth = 2.4; ctx.beginPath(); ctx.moveTo(a - 6, b - 6); ctx.lineTo(a + 6, b + 6); ctx.moveTo(a - 6, b + 6); ctx.lineTo(a + 6, b - 6); ctx.stroke(); });
       // gradients et tangente
       const gF = C.gF(px, py), gg = g.gg(px, py);
       const nF = Math.hypot(gF[0], gF[1]), ng = Math.hypot(gg[0], gg[1]);
@@ -4379,6 +4379,7 @@ Pourquoi : $T_pS=\ker dF_p$ (Proposition IX.7.13), et $df_p=dg_p{}_{|T_pS}$ est 
       if (nF > 1e-6) P.vector(px, py, gF[0], gF[1], { color: t.accent3, scale: sc, width: 3, head: 9 });
       if (ng > 1e-6) P.vector(px, py, gg[0], gg[1], { color: t.accent2, scale: sc, width: 3, head: 9 });
       P.point(px, py, { r: 6.5, color: t.accent4, stroke: t.bg });
+      sing.forEach(s => { const q = C.X(s); const [a, b] = P.toPx(q[0], q[1]); ctx.strokeStyle = '#d03030'; ctx.lineWidth = 2.6; ctx.beginPath(); ctx.moveTo(a - 9, b - 9); ctx.lineTo(a + 9, b + 9); ctx.moveTo(a - 9, b + 9); ctx.lineTo(a + 9, b - 9); ctx.stroke(); });
       ctx.restore();
       ctx.font = '12px system-ui, sans-serif'; ctx.textAlign = 'left'; ctx.textBaseline = 'top';
       ctx.fillStyle = t.accent; ctx.fillText('S = {F = 0}', 8, 6);
@@ -4423,6 +4424,7 @@ Pourquoi : $T_pS=\ker dF_p$ (Proposition IX.7.13), et $df_p=dg_p{}_{|T_pS}$ est 
         const w = (gg[0] * gF[0] + gg[1] * gF[1]) / (nF * nF);
         r += ` &nbsp; w = ${w.toFixed(3)}`;
         m = 'Gradients colinéaires : ∇g(p) = w ∇F(p). C\u2019est un point critique de g|S ; la ligne de niveau est tangente à S.';
+        if (gk === 'x3' && Math.hypot(gg[0], gg[1]) < 1e-6) m += ' Ici ∇g(p) = 0 (w = 0) mais f a un point d\u2019inflexion : condition nécessaire, pas suffisante.';
         col = '#1b9e77';
       } else {
         m = 'Gradients non colinéaires : la ligne de niveau coupe S transversalement, g|S varie en p (ni extremum ni point critique).';
@@ -4482,7 +4484,7 @@ et le plan qu'ils engendrent est l'**espace tangent** $T_pS=dx_q(\mathbb R^2)$ (
 * **Graphe** $x(u,v)=(u,v,h(u,v))$ : $x_u=(1,0,h_u)$, $x_v=(0,1,h_v)$ sont toujours indépendants, et le plan tangent est le graphe de $dh_q$ (Proposition IX.7.13 : c'est l'approximation affine de $h$).
 * **Toutes les surfaces** : le plan tangent (en couleur) est la meilleure approximation affine de $S$ en $p$ ; il est orthogonal à la normale $x_u\times x_v$ (case « normale »).`,
   related: ['ch09-sous-variete-def', 'ch09-espace-tangent-image-dx', 'ch09-base-espace-tangent', 'ch09-vecteur-tangent-espace-tangent-def', 'ch09-espace-tangent-graphe-equation'],
-  height: 640,
+  height: 520,
   mount(container, kit) {
     const T = () => kit.theme();
     const grid = document.createElement('div');
@@ -4491,7 +4493,7 @@ et le plan qu'ils engendrent est l'**espace tangent** $T_pS=dx_q(\mathbb R^2)$ (
     const cellL = document.createElement('div'), cellR = document.createElement('div');
     grid.appendChild(cellL); grid.appendChild(cellR);
     const stU = kit.canvas(cellL, { height: 260 });
-    const stS = kit.canvas(cellR, { height: 300 });
+    const stS = kit.canvas(cellR, { height: 340 });
     const controls = kit.controls(container);
     const PI = Math.PI;
 
@@ -4503,7 +4505,7 @@ et le plan qu'ils engendrent est l'**espace tangent** $T_pS=dx_q(\mathbb R^2)$ (
       tore: { name: 'tore', f: (u, v) => [(1.5 + 0.6 * Math.cos(v)) * Math.cos(u), (1.5 + 0.6 * Math.cos(v)) * Math.sin(u), 0.6 * Math.sin(v)],
         u0: -PI, u1: PI, v0: -PI, v1: PI, R: 2.2, closed: true, q0: [0.5, 0.9], nu: 36, nv: 14, warn: '' },
       graphe: { name: 'graphe  z = h(u,v)', f: (u, v) => [u, v, 0.55 * Math.sin(1.3 * u) * Math.cos(1.1 * v) + 0.045 * u * v],
-        u0: -2, u1: 2, v0: -2, v1: 2, R: 2.4, closed: false, q0: [0.4, -0.3], nu: 16, nv: 16, warn: '' },
+        u0: -2, u1: 2, v0: -2, v1: 2, R: 2.2, closed: false, q0: [0.4, -0.3], nu: 16, nv: 16, warn: '' },
       cone: { name: 'cône (x = (v cos u, v sin u, v))', f: (u, v) => [v * Math.cos(u), v * Math.sin(u), v],
         u0: -PI, u1: PI, v0: -1.2, v1: 1.2, R: 1.7, closed: false, q0: [0.8, 0.6], nu: 24, nv: 12, warn: 'sommet : x_u = 0' },
     };
@@ -4608,7 +4610,7 @@ et le plan qu'ils engendrent est l'**espace tangent** $T_pS=dx_q(\mathbb R^2)$ (
     function drawS() {
       const { ctx, W, H } = stS; const t = T(); const S = SURF[cur]; const c = cam();
       ctx.clearRect(0, 0, W, H);
-      const sc = 0.46 * Math.min(W, H * 1.15) / S.R;
+      const sc = 0.43 * Math.min(W, H * 1.1) / S.R;
       const P = p => project(c, p, sc, W, H);
       const seg = (a, b, col, w, alpha, dash) => { ctx.globalAlpha = alpha; ctx.strokeStyle = col; ctx.lineWidth = w; ctx.setLineDash(dash || []); ctx.beginPath(); ctx.moveTo(a[0], a[1]); ctx.lineTo(b[0], b[1]); ctx.stroke(); };
       const f = S.f;

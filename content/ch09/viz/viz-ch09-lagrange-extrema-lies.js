@@ -80,9 +80,10 @@ Pourquoi : $T_pS=\ker dF_p$ (Proposition IX.7.13), et $df_p=dg_p{}_{|T_pS}$ est 
           cand.push((a + b) / 2);
         }
       }
-      for (let i = 1; i < N; i++) {
+      for (let i = 0; i <= N; i++) {
         const ai = Math.abs(dA[i]);
-        if (ai < 1e-3 && ai <= Math.abs(dA[i - 1]) && ai <= Math.abs(dA[i + 1])) cand.push(tA[i]);
+        const im = i > 0 ? i - 1 : (C.closed ? N - 1 : 0), ip = i < N ? i + 1 : (C.closed ? 1 : N);
+        if (ai < 1e-3 && ai <= Math.abs(dA[im]) && ai <= Math.abs(dA[ip])) cand.push(tA[i]);
       }
       const per = C.t1 - C.t0;
       cand.sort((x, y) => x - y);
@@ -132,7 +133,6 @@ Pourquoi : $T_pS=\ker dF_p$ (Proposition IX.7.13), et $df_p=dg_p{}_{|T_pS}$ est 
       P.curve(curve, { color: t.accent, width: 3 });
       // points de Lagrange
       lag.forEach(s => { const q = C.X(s); const [a, b] = P.toPx(q[0], q[1]); ctx.strokeStyle = t.fg; ctx.lineWidth = 1.8; ctx.beginPath(); ctx.arc(a, b, 8, 0, 2 * PI); ctx.stroke(); });
-      sing.forEach(s => { const q = C.X(s); const [a, b] = P.toPx(q[0], q[1]); ctx.strokeStyle = '#d03030'; ctx.lineWidth = 2.4; ctx.beginPath(); ctx.moveTo(a - 6, b - 6); ctx.lineTo(a + 6, b + 6); ctx.moveTo(a - 6, b + 6); ctx.lineTo(a + 6, b - 6); ctx.stroke(); });
       // gradients et tangente
       const gF = C.gF(px, py), gg = g.gg(px, py);
       const nF = Math.hypot(gF[0], gF[1]), ng = Math.hypot(gg[0], gg[1]);
@@ -141,6 +141,7 @@ Pourquoi : $T_pS=\ker dF_p$ (Proposition IX.7.13), et $df_p=dg_p{}_{|T_pS}$ est 
       if (nF > 1e-6) P.vector(px, py, gF[0], gF[1], { color: t.accent3, scale: sc, width: 3, head: 9 });
       if (ng > 1e-6) P.vector(px, py, gg[0], gg[1], { color: t.accent2, scale: sc, width: 3, head: 9 });
       P.point(px, py, { r: 6.5, color: t.accent4, stroke: t.bg });
+      sing.forEach(s => { const q = C.X(s); const [a, b] = P.toPx(q[0], q[1]); ctx.strokeStyle = '#d03030'; ctx.lineWidth = 2.6; ctx.beginPath(); ctx.moveTo(a - 9, b - 9); ctx.lineTo(a + 9, b + 9); ctx.moveTo(a - 9, b + 9); ctx.lineTo(a + 9, b - 9); ctx.stroke(); });
       ctx.restore();
       ctx.font = '12px system-ui, sans-serif'; ctx.textAlign = 'left'; ctx.textBaseline = 'top';
       ctx.fillStyle = t.accent; ctx.fillText('S = {F = 0}', 8, 6);
@@ -185,6 +186,7 @@ Pourquoi : $T_pS=\ker dF_p$ (Proposition IX.7.13), et $df_p=dg_p{}_{|T_pS}$ est 
         const w = (gg[0] * gF[0] + gg[1] * gF[1]) / (nF * nF);
         r += ` &nbsp; w = ${w.toFixed(3)}`;
         m = 'Gradients colinéaires : ∇g(p) = w ∇F(p). C\u2019est un point critique de g|S ; la ligne de niveau est tangente à S.';
+        if (gk === 'x3' && Math.hypot(gg[0], gg[1]) < 1e-6) m += ' Ici ∇g(p) = 0 (w = 0) mais f a un point d\u2019inflexion : condition nécessaire, pas suffisante.';
         col = '#1b9e77';
       } else {
         m = 'Gradients non colinéaires : la ligne de niveau coupe S transversalement, g|S varie en p (ni extremum ni point critique).';

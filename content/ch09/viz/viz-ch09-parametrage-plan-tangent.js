@@ -13,7 +13,7 @@ et le plan qu'ils engendrent est l'**espace tangent** $T_pS=dx_q(\mathbb R^2)$ (
 * **Graphe** $x(u,v)=(u,v,h(u,v))$ : $x_u=(1,0,h_u)$, $x_v=(0,1,h_v)$ sont toujours indépendants, et le plan tangent est le graphe de $dh_q$ (Proposition IX.7.13 : c'est l'approximation affine de $h$).
 * **Toutes les surfaces** : le plan tangent (en couleur) est la meilleure approximation affine de $S$ en $p$ ; il est orthogonal à la normale $x_u\times x_v$ (case « normale »).`,
   related: ['ch09-sous-variete-def', 'ch09-espace-tangent-image-dx', 'ch09-base-espace-tangent', 'ch09-vecteur-tangent-espace-tangent-def', 'ch09-espace-tangent-graphe-equation'],
-  height: 640,
+  height: 520,
   mount(container, kit) {
     const T = () => kit.theme();
     const grid = document.createElement('div');
@@ -22,7 +22,7 @@ et le plan qu'ils engendrent est l'**espace tangent** $T_pS=dx_q(\mathbb R^2)$ (
     const cellL = document.createElement('div'), cellR = document.createElement('div');
     grid.appendChild(cellL); grid.appendChild(cellR);
     const stU = kit.canvas(cellL, { height: 260 });
-    const stS = kit.canvas(cellR, { height: 300 });
+    const stS = kit.canvas(cellR, { height: 340 });
     const controls = kit.controls(container);
     const PI = Math.PI;
 
@@ -34,7 +34,7 @@ et le plan qu'ils engendrent est l'**espace tangent** $T_pS=dx_q(\mathbb R^2)$ (
       tore: { name: 'tore', f: (u, v) => [(1.5 + 0.6 * Math.cos(v)) * Math.cos(u), (1.5 + 0.6 * Math.cos(v)) * Math.sin(u), 0.6 * Math.sin(v)],
         u0: -PI, u1: PI, v0: -PI, v1: PI, R: 2.2, closed: true, q0: [0.5, 0.9], nu: 36, nv: 14, warn: '' },
       graphe: { name: 'graphe  z = h(u,v)', f: (u, v) => [u, v, 0.55 * Math.sin(1.3 * u) * Math.cos(1.1 * v) + 0.045 * u * v],
-        u0: -2, u1: 2, v0: -2, v1: 2, R: 2.4, closed: false, q0: [0.4, -0.3], nu: 16, nv: 16, warn: '' },
+        u0: -2, u1: 2, v0: -2, v1: 2, R: 2.2, closed: false, q0: [0.4, -0.3], nu: 16, nv: 16, warn: '' },
       cone: { name: 'cône (x = (v cos u, v sin u, v))', f: (u, v) => [v * Math.cos(u), v * Math.sin(u), v],
         u0: -PI, u1: PI, v0: -1.2, v1: 1.2, R: 1.7, closed: false, q0: [0.8, 0.6], nu: 24, nv: 12, warn: 'sommet : x_u = 0' },
     };
@@ -139,7 +139,7 @@ et le plan qu'ils engendrent est l'**espace tangent** $T_pS=dx_q(\mathbb R^2)$ (
     function drawS() {
       const { ctx, W, H } = stS; const t = T(); const S = SURF[cur]; const c = cam();
       ctx.clearRect(0, 0, W, H);
-      const sc = 0.46 * Math.min(W, H * 1.15) / S.R;
+      const sc = 0.43 * Math.min(W, H * 1.1) / S.R;
       const P = p => project(c, p, sc, W, H);
       const seg = (a, b, col, w, alpha, dash) => { ctx.globalAlpha = alpha; ctx.strokeStyle = col; ctx.lineWidth = w; ctx.setLineDash(dash || []); ctx.beginPath(); ctx.moveTo(a[0], a[1]); ctx.lineTo(b[0], b[1]); ctx.stroke(); };
       const f = S.f;

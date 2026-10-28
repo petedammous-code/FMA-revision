@@ -13,7 +13,7 @@ FMA.registerViz({
 * **Folium** $t\mapsto\bigl(\frac{3t}{1+t^3},\frac{3t^2}{1+t^3}\bigr)$, $t>-1$ : immersion **injective**, et pourtant $3$ composantes en $(0,0)=x(0)$. Lancez **Parcourir** : quand $t\to+\infty$, $x(t)$ revient s'écraser sur $(0,0)$ alors que $t$ est loin de $0$ (voir $|x(t)-x(0)|$ petit et $|t-0|$ grand) : $x^{-1}$ n'est pas continue.
 * **Rebroussement** $t\mapsto(t^2,t^3)$ : le test des composantes est *réussi* ($2$ branches), mais c'est la condition 3 qui échoue : la flèche vitesse $x'(t)=(2t,3t^2)$ s'éteint en $t=0$ ($dx_0$ n'est pas injective ; Exercice IX.2.13). Un ensemble peut passer un test et échouer à l'autre.`,
   related: ['ch09-sous-variete-def', 'ch09-contre-ex-demi-droite', 'ch09-contre-ex-croix', 'ch09-contre-ex-point-multiple', 'ch09-contre-ex-folium'],
-  height: 640,
+  height: 560,
   mount(container, kit) {
     const T = () => kit.theme();
     const PI = Math.PI;
