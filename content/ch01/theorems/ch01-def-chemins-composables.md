@@ -38,7 +38,7 @@ Le poly ne le dit pas explicitement, mais c'est immédiat : $\gamma_1\vee\gamma_
 
 ### H2 — l'ordre compte
 
-**Rôle.** $\gamma_1\vee\gamma_2$ suppose que l'extrémité de $\gamma_1$ est l'origine de $\gamma_2$. Le composé $\gamma_2\vee\gamma_1$ n'est défini que si $\gamma_2(b_2)=\gamma_1(a_1)$ : la composition n'est pas commutative (et les deux composés, quand ils existent, sont des chemins différents).
+**Rôle.** $\gamma_1\vee\gamma_2$ suppose que l'extrémité de $\gamma_1$ est l'origine de $\gamma_2$. Le composé $\gamma_2\vee\gamma_1$ n'est défini que si $\gamma_2(b_2)=\gamma_1(a_1)$ : la composition n'est pas commutative (et les deux composés, quand ils existent tous deux, sont en général des chemins différents : avec $\gamma_1(t)=t$ et $\gamma_2(t)=1-t$ sur $[0,1]$, $\gamma_1\vee\gamma_2$ part de $0$ et $\gamma_2\vee\gamma_1$ part de $1$ ; ils coïncident en revanche si $\gamma_1=\gamma_2$ est un lacet).
 
 ## Exemples
 

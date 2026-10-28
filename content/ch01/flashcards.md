@@ -181,7 +181,9 @@ $f$ holomorphe : $|f|$ et $\bar f$ sont-elles holomorphes ? (Remarque I.3.6) Jus
 ### R
 Essentiellement **jamais** : $z\mapsto|f(z)|$ et $z\mapsto\overline{f(z)}$ ne sont holomorphes que si $f$ est constante sur chaque composante connexe de son domaine. (poly, Remarque I.3.6, p. 13)
 
-Pour $\bar f$ : si $\bar f$ est holomorphe, $P=\Re f=\frac{f+\bar f}{2}$ est holomorphe à valeurs réelles ; Cauchy–Riemann pour $P+i\cdot0$ donne $\nabla P=0$, donc $P$ est constante sur chaque composante connexe, de même $Q$ (Exercice I.2.10).
+Pour $\bar f$ : si $\bar f$ est holomorphe, $P=\Re f=\frac{f+\bar f}{2}$ est holomorphe à valeurs réelles ; Cauchy–Riemann pour $P+i\cdot0$ donne $\nabla P=0$, donc $P$ est constante sur chaque composante connexe, de même $Q=\frac{f-\bar f}{2i}$ (Exercice I.2.10).
+
+Pour $|f|$ : si $|f|$ est holomorphe, elle est à valeurs réelles donc constante ($=c$) sur chaque composante connexe ; si $c=0$, $f=0$ ; sinon $f$ ne s'annule pas et $\bar f=c^2/f$ est holomorphe, ce qui ramène au cas précédent.
 
 ## CARD id=fc-ch01-023 ref=ch01-def-biholomorphisme tags=definition,enonce
 ### Q
@@ -214,7 +216,7 @@ Preuve : inversion locale réelle (la jacobienne est une similitude de rapport $
 ### Q
 Inversion locale holomorphe : que se passe-t-il si $f'(z_0)=0$ ? La conclusion est-elle globale ?
 ### R
-* Si $f'(z_0)=0$ : $f(z)=z^2$ en $z_0=0$ n'est injective sur **aucun** voisinage de $0$ ($z$ et $-z$ ont même image). Plus généralement, si $f'(z_0)=0$ et $f$ non constante, $f(z)-f(z_0)$ a en $z_0$ un zéro d'ordre $N\ge2$, $f$ se comporte comme $z\mapsto z^N$ et n'est injective sur aucun voisinage de $z_0$ (Remarque I.14.3).
+* Si $f'(z_0)=0$ : $f(z)=z^2$ en $z_0=0$ n'est injective sur **aucun** voisinage de $0$ ($z$ et $-z$ ont même image). Plus généralement, si $f'(z_0)=0$ et $f$ non constante au voisinage de $z_0$, $f(z)-f(z_0)$ a en $z_0$ un zéro d'ordre $N\ge2$, $f$ se comporte comme $z\mapsto z^N$ et n'est injective sur aucun voisinage de $z_0$ (Remarque I.14.3).
 * Seulement **locale** : $\exp$ vérifie $\exp'=\exp\neq0$ partout mais n'est pas injective sur $\C$ ($e^{z+2i\pi}=e^z$).
 
 ## CARD id=fc-ch01-027 ref=ch01-exp-image-c-etoile-log-local tags=enonce
@@ -400,7 +402,7 @@ $$\frac{|f^{(n)}(z_0)|}{n!}\le\frac{\sup_{C(z_0,r)}|f|}{r^n}.$$
 Corollaire I.7.5 : le rayon de convergence vaut-il exactement $\rho(z_0)$ ? Y a-t-il un analogue réel des estimées de Cauchy ?
 ### R
 * Rayon **au moins** $\rho(z_0)$, pas égal : $\exp$ restreinte à $\Omega=D(0,1)$ a $\rho(0)=1$ mais un rayon $+\infty$. Égalité possible : $\frac1{1+z^2}$ sur $\C\setminus\{\pm i\}$, $\rho(0)=1$, rayon $1$ — ce qui explique pourquoi la série de Taylor réelle de $\frac1{1+x^2}$, fonction lisse sur tout $\R$, a un rayon $1$ (pôles cachés en $\pm i$).
-* Pas d'analogue réel : $x\mapsto\sin(kx)$ est bornée par $1$ sur $\R$ mais sa dérivée $n$-ième en $0$ vaut $\pm k^n$ pour $n$ impair, non bornée en $k$. (En complexe $\sin(kz)$ n'est pas bornée sur un disque.)
+* Pas d'analogue réel : $x\mapsto\sin(kx)$ est bornée par $1$ sur $\R$ mais sa dérivée $n$-ième en $0$ vaut $\pm k^n$ pour $n$ impair, non bornée en $k$. (En complexe il n'y a pas de contradiction : $\sup_{|z|=r}|\sin(kz)|\ge|\sin(ikr)|=\sinh(kr)$ croît exponentiellement avec $k$, et l'estimée $|f^{(n)}(0)|/n!\le\sup_{C(0,r)}|f|/r^n$ reste vraie.)
 * Il faut $r<\rho(z_0)$, c'est-à-dire $\bar D(z_0,r)\subset\Omega$.
 
 ## CARD id=fc-ch01-049 ref=ch01-primitive-locale tags=enonce

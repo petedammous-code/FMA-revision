@@ -33,7 +33,7 @@ Précisément : $S=f(U_1)$ est une sous-variété de dimension $m$ de $\R^N$, de
 
 **Rôle.** Elle permet d'appliquer [[ch09-immersion-locale-homeo]] et donne la condition 3 sur $U_1$.
 
-**Si on la retire.** $f(t)=(t^2,t^3)$, $df_0=0$. Pour tout $\delta>0$, $f(]-\delta,\delta[)=\{(|v|^{2/3},v) : |v|<\delta^3\}$ (un morceau de cusp) n'est **pas** une sous-variété $C^1$ : si $y=(y_1,y_2)$ en était un paramétrage en $(0,0)=y(s_0)$, alors $y_1=|y_2|^{2/3}\ge0$ serait minimale en $s_0$, donc $y_1'(s_0)=0$, d'où $y_2'(s_0)\neq0$ (immersion) ; mais alors $\frac{y_1(s)}{|s-s_0|}=\frac{|y_2(s)|^{2/3}}{|s-s_0|}\sim|y_2'(s_0)|^{2/3}|s-s_0|^{-1/3}\to+\infty$, ce qui contredit $y_1'(s_0)=0$.
+**Si on la retire.** $f(t)=(t^2,t^3)$, $df_0=0$. Pour tout $\delta>0$, $f(]-\delta,\delta[)=\{(|v|^{2/3},v) : |v|<\delta^3\}$ (un morceau de cusp) n'est **pas** une sous-variété $C^1$ : sa dimension ne pourrait être que $1$ (c'est un graphe au-dessus de l'axe des $v$ : ni discret, ni d'intérieur non vide), et si $y=(y_1,y_2)$ en était un paramétrage de dimension $1$ en $(0,0)=y(s_0)$, alors $y_1=|y_2|^{2/3}\ge0$ serait minimale en $s_0$, donc $y_1'(s_0)=0$, d'où $y_2'(s_0)\neq0$ (immersion) ; mais alors $\frac{y_1(s)}{|s-s_0|}=\frac{|y_2(s)|^{2/3}}{|s-s_0|}\sim|y_2'(s_0)|^{2/3}|s-s_0|^{-1/3}\to+\infty$, ce qui contredit $y_1'(s_0)=0$.
 
 ### H3 — on se restreint à un voisinage $U_1$ (le résultat est local)
 
@@ -67,7 +67,7 @@ Les conditions 1 (restriction $C^k$), 2 (homéomorphisme de $U_1$ sur $V\cap S$)
 ## Exemples
 
 * **Arc de cercle.** $f(t)=(\cos t,\sin t)$, $q=0$, $f'(0)=(0,1)\neq0$. On peut prendre $U_1=\,]-\pi,\pi[$ : $f(U_1)$ est le cercle privé de $(-1,0)$, sous-variété paramétrée par $f$. Sur $U=\R$, $f$ n'est pas injective ; $f(\R)$ (le cercle entier) est pourtant une sous-variété, mais $f:\R\to f(\R)$ n'en est pas un paramétrage.
-* **Morceau de sphère en coordonnées sphériques.** $f(u,v)=(\cos u\cos v,\sin u\cos v,\sin v)$, $q=(0,0)$ : $J_f(0,0)=\begin{pmatrix}0&0\\1&0\\0&1\end{pmatrix}$, de rang $2$. Donc, pour $U_1$ assez petit autour de $(0,0)$ (par exemple $U_1=\,]-\frac\pi2,\frac\pi2[^2$, sur lequel $f$ est injective d'inverse $(x_1,x_2,x_3)\mapsto(\arctan\frac{x_2}{x_1},\arcsin x_3)$, continu), $f(U_1)$ est un morceau de surface de $\mathbb S^2$, paramétré par $f$.
+* **Morceau de sphère en coordonnées sphériques.** $f(u,v)=(\cos u\cos v,\sin u\cos v,\sin v)$, $q=(0,0)$ : $J_f(0,0)=\begin{pmatrix}0&0\\1&0\\0&1\end{pmatrix}$, de rang $2$. Donc, pour $U_1$ assez petit autour de $(0,0)$ (par exemple $U_1=\,]-\frac\pi2,\frac\pi2[^2$ : $f$ y est une immersion en tout point car $\partial_uf\wedge\partial_vf=\cos v\,f(u,v)$ a pour norme $\cos v\neq0$, et $f$ y est injective d'inverse $(x_1,x_2,x_3)\mapsto(\arctan\frac{x_2}{x_1},\arcsin x_3)$, continu puisque $x_1=\cos u\cos v>0$), $f(U_1)$ est un morceau de surface de $\mathbb S^2$, paramétré par $f$.
 * **Branches d'une courbe à point double.** Pour $f(t)=(t^3-4t,t^2-4)$, $f'(t)=(3t^2-4,2t)$ ne s'annule jamais. Les petits arcs $f(]2-\eps,2+\eps[)$ et $f(]-2-\eps,-2+\eps[)$ sont chacun des sous-variétés passant par $(0,0)$, de tangentes $f'(2)=(8,4)$ et $f'(-2)=(8,-4)$ ; c'est leur **réunion** qui n'en est pas une.
 
 ## Pièges

@@ -19,7 +19,7 @@ tags: [sous-variete, ouvert, topologie-induite, restriction, parametrage-local]
 
 **Proposition (poly, Exemple IX.2.6, p. 149).** Un ouvert d'une sous-variété $S$ de $\R^N$ est une sous-variété de $\R^N$ (de même classe de régularité et de même dimension).
 
-Précisément : si $S$ est une sous-variété de dimension $m$ et de classe $C^k$ de $\R^N$ et si $W\subset S$ est ouvert dans $S$, alors $W$ est une sous-variété de dimension $m$ et de classe $C^k$ de $\R^N$ ; en chaque $p\in W$, la restriction d'un paramétrage local de $S$ en $p$ à $x^{-1}(O)$ est un paramétrage local de $W$ en $p$.
+Précisément : si $S$ est une sous-variété de dimension $m$ et de classe $C^k$ de $\R^N$ et si $W\subset S$ est ouvert dans $S$, alors $W$ est une sous-variété de dimension $m$ et de classe $C^k$ de $\R^N$ ; plus précisément, si $W=O\cap S$ avec $O$ ouvert de $\R^N$, en chaque $p\in W$ la restriction d'un paramétrage local $x:U\to V$ de $S$ en $p$ à l'ouvert $x^{-1}(O)$ est un paramétrage local de $W$ en $p$.
 
 ## Hypothèses
 

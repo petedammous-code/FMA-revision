@@ -26,7 +26,7 @@ $$
 \Psi\circ f\circ\Phi : U_2\to W_2,\qquad (x_1,\dots,x_n)\mapsto(x_1,\dots,x_r,0,\dots,0).
 $$
 
-Cas particuliers (Exercice VI.4.9, 1 et 2) : si $df_a$ est **surjective**, il existe $\Phi:U_2\to U_1$ comme ci-dessus avec $f\circ\Phi(x_1,\dots,x_n)=(x_1,\dots,x_m)$ ; si $df_a$ est **injective**, il existe $\Psi : W_1\to W_2$ comme ci-dessus et un voisinage ouvert $U_1$ de $a$ avec $f(U_1)\subset W_1$ et $\Psi\circ f(x)=(x,0)$ pour $x\in U_1$. Dans ces deux cas l'hypothèse de rang constant est **automatique**.
+Cas particuliers (Exercice VI.4.9, 2 pour la submersion et 1 pour l'immersion) : si $df_a$ est **surjective**, il existe $\Phi:U_2\to U_1$ comme ci-dessus avec $f\circ\Phi(x_1,\dots,x_n)=(x_1,\dots,x_m)$ ; si $df_a$ est **injective**, il existe $\Psi : W_1\to W_2$ comme ci-dessus et un voisinage ouvert $U_1$ de $a$ avec $f(U_1)\subset W_1$ et $\Psi\circ f(x)=(x,0)$ pour $x\in U_1$. Dans ces deux cas l'hypothèse de rang constant est **automatique**.
 
 ## Hypothèses
 

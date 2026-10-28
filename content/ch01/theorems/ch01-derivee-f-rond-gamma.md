@@ -6,7 +6,7 @@ title: "Dérivée de $f\circ\gamma$ le long d'un chemin (cas holomorphe : $f'(\g
 ref: Lemme I.5.10
 page: 17
 importance: 2
-depends: [ch01-chaine-dz-dzbar, ch01-operateurs-dz-dzbar, ch01-cauchy-riemann, ch01-def-differentiable-r2]
+depends: [ch01-chaine-dz-dzbar, ch01-operateurs-dz-dzbar, ch01-cauchy-riemann, ch01-def-differentiable-r2, ch01-c-derivable-ssi-df-c-lineaire]
 tags: [chemin, derivation, regle-de-la-chaine, dz-dzbar]
 ---
 ## Intuition
