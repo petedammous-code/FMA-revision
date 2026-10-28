@@ -80,14 +80,14 @@ $U$ ouvert : pour que $a+h\in U$ dès que $\norm h$ est petit (sinon $f(a+h)$ n'
 ### Q
 Donner une fonction continue en $0$, dont toutes les dérivées directionnelles existent en $0$, mais qui n'est pas différentiable en $0$.
 ### R
-$f(x,y)=\dfrac{x^3}{x^2+y^2}$, $f(0,0)=0$. Continue ($\abs{f}\le\abs{x}$) et, pour $h=(h_1,h_2)$, $\lim_{t\to0}\frac{f(th)}{t}=\frac{h_1^3}{h_1^2+h_2^2}$ n'est **pas linéaire en $h$**. Si $df_0$ existait on aurait $df_0(h)=\lim_{t\to0}\frac{f(th)}{t}$, linéaire : contradiction. (Plus simple : $x\mapsto\abs x$ en $0$, ou la norme euclidienne en $0$.) (poly, §V.3.1, p. 98)
+$f(x,y)=\dfrac{x^3}{x^2+y^2}$, $f(0,0)=0$. Continue ($\abs{f}\le\abs{x}$) et, pour $h=(h_1,h_2)$, $\lim_{t\to0}\frac{f(th)}{t}=\frac{h_1^3}{h_1^2+h_2^2}$ n'est **pas linéaire en $h$**. Si $df_0$ existait on aurait $df_0(h)=\lim_{t\to0}\frac{f(th)}{t}$, linéaire : contradiction. (Attention : $x\mapsto\abs x$ ou la norme euclidienne en $0$ sont continues et non différentiables, mais elles ne répondent pas à la question : $\lim_{t\to0}\frac{\abs{th}}{t}$ n'existe pas, donc leurs dérivées directionnelles n'existent pas en $0$.) (poly, §V.3.1, p. 98)
 
 ## CARD id=fc-ch05-014 ref=ch05-derivee-directionnelle-unicite tags=enonce,formule
 ### Q
 Si $f$ est différentiable en $a$, comment retrouve-t-on $df_a(h)$ comme une limite ? Qu'en déduit-on pour l'unicité ? La réciproque est-elle vraie ?
 ### R
 $$df_a(h)=\lim_{t\to0}\frac{f(a+th)-f(a)}{t}\qquad(h\in E)$$
-(bien défini car $a+th\in U$ pour $\abs t$ petit, $U$ ouvert). Donc $df_a$ est déterminée par les dérivées directionnelles : unicité. **Réciproque fausse** : l'existence de toutes les dérivées directionnelles, même linéaires en $h$, n'implique pas la différentiabilité (ex. $\frac{x^2y}{x^4+y^2}$ en $0$). (poly, §V.3.1, p. 98)
+(bien défini car $a+th\in U$ pour $\abs t$ petit, $U$ ouvert). Donc $df_a$ est déterminée par les dérivées directionnelles : unicité. **Réciproque fausse** : l'existence de toutes les dérivées directionnelles n'implique pas la différentiabilité, même si elles dépendent linéairement de $h$. Ex. : $f(x,y)=\frac{x^3y}{x^4+y^2}$, $f(0,0)=0$, est continue ($\abs f\le\frac{\abs x}{2}$ car $x^4+y^2\ge2x^2\abs y$), toutes ses dérivées directionnelles en $0$ sont nulles ($\frac{f(th)}{t}=\frac{t\,h_1^3h_2}{t^2h_1^4+h_2^2}\to0$), donc le seul candidat est $df_0=0$ ; mais $f(x,x^2)=\frac x2$ n'est pas un $o(\norm{(x,x^2)})$ : $f$ n'est pas différentiable en $0$. (Autre exemple, non continu et à dérivées directionnelles non linéaires : $\frac{x^2y}{x^4+y^2}$.) (poly, §V.3.1, p. 98)
 
 ## CARD id=fc-ch05-015 ref=ch05-differentiable-implique-continue tags=enonce
 ### Q
@@ -231,7 +231,7 @@ En particulier si $U$ est convexe et $\sup_U\norm{df_x}\le k$, alors $\norm{f(b)
 ### Q
 Dans le TAF, que se passe-t-il si le segment $[a,b]$ n'est pas contenu dans $U$ ? Donner un contre-exemple.
 ### R
-L'inégalité peut échouer. $U=\C\setminus\R_-$, $f=$ argument principal, $a=-1+i\eps$, $b=-1-i\eps$ : $\abs{f(b)-f(a)}\approx2\pi$ alors que $\abs{b-a}=2\eps$ et $\norm{df}\approx1$ près de $-1$ ; le segment $[a,b]$ coupe $\R_-$ donc sort de $U$. On ne peut pas majorer $\norm{f(b)-f(a)}$ par $\sup_U\norm{df}\,\norm{b-a}$ sur un ouvert non convexe.
+L'inégalité peut échouer. $U=\{z\in\C\setminus\R_-,\ \abs z>\tfrac12\}$ (ouvert, non convexe), $f=$ argument principal (fonction $C^\infty$ sur $U$, avec $\norm{df_z}=\frac1{\abs z}\le2$, donc $\sup_U\norm{df}\le2$), $a=-1+i\eps$, $b=-1-i\eps$ : $f(a)\to\pi$ et $f(b)\to-\pi$, donc $\abs{f(b)-f(a)}\to2\pi$, alors que $\sup_U\norm{df}\,\abs{b-a}\le4\eps\to0$. Le segment $[a,b]$ coupe $\R_-$ donc sort de $U$ : sur un ouvert non convexe, on ne peut pas majorer $\norm{f(b)-f(a)}$ par $\sup_U\norm{df}\,\norm{b-a}$ pour des points quelconques.
 
 ## CARD id=fc-ch05-037 ref=ch05-accroissements-finis tags=contre-exemple
 ### Q
@@ -281,7 +281,7 @@ Soit $E=E_1\times\cdots\times E_m$, $U$ ouvert de $E$, $f:U\to F$ (evn). $f$ est
 ### Q
 Dans la Proposition V.5.1, que se passe-t-il sans continuité des dérivées partielles ? Sans existence sur un voisinage ?
 ### R
-La continuité des dérivées partielles est suffisante, pas nécessaire pour la différentiabilité en un point : $f(x,y)=(x^2+y^2)\sin\frac{1}{x^2+y^2}$, $f(0)=0$, est différentiable en $0$ ($\abs{f(h)}\le\norm h^2$, donc $df_0=0$) mais $\partial_xf$ n'est pas continue en $0$ ($f$ n'est pas $C^1$). Sans continuité (ni voisinage) : $\frac{xy}{x^2+y^2}$ a des dérivées partielles en $0$ mais n'est pas différentiable. L'existence sur un voisinage sert à appliquer le TAF aux applications partielles (chemin en escalier).
+La continuité des dérivées partielles est suffisante, pas nécessaire pour la différentiabilité en un point : $f(x,y)=(x^2+y^2)\sin\frac{1}{x^2+y^2}$, $f(0)=0$, est différentiable en $0$ ($\abs{f(h)}\le\norm h^2$, donc $df_0=0$) mais $\partial_xf$ n'est pas continue en $0$ ($f$ n'est pas $C^1$). Sans continuité en $a$ : $\frac{xy}{x^2+y^2}$ ($0$ en $0$) a des dérivées partielles en **tout** point de $\R^2$ (donc sur un voisinage de $0$), mais elles sont discontinues en $0$ et $f$ n'est pas différentiable en $0$ (pas même continue). Sans existence sur un voisinage : la condition « continues en $a$ » n'a plus de sens ; ex. $f=1$ hors des axes, $f=0$ sur les axes : $\partial_xf(0)=\partial_yf(0)=0$ mais $f$ est discontinue en $0$ (et ses dérivées partielles n'existent en aucun point $(x,0)$, $x\ne0$). L'existence sur un voisinage sert dans la preuve à appliquer le TAF aux applications partielles (chemin en escalier).
 
 ## CARD id=fc-ch05-045 ref=ch05-differentielle-seconde-def tags=enonce,definition,formule
 ### Q
@@ -413,7 +413,7 @@ $df:U\to\mathcal L(E;F)$, $a\mapsto df_a$ : l'application différentielle (c'est
 ### Q
 Notations $d^2f_a$, $d^pf_a(h,\dots,h)$, « $p$ fois différentiable ». Que vaut $d^2f_a(h,h)$ sur $\R^m$ ?
 ### R
-$d^2f_a=d(df)_a$, vue comme bilinéaire symétrique ; $d^pf_a(h_1,\dots,h_p)$ est $p$-linéaire symétrique, et $d^pf_a(h,\dots,h)=\frac{d^p}{dt^p}f(a+th)|_{t=0}$. « $f$ est $p$ fois différentiable » : $d^{p-1}f$ est différentiable (sans continuité de $d^pf$), plus faible que $C^p$. Sur $\R^m$ : $d^2f_a(h,h)=\sum_{i,j}\partial_i\partial_jf(a)h_ih_j=h^\top\mathrm{Hess}f(a)\,h$ (le facteur $1/2!$ de Taylor est séparé). (poly, §V.5, pp. 107-111)
+$d^2f_a=d(df)_a$, vue comme bilinéaire symétrique ; $d^pf_a(h_1,\dots,h_p)$ est $p$-linéaire symétrique, et $d^pf_a(h,\dots,h)=\frac{d^p}{dt^p}f(a+th)|_{t=0}$. « $f$ est $p$ fois différentiable » : $d^{p-1}f$ est différentiable (sans continuité de $d^pf$), plus faible que $C^p$. Pour $f:U\subset\R^m\to\R$ de classe $C^2$ : $d^2f_a(h,h)=\sum_{i,j}\partial_i\partial_jf(a)h_ih_j=h^\top\mathrm{Hess}f(a)\,h$, où $\mathrm{Hess}f(a)=(\partial_i\partial_jf(a))_{i,j}$ est la matrice (symétrique, par Schwarz) de la forme bilinéaire $d^2f_a$ ; le facteur $1/2!$ de Taylor n'est pas inclus dans $d^2f_a(h,h)$. (poly, §V.5, pp. 107-111)
 
 ## CARD id=fc-ch05-064 ref=none tags=notation
 ### Q

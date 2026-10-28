@@ -21,7 +21,7 @@ On a une application $\varphi:S_1\to S_2$ entre sous-variétés (sphère, cercle
 **Pièges.** Couvrir **tous** les points (un paramétrage par angles oublie souvent des points) ; vérifier d'abord la **continuité** de $\varphi$ (la définition la suppose).
 
 ### [x] Différentielle par les courbes — [[ch09-differentielle-entre-sous-varietes-def]]
-**Quand.** On veut **calculer** $d\varphi_p(v)$ : choisir une courbe $\alpha$ tracée sur $S_1$ avec $\alpha(0)=p$, $\alpha'(0)=v$ (sur la sphère : $\alpha(t)=\cos t\,p+\sin t\,v$ pour $v\perp p$ unitaire ; sur un groupe de matrices : $\alpha(t)=A\,e^{tH}$), et dériver : $d\varphi_p(v)=(\varphi\circ\alpha)'(0)$ (poly, Définition IX.7.15, p. 163). La composition se fait comme d'habitude ([[ch09-composition-differentielles]]).
+**Quand.** On veut **calculer** $d\varphi_p(v)$ : choisir une courbe $\alpha$ tracée sur $S_1$ avec $\alpha(0)=p$, $\alpha'(0)=v$ (sur la sphère : $\alpha(t)=\cos t\,p+\sin t\,v$ pour $v\perp p$ unitaire ; sur un groupe de matrices $G$ : $\alpha(t)=A\,e^{tH}$ avec $e^{tH}\in G$, de vitesse $\alpha'(0)=AH$), et dériver : $d\varphi_p(v)=(\varphi\circ\alpha)'(0)$ (poly, Définition IX.7.15, p. 163). La composition se fait comme d'habitude ([[ch09-composition-differentielles]]).
 **Justification.** C'est une des deux caractérisations de $d\varphi_p$ ; le résultat ne dépend pas de la courbe choisie.
 **Pièges.** La courbe doit rester **dans $S_1$** (une droite $p+tv$ sort de la sphère) ; si $\varphi$ est une restriction, il est plus simple de restreindre $d\Phi_p$.
 
@@ -31,7 +31,7 @@ On a une application $\varphi:S_1\to S_2$ entre sous-variétés (sphère, cercle
 **Pièges.** Différentielle iso partout **ne donne pas** l'injectivité globale ($z\mapsto z^2$ sur le cercle). Si les dimensions diffèrent, ce n'est jamais un difféomorphisme ([[ch09-differentielle-diffeomorphisme-isomorphisme]]) ; on parle alors d'immersion ou de submersion ([[ch09-immersion-submersion-sous-varietes-def]]), dont les fibres et images locales sont des sous-variétés ([[ch09-fibres-submersion-image-immersion]]).
 
 ### [ ] Inversion locale dans l'espace ambiant — [[ch06-inversion-locale]]
-**Pourquoi ce n'est pas l'outil ici.** Sur $S_1\subset\R^{N_1}$, la différentielle pertinente est $d\varphi_p$ sur $T_pS_1$ : la jacobienne $d\Phi_p$ de l'extension ambiante peut être non inversible (ou même non carrée) alors que $\varphi$ est un difféomorphisme local de $S_1$ sur $S_2$, et réciproquement $d\Phi_p$ inversible ne dit rien sur $d\Phi_p(T_pS_1)\subset T_{\varphi(p)}S_2$.
+**Pourquoi ce n'est pas l'outil ici.** Sur $S_1\subset\R^{N_1}$, la différentielle pertinente est $d\varphi_p$ sur $T_pS_1$ : la jacobienne $d\Phi_p$ de l'extension ambiante peut être non inversible (ou même non carrée) alors que $\varphi$ est un difféomorphisme local de $S_1$ sur $S_2$, et réciproquement $d\Phi_p$ inversible donne seulement que $d\varphi_p=d\Phi_{p\,|T_pS_1}$ est **injective** : il faut encore $\dim S_1=\dim S_2$ pour en faire un isomorphisme, et c'est alors le Théorème IX.7.26 (sur les sous-variétés) qu'on applique, pas l'inversion locale de $\R^{N_1}$ (dont la conclusion porte sur un voisinage de $p$ dans $\R^{N_1}$, pas sur $S_1\to S_2$).
 **Quand il le serait.** Quand $S_1$ et $S_2$ sont des **ouverts** de $\R^n$, ou pour démontrer le théorème IX.7.26 à travers des paramétrages. Pour un difféomorphisme $\Phi$ de $\R^N$ tout entier, $\Phi(S)$ est une sous-variété ([[ch09-ex-image-diffeomorphisme]]).
 
 ## Démarche

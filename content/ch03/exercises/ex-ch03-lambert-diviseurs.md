@@ -75,7 +75,9 @@ Vérification sur les premiers termes : $\frac{z}{1-z}+\frac{z^2}{1-z^2}+\frac{z
 ## Pièges et variantes
 
 * Ne pas chercher la convergence normale sur $D$ tout entier : elle est fausse ($f_n$ n'est pas bornée sur $D$). Le théorème ne demande qu'une convergence **localement** normale, qu'on établit sur les disques $\bar D(0,r)$, $r<1$.
+
 > ⚠️ L'égalité $L^{(m)}(0)=\sum_n f_n^{(m)}(0)$ n'est pas « évidente » : c'est exactement le point 2 du théorème de Weierstraß (dérivées de tous ordres des sommes partielles). Pour une série seulement simplement convergente, elle peut être fausse.
+
 * On a évité d'intervertir une double somme $\sum_n\sum_k z^{nk}$ ; c'est possible aussi (famille sommable car $\sum_{n,k}|z|^{nk}\le\sum_n |z|^n/(1-|z|)<\infty$), mais il faut alors le justifier par sommabilité.
 * Variante : $\sum_{n\ge1}\frac{n z^n}{1-z^n}=\sum_{m\ge1}\sigma(m)z^m$ où $\sigma(m)$ est la somme des diviseurs de $m$ ; même preuve, avec $\norm{n z^n/(1-z^n)}_{\infty,\bar D(0,r)}\le n r^n/(1-r)$.
 * Variante : $\sum_{n\ge1}\mu(n)\frac{z^n}{1-z^n}=z$ (fonction de Möbius $\mu$), qui découle de $\sum_{n\mid m}\mu(n)=0$ pour $m\ge2$.

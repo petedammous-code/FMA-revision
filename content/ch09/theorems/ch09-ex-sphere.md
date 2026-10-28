@@ -67,4 +67,4 @@ $f(x)=\norm x^2$ est $C^\infty$ sur l'ouvert $\R^{n+1}\setminus\{0\}$ et, en dé
 
 * > ⚠️ Vérifier la surjectivité de $df_x$ **en tout point de la sphère** (pas seulement en un point), puisqu'on applique le point 2 de [[ch09-sous-variete-equation-valeur-reguliere]].
 * La dimension de $\mathbb S^n$ est $n$, pas $n+1$ : $\mathbb S^2$ est la sphère usuelle de $\R^3$ (une surface).
-* La **boule** $\{\norm x\le1\}$ n'est pas une sous-variété (au bord, elle ressemble à un demi-espace, cf. [[ch09-contre-ex-demi-droite]]) ; la boule ouverte $\{\norm x<1\}$ en est une, de dimension $n+1$, comme tout ouvert ([[ch09-ex-ouvert-sous-variete]]).
+* La **boule fermée** $B=\{\norm x\le1\}$ n'est pas une sous-variété de dimension $n+1$ : en un point $p$ du bord, un paramétrage $x:U\subset\R^{n+1}\to V\cap B$ aurait $dx_q$ inversible, donc (inversion locale) $x(U)$ contiendrait un voisinage de $p$ dans $\R^{n+1}$, ce qui est faux car $(1+\eps)p\notin B$. La boule ouverte $\{\norm x<1\}$ en est une, de dimension $n+1$, comme tout ouvert ([[ch09-ex-ouvert-sous-variete]]) ; son bord est la sphère, de dimension $n$.
