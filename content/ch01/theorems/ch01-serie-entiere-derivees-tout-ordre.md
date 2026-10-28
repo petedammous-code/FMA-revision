@@ -2,7 +2,7 @@
 id: ch01-serie-entiere-derivees-tout-ordre
 type: corollary
 chapter: 1
-title: "Une série entière admet des dérivées complexes de tout ordre, $f^{(k)}(z)=\\sum_{n\\ge k}n(n-1)\\cdots(n-k+1)a_nz^{n-k}$"
+title: "Une série entière admet des dérivées complexes de tout ordre, $f^{(k)}(z)=\sum_{n\ge k}n(n-1)\cdots(n-k+1)a_nz^{n-k}$"
 ref: Corollaire I.3.4
 page: 12
 importance: 2
@@ -82,7 +82,7 @@ Pour $k=1$, $z=\frac12$ : $\sum_{n\ge1}n\,2^{1-n}=4$.
 
 ## Pièges
 
-* > ⚠️ La somme commence à $n=k$ : les termes $n\lt k$ ont été tués par les dérivations successives (et $n(n-1)\cdots(n-k+1)=0$ pour $n\lt k$, donc on peut aussi sommer sur $n\ge0$ sans erreur, mais **pas** écrire $\frac{n!}{(n-k)!}$ pour $n\lt k$).
+* > ⚠️ La somme commence à $n=k$ : les termes $n<k$ ont été tués par les dérivations successives (et $n(n-1)\cdots(n-k+1)=0$ pour $n<k$, donc on peut aussi sommer sur $n\ge0$ sans erreur, mais **pas** écrire $\frac{n!}{(n-k)!}$ pour $n<k$).
 * La formule $a_k=\frac{f^{(k)}(0)}{k!}$ est valable pour une série **centrée en $0$** ; pour $\sum a_n(z-z_0)^n$, c'est $a_k=\frac{f^{(k)}(z_0)}{k!}$.
 * Comme pour [[ch01-serie-entiere-holomorphe]], rien n'est dit sur le cercle $|z|=R$.
 * Les dérivées sont des dérivées **complexes** ; en particulier $f$ est $C^\infty$ au sens réel sur $D(0,R)$. Le fait qu'une fonction **holomorphe quelconque** soit indéfiniment dérivable est un théorème bien plus profond ([[ch01-holomorphe-analytique]]), qui repose sur la formule de Cauchy.
