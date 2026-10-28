@@ -4,7 +4,7 @@ type: exercise
 chapters: [9, 5]
 title: La sous-variété des matrices de rang un et la meilleure approximation de rang un
 source: "Inventé (d'après le théorème d'Eckart–Young)"
-difficulty: 3
+difficulty: 4
 time: 50
 tools: [ch09-localement-graphe-implique-sous-variete, ch09-vecteur-tangent-espace-tangent-def, ch09-espace-tangent-image-dx, ch09-extremum-local-differentielle-nulle, ch09-ex-distance-carre]
 ---

@@ -4,7 +4,7 @@ type: exercise
 chapters: [9]
 title: Fonction hauteur sur un tore couché, points critiques et hessiennes
 source: "Classique (Milnor, *Morse Theory*, § 1, adapté au tore couché du poly)"
-difficulty: 2
+difficulty: 3
 time: 30
 tools: [ch09-ex-tore, ch09-ex-fonction-hauteur, ch09-multiplicateurs-lagrange, ch09-ex-point-critique-parametrage, ch09-hessienne-def, ch09-hessienne-extrema-ordre-deux, ch09-lemme-morse-sous-variete]
 ---

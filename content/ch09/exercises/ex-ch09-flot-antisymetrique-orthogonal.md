@@ -3,7 +3,7 @@ id: ex-ch09-flot-antisymetrique-orthogonal
 type: exercise
 chapters: [9, 7, 5]
 title: Équation linéaire à coefficients antisymétriques et groupe orthogonal
-source: "PC Équations différentielles ex. 6 (adapté)"
+source: "PC — TD Équations différentielles ex. 6 (adapté : lecture via la sous-variété $O(n)$ et la Proposition IX.8.1)"
 difficulty: 2
 time: 25
 tools: [ch09-espace-tangent-graphe-equation, ch09-vecteur-tangent-espace-tangent-def, ch09-courbe-integrale-reste-dans-sous-variete-fermee, ch05-differentielle-bilineaire, ch07-cauchy-lipschitz]

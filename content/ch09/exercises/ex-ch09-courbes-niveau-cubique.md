@@ -4,8 +4,8 @@ type: exercise
 chapters: [9]
 title: Les lignes de niveau d'une cubique plane
 source: Inventé
-difficulty: 1
-time: 15
+difficulty: 2
+time: 20
 tools: [ch09-point-critique-valeur-reguliere-def, ch09-sous-variete-equation-valeur-reguliere, ch09-espace-tangent-graphe-equation, ch09-ex-dimension-zero]
 ---
 ## Énoncé

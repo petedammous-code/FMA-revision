@@ -5,7 +5,7 @@ chapters: [9]
 title: Immersion d'une sous-variété compacte dans une connexe de même dimension
 source: "Classique (Guillemin–Pollack, *Differential Topology*, ch. 1, § 3, « stack of records theorem », adapté)"
 difficulty: 3
-time: 45
+time: 40
 tools: [ch09-immersion-submersion-sous-varietes-def, ch09-remarques-applications-cr, ch09-espace-tangent-image-dx, ch09-inversion-locale-sous-varietes, ch09-differentielle-entre-sous-varietes-def, ch09-ex-ouvert-sous-variete, ch09-ex-sphere]
 ---
 ## Énoncé
@@ -66,4 +66,5 @@ $d\varphi_p$ est donc injective. $\mathbb S^1$ est compacte, non vide, connexe (
 * **Connexité de $S_2$** : si $S_2$ a deux composantes, $\varphi$ peut n'en atteindre qu'une.
 * À la question 4, ne pas oublier de retirer $\varphi(K)$ : sans cela, des points de $S_1$ éloignés des $p_i$ pourraient fournir des antécédents supplémentaires aux points voisins de $y$. C'est là que la compacité ressert.
 * Variante : si de plus $\varphi$ est injective, alors $\varphi$ est un $C^1$-difféomorphisme de $S_1$ sur $S_2$ (bijective par 2, et son inverse est $C^1$ au voisinage de chaque point par l'inversion locale).
+* Variante (sans compacité) : si $S_1$ n'est plus supposée compacte mais $\varphi$ est **propre** (l'image réciproque de tout compact est compacte), les questions 2 à 4 restent vraies : une application propre est fermée, ce qui remplace la compacité de $S_1$ (question 2) et celle de $K$ (question 4), et les fibres sont compactes (question 3).
 * Variante : l'application $z\mapsto z^k$ ($k\in\Z\setminus\{0\}$) de $\mathbb S^1$ dans $\mathbb S^1$ a des fibres de cardinal $|k|$ ; pour $k=0$, la différentielle est nulle et l'énoncé ne s'applique pas.
