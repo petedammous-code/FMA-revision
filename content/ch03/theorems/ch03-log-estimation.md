@@ -6,7 +6,7 @@ title: Estimation $|\mathrm{Log}(1+\omega)|\le C|\omega|$ près de $0$
 ref: non numéroté, section III.5, p. 68
 page: 68
 importance: 1
-depends: [ch02-logarithme-determination-principale-def, ch02-puissance-complexe-def, ch01-serie-entiere-holomorphe]
+depends: [ch02-logarithme-determination-principale-def, ch01-serie-entiere-holomorphe]
 tags: [logarithme, estimation, produits-infinis, determination-principale]
 ---
 ## Intuition

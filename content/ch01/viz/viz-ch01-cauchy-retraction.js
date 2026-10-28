@@ -102,7 +102,7 @@ calculée numériquement (paramétrage $\omega=tz+(1-t)e^{i\theta}$ et méthode 
       if (F.pole) {
         const [px, py] = P.toPx(F.pole[0], F.pole[1]);
         ctx.save(); ctx.strokeStyle = t.fg; ctx.lineWidth = 2.5; ctx.beginPath(); ctx.moveTo(px - 6, py - 6); ctx.lineTo(px + 6, py + 6); ctx.moveTo(px + 6, py - 6); ctx.lineTo(px - 6, py + 6); ctx.stroke(); ctx.restore();
-        P.text(F.pole[0], F.pole[1], F.pole[0] > 1 ? 'pôle 3/2' : 'pôle p', { dx: 8, dy: -6, font: '600 12px system-ui, sans-serif' });
+        P.text(F.pole[0], F.pole[1], F.pole[0] > 1 ? 'pôle 3/2' : 'pôle p', { dx: 8, dy: 16, font: '600 12px system-ui, sans-serif' });
       }
       // Γ_t
       if (inside()) {
@@ -131,7 +131,8 @@ calculée numériquement (paramétrage $\omega=tz+(1-t)e^{i\theta}$ et méthode 
       computeCurve();
       const L = 46, R = 12, T = 22, B = 22;
       ctx.save(); ctx.font = '11px system-ui, sans-serif'; ctx.fillStyle = t.fg; ctx.textBaseline = 'top'; ctx.textAlign = 'left';
-      ctx.fillText('|I(t)| en fonction de t (I(t) = ∫ sur Γₜ de (f(ω) − f(z))/(ω − z) dω)', 6, 4);
+      const title = '|I(t)| en fonction de t (I(t) = ∫ sur Γₜ de (f(ω) − f(z))/(ω − z) dω)';
+      ctx.fillText(ctx.measureText(title).width > W - 12 ? '|I(t)|, avec I(t) = ∫ sur Γₜ de (f(ω) − f(z))/(ω − z) dω' : title, 6, 4);
       if (!curve.length) {
         ctx.fillStyle = t.muted; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
         ctx.fillText(inside() ? 'f(z) non défini' : 'z hors du disque : la rétraction Γₜ = C(tz, 1−t) n’a de sens que pour z ∈ D(0,1)', W / 2, H / 2 + 6);

@@ -65,7 +65,7 @@ F:U_1\times\R^{N-m}\to\R^N,\qquad F(u,t)=x_1(u)+\varphi(t).
 $$
 $F$ est $C^k$ et $dF_{(q_1,0)}(h,w)=d(x_1)_{q_1}(h)+\varphi(w)$ est un isomorphisme. Par le théorème d'inversion locale ([[ch06-inversion-locale]]), il existe des ouverts $U'\subset U_1$ contenant $q_1$, $Y\subset\R^{N-m}$ contenant $0$, et $V'\subset\R^N$ contenant $p'$ tels que $F:U'\times Y\to V'$ soit un $C^k$-difféomorphisme. Notons $\Phi=F^{-1}:V'\to U'\times Y$ et $p_1:\R^m\times\R^{N-m}\to\R^m$, $p_1(u,t)=u$.
 
-**Le point clé : $\theta=p_1\circ\Phi\circ x_2$ près de $q_2$.** $x_1(U')$ est un ouvert de $S$ (image de l'ouvert $U'$ par l'homéomorphisme $x_1$), contenu dans $W$... pas forcément, mais $x_1(U')\cap W\cap V'$ est un ouvert de $S$ contenant $p'$. Par continuité de $x_2$, l'ensemble
+**Le point clé : $\theta=p_1\circ\Phi\circ x_2$ près de $q_2$.** $x_1(U')$ est un ouvert de $S$ (image de l'ouvert $U'$ par l'homéomorphisme $x_1$ de $U_1$ sur l'ouvert $x_1(U_1)$ de $S$), contenant $p'=x_1(q_1)$ ; donc $x_1(U')\cap W\cap V'$ est un ouvert de $S$ contenant $p'$. Par continuité de $x_2$, l'ensemble
 $$
 O=x_2^{-1}\big(x_1(U')\cap W\cap V'\big)
 $$

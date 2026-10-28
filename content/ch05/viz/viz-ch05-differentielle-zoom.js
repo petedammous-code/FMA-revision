@@ -9,7 +9,7 @@ FMA.registerViz({
 $$R(\rho)=\max_{\|h\|=\rho}\frac{\|f(a+h)-f(a)-\ell(h)\|}{\|h\|}$$
 (maximum sur 36 directions). Différentiabilité en $a$ $\iff$ $R(\rho)\to0$ quand $\rho\to0$ (avec $\ell=df_a$) : la courbe plonge, avec pente $1$ si $f$ est assez régulière. Sinon elle reste à plat.
 
-**À faire.** Prenez $\sin x\cos y$ et glissez $a$ : la courbe du bas plonge partout. Passez à $\dfrac{xy}{x^2+y^2}$, au point $a=(0,0)$ : les deux dérivées partielles existent ($\ell=0$) mais $R$ reste égal à $\tfrac12$ ; mettez la direction à $\theta=45^\circ$ pour voir $f(su)=\tfrac12$ constant, très loin du plan $0$ (poly, Remarque V.3.18, p. 102). Pour $\dfrac{x^3}{x^2+y^2}$, $f$ est continue et toutes les dérivées directionnelles existent, mais elles ne dépendent pas linéairement de $u$ : aucun $\ell$ ne convient. Pour $|x|+y^2/2$ et $\sqrt{x^2+y^2}$, le « pli » (le cône) empêche tout plan tangent. Dès que l'on quitte le point singulier (en le faisant glisser), $f$ redevient différentiable et la courbe du bas replonge.
+**À faire.** Prenez $\sin x\cos y$ et glissez $a$ : la courbe du bas plonge partout (échelle log : une droite de pente $1$ signifie $R(\rho)\approx C\rho$). Passez à $\dfrac{xy}{x^2+y^2}$, au point $a=(0,0)$ : les deux dérivées partielles existent ($\ell=0$), mais mettez la direction à $\theta=45^\circ$ : $f(su)=\tfrac12$ pour $s\neq0$, très loin du plan $0$. Le rapport vaut $\tfrac{1}{2\rho}\to+\infty$ : la courbe du bas **monte** quand on zoome (poly, Remarque V.3.18, p. 102). Pour $\dfrac{x^3}{x^2+y^2}$, $f$ est continue et toutes les dérivées directionnelles existent, mais elles ne dépendent pas linéairement de $u$ : aucun $\ell$ ne convient et $R(\rho)$ reste de l'ordre de $1$ (courbe plate). Pour $|x|+y^2/2$ et $\sqrt{x^2+y^2}$, le « pli » (le cône) empêche tout plan tangent. Dès que l'on quitte le point singulier (en le faisant glisser), $f$ redevient différentiable et la courbe du bas replonge.
 
 *Remarque.* Pour $|x|$ et le cône, la dérivée partielle n'existe pas en $(0,0)$ ; la valeur utilisée (différence centrée) est $0$ ; ceci n'affaiblit pas la conclusion : aucune application linéaire ne convient, on le voit à la forme en « V » à fort zoom.`,
   related: ['ch05-differentielle-def', 'ch05-partielles-sans-differentiabilite', 'ch05-differentielles-partielles', 'ch05-derivee-directionnelle-unicite', 'ch05-petit-o-def'],
@@ -54,7 +54,8 @@ $$R(\rho)=\max_{\|h\|=\rho}\frac{\|f(a+h)-f(a)-\ell(h)\|}{\|h\|}$$
 
     function drawMap() {
       const { ctx, W, H } = s1; const t = th();
-      const P = kit.plane(ctx, { xmin: -2, xmax: 2, ymin: -1.5, ymax: 1.5, W, H });
+      const yh = 1.5, xh = yh * W / H;
+      const P = kit.plane(ctx, { xmin: -xh, xmax: xh, ymin: -yh, ymax: yh, W, H });
       const step = 3, w = Math.ceil(W / step), h = Math.ceil(H / step);
       const img = ctx.createImageData(w, h); const d = img.data; let k = 0; const vm = FN[cur].vmax;
       for (let j = 0; j < h; j++) for (let i = 0; i < w; i++) {
@@ -101,15 +102,15 @@ $$R(\rho)=\max_{\|h\|=\rho}\frac{\|f(a+h)-f(a)-\ell(h)\|}{\|h\|}$$
     }
     function drawRatio(g) {
       const { ctx, W, H } = s3; const t = th();
-      const L = 44, R = 10, T = 22, B = 26; const x0 = -3, x1 = 0.5, y0 = -7, y1 = 1;
+      const L = 44, R = 10, T = 22, B = 26; const x0 = -3, x1 = 0.5, y0 = -7, y1 = 3;
       const X = (x) => L + (x - x0) / (x1 - x0) * (W - L - R); const Y = (y) => T + (1 - (y - y0) / (y1 - y0)) * (H - T - B);
       ctx.save(); ctx.strokeStyle = t.grid; ctx.lineWidth = 1; ctx.fillStyle = t.muted; ctx.font = '10px system-ui, sans-serif';
       for (let x = -3; x <= 0; x++) { ctx.beginPath(); ctx.moveTo(X(x), T); ctx.lineTo(X(x), H - B); ctx.stroke(); ctx.textAlign = 'center'; ctx.textBaseline = 'top'; ctx.fillText('10^' + x, X(x), H - B + 3); }
-      for (let y = -6; y <= 0; y += 2) { ctx.beginPath(); ctx.moveTo(L, Y(y)); ctx.lineTo(W - R, Y(y)); ctx.stroke(); ctx.textAlign = 'right'; ctx.textBaseline = 'middle'; ctx.fillText('10^' + y, L - 3, Y(y)); }
+      for (let y = -6; y <= 2; y += 2) { ctx.beginPath(); ctx.moveTo(L, Y(y)); ctx.lineTo(W - R, Y(y)); ctx.stroke(); ctx.textAlign = 'right'; ctx.textBaseline = 'middle'; ctx.fillText('10^' + y, L - 3, Y(y)); }
       ctx.strokeStyle = t.axis; ctx.strokeRect(L, T, W - L - R, H - T - B);
       // reference slope 1
-      ctx.strokeStyle = t.muted; ctx.setLineDash([2, 4]); ctx.beginPath(); ctx.moveTo(X(-3), Y(-3.5)); ctx.lineTo(X(0), Y(-0.5)); ctx.stroke(); ctx.setLineDash([]);
-      ctx.fillStyle = t.muted; ctx.textAlign = 'left'; ctx.textBaseline = 'bottom'; ctx.fillText('pente 1', X(-2.7), Y(-3.3));
+      ctx.strokeStyle = t.muted; ctx.setLineDash([2, 4]); ctx.beginPath(); ctx.moveTo(X(-3), Y(-4.5)); ctx.lineTo(X(0), Y(-1.5)); ctx.stroke(); ctx.setLineDash([]);
+      ctx.fillStyle = t.muted; ctx.textAlign = 'left'; ctx.textBaseline = 'bottom'; ctx.fillText('pente 1', X(-2.7), Y(-4.3));
       const ang = dirS.value * Math.PI / 180, u = [Math.cos(ang), Math.sin(ang)];
       const pts = [], pts2 = []; const n = 70;
       for (let i = 0; i <= n; i++) {
@@ -137,7 +138,7 @@ $$R(\rho)=\max_{\|h\|=\rho}\frac{\|f(a+h)-f(a)-\ell(h)\|}{\|h\|}$$
     }
     function setFromPointer(p) {
       let [x, y] = P1.toWorld(p.x, p.y);
-      x = Math.max(-1.95, Math.min(1.95, x)); y = Math.max(-1.45, Math.min(1.45, y));
+      x = Math.max(P1.xmin + 0.05, Math.min(P1.xmax - 0.05, x)); y = Math.max(-1.45, Math.min(1.45, y));
       const sn = FN[cur].snap;
       if (sn) { if (Math.hypot(x - sn[0], y - sn[1]) < 0.12) { x = sn[0]; y = sn[1]; } else if (FN[cur].snapLine && Math.abs(x) < 0.06) x = 0; }
       a = [x, y]; draw();

@@ -6,7 +6,7 @@ title: Produits infinis de fonctions holomorphes
 ref: Théorème III.5.1
 page: 68
 importance: 3
-depends: [ch03-weierstrass-series, ch03-weierstrass, ch03-log-estimation, ch02-logarithme-determination-principale-def, ch02-puissance-complexe-def, ch03-convergence-uniforme-compacts, ch01-def-multiplicite-zero]
+depends: [ch03-weierstrass-series, ch03-weierstrass, ch03-log-estimation, ch02-logarithme-determination-principale-def, ch03-convergence-uniforme-compacts, ch03-convergence-normale-definition, ch01-def-multiplicite-zero]
 tags: [produits-infinis, logarithme, derivee-logarithmique, zeros, convergence-normale]
 ---
 ## Intuition
@@ -105,5 +105,5 @@ Voir [[ch03-produit-sinus]] : $\pi zG(z)=\sin(\pi z)$.
 * > ⚠️ Il faut la convergence localement **normale** de $\sum f_n$ (où $f_n=g_n-1$), pas la convergence de $\sum f_n$ ni même sa convergence uniforme : voir H2.
 * > ⚠️ La formule $G'/G=\sum g_n'/g_n$ n'a de sens qu'**en dehors des zéros de $G$** ; sur un compact $K$, seule la queue $\sum_{n\ge n_0}$ converge uniformément sur $K$.
 * Ne pas écrire $\mathrm{Log}\big(\prod g_n\big)=\sum\mathrm{Log}(g_n)$ : c'est faux en général (égalité modulo $2i\pi$) ; la preuve utilise $\prod g_n=\exp\big(\sum\mathrm{Log}\,g_n\big)$, qui est exact.
-* Si un facteur $g_j$ est identiquement nul sur une composante connexe de $\Omega$, alors $G$ y est identiquement nulle (zéro « d'ordre infini ») ; c'est le seul cas dégénéré, et il ne concerne qu'un nombre fini d'indices $j$ (ceux pour lesquels $\norm{f_j}\ge1/2$ quelque part).
+* Si un facteur $g_j$ est identiquement nul sur une composante connexe de $\Omega$, alors $G$ y est identiquement nulle (zéro « d'ordre infini ») ; c'est le seul cas dégénéré. Sur un compact $K$ donné, il ne peut concerner qu'un nombre fini d'indices $j$ (ceux pour lesquels $\norm{f_j}_{\infty,K}\ge1/2$) ; mais si $\Omega$ a une infinité de composantes connexes (par exemple $\Omega=\bigcup_{k\ge1}D(3k,1)$ avec $f_k=-1$ sur $D(3k,1)$ et $f_k=0$ ailleurs, série localement normalement convergente), une infinité de facteurs peuvent être nuls chacun sur sa composante.
 * Deux fonctions entières ayant les mêmes zéros, avec les mêmes ordres, ne sont égales qu'au facteur $e^{h}$ près ($h$ entière) : pour identifier un produit infini à une fonction connue, on compare les **dérivées logarithmiques** (ou on utilise un argument de croissance), pas seulement les zéros.

@@ -63,7 +63,8 @@ dont la colonne $i$ est $\frac{\partial f}{\partial x_i}(a)$ (poly, section V.3.
         const curveT = []; for (let k = 0; k <= 40; k++) curveT.push(-1 + 2 * k / 40);
         // ---- left
         sL.clear(); { const { ctx, W, H } = sL;
-          PL = kit.plane(ctx, { xmin: -2, xmax: 2, ymin: -1.6, ymax: 1.6, W, H });
+          const yh = 1.6, xh = yh * W / H;
+          PL = kit.plane(ctx, { xmin: -xh, xmax: xh, ymin: -yh, ymax: yh, W, H });
           PL.grid(1); PL.axes({ labels: true });
           PL.fill([[a[0] - d, a[1] - d], [a[0] + d, a[1] - d], [a[0] + d, a[1] + d], [a[0] - d, a[1] + d]], { color: t.accent, alpha: 0.12 });
           for (let i = 0; i <= NDIV; i++) {
@@ -126,7 +127,7 @@ dont la colonne $i$ est $\frac{\partial f}{\partial x_i}(a)$ (poly, section V.3.
     }
     function setFromPointer(p) {
       let [x, y] = PL.toWorld(p.x, p.y);
-      x = Math.max(-1.9, Math.min(1.9, x)); y = Math.max(-1.45, Math.min(1.45, y));
+      x = Math.max(PL.xmin + 0.1, Math.min(PL.xmax - 0.1, x)); y = Math.max(-1.45, Math.min(1.45, y));
       a = [x, y]; draw();
     }
     const off = kit.drag(sL.canvas, { onDown: setFromPointer, onMove: (p, ev, down) => { if (down) setFromPointer(p); } });

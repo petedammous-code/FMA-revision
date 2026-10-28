@@ -47,7 +47,7 @@ autrement dit $\sup_{f\in\mathcal F}\sup_{z\in K}|f(z)|<+\infty$ pour tout compa
 
 ## Exemples
 
-* **Fonctions à valeurs dans le disque.** $\mathcal F=\{f\in\Hol(\Omega) : f(\Omega)\subset D(0,1)\}$ est (globalement, donc localement) uniformément bornée par $C=1$. C'est la famille $\Sigma$ utilisée dans la preuve du théorème de Riemann ([[ch03-riemann-representation-conforme]]).
+* **Fonctions à valeurs dans le disque.** $\mathcal F=\{f\in\Hol(\Omega) : f(\Omega)\subset D(0,1)\}$ est (globalement, donc localement) uniformément bornée par $C=1$. Elle contient la famille $\Sigma=\{f\in\Hol(\Omega) : f(\Omega)\subset D(0,1),\ f\text{ injective}\}$ utilisée dans la preuve du théorème de Riemann ([[ch03-riemann-representation-conforme]]), qui est donc elle aussi uniformément bornée par $1$.
 * **Puissances.** $\{z^n,\ n\ge0\}$ sur $D(0,1)$ : $|z^n|\le1$, bornée par $1$. Sur $D(0,2)$, elle n'est **pas** localement uniformément bornée : au voisinage de $x=3/2$, $|x^n|=(3/2)^n\to+\infty$.
 * **Exponentielles.** $\{z\mapsto e^{nz},\ n\in\N\}$ sur le demi-plan $\{\Re(z)<0\}$ : $|e^{nz}|=e^{n\Re(z)}\le1$. Sur $\{\Re(z)>0\}$ elle n'est pas localement uniformément bornée ($e^{n x}\to+\infty$ pour $x>0$).
 * **Exemple local non global** : $\{nz^n\}$ sur $D(0,1)$ (voir H2).

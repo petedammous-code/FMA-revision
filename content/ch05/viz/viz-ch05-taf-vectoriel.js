@@ -4,7 +4,7 @@ FMA.registerViz({
   title: "Accroissements finis vectoriels : une inégalité, pas une égalité",
   description: String.raw`**Ce que l'on voit.** On considère une courbe paramétrée $f:[a;b]\to\R^2$ de classe $C^1$ (choisie dans la liste) et deux paramètres $a<b$ réglables.
 
-* **À gauche, la courbe dans le plan.** Le trait épais est l'arc $f([a;b])$. La corde (tirets verts) est le vecteur $f(b)-f(a)$. La flèche orange part de $f(a)$ : c'est le vecteur $f'(c)\,(b-a)$ pour un paramètre $c\in[a;b]$ que l'on règle. Si l'**égalité des accroissements finis** $f(b)-f(a)=f'(c)(b-a)$ était vraie, on pourrait faire coïncider la flèche et la corde.
+* **À gauche, la courbe dans le plan.** Le trait épais est l'arc $f([a;b])$. La corde (tirets verts) est le vecteur $f(b)-f(a)$. La flèche orange est le vecteur vitesse $f'(c)$ attaché au point $f(c)$ (avec sa tangente en pointillés), pour un paramètre $c\in[a;b]$ que l'on règle (ou que l'on anime). Si l'**égalité des accroissements finis** $f(b)-f(a)=f'(c)(b-a)$ était vraie pour un $c$, la tangente en $f(c)$ serait parallèle à la corde **et** de longueur exactement adaptée ; le panneau de droite compare directement $f'(c)$ à $m=\frac{f(b)-f(a)}{b-a}$.
 * **À droite, l'« hodographe »** : la courbe $t\mapsto f'(t)$ des vecteurs vitesse, $t\in[a;b]$ (trait épais), son enveloppe convexe (zone teintée), et le point vert $m=\dfrac{f(b)-f(a)}{b-a}$ (pente moyenne). L'égalité $f(b)-f(a)=f'(c)(b-a)$ pour un certain $c$ revient à dire que **$m$ est sur l'hodographe**.
 
 **Ce qu'il faut retenir.**
@@ -83,10 +83,11 @@ FMA.registerViz({
           P.curve(full, { color: t.axis, width: 1.5, dash: [3, 3] });
           P.curve(arc, { color: t.accent, width: 3.5 });
           P.vector(fa[0], fa[1], chord[0], chord[1], { color: t.accent3, width: 2.5, head: 10 });
-          P.vector(fa[0], fa[1], fc[0] * L, fc[1] * L, { color: t.accent4, width: 2.5, head: 10 });
-          const pc = c.f(tc); P.point(pc[0], pc[1], { r: 4, color: t.accent4, label: 'f(c)' });
+          const pc = c.f(tc);
+          { const nf = Math.hypot(fc[0], fc[1]) || 1, sc = 50 / nf, ln = [[pc[0] - fc[0] * sc, pc[1] - fc[1] * sc], [pc[0] + fc[0] * sc, pc[1] + fc[1] * sc]]; P.curve(ln, { color: t.accent4, width: 1, dash: [4, 4] }); }
+          P.vector(pc[0], pc[1], fc[0], fc[1], { color: t.accent4, width: 2.5, head: 10 }); P.point(pc[0], pc[1], { r: 4, color: t.accent4, label: 'f(c)' });
           P.point(fa[0], fa[1], { r: 5, color: t.accent, label: 'f(a)' }); P.point(fb[0], fb[1], { r: 5, color: t.accent, label: 'f(b)' });
-          text(ctx, 'plan de f : corde f(b)−f(a) (vert), f′(c)(b−a) (orange)', 8, 5);
+          text(ctx, 'plan de f : corde f(b)−f(a) (vert), vitesse f′(c) en f(c) (orange)', 8, 5);
         }
         // right
         const Hh = hull(hod); const dist = hod.reduce((mn, d) => Math.min(mn, Math.hypot(d[0] - m[0], d[1] - m[1])), Infinity);

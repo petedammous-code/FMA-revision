@@ -106,7 +106,7 @@ calculée numériquement (paramétrage $\omega=tz+(1-t)e^{i\theta}$ et méthode 
       if (F.pole) {
         const [px, py] = P.toPx(F.pole[0], F.pole[1]);
         ctx.save(); ctx.strokeStyle = t.fg; ctx.lineWidth = 2.5; ctx.beginPath(); ctx.moveTo(px - 6, py - 6); ctx.lineTo(px + 6, py + 6); ctx.moveTo(px + 6, py - 6); ctx.lineTo(px - 6, py + 6); ctx.stroke(); ctx.restore();
-        P.text(F.pole[0], F.pole[1], F.pole[0] > 1 ? 'pôle 3/2' : 'pôle p', { dx: 8, dy: -6, font: '600 12px system-ui, sans-serif' });
+        P.text(F.pole[0], F.pole[1], F.pole[0] > 1 ? 'pôle 3/2' : 'pôle p', { dx: 8, dy: 16, font: '600 12px system-ui, sans-serif' });
       }
       // Γ_t
       if (inside()) {
@@ -135,7 +135,8 @@ calculée numériquement (paramétrage $\omega=tz+(1-t)e^{i\theta}$ et méthode 
       computeCurve();
       const L = 46, R = 12, T = 22, B = 22;
       ctx.save(); ctx.font = '11px system-ui, sans-serif'; ctx.fillStyle = t.fg; ctx.textBaseline = 'top'; ctx.textAlign = 'left';
-      ctx.fillText('|I(t)| en fonction de t (I(t) = ∫ sur Γₜ de (f(ω) − f(z))/(ω − z) dω)', 6, 4);
+      const title = '|I(t)| en fonction de t (I(t) = ∫ sur Γₜ de (f(ω) − f(z))/(ω − z) dω)';
+      ctx.fillText(ctx.measureText(title).width > W - 12 ? '|I(t)|, avec I(t) = ∫ sur Γₜ de (f(ω) − f(z))/(ω − z) dω' : title, 6, 4);
       if (!curve.length) {
         ctx.fillStyle = t.muted; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
         ctx.fillText(inside() ? 'f(z) non défini' : 'z hors du disque : la rétraction Γₜ = C(tz, 1−t) n’a de sens que pour z ∈ D(0,1)', W / 2, H / 2 + 6);
@@ -301,7 +302,7 @@ $$\omega\longmapsto\frac{f(z_0+h\omega)-f(z_0)}{h}$$
       } else {
         const [px, py] = PZ.toPx(z0[0], z0[1]);
         ctx.save(); ctx.strokeStyle = t.accent; ctx.setLineDash([3, 3]); ctx.lineWidth = 1.2; ctx.beginPath(); ctx.arc(px, py, 14, 0, 2 * Math.PI); ctx.stroke(); ctx.restore();
-        PZ.text(z0[0], z0[1], 'D(z₀,h) trop petit : voir le microscope', { dx: 18, dy: 22, color: t.muted, font: '11px system-ui, sans-serif', baseline: 'middle' });
+        ctx.save(); ctx.font = '11px system-ui, sans-serif'; ctx.fillStyle = t.muted; ctx.textAlign = 'left'; ctx.textBaseline = 'bottom'; ctx.fillText('D(z₀,h) trop petit à cette échelle : voir le microscope', 6, stZ.H - 6); ctx.restore();
       }
       if (rpx > 4) { stroke(ctx, PZ, map(flag1), t.accent4, 2.6); stroke(ctx, PZ, map(flag2), t.accent5, 2.6); }
       for (const c of F.crit) {
@@ -1797,7 +1798,7 @@ FMA.registerViz({
 $$R(\rho)=\max_{\|h\|=\rho}\frac{\|f(a+h)-f(a)-\ell(h)\|}{\|h\|}$$
 (maximum sur 36 directions). Différentiabilité en $a$ $\iff$ $R(\rho)\to0$ quand $\rho\to0$ (avec $\ell=df_a$) : la courbe plonge, avec pente $1$ si $f$ est assez régulière. Sinon elle reste à plat.
 
-**À faire.** Prenez $\sin x\cos y$ et glissez $a$ : la courbe du bas plonge partout. Passez à $\dfrac{xy}{x^2+y^2}$, au point $a=(0,0)$ : les deux dérivées partielles existent ($\ell=0$) mais $R$ reste égal à $\tfrac12$ ; mettez la direction à $\theta=45^\circ$ pour voir $f(su)=\tfrac12$ constant, très loin du plan $0$ (poly, Remarque V.3.18, p. 102). Pour $\dfrac{x^3}{x^2+y^2}$, $f$ est continue et toutes les dérivées directionnelles existent, mais elles ne dépendent pas linéairement de $u$ : aucun $\ell$ ne convient. Pour $|x|+y^2/2$ et $\sqrt{x^2+y^2}$, le « pli » (le cône) empêche tout plan tangent. Dès que l'on quitte le point singulier (en le faisant glisser), $f$ redevient différentiable et la courbe du bas replonge.
+**À faire.** Prenez $\sin x\cos y$ et glissez $a$ : la courbe du bas plonge partout (échelle log : une droite de pente $1$ signifie $R(\rho)\approx C\rho$). Passez à $\dfrac{xy}{x^2+y^2}$, au point $a=(0,0)$ : les deux dérivées partielles existent ($\ell=0$), mais mettez la direction à $\theta=45^\circ$ : $f(su)=\tfrac12$ pour $s\neq0$, très loin du plan $0$. Le rapport vaut $\tfrac{1}{2\rho}\to+\infty$ : la courbe du bas **monte** quand on zoome (poly, Remarque V.3.18, p. 102). Pour $\dfrac{x^3}{x^2+y^2}$, $f$ est continue et toutes les dérivées directionnelles existent, mais elles ne dépendent pas linéairement de $u$ : aucun $\ell$ ne convient et $R(\rho)$ reste de l'ordre de $1$ (courbe plate). Pour $|x|+y^2/2$ et $\sqrt{x^2+y^2}$, le « pli » (le cône) empêche tout plan tangent. Dès que l'on quitte le point singulier (en le faisant glisser), $f$ redevient différentiable et la courbe du bas replonge.
 
 *Remarque.* Pour $|x|$ et le cône, la dérivée partielle n'existe pas en $(0,0)$ ; la valeur utilisée (différence centrée) est $0$ ; ceci n'affaiblit pas la conclusion : aucune application linéaire ne convient, on le voit à la forme en « V » à fort zoom.`,
   related: ['ch05-differentielle-def', 'ch05-partielles-sans-differentiabilite', 'ch05-differentielles-partielles', 'ch05-derivee-directionnelle-unicite', 'ch05-petit-o-def'],
@@ -1842,7 +1843,8 @@ $$R(\rho)=\max_{\|h\|=\rho}\frac{\|f(a+h)-f(a)-\ell(h)\|}{\|h\|}$$
 
     function drawMap() {
       const { ctx, W, H } = s1; const t = th();
-      const P = kit.plane(ctx, { xmin: -2, xmax: 2, ymin: -1.5, ymax: 1.5, W, H });
+      const yh = 1.5, xh = yh * W / H;
+      const P = kit.plane(ctx, { xmin: -xh, xmax: xh, ymin: -yh, ymax: yh, W, H });
       const step = 3, w = Math.ceil(W / step), h = Math.ceil(H / step);
       const img = ctx.createImageData(w, h); const d = img.data; let k = 0; const vm = FN[cur].vmax;
       for (let j = 0; j < h; j++) for (let i = 0; i < w; i++) {
@@ -1889,15 +1891,15 @@ $$R(\rho)=\max_{\|h\|=\rho}\frac{\|f(a+h)-f(a)-\ell(h)\|}{\|h\|}$$
     }
     function drawRatio(g) {
       const { ctx, W, H } = s3; const t = th();
-      const L = 44, R = 10, T = 22, B = 26; const x0 = -3, x1 = 0.5, y0 = -7, y1 = 1;
+      const L = 44, R = 10, T = 22, B = 26; const x0 = -3, x1 = 0.5, y0 = -7, y1 = 3;
       const X = (x) => L + (x - x0) / (x1 - x0) * (W - L - R); const Y = (y) => T + (1 - (y - y0) / (y1 - y0)) * (H - T - B);
       ctx.save(); ctx.strokeStyle = t.grid; ctx.lineWidth = 1; ctx.fillStyle = t.muted; ctx.font = '10px system-ui, sans-serif';
       for (let x = -3; x <= 0; x++) { ctx.beginPath(); ctx.moveTo(X(x), T); ctx.lineTo(X(x), H - B); ctx.stroke(); ctx.textAlign = 'center'; ctx.textBaseline = 'top'; ctx.fillText('10^' + x, X(x), H - B + 3); }
-      for (let y = -6; y <= 0; y += 2) { ctx.beginPath(); ctx.moveTo(L, Y(y)); ctx.lineTo(W - R, Y(y)); ctx.stroke(); ctx.textAlign = 'right'; ctx.textBaseline = 'middle'; ctx.fillText('10^' + y, L - 3, Y(y)); }
+      for (let y = -6; y <= 2; y += 2) { ctx.beginPath(); ctx.moveTo(L, Y(y)); ctx.lineTo(W - R, Y(y)); ctx.stroke(); ctx.textAlign = 'right'; ctx.textBaseline = 'middle'; ctx.fillText('10^' + y, L - 3, Y(y)); }
       ctx.strokeStyle = t.axis; ctx.strokeRect(L, T, W - L - R, H - T - B);
       // reference slope 1
-      ctx.strokeStyle = t.muted; ctx.setLineDash([2, 4]); ctx.beginPath(); ctx.moveTo(X(-3), Y(-3.5)); ctx.lineTo(X(0), Y(-0.5)); ctx.stroke(); ctx.setLineDash([]);
-      ctx.fillStyle = t.muted; ctx.textAlign = 'left'; ctx.textBaseline = 'bottom'; ctx.fillText('pente 1', X(-2.7), Y(-3.3));
+      ctx.strokeStyle = t.muted; ctx.setLineDash([2, 4]); ctx.beginPath(); ctx.moveTo(X(-3), Y(-4.5)); ctx.lineTo(X(0), Y(-1.5)); ctx.stroke(); ctx.setLineDash([]);
+      ctx.fillStyle = t.muted; ctx.textAlign = 'left'; ctx.textBaseline = 'bottom'; ctx.fillText('pente 1', X(-2.7), Y(-4.3));
       const ang = dirS.value * Math.PI / 180, u = [Math.cos(ang), Math.sin(ang)];
       const pts = [], pts2 = []; const n = 70;
       for (let i = 0; i <= n; i++) {
@@ -1925,7 +1927,7 @@ $$R(\rho)=\max_{\|h\|=\rho}\frac{\|f(a+h)-f(a)-\ell(h)\|}{\|h\|}$$
     }
     function setFromPointer(p) {
       let [x, y] = P1.toWorld(p.x, p.y);
-      x = Math.max(-1.95, Math.min(1.95, x)); y = Math.max(-1.45, Math.min(1.45, y));
+      x = Math.max(P1.xmin + 0.05, Math.min(P1.xmax - 0.05, x)); y = Math.max(-1.45, Math.min(1.45, y));
       const sn = FN[cur].snap;
       if (sn) { if (Math.hypot(x - sn[0], y - sn[1]) < 0.12) { x = sn[0]; y = sn[1]; } else if (FN[cur].snapLine && Math.abs(x) < 0.06) x = 0; }
       a = [x, y]; draw();
@@ -2006,7 +2008,8 @@ dont la colonne $i$ est $\frac{\partial f}{\partial x_i}(a)$ (poly, section V.3.
         const curveT = []; for (let k = 0; k <= 40; k++) curveT.push(-1 + 2 * k / 40);
         // ---- left
         sL.clear(); { const { ctx, W, H } = sL;
-          PL = kit.plane(ctx, { xmin: -2, xmax: 2, ymin: -1.6, ymax: 1.6, W, H });
+          const yh = 1.6, xh = yh * W / H;
+          PL = kit.plane(ctx, { xmin: -xh, xmax: xh, ymin: -yh, ymax: yh, W, H });
           PL.grid(1); PL.axes({ labels: true });
           PL.fill([[a[0] - d, a[1] - d], [a[0] + d, a[1] - d], [a[0] + d, a[1] + d], [a[0] - d, a[1] + d]], { color: t.accent, alpha: 0.12 });
           for (let i = 0; i <= NDIV; i++) {
@@ -2069,7 +2072,7 @@ dont la colonne $i$ est $\frac{\partial f}{\partial x_i}(a)$ (poly, section V.3.
     }
     function setFromPointer(p) {
       let [x, y] = PL.toWorld(p.x, p.y);
-      x = Math.max(-1.9, Math.min(1.9, x)); y = Math.max(-1.45, Math.min(1.45, y));
+      x = Math.max(PL.xmin + 0.1, Math.min(PL.xmax - 0.1, x)); y = Math.max(-1.45, Math.min(1.45, y));
       a = [x, y]; draw();
     }
     const off = kit.drag(sL.canvas, { onDown: setFromPointer, onMove: (p, ev, down) => { if (down) setFromPointer(p); } });
@@ -2089,7 +2092,7 @@ FMA.registerViz({
   title: "Accroissements finis vectoriels : une inégalité, pas une égalité",
   description: String.raw`**Ce que l'on voit.** On considère une courbe paramétrée $f:[a;b]\to\R^2$ de classe $C^1$ (choisie dans la liste) et deux paramètres $a<b$ réglables.
 
-* **À gauche, la courbe dans le plan.** Le trait épais est l'arc $f([a;b])$. La corde (tirets verts) est le vecteur $f(b)-f(a)$. La flèche orange part de $f(a)$ : c'est le vecteur $f'(c)\,(b-a)$ pour un paramètre $c\in[a;b]$ que l'on règle. Si l'**égalité des accroissements finis** $f(b)-f(a)=f'(c)(b-a)$ était vraie, on pourrait faire coïncider la flèche et la corde.
+* **À gauche, la courbe dans le plan.** Le trait épais est l'arc $f([a;b])$. La corde (tirets verts) est le vecteur $f(b)-f(a)$. La flèche orange est le vecteur vitesse $f'(c)$ attaché au point $f(c)$ (avec sa tangente en pointillés), pour un paramètre $c\in[a;b]$ que l'on règle (ou que l'on anime). Si l'**égalité des accroissements finis** $f(b)-f(a)=f'(c)(b-a)$ était vraie pour un $c$, la tangente en $f(c)$ serait parallèle à la corde **et** de longueur exactement adaptée ; le panneau de droite compare directement $f'(c)$ à $m=\frac{f(b)-f(a)}{b-a}$.
 * **À droite, l'« hodographe »** : la courbe $t\mapsto f'(t)$ des vecteurs vitesse, $t\in[a;b]$ (trait épais), son enveloppe convexe (zone teintée), et le point vert $m=\dfrac{f(b)-f(a)}{b-a}$ (pente moyenne). L'égalité $f(b)-f(a)=f'(c)(b-a)$ pour un certain $c$ revient à dire que **$m$ est sur l'hodographe**.
 
 **Ce qu'il faut retenir.**
@@ -2168,10 +2171,11 @@ FMA.registerViz({
           P.curve(full, { color: t.axis, width: 1.5, dash: [3, 3] });
           P.curve(arc, { color: t.accent, width: 3.5 });
           P.vector(fa[0], fa[1], chord[0], chord[1], { color: t.accent3, width: 2.5, head: 10 });
-          P.vector(fa[0], fa[1], fc[0] * L, fc[1] * L, { color: t.accent4, width: 2.5, head: 10 });
-          const pc = c.f(tc); P.point(pc[0], pc[1], { r: 4, color: t.accent4, label: 'f(c)' });
+          const pc = c.f(tc);
+          { const nf = Math.hypot(fc[0], fc[1]) || 1, sc = 50 / nf, ln = [[pc[0] - fc[0] * sc, pc[1] - fc[1] * sc], [pc[0] + fc[0] * sc, pc[1] + fc[1] * sc]]; P.curve(ln, { color: t.accent4, width: 1, dash: [4, 4] }); }
+          P.vector(pc[0], pc[1], fc[0], fc[1], { color: t.accent4, width: 2.5, head: 10 }); P.point(pc[0], pc[1], { r: 4, color: t.accent4, label: 'f(c)' });
           P.point(fa[0], fa[1], { r: 5, color: t.accent, label: 'f(a)' }); P.point(fb[0], fb[1], { r: 5, color: t.accent, label: 'f(b)' });
-          text(ctx, 'plan de f : corde f(b)−f(a) (vert), f′(c)(b−a) (orange)', 8, 5);
+          text(ctx, 'plan de f : corde f(b)−f(a) (vert), vitesse f′(c) en f(c) (orange)', 8, 5);
         }
         // right
         const Hh = hull(hod); const dist = hod.reduce((mn, d) => Math.min(mn, Math.hypot(d[0] - m[0], d[1] - m[1])), Infinity);

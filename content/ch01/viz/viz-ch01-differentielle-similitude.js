@@ -104,7 +104,7 @@ $$\omega\longmapsto\frac{f(z_0+h\omega)-f(z_0)}{h}$$
       } else {
         const [px, py] = PZ.toPx(z0[0], z0[1]);
         ctx.save(); ctx.strokeStyle = t.accent; ctx.setLineDash([3, 3]); ctx.lineWidth = 1.2; ctx.beginPath(); ctx.arc(px, py, 14, 0, 2 * Math.PI); ctx.stroke(); ctx.restore();
-        PZ.text(z0[0], z0[1], 'D(z₀,h) trop petit : voir le microscope', { dx: 18, dy: 22, color: t.muted, font: '11px system-ui, sans-serif', baseline: 'middle' });
+        ctx.save(); ctx.font = '11px system-ui, sans-serif'; ctx.fillStyle = t.muted; ctx.textAlign = 'left'; ctx.textBaseline = 'bottom'; ctx.fillText('D(z₀,h) trop petit à cette échelle : voir le microscope', 6, stZ.H - 6); ctx.restore();
       }
       if (rpx > 4) { stroke(ctx, PZ, map(flag1), t.accent4, 2.6); stroke(ctx, PZ, map(flag2), t.accent5, 2.6); }
       for (const c of F.crit) {

@@ -76,7 +76,7 @@ Comme $\mathcal L(E)$ est une algèbre normée, $\|L^n\|\le$ <trou>$\|L\|^n\le a
 ## Exemples
 
 * **Matrice $2\times2$.** $E=\R^2$ (norme $\|\cdot\|_\infty$), $L=\begin{pmatrix}0&\frac12\\ \frac12&0\end{pmatrix}$, $\|L\|=\frac12$ (norme subordonnée à $\|\cdot\|_\infty$ = max des sommes des $|$coefficients$|$ par ligne). On a $L^2=\frac14\id$, donc $\sum L^n=(1+\frac14+\frac1{16}+\cdots)(\id+L)=\frac43(\id+L)=\begin{pmatrix}\frac43&\frac23\\ \frac23&\frac43\end{pmatrix}$, et l'on vérifie directement que c'est l'inverse de $\id-L=\begin{pmatrix}1&-\frac12\\-\frac12&1\end{pmatrix}$ ; sa norme est $\frac43+\frac23=2=(1-\frac12)^{-1}$ : la borne est atteinte.
-* **Équation intégrale de Volterra/Fredholm.** $E=C^0([0,1])$ avec $\|\cdot\|_\infty$ (Banach), $(Lu)(t)=\frac12\int_0^1\sin(t s)\,u(s)\,ds$ : $\|Lu\|_\infty\le\frac12\|u\|_\infty$ (car $|\sin|\le1$). Donc pour tout $f\in E$, l'équation $u-Lu=f$ a une unique solution continue $u=\sum_nL^nf$, avec $\|u\|_\infty\le2\|f\|_\infty$.
+* **Équation intégrale de Fredholm.** $E=C^0([0,1])$ avec $\|\cdot\|_\infty$ (Banach), $(Lu)(t)=\frac12\int_0^1\sin(t s)\,u(s)\,ds$ : $\|Lu\|_\infty\le\frac12\|u\|_\infty$ (car $|\sin|\le1$). Donc pour tout $f\in E$, l'équation $u-Lu=f$ a une unique solution continue $u=\sum_nL^nf$, avec $\|u\|_\infty\le2\|f\|_\infty$.
 * **Dérivée en $L=0$.** La formule de la différentielle donne $d\big((\id-\cdot)^{-1}\big)_0(H)=H$, en accord avec le développement $(\id-H)^{-1}=\id+H+H^2+\cdots=\id+H+O(\|H\|^2)$.
 
 ## Pièges
