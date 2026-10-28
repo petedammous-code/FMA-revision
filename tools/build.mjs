@@ -82,7 +82,7 @@ function splitSub(content) {
 const idRe = /^[a-z0-9]+(-[a-z0-9]+)*$/;
 function checkLatex(text, file) {
   // crude checks for common failures
-  const stripped = text.replace(/```[\s\S]*?```/g, '');
+  const stripped = text.replace(/```[\s\S]*?```/g, '').replace(/`[^`\n]+`/g, '');
   const dd = (stripped.match(/\$\$/g) || []).length;
   if (dd % 2) err(file, 'nombre impair de "$$"');
   const single = stripped.replace(/\$\$[\s\S]*?\$\$/g, '').replace(/\\\$/g, '');

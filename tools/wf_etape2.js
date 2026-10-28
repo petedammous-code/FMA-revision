@@ -41,7 +41,7 @@ Pour chaque fiche, dans cet ordre : frontmatter (id, type, chapter=${u.chapter},
 ## Preuve à trous — la même preuve avec 2 à 5 étapes CLÉS cachées dans <trou>...</trou> (en ligne, option indice="...") ;
 ## Exemples — 1 à 3 exemples concrets calculés (une visualisation [[viz:...]] seulement si elle existe : ids viz-ch${u.nn}-... en cours de création par un autre agent → n'en insère pas) ;
 ## Pièges — liste des erreurs classiques.
-Pour type=definition : Intuition, Énoncé (définition exacte), Hypothèses (facultatif : conditions cachées), Exemples, Pièges. Pour les résultats d'importance 1, les sections peuvent être plus courtes mais toutes présentes.
+Pour type=definition : Intuition, Énoncé (définition exacte), Hypothèses (facultatif : conditions cachées), Exemples, Pièges. Si kind=remark ou formula dans la carte : utilise type: proposition (ou definition si c'est une définition, corollary si c'est une conséquence directe) et formule l'énoncé comme un résultat précis. Pour les résultats d'importance 1, les sections peuvent être plus courtes mais toutes présentes.
 Exigence de niveau : rigueur de concours ; pas d'affirmation non justifiée ; chaque contre-exemple vérifié ; chaque formule recalculée.
 Ids disponibles pour les liens [[id]] dans ce chapitre : ${info.chapterIds.join(', ')}.
 Autres résultats centraux du cours (ids) : ${info.otherIds.join(', ')}.

@@ -1,0 +1,958 @@
+{
+  "chapter": {
+    "num": 4,
+    "nn": "04",
+    "roman": "IV",
+    "title": "Applications",
+    "printed_pages": [
+      75,
+      88
+    ],
+    "summary": "Le chapitre IV récolte les fruits des chapitres I à III sous forme d'applications géométriques et physiques, presque sans nouveaux théorèmes lourds. Il commence (IV.1) par la géométrie des fonctions holomorphes : au voisinage d'un point où $f'(z_0)\\neq 0$, la jacobienne de $f$ est une similitude directe, donc $f$ conserve les angles entre courbes (transformation conforme) et les lignes de niveau de $\\Re e f$ et $\\Im m f$ se coupent orthogonalement. Il introduit ensuite (IV.2) les fonctions harmoniques ($\\Delta f = 4\\,\\partial^2 f/\\partial z\\partial\\bar z = 0$) et démontre le fil central du chapitre : sur un ouvert simplement connexe, toute fonction harmonique s'écrit $h = f + \\bar g$ avec $f,g$ holomorphes (Théorème IV.2.2), donc toute fonction harmonique réelle est la partie réelle d'une fonction holomorphe (Corollaire IV.2.4), ce qui transporte aux fonctions harmoniques la propriété de la moyenne et le principe du maximum (Corollaire IV.2.5) ; le principe du maximum donne l'unicité des problèmes aux limites (Remarque IV.2.6). La section IV.3 est une ouverture culturelle : la représentation de Weierstrass–Enneper des surfaces minimales (films de savon) par un couple $(f,g)$ holomorphe/méromorphe, où le théorème des résidus sert à vérifier la condition de périodes. La section IV.4 applique tout cela à la physique : la composée $f\\circ h$ d'une fonction harmonique et d'une fonction holomorphe est harmonique (formule $\\Delta(f\\circ h) = (\\Delta f)\\circ h\\,|h'|^2$), ce qui, joint au théorème de représentation conforme de Riemann, ramène la recherche de fonctions harmoniques avec conditions au bord sur un ouvert simplement connexe au cas du demi-plan $H$ ; exemples : écoulement potentiel dans un coin $K_\\alpha$ via $z^{1/(2\\alpha)}$, écoulement autour d'un disque via la transformation de Joukovski $J(z)=\\tfrac12(z+1/z)$, propagation stationnaire de la chaleur dans une couronne via $\\alpha\\log|z|+\\beta$ et une homographie. Les trois à cinq résultats à retenir : Définition IV.2.1, Théorème IV.2.2, Corollaires IV.2.4 et IV.2.5, et la stabilité des fonctions harmoniques par composition avec une fonction holomorphe ; le reste (conformité, Joukovski, couronne) constitue un réservoir d'exercices de type « transport par application conforme ».",
+    "sections": [
+      {
+        "num": "IV.1",
+        "title": "Transformations conformes",
+        "page": 75
+      },
+      {
+        "num": "IV.2",
+        "title": "Fonctions harmoniques",
+        "page": 76
+      },
+      {
+        "num": "IV.3",
+        "title": "Films de savon et fonctions méromorphes",
+        "page": 77
+      },
+      {
+        "num": "IV.4",
+        "title": "Applications physiques",
+        "page": 81
+      },
+      {
+        "num": "IV.4.1",
+        "title": "Écoulement d'un fluide parfait incompressible, irrotationnel",
+        "page": 82
+      },
+      {
+        "num": "IV.4.2",
+        "title": "Propagation de la chaleur",
+        "page": 85
+      }
+    ]
+  },
+  "results": [
+    {
+      "id": "ch04-transformation-conforme-def",
+      "kind": "definition",
+      "ref": "non numéroté, section IV.1, p. 75 (définition « transformation conforme »)",
+      "title": "Transformation conforme (conservation des angles)",
+      "page": 75,
+      "statement": "Soient $f\\in\\mathrm{Hol}(\\Omega)$ et $z_0\\in\\Omega$ tel que $f'(z_0)\\neq 0$. On considère deux arcs de classe $C^1$, $\\gamma_1,\\gamma_2 : ]-1,1[\\to\\mathbb C$, passant par $z_0$ en $t=0$ ($\\gamma_j(0)=z_0$) et **réguliers** au voisinage de $t=0$, c'est-à-dire $\\gamma_j'(0)\\neq 0$ ; $\\gamma_j'(0)$ est le vecteur tangent à l'arc $\\gamma_j$ au point $z_0$. On dit que $f$ **conserve les angles** en $z_0$ si l'angle (orienté) entre les tangentes $\\gamma_1'(0)$ et $\\gamma_2'(0)$ en $z_0$ est égal à l'angle entre les tangentes aux arcs images $f\\circ\\gamma_1$ et $f\\circ\\gamma_2$ en $f(z_0)$. On fait référence à cette propriété de conservation des angles en disant que les fonctions holomorphes (à dérivée non nulle) sont des **transformations conformes**. (Au chapitre III, § III.4, le poly emploie aussi « transformation conforme » pour un biholomorphisme $\\Omega\\to D$, et dit que $\\Omega$ est « conformément équivalent » à $D$.)",
+      "hypotheses": [
+        "$f$ holomorphe sur $\\Omega$",
+        "$f'(z_0)\\neq 0$",
+        "arcs $C^1$ réguliers en $t=0$ ($\\gamma_j'(0)\\neq0$)"
+      ],
+      "depends_on": [],
+      "used_by_hint": "Vocabulaire utilisé pour tout le chapitre IV.4 (transport de problèmes harmoniques par une application conforme) et déjà au § III.4 (représentation conforme de Riemann).",
+      "importance": 2,
+      "proof_in_poly": "none",
+      "proof_length": "short",
+      "counterexample_hints": [
+        "Sans $f'(z_0)\\neq0$ : $f(z)=z^2$ en $0$ double les angles (les demi-axes $\\mathbb R_+$ et $i\\mathbb R_+$, orthogonaux, ont pour images $\\mathbb R_+$ et $\\mathbb R_-$, alignés)."
+      ],
+      "viz_hint": "Deux courbes se croisant en $z_0$ avec leurs tangentes, et leurs images par $f$ : l'angle est le même ; curseur pour déplacer $z_0$ vers un zéro de $f'$ et voir l'angle se multiplier."
+    },
+    {
+      "id": "ch04-holomorphe-conserve-angles",
+      "kind": "proposition",
+      "ref": "non numéroté, section IV.1, p. 75 (conservation des angles)",
+      "title": "Une fonction holomorphe à dérivée non nulle conserve les angles",
+      "page": 75,
+      "statement": "Soient $f\\in\\mathrm{Hol}(\\Omega)$, $z_0\\in\\Omega$ avec $f'(z_0)\\neq 0$, et $\\gamma_1,\\gamma_2 : ]-1,1[\\to\\mathbb C$ deux arcs de classe $C^1$ passant par $z_0$ en $t=0$, réguliers au voisinage de $t=0$ ($\\gamma_j'(0)\\neq 0$ ; on peut supposer $\\gamma_j$ injectif pour $|t|$ assez petit d'après le théorème d'inversion locale). Alors, pour $j=1,2$, l'arc image $f\\circ\\gamma_j$ a pour tangente en $t=0$ le vecteur $f'(z_0)\\,\\gamma_j'(0)$, de sorte que l'angle entre les tangentes à $\\gamma_1$ et $\\gamma_2$ en $z_0$ est égal à l'angle entre les tangentes aux arcs images $f\\circ\\gamma_1$ et $f\\circ\\gamma_2$ en $f(z_0)$. En d'autres termes, la jacobienne de $f$ en $z_0$ (multiplication par $f'(z_0)\\neq0$) est une similitude directe : $f$ est une transformation conforme au voisinage de $z_0$.",
+      "hypotheses": [
+        "$f\\in\\mathrm{Hol}(\\Omega)$",
+        "$f'(z_0)\\neq0$",
+        "arcs $C^1$ réguliers en $z_0$"
+      ],
+      "depends_on": [
+        "Proposition I.2.3",
+        "Théorème VI.3.2"
+      ],
+      "used_by_hint": "Orthogonalité des lignes de niveau $\\Re e f=c$, $\\Im m f=c'$ (p. 75-76) ; conservation de la condition de Neumann $\\partial_n\\Phi=0$ au bord dans l'écoulement potentiel (§ IV.4.1) ; conservation de l'angle d'incidence à l'infini pour Joukovski (Exercice IV.4.1).",
+      "importance": 2,
+      "proof_in_poly": "sketch",
+      "proof_length": "short",
+      "counterexample_hints": [
+        "$f(z)=z^2$ en $z_0=0$ : $(f\\circ\\gamma)'(0)=2\\gamma(0)\\gamma'(0)=0$, la tangente image dégénère et les angles sont doublés.",
+        "$f(z)=\\bar z$ (non holomorphe) conserve les angles non orientés mais renverse l'orientation : ce n'est pas une similitude directe."
+      ],
+      "viz_hint": "Image par $f$ (au choix : $z^2$, $e^z$, $1/z$, $\\tfrac12(z+1/z)$) du grillage des droites $x=c$, $y=c'$ : un grillage de courbes orthogonales là où $f'\\neq0$."
+    },
+    {
+      "id": "ch04-zeros-derivee-isoles",
+      "kind": "remark",
+      "ref": "Remarque IV.1.1",
+      "title": "L'hypothèse $f'(z_0)\\neq0$ n'est pas restrictive : les zéros de $f'$ sont isolés",
+      "page": 75,
+      "statement": "D'après le principe des zéros isolés (Théorème I.11.1, cité « Théorème I.11 » dans le poly), l'hypothèse $f'(z_0)\\neq0$ n'est pas une hypothèse forte : pourvu que $f$ ne soit pas localement constante, les points d'annulation de $f'$ sont isolés, et cette hypothèse n'est donc pas très restrictive.",
+      "hypotheses": [
+        "$f\\in\\mathrm{Hol}(\\Omega)$ non localement constante (i.e. $f'\\not\\equiv0$ sur chaque composante connexe de $\\Omega$)"
+      ],
+      "depends_on": [
+        "Théorème I.11.1"
+      ],
+      "used_by_hint": "Justifie que les énoncés de conformité (section IV.1) s'appliquent en dehors d'un ensemble discret.",
+      "importance": 2,
+      "proof_in_poly": "sketch",
+      "proof_length": "short",
+      "counterexample_hints": [
+        "Si $f$ est constante sur une composante connexe, $f'\\equiv0$ sur cette composante : il faut bien exclure ce cas (appliquer le Théorème I.11.1 à $f'$ sur chaque composante connexe)."
+      ],
+      "viz_hint": ""
+    },
+    {
+      "id": "ch04-lignes-niveau-orthogonales",
+      "kind": "proposition",
+      "ref": "non numéroté, section IV.1, p. 75 (lignes de niveau orthogonales)",
+      "title": "Orthogonalité des lignes de niveau de $\\Re e f$ et $\\Im m f$",
+      "page": 75,
+      "statement": "Soit $f\\in\\mathrm{Hol}(\\Omega)$ et $z_0\\in\\Omega$ tel que $f'(z_0)\\neq0$. Au voisinage de $z_0$, les lignes de niveau $\\Re e(f)=c$ et $\\Im m(f)=c'$ sont les images des droites verticales $\\Re e(z)=c$ et horizontales $\\Im m(z)=c'$ par la réciproque $f^{-1}$ de $f$, qui est une fonction holomorphe au voisinage de $f(z_0)$ (Proposition I.4.4). Par conservation des angles, ces lignes de niveau sont des courbes dont les tangentes sont orthogonales aux points où elles se coupent. Plus généralement, l'image par $f$ du « grillage » des droites verticales et horizontales (sur un domaine où $f'$ ne s'annule pas) est un « grillage » de courbes à tangentes orthogonales en leurs points de croisement.",
+      "hypotheses": [
+        "$f\\in\\mathrm{Hol}(\\Omega)$",
+        "$f'(z_0)\\neq0$ (pour que $f^{-1}$ existe localement et soit holomorphe)"
+      ],
+      "depends_on": [
+        "Proposition I.4.4",
+        "non numéroté, section IV.1, p. 75 (conservation des angles)"
+      ],
+      "used_by_hint": "Interprétation physique : équipotentielles ($\\Re e f = c$) et lignes de champ ($\\Im m f=c'$) orthogonales (Exemple IV.1.2) ; lignes de courant et équipotentielles de l'écoulement potentiel (§ IV.4.1, Exercice IV.4.1) ; isothermes (Exercice IV.4.3).",
+      "importance": 2,
+      "proof_in_poly": "sketch",
+      "proof_length": "short",
+      "counterexample_hints": [
+        "En un zéro de $f'$ les lignes de niveau peuvent se croiser à angle non droit ou être singulières : pour $f(z)=z^2$, $\\Re e f = x^2-y^2 = 0$ est la réunion des deux diagonales, qui se coupent en $0$ à angle droit entre elles mais la ligne $\\Im m f = 2xy = 0$ (les axes) les coupe à $45°$."
+      ],
+      "viz_hint": "Tracer $\\Re e f=c$ et $\\Im m f=c'$ pour $f=z^2$, $\\log$, $\\operatorname{argtanh}$ et vérifier l'orthogonalité ; zoom sur un zéro de $f'$ où elle tombe en défaut."
+    },
+    {
+      "id": "ch04-exemple-argtanh",
+      "kind": "example",
+      "ref": "Exemple IV.1.2",
+      "title": "Lignes de niveau de $\\operatorname{argtanh}$ : équipotentielles et lignes de champ de deux fils",
+      "page": 76,
+      "statement": "Dans le cas où $f(z)=\\operatorname{argtanh} z = \\tfrac12\\log\\dfrac{1+z}{1-z}$ et $f^{-1}(z)=\\tanh(z)$, les lignes de niveau $\\Re e f = c$ et $\\Im m f = c'$ forment deux familles de cercles orthogonales (Figure IV.2 du poly). On y reconnaît les équipotentielles et les lignes du champ magnétique créées par deux fils infinis parallèles (perpendiculaires au plan, passant par $\\pm1$), parcourus par des courants d'intensités égales et constantes de sens opposés. L'orthogonalité entre lignes de champ et équipotentielles, dans le cas plan, reflète la nature conforme des applications holomorphes ; elle est liée au fait que le potentiel est une fonction harmonique et au lien entre fonctions harmoniques réelles et parties réelles de fonctions holomorphes (Corollaire IV.2.4).",
+      "hypotheses": [
+        "$z$ dans le domaine où $\\dfrac{1+z}{1-z}\\notin\\mathbb R_-$, i.e. $z\\in\\mathbb C\\setminus\\big(]-\\infty,-1]\\cup[1,+\\infty[\\big)$, avec la détermination principale $\\mathrm{Log}$"
+      ],
+      "depends_on": [
+        "non numéroté, section IV.1, p. 75 (lignes de niveau orthogonales)"
+      ],
+      "used_by_hint": "Motivation physique de la section IV.4.",
+      "importance": 1,
+      "proof_in_poly": "none",
+      "proof_length": "short",
+      "counterexample_hints": [],
+      "viz_hint": "Les deux familles de cercles ($\\Re e f=c$ : cercles d'Apollonius $|1+z|/|1-z|=e^{2c}$ ; $\\Im m f=c'$ : cercles passant par $\\pm1$) avec curseurs sur $c,c'$."
+    },
+    {
+      "id": "ch04-harmonique-def",
+      "kind": "definition",
+      "ref": "Définition IV.2.1",
+      "title": "Fonction harmonique, laplacien",
+      "page": 76,
+      "statement": "Une fonction $f:\\Omega\\to\\mathbb C$ est dite **harmonique** si elle est de classe $C^2$ sur $\\Omega$ et si $$\\Delta f := \\frac{\\partial^2 f}{\\partial x^2}+\\frac{\\partial^2 f}{\\partial y^2} = 4\\,\\frac{\\partial^2 f}{\\partial z\\,\\partial\\bar z} = 4\\,\\frac{\\partial^2 f}{\\partial\\bar z\\,\\partial z} = 0.$$ (L'égalité $\\Delta = 4\\,\\partial^2/\\partial z\\partial\\bar z$ résulte du théorème de Schwarz pour les fonctions $C^2$, cf. Remarque I.2.8.)",
+      "hypotheses": [
+        "$\\Omega$ ouvert de $\\mathbb C$",
+        "$f$ de classe $C^2$ (au sens réel) sur $\\Omega$",
+        "valeurs complexes autorisées"
+      ],
+      "depends_on": [
+        "Remarque I.2.8"
+      ],
+      "used_by_hint": "Toute la section IV.2 et IV.4 ; surfaces minimales (coordonnées harmoniques, § IV.3).",
+      "importance": 3,
+      "proof_in_poly": "none",
+      "proof_length": "short",
+      "counterexample_hints": [
+        "$|z|^2 = x^2+y^2$ est $C^\\infty$ mais $\\Delta|z|^2 = 4\\neq0$ : non harmonique ; $\\log|z|$ est harmonique sur $\\mathbb C^*$ ; $\\Re e(z^2)=x^2-y^2$ est harmonique.",
+        "La condition $C^2$ est nécessaire pour écrire $\\Delta$ et appliquer Schwarz ; a posteriori une fonction harmonique est $C^\\infty$ (localement $f+\\bar g$ avec $f,g$ holomorphes, Remarque IV.2.3)."
+      ],
+      "viz_hint": "Surface $z\\mapsto h(z)$ pour $h$ harmonique réelle (ex. $x^2-y^2$, $e^x\\cos y$, $\\log|z|$) : pas de bosse intérieure, selle partout (lien avec le principe du maximum)."
+    },
+    {
+      "id": "ch04-holomorphe-implique-harmonique",
+      "kind": "remark",
+      "ref": "non numéroté, section IV.2, p. 76",
+      "title": "Les fonctions holomorphes, leurs conjuguées, parties réelles et imaginaires sont harmoniques",
+      "page": 76,
+      "statement": "Si $f$ est une fonction holomorphe sur $\\Omega$, alors $f$ et $\\bar f$ sont des fonctions harmoniques et, par conséquent, $\\Re e f = \\tfrac12(f+\\bar f)$ et $\\Im m f = \\tfrac1{2i}(f-\\bar f)$ sont aussi des fonctions harmoniques. Le Théorème IV.2.2 montre que ce sont essentiellement les seuls exemples.",
+      "hypotheses": [
+        "$f\\in\\mathrm{Hol}(\\Omega)$ (donc $C^\\infty$ par le Théorème I.7.4, et $\\partial f/\\partial\\bar z = 0$)"
+      ],
+      "depends_on": [
+        "Remarque I.2.8",
+        "Théorème I.7.4"
+      ],
+      "used_by_hint": "Réciproque partielle : Théorème IV.2.2 et Corollaire IV.2.4. Sert dans tous les exemples physiques ($\\Phi = \\Re e G$, Exercice IV.4.3 question 1).",
+      "importance": 2,
+      "proof_in_poly": "sketch",
+      "proof_length": "short",
+      "counterexample_hints": [
+        "La réciproque est fausse sans simple connexité : $\\log|z|$ est harmonique sur $\\mathbb C^*$ mais n'est la partie réelle d'aucune fonction holomorphe sur $\\mathbb C^*$ (il n'y a pas de logarithme holomorphe sur $\\mathbb C^*$)."
+      ],
+      "viz_hint": ""
+    },
+    {
+      "id": "ch04-harmonique-f-plus-g-barre",
+      "kind": "theorem",
+      "ref": "Théorème IV.2.2",
+      "title": "Décomposition $h = f+\\bar g$ des fonctions harmoniques sur un ouvert simplement connexe",
+      "page": 76,
+      "statement": "Toute fonction harmonique $h:\\Omega\\to\\mathbb C$, définie sur un ouvert $\\Omega$ simplement connexe, s'écrit sous la forme $$h = f+\\bar g \\qquad\\text{où } f,g\\in\\mathrm{Hol}(\\Omega).$$",
+      "hypotheses": [
+        "$\\Omega$ ouvert simplement connexe (donc connexe, Définition II.1.1)",
+        "$h$ harmonique sur $\\Omega$ (classe $C^2$, $\\Delta h=0$), à valeurs complexes"
+      ],
+      "depends_on": [
+        "Théorème II.9.1",
+        "Définition IV.2.1"
+      ],
+      "used_by_hint": "Remarque IV.2.3 (version locale), Corollaire IV.2.4 (cas réel), Corollaire IV.2.5 (moyenne et maximum), régularité $C^\\infty$ des fonctions harmoniques.",
+      "importance": 3,
+      "proof_in_poly": "full",
+      "proof_length": "short",
+      "counterexample_hints": [
+        "Sans simple connexité : $h(z)=\\log|z|$ sur $\\mathbb C^*$ est harmonique mais ne s'écrit pas $f+\\bar g$ globalement (sinon $2\\log|z| = h+\\bar h = (f+g)+\\overline{(f+g)} = 2\\Re e(f+g)$ et $f+g$ serait un logarithme holomorphe de $z$ sur $\\mathbb C^*$, à une constante imaginaire près : impossible). La décomposition reste vraie localement (Remarque IV.2.3).",
+        "Non-unicité de $(f,g)$ : on peut remplacer $(f,g)$ par $(f+c, g-\\bar c)$."
+      ],
+      "viz_hint": ""
+    },
+    {
+      "id": "ch04-harmonique-decomposition-locale",
+      "kind": "remark",
+      "ref": "Remarque IV.2.3",
+      "title": "Décomposition locale $h=f+\\bar g$ sur un ouvert quelconque",
+      "page": 77,
+      "statement": "Dans le cas où $\\Omega$ n'est plus un ouvert simplement connexe, on obtient, par restriction à des disques (qui eux sont simplement connexes), que toute fonction harmonique sur $\\Omega$ s'écrit **localement** comme la somme d'une fonction holomorphe et de la conjuguée d'une fonction holomorphe : pour tout disque $D\\subset\\Omega$, $h|_D = f_D + \\overline{g_D}$ avec $f_D,g_D\\in\\mathrm{Hol}(D)$.",
+      "hypotheses": [
+        "$h$ harmonique sur un ouvert $\\Omega$ quelconque"
+      ],
+      "depends_on": [
+        "Théorème IV.2.2"
+      ],
+      "used_by_hint": "Preuve de la propriété de la moyenne pour les fonctions harmoniques (Corollaire IV.2.5) ; conséquence immédiate : toute fonction harmonique est $C^\\infty$.",
+      "importance": 2,
+      "proof_in_poly": "sketch",
+      "proof_length": "short",
+      "counterexample_hints": [],
+      "viz_hint": ""
+    },
+    {
+      "id": "ch04-harmonique-reelle-partie-reelle",
+      "kind": "corollary",
+      "ref": "Corollaire IV.2.4",
+      "title": "Une fonction harmonique réelle sur un ouvert simplement connexe est la partie réelle d'une fonction holomorphe",
+      "page": 77,
+      "statement": "Une fonction harmonique **réelle** $h$, définie sur un ouvert **simplement connexe** $\\Omega$, est la partie réelle d'une fonction holomorphe $F\\in\\mathrm{Hol}(\\Omega)$ : $h=\\Re e F$. La fonction $F$ est unique à une constante additive imaginaire pure près. (Preuve : avec $h=f+\\bar g$ du Théorème IV.2.2, $h$ réelle donne $h=\\bar h = \\bar f + g$, donc $2h = f+\\bar f+g+\\bar g = 2\\Re e(f+g)$ et $F = f+g$ convient.)",
+      "hypotheses": [
+        "$\\Omega$ ouvert simplement connexe (donc connexe)",
+        "$h$ harmonique à valeurs réelles"
+      ],
+      "depends_on": [
+        "Théorème IV.2.2"
+      ],
+      "used_by_hint": "Point de départ de toute la section IV.4 (potentiel complexe $G=\\Phi+i\\Psi$ dans l'Exercice IV.4.1, température $T = A\\,\\Im m\\,\\mathrm{Log} z + B$ dans l'Exercice IV.4.3) ; interprétation physique de l'Exemple IV.1.2.",
+      "importance": 3,
+      "proof_in_poly": "full",
+      "proof_length": "short",
+      "counterexample_hints": [
+        "Sans simple connexité : $\\log|z|$ sur $\\mathbb C^*$ (harmonique réelle, pas de $F$ holomorphe sur $\\mathbb C^*$ avec $\\Re e F = \\log|z|$, car $F$ serait un logarithme de $z$ à constante près et $e^F = z\\,c$ n'a pas de solution holomorphe sur $\\mathbb C^*$).",
+        "Unicité : si $\\Re e F_1 = \\Re e F_2$ alors $F_1-F_2$ est holomorphe à valeurs dans $i\\mathbb R$ sur l'ouvert connexe $\\Omega$, donc constante (Cauchy–Riemann ou application ouverte). Sur un ouvert non connexe la constante pourrait varier d'une composante à l'autre."
+      ],
+      "viz_hint": "Donner $h$ harmonique réelle (ex. $x^2-y^2$, $e^x\\cos y$) et construire $\\Im m F$ (la fonction conjuguée) en intégrant les équations de Cauchy–Riemann le long d'un chemin ; montrer sur $\\mathbb C^*$ avec $\\log|z|$ que la conjuguée $\\arg z$ fait un saut de $2\\pi$ après un tour."
+    },
+    {
+      "id": "ch04-harmonique-moyenne-maximum",
+      "kind": "corollary",
+      "ref": "Corollaire IV.2.5",
+      "title": "Propriété de la moyenne et principe du maximum pour les fonctions harmoniques réelles",
+      "page": 77,
+      "statement": "Une fonction harmonique réelle $h$, définie sur un ouvert $\\Omega$, vérifie la **propriété de la moyenne** : pour tout disque fermé $\\bar D(z_0,r)\\subset\\Omega$, $$h(z_0) = \\frac1{2\\pi}\\int_0^{2\\pi} h\\big(z_0+r e^{i\\theta}\\big)\\,d\\theta.$$ Si de plus $\\Omega$ est **connexe**, elle vérifie le **principe du maximum** : si $h$ admet un maximum local en $z_0\\in\\Omega$, alors $h$ est constante sur $\\Omega$.",
+      "hypotheses": [
+        "$h$ harmonique à valeurs réelles sur l'ouvert $\\Omega$",
+        "pour le principe du maximum : $\\Omega$ connexe",
+        "maximum **local** en un point intérieur $z_0\\in\\Omega$"
+      ],
+      "depends_on": [
+        "Corollaire I.6.2",
+        "Remarque IV.2.3"
+      ],
+      "used_by_hint": "Remarque IV.2.6 (unicité des problèmes aux limites) ; § IV.4.1 (annulation de $v_y$ sur $H$, avec hypothèse de bornitude en plus) ; § IV.4.2 (unicité de la température stationnaire dans la couronne).",
+      "importance": 3,
+      "proof_in_poly": "full",
+      "proof_length": "short",
+      "counterexample_hints": [
+        "Sans connexité : $h = 0$ sur un disque et $h = 1$ sur un autre disque disjoint : maximum local sans être constante sur $\\Omega$.",
+        "Le principe est pour $h$ **réelle** ; pour $h$ complexe, l'énoncé « maximum de $h$ » n'a pas de sens (appliquer à $\\Re e h$, $\\Im m h$). Minimum : appliquer à $-h$.",
+        "Sur un ouvert non borné, « nulle au bord » n'implique pas « nulle » sans bornitude : $h(z) = \\Im m z = y$ est harmonique sur $H$, nulle sur $\\partial H = \\mathbb R$, non nulle (le poly le signale p. 82 : il faut un argument de type Phragmén–Lindelöf ou passer au disque)."
+      ],
+      "viz_hint": "Carte de chaleur de $h$ harmonique réelle avec un cercle déplaçable : lecture de $h(z_0)$ et de la moyenne sur le cercle (égales) ; comparer avec $|z|^2$ (non harmonique) où elles diffèrent."
+    },
+    {
+      "id": "ch04-maximum-unicite-bord",
+      "kind": "remark",
+      "ref": "Remarque IV.2.6",
+      "title": "Le principe du maximum donne l'unicité des problèmes aux limites",
+      "page": 77,
+      "statement": "L'importance du principe du maximum vient notamment du fait qu'il donne bien souvent l'**unicité** des fonctions harmoniques vérifiant des conditions au bord fixées (problème de Dirichlet) : si $h_1,h_2$ sont harmoniques sur un ouvert connexe borné $\\Omega$, continues sur $\\bar\\Omega$ et égales sur $\\partial\\Omega$, alors $h_1-h_2$ est harmonique, nulle au bord, donc nulle à l'intérieur (elle atteint son maximum et son minimum sur le compact $\\bar\\Omega$ ; s'ils sont atteints à l'intérieur, elle est constante). Voir l'exemple de la couronne au § IV.4.2.",
+      "hypotheses": [
+        "$\\Omega$ connexe borné (pour que le sup soit atteint sur $\\bar\\Omega$ compact)",
+        "fonctions continues jusqu'au bord",
+        "sur un ouvert non borné : hypothèse de bornitude supplémentaire"
+      ],
+      "depends_on": [
+        "Corollaire IV.2.5"
+      ],
+      "used_by_hint": "§ IV.4.2 : unicité de la distribution de température stationnaire dans la couronne ; § IV.4.1 : $v_y\\equiv0$ sur $H$ (avec bornitude).",
+      "importance": 2,
+      "proof_in_poly": "sketch",
+      "proof_length": "short",
+      "counterexample_hints": [
+        "Ouvert non borné : $y=\\Im m z$ sur $H$ est harmonique, nulle sur $\\mathbb R$, non nulle ; l'unicité tombe sans hypothèse de bornitude.",
+        "Mécanisme identique au Corollaire I.12.2 pour les fonctions holomorphes (bord compact, sup atteint)."
+      ],
+      "viz_hint": ""
+    },
+    {
+      "id": "ch04-weierstrass-enneper",
+      "kind": "theorem",
+      "ref": "non numéroté, section IV.3, p. 78 (formule de Weierstrass–Enneper)",
+      "title": "Représentation de Weierstrass–Enneper des surfaces minimales",
+      "page": 78,
+      "statement": "(Enneper et Weierstrass, 1866 ; le poly admet un seul résultat extérieur, cf. Remarque IV.3.1.) Toute surface minimale de $\\mathbb R^3$ (surface de courbure moyenne $H\\equiv0$, forme des films de savon) peut se paramétrer, du moins localement, par $$z\\mapsto \\Re e\\left(\\int_{[z_0,z]}(1-g^2)f\\,dw,\\ \\ i\\int_{[z_0,z]}(1+g^2)f\\,dw,\\ \\ \\int_{[z_0,z]}2gf\\,dw\\right),$$ où $f$ et $g$ sont holomorphes sur l'ouvert $\\Omega\\subset\\mathbb C$ où l'on travaille. On autorise plus généralement $g$ à être méromorphe, pourvu que $f$ s'annule à l'ordre $2m$ en tout pôle d'ordre $m$ de $g$, de sorte que les trois intégrandes $(1-g^2)f$, $i(1+g^2)f$, $2gf$ restent holomorphes. Dans les exemples, $f$ et $g$ sont méromorphes sur la sphère de Riemann et $\\Omega$ est obtenu en retirant leurs pôles : les points retirés sont les « bouts » de la surface.",
+      "hypotheses": [
+        "$f,g\\in\\mathrm{Hol}(\\Omega)$, ou $g$ méromorphe avec $f$ nulle à l'ordre $2m$ aux pôles d'ordre $m$ de $g$",
+        "$\\Omega\\subset\\mathbb C$ ouvert ; paramétrage local (globalement : condition de périodes, Remarque IV.3.2)",
+        "résultat admis : existence locale d'un paramétrage conforme et formule $\\Delta X = 2|X_u|^2 H N$"
+      ],
+      "depends_on": [
+        "Définition IV.2.1",
+        "Remarque I.2.8"
+      ],
+      "used_by_hint": "Exemples : caténoïde, hélicoïde, surface d'Enneper, surface de Scherk (p. 79) ; condition de périodes (Remarque IV.3.2).",
+      "importance": 1,
+      "proof_in_poly": "sketch",
+      "proof_length": "medium",
+      "counterexample_hints": [
+        "Si $f$ ne s'annule pas assez aux pôles de $g$, les intégrandes ont des pôles et l'intégrale dépend du chemin / diverge.",
+        "Si $\\varphi_1 - i\\varphi_2\\equiv0$ alors $\\varphi_3=0$ et la surface est plane : cas exclu de la paramétrisation par $(f,g)$."
+      ],
+      "viz_hint": "Rendu 3D (projection) de la surface $X(z)$ pour $(f,g)$ au choix parmi caténoïde, hélicoïde, Enneper ; curseur sur le domaine $\\Omega$ (couronne $r_1<|z|<r_2$)."
+    },
+    {
+      "id": "ch04-weierstrass-enneper-esquisse",
+      "kind": "remark",
+      "ref": "Remarque IV.3.1",
+      "title": "Esquisse de preuve : surfaces minimales conformes $\\leftrightarrow$ applications holomorphes dans la quadrique $Q$",
+      "page": 78,
+      "statement": "On admet (géométrie différentielle) que toute surface admet localement un paramétrage **conforme** $X:\\Omega\\to\\mathbb R^3$, $\\Omega$ ouvert de $\\mathbb C\\simeq\\mathbb R^2$, $z=u+iv$, c'est-à-dire vérifiant $|X_u|=|X_v|$ et $\\langle X_u,X_v\\rangle = 0$, et que pour un tel paramétrage $\\Delta X = 2|X_u|^2\\,H\\,N$, où $H$ est la courbure moyenne et $N$ la normale unitaire. Ainsi la surface est minimale ($H\\equiv0$) si et seulement si les trois coordonnées de $X$ sont harmoniques. Posons $\\varphi := 2\\,\\partial X/\\partial z = X_u - iX_v : \\Omega\\to\\mathbb C^3$. Comme $\\partial_{\\bar z}\\partial_z = \\tfrac14\\Delta$, $\\varphi$ est holomorphe si et seulement si $X$ est harmonique. Par ailleurs $\\varphi\\cdot\\varphi := \\varphi_1^2+\\varphi_2^2+\\varphi_3^2 = |X_u|^2-|X_v|^2-2i\\langle X_u,X_v\\rangle$ (forme bilinéaire de $\\mathbb C^3$, pas le produit hermitien), donc le paramétrage est conforme si et seulement si $\\varphi\\cdot\\varphi=0$. Enfin $\\Re e(\\varphi\\,dz) = X_u\\,du+X_v\\,dv = dX$, d'où $X(z) = X(z_0)+\\Re e\\int_{[z_0,z]}\\varphi\\,dw$. **Les surfaces minimales conformément paramétrées correspondent donc exactement aux applications holomorphes $\\varphi:\\Omega\\to\\mathbb C^3\\setminus\\{0\\}$ à valeurs dans la quadrique $Q=\\{w\\in\\mathbb C^3 : w_1^2+w_2^2+w_3^2=0\\}$.** Paramétrage de $Q$ : si $\\varphi = \\big((1-g^2)f,\\ i(1+g^2)f,\\ 2gf\\big)$ alors $\\varphi\\cdot\\varphi = f^2\\big[(1-g^2)^2-(1+g^2)^2+4g^2\\big]=0$ ; réciproquement, si $\\varphi$ est holomorphe à valeurs dans $Q$ et $\\varphi_1-i\\varphi_2\\not\\equiv0$ (sinon $\\varphi_1=i\\varphi_2$, $\\varphi_3=0$ et la surface est plane), on pose $f := \\tfrac12(\\varphi_1-i\\varphi_2)$, $g := \\varphi_3/(\\varphi_1-i\\varphi_2)$ ; la relation $(\\varphi_1-i\\varphi_2)(\\varphi_1+i\\varphi_2) = -\\varphi_3^2$ donne $\\varphi_1+i\\varphi_2 = -2fg^2$ et l'on retrouve $\\varphi_1 = f(1-g^2)$, $\\varphi_2 = if(1+g^2)$, $\\varphi_3 = 2fg$. Interprétation : $Q$ est projectivement une conique lisse de $P^2(\\mathbb C)$, isomorphe à $P^1(\\mathbb C)$, $(f,g)$ en sont le facteur d'échelle et le point ; $g$ est la projection stéréographique de l'application de Gauss $N$, ce qui explique qu'elle soit naturellement méromorphe (pôles = points où la normale pointe vers le pôle nord).",
+      "hypotheses": [
+        "paramétrage conforme (admis)",
+        "$X$ de classe $C^2$"
+      ],
+      "depends_on": [
+        "Définition IV.2.1",
+        "Remarque I.2.8"
+      ],
+      "used_by_hint": "Justifie la formule de Weierstrass–Enneper ; la fonction $g$ est méromorphe (lien avec le chapitre II).",
+      "importance": 1,
+      "proof_in_poly": "sketch",
+      "proof_length": "medium",
+      "counterexample_hints": [
+        "Confondre $\\varphi\\cdot\\varphi = \\sum\\varphi_k^2$ (bilinéaire, peut s'annuler pour $\\varphi\\neq0$) avec $\\sum|\\varphi_k|^2$ (hermitien, nul seulement si $\\varphi=0$)."
+      ],
+      "viz_hint": ""
+    },
+    {
+      "id": "ch04-condition-periodes",
+      "kind": "remark",
+      "ref": "Remarque IV.3.2",
+      "title": "Condition de périodes et théorème des résidus",
+      "page": 79,
+      "statement": "La formule $X(z) = X(z_0)+\\Re e\\int_{[z_0,z]}\\varphi\\,dw$ ne définit $X$ sans ambiguïté que si l'intégrale ne dépend pas du chemin suivi, ce qui n'a rien d'automatique dès que $\\Omega$ n'est pas simplement connexe. La condition exacte, dite **condition de périodes**, est $$\\Re e\\oint_\\gamma\\varphi\\,dw = 0\\qquad\\text{pour tout lacet }\\gamma\\text{ de }\\Omega,$$ où $\\varphi = \\big((1-g^2)f,\\ i(1+g^2)f,\\ 2gf\\big)$, et c'est le théorème des résidus qui permet de la vérifier en pratique. Exemple : pour la caténoïde ($f(w)=1/w^2$, $g(w)=w$ sur $\\mathbb C^*$), les deux premières composantes de $\\varphi$ ont un résidu nul en $0$, tandis que la troisième, $\\varphi_3 = 2/w$, a pour résidu $2$ : sa période vaut $4i\\pi$, purement imaginaire, et la partie réelle l'annule. Sur un ouvert simplement connexe la condition est vide ; dans le cas général c'est la difficulté centrale de la théorie (C. Costa, 1984, sur un tore privé de trois points).",
+      "hypotheses": [
+        "$\\varphi$ holomorphe sur $\\Omega$ (non nécessairement simplement connexe)"
+      ],
+      "depends_on": [
+        "Théorème II.5.1",
+        "Théorème II.9.1"
+      ],
+      "used_by_hint": "Bon exercice de calcul de résidus : vérifier la condition de périodes pour la caténoïde et l'hélicoïde ($f = i/w^2$ : la période de $\\varphi_3 = 2i/w$ vaut $-4\\pi$, réelle, d'où l'hélicoïde est multivaluée/périodique en hauteur).",
+      "importance": 1,
+      "proof_in_poly": "sketch",
+      "proof_length": "short",
+      "counterexample_hints": [
+        "Hélicoïde $f=i/w^2$, $g=w$ : $\\varphi_3 = 2i/w$ a pour période $2i\\pi\\cdot 2i = -4\\pi\\in\\mathbb R$, non annulée par $\\Re e$ : la « surface » obtenue sur $\\mathbb C^*$ n'est bien définie que sur le revêtement universel (c'est l'hélicoïde, qui monte d'un pas à chaque tour)."
+      ],
+      "viz_hint": ""
+    },
+    {
+      "id": "ch04-exemples-surfaces-minimales",
+      "kind": "example",
+      "ref": "non numéroté, section IV.3, p. 79 (exemples de surfaces minimales)",
+      "title": "Caténoïde, hélicoïde, surface d'Enneper, surface de Scherk, surface de Costa",
+      "page": 79,
+      "statement": "Données de Weierstrass $(f,g)$ de surfaces minimales classiques : $f(w)=1/w^2$, $g(w)=w$ donne la **caténoïde** (Euler, 1744) ; $f(w)=i/w^2$, $g(w)=w$ donne l'**hélicoïde** (Meusnier, 1776) ; $f(w)=1$, $g(w)=w$ donne la **surface d'Enneper** ; $f(w)=\\dfrac1{1-w^4}$, $g(w)=w$ donne la **première surface de Scherk**. La surface de Costa (1984, sur un tore privé de trois points) a initié toute une série de travaux.",
+      "hypotheses": [
+        "$\\Omega = \\mathbb C^*$ pour caténoïde et hélicoïde, $\\Omega=\\mathbb C$ pour Enneper, $\\Omega = \\mathbb C\\setminus\\{\\pm1,\\pm i\\}$ pour Scherk (pôles de $f$ retirés)"
+      ],
+      "depends_on": [
+        "non numéroté, section IV.3, p. 78 (formule de Weierstrass–Enneper)"
+      ],
+      "used_by_hint": "Remarque IV.3.2 (périodes), Remarque IV.3.3 (expérience des deux cercles).",
+      "importance": 1,
+      "proof_in_poly": "none",
+      "proof_length": "short",
+      "counterexample_hints": [],
+      "viz_hint": "Galerie 3D des quatre surfaces, tournables, avec affichage de $(f,g)$."
+    },
+    {
+      "id": "ch04-catenoide-vs-disques",
+      "kind": "remark",
+      "ref": "Remarque IV.3.3",
+      "title": "Caténoïde ou deux disques : points critiques de la fonctionnelle aire",
+      "page": 79,
+      "statement": "(Difficile, sujet de réflexion.) La caténoïde s'obtient expérimentalement en plongeant deux cercles parallèles dans l'eau savonneuse. Si l'on écarte progressivement les cercles, vient un moment où le film se casse et l'on obtient une surface minimale plus simple : deux disques bordés par les cercles. Phénomène général du calcul des variations : l'application qui à une surface associe son aire a une différentielle nulle exactement pour les surfaces minimales (points critiques de la fonctionnelle « aire ») ; les minima sont à chercher parmi ces points, mais parmi les points critiques on trouve des minima locaux ou des points selle. Ici, quand la distance entre les cercles est assez grande, l'aire des deux disques est plus petite que celle de la caténoïde qui s'appuie dessus. Exercice proposé : déterminer, en fonction du rayon des cercles et de leur distance, l'aire minimale (portion de caténoïde ou deux disques ?).",
+      "hypotheses": [],
+      "depends_on": [],
+      "used_by_hint": "Pont vers le chapitre VIII (calcul des variations : point critique $\\neq$ minimum).",
+      "importance": 1,
+      "proof_in_poly": "none",
+      "proof_length": "short",
+      "counterexample_hints": [
+        "Point critique d'une fonctionnelle $\\neq$ minimum : la caténoïde pour deux cercles éloignés est un point critique (surface minimale) qui n'est pas un minimum de l'aire."
+      ],
+      "viz_hint": "Aire de la caténoïde $r = c\\cosh(z/c)$ s'appuyant sur deux cercles de rayon $R$ à distance $d$ vs $2\\pi R^2$, en fonction de $d/R$ ; seuil au-delà duquel la caténoïde n'existe plus ($d/R\\approx1{,}33$) et seuil où elle cesse d'être minimale."
+    },
+    {
+      "id": "ch04-composition-harmonique-holomorphe",
+      "kind": "proposition",
+      "ref": "non numéroté, section IV.4, p. 81 (composition harmonique ∘ holomorphe)",
+      "title": "La composée d'une fonction harmonique et d'une fonction holomorphe est harmonique",
+      "page": 81,
+      "statement": "Soient $h$ une fonction holomorphe et $f$ une fonction harmonique (classe $C^2$, $\\Delta f=0$) définie sur un ouvert contenant l'image de $h$. Alors $f\\circ h$ est harmonique (là où $f\\circ h$ est bien définie). Plus précisément, pour tout $z$, $$\\Delta(f\\circ h)(z) = 4\\,\\frac{\\partial^2 f}{\\partial z\\partial\\bar z}(h(z))\\,\\frac{\\partial h}{\\partial z}(z)\\,\\frac{\\partial\\bar h}{\\partial\\bar z}(z) = (\\Delta f)(h(z))\\,\\big|h'(z)\\big|^2.$$ (Rappel du même paragraphe : la composée de deux fonctions holomorphes est holomorphe, et $\\Re e f$ est harmonique si $f$ est holomorphe.)",
+      "hypotheses": [
+        "$h$ holomorphe (donc $\\partial h/\\partial\\bar z = 0$ et $\\partial\\bar h/\\partial z = 0$)",
+        "$f$ de classe $C^2$ (pour Schwarz) et harmonique sur un ouvert contenant $h(\\Omega)$"
+      ],
+      "depends_on": [
+        "Lemme I.2.9",
+        "Définition IV.2.1"
+      ],
+      "used_by_hint": "Clé de toute la section IV.4 : transport d'une fonction harmonique de $H$ (ou $D$, $\\mathbb C$) vers $\\Omega$ par un biholomorphisme $h:\\Omega\\to H$ (écoulement dans un coin, Joukovski, couronne excentrée).",
+      "importance": 2,
+      "proof_in_poly": "full",
+      "proof_length": "medium",
+      "counterexample_hints": [
+        "Si $h$ n'est pas holomorphe (ni anti-holomorphe), faux : $f(w) = \\Re e(w^2) = u^2-v^2$ harmonique et $h(z) = x + 2iy$ ($\\mathbb R$-linéaire non holomorphe) : $f\\circ h = x^2-4y^2$, $\\Delta = 2-8 = -6\\neq0$.",
+        "La composée $h\\circ f$ dans l'autre ordre (holomorphe après harmonique) n'est pas harmonique en général : $f = x$ harmonique, $h(w)=w^2$ : $h\\circ f = x^2$, $\\Delta = 2$.",
+        "Si $f$ est seulement harmonique et $h$ anti-holomorphe, la formule devient $\\Delta(f\\circ h) = (\\Delta f)\\circ h\\,|\\overline{h}'|^2$ et le résultat reste vrai."
+      ],
+      "viz_hint": "Carte de $f$ harmonique sur $H$ (ex. $\\Re e w$, $\\Im m\\,\\mathrm{Log}\\,w$) et de $f\\circ h$ sur $\\Omega$ pour $h$ biholomorphe ($\\Omega$ = coin, disque, demi-disque) : les lignes de niveau sont transportées."
+    },
+    {
+      "id": "ch04-reduction-demi-plan",
+      "kind": "remark",
+      "ref": "non numéroté, section IV.4, p. 82 (réduction au demi-plan par Riemann)",
+      "title": "Méthode : ramener un problème harmonique sur $\\Omega$ simplement connexe au demi-plan $H$ par une application conforme",
+      "page": 82,
+      "statement": "Pour déterminer des fonctions harmoniques sur un domaine donné, le théorème de représentation conforme de Riemann (Théorème III.4.1), joint à la Remarque III.4.2 pour passer du disque unité $D$ au demi-plan de Poincaré $H$, ramène l'étude au cas de $H$ (ou de $\\mathbb C$). Précisément : si l'on cherche une fonction $\\Phi$ harmonique sur un ouvert simplement connexe $\\Omega$ vérifiant certaines conditions au bord de $\\Omega$, il « suffit » de trouver une application biholomorphe $h$ de $\\Omega$ sur $\\mathbb C$ ou sur $H$, de résoudre le problème sur $H$ ou $\\mathbb C$ (fonction $\\Phi_0$), et de poser $\\Phi = \\Phi_0\\circ h$, qui est harmonique d'après le résultat de composition ; $h$ étant conforme, elle préserve en outre les conditions au bord de type « dérivée normale nulle » (Neumann) et transporte les conditions de type Dirichlet.",
+      "hypotheses": [
+        "$\\Omega$ ouvert connexe simplement connexe, $\\Omega\\neq\\mathbb C$ (pour Riemann) ; l'existence abstraite de $h$ ne dit pas comment la calculer",
+        "$h$ biholomorphe $\\Omega\\to H$ (ou $D$), explicite dans les exemples : $z^{1/(2\\alpha)}$, Joukovski, homographie"
+      ],
+      "depends_on": [
+        "Théorème III.4.1",
+        "Remarque III.4.2",
+        "non numéroté, section IV.4, p. 81 (composition harmonique ∘ holomorphe)"
+      ],
+      "used_by_hint": "§ IV.4.1 (coin $K_\\alpha$, Joukovski), § IV.4.2 (couronne, via homographie — cas non simplement connexe traité directement), Exercices IV.4.1 et IV.4.3.",
+      "importance": 2,
+      "proof_in_poly": "sketch",
+      "proof_length": "short",
+      "counterexample_hints": [
+        "La couronne n'est pas simplement connexe : Riemann ne s'applique pas, et deux couronnes ne sont conformément équivalentes que si elles ont le même module conforme $\\rho^+/\\rho^-$ (p. 86) ; on utilise alors une homographie pour centrer la couronne, pas pour l'envoyer sur $H$."
+      ],
+      "viz_hint": ""
+    },
+    {
+      "id": "ch04-ecoulement-potentiel",
+      "kind": "example",
+      "ref": "non numéroté, section IV.4.1, p. 82 (écoulement potentiel, cas de H)",
+      "title": "Écoulement potentiel d'un fluide parfait : le potentiel des vitesses est harmonique ; écoulement uniforme sur $H$",
+      "page": 82,
+      "statement": "Soit un fluide parfait irrotationnel et incompressible s'écoulant sans frottement dans $\\Omega$, domaine plan simplement connexe. Le champ des vitesses $\\vec v$ vérifie $\\mathrm{rot}\\,\\vec v = 0$ (irrotationnel), donc $\\vec v = \\nabla\\Phi$ pour un **potentiel des vitesses** $\\Phi$ ; comme $\\mathrm{div}\\,\\vec v = 0$ (incompressible), $\\mathrm{div}(\\nabla\\Phi) = \\Delta\\Phi = 0$ : $\\Phi$ est harmonique. Si le bord est étanche, la composante normale de $\\vec v$ est nulle au bord, i.e. la dérivée normale de $\\Phi$ est nulle au bord (condition de Neumann). Cas $\\Omega = H$ avec $|\\nabla\\Phi_0|\\in L^\\infty(\\bar H)$ (vitesse bornée) : la composante normale $v_y = \\partial_y\\Phi_0$ est harmonique, bornée et nulle sur $\\partial H$, donc identiquement nulle (ce n'est pas tout à fait le principe du maximum : sur un ouvert non borné il faut l'hypothèse de bornitude, via un argument de type Phragmén–Lindelöf, ou passer au disque par une homographie). Donc $\\Phi_0$ ne dépend que de $x = \\Re e z$, et $\\Delta\\Phi_0 = \\partial_x^2\\Phi_0 = 0$ donne $$\\Phi_0(z) = \\lambda\\,\\Re e z,\\qquad\\lambda\\in\\mathbb R,$$ l'écoulement uniforme $\\vec v = (\\lambda,0)$. Pour un domaine $\\Omega$ général, il « suffit » de trouver $f$ holomorphe envoyant $\\Omega$ sur $H$ pour avoir le potentiel $\\Phi = \\Phi_0\\circ f$ dans $\\Omega$ ; $f$ étant conforme, la dérivée normale de $\\Phi_0\\circ f$ est encore nulle sur le bord de $\\Omega$.",
+      "hypotheses": [
+        "fluide parfait, irrotationnel ($\\mathrm{rot}\\,\\vec v=0$), incompressible ($\\mathrm{div}\\,\\vec v=0$)",
+        "$\\Omega$ simplement connexe (pour l'existence du potentiel $\\Phi$)",
+        "bord étanche : $\\partial_n\\Phi = 0$",
+        "sur $H$ : $|\\nabla\\Phi_0|$ borné (sinon unicité fausse)"
+      ],
+      "depends_on": [
+        "Corollaire IV.2.5",
+        "non numéroté, section IV.4, p. 81 (composition harmonique ∘ holomorphe)"
+      ],
+      "used_by_hint": "Écoulement dans un coin (p. 83), Joukovski (p. 83-84), Exercice IV.4.1.",
+      "importance": 1,
+      "proof_in_poly": "sketch",
+      "proof_length": "short",
+      "counterexample_hints": [
+        "Sans bornitude : $\\Phi_0 = \\Re e(z^2) = x^2-y^2$ est harmonique sur $H$ avec $\\partial_y\\Phi_0 = -2y$ nulle sur $\\mathbb R$ ; pourtant $\\Phi_0\\neq\\lambda x$ (la vitesse n'est pas bornée).",
+        "Si $\\Omega$ n'est pas simplement connexe (extérieur d'un disque), $\\mathrm{rot}\\,\\vec v = 0$ ne donne pas de potentiel global : circulation possible autour de l'obstacle (portance)."
+      ],
+      "viz_hint": ""
+    },
+    {
+      "id": "ch04-ecoulement-coin",
+      "kind": "example",
+      "ref": "non numéroté, section IV.4.1, p. 83 (écoulement dans un coin)",
+      "title": "Écoulement dans un coin $K_\\alpha$ via $z\\mapsto z^{1/(2\\alpha)}$",
+      "page": 83,
+      "statement": "Soit $\\alpha\\in\\,]0,1[$ et le coin $K_\\alpha := \\{z = re^{i\\theta}\\in\\mathbb C : r>0,\\ 0\\le\\theta\\le2\\pi\\alpha\\}$. La transformation holomorphe $f(z) := z^{1/(2\\alpha)}$ (détermination $r^{1/(2\\alpha)}e^{i\\theta/(2\\alpha)}$, $0\\le\\theta\\le2\\pi\\alpha$) envoie $K_\\alpha$ sur le demi-plan $\\bar H$ ($0\\le\\theta/(2\\alpha)\\le\\pi$), ce qui donne comme potentiel des vitesses de l'écoulement d'un fluide parfait incompressible irrotationnel dans le coin $$\\Phi(z) = \\lambda\\,\\Re e\\big(z^{1/(2\\alpha)}\\big).$$ Pour un quart de plan ($\\alpha = 1/4$) on retrouve $\\Phi(z) = \\lambda\\,\\Re e(z^2)$.",
+      "hypotheses": [
+        "$\\alpha\\in]0,1[$",
+        "détermination de la puissance $z^{1/(2\\alpha)}$ continue sur le coin"
+      ],
+      "depends_on": [
+        "non numéroté, section IV.4.1, p. 82 (écoulement potentiel, cas de H)",
+        "non numéroté, section IV.4, p. 81 (composition harmonique ∘ holomorphe)"
+      ],
+      "used_by_hint": "Modèle de l'exercice « trouver l'application conforme d'un secteur sur $H$ ».",
+      "importance": 1,
+      "proof_in_poly": "sketch",
+      "proof_length": "short",
+      "counterexample_hints": [
+        "$f'(z) = \\frac1{2\\alpha}z^{1/(2\\alpha)-1}$ s'annule ou explose en $0$ selon $\\alpha$ : le sommet du coin est le seul point non conforme ; la vitesse $|\\nabla\\Phi| = \\lambda|f'|$ y est nulle si $\\alpha<1/2$ (coin saillant, $f'(0)=0$) et infinie si $\\alpha>1/2$ (coin rentrant)."
+      ],
+      "viz_hint": "Lignes de courant $\\Im m(z^{1/(2\\alpha)}) = $ const et équipotentielles dans le coin, curseur sur $\\alpha$ ; comparer vitesse au sommet selon $\\alpha<1/2$ ou $>1/2$."
+    },
+    {
+      "id": "ch04-joukovski",
+      "kind": "example",
+      "ref": "non numéroté, section IV.4.1, p. 83 (transformation de Joukovski)",
+      "title": "Transformation de Joukovski $J(z) = \\tfrac12(z+1/z)$ : écoulement autour d'un disque et profils d'ailes",
+      "page": 83,
+      "statement": "La **transformation de Joukovski** (1910) est $f(z) := \\dfrac12\\Big(z+\\dfrac1z\\Big)$, définie sur $\\mathbb C^*$ ; elle a été utilisée pour déterminer les profils de vitesses d'un écoulement autour d'un obstacle. L'image par $f$ du cercle de centre $0$ et de rayon $1$ est le segment $[-1,1]$ de $\\mathbb C$ (parcouru deux fois : $f(e^{i\\theta}) = \\cos\\theta$). Le potentiel des vitesses d'un écoulement plan uniforme $\\vec v\\equiv\\vec v_0$ dans la direction de l'axe des $x$ étant $\\Phi_0(z) = \\lambda\\,\\Re e z$, on obtient le potentiel des vitesses d'un écoulement plan autour du disque unité centré à l'origine $$\\Phi(z) = \\lambda\\,\\Re e\\big(f^{-1}(z)\\big)$$ (où $f^{-1}$ est la réciproque de $f$ restreinte à l'extérieur du disque : $f$ réalise un biholomorphisme de $\\mathbb C\\setminus\\bar D(0,1)$ sur $\\mathbb C\\setminus[-1,1]$, cf. Exercice IV.4.1). En étudiant les images par $f$ des cercles non centrés à l'origine, on obtient des profils qui ressemblent à des profils d'ailes d'avion, ce qui permet en première approximation de calculer des écoulements plans autour de ce profil et d'estimer la portance.",
+      "hypotheses": [
+        "$z\\in\\mathbb C^*$",
+        "pour l'inversion : se restreindre à $|z|>1$ (ou $|z|<1$), car $f(z) = f(1/z)$"
+      ],
+      "depends_on": [
+        "non numéroté, section IV.4.1, p. 82 (écoulement potentiel, cas de H)",
+        "non numéroté, section IV.4, p. 81 (composition harmonique ∘ holomorphe)"
+      ],
+      "used_by_hint": "Exercice IV.4.1 (image des cercles $C_R$ : ellipses de foyers $\\pm1$ ; réciproque $z(w) = w+\\sqrt{w^2-1}$ ; vitesse infinie aux extrémités de la plaque si $\\alpha\\neq0$).",
+      "importance": 2,
+      "proof_in_poly": "sketch",
+      "proof_length": "short",
+      "counterexample_hints": [
+        "$J$ n'est pas injective sur $\\mathbb C^*$ ($J(z) = J(1/z)$) : ce n'est un biholomorphisme que sur $\\{|z|>1\\}$ ou $\\{|z|<1\\}$, à valeurs dans $\\mathbb C\\setminus[-1,1]$ ; $J'(z) = \\tfrac12(1-1/z^2)$ s'annule en $\\pm1$, points où la conformité tombe en défaut (angles doublés : le cercle est « aplati » en segment)."
+      ],
+      "viz_hint": "Image par $J$ d'un cercle de centre $c$ et rayon $r$ déplaçables : $c=0,r=1$ donne le segment, $r>1$ des ellipses, $c\\neq0$ avec le cercle passant par $1$ des profils d'aile ; superposer les lignes de courant de l'écoulement uniforme transportées."
+    },
+    {
+      "id": "ch04-harmoniques-radiales",
+      "kind": "proposition",
+      "ref": "non numéroté, section IV.4.2, p. 85 (fonctions harmoniques radiales ; Exercice IV.4.2)",
+      "title": "Fonctions harmoniques invariantes par rotation sur $\\mathbb C^\\times$",
+      "page": 85,
+      "statement": "Les fonctions harmoniques définies sur $\\mathbb C^\\times = \\mathbb C\\setminus\\{0\\}$ et invariantes par rotation (i.e. de la forme $u(|z|)$) sont exactement les fonctions $$z\\mapsto\\alpha\\log|z|+\\beta,$$ où $\\alpha$ et $\\beta$ sont des constantes. (Preuve, Exercice IV.4.2 : en coordonnées polaires $\\Delta u = u_{rr}+\\tfrac1r u_r+\\tfrac1{r^2}u_{\\theta\\theta}$ ; pour $u=u(r)$, $\\Delta u = \\tfrac1r(r u')' = 0$ donne $r u' = \\alpha$, $u = \\alpha\\ln r+\\beta$.)",
+      "hypotheses": [
+        "$u$ de classe $C^2$ sur $\\mathbb C^\\times$",
+        "invariance par rotation : $u(e^{i\\theta}z) = u(z)$"
+      ],
+      "depends_on": [
+        "Définition IV.2.1"
+      ],
+      "used_by_hint": "Température stationnaire dans une couronne centrée (p. 86) ; exemple fondamental de fonction harmonique non globalement partie réelle d'une holomorphe ($\\log|z|$ sur $\\mathbb C^*$).",
+      "importance": 2,
+      "proof_in_poly": "exercise",
+      "proof_length": "short",
+      "counterexample_hints": [
+        "$\\log|z|$ n'est pas harmonique en $0$ (non définie) : sur $\\mathbb C$ tout entier, la seule fonction harmonique radiale est constante ($\\alpha=0$).",
+        "Analogie avec $\\mathbb R^3$ : la fonction radiale harmonique est $\\alpha/|x|+\\beta$, pas $\\log$ ; le $\\log$ est spécifique à la dimension 2."
+      ],
+      "viz_hint": "Carte de $\\alpha\\log|z|+\\beta$ (cercles concentriques isothermes) ; curseur $\\alpha,\\beta$."
+    },
+    {
+      "id": "ch04-chaleur-couronne",
+      "kind": "example",
+      "ref": "non numéroté, section IV.4.2, p. 85 (chaleur dans une couronne)",
+      "title": "Température stationnaire dans une gaine en couronne (centrée puis excentrée par homographie)",
+      "page": 85,
+      "statement": "Une gaine rectiligne infinie a une section en couronne (non simplement connexe !) de rayons $R^-<R^+$, dont les deux cercles de bord ne sont pas nécessairement concentriques, et baigne dans des calorimètres à températures $T^-$ (intérieur) et $T^+$ (extérieur). L'équation de la chaleur $\\partial_t T - \\Delta T = 0$ en régime permanent ($\\partial_t T = 0$) impose que $T$ est harmonique et vaut $T^+$ et $T^-$ sur les cercles de bord. **Unicité** : la différence de deux solutions est harmonique et nulle au bord, donc nulle à l'intérieur (principe du maximum). **Cas centré** : les fonctions harmoniques invariantes par rotation étant $\\alpha\\log|z|+\\beta$ (Exercice IV.4.2), $$T_{\\text{centrée}}(z) = \\frac{T^+-T^-}{\\ln R^+-\\ln R^-}\\,\\ln|z| + \\frac{T^-\\ln R^+ - T^+\\ln R^-}{\\ln R^+-\\ln R^-}.$$ **Cas excentré** : on peut toujours trouver une transformation homographique $f(z) = \\dfrac{az+b}{cz+d}$ qui transforme la couronne excentrée en une couronne centrée de rayons $\\rho^-<\\rho^+$ ; la température est alors $T_{\\text{centrée}}\\circ f$, où $T_{\\text{centrée}}$ est calculée avec les rayons $\\rho^\\pm$ de la couronne image, et non avec $R^\\pm$ : le rapport $\\rho^+/\\rho^-$, **module conforme** de la couronne, diffère en général de $R^+/R^-$. (Exemple de la figure : $z\\mapsto\\dfrac53+\\dfrac{z-3}{z-2}$.)",
+      "hypotheses": [
+        "régime permanent",
+        "conditions de Dirichlet constantes sur chaque cercle",
+        "existence d'une homographie envoyant les deux cercles sur deux cercles concentriques (vraie pour deux cercles disjoints emboîtés : envoyer les deux points limites du faisceau de cercles sur $0$ et $\\infty$)"
+      ],
+      "depends_on": [
+        "Corollaire IV.2.5",
+        "Remarque IV.2.6",
+        "non numéroté, section IV.4, p. 81 (composition harmonique ∘ holomorphe)",
+        "non numéroté, section IV.4.2, p. 85 (fonctions harmoniques radiales ; Exercice IV.4.2)"
+      ],
+      "used_by_hint": "Exemple type d'exercice : « trouver la fonction harmonique valant $a$ et $b$ sur deux cercles » ; illustre que les couronnes ne sont pas toutes conformément équivalentes.",
+      "importance": 2,
+      "proof_in_poly": "sketch",
+      "proof_length": "short",
+      "counterexample_hints": [
+        "Calculer $T_{\\text{centrée}}$ avec $R^\\pm$ au lieu de $\\rho^\\pm$ donne une fonction qui n'est pas harmonique sur la couronne excentrée (ou ne prend pas les bonnes valeurs au bord).",
+        "Le domaine n'est pas simplement connexe : $T = \\Re e F$ global est impossible ($\\log|z|$), pourtant $T$ est harmonique et unique ; le Corollaire IV.2.4 ne s'applique pas mais le Corollaire IV.2.5 si."
+      ],
+      "viz_hint": "Carte de température dans une couronne excentrée (centres et rayons réglables) obtenue par $T_{\\text{centrée}}\\circ f$ ; afficher le module conforme $\\rho^+/\\rho^-$ et les isothermes (cercles non concentriques)."
+    }
+  ],
+  "notations": [
+    {
+      "symbol": "$\\gamma_1,\\gamma_2 : ]-1,1[\\to\\mathbb C$",
+      "meaning": "arcs de classe $C^1$ passant par $z_0$ en $t=0$ ; **réguliers** si $\\gamma_j'(0)\\neq0$ ; $\\gamma_j'(0)$ est le vecteur tangent en $z_0$",
+      "page": 75
+    },
+    {
+      "symbol": "$f\\circ\\gamma_j$",
+      "meaning": "arc image, de tangente $f'(z_0)\\gamma_j'(0)$ en $t=0$",
+      "page": 75
+    },
+    {
+      "symbol": "transformation conforme",
+      "meaning": "application qui conserve les angles entre courbes régulières ; les fonctions holomorphes à dérivée non nulle en sont (au § III.4 : synonyme de biholomorphisme)",
+      "page": 75
+    },
+    {
+      "symbol": "$\\Re e(f) = c$, $\\Im m(f) = c'$",
+      "meaning": "lignes de niveau de la partie réelle et de la partie imaginaire de $f$ (notations $\\Re e$, $\\Im m$ du poly)",
+      "page": 75
+    },
+    {
+      "symbol": "$f^{-1}$",
+      "meaning": "réciproque locale de $f$ au voisinage de $f(z_0)$, holomorphe (Proposition I.4.4)",
+      "page": 76
+    },
+    {
+      "symbol": "$\\operatorname{argtanh} z = \\tfrac12\\log\\dfrac{1+z}{1-z}$",
+      "meaning": "argument tangente hyperbolique, réciproque de $\\tanh$",
+      "page": 76
+    },
+    {
+      "symbol": "$\\Delta f := \\dfrac{\\partial^2 f}{\\partial x^2}+\\dfrac{\\partial^2 f}{\\partial y^2} = 4\\dfrac{\\partial^2 f}{\\partial z\\partial\\bar z}$",
+      "meaning": "laplacien d'une fonction $C^2$ ; $f$ harmonique si $\\Delta f = 0$",
+      "page": 76
+    },
+    {
+      "symbol": "$\\dfrac{\\partial}{\\partial z}$, $\\dfrac{\\partial}{\\partial\\bar z}$",
+      "meaning": "opérateurs de Wirtinger (chapitre I, § I.2) : $\\partial_z = \\tfrac12(\\partial_x - i\\partial_y)$, $\\partial_{\\bar z} = \\tfrac12(\\partial_x+i\\partial_y)$",
+      "page": 76
+    },
+    {
+      "symbol": "$h = f+\\bar g$",
+      "meaning": "décomposition d'une fonction harmonique en somme d'une holomorphe et d'une anti-holomorphe (conjuguée d'une holomorphe)",
+      "page": 76
+    },
+    {
+      "symbol": "$\\bar D(z_0,r)$",
+      "meaning": "disque fermé de centre $z_0$ et de rayon $r$",
+      "page": 77
+    },
+    {
+      "symbol": "$\\int_{[z_0,z]}\\cdot\\,dw$",
+      "meaning": "intégrale curviligne de $z_0$ à $z$ (le long du segment, ou de tout chemin si la condition de périodes est vérifiée)",
+      "page": 78
+    },
+    {
+      "symbol": "$X:\\Omega\\to\\mathbb R^3$, $X_u$, $X_v$, $z = u+iv$",
+      "meaning": "paramétrage d'une surface et ses dérivées partielles ; **conforme** si $|X_u| = |X_v|$ et $\\langle X_u,X_v\\rangle = 0$",
+      "page": 78
+    },
+    {
+      "symbol": "$H$, $N$ (section IV.3)",
+      "meaning": "courbure moyenne et normale unitaire de la surface ; **attention** : au § IV.4, $H$ désigne le demi-plan de Poincaré",
+      "page": 78
+    },
+    {
+      "symbol": "$\\varphi := 2\\,\\partial X/\\partial z = X_u - iX_v : \\Omega\\to\\mathbb C^3$",
+      "meaning": "dérivée complexe du paramétrage ; holomorphe ssi $X$ harmonique",
+      "page": 78
+    },
+    {
+      "symbol": "$\\varphi\\cdot\\varphi := \\varphi_1^2+\\varphi_2^2+\\varphi_3^2$",
+      "meaning": "forme bilinéaire (non hermitienne) de $\\mathbb C^3$ ; $\\varphi\\cdot\\varphi = 0$ ssi paramétrage conforme",
+      "page": 78
+    },
+    {
+      "symbol": "$Q = \\{w\\in\\mathbb C^3 : w_1^2+w_2^2+w_3^2 = 0\\}$",
+      "meaning": "quadrique isotrope de $\\mathbb C^3$ (cône), paramétrée rationnellement par $(f,g)$",
+      "page": 78
+    },
+    {
+      "symbol": "$(f,g)$ données de Weierstrass",
+      "meaning": "$f$ holomorphe, $g$ méromorphe ; $\\varphi = \\big((1-g^2)f,\\ i(1+g^2)f,\\ 2gf\\big)$ ; $g$ = projection stéréographique de l'application de Gauss $N$",
+      "page": 78
+    },
+    {
+      "symbol": "$P^1(\\mathbb C)$, $P^2(\\mathbb C)$",
+      "meaning": "droite et plan projectifs complexes",
+      "page": 79
+    },
+    {
+      "symbol": "$\\oint_\\gamma\\varphi\\,dw$",
+      "meaning": "période de $\\varphi$ le long d'un lacet $\\gamma$ ; condition de périodes $\\Re e\\oint_\\gamma\\varphi\\,dw = 0$",
+      "page": 79
+    },
+    {
+      "symbol": "$\\vec v$, $\\Phi$, $\\nabla$, $\\mathrm{rot}$, $\\mathrm{div}$",
+      "meaning": "champ des vitesses, potentiel des vitesses ($\\vec v = \\nabla\\Phi$), gradient, rotationnel, divergence",
+      "page": 82
+    },
+    {
+      "symbol": "$H = \\{z\\in\\mathbb C : \\Im m z>0\\}$, $\\bar H$",
+      "meaning": "demi-plan de Poincaré (supérieur) et son adhérence",
+      "page": 82
+    },
+    {
+      "symbol": "$L^\\infty(\\bar H)$",
+      "meaning": "fonctions bornées sur $\\bar H$ ; hypothèse $|\\nabla\\Phi_0|\\in L^\\infty(\\bar H)$ (vitesse bornée)",
+      "page": 82
+    },
+    {
+      "symbol": "$v_y = \\partial_y\\Phi_0$",
+      "meaning": "composante normale (verticale) de la vitesse sur $H$",
+      "page": 82
+    },
+    {
+      "symbol": "$\\Phi_0(z) = \\lambda\\,\\Re e z$",
+      "meaning": "potentiel de l'écoulement uniforme de vitesse $(\\lambda,0)$",
+      "page": 82
+    },
+    {
+      "symbol": "$K_\\alpha := \\{z = re^{i\\theta} : r>0,\\ 0\\le\\theta\\le2\\pi\\alpha\\}$, $\\alpha\\in]0,1[$",
+      "meaning": "coin (secteur angulaire) d'ouverture $2\\pi\\alpha$",
+      "page": 83
+    },
+    {
+      "symbol": "$f(z) := z^{1/(2\\alpha)}$",
+      "meaning": "puissance envoyant le coin $K_\\alpha$ sur $H$",
+      "page": 83
+    },
+    {
+      "symbol": "$f(z) = J(z) := \\tfrac12\\big(z+\\tfrac1z\\big)$",
+      "meaning": "transformation de Joukovski (1910), définie sur $\\mathbb C^*$",
+      "page": 83
+    },
+    {
+      "symbol": "$\\Psi$, $G = \\Phi+i\\Psi$",
+      "meaning": "fonction de courant (conjuguée harmonique de $\\Phi$) et potentiel complexe, holomorphe",
+      "page": 84
+    },
+    {
+      "symbol": "$v = v_x+iv_y$",
+      "meaning": "vitesse complexe (affixe du vecteur vitesse) ; $G'(z) = v_x - iv_y$, donc $v = \\overline{G'(z)}$",
+      "page": 84
+    },
+    {
+      "symbol": "$C_R$",
+      "meaning": "cercle de centre $0$ et de rayon $R$",
+      "page": 84
+    },
+    {
+      "symbol": "$F(z) = V_0\\big(ze^{-i\\alpha}+\\tfrac{e^{i\\alpha}}z\\big)$",
+      "meaning": "potentiel complexe de l'écoulement uniforme de vitesse $V_0$, d'incidence $\\alpha$, autour du cylindre unité",
+      "page": 84
+    },
+    {
+      "symbol": "$S_{in}$, $S_{out}$",
+      "meaning": "points d'arrêt entrant et sortant sur la plaque plane",
+      "page": 85
+    },
+    {
+      "symbol": "$R^-<R^+$, $T^-$, $T^+$",
+      "meaning": "rayons des cercles de bord de la couronne et températures des calorimètres intérieur/extérieur",
+      "page": 85
+    },
+    {
+      "symbol": "$\\partial_t T - \\Delta T = 0$",
+      "meaning": "équation de la chaleur ; régime permanent $\\partial_t T = 0$",
+      "page": 85
+    },
+    {
+      "symbol": "$\\mathbb C^\\times$",
+      "meaning": "$\\mathbb C\\setminus\\{0\\}$ (noté aussi $\\mathbb C^*$)",
+      "page": 85
+    },
+    {
+      "symbol": "$T_{\\text{centrée}}$",
+      "meaning": "température stationnaire dans la couronne centrée : $\\frac{T^+-T^-}{\\ln R^+-\\ln R^-}\\ln|z|+\\frac{T^-\\ln R^+-T^+\\ln R^-}{\\ln R^+-\\ln R^-}$",
+      "page": 86
+    },
+    {
+      "symbol": "$f(z) = \\dfrac{az+b}{cz+d}$",
+      "meaning": "transformation homographique (de Möbius)",
+      "page": 86
+    },
+    {
+      "symbol": "$\\rho^-<\\rho^+$, $\\rho^+/\\rho^-$",
+      "meaning": "rayons de la couronne centrée image et son **module conforme**",
+      "page": 86
+    },
+    {
+      "symbol": "$\\mathrm{Log}$, $\\mathrm{Arg}(z)$",
+      "meaning": "détermination principale du logarithme sur $\\mathbb C\\setminus\\mathbb R_-$ et son argument principal $\\in]-\\pi,\\pi[$ ; $\\Im m\\,\\mathrm{Log}(z) = \\mathrm{Arg}(z)$",
+      "page": 86
+    }
+  ],
+  "poly_exercises": [
+    {
+      "ref": "Exercice IV.4.1",
+      "page": 84,
+      "topic": "Transformation de Joukovski et aérodynamique",
+      "statement_short": "Avec $J(z) = \\tfrac12(z+1/z)$ : image des cercles $C_R$ ($R>1$ : ellipses de foyers $\\pm1$, demi-axes $\\tfrac12(R\\pm1/R)$) et de $C_1$ (segment $[-1,1]$) ; réciproque $z(w)$ de $J$ de $\\mathbb C\\setminus[-1,1]$ sur $\\{|z|>1\\}$ ($z = w+\\sqrt{w^2-1}$ avec la bonne branche) ; potentiel complexe $G(w) = F(z(w))$ de l'écoulement d'incidence $\\alpha$ autour de la plaque $[-1,1]$ à partir de $F(z) = V_0(ze^{-i\\alpha}+e^{i\\alpha}/z)$ ; vitesse $G'(w) = F'(z)/J'(z)$, qui diverge aux extrémités $w = \\pm1$ (où $J'=0$) dès que $\\alpha\\neq0$.",
+      "chapters_involved": [
+        4,
+        1
+      ]
+    },
+    {
+      "ref": "Exercice IV.4.2",
+      "page": 86,
+      "topic": "Laplacien en coordonnées polaires, fonctions harmoniques radiales",
+      "statement_short": "Calculer le laplacien en coordonnées polaires ($\\Delta u = u_{rr}+\\tfrac1r u_r+\\tfrac1{r^2}u_{\\theta\\theta}$) ; déterminer toutes les fonctions harmoniques sur $\\mathbb C^\\times$ invariantes par rotation (réponse : $\\alpha\\log|z|+\\beta$).",
+      "chapters_involved": [
+        4
+      ]
+    },
+    {
+      "ref": "Exercice IV.4.3",
+      "page": 86,
+      "topic": "Problème de Dirichlet sur le demi-plan et fonctions harmoniques",
+      "statement_short": "Température stationnaire $T$ sur $H$ avec $T(x,0) = T_1$ pour $x>0$ et $T_0$ pour $x<0$ : rappeler que $\\Im m$ d'une holomorphe est harmonique ; partie imaginaire de $\\mathrm{Log}$ (c'est $\\mathrm{Arg}$, de limites $0$ et $\\pi$ au bord) ; chercher $T = A\\,\\Im m\\,\\mathrm{Log}(z)+B$ (réponse : $T = T_1+\\frac{T_0-T_1}{\\pi}\\mathrm{Arg}(z)$) ; isothermes = demi-droites issues de l'origine.",
+      "chapters_involved": [
+        4,
+        2
+      ]
+    },
+    {
+      "ref": "non numéroté, Remarque IV.3.3, p. 80 (« un exercice intéressant »)",
+      "page": 80,
+      "topic": "Caténoïde ou deux disques : aire minimale",
+      "statement_short": "Déterminer, en fonction du rayon des deux cercles parallèles et de leur distance, laquelle des surfaces minimales qui s'appuient dessus (portion de caténoïde ou deux disques) a l'aire la plus petite. Sujet de réflexion, difficile, à relier au chapitre VIII (points critiques vs minima).",
+      "chapters_involved": [
+        4,
+        8
+      ]
+    }
+  ],
+  "pitfalls": [
+    "La conformité exige $f'(z_0)\\neq0$ : en un zéro d'ordre $k$ de $f'$ les angles sont multipliés par $k+1$ ($z\\mapsto z^2$ en $0$ double les angles). Les zéros de $f'$ sont isolés (Remarque IV.1.1) seulement si $f$ n'est pas localement constante.",
+    "Une fonction harmonique est par définition $C^2$ et peut être à valeurs complexes (Définition IV.2.1) ; l'identité $\\Delta = 4\\,\\partial_z\\partial_{\\bar z}$ utilise le théorème de Schwarz, donc la classe $C^2$.",
+    "Le Théorème IV.2.2 et le Corollaire IV.2.4 exigent $\\Omega$ **simplement connexe** : $\\log|z|$ sur $\\mathbb C^*$ est harmonique réelle mais n'est la partie réelle d'aucune fonction holomorphe sur $\\mathbb C^*$ (il faudrait un logarithme holomorphe global). Localement (sur des disques) la décomposition reste vraie (Remarque IV.2.3).",
+    "Dans le Corollaire IV.2.4, l'unicité est « à constante additive imaginaire pure près » et utilise la connexité (incluse dans « simplement connexe » au sens du poly, Définition II.1.1).",
+    "Le principe du maximum du Corollaire IV.2.5 concerne une fonction harmonique **réelle** et un maximum **local** de $h$ (pas de $|h|$) sur un ouvert **connexe** ; appliquer à $-h$ pour le minimum. Pour en déduire l'unicité d'un problème de Dirichlet il faut en plus un domaine borné et la continuité jusqu'au bord (comme au Corollaire I.12.2).",
+    "Sur un ouvert non borné, « harmonique et nulle au bord » n'implique pas « nulle » : $y = \\Im m z$ sur $H$. Il faut une hypothèse de bornitude (argument de type Phragmén–Lindelöf) ou passer au disque par une homographie ; le poly le signale explicitement p. 82.",
+    "La composée $f\\circ h$ est harmonique quand $f$ est harmonique et $h$ **holomorphe** (ordre important, et $h$ doit être holomorphe, pas seulement $C^\\infty$) ; $h\\circ f$ ne l'est pas en général ($x^2$). Formule : $\\Delta(f\\circ h) = (\\Delta f)\\circ h\\,|h'|^2$.",
+    "Le théorème de Riemann donne l'**existence** d'un biholomorphisme $\\Omega\\to D$ (ou $H$) pour $\\Omega$ simplement connexe $\\neq\\mathbb C$, pas une formule ; en pratique on cherche une application conforme explicite (puissance $z^{1/(2\\alpha)}$, Joukovski, homographie, $\\mathrm{Log}$).",
+    "La transformation de Joukovski $J(z) = \\tfrac12(z+1/z)$ n'est pas injective sur $\\mathbb C^*$ ($J(z) = J(1/z)$) : c'est un biholomorphisme de $\\{|z|>1\\}$ sur $\\mathbb C\\setminus[-1,1]$ ; l'image de $C_1$ est $[-1,1]$ parcouru deux fois ; $J'(\\pm1) = 0$ et la vitesse diverge aux extrémités de la plaque si l'incidence $\\alpha\\neq0$.",
+    "Dans l'Exercice IV.4.1, la vitesse complexe est $v = v_x+iv_y = \\overline{G'(z)}$ puisque $G'(z) = \\partial_x\\Phi+i\\partial_x\\Psi = v_x - iv_y$ (Cauchy–Riemann $\\partial_x\\Psi = -\\partial_y\\Phi$). Le texte extrait du poly écrit « $v = G'(z)$ » : il y manque très probablement une barre de conjugaison ; vérifier sur le PDF et, en tout cas, conjuguer.",
+    "Pour la couronne excentrée, $T_{\\text{centrée}}$ doit être calculée avec les rayons $\\rho^\\pm$ de la couronne **image** par l'homographie, pas avec $R^\\pm$ : le module conforme $\\rho^+/\\rho^-$ diffère en général de $R^+/R^-$. La couronne n'est pas simplement connexe : Riemann ne s'applique pas et $T$ n'est pas globalement une partie réelle d'holomorphe.",
+    "Collision de notations dans le chapitre : $H$ désigne la courbure moyenne au § IV.3 et le demi-plan de Poincaré au § IV.4 ; $f$ désigne tour à tour une fonction holomorphe quelconque, une donnée de Weierstrass, l'application conforme $z^{1/(2\\alpha)}$ ou Joukovski, et une homographie.",
+    "Dans la représentation de Weierstrass–Enneper, $\\varphi\\cdot\\varphi = \\sum\\varphi_k^2$ est la forme bilinéaire complexe (peut s'annuler pour $\\varphi\\neq0$), pas le produit hermitien ; $g$ méromorphe n'est autorisée que si $f$ s'annule à l'ordre $2m$ en chaque pôle d'ordre $m$ de $g$ ; hors du cas simplement connexe la formule n'est bien définie que sous la condition de périodes.",
+    "La Remarque IV.1.1 cite « Théorème I.11 » : il s'agit du Théorème I.11.1 (principe des zéros isolés), qui demande $\\Omega$ connexe et $f'\\not\\equiv0$ ; la Remarque III.4.2 cite « exercice I.4.3 » qui est en fait l'Exemple I.4.3 (biholomorphisme $z\\mapsto i\\frac{1-z}{1+z}$ de $D$ sur $H$)."
+  ],
+  "viz_opportunities": [
+    {
+      "title": "Grillage conforme : image du quadrillage par une fonction holomorphe",
+      "shows": "Image par $f$ (au choix $z^2$, $e^z$, $1/z$, $\\tfrac12(z+1/z)$, $\\operatorname{argtanh}$) des droites $x = c$, $y = c'$ : courbes orthogonales partout où $f'\\neq0$ ; zoom sur un zéro de $f'$ ($z^2$ en $0$) où l'angle est doublé. Fait voir « jacobienne = similitude ».",
+      "results": [
+        "non numéroté, section IV.1, p. 75 (conservation des angles)",
+        "Remarque IV.1.1",
+        "Exemple IV.1.2"
+      ]
+    },
+    {
+      "title": "Propriété de la moyenne et principe du maximum pour une fonction harmonique",
+      "shows": "Carte de chaleur / surface de $h$ harmonique réelle ($x^2-y^2$, $e^x\\cos y$, $\\log|z|$, $\\Re e(1/z)$) avec un cercle déplaçable : lecture de $h(z_0)$ et de la moyenne sur le cercle (égales), absence de bosse intérieure ; comparaison avec $|z|^2$ (non harmonique) où la moyenne dépasse la valeur centrale.",
+      "results": [
+        "Définition IV.2.1",
+        "Corollaire IV.2.5",
+        "Remarque IV.2.6"
+      ]
+    },
+    {
+      "title": "Conjuguée harmonique et obstruction topologique",
+      "shows": "Pour $h$ harmonique réelle sur un disque, construction de $\\Im m F$ par intégration des équations de Cauchy–Riemann le long d'un chemin ; sur $\\mathbb C^*$ avec $h = \\log|z|$, la conjuguée $\\arg z$ saute de $2\\pi$ après un tour : $h$ n'est pas globalement une partie réelle d'holomorphe.",
+      "results": [
+        "Théorème IV.2.2",
+        "Remarque IV.2.3",
+        "Corollaire IV.2.4"
+      ]
+    },
+    {
+      "title": "Transformation de Joukovski et profils d'aile",
+      "shows": "Image par $J$ d'un cercle de centre et rayon réglables : segment $[-1,1]$ pour $C_1$, ellipses de foyers $\\pm1$ pour $C_R$, profils d'aile pour un cercle excentré passant par $1$ ; superposition des lignes de courant de l'écoulement uniforme d'incidence $\\alpha$ transportées ($\\Im m\\,G = $ const) et de la vitesse près des bords de plaque.",
+      "results": [
+        "non numéroté, section IV.4.1, p. 83 (transformation de Joukovski)",
+        "Exercice IV.4.1",
+        "non numéroté, section IV.4, p. 81 (composition harmonique ∘ holomorphe)"
+      ]
+    },
+    {
+      "title": "Écoulement dans un coin $K_\\alpha$",
+      "shows": "Lignes de courant $\\Im m(z^{1/(2\\alpha)}) = $ const et équipotentielles $\\Re e(z^{1/(2\\alpha)}) = $ const dans le coin, curseur sur $\\alpha\\in]0,1[$ ; vitesse nulle au sommet si $\\alpha<1/2$, infinie si $\\alpha>1/2$ ; illustre le transport d'un problème de Neumann par application conforme.",
+      "results": [
+        "non numéroté, section IV.4.1, p. 83 (écoulement dans un coin)",
+        "non numéroté, section IV.4, p. 82 (réduction au demi-plan par Riemann)"
+      ]
+    },
+    {
+      "title": "Chaleur dans une couronne excentrée via une homographie",
+      "shows": "Couronne excentrée (centres et rayons réglables), homographie qui la rend concentrique (module conforme $\\rho^+/\\rho^-$ affiché), isothermes $T_{\\text{centrée}}\\circ f = $ const (cercles non concentriques) ; montre pourquoi on utilise $\\rho^\\pm$ et non $R^\\pm$.",
+      "results": [
+        "non numéroté, section IV.4.2, p. 85 (chaleur dans une couronne)",
+        "Exercice IV.4.2",
+        "Remarque IV.2.6"
+      ]
+    },
+    {
+      "title": "Problème de Dirichlet sur le demi-plan : $T = T_1+\\frac{T_0-T_1}{\\pi}\\mathrm{Arg}\\,z$",
+      "shows": "Carte de température sur $H$ avec les deux valeurs au bord, isothermes = demi-droites issues de l'origine ; curseur $T_0,T_1$ ; variante : saut en un point $a\\neq0$ par translation, deux sauts par combinaison linéaire d'arguments.",
+      "results": [
+        "Exercice IV.4.3",
+        "Corollaire IV.2.4"
+      ]
+    },
+    {
+      "title": "Surfaces minimales de Weierstrass–Enneper",
+      "shows": "Rendu 3D tournable de la caténoïde, de l'hélicoïde et de la surface d'Enneper à partir de $(f,g)$, domaine $\\Omega$ = couronne réglable ; optionnel : courbe aire(caténoïde) vs aire(deux disques) en fonction de $d/R$ pour la Remarque IV.3.3.",
+      "results": [
+        "non numéroté, section IV.3, p. 78 (formule de Weierstrass–Enneper)",
+        "Remarque IV.3.1",
+        "Remarque IV.3.3"
+      ]
+    }
+  ],
+  "proof_techniques": [
+    "Passage en coordonnées complexes : $\\Delta = 4\\,\\partial_z\\partial_{\\bar z}$ ; « holomorphe » se lit $\\partial_{\\bar z} = 0$ ; une fonction $C^1$ annulée par $\\partial_{\\bar z}$ est holomorphe (preuve du Théorème IV.2.2, de la composition).",
+    "Intégrer une condition $\\partial_{\\bar z}(\\partial_z h) = 0$ par l'existence d'une primitive holomorphe sur un ouvert simplement connexe (Théorème II.9.1), puis soustraire pour faire apparaître une fonction anti-holomorphe $\\bar g$.",
+    "Symétrisation par conjugaison : pour $h$ réelle, écrire $h = \\bar h$ et combiner $f+\\bar g = \\bar f+g$ pour obtenir $h = \\Re e(f+g)$ (Corollaire IV.2.4).",
+    "Transfert Hol $\\to$ harmonique par linéarité et conjugaison : la formule de la moyenne (Corollaire I.6.2) appliquée à $f$ et à $\\bar g$ (localement, Remarque IV.2.3) donne la propriété de la moyenne pour $h$.",
+    "Argument « fonction continue positive d'intégrale nulle est nulle » puis « ensemble ouvert et fermé dans un connexe » pour passer d'un maximum local à la constance globale (Corollaire IV.2.5 ; même schéma que les Théorèmes I.11.1 et I.12.1).",
+    "Unicité par le principe du maximum appliqué à la différence de deux solutions d'un problème aux limites (Remarque IV.2.6, couronne § IV.4.2) ; sur un ouvert non borné ajouter une hypothèse de bornitude (Phragmén–Lindelöf) ou passer au disque par une homographie.",
+    "Règle de composition pour $\\partial_z$, $\\partial_{\\bar z}$ (Lemme I.2.9) combinée au théorème de Schwarz et à $\\partial_{\\bar z}h = 0$ pour calculer $\\Delta(f\\circ h) = (\\Delta f)\\circ h\\,|h'|^2$.",
+    "Transport par application conforme : résoudre le problème harmonique sur un domaine modèle ($H$, $D$, couronne centrée) puis composer par un biholomorphisme explicite ($z^{1/(2\\alpha)}$, Joukovski, homographie, $\\mathrm{Log}$) ; la conformité préserve les conditions de Neumann et de Dirichlet au bord.",
+    "Réduction par symétrie : une fonction harmonique invariante par rotation vérifie une EDO radiale $\\tfrac1r(ru')' = 0$ (Exercice IV.4.2) ; une fonction harmonique bornée sur $H$ nulle au bord est nulle, d'où dépendance en $x$ seule (§ IV.4.1).",
+    "Théorème des résidus pour vérifier une condition de périodes $\\Re e\\oint_\\gamma\\varphi\\,dw = 0$ (Remarque IV.3.2) : calculer les résidus des composantes de $\\varphi$ et ne garder que la partie réelle de $2i\\pi\\sum\\mathrm{Res}$.",
+    "Paramétrage rationnel d'une quadrique (algèbre élémentaire : $(\\varphi_1-i\\varphi_2)(\\varphi_1+i\\varphi_2) = -\\varphi_3^2$) pour transformer une contrainte quadratique en données libres $(f,g)$ (Remarque IV.3.1)."
+  ]
+}

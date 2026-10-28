@@ -8,7 +8,8 @@ const MIME = { '.html': 'text/html', '.js': 'application/javascript', '.css': 't
 const server = http.createServer((req, res) => { let p = decodeURIComponent(req.url.split('?')[0]); if (p === '/') p = '/index.html'; const f = path.join(ROOT, p); if (!f.startsWith(ROOT) || !fs.existsSync(f) || fs.statSync(f).isDirectory()) { res.writeHead(404); return res.end('nf'); } res.writeHead(200, { 'Content-Type': MIME[path.extname(f)] || 'application/octet-stream' }); fs.createReadStream(f).pipe(res); });
 (async () => {
   await new Promise(r => server.listen(0, r)); const port = server.address().port; const base = `http://127.0.0.1:${port}/`;
-  const browser = await chromium.launch(); const page = await browser.newPage({ viewport: { width: 1280, height: 900 } });
+  const browser = await chromium.launch(); const mobile = args.includes('--mobile'); const page = await browser.newPage({ viewport: mobile ? { width: 390, height: 800 } : { width: 1280, height: 900 }, deviceScaleFactor: 1 });
+  if (args.includes('--dark')) await page.addInitScript(() => { try { localStorage.setItem('fma:theme', JSON.stringify('dark')); } catch (e) {} });
   const problems = []; let currentRoute = '';
   page.on('console', m => { if (m.type() === 'error') problems.push({ route: currentRoute, kind: 'console', text: m.text().slice(0, 300) }); });
   page.on('pageerror', e => problems.push({ route: currentRoute, kind: 'pageerror', text: String(e).slice(0, 300) }));
@@ -25,12 +26,12 @@ const server = http.createServer((req, res) => { let p = decodeURIComponent(req.
     // open all collapsibles and reveal trous to render everything
     await page.evaluate(() => { document.querySelectorAll('.card.collapsible').forEach(c => c.classList.add('open')); document.querySelectorAll('details').forEach(d => d.open = true); document.querySelectorAll('.viz-slot').forEach(s => { if (!s.firstChild && window.FMA) FMA.mountViz(s.dataset.viz, s); }); });
     await page.waitForTimeout(300);
-    const info = await page.evaluate(() => ({ texErrors: [...document.querySelectorAll('.tex-error, .katex-error')].map(e => e.textContent.slice(0, 120)), missingX: [...document.querySelectorAll('.xref-missing')].map(e => e.dataset.id), vizMissing: [...document.querySelectorAll('.viz-missing')].map(e => e.textContent.slice(0, 120)), rawMath: (document.getElementById('main').innerText.match(/\$[^$\n]{1,60}\$/g) || []).slice(0, 5), rawPlaceholders: (document.getElementById('main').innerHTML.match(/@@[MTVX]\d*/g) || []).slice(0, 5), leftoverTrou: (document.getElementById('main').innerHTML.match(/<\/?trou/g) || []).length, title: document.title, textLen: document.getElementById('main').innerText.length, h1: (document.querySelector('#main h1') || {}).innerText }));
+    const info = await page.evaluate(() => ({ hscroll: document.documentElement.scrollWidth > window.innerWidth + 2, texErrors: [...document.querySelectorAll('.tex-error, .katex-error')].map(e => e.textContent.slice(0, 120)), missingX: [...document.querySelectorAll('.xref-missing')].map(e => e.dataset.id), vizMissing: [...document.querySelectorAll('.viz-missing')].map(e => e.textContent.slice(0, 120)), rawMath: (document.getElementById('main').innerText.match(/\$[^$\n]{1,60}\$/g) || []).slice(0, 5), rawPlaceholders: (document.getElementById('main').innerHTML.match(/@@[MTVX]\d*/g) || []).slice(0, 5), leftoverTrou: (document.getElementById('main').innerHTML.match(/<\/?trou/g) || []).length, title: document.title, textLen: document.getElementById('main').innerText.length, h1: (document.querySelector('#main h1') || {}).innerText }));
     report.push({ route: r, ...info });
     if (shots) await page.screenshot({ path: path.join(shots, r.replace(/[^a-z0-9]+/gi, '_').slice(0, 80) + '.png'), fullPage: false });
   }
   await browser.close(); server.close();
-  const bad = report.filter(x => x.texErrors.length || x.vizMissing.length || x.rawMath.length || x.rawPlaceholders.length || x.leftoverTrou || x.textLen < 40);
+  const bad = report.filter(x => x.texErrors.length || x.vizMissing.length || x.rawMath.length || x.rawPlaceholders.length || x.leftoverTrou || x.textLen < 40 || (mobile && x.hscroll));
   console.log(JSON.stringify({ routes: routes.length, problems, bad, missingXrefs: [...new Set(report.flatMap(x => x.missingX))].slice(0, 50) }, null, 1));
   process.exit(problems.length || bad.length ? 1 : 0);
 })().catch(e => { console.error(e); process.exit(2); });

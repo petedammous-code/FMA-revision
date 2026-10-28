@@ -1,0 +1,1148 @@
+{
+  "chapter": {
+    "num": 7,
+    "nn": "07",
+    "roman": "VII",
+    "title": "Equations différentielles",
+    "printed_pages": [
+      127,
+      142
+    ],
+    "summary": "Le chapitre VII traite des équations différentielles ordinaires $\\alpha'(t) = X(t,\\alpha(t))$ dans un espace de Banach $E$, en adoptant le langage géométrique des champs de vecteurs (dépendant du temps), des courbes intégrales et des flots. Après avoir montré que toute équation d'ordre $k$ se ramène à un système d'ordre 1 (section VII.1), le cœur du chapitre est le théorème de Cauchy-Lipschitz (Théorème VII.2.1) : si $X$ est continu et localement lipschitzien en la seconde variable, le problème de Cauchy admet une unique solution locale, sur un intervalle de longueur $2\\epsilon$ uniforme en la condition initiale $(t_0,x)$ voisine de $(\\tau_0,x_0)$. La preuve réécrit l'équation comme une équation intégrale (formule (VII.2.2)) et applique le théorème du point fixe de Banach VI.1.1 à l'opérateur de Picard, grâce aux estimations du Lemme VII.2.7 (opérateur $\\frac12$-lipschitzien sur $\\mathcal X = C^0([c-\\epsilon;c+\\epsilon],\\bar B(x_0,2\\rho))$). La version à paramètres (Théorème VII.2.8), obtenue via les points fixes à paramètre VI.1.2 et VI.1.4 après avoir transformé l'instant initial $t_0$ en paramètre, donne la régularité $C^p$ de la solution en $(\\lambda,t_0,x)$ et $C^{p+1}$ en $t$ ; elle se reformule en l'existence d'un flot local (Définition VII.2.9, Théorème VII.2.12). La section VII.3 passe au global : unicité par connexité (Proposition VII.3.1), courbe intégrale maximale et flot global $F:D\\to U$ (Définitions VII.3.3-VII.3.4), propriété de groupe à un paramètre $F_s\\cdot(F_t\\cdot x)=F_{t+s}\\cdot x$ dans le cas autonome (Théorème VII.3.5, Remarque VII.3.6) et formule de composition $F(t_0,s+t,x)=F(s,s+t,F(t_0,s,x))$ en général (Théorème VII.3.7), puis le Théorème VII.3.9 : le domaine $D$ est ouvert et $F$ est de classe $C^p$ si $X$ l'est. Le chapitre se clôt par le lemme des bouts (Théorème VII.3.10) : une courbe intégrale maximale d'un champ autonome qui reste dans un compact de $U$ a un temps de vie infini. Les cinq résultats centraux sont : Cauchy-Lipschitz VII.2.1, Cauchy-Lipschitz à paramètres / flot local VII.2.8-VII.2.12, unicité globale VII.3.1, régularité du flot global VII.3.9 et lemme des bouts VII.3.10. Les exercices (lemme de Gronwall, exponentielle de matrices et sous-groupes à un paramètre, redressement d'un champ de vecteurs, préservation du volume, équation de transport, KdV) exploitent le flot comme outil.",
+    "sections": [
+      {
+        "num": "VII.1",
+        "title": "Remarques générales",
+        "page": 127
+      },
+      {
+        "num": "VII.2",
+        "title": "Résultats d'existence et d'unicité locaux : le théorème de Cauchy-Lipschitz",
+        "page": 128
+      },
+      {
+        "num": "VII.3",
+        "title": "Temps de vie des solutions. Flot global",
+        "page": 134
+      },
+      {
+        "num": "VII.3.1",
+        "title": "Un critère de temps de vie infini (lemme des bouts)",
+        "page": 136
+      },
+      {
+        "num": "VII.4",
+        "title": "Exercices",
+        "page": 137
+      }
+    ]
+  },
+  "results": [
+    {
+      "id": "ch07-reduction-ordre-un",
+      "kind": "formula",
+      "ref": "Formule (VII.1.2)",
+      "title": "Réduction d'une équation d'ordre $k$ à un système d'ordre 1",
+      "page": 127,
+      "statement": "Soit $X : I\\times U \\to \\mathbb R^N$ continue, où $U$ est un ouvert de $(\\mathbb R^N)^k$ et $I$ un intervalle ouvert de $\\mathbb R$. On s'intéresse aux équations différentielles de la forme\n$$\\text{(VII.1.1)}\\qquad \\alpha^{(k)}(t) = X\\big(t,\\alpha(t),\\dots,\\alpha^{(k-1)}(t)\\big)$$\ndont on cherche les solutions $\\alpha$ de classe $C^k$ définies sur un intervalle ouvert $J\\subset I$. En posant $\\alpha_0=\\alpha$, l'équation (VII.1.1) se réécrit\n$$\\alpha_0'(t)=\\alpha_1(t),\\quad \\alpha_1'(t)=\\alpha_2(t),\\quad \\dots,\\quad \\alpha_{k-1}'(t)=X\\big(t,\\alpha_1(t),\\dots,\\alpha_{k-1}(t)\\big)$$\n(tel qu'écrit dans le poly ; en toute rigueur la dernière ligne est $X(t,\\alpha_0(t),\\dots,\\alpha_{k-1}(t))$). Ce procédé permet de ne considérer que des systèmes d'ordre 1. Plus généralement, tout système d'équations différentielles d'ordre quelconque se ramène de cette manière à un système d'ordre un en dimension plus grande, de forme générale $\\alpha_i'(t)=X_i(t,\\alpha_1(t),\\dots,\\alpha_r(t))$, $1\\le i\\le r$, soit de manière abrégée\n$$\\text{(VII.1.2)}\\qquad \\alpha'(t) = X(t,\\alpha(t))$$\noù $t\\mapsto\\alpha(t)=(\\alpha_1(t),\\dots,\\alpha_r(t))$ est de classe $C^1$ d'un intervalle ouvert $J\\subset I$ dans $\\mathbb R^r$ et $X : I\\times U\\to\\mathbb R^r$ ($U$ ouvert de $\\mathbb R^r$) est au moins continue. Sous cette forme, on peut remplacer $\\mathbb R^r$ par un espace de Banach quelconque.",
+      "hypotheses": [
+        "$X$ continue sur $I\\times U$",
+        "$U$ ouvert, $I$ intervalle ouvert",
+        "solutions cherchées de classe $C^k$ sur un intervalle ouvert $J\\subset I$"
+      ],
+      "depends_on": [],
+      "used_by_hint": "Justifie que tout le chapitre ne traite que des systèmes d'ordre 1 ; utilisé dans l'exercice VII.4.13 (KdV : $Q''-Q+Q^p=0$ ramené au plan de phase $(Q,Q')$).",
+      "importance": 2,
+      "proof_in_poly": "sketch",
+      "proof_length": "short",
+      "counterexample_hints": [],
+      "viz_hint": "Une équation d'ordre 2 (pendule, $Q''-Q+Q^3=0$) vue comme champ de vecteurs dans le plan de phase $(q,q')$ : les solutions deviennent des courbes paramétrées du plan."
+    },
+    {
+      "id": "ch07-champ-vecteurs-courbe-integrale-def",
+      "kind": "definition",
+      "ref": "Définition VII.1.1",
+      "title": "Champ de vecteurs dépendant du temps, courbe intégrale, condition initiale",
+      "page": 128,
+      "statement": "On appelle **champ de vecteurs dépendant du temps** sur un ouvert $U$ d'un espace de Banach $E$ une application continue\n$$X : I\\times U \\longrightarrow E,$$\noù $I$ est un intervalle ouvert (non vide) de $\\mathbb R$. On appelle **courbe intégrale de classe $C^p$** du champ de vecteurs $X$ une courbe paramétrée $\\alpha : J\\to U$ de classe $C^p$ définie sur un intervalle ouvert $J$ de $\\mathbb R$ contenu dans $I$ telle que pour tout $t\\in J$,\n$$\\alpha'(t) = X(t,\\alpha(t)).$$\nCette courbe intégrale est dite **de condition initiale** $(t_0,x)\\in J\\times U$ si $\\alpha(t_0)=x$.",
+      "hypotheses": [
+        "$E$ espace de Banach, $U$ ouvert de $E$",
+        "$I$ intervalle ouvert non vide",
+        "$X$ continue",
+        "$J\\subset I$ intervalle ouvert",
+        "$\\alpha$ de classe $C^p$ ($p\\ge1$)"
+      ],
+      "depends_on": [],
+      "used_by_hint": "Vocabulaire de tout le chapitre : une solution de (VII.1.2) est une courbe intégrale de $X$.",
+      "importance": 3,
+      "proof_in_poly": "none",
+      "proof_length": "short",
+      "counterexample_hints": [],
+      "viz_hint": "Champ de vecteurs plan (flèches) et une courbe intégrale tangente aux flèches en chaque point ; curseur sur la condition initiale $(t_0,x)$."
+    },
+    {
+      "id": "ch07-equations-implicites-remarque",
+      "kind": "remark",
+      "ref": "Remarque VII.1.2",
+      "title": "Équations différentielles implicites : hors du cadre, sauf via les fonctions implicites",
+      "page": 128,
+      "statement": "Les équations différentielles « implicites », c'est-à-dire de la forme $f(t,\\alpha(t),\\alpha'(t))=0$, présentent des difficultés qui n'apparaissent pas dans l'étude des équations « ordinaires ». On peut, lorsque $\\dfrac{\\partial f}{\\partial v}(t_0,x_0,v_0)$ est inversible en un point $(t_0,x_0,v_0)$ annulant $f$, utiliser le théorème des fonctions implicites pour se ramener au voisinage de ce point aux théorèmes du cours. Le poly ne fait pas la théorie générale de telles équations.",
+      "hypotheses": [
+        "$f(t_0,x_0,v_0)=0$",
+        "$\\partial f/\\partial v$ inversible en ce point (pour appliquer les fonctions implicites)"
+      ],
+      "depends_on": [
+        "Théorème VI.2.1"
+      ],
+      "used_by_hint": "La Remarque VII.2.5 donne l'exemple $\\alpha'(t)^2-4\\alpha(t)=0$ ayant deux solutions avec $\\alpha(0)=0$.",
+      "importance": 1,
+      "proof_in_poly": "none",
+      "proof_length": "short",
+      "counterexample_hints": [
+        "$\\alpha'^2 = 4\\alpha$, $\\alpha(0)=0$ : $\\partial f/\\partial v = 2v$ s'annule en $v_0=0$ et l'unicité tombe ($\\alpha_1=0$, $\\alpha_2=\\mathrm{signe}(t)t^2$)."
+      ]
+    },
+    {
+      "id": "ch07-localement-lipschitzien-def",
+      "kind": "definition",
+      "ref": "non numéroté, section VII.2, p. 128",
+      "title": "Champ localement lipschitzien en la seconde variable",
+      "page": 128,
+      "statement": "Soit $X : I\\times U\\to E$ un champ de vecteurs. L'hypothèse **localement lipschitzien en la seconde variable** signifie que quel que soit $t_0\\in I$, quel que soit $x_0\\in U$, il existe un voisinage $J_0$ de $t_0$ dans $I$, un voisinage $U_0$ de $x_0$ dans $U$ et une constante $k\\ge0$ tels que quels que soient $t\\in J_0$ et $x_1,x_2\\in U_0$,\n$$\\|X(t,x_1)-X(t,x_2)\\|_E \\le k\\,\\|x_1-x_2\\|_E.$$\n(La constante $k$ est donc uniforme en $t\\in J_0$.)",
+      "hypotheses": [
+        "uniformité locale en $t$ de la constante $k$",
+        "pas d'hypothèse de régularité en $t$ au-delà de la continuité de $X$"
+      ],
+      "depends_on": [],
+      "used_by_hint": "Hypothèse de tous les théorèmes du chapitre (VII.2.1, VII.2.8, VII.3.1, VII.3.9, VII.3.10).",
+      "importance": 2,
+      "proof_in_poly": "none",
+      "proof_length": "short",
+      "counterexample_hints": [
+        "$X(x)=2|x|^{1/2}$ est continue mais pas localement lipschitzienne en $0$ : perte d'unicité (Remarque VII.2.5)."
+      ]
+    },
+    {
+      "id": "ch07-cauchy-lipschitz",
+      "kind": "theorem",
+      "ref": "Théorème VII.2.1",
+      "title": "Théorème de Cauchy-Lipschitz (existence et unicité locales)",
+      "page": 128,
+      "statement": "Soit $X : I\\times U\\to E$ un champ de vecteurs sur un ouvert $U$ d'un espace de Banach $E$. Supposons $X$ localement lipschitzien en la seconde variable. Alors, pour tout $\\tau_0\\in I$ et pour tout $x_0\\in U$, il existe $\\eta>0$, $\\delta>0$ et $\\epsilon>0$ tels que si $x$ est dans $B(x_0,\\eta)$ et $t_0$ est dans $]\\tau_0-\\delta\\,;\\tau_0+\\delta[$, l'équation différentielle avec condition initiale\n$$\\text{(VII.2.1)}\\qquad \\begin{cases}\\alpha'(t)=X(t,\\alpha(t))\\\\ \\alpha(t_0)=x\\end{cases}$$\npossède une unique solution définie sur $]t_0-\\epsilon\\,;t_0+\\epsilon[$. Autrement dit, il existe une unique courbe intégrale $\\alpha=\\alpha_{t_0,x}$ de $X$ définie sur $]t_0-\\epsilon\\,;t_0+\\epsilon[$ et vérifiant $\\alpha(t_0)=x$.",
+      "hypotheses": [
+        "$E$ espace de Banach (complétude indispensable pour le point fixe)",
+        "$U$ ouvert de $E$, $I$ intervalle ouvert",
+        "$X$ continue sur $I\\times U$ (champ de vecteurs)",
+        "$X$ localement lipschitzienne en la seconde variable"
+      ],
+      "depends_on": [
+        "Lemme VII.2.7",
+        "Théorème VI.1.1",
+        "Remarque VII.2.2"
+      ],
+      "used_by_hint": "Base de tout le chapitre ; la version à paramètres VII.2.8 réutilise exactement les mêmes constantes $a,a',k,\\ell,b$ ; l'exercice VII.4.2 redémontre l'unicité par Gronwall.",
+      "importance": 3,
+      "proof_in_poly": "full",
+      "proof_length": "long",
+      "counterexample_hints": [
+        "Sans le caractère lipschitzien : $\\alpha'=2|\\alpha|^{1/2}$, $\\alpha(0)=0$ a les deux solutions $0$ et $\\mathrm{signe}(t)t^2$ (Remarque VII.2.5) ; l'existence subsiste (Peano) mais pas l'unicité.",
+        "Le résultat est local : $\\alpha'=\\alpha^2$, $\\alpha(0)=1$ donne $\\alpha(t)=1/(1-t)$ qui explose en $t=1$ bien que $X$ soit $C^\\infty$.",
+        "Équation implicite $\\alpha'^2=4\\alpha$ : deux solutions issues de $0$."
+      ],
+      "viz_hint": "Boîte $[t_0-b;t_0+b]\\times\\bar B(x_0,2a)$ avec le cône $\\|\\alpha(t)-x_0\\|\\le a+\\ell|t-t_0|<2a$ et les itérées de Picard $\\varphi_{n+1}=S(\\varphi_n)$ convergeant vers la solution."
+    },
+    {
+      "id": "ch07-restriction-domaine-c1-lipschitz",
+      "kind": "remark",
+      "ref": "Remarque VII.2.2",
+      "title": "On peut restreindre $U$ et $I$ ; un champ $C^1$ est localement lipschitzien",
+      "page": 128,
+      "statement": "Le domaine $U$ peut être arbitrairement restreint sans changer la conclusion du théorème VII.2.1. On peut donc supposer que $X$ soit $k$-lipschitzien en la seconde variable pour démontrer le théorème. De même, on peut restreindre l'intervalle $I$. En particulier **le théorème s'applique dès que $X$ est de classe $C^1$** : soit $x_1\\in U$ et $t_1\\in I$. Par continuité de $(t,x)\\mapsto dX_{(t,x)}$, il existe un voisinage $]t_1-a\\,;t_1+a[\\times B(x_1,b)$ de $(t_1,x_1)$ contenu dans $I\\times U$, et une constante $k\\ge0$ telle que $\\|dX_{(t,x)}\\|\\le k$ pour tout $(t,x)$ dans ce voisinage. Le théorème des accroissements finis implique alors que $X$ est $k$-lipschitzien sur $]t_1-a\\,;t_1+a[\\times B(x_1,b)$ et en particulier $k$-lipschitzien en la seconde variable.",
+      "hypotheses": [
+        "$X$ de classe $C^1$ sur $I\\times U$",
+        "convexité de la boule $B(x_1,b)$ pour appliquer les accroissements finis"
+      ],
+      "depends_on": [
+        "Théorème V.4.4"
+      ],
+      "used_by_hint": "Utilisée au début de la preuve de VII.2.1 ; c'est le critère pratique pour appliquer Cauchy-Lipschitz à un champ $C^1$ ou $C^\\infty$ (exercices VII.4.3 à VII.4.13).",
+      "importance": 2,
+      "proof_in_poly": "full",
+      "proof_length": "short",
+      "counterexample_hints": [
+        "$C^1$ n'est pas nécessaire : $X(x)=|x|$ est lipschitzienne mais pas $C^1$ ; la réciproque (lipschitz $\\Rightarrow C^1$) est fausse."
+      ]
+    },
+    {
+      "id": "ch07-uniformite-epsilon-remarque",
+      "kind": "remark",
+      "ref": "Remarque VII.2.3",
+      "title": "Pourquoi la longueur $2\\epsilon$ de l'intervalle d'existence est uniforme",
+      "page": 129,
+      "statement": "La complication apparente de l'énoncé du théorème VII.2.1 vient de ce que l'on souhaite l'existence d'une solution dont la taille du domaine de définition, en l'occurrence $2\\epsilon$, soit indépendante de $t_0$ et $x$ (pour $x\\in B(x_0,\\eta)$, $t_0\\in\\,]\\tau_0-\\delta;\\tau_0+\\delta[$). Cela a son importance ultérieurement, lorsqu'on considère les solutions de manière collective (flot).",
+      "hypotheses": [],
+      "depends_on": [],
+      "used_by_hint": "Clé de la Définition VII.2.9 du flot local (l'ensemble $\\mathcal E$ a une largeur $2\\epsilon$ constante) et de la preuve du lemme des bouts VII.3.10 (compacité fournit un $\\epsilon$ uniforme sur $K$).",
+      "importance": 1,
+      "proof_in_poly": "none",
+      "proof_length": "short",
+      "counterexample_hints": []
+    },
+    {
+      "id": "ch07-intervalle-centre-tau0-remarque",
+      "kind": "remark",
+      "ref": "Remarque VII.2.4",
+      "title": "Intervalle d'existence centré en $\\tau_0$ plutôt qu'en $t_0$",
+      "page": 129,
+      "statement": "On veut parfois obtenir l'existence des solutions sur un intervalle de définition $]\\tau_0-\\epsilon'\\,;\\tau_0+\\epsilon'[$ centré en $\\tau_0$ plutôt qu'en $t_0$. Cela n'offre pas de difficulté supplémentaire, car si $|t_0-\\tau_0|\\le\\epsilon/2$, on a $]\\tau_0-\\epsilon/2\\,;\\tau_0+\\epsilon/2[\\subset\\,]t_0-\\epsilon\\,;t_0+\\epsilon[$.",
+      "hypotheses": [
+        "$|t_0-\\tau_0|\\le\\epsilon/2$"
+      ],
+      "depends_on": [
+        "Théorème VII.2.1"
+      ],
+      "used_by_hint": "Technique reprise dans la preuve de VII.2.8 (réduction à $t_0=\\tau_0$ par translation, condition $\\epsilon+\\delta\\le a'$).",
+      "importance": 1,
+      "proof_in_poly": "full",
+      "proof_length": "short",
+      "counterexample_hints": []
+    },
+    {
+      "id": "ch07-peano-non-unicite",
+      "kind": "remark",
+      "ref": "Remarque VII.2.5",
+      "title": "Théorème de Peano et contre-exemple à l'unicité : $\\alpha'=2|\\alpha|^{1/2}$",
+      "page": 129,
+      "statement": "Un théorème de Peano affirme qu'il suffit que $X$ soit continue pour qu'il existe une solution. Mais elle n'est alors pas nécessairement unique, comme le montre l'exemple\n$$\\alpha'(t)=2|\\alpha(t)|^{1/2},\\qquad \\alpha(0)=0 :$$\non a alors deux solutions, $\\alpha_1(t)=0$ et $\\alpha_2(t)=\\mathrm{signe}(t)\\,t^2$. Cet exemple montre aussi que le théorème n'est pas vrai pour des équations implicites $f(t,\\alpha(t),\\alpha'(t))=0$, puisque l'équation $\\alpha'(t)^2-4\\alpha(t)=0$ possède deux solutions telles que $\\alpha(0)=0$.",
+      "hypotheses": [
+        "$X$ seulement continue (Peano : existence sans unicité ; non démontré dans le poly)"
+      ],
+      "depends_on": [],
+      "used_by_hint": "Contre-exemple de référence pour le rôle de l'hypothèse lipschitzienne dans VII.2.1 ; à connaître pour l'examen.",
+      "importance": 2,
+      "proof_in_poly": "none",
+      "proof_length": "short",
+      "counterexample_hints": [
+        "Il y a en fait une infinité de solutions : $\\alpha_c(t)=0$ pour $t\\le c$ et $(t-c)^2$ pour $t\\ge c$, $c\\ge0$ (vérification directe)."
+      ],
+      "viz_hint": "Faisceau de solutions de $\\alpha'=2|\\alpha|^{1/2}$ issues de $0$ : la solution nulle puis des paraboles qui décollent à des instants $c$ arbitraires."
+    },
+    {
+      "id": "ch07-equation-autonome-def",
+      "kind": "remark",
+      "ref": "Remarque VII.2.6",
+      "title": "Équations autonomes (champ indépendant du temps)",
+      "page": 129,
+      "statement": "Un cas particulier important est celui où le champ de vecteurs ne dépend pas du temps, c'est-à-dire $X : U\\to E$, continue (et localement lipschitzienne dans l'énoncé du théorème VII.2.1). Dans la théorie des équations différentielles, on parle d'**équations autonomes**. (On le voit comme champ dépendant du temps en posant $X(t,x)=X(x)$ sur $I=\\mathbb R$.)",
+      "hypotheses": [
+        "$X$ ne dépend pas de $t$"
+      ],
+      "depends_on": [],
+      "used_by_hint": "Cadre des Théorèmes VII.3.5 et VII.3.10 (lemme des bouts), de la Remarque VII.3.6 (groupe à un paramètre) et de la plupart des exercices.",
+      "importance": 2,
+      "proof_in_poly": "none",
+      "proof_length": "short",
+      "counterexample_hints": []
+    },
+    {
+      "id": "ch07-lemme-operateur-integral",
+      "kind": "lemma",
+      "ref": "Lemme VII.2.7",
+      "title": "Estimations pour l'opérateur intégral (de Picard)",
+      "page": 130,
+      "statement": "Soient $E$ un espace de Banach, $x_0\\in E$, $\\rho>0$, $c\\in\\mathbb R$ et $\\epsilon>0$. Soit\n$$Y : [c-\\epsilon\\,;c+\\epsilon]\\times\\bar B(x_0,2\\rho)\\longrightarrow E$$\nune application continue, majorée en norme par une constante $\\ell>0$ et $k$-lipschitzienne en la seconde variable, avec $k>0$. Posons\n$$\\mathcal X = C^0\\big([c-\\epsilon\\,;c+\\epsilon],\\bar B(x_0,2\\rho)\\big),$$\nmuni de la norme de la convergence uniforme $\\|\\cdot\\|_\\infty$. Alors $\\mathcal X$ est un fermé convexe de l'espace de Banach $C^0([c-\\epsilon\\,;c+\\epsilon],E)$, donc un espace métrique complet, et si\n$$\\epsilon\\,\\ell\\le\\rho\\qquad\\text{et}\\qquad \\epsilon\\,k\\le\\tfrac12,$$\nalors, pour tout $x\\in\\bar B(x_0,\\rho)$, l'opérateur\n$$T_x : \\varphi\\longmapsto\\Big(t\\mapsto x+\\int_c^t Y(s,\\varphi(s))\\,ds\\Big)$$\nenvoie $\\mathcal X$ dans $\\mathcal X$ et y est $\\tfrac12$-lipschitzien :\n$$\\|T_x(\\varphi_1)-T_x(\\varphi_2)\\|_\\infty\\le\\tfrac12\\|\\varphi_1-\\varphi_2\\|_\\infty.$$",
+      "hypotheses": [
+        "$E$ Banach (pour que $C^0([c-\\epsilon;c+\\epsilon],E)$ soit complet)",
+        "$Y$ continue et bornée par $\\ell$ sur la boîte",
+        "$Y$ $k$-lipschitzienne en la seconde variable",
+        "$\\epsilon\\ell\\le\\rho$ (stabilité de $\\mathcal X$)",
+        "$\\epsilon k\\le 1/2$ (contraction)",
+        "$x\\in\\bar B(x_0,\\rho)$ : marge $\\rho$ entre la boule des conditions initiales et la boule cible de rayon $2\\rho$"
+      ],
+      "depends_on": [],
+      "used_by_hint": "Utilisé dans la preuve de VII.2.1 (avec $c=t_0$, $\\rho=a$, $\\epsilon=b$) et dans celle de VII.2.8 (avec $c=\\tau_0$, $\\rho=\\eta$, $Y=\\tilde X_{\\lambda,t_0}$).",
+      "importance": 2,
+      "proof_in_poly": "full",
+      "proof_length": "medium",
+      "counterexample_hints": [
+        "Sans la marge $\\rho$ (si l'on prenait la boule cible de rayon $\\rho$), $T_x(\\varphi)$ pourrait sortir de la boule : l'estimation $\\|T_x\\varphi(t)-x_0\\|\\le\\|x-x_0\\|+\\epsilon\\ell$ a besoin de $\\|x-x_0\\|\\le\\rho$ ET de $\\epsilon\\ell\\le\\rho$."
+      ],
+      "viz_hint": "Image de la boule $\\mathcal X$ par $T_x$ : un tube de rayon $2\\rho$ autour de $x_0$, les graphes $\\varphi$ et $T_x\\varphi$, et la contraction de la distance uniforme d'un facteur $1/2$."
+    },
+    {
+      "id": "ch07-equation-integrale",
+      "kind": "formula",
+      "ref": "Formule (VII.2.2)",
+      "title": "Équivalence entre le problème de Cauchy et l'équation intégrale",
+      "page": 130,
+      "statement": "Pour $X$ continue, une fonction continue $\\alpha$ définie sur un intervalle contenant $t_0$ est solution de (VII.2.1) ($\\alpha$ de classe $C^1$, $\\alpha'(t)=X(t,\\alpha(t))$, $\\alpha(t_0)=x$) si et seulement si\n$$\\text{(VII.2.2)}\\qquad \\alpha(t)=x+\\int_{t_0}^t X(s,\\alpha(s))\\,ds .$$\nLes solutions sont donc les points fixes de l'opérateur $S_{t_0,x} : \\varphi\\mapsto\\big(t\\mapsto x+\\int_{t_0}^t X(s,\\varphi(s))\\,ds\\big)$.",
+      "hypotheses": [
+        "$X$ continue (pour que $t\\mapsto X(t,\\alpha(t))$ soit continue et que le théorème fondamental de l'analyse s'applique)"
+      ],
+      "depends_on": [],
+      "used_by_hint": "Point de départ des preuves de VII.2.1 et VII.2.8 ; de l'exercice VII.4.1 (Gronwall) et VII.4.3 (2).",
+      "importance": 2,
+      "proof_in_poly": "sketch",
+      "proof_length": "short",
+      "counterexample_hints": []
+    },
+    {
+      "id": "ch07-cauchy-lipschitz-parametres",
+      "kind": "theorem",
+      "ref": "Théorème VII.2.8",
+      "title": "Théorème de Cauchy-Lipschitz à paramètres (dépendance $C^p$ en $(\\lambda,t_0,x)$)",
+      "page": 131,
+      "statement": "Soit $X : \\Lambda\\times I\\times U\\to E$ une application de classe $C^p$, $p\\ge0$, où $\\Lambda$ est un ouvert d'un espace métrique si $p=0$ et d'un espace de Banach si $p\\ge1$, $I$ est un intervalle ouvert de $\\mathbb R$ et $U$ est un ouvert d'un espace de Banach $E$ (on voit $X$ comme une famille $(X_\\lambda)_{\\lambda\\in\\Lambda}$ de champs de vecteurs sur $U$). Supposons $X$ localement lipschitzien en la variable $x\\in U$. Notons $X(\\lambda,t,x)=X_\\lambda(t,x)$. Alors, pour tout $\\lambda_0\\in\\Lambda$, pour tout $\\tau_0\\in I$ et pour tout $x_0\\in U$, il existe $\\sigma>0$, $\\eta>0$, $\\delta>0$ et $\\epsilon>0$ tels que si $\\lambda\\in B(\\lambda_0,\\sigma)$, $x$ est dans $B(x_0,\\eta)$ et $t_0$ est dans $]\\tau_0-\\delta\\,;\\tau_0+\\delta[$, l'équation différentielle avec condition initiale\n$$\\text{(VII.2.3)}\\qquad\\begin{cases}\\alpha'(t)=X_\\lambda(t,\\alpha(t))\\\\ \\alpha(t_0)=x\\end{cases}$$\npossède une unique solution $\\alpha_{\\lambda,t_0,x}$ définie sur $]t_0-\\epsilon\\,;t_0+\\epsilon[$. Notons\n$$\\mathcal E=\\{(t_0,t)\\in\\,]\\tau_0-\\delta,\\tau_0+\\delta[\\times\\mathbb R\\ |\\ t\\in\\,]t_0-\\epsilon,t_0+\\epsilon[\\}.$$\nC'est un ouvert connexe de $\\mathbb R^2$. L'application $F : (\\lambda,t_0,t,x)\\mapsto\\alpha_{\\lambda,t_0,x}(t)$ définie sur $B(\\lambda_0,\\sigma)\\times\\mathcal E\\times B(x_0,\\eta)$ est de classe $C^p$, et de classe $C^{p+1}$ en $t$.",
+      "hypotheses": [
+        "$X$ de classe $C^p$ en $(\\lambda,t,x)$, $p\\ge0$",
+        "$\\Lambda$ ouvert d'un espace métrique ($p=0$) ou d'un Banach ($p\\ge1$)",
+        "$X$ localement lipschitzien en $x$, uniformément en $(\\lambda,t)$ au voisinage de chaque point",
+        "$E$ Banach, $U$ ouvert, $I$ intervalle ouvert"
+      ],
+      "depends_on": [
+        "Lemme VII.2.7",
+        "Théorème VI.1.2",
+        "Théorème VI.1.4",
+        "Exercice V.6.6",
+        "Théorème VII.2.1"
+      ],
+      "used_by_hint": "Reformulé en Théorème VII.2.12 (flot local) ; la régularité $C^p$ du flot global (Théorème VII.3.9 b.) en découle. La condition initiale $x$ et l'instant initial $t_0$ sont traités comme des paramètres.",
+      "importance": 3,
+      "proof_in_poly": "full",
+      "proof_length": "long",
+      "counterexample_hints": [
+        "La régularité en $t$ est $C^{p+1}$ mais pas davantage en général, et $F$ n'est pas $C^{p+1}$ en $(\\lambda,x)$ : pour $\\alpha'=\\lambda$, $\\alpha(0)=x$, $F=x+\\lambda t$ ; pour $X_\\lambda(x)=|\\lambda|$ ($C^0$, lipschitz en $x$), $F=x+|\\lambda|t$ n'est pas $C^1$ en $\\lambda$.",
+        "Pour $p=0$, seule la continuité de $F$ est obtenue (version I du point fixe à paramètre)."
+      ],
+      "viz_hint": "Famille de solutions de $\\alpha'=X_\\lambda(\\alpha)$ (par exemple $\\alpha'=\\lambda\\alpha$) : curseurs sur $\\lambda$ et $x$, la courbe se déforme continûment/différentiablement."
+    },
+    {
+      "id": "ch07-flot-local-def",
+      "kind": "definition",
+      "ref": "Définition VII.2.9",
+      "title": "Flot local en $(\\lambda_0,\\tau_0,x_0)$",
+      "page": 133,
+      "statement": "Un **flot local** en $(\\lambda_0,\\tau_0,x_0)$ de $X$ est la donnée d'un voisinage ouvert $W$ de $\\lambda_0$ dans $\\Lambda$, d'un voisinage ouvert $U'$ de $x_0$ dans $U$, d'un intervalle ouvert $J$ contenant $\\tau_0$ et contenu dans $I$, d'une constante $\\epsilon>0$ et d'une application\n$$F : W\\times\\mathcal E\\times U'\\to U,$$\noù\n$$\\mathcal E=\\mathcal E(J,\\epsilon)=\\{(t_0,t)\\in J\\times\\mathbb R\\ |\\ t\\in\\,]t_0-\\epsilon,t_0+\\epsilon[\\},$$\ntels que pour tout $\\lambda\\in W$, pour tout $t_0\\in J$, pour tout $x\\in U'$,\n$$t\\mapsto\\alpha_{\\lambda,t_0,x}(t)=F(\\lambda,t_0,t,x)$$\nsoit l'unique courbe intégrale de $X_\\lambda$ définie sur $]t_0-\\epsilon,t_0+\\epsilon[$ de condition initiale $(t_0,x)$.",
+      "hypotheses": [
+        "$X : \\Lambda\\times I\\times U\\to E$ famille de champs de vecteurs",
+        "$\\epsilon$ indépendant de $(\\lambda,t_0,x)$"
+      ],
+      "depends_on": [
+        "Théorème VII.2.8"
+      ],
+      "used_by_hint": "Théorème VII.2.12 (existence), Proposition VII.2.11, preuves de VII.3.1, VII.3.9 et VII.3.10.",
+      "importance": 2,
+      "proof_in_poly": "none",
+      "proof_length": "short",
+      "counterexample_hints": [],
+      "viz_hint": "Le domaine $\\mathcal E$ : bande diagonale de largeur $2\\epsilon$ autour de $t=t_0$ dans le plan $(t_0,t)$, et au-dessus de chaque point la position $F(\\lambda,t_0,t,x)$."
+    },
+    {
+      "id": "ch07-flot-local-remarque-domaine",
+      "kind": "remark",
+      "ref": "Remarque VII.2.10",
+      "title": "Longueur uniforme et connexité de $\\mathcal E$",
+      "page": 133,
+      "statement": "La longueur de l'intervalle de définition de la courbe intégrale $\\alpha_{\\lambda,t_0,x}$ est indépendante de $\\lambda\\in W$, $t_0\\in J$ et $x\\in U'$. L'ensemble $\\mathcal E$ est un ouvert connexe de $\\mathbb R^2$.",
+      "hypotheses": [],
+      "depends_on": [
+        "Définition VII.2.9"
+      ],
+      "used_by_hint": "Permet d'appliquer les arguments de connexité dans la section VII.3.",
+      "importance": 1,
+      "proof_in_poly": "none",
+      "proof_length": "short",
+      "counterexample_hints": []
+    },
+    {
+      "id": "ch07-flot-local-equation",
+      "kind": "proposition",
+      "ref": "Proposition VII.2.11",
+      "title": "Équations vérifiées par un flot local",
+      "page": 133,
+      "statement": "Un flot local $F$ comme dans la Définition VII.2.9 vérifie, pour tout $(\\lambda,t_0,t,x)$ dans le domaine de définition de $F$,\n$$\\frac{\\partial F}{\\partial t}(\\lambda,t_0,t,x)=X(t,F(\\lambda,t_0,t,x)),\\qquad F(\\lambda,t_0,t_0,x)=x.$$\n(Dans la première formule, $X$ désigne $X_\\lambda$.)",
+      "hypotheses": [
+        "$F$ flot local (Définition VII.2.9)"
+      ],
+      "depends_on": [
+        "Définition VII.2.9"
+      ],
+      "used_by_hint": "Formules (VII.3.3)-(VII.3.4) pour le flot global ; exercice VII.4.8 (dérivée de $\\det d(F_t)_x$) et VII.4.12 (transport).",
+      "importance": 2,
+      "proof_in_poly": "none",
+      "proof_length": "short",
+      "counterexample_hints": []
+    },
+    {
+      "id": "ch07-existence-flot-local",
+      "kind": "theorem",
+      "ref": "Théorème VII.2.12",
+      "title": "Existence et unicité du flot local ; régularité $C^p$",
+      "page": 133,
+      "statement": "Soient $X : \\Lambda\\times I\\times U\\to E$ comme dans le théorème VII.2.8 (de classe $C^p$, $p\\ge0$, localement lipschitzien en $x$) et $(\\lambda_0,\\tau_0,x_0)\\in\\Lambda\\times I\\times U$. Alors il existe un voisinage ouvert $W$ de $\\lambda_0$ dans $\\Lambda$, un intervalle $J$ ouvert contenant $\\tau_0$, un voisinage ouvert $U'$ de $x_0$ dans $U$ et une constante $\\epsilon>0$ définissant un flot local $F$ en $(\\lambda_0,\\tau_0,x_0)$. Si le champ de vecteurs $X$ est de classe $C^p$, alors $F$ aussi et de classe $C^{p+1}$ en $t$.\n\nL'énoncé d'unicité est le suivant : soient $\\lambda\\in W$, $t_0\\in J$, $x\\in U'$. Si\n$$\\gamma : ]t_0-\\epsilon',t_0+\\epsilon'[\\to E$$\navec $\\epsilon'\\le\\epsilon$ vérifie $\\gamma'(t)=X_\\lambda(t,\\gamma(t))$ et $\\gamma(t_0)=x$, alors $\\gamma(t)=\\alpha_{\\lambda,t_0,x}(t)=F(\\lambda,t_0,t,x)$ pour tout $t\\in\\,]t_0-\\epsilon',t_0+\\epsilon'[$.",
+      "hypotheses": [
+        "$X$ de classe $C^p$ et localement lipschitzien en $x$ (hypothèses de VII.2.8)",
+        "unicité : $\\gamma$ définie sur un sous-intervalle $]t_0-\\epsilon',t_0+\\epsilon'[$, $\\epsilon'\\le\\epsilon$, même condition initiale"
+      ],
+      "depends_on": [
+        "Théorème VII.2.8",
+        "Définition VII.2.9"
+      ],
+      "used_by_hint": "C'est la forme utilisée dans toute la section VII.3 : Proposition VII.3.1 (ouverture de l'ensemble de coïncidence), Théorème VII.3.9 (A non vide, A fermé), Théorème VII.3.10 (recouvrement de $K$ par des flots locaux).",
+      "importance": 3,
+      "proof_in_poly": "sketch",
+      "proof_length": "short",
+      "counterexample_hints": [
+        "L'unicité locale tombe sans lipschitz : $\\alpha'=2|\\alpha|^{1/2}$ (Remarque VII.2.5)."
+      ],
+      "viz_hint": "Même visualisation que pour VII.2.8 : grille de conditions initiales $(t_0,x)$ dans $J\\times U'$ et faisceau des courbes intégrales de longueur $2\\epsilon$ ; la surface $(t_0,t,x)\\mapsto F$."
+    },
+    {
+      "id": "ch07-sans-parametre-remarque",
+      "kind": "remark",
+      "ref": "Remarque VII.2.13",
+      "title": "Cas sans paramètre $\\lambda$",
+      "page": 133,
+      "statement": "Souvent on étudie des équations différentielles où le champ de vecteurs est sans dépendance en un paramètre $\\lambda$. On reformule facilement les résultats précédents (Théorèmes VII.2.8, VII.2.12, Définition VII.2.9) sans cette dépendance : un flot local en $(\\tau_0,x_0)$ est alors la donnée de $J$, $\\epsilon$, $U'$ et $F : \\mathcal E(J,\\epsilon)\\times U'\\to U$, $(t_0,t,x)\\mapsto\\alpha_{t_0,x}(t)$.",
+      "hypotheses": [],
+      "depends_on": [
+        "Théorème VII.2.12"
+      ],
+      "used_by_hint": "Cadre adopté dans toute la section VII.3 (la preuve de VII.3.9 note un flot local $(J_1,2\\epsilon_1,U_1,F)$).",
+      "importance": 1,
+      "proof_in_poly": "none",
+      "proof_length": "short",
+      "counterexample_hints": []
+    },
+    {
+      "id": "ch07-unicite-globale",
+      "kind": "proposition",
+      "ref": "Proposition VII.3.1",
+      "title": "Unicité globale : deux courbes intégrales de même condition initiale coïncident sur l'intersection de leurs domaines",
+      "page": 134,
+      "statement": "Soit $U$ un ouvert d'un espace de Banach $E$. Soit $X : I\\times U\\to E$ un champ de vecteurs dépendant du temps. Supposons que $X$ soit localement lipschitzien en la seconde variable, de sorte que le théorème VII.2.12 s'applique. Soient $(\\tau_0,x_0)\\in I\\times U$ et $\\alpha_1$ et $\\alpha_2$, définies respectivement sur des intervalles ouverts $J_1$ et $J_2$ contenus dans $I$ et contenant $\\tau_0$, des courbes intégrales de $X$ ayant même condition initiale $(\\tau_0,x_0)$. Alors elles coïncident sur $J_1\\cap J_2$.",
+      "hypotheses": [
+        "$X$ continue et localement lipschitzien en la seconde variable",
+        "$J_1$, $J_2$ intervalles ouverts contenant $\\tau_0$ (donc $J_1\\cap J_2$ est un intervalle ouvert non vide, connexe)",
+        "même condition initiale $(\\tau_0,x_0)$"
+      ],
+      "depends_on": [
+        "Théorème VII.2.12"
+      ],
+      "used_by_hint": "Fonde la Définition VII.3.3 de la courbe intégrale maximale (recollement) ; utilisée implicitement dans les preuves de VII.3.7 et VII.3.10 (deux solutions de même condition initiale coïncident).",
+      "importance": 3,
+      "proof_in_poly": "full",
+      "proof_length": "short",
+      "counterexample_hints": [
+        "Sans lipschitz : $\\alpha_1=0$ et $\\alpha_2=\\mathrm{signe}(t)t^2$ sont deux courbes intégrales de $\\alpha'=2|\\alpha|^{1/2}$ issues de $(0,0)$ définies sur $\\mathbb R$ et ne coïncident pas (Remarque VII.2.5)."
+      ]
+    },
+    {
+      "id": "ch07-autonome-i-egal-r-remarque",
+      "kind": "remark",
+      "ref": "Remarque VII.3.2",
+      "title": "Cas autonome : on prend $I=\\mathbb R$",
+      "page": 134,
+      "statement": "Quand le champ de vecteurs $X$ ne dépend pas du temps, on prend bien sûr $I=\\mathbb R$ dans la proposition VII.3.1.",
+      "hypotheses": [],
+      "depends_on": [],
+      "used_by_hint": "Convention utilisée dans les Définitions VII.3.3-VII.3.4 (cas autonome : $I=\\mathbb R$, $\\tau_0=0$).",
+      "importance": 1,
+      "proof_in_poly": "none",
+      "proof_length": "short",
+      "counterexample_hints": []
+    },
+    {
+      "id": "ch07-courbe-integrale-maximale-def",
+      "kind": "definition",
+      "ref": "Définition VII.3.3",
+      "title": "Intervalle $J_{\\tau_0}(x_0)$ et courbe intégrale maximale",
+      "page": 134,
+      "statement": "Soit $U$ un ouvert d'un espace de Banach $E$. Soit $X : I\\times U\\to E$ un champ de vecteurs dépendant du temps. Supposons que $X$ soit localement lipschitzien en la seconde variable. Soit $(\\tau_0,x_0)\\in I\\times U$. Définissons $J_{\\tau_0}(x_0)$ comme l'union de tous les intervalles ouverts $J$ contenant $\\tau_0$ tels qu'il existe une courbe intégrale $\\alpha : J\\to U$ de condition initiale $(\\tau_0,x_0)$. La Proposition VII.3.1 montre qu'il existe une unique courbe intégrale $\\alpha_{\\tau_0,x_0}$ de condition initiale $(\\tau_0,x_0)$ définie sur $J_{\\tau_0}(x_0)$. On appelle cette courbe intégrale la **courbe intégrale maximale** de $X$ de condition initiale $(\\tau_0,x_0)$.",
+      "hypotheses": [
+        "$X$ localement lipschitzien en la seconde variable (sinon l'unicité tombe et le recollement n'est pas défini)",
+        "$J_{\\tau_0}(x_0)$ est un intervalle ouvert contenant $\\tau_0$, contenu dans $I$"
+      ],
+      "depends_on": [
+        "Proposition VII.3.1",
+        "Théorème VII.2.1"
+      ],
+      "used_by_hint": "Définition VII.3.4 (flot global), Théorèmes VII.3.5, VII.3.9, VII.3.10.",
+      "importance": 3,
+      "proof_in_poly": "sketch",
+      "proof_length": "short",
+      "counterexample_hints": [
+        "$J_{\\tau_0}(x_0)$ peut être strictement plus petit que $I$ : $\\alpha'=\\alpha^2$, $\\alpha(0)=1$ : $J_0(1)=\\,]-\\infty,1[$."
+      ],
+      "viz_hint": "Recollement : plusieurs courbes intégrales locales de même condition initiale se superposent sur leurs intersections ; leur réunion est la courbe maximale, dont l'intervalle est ouvert."
+    },
+    {
+      "id": "ch07-flot-global-def",
+      "kind": "definition",
+      "ref": "Définition VII.3.4",
+      "title": "Flot global $F : D\\to U$ et son domaine $D$",
+      "page": 134,
+      "statement": "Posons\n$$D=\\{(\\tau_0,t,x_0)\\in I\\times I\\times U\\ |\\ t\\in J_{\\tau_0}(x_0)\\}.$$\nL'application\n$$F : D\\to U,\\qquad F(\\tau_0,t,x_0)=\\alpha_{\\tau_0,x_0}(t)$$\noù $\\alpha_{\\tau_0,x_0}$ est la courbe intégrale maximale de $X$ de condition initiale $(\\tau_0,x_0)$, définie sur $J_{\\tau_0}(x_0)$, est appelée **flot global** de $X$, et $D$ est son domaine de définition. Pour tout $\\tau_0\\in I$, on pose\n$$D_{\\tau_0}=\\{(t,x_0)\\in I\\times U\\ |\\ t\\in J_{\\tau_0}(x_0)\\}.$$\nDans le cas où le champ de vecteurs $X$ est indépendant du temps, on simplifie les notations : on prend $I=\\mathbb R$, on fixe $\\tau_0=0$, et l'on note simplement $J(x_0)$ pour $J_0(x_0)$, $F(t,x_0)$ pour $F(0,t,x_0)$, etc. Si $I$ est un intervalle de $\\mathbb R$ et $c\\in\\mathbb R$, on note $I+c$ l'intervalle $\\{t\\in\\mathbb R\\ ;\\ t-c\\in I\\}$.",
+      "hypotheses": [
+        "$X$ localement lipschitzien en la seconde variable (pour que les courbes maximales existent)"
+      ],
+      "depends_on": [
+        "Définition VII.3.3"
+      ],
+      "used_by_hint": "Objet central de la section VII.3 : Théorèmes VII.3.5, VII.3.7, VII.3.9, Corollaire VII.3.8 ; exercices VII.4.8, VII.4.10, VII.4.12.",
+      "importance": 3,
+      "proof_in_poly": "none",
+      "proof_length": "short",
+      "counterexample_hints": [
+        "$D\\ne I\\times I\\times U$ en général : pour $\\alpha'=\\alpha^2$ sur $U=\\mathbb R$, $D_0=\\{(t,x)\\ :\\ tx<1\\}$."
+      ],
+      "viz_hint": "Pour $\\alpha'=\\alpha^2$ : le domaine $D_0=\\{tx<1\\}$ dans le plan $(t,x)$ (ouvert, bordé par l'hyperbole) et le graphe de $F(t,x)=x/(1-tx)$ au-dessus."
+    },
+    {
+      "id": "ch07-translation-temps-autonome",
+      "kind": "theorem",
+      "ref": "Théorème VII.3.5",
+      "title": "Invariance par translation en temps (champ autonome)",
+      "page": 135,
+      "statement": "Soit $U$ un ouvert d'un espace de Banach $E$. Soit $X : U\\to E$ un champ de vecteurs qui ne dépend pas du temps et lipschitzien. Soient $x_0\\in U$ et $\\alpha$ la courbe intégrale maximale de condition initiale $x_0$ définie sur l'intervalle $J(x_0)$. Soit $t_1\\in J(x_0)$. Alors la courbe intégrale\n$$\\beta : J(x_0)-t_1\\to U,\\qquad t\\mapsto\\beta(t)=\\alpha(t+t_1)$$\nest la courbe intégrale maximale de $X$ de condition initiale $x_1=\\alpha(t_1)$ (c'est-à-dire $J(\\alpha(t_1))=J(x_0)-t_1$ et $\\alpha_{x_1}(t)=\\alpha_{x_0}(t+t_1)$).",
+      "hypotheses": [
+        "$X$ autonome (ne dépend pas de $t$) : c'est ce qui rend $t\\mapsto\\alpha(t+t_1)$ encore courbe intégrale",
+        "$X$ lipschitzien (le poly écrit « lipschitzien » ; localement lipschitzien suffit pour l'unicité utilisée)",
+        "$t_1\\in J(x_0)$"
+      ],
+      "depends_on": [
+        "Proposition VII.3.1",
+        "Définition VII.3.3"
+      ],
+      "used_by_hint": "Remarque VII.3.6 (propriété de groupe (VII.3.1)) ; preuve du lemme des bouts VII.3.10 ($t\\mapsto\\beta(t+b-\\epsilon)$ est une courbe intégrale) ; exercice VII.4.5 (homogénéité $\\phi(\\lambda t,a)=\\phi(t,\\lambda a)$).",
+      "importance": 2,
+      "proof_in_poly": "none",
+      "proof_length": "short",
+      "counterexample_hints": [
+        "Faux pour un champ dépendant du temps : $\\alpha'=2t$, $\\alpha(0)=0$ donne $\\alpha=t^2$, mais $t\\mapsto\\alpha(t+1)=(t+1)^2$ n'est pas solution de $\\beta'=2t$. La bonne formule est alors le Théorème VII.3.7."
+      ],
+      "viz_hint": "Trajectoire d'un champ autonome : partir de $x_0$ à $t=0$ ou de $\\alpha(t_1)$ à $t=0$ parcourt la même orbite, seul le paramétrage est décalé."
+    },
+    {
+      "id": "ch07-groupe-un-parametre",
+      "kind": "remark",
+      "ref": "Remarque VII.3.6",
+      "title": "Propriété de groupe du flot autonome : $F_s\\cdot(F_t\\cdot x)=F_{t+s}\\cdot x$",
+      "page": 135,
+      "statement": "Reformulation du théorème VII.3.5 : posons pour tout $(t,x)\\in D_0$,\n$$F_t\\cdot x=\\alpha_x(t)=F(t,x),$$\noù $\\alpha_x$ est la courbe intégrale maximale de $X$ (autonome, lipschitzien) de condition initiale $x$. On a alors, lorsque $(t,x)$ et $(s,F_t\\cdot x)$ sont dans $D_0$,\n$$\\text{(VII.3.1)}\\qquad F_s\\cdot(F_t\\cdot x)=F_{t+s}\\cdot x.$$\nSi $D_0=\\mathbb R\\times U$, $F_t$ est défini pour tout $t\\in\\mathbb R$, et $t\\mapsto F_t$ est un morphisme de groupes de $(\\mathbb R,+)$ dans le groupe des bijections de $U$.",
+      "hypotheses": [
+        "$X$ autonome, lipschitzien",
+        "$(t,x)\\in D_0$ et $(s,F_t\\cdot x)\\in D_0$ (la formule n'a de sens que là où les deux membres sont définis)",
+        "$D_0=\\mathbb R\\times U$ pour obtenir un vrai groupe à un paramètre"
+      ],
+      "depends_on": [
+        "Théorème VII.3.5"
+      ],
+      "used_by_hint": "Exercice VII.4.3 (sous-groupes à un paramètre $t\\mapsto\\exp tX$ de $GL(n,K)$), VII.4.8 (difféomorphismes $F_t$ préservant le volume), VII.4.10.",
+      "importance": 3,
+      "proof_in_poly": "sketch",
+      "proof_length": "short",
+      "counterexample_hints": [
+        "Si $D_0\\ne\\mathbb R\\times U$, $F_t$ n'est pas défini sur tout $U$ : pour $\\alpha'=\\alpha^2$, $F_t\\cdot x=x/(1-tx)$ n'est défini que pour $tx<1$ ; la relation (VII.3.1) reste vraie là où elle a un sens."
+      ],
+      "viz_hint": "Grille de points de $U$ transportée par $F_t$ (curseur $t$) ; composer $F_s\\circ F_t$ et comparer à $F_{s+t}$ ; les $F_t$ sont des bijections (difféomorphismes) de $U$ quand $D_0=\\mathbb R\\times U$."
+    },
+    {
+      "id": "ch07-composition-flot",
+      "kind": "theorem",
+      "ref": "Théorème VII.3.7",
+      "title": "Formule de composition du flot (champ dépendant du temps)",
+      "page": 135,
+      "statement": "Soit $X : I\\times U\\to E$ un champ de vecteurs dépendant du temps, localement lipschitzien en la seconde variable, de flot global $F$. Soit $(t_0,x)\\in I\\times U$. Supposons que $s$ et $s+t$ soient dans $J_{t_0}(x)$. On a alors\n$$F(t_0,s+t,x)=F\\big(s,s+t,F(t_0,s,x)\\big).$$",
+      "hypotheses": [
+        "$s\\in J_{t_0}(x)$ et $s+t\\in J_{t_0}(x)$",
+        "$X$ localement lipschitzien en la seconde variable (unicité)"
+      ],
+      "depends_on": [
+        "Proposition VII.3.1"
+      ],
+      "used_by_hint": "Corollaire VII.3.8 ; étape clé de la preuve de VII.3.9 (A fermé) : $F(t_0,t+s,x)=F(t,t+s,F(t_0,t,x))$ pour $|s|<2\\epsilon_1$.",
+      "importance": 2,
+      "proof_in_poly": "full",
+      "proof_length": "short",
+      "counterexample_hints": [],
+      "viz_hint": "Dans le plan $(t,x)$ (champ non autonome) : aller de $(t_0,x)$ à l'instant $s+t$ directement, ou s'arrêter en $(s,F(t_0,s,x))$ puis repartir : même point d'arrivée."
+    },
+    {
+      "id": "ch07-flot-inverse",
+      "kind": "corollary",
+      "ref": "Corollaire VII.3.8",
+      "title": "Inversibilité du flot : $F(t,s,F(s,t,x))=x$",
+      "page": 135,
+      "statement": "En remplaçant dans le Théorème VII.3.7 $t_0$ par $s$, $s$ par $t$ et $t$ par $s-t$, on obtient (lorsque les quantités sont définies)\n$$\\text{(VII.3.2)}\\qquad F(s,s,x)=x=F\\big(t,s,F(s,t,x)\\big)$$\nou encore, $F(s,t,x)=y\\iff F(t,s,y)=x$.",
+      "hypotheses": [
+        "$t\\in J_s(x)$ (et alors $s\\in J_t(F(s,t,x))$)"
+      ],
+      "depends_on": [
+        "Théorème VII.3.7"
+      ],
+      "used_by_hint": "Formule (VII.3.5) ; montre que $x\\mapsto F(s,t,x)$ est une bijection de $\\{x : t\\in J_s(x)\\}$ sur $\\{y : s\\in J_t(y)\\}$ d'inverse $y\\mapsto F(t,s,y)$ ; exercices VII.4.8, VII.4.10, VII.4.12 (inverse du flot).",
+      "importance": 2,
+      "proof_in_poly": "full",
+      "proof_length": "short",
+      "counterexample_hints": []
+    },
+    {
+      "id": "ch07-flot-global-ouvert-regulier",
+      "kind": "theorem",
+      "ref": "Théorème VII.3.9",
+      "title": "Le domaine $D$ du flot global est ouvert et $F$ est de classe $C^p$",
+      "page": 135,
+      "statement": "Soit $U$ un ouvert d'un espace de Banach $E$. Soit $X : I\\times U\\to E$ un champ de vecteurs dépendant du temps. Supposons que $X$ soit localement lipschitzien en la seconde variable. Alors :\n\na. $D$ est un ouvert de $I\\times I\\times U$.\n\nb. Si $X$ est de classe $C^p$, $F$ est de classe $C^p$ sur $D$.",
+      "hypotheses": [
+        "$X$ continue et localement lipschitzien en la seconde variable (pour a.)",
+        "$X$ de classe $C^p$ (pour b.)",
+        "$E$ Banach, $U$ ouvert, $I$ intervalle ouvert"
+      ],
+      "depends_on": [
+        "Théorème VII.2.12",
+        "Théorème VII.3.7"
+      ],
+      "used_by_hint": "Exercices VII.4.3 (3) ($\\exp$ est $C^\\infty$ via le flot de $\\mathcal Y(A,B)=(BA,0)$), VII.4.5 (3), VII.4.8 (3), VII.4.9, VII.4.10, VII.4.12 ; le flot $F_t$ est un difféomorphisme $C^p$ là où il est défini.",
+      "importance": 3,
+      "proof_in_poly": "full",
+      "proof_length": "long",
+      "counterexample_hints": [
+        "$D$ ouvert mais pas fermé ni égal à $I\\times I\\times U$ : $\\alpha'=\\alpha^2$, $D_0=\\{tx<1\\}$. Sans lipschitz, $F$ n'est même pas défini (non-unicité)."
+      ],
+      "viz_hint": "Preuve : le point $(\\tau_0,b,x_0)$ adhérent à $A$, le flot local $(J_1,2\\epsilon_1,U_1)$ en $(b,x_1)$, le voisinage produit $O_2\\times U_2$ en $t_2$ et son « épaississement » $O_3=O_2+(0,]-2\\epsilon_1,2\\epsilon_1[)$ qui recouvre $b$."
+    },
+    {
+      "id": "ch07-proprietes-flot-formules",
+      "kind": "formula",
+      "ref": "Formules (VII.3.3), (VII.3.4), (VII.3.5)",
+      "title": "Résumé des propriétés du flot global $F(s,t,x)$",
+      "page": 136,
+      "statement": "Pour le flot $F(s,t,x)$ d'un champ de vecteurs $X(t,x)$ (localement lipschitzien en $x$), là où les quantités sont définies :\n$$\\text{(VII.3.3)}\\qquad\\frac{\\partial F}{\\partial t}(s,t,x)=X\\big(t,F(s,t,x)\\big),$$\n$$\\text{(VII.3.4)}\\qquad F(t,t,x)=x,$$\n$$\\text{(VII.3.5)}\\qquad F\\big(t,s,F(s,t,x)\\big)=x.$$",
+      "hypotheses": [
+        "$(s,t,x)\\in D$"
+      ],
+      "depends_on": [
+        "Proposition VII.2.11",
+        "Corollaire VII.3.8"
+      ],
+      "used_by_hint": "Formulaire à connaître par cœur ; exercices VII.4.8 (3), VII.4.10, VII.4.12 (1) : $f(t,x)=f_0(F(t,0,x))$.",
+      "importance": 2,
+      "proof_in_poly": "none",
+      "proof_length": "short",
+      "counterexample_hints": []
+    },
+    {
+      "id": "ch07-lemme-des-bouts",
+      "kind": "theorem",
+      "ref": "Théorème VII.3.10",
+      "title": "Lemme des bouts : critère de temps de vie infini",
+      "page": 136,
+      "statement": "Soit $U$ un ouvert d'un espace de Banach $E$. Soit $X : U\\to E$ un champ de vecteurs qui ne dépend pas du temps et lipschitzien. Soit $(\\tau_0,x_0)\\in\\mathbb R\\times U$ et soit $\\alpha_{\\tau_0,x_0}$ la courbe intégrale maximale de condition initiale $(\\tau_0,x_0)$, définie sur l'intervalle $J_{\\tau_0}(x_0)$. Soit $b$ la borne supérieure de $J_{\\tau_0}(x_0)$ et supposons que $\\alpha_{\\tau_0,x_0}([\\tau_0,b[)$ reste dans une partie compacte $K$ de $U$. Alors $b=+\\infty$. On a un énoncé analogue avec la borne inférieure de $J_{\\tau_0}(x_0)$.\n\n(Contraposée, forme usuelle : si $b<+\\infty$, la courbe intégrale sort de tout compact de $U$ quand $t\\to b^-$ ; dans $E=\\mathbb R^N$ cela signifie qu'elle tend vers l'infini ou s'approche du bord de $U$.)",
+      "hypotheses": [
+        "$X$ autonome (pour translater en temps les courbes intégrales et obtenir un $\\epsilon$ uniforme indépendant de l'instant)",
+        "$X$ lipschitzien (localement lipschitzien suffit pour la preuve, qui n'utilise que les flots locaux)",
+        "$\\alpha([\\tau_0,b[)\\subset K$ compact **de $U$** (pas seulement de $E$ ni borné)",
+        "$b=\\sup J_{\\tau_0}(x_0)$"
+      ],
+      "depends_on": [
+        "Théorème VII.2.12",
+        "Proposition VII.3.1",
+        "Définition VII.3.3"
+      ],
+      "used_by_hint": "Outil standard pour prouver qu'une solution est globale : trouver une quantité conservée ou une estimation a priori qui confine la trajectoire dans un compact (exercices VII.4.6 : $\\alpha(t)$ orthogonale donc bornée ; VII.4.13 (5) : lignes de niveau de l'énergie compactes ; VII.4.3 (iv)). En dimension infinie, « borné » n'implique pas « dans un compact » : il faut alors une autre borne (Gronwall, VII.4.2).",
+      "importance": 3,
+      "proof_in_poly": "full",
+      "proof_length": "medium",
+      "counterexample_hints": [
+        "Sans compacité : $\\alpha'=\\alpha^2$, $\\alpha(0)=1$ : $\\alpha(t)=1/(1-t)$, $b=1<+\\infty$ ; la trajectoire quitte tout compact (tend vers $+\\infty$).",
+        "Compact de $E$ mais pas de $U$ : $U=\\,]0,+\\infty[$, $X(x)=-1$ : $\\alpha(t)=1-t$ atteint le bord $0$ en temps $1$, en restant dans $[0,1]$ compact de $\\mathbb R$ mais pas de $U$.",
+        "Champ dépendant du temps sur $I\\ne\\mathbb R$ : avec $I=\\,]-\\infty,1[$ et $X\\equiv0$, la solution constante reste dans un compact mais $b=1$. L'énoncé autonome utilise $I=\\mathbb R$ ; la version non autonome demande que $(t,\\alpha(t))$ reste dans un compact de $I\\times U$."
+      ],
+      "viz_hint": "Deux trajectoires planes : l'une reste dans un disque compact (vit pour tout temps), l'autre file vers l'infini en temps fini ($\\alpha'=\\alpha^2$) ; afficher $K$, les boules $U_{x_i}$ du recouvrement fini et l'$\\epsilon$ uniforme qui permet de prolonger au-delà de $b$."
+    }
+  ],
+  "notations": [
+    {
+      "symbol": "$\\alpha^{(k)}(t)=X(t,\\alpha(t),\\dots,\\alpha^{(k-1)}(t))$ (VII.1.1)",
+      "meaning": "équation différentielle d'ordre $k$ ; $\\alpha^{(j)}$ dérivée $j$-ième",
+      "page": 127
+    },
+    {
+      "symbol": "$\\alpha'(t)=X(t,\\alpha(t))$ (VII.1.2)",
+      "meaning": "forme générale d'un système d'ordre 1, $X : I\\times U\\to\\mathbb R^r$ (ou $E$ Banach)",
+      "page": 127
+    },
+    {
+      "symbol": "$X : I\\times U\\to E$",
+      "meaning": "champ de vecteurs dépendant du temps sur l'ouvert $U$ de l'espace de Banach $E$ ($I$ intervalle ouvert de $\\mathbb R$) ; $X : U\\to E$ si autonome",
+      "page": 128
+    },
+    {
+      "symbol": "$\\alpha : J\\to U$",
+      "meaning": "courbe intégrale de $X$ de classe $C^p$ ($\\alpha'(t)=X(t,\\alpha(t))$), $J\\subset I$ intervalle ouvert",
+      "page": 128
+    },
+    {
+      "symbol": "$(t_0,x)$",
+      "meaning": "condition initiale : $\\alpha(t_0)=x$",
+      "page": 128
+    },
+    {
+      "symbol": "$\\alpha_{t_0,x}$",
+      "meaning": "l'unique courbe intégrale de condition initiale $(t_0,x)$ (Théorème VII.2.1)",
+      "page": 128
+    },
+    {
+      "symbol": "$B(x_0,\\eta)$, $\\bar B(x_0,2\\rho)$",
+      "meaning": "boule ouverte / boule fermée de $E$",
+      "page": 128
+    },
+    {
+      "symbol": "$]\\tau_0-\\delta\\,;\\tau_0+\\delta[$",
+      "meaning": "intervalle ouvert (le poly sépare les bornes par un point-virgule)",
+      "page": 128
+    },
+    {
+      "symbol": "$\\tau_0, x_0$ ; $\\eta,\\delta,\\epsilon$",
+      "meaning": "point de référence $(\\tau_0,x_0)\\in I\\times U$ ; rayons des voisinages de $x_0$, de $\\tau_0$ et demi-longueur d'existence dans Cauchy-Lipschitz",
+      "page": 128
+    },
+    {
+      "symbol": "$k$",
+      "meaning": "constante de Lipschitz en la seconde variable : $\\|X(t,x_1)-X(t,x_2)\\|_E\\le k\\|x_1-x_2\\|_E$",
+      "page": 128
+    },
+    {
+      "symbol": "$dX_{(t,x)}$",
+      "meaning": "différentielle du champ $X$ au point $(t,x)$ (Remarque VII.2.2)",
+      "page": 129
+    },
+    {
+      "symbol": "$\\mathrm{signe}(t)$",
+      "meaning": "fonction signe (contre-exemple $\\alpha_2(t)=\\mathrm{signe}(t)t^2$)",
+      "page": 129
+    },
+    {
+      "symbol": "$\\ell$",
+      "meaning": "majorant de $\\|Y\\|$ (ou de $\\|X\\|$) sur la boîte ; dans la preuve de VII.2.1, $\\ell=1+\\sup\\|X\\|$",
+      "page": 130
+    },
+    {
+      "symbol": "$\\mathcal X=C^0([c-\\epsilon\\,;c+\\epsilon],\\bar B(x_0,2\\rho))$",
+      "meaning": "espace des fonctions continues à valeurs dans la boule fermée, fermé convexe complet de $C^0([c-\\epsilon;c+\\epsilon],E)$",
+      "page": 130
+    },
+    {
+      "symbol": "$\\|\\cdot\\|_\\infty$",
+      "meaning": "norme de la convergence uniforme sur $C^0([c-\\epsilon;c+\\epsilon],E)$",
+      "page": 130
+    },
+    {
+      "symbol": "$T_x(\\varphi)(t)=x+\\int_c^t Y(s,\\varphi(s))\\,ds$",
+      "meaning": "opérateur intégral (de Picard) du Lemme VII.2.7",
+      "page": 130
+    },
+    {
+      "symbol": "(VII.2.2) $\\alpha(t)=x+\\int_{t_0}^t X(s,\\alpha(s))\\,ds$",
+      "meaning": "équation intégrale équivalente au problème de Cauchy (VII.2.1)",
+      "page": 130
+    },
+    {
+      "symbol": "$a, a', b$",
+      "meaning": "constantes de la preuve de VII.2.1 : $\\bar B(x_0,2a)\\subset U$, $[\\tau_0-2a';\\tau_0+2a']\\subset I$, $b\\ell<a$, $bk\\le 1/2$, $b<a'$ ; puis $\\epsilon=b$, $\\delta=a'$, $\\eta=a$",
+      "page": 130
+    },
+    {
+      "symbol": "$S=S_{t_0,x}$",
+      "meaning": "opérateur $\\varphi\\mapsto x+\\int_{t_0}^t X(s,\\varphi(s))ds$ dont la solution est l'unique point fixe",
+      "page": 131
+    },
+    {
+      "symbol": "$\\Lambda$, $\\lambda$, $\\lambda_0$, $\\sigma$",
+      "meaning": "espace des paramètres (ouvert d'un espace métrique ou de Banach), paramètre, paramètre de référence, rayon $B(\\lambda_0,\\sigma)$",
+      "page": 131
+    },
+    {
+      "symbol": "$X_\\lambda(t,x)=X(\\lambda,t,x)$",
+      "meaning": "famille $(X_\\lambda)_{\\lambda\\in\\Lambda}$ de champs de vecteurs sur $U$",
+      "page": 131
+    },
+    {
+      "symbol": "$\\alpha_{\\lambda,t_0,x}$",
+      "meaning": "solution de $\\alpha'=X_\\lambda(t,\\alpha)$, $\\alpha(t_0)=x$",
+      "page": 131
+    },
+    {
+      "symbol": "$\\mathcal E=\\mathcal E(J,\\epsilon)=\\{(t_0,t)\\in J\\times\\mathbb R\\ |\\ t\\in]t_0-\\epsilon,t_0+\\epsilon[\\}$",
+      "meaning": "domaine temporel du flot local (bande ouverte connexe de $\\mathbb R^2$) ; dans VII.2.8, $J=]\\tau_0-\\delta,\\tau_0+\\delta[$",
+      "page": 131
+    },
+    {
+      "symbol": "$F(\\lambda,t_0,t,x)=\\alpha_{\\lambda,t_0,x}(t)$",
+      "meaning": "flot local (avec paramètre) ; $F : W\\times\\mathcal E\\times U'\\to U$",
+      "page": 131
+    },
+    {
+      "symbol": "$\\tilde X_{\\lambda,t_0}(t,y)=X_\\lambda(t-(\\tau_0-t_0),y)$",
+      "meaning": "champ translaté en temps (réduction de l'instant initial $t_0$ à $\\tau_0$ dans la preuve de VII.2.8)",
+      "page": 132
+    },
+    {
+      "symbol": "$\\Theta=\\Lambda\\times]\\tau_0-\\delta;\\tau_0+\\delta[\\times B(x_0,\\eta)$, $\\theta=(\\lambda,t_0,x)$",
+      "meaning": "espace des paramètres élargi (paramètre, instant initial, condition initiale)",
+      "page": 132
+    },
+    {
+      "symbol": "$T_\\theta(\\varphi)$, $\\beta_\\theta$",
+      "meaning": "opérateur de Picard dépendant de $\\theta$ et son point fixe ($\\beta(t)=\\alpha_{\\lambda,t_0,x}(t-(\\tau_0-t_0))$)",
+      "page": 132
+    },
+    {
+      "symbol": "$\\partial T/\\partial\\varphi$, $\\partial\\tilde X/\\partial y$",
+      "meaning": "différentielles partielles (par rapport à la fonction $\\varphi$, à la variable d'espace $y$)",
+      "page": 132
+    },
+    {
+      "symbol": "$W$, $U'$, $J$",
+      "meaning": "voisinage ouvert de $\\lambda_0$, voisinage ouvert de $x_0$, intervalle ouvert contenant $\\tau_0$ définissant un flot local",
+      "page": 133
+    },
+    {
+      "symbol": "$\\partial F/\\partial t$",
+      "meaning": "dérivée partielle du flot par rapport au temps final : $\\partial F/\\partial t=X(t,F)$",
+      "page": 133
+    },
+    {
+      "symbol": "$J_{\\tau_0}(x_0)$",
+      "meaning": "intervalle maximal d'existence de la courbe intégrale de condition initiale $(\\tau_0,x_0)$ (union des intervalles de définition)",
+      "page": 134
+    },
+    {
+      "symbol": "$\\alpha_{\\tau_0,x_0}$",
+      "meaning": "courbe intégrale maximale de condition initiale $(\\tau_0,x_0)$, définie sur $J_{\\tau_0}(x_0)$",
+      "page": 134
+    },
+    {
+      "symbol": "$D=\\{(\\tau_0,t,x_0)\\in I\\times I\\times U\\ |\\ t\\in J_{\\tau_0}(x_0)\\}$",
+      "meaning": "domaine de définition du flot global",
+      "page": 134
+    },
+    {
+      "symbol": "$F : D\\to U$, $F(\\tau_0,t,x_0)=\\alpha_{\\tau_0,x_0}(t)$",
+      "meaning": "flot global de $X$",
+      "page": 134
+    },
+    {
+      "symbol": "$D_{\\tau_0}=\\{(t,x_0)\\in I\\times U\\ |\\ t\\in J_{\\tau_0}(x_0)\\}$",
+      "meaning": "tranche du domaine à instant initial $\\tau_0$ fixé ; $D_0$ dans le cas autonome",
+      "page": 134
+    },
+    {
+      "symbol": "$J(x_0)$, $F(t,x_0)$",
+      "meaning": "cas autonome ($I=\\mathbb R$, $\\tau_0=0$) : abréviations de $J_0(x_0)$ et $F(0,t,x_0)$",
+      "page": 134
+    },
+    {
+      "symbol": "$I+c=\\{t\\in\\mathbb R\\ ;\\ t-c\\in I\\}$",
+      "meaning": "translaté d'un intervalle ; $J(x_0)-t_1$ dans le Théorème VII.3.5",
+      "page": 134
+    },
+    {
+      "symbol": "$F_t\\cdot x=\\alpha_x(t)=F(t,x)$",
+      "meaning": "flot au temps $t$ d'un champ autonome, vu comme application $F_t$ de (partie de) $U$ dans $U$ ; $F_s\\cdot(F_t\\cdot x)=F_{t+s}\\cdot x$ (VII.3.1)",
+      "page": 135
+    },
+    {
+      "symbol": "$A$, $O\\times U'$, $O_2\\times U_2$, $O_3$",
+      "meaning": "notations de la preuve de VII.3.9 : ensemble des bons instants $s\\in J$, voisinages produits dans $D$",
+      "page": 135
+    },
+    {
+      "symbol": "$K$, $U_x$, $U_{x_i}$",
+      "meaning": "compact de $U$ et ouverts de flots locaux le recouvrant (preuve du lemme des bouts)",
+      "page": 136
+    },
+    {
+      "symbol": "$M_n(K)$, $\\|X\\|=\\mathrm{Tr}({}^tXX)$ (sic), $\\exp X=\\sum X^n/n!$, $GL(n,K)$",
+      "meaning": "algèbre des matrices, norme euclidienne (le poly omet la racine carrée), exponentielle de matrice, groupe linéaire (exercice VII.4.3)",
+      "page": 138
+    },
+    {
+      "symbol": "$[X,Y]=XY-YX$, $\\mathfrak g=\\{X : \\exp tX\\in G\\ \\forall t\\}$, $\\mathrm{Log}$",
+      "meaning": "crochet de Lie, algèbre de Lie d'un sous-groupe fermé $G$, inverse local de $\\exp$ (exercice VII.4.3)",
+      "page": 138
+    },
+    {
+      "symbol": "$X_a=\\sum a_iX_i$, $\\phi(t,a)=\\alpha_a(t)$, $\\Phi(a)=\\alpha_a(1)$",
+      "meaning": "combinaison linéaire de champs, et application exponentielle associée (exercice VII.4.5)",
+      "page": 139
+    },
+    {
+      "symbol": "$\\nabla f(a)$",
+      "meaning": "gradient : $df_a(h)=\\langle\\nabla f(a),h\\rangle$ (exercice VII.4.11)",
+      "page": 140
+    },
+    {
+      "symbol": "$\\phi_*X(p)=d\\phi_{\\phi^{-1}(p)}(X(\\phi^{-1}(p)))$",
+      "meaning": "champ de vecteurs transporté (poussé en avant) par le difféomorphisme $\\phi$ (exercice VII.4.10)",
+      "page": 140
+    },
+    {
+      "symbol": "$\\partial_t u$, $\\partial_x$, $\\partial_{xx}u$",
+      "meaning": "dérivées partielles (équations de transport et de Korteweg-de-Vries, exercices VII.4.12-13)",
+      "page": 141
+    }
+  ],
+  "poly_exercises": [
+    {
+      "ref": "Exercice VII.4.1",
+      "page": 137,
+      "topic": "Lemme de Gronwall",
+      "statement_short": "Si $u\\ge0$ continue sur $[0,T]$ vérifie $u(t)\\le b(t)+\\int_0^t a(s)u(s)ds$ avec $a,b\\ge0$ continues, montrer $u(t)\\le b(t)+\\int_0^t b(s)a(s)\\exp(\\int_s^t a)\\,ds$. Indication : poser $v(t)=\\int_0^t a u$.",
+      "chapters_involved": [
+        7
+      ]
+    },
+    {
+      "ref": "Exercice VII.4.2",
+      "page": 137,
+      "topic": "Unicité et dépendance lipschitzienne en la condition initiale",
+      "statement_short": "Si $u$ dérivable s'annule en $t_0$ et $\\|u'\\|\\le k\\|u\\|$, alors $u\\equiv0$ ; en déduire l'unicité pour $y'=f(t,y)$ avec $f$ $k$-lipschitzienne en $y$, puis l'estimation $\\|y_1(t)-y_2(t)\\|\\le\\|x_1-x_2\\|e^{k|t-t_0|}$ entre deux solutions.",
+      "chapters_involved": [
+        7,
+        5
+      ]
+    },
+    {
+      "ref": "Exercice VII.4.3",
+      "page": 138,
+      "topic": "Exponentielle de matrices, sous-groupes à un paramètre, algèbre de Lie d'un sous-groupe fermé",
+      "statement_short": "Propriétés de $\\exp$ sur $M_n(K)$ ($\\exp(X+Y)$ si $[X,Y]=0$, inverse, $t\\mapsto\\exp tX$ unique solution de $a'=Xa$, $a(0)=I_n$) ; tout morphisme continu $\\mathbb R\\to GL(n,K)$ est $t\\mapsto\\exp tX$ ; $\\exp$ est $C^\\infty$ via le flot de $\\mathcal Y(A,B)=(BA,0)$ ; $d\\exp_0=\\mathrm{Id}$ et difféomorphisme local ($\\mathrm{Log}$) ; pas de petit sous-groupe ; formules de Trotter et du commutateur ; $\\mathfrak g$ est un sous-espace stable par crochet, nul si $G$ discret, calcul pour $SL(n,\\mathbb R)$, $SO(n)$.",
+      "chapters_involved": [
+        7,
+        6,
+        5
+      ]
+    },
+    {
+      "ref": "Exercice VII.4.4",
+      "page": 139,
+      "topic": "Formule de Baker-Campbell-Hausdorff (cas nilpotent d'ordre 2)",
+      "statement_short": "Si $[A,[A,B]]=[B,[A,B]]=0$, montrer $\\exp(A+B)=\\exp A\\exp B\\exp(\\tfrac12[B,A])$ en dérivant $\\alpha(t)=\\exp(-t(A+B))\\exp(tB)\\exp(tA)$ et $\\phi(t)=-A+\\exp(tB)A\\exp(-tB)$.",
+      "chapters_involved": [
+        7,
+        5
+      ]
+    },
+    {
+      "ref": "Exercice VII.4.5",
+      "page": 139,
+      "topic": "Application exponentielle d'une famille de champs ; homogénéité ; difféomorphisme local",
+      "statement_short": "Pour $X_a=\\sum a_iX_i$ ($X_i$ champs $C^\\infty$), $\\phi(t,a)=\\alpha_a(t)$ vérifie $\\phi(\\lambda t,a)=\\phi(t,\\lambda a)$ ; en déduire que $\\alpha_a$ est définie sur $[-1,1]$ pour $\\|a\\|<\\eta$, et que $\\Phi(a)=\\alpha_a(1)$ est un difféomorphisme local en $0$ si $(X_i(0))$ est une base.",
+      "chapters_involved": [
+        7,
+        6
+      ]
+    },
+    {
+      "ref": "Exercice VII.4.6",
+      "page": 139,
+      "topic": "Équation linéaire $\\alpha'=A(t)\\alpha$ avec $A(t)$ antisymétrique : conservation de l'orthogonalité",
+      "statement_short": "Si $A(t)$ est antisymétrique pour tout $t$ et $\\alpha'=A(t)\\alpha$, montrer que $\\alpha(t_0)$ orthogonale implique $\\alpha(t)$ orthogonale pour tout $t$ (dériver ${}^t\\alpha\\alpha$ et utiliser l'unicité).",
+      "chapters_involved": [
+        7,
+        5
+      ]
+    },
+    {
+      "ref": "Exercice VII.4.7",
+      "page": 139,
+      "topic": "Équation de Riccati matricielle $\\alpha'=-\\alpha A\\alpha$",
+      "statement_short": "Montrer qu'il existe une solution $C^\\infty$ avec $\\alpha(0)=I_n$ sur un intervalle contenant $[-\\|A\\|^{-1},\\|A\\|^{-1}]$ et que $\\alpha(t)=(I_n+tA)^{-1}$ sur cet intervalle.",
+      "chapters_involved": [
+        7,
+        5
+      ]
+    },
+    {
+      "ref": "Exercice VII.4.8",
+      "page": 140,
+      "topic": "Différentielle du déterminant ; formule de Liouville ; flots préservant le volume",
+      "statement_short": "Calculer $d(\\det)_A$ sur $GL_n(\\mathbb R)$ puis $M_n(\\mathbb R)$ ; en déduire $\\frac{d}{dt}\\det A(t)=\\det A(t)\\,\\mathrm{Tr}(A(t)^{-1}A'(t))$ ; montrer que les $F_t$ du flot d'un champ $C^1$ autonome (défini sur $\\mathbb R\\times U$) préservent le volume ($\\det d(F_t)_x=1$) si et seulement si $\\mathrm{Tr}\\,dX_x=0$ pour tout $x$.",
+      "chapters_involved": [
+        7,
+        5
+      ]
+    },
+    {
+      "ref": "Exercice VII.4.9",
+      "page": 140,
+      "topic": "Redressement d'un champ de vecteurs (théorème de la boîte à flot)",
+      "statement_short": "Si $X$ est $C^\\infty$ et $X(p_0)\\ne0$, construire un difféomorphisme local $\\phi$ avec $\\phi(0)=p_0$ et $X(\\phi(x))=\\partial\\phi/\\partial x_1(x)$ : dans la carte $\\phi$, le champ devient le champ constant $e_1$.",
+      "chapters_involved": [
+        7,
+        6
+      ]
+    },
+    {
+      "ref": "Exercice VII.4.10",
+      "page": 140,
+      "topic": "Flot d'un champ transporté par un difféomorphisme",
+      "statement_short": "Pour $\\phi : U\\to U'$ difféomorphisme et $\\phi_*X(p)=d\\phi_{\\phi^{-1}(p)}(X(\\phi^{-1}(p)))$, montrer que le flot de $\\phi_*X$ est $\\phi\\circ F\\circ(\\mathrm{Id}_\\mathbb R\\times\\phi^{-1})$ sur $D'=\\{(t,p) : (t,\\phi^{-1}(p))\\in D\\}$.",
+      "chapters_involved": [
+        7,
+        5
+      ]
+    },
+    {
+      "ref": "Exercice VII.4.11",
+      "page": 140,
+      "topic": "Intégrales premières ; portrait de phase de $X(x,y)=(y-y^5,x)$",
+      "statement_short": "$f$ est constante sur les courbes intégrales de $X$ ssi $\\nabla f\\perp X$ partout ; pour $X(x,y)=(y-y^5,x)$, $f=3x^2-3y^2+y^6$ est une intégrale première ; déterminer les courbes intégrales constantes (points d'équilibre) et tracer l'allure des courbes intégrales.",
+      "chapters_involved": [
+        7,
+        5
+      ]
+    },
+    {
+      "ref": "Exercice VII.4.12",
+      "page": 141,
+      "topic": "Équation de transport et méthode des caractéristiques",
+      "statement_short": "Pour $\\partial_tf+\\langle A(t,x),\\nabla_xf\\rangle=0$, $f(0,\\cdot)=f_0$, avec $A$ $C^1$ bornée : exprimer $f$ à l'aide de $f_0$ et du flot de $A$ (la donnée est transportée le long des courbes intégrales), puis montrer l'existence et l'unicité d'une solution $C^1$ sur $\\mathbb R\\times\\mathbb R^n$.",
+      "chapters_involved": [
+        7,
+        5
+      ]
+    },
+    {
+      "ref": "Exercice VII.4.13",
+      "page": 141,
+      "topic": "Ondes solitaires de Korteweg-de-Vries : système $Q''-Q+Q^p=0$, portrait de phase, orbite homocline",
+      "statement_short": "Pour $u(t,x)=Q(x-t)$ solution de KdV, $Q$ vérifie $Q''-Q+Q^p=0$ ; existence et unicité de la solution maximale, points stationnaires, conservation de l'énergie $E=\\tfrac12Q'^2-\\tfrac12Q^2+\\tfrac1{p+1}Q^{p+1}$ ; pour $p=3$ : lignes de niveau, solutions globales (lemme des bouts), périodiques si $E\\ne0$, homocline si $E=0$ (calcul explicite) ; pour $p=2$ : explosion en temps fini si $E>0$ ; stabilité.",
+      "chapters_involved": [
+        7
+      ]
+    }
+  ],
+  "pitfalls": [
+    "Confondre « continu » et « localement lipschitzien en $x$ » : Peano donne l'existence mais pas l'unicité ($\\alpha'=2|\\alpha|^{1/2}$, $\\alpha(0)=0$ a une infinité de solutions). Le caractère lipschitzien doit être uniforme en $t$ sur un voisinage.",
+    "Cauchy-Lipschitz est **local** : même pour $X$ de classe $C^\\infty$ la solution maximale peut exploser en temps fini ($\\alpha'=\\alpha^2$, $\\alpha(0)=1$, $\\alpha(t)=1/(1-t)$). Ne jamais conclure à une solution globale sans argument (lemme des bouts, Gronwall, linéarité, quantité conservée).",
+    "Dans l'énoncé de VII.2.1, le $\\epsilon$ est uniforme pour $x\\in B(x_0,\\eta)$ et $t_0\\in]\\tau_0-\\delta;\\tau_0+\\delta[$ : c'est cette uniformité (et non la seule existence) qui permet de définir le flot local et de démontrer le lemme des bouts.",
+    "L'unicité donnée par le point fixe de Banach ne porte que sur les fonctions à valeurs dans $\\bar B(x_0,2a)$ ; il faut un argument supplémentaire (connexité, estimation $\\|\\alpha(t)-x_0\\|<a+\\ell b<2a$) pour montrer que toute solution sur $[t_0-b;t_0+b]$ reste dans cette boule.",
+    "Le Lemme VII.2.7 demande $x\\in\\bar B(x_0,\\rho)$ mais des fonctions à valeurs dans $\\bar B(x_0,2\\rho)$ : oublier la marge rend l'opérateur non stable. Les deux conditions $\\epsilon\\ell\\le\\rho$ (stabilité) et $\\epsilon k\\le1/2$ (contraction) jouent des rôles distincts.",
+    "La régularité du flot est $C^p$ en $(\\lambda,t_0,x)$ et $C^{p+1}$ en $t$ seulement ; $F$ n'est pas $C^{p+1}$ globalement. Pour $p=0$ ($\\Lambda$ espace métrique) on n'obtient que la continuité.",
+    "Le lemme des bouts VII.3.10 exige que la trajectoire reste dans un **compact de $U$** : une trajectoire bornée qui s'approche du bord de $U$ peut avoir un temps de vie fini ($U=]0,+\\infty[$, $X=-1$). En dimension infinie, borné n'implique pas relativement compact.",
+    "Le lemme des bouts est énoncé pour un champ autonome ; pour un champ dépendant du temps sur $I\\ne\\mathbb R$, $b$ peut être fini simplement parce que $I$ l'est, et la version correcte demande que $(t,\\alpha(t))$ reste dans un compact de $I\\times U$.",
+    "La propriété de groupe $F_s\\circ F_t=F_{s+t}$ n'a de sens que là où les deux membres sont définis ($D_0\\ne\\mathbb R\\times U$ en général) ; $t\\mapsto F_t$ n'est un morphisme de groupes que si $D_0=\\mathbb R\\times U$.",
+    "Pour un champ dépendant du temps, les solutions ne sont pas invariantes par translation en temps (Théorème VII.3.5 faux) : il faut la formule de composition $F(t_0,s+t,x)=F(s,s+t,F(t_0,s,x))$ avec ses trois arguments.",
+    "L'intervalle maximal $J_{\\tau_0}(x_0)$ est **ouvert** : la solution maximale n'est jamais définie en ses bornes finies ; « prolonger au-delà de $b$ » contredit la maximalité, c'est le mécanisme de la preuve de VII.3.10.",
+    "Ne pas confondre $J_{\\tau_0}(x_0)$ (intervalle de temps), $D_{\\tau_0}$ (couples $(t,x_0)$) et $D$ (triplets $(\\tau_0,t,x_0)$) ; $D$ est ouvert (Théorème VII.3.9) mais pas fermé.",
+    "Un champ $C^1$ est localement lipschitzien (accroissements finis), mais la réciproque est fausse ($|x|$) ; l'hypothèse de Cauchy-Lipschitz est strictement plus faible que $C^1$.",
+    "Les équations implicites $f(t,\\alpha,\\alpha')=0$ ne relèvent pas du théorème : $\\alpha'^2=4\\alpha$ a deux solutions issues de $0$ ; on se ramène au cadre ordinaire seulement si $\\partial f/\\partial v$ est inversible (fonctions implicites).",
+    "Une équation d'ordre $k$ se ramène à l'ordre 1 : la condition initiale doit alors comporter $\\alpha(t_0),\\alpha'(t_0),\\dots,\\alpha^{(k-1)}(t_0)$, pas seulement $\\alpha(t_0)$."
+  ],
+  "viz_opportunities": [
+    {
+      "title": "Itérations de Picard et contraction",
+      "shows": "Pour $\\alpha'=\\alpha$, $\\alpha(0)=1$ (ou $\\alpha'=t+\\alpha$), les itérées $\\varphi_{n+1}=S(\\varphi_n)$ partant de $\\varphi_0\\equiv x$ convergent uniformément vers la solution sur $[t_0-b;t_0+b]$ ; afficher la boîte $\\bar B(x_0,2a)$, le cône $\\|\\alpha(t)-x_0\\|\\le a+\\ell|t-t_0|$ et la décroissance géométrique (facteur 1/2) de $\\|\\varphi_{n+1}-\\varphi_n\\|_\\infty$.",
+      "results": [
+        "Théorème VII.2.1",
+        "Lemme VII.2.7",
+        "Formule (VII.2.2)",
+        "Théorème VI.1.1"
+      ]
+    },
+    {
+      "title": "Non-unicité sans lipschitz : $\\alpha'=2|\\alpha|^{1/2}$",
+      "shows": "Faisceau de solutions issues de $(0,0)$ : la solution nulle et les paraboles $\\mathrm{signe}(t-c)(t-c)^2$ décollant à un instant $c$ arbitraire ; comparer au champ lipschitzien $\\alpha'=2\\alpha$ où une seule courbe passe par chaque point.",
+      "results": [
+        "Remarque VII.2.5",
+        "Théorème VII.2.1"
+      ]
+    },
+    {
+      "title": "Explosion en temps fini et lemme des bouts",
+      "shows": "$\\alpha'=\\alpha^2$ (ou $\\alpha'=1+\\alpha^2$) : la solution maximale $1/(1-t)$ quitte tout compact quand $t\\to1^-$ ; à côté, un champ dont une quantité conservée confine la trajectoire dans un compact : temps de vie infini. Montrer le compact $K$, le recouvrement fini par des ouverts de flot local et l'$\\epsilon$ uniforme qui permet de prolonger.",
+      "results": [
+        "Théorème VII.3.10",
+        "Définition VII.3.3"
+      ]
+    },
+    {
+      "title": "Flot d'un champ plan et propriété de groupe",
+      "shows": "Champ de vecteurs plan (rotation, selle, $X=(y-y^5,x)$) : grille de points transportée par $F_t$ avec curseur $t$ ; vérifier visuellement $F_s\\circ F_t=F_{s+t}$ et $F_{-t}\\circ F_t=\\mathrm{Id}$ ; champ non autonome où la composition exige la formule à trois arguments.",
+      "results": [
+        "Remarque VII.3.6",
+        "Théorème VII.3.5",
+        "Théorème VII.3.7",
+        "Corollaire VII.3.8"
+      ]
+    },
+    {
+      "title": "Domaine $D$ du flot global",
+      "shows": "Pour $\\alpha'=\\alpha^2$, $D_0=\\{(t,x) : tx<1\\}$ : région ouverte du plan $(t,x)$ bordée par l'hyperbole, et surface $F(t,x)=x/(1-tx)$ au-dessus ; illustre que $D$ est ouvert mais différent de $\\mathbb R\\times U$.",
+      "results": [
+        "Définition VII.3.4",
+        "Théorème VII.3.9"
+      ]
+    },
+    {
+      "title": "Dépendance continue et différentiable en la condition initiale et le paramètre",
+      "shows": "Famille $\\alpha'=X_\\lambda(\\alpha)$ (par exemple $\\alpha'=\\lambda\\alpha-\\alpha^3$) : curseurs sur $\\lambda$ et $x$ ; la courbe intégrale se déforme de façon lisse ; afficher l'écart $\\|y_1(t)-y_2(t)\\|\\le\\|x_1-x_2\\|e^{k|t-t_0|}$ de l'exercice VII.4.2.",
+      "results": [
+        "Théorème VII.2.8",
+        "Théorème VII.2.12",
+        "Exercice VII.4.2"
+      ]
+    },
+    {
+      "title": "Portraits de phase et intégrales premières",
+      "shows": "Courbes de niveau de $f=3x^2-3y^2+y^6$ pour $X=(y-y^5,x)$ et de l'énergie $E=\\tfrac12y^2-\\tfrac12x^2+\\tfrac14x^4$ pour $Q''-Q+Q^3=0$ : points d'équilibre, orbites périodiques, orbite homocline ($E=0$) ; comparer $p=2$ où des solutions explosent. Montre pourquoi le gradient orthogonal au champ confine les trajectoires.",
+      "results": [
+        "Exercice VII.4.11",
+        "Exercice VII.4.13",
+        "Théorème VII.3.10"
+      ]
+    },
+    {
+      "title": "Redressement d'un champ de vecteurs (boîte à flot)",
+      "shows": "Au voisinage d'un point où $X(p_0)\\ne0$, le difféomorphisme $\\phi(x_1,x')=F(x_1,p_0+x')$ envoie les droites horizontales sur les courbes intégrales : le champ devient $\\partial/\\partial x_1$. Deux vues côte à côte (coordonnées redressées / coordonnées d'origine).",
+      "results": [
+        "Exercice VII.4.9",
+        "Théorème VII.3.9",
+        "Théorème VI.3.2"
+      ]
+    },
+    {
+      "title": "Préservation du volume (Liouville)",
+      "shows": "Un disque de conditions initiales transporté par le flot : aire conservée pour un champ de divergence nulle (hamiltonien, rotation), aire qui croît ou décroît sinon ($\\mathrm{Tr}\\,dX_x\\ne0$).",
+      "results": [
+        "Exercice VII.4.8",
+        "Remarque VII.3.6"
+      ]
+    },
+    {
+      "title": "Équation de transport et caractéristiques",
+      "shows": "Profil initial $f_0$ transporté le long des courbes intégrales de $A$ : $f(t,x)=f_0(F(t,0,x))$ ; animation du graphe de $f(t,\\cdot)$ et des caractéristiques dans le plan $(t,x)$.",
+      "results": [
+        "Exercice VII.4.12",
+        "Formules (VII.3.3), (VII.3.4), (VII.3.5)"
+      ]
+    }
+  ],
+  "proof_techniques": [
+    "Réécrire le problème de Cauchy comme équation intégrale (VII.2.2) et chercher la solution comme point fixe de l'opérateur de Picard $S_{t_0,x}$ sur $\\mathcal X=C^0([t_0-b;t_0+b],\\bar B(x_0,2a))$ ; choisir $b$ petit pour que $S$ soit $\\frac12$-lipschitzien (théorème du point fixe de Banach VI.1.1).",
+    "Estimations élémentaires sur l'opérateur intégral : borne $\\ell$ sur $\\|X\\|$ pour la stabilité ($\\epsilon\\ell\\le\\rho$), constante de Lipschitz $k$ pour la contraction ($\\epsilon k\\le1/2$) ; l'inégalité a priori $\\|\\alpha(t)-x_0\\|\\le\\|x-x_0\\|+\\ell|t-t_0|$.",
+    "Réduction : une équation d'ordre $k$ devient un système d'ordre 1 ; l'instant initial $t_0$ devient un paramètre par translation en temps $\\tilde X_{\\lambda,t_0}(t,y)=X_\\lambda(t-(\\tau_0-t_0),y)$, ce qui rend l'espace fonctionnel $\\mathcal X$ indépendant des paramètres.",
+    "Points fixes à paramètre (versions I et II, Théorèmes VI.1.2 et VI.1.4) pour obtenir la continuité puis la régularité $C^p$ de la solution en $(\\lambda,t_0,x)$ ; régularité $C^{p+1}$ en $t$ par récurrence à partir de $\\alpha'=X(t,\\alpha)$.",
+    "Argument de connexité (« ouvert, fermé, non vide dans un intervalle ») utilisé trois fois : unicité renforcée dans VII.2.1 (ensemble $J$ des temps où la solution reste dans la boule), unicité globale VII.3.1 (ensemble de coïncidence), ouverture de $D$ et régularité de $F$ dans VII.3.9 (ensemble $A$ des bons instants).",
+    "Recollement de solutions locales grâce à l'unicité pour construire la courbe intégrale maximale, et prolongement d'une solution au-delà d'un instant $b$ en repartant du point $\\alpha(b-\\epsilon)$ (contradiction avec la maximalité).",
+    "Compacité (Borel-Lebesgue) : recouvrir le compact $K$ par les ouverts $U_{x}$ de flots locaux, extraire un sous-recouvrement fini, obtenir un temps d'existence $\\epsilon$ uniforme sur $K$.",
+    "Invariance par translation en temps des champs autonomes : $t\\mapsto\\alpha(t+t_1)$ est encore une courbe intégrale ; formule de composition du flot pour les champs non autonomes.",
+    "Pour établir une identité entre deux fonctions du temps (formule de composition, exercice VII.4.3 (iv), VII.4.6, VII.4.7, VII.4.10), montrer qu'elles vérifient la même équation différentielle avec la même condition initiale, puis invoquer l'unicité.",
+    "Lemme de Gronwall (exercice VII.4.1) : de $u\\le b+\\int_0^t au$ déduire une borne exponentielle ; donne l'unicité et la dépendance lipschitzienne en la condition initiale (exercice VII.4.2).",
+    "Quantités conservées (intégrales premières) : $f$ constante le long des courbes intégrales ssi $\\nabla f\\perp X$ ; les lignes de niveau compactes confinent les trajectoires et, avec le lemme des bouts, donnent des solutions globales (exercices VII.4.11, VII.4.13).",
+    "Utiliser le flot pour obtenir de la régularité : $\\exp$ est $C^\\infty$ car c'est une composante du flot du champ $\\mathcal Y(A,B)=(BA,0)$ (exercice VII.4.3) ; combiner flot et inversion locale pour construire des difféomorphismes (exercices VII.4.5, VII.4.9)."
+  ]
+}

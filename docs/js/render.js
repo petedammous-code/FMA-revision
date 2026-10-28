@@ -43,6 +43,10 @@
     const inline = !!opts.inline;
     const math = [], trous = [], vizs = [];
     let s = String(md).replace(/\r\n/g, '\n');
+    // 0. code (fences et spans) protégé contre les substitutions, restitué tel quel avant marked
+    const codes = [];
+    s = s.replace(/```[\s\S]*?```/g, m => { codes.push(m); return `@@C${codes.length - 1}@@`; });
+    s = s.replace(/`[^`\n]+`/g, m => { codes.push(m); return `@@C${codes.length - 1}@@`; });
     // 1. trous (avant les maths : leur contenu est rendu récursivement avec ses propres maths)
     s = s.replace(/<trou(\s+indice\s*=\s*"([^"]*)")?\s*>([\s\S]*?)<\/trou>/g, (_, __, hint, inner) => {
       trous.push({ hint: hint || '', inner }); return `@@T${trous.length - 1}@@`;
@@ -56,6 +60,7 @@
     // 4. viz & xrefs
     s = s.replace(/\[\[viz:([a-z0-9-]+)\]\]/g, (_, id) => { vizs.push(id); return `\n\n@@V${vizs.length - 1}@@\n\n`; });
     s = s.replace(/\[\[([^\]|]+?)(?:\|([^\]]*))?\]\]/g, (_, id, text) => `@@X${id.trim()}|${text ? text.trim() : ''}@@`);
+    s = s.replace(/@@C(\d+)@@/g, (_, i) => codes[+i]);
     // 5. markdown
     let html;
     try { html = inline ? marked.parseInline(s) : marked.parse(s); } catch (e) { html = `<pre class="tex-error">${escapeHtml(s)}</pre>`; }
