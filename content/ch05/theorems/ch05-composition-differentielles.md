@@ -6,7 +6,7 @@ title: Composition des différentielles (règle de la chaîne)
 ref: Proposition V.3.12
 page: 100
 importance: 3
-depends: [ch05-differentielle-def, ch05-differentiable-implique-continue]
+depends: [ch05-differentielle-def, ch05-differentiable-implique-continue, ch05-lef-banach-norme-algebre]
 tags: [composition, regle-de-la-chaine, chain-rule, differentielle]
 ---
 ## Intuition

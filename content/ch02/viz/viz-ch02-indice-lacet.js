@@ -173,7 +173,7 @@ Sur le morceau $[0,t]$ du lacet, cette intégrale vaut $\frac{\theta(t)-\theta(0
         ctx.stroke(); ctx.restore();
       }
       ctx.save(); ctx.fillStyle = T.accent4; ctx.strokeStyle = T.fg; ctx.lineWidth = 1.5; ctx.beginPath(); ctx.arc(zx, zy, 6, 0, TAU); ctx.fill(); ctx.stroke();
-      ctx.fillStyle = T.fg; ctx.font = 'bold 13px system-ui, sans-serif'; ctx.fillText('z₀', zx + 8, zy + 16); ctx.restore();
+      ctx.fillStyle = T.fg; ctx.font = 'bold 13px system-ui, sans-serif'; ctx.fillText('z₀', zx + 15, zy + 24); ctx.restore();
       // légende des indices présents
       const ks = [...present].sort((a, b) => b - a);
       if (n >= 3 && ks.length) {
@@ -213,7 +213,7 @@ Sur le morceau $[0,t]$ du lacet, cette intégrale vaut $\frac{\theta(t)-\theta(0
       ctx.strokeStyle = T.axis; ctx.beginPath(); ctx.moveTo(L, Tp); ctx.lineTo(L, H - B); ctx.lineTo(W - R, H - B); ctx.stroke();
       ctx.textAlign = 'center'; ctx.textBaseline = 'top'; ctx.fillStyle = T.muted;
       for (const t of [0, 0.25, 0.5, 0.75, 1]) ctx.fillText(String(t), X(t), H - B + 4);
-      ctx.textAlign = 'right'; ctx.fillStyle = T.fg; ctx.fillText('t', W - R, H - B + 4);
+      ctx.textAlign = 'center'; ctx.fillStyle = T.fg; ctx.fillText('t', X(0.875), H - B + 4);
       ctx.textAlign = 'left'; ctx.textBaseline = 'top'; ctx.fillText('nombre de tours (θ(t) − θ(0)) / 2π', L + 6, 2);
       if (n >= 3 && !onCurve) {
         ctx.strokeStyle = T.muted; ctx.lineWidth = 1.2; ctx.beginPath();

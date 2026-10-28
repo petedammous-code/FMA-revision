@@ -21,7 +21,7 @@ Exemple en dimension $1$ : $f(x)=3x$ a pour dérivée $3$ partout, et $df_{x_0}(
 $$
 df_{x_0}=f\qquad\text{pour tout }x_0\in E .
 $$
-En particulier $df:E\to\mathcal L(E;F)$ est constante, donc continue : $f$ est de classe $C^1$ (et même $C^\infty$, [[ch05-lineaire-c-infini]]).
+*Complément (pas dans l'énoncé du poly).* $df:E\to\mathcal L(E;F)$ est l'application constante $x_0\mapsto f$, donc continue : $f$ est de classe $C^1$ (et même $C^\infty$, [[ch05-lineaire-c-infini]]).
 
 ## Hypothèses
 

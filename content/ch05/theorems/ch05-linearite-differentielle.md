@@ -6,7 +6,7 @@ title: Linéarité de la différentielle
 ref: Proposition V.3.11
 page: 99
 importance: 2
-depends: [ch05-differentielle-def]
+depends: [ch05-differentielle-def, ch05-petit-o-def, ch05-lef-banach-norme-algebre, ch05-derivee-directionnelle-unicite]
 tags: [linearite, differentielle, combinaison-lineaire, regles-de-calcul]
 ---
 ## Intuition
