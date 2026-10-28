@@ -6,7 +6,7 @@ title: "Intégrale avec coupure (contour en trou de serrure) : $\int_0^{+\infty}
 ref: Exemple II.9.7
 page: 57
 importance: 2
-depends: [ch02-formule-residus, ch02-formule-residus-pratique, ch02-logarithme-existence, ch02-residu-pole-simple, ch01-longueur-majoration-integrale, ch02-puissance-complexe-def]
+depends: [ch02-formule-residus, ch02-formule-residus-pratique, ch02-logarithme-existence, ch02-residu-pole-simple, ch01-longueur-majoration-integrale, ch02-puissance-complexe-def, ch02-etoile-simplement-connexe]
 tags: [residus, coupure, trou de serrure, puissance complexe, calcul integrale, determination]
 ---
 ## Intuition

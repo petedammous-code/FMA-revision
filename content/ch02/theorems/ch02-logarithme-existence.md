@@ -6,7 +6,7 @@ title: Existence d'un logarithme sur un ouvert simplement connexe
 ref: Proposition II.9.3
 page: 56
 importance: 3
-depends: [ch02-primitive-simplement-connexe, ch02-logarithme-def]
+depends: [ch02-primitive-simplement-connexe, ch02-logarithme-def, ch01-exp-image-c-etoile-log-local]
 tags: [logarithme, simplement connexe, primitive, racine n-ieme, determination]
 ---
 ## Intuition

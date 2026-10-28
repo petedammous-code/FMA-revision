@@ -25,7 +25,7 @@ Vocabulaire : $f$ est **méromorphe en $0$** si $0$ est une singularité effaça
 **Théorème (poly, Exercice II.7.4, questions 5 à 8, p. 50-51).** Soit $f:D(0,1)\setminus\{0\}\to\C$ une fonction holomorphe.
 5. $f$ possède un prolongement holomorphe dans $D(0,1)$ si et seulement si $|f(z)|$ reste borné quand $|z|$ tend vers $0$.
 6. $f$ est méromorphe, non holomorphe, dans $D(0,1)$ (c'est-à-dire : $0$ est un pôle de $f$) si et seulement si $|f(z)|$ tend vers $+\infty$ quand $|z|$ tend vers $0$.
-7. Soit $\eps>0$ ($\eps\le1$). On suppose qu'il existe $a\in\C$ et $r>0$ tels que $D(a,r)$ n'intersecte pas l'image de $D(0,\eps)\setminus\{0\}$ par $f$. Alors la fonction $g$ définie sur $D(0,\eps)\setminus\{0\}$ par $g(z):=\dfrac{1}{f(z)-a}$ se prolonge en une fonction holomorphe en $0$.
+7. Soit $\eps>0$ (implicitement $\eps\le1$, pour que $D(0,\eps)\setminus\{0\}$ soit contenu dans le domaine de $f$). On suppose qu'il existe $a\in\C$ et $r>0$ tels que $D(a,r)$ n'intersecte pas l'image de $D(0,\eps)\setminus\{0\}$ par $f$. Alors la fonction $g$ définie sur $D(0,\eps)\setminus\{0\}$ par $g(z):=\dfrac{1}{f(z)-a}$ se prolonge en une fonction holomorphe en $0$.
 8. **(Casorati-Weierstrass)** On suppose que $f$ n'est pas méromorphe en $0$ (on dit alors que $f$ admet une **singularité essentielle** en $0$). Alors, pour tout $\eps>0$, l'image de $D(0,\eps)\setminus\{0\}$ par $f$ est dense dans $\C$.
 
 *Remarque du poly (admise).* Un théorème (difficile) de E. Picard dit que l'image de tout disque épointé $D(0,\eps)\setminus\{0\}$ par $f$ est soit $\C$ tout entier, soit $\C$ privé d'un seul point.

@@ -6,7 +6,7 @@ title: Détermination principale du logarithme complexe
 ref: non numéroté, section II.9, p. 56
 page: 56
 importance: 3
-depends: [ch02-logarithme-existence, ch02-etoile-simplement-connexe, ch02-logarithme-def]
+depends: [ch02-logarithme-existence, ch02-etoile-simplement-connexe, ch02-logarithme-def, ch02-primitive-simplement-connexe]
 tags: [logarithme, determination principale, coupure, argument, plan coupe]
 ---
 ## Intuition

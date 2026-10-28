@@ -6,12 +6,12 @@ title: Logarithme d'une fonction holomorphe ne s'annulant pas
 ref: Définition II.9.2
 page: 56
 importance: 2
-depends: [ch02-primitive-simplement-connexe]
+depends: [ch02-primitive-simplement-connexe, ch01-exp-image-c-etoile-log-local]
 tags: [logarithme, primitive, exponentielle, derivee logarithmique, determination]
 ---
 ## Intuition
 
-> 💡 « Prendre le logarithme de $h$ », c'est trouver une fonction holomorphe $L$ telle que $e^{L}=h$. Si une telle $L$ existe, on dérive : $L'\,e^{L}=h'$, donc $L'=h'/h$. Un logarithme est donc forcément une **primitive de la dérivée logarithmique** $h'/h$ ; et réciproquement une primitive de $h'/h$ est un logarithme, à une constante additive près. La question « $h$ a-t-elle un logarithme ? » devient « $h'/h$ a-t-elle une primitive ? », qui est une question **topologique** sur l'ouvert ([[ch02-primitive-simplement-connexe]]).
+> 💡 « Prendre le logarithme de $h$ », c'est trouver une fonction holomorphe $L$ telle que $e^{L}=h$. Si une telle $L$ existe, on dérive : $L'\,e^{L}=h'$, donc $L'=h'/h$. Un logarithme est donc forcément une **primitive de la dérivée logarithmique** $h'/h$ ; et réciproquement, sur un ouvert **connexe**, une primitive de $h'/h$ est un logarithme à une constante additive près (voir le complément ci-dessous). La question « $h$ a-t-elle un logarithme ? » devient « $h'/h$ a-t-elle une primitive ? », qui est une question **topologique** sur l'ouvert ([[ch02-primitive-simplement-connexe]]).
 
 Image mentale : comme $|e^{L}|=e^{\Re(L)}$, on a $\Re(L)=\log|h|$ (aucun choix) et $\Im(L)$ est un **argument de $h(z)$ choisi continûment** en $z$. L'obstruction : si, le long d'un lacet, le point $h(z)$ fait un tour autour de $0$, l'argument a gagné $2\pi$ au retour et ne peut pas être une fonction (univoque) de $z$.
 
@@ -57,7 +57,7 @@ Rappels. $\Hol(\Omega)$ est l'ensemble des fonctions holomorphes sur l'ouvert $\
 
 ## Pièges
 
-* > ⚠️ $\mathrm{Log}(h)$ n'est **pas** en général la composée $\mathrm{Log}\circ h$ avec la détermination principale : celle-ci n'est un logarithme de $h$ que si $h(\Omega)\subset\C\setminus\R_-$. Sinon $\mathrm{Log}\circ h$ n'est même pas continue.
+* > ⚠️ $\mathrm{Log}(h)$ n'est **pas** en général la composée $\mathrm{Log}\circ h$ avec la détermination principale : celle-ci n'est définie sur tout $\Omega$ (et c'est alors bien un logarithme de $h$, holomorphe comme composée) que si $h(\Omega)\subset\C\setminus\R_-$. Si $h$ prend des valeurs dans $\R_-$, $\mathrm{Log}\circ h$ n'est pas définie en ces points et saute de $2i\pi$ de part et d'autre de $h^{-1}(\R_-)$ : elle ne fournit pas de logarithme de $h$ sur $\Omega$ (exemple : $h(z)=e^{z}$ sur $\C$, dont le logarithme est $z$, alors que $\mathrm{Log}\circ h$ n'est pas définie sur les droites $\Im(z)\in\pi+2\pi\Z$).
 * Une primitive de $h'/h$ n'est un logarithme qu'**après normalisation** : sur $\C\setminus\R_-$, $F(z)=\mathrm{Log}(z)+1$ est une primitive de $1/z$ mais $e^{F}=e\,z\neq z$.
 * Le logarithme n'est pas unique : il est défini modulo $2i\pi\Z$ (sur un connexe). En conséquence $\mathrm{Log}(h_1)+\mathrm{Log}(h_2)$ est **un** logarithme de $h_1h_2$, égal à un logarithme donné de $h_1h_2$ seulement modulo $2i\pi$.
 * « $h$ ne s'annule pas » est nécessaire mais **pas suffisant** ($z$ sur $\C^\times$). À l'inverse, la non-simple connexité n'empêche pas toujours l'existence : $e^{z}$ sur $\C^\times$, ou $\frac{z-1}{z+1}$ sur $\C\setminus[-1,1]$ (pour tout lacet $\gamma$ de cet ouvert, $\int_\gamma\big(\frac{1}{z-1}-\frac{1}{z+1}\big)dz=2i\pi\big(\Ind_{1}(\gamma)-\Ind_{-1}(\gamma)\big)=0$, car $1$ et $-1$ sont dans la même composante connexe de $\C\setminus\gamma$, le segment $[-1,1]$ étant connexe et disjoint de $\gamma$ ; la construction de la preuve de [[ch02-primitive-simplement-connexe]] fournit alors une primitive).

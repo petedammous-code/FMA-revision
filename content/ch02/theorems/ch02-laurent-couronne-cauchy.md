@@ -6,7 +6,7 @@ title: Développement de Laurent dans un disque épointé par la formule de Cauc
 ref: Exercice II.7.4 (questions 1 à 4)
 page: 50
 importance: 2
-depends: [ch02-invariance-homotopie-integrale, ch02-singularite-effacable-riemann, ch02-indice-cercle, ch02-indice-def]
+depends: [ch02-invariance-homotopie-integrale, ch02-singularite-effacable-riemann, ch02-indice-cercle, ch02-indice-def, ch01-longueur-majoration-integrale]
 tags: [laurent, disque epointe, couronne, formule de cauchy, singularite essentielle, serie]
 ---
 ## Intuition
