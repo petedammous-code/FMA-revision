@@ -5,7 +5,7 @@ FMA.registerViz({
   description: String.raw`**Ce que l'on voit.** Un *lacet* $\gamma:[0,1]\to\C$ (chemin $C^1$ par morceaux tel que $\gamma(0)=\gamma(1)$), son image $\Gamma=\gamma([0,1])$ (trait bleu épais, les flèches donnent le sens de parcours, le petit point creux est $\gamma(0)$) et un point $z_0\notin\Gamma$ (point orange) que l'on **déplace en cliquant ou en glissant**. Chaque point $z$ du plan hors de $\Gamma$ est teinté selon la valeur de l'entier $\Ind_z(\gamma)$ (légende en haut à gauche ; fond neutre = $0$, bleu = positif, rose = négatif). La flèche rose va de $z_0$ à $\gamma(t)$ ; la petite spirale autour de $z_0$ compte les tours qu'elle a déjà faits. La bande du bas trace $t\mapsto\frac{\theta(t)-\theta(0)}{2\pi}$, où $\theta(t)$ est un argument de $\gamma(t)-z_0$ **qui varie continûment** avec $t$.
 
 **Le lien avec le cours.** L'indice est défini par (poly, Définition II.3.1, p. 40)
-$$\Ind_{z_0}(\gamma)=\frac{1}{2i\pi}\int_\gamma\frac{dz}{z-z_0}=\frac{1}{2i\pi}\int_0^1\frac{\gamma'(t)}{\gamma(t)-z_0}\,dt .$$
+$$\begin{aligned}\Ind_{z_0}(\gamma)&=\frac{1}{2i\pi}\int_\gamma\frac{dz}{z-z_0}\\&=\frac{1}{2i\pi}\int_0^1\frac{\gamma'(t)}{\gamma(t)-z_0}\,dt .\end{aligned}$$
 Sur le morceau $[0,t]$ du lacet, cette intégrale vaut $\frac{\theta(t)-\theta(0)}{2\pi}-\frac{i}{2\pi}\ln\frac{|\gamma(t)-z_0|}{|\gamma(0)-z_0|}$ (lecture « intégrale sur $[0,t]$ ») : pour $t<1$ ce n'est en général **pas** un entier (le chemin n'est pas fermé). En $t=1$, $|\gamma(1)-z_0|=|\gamma(0)-z_0|$, la partie imaginaire s'annule et il reste un **entier** : le nombre de tours de $\gamma$ autour de $z_0$. Les couleurs illustrent la Proposition II.3.2 (p. 40) : $z\mapsto\Ind_z(\gamma)$ est constante sur chaque composante connexe de $\C\setminus\Gamma$ et nulle sur la composante non bornée. [[ch02-indice-def]], [[ch02-indice-entier-localement-constant]].
 
 **À faire.**
@@ -189,7 +189,7 @@ Sur le morceau $[0,t]$ du lacet, cette intégrale vaut $\frac{\theta(t)-\theta(0
       drawStrip(A);
       // lectures
       if (n < 3) { roI.set('—'); roP.set('—'); }
-      else if (onCurve) { roI.set('$z_0\\in\\Gamma$ : non défini', true); roP.set('—'); }
+      else if (onCurve) { roI.set('z₀ ∈ Γ : non défini'); roP.set('—'); }
       else {
         roI.set(String(ind));
         const re = A ? (A.theta - th[0]) / TAU : 0;

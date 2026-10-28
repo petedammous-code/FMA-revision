@@ -58,7 +58,7 @@ $$
 
 *Conclusion.* Une application différentiable en un point est continue en ce point (poly, Remarque V.3.2, p. 98, [[ch05-differentiable-implique-continue]]). Donc $f$ n'est pas différentiable en $(0,0)$, bien que ses deux dérivées partielles y existent. L'implication de la Proposition V.3.17 ([[ch05-differentielles-partielles]]) n'est donc pas une équivalence. $\square$
 
-*Variante (sans passer par la continuité).* Si $f$ était différentiable en $0$, la formule (V.3.3) donnerait $df_0=\frac{\partial f}{\partial x}(0)\,h_1+\frac{\partial f}{\partial y}(0)\,h_2=0$, et la dérivée directionnelle $\lim_{t\to0}\frac{f(th)-f(0)}{t}$ vaudrait $df_0(h)=0$ pour tout $h$ ([[ch05-derivee-directionnelle-unicite]]). Or pour $h=(1,1)$, $\frac{f(t,t)-f(0,0)}{t}=\frac{1}{2t}$ n'a pas de limite finie : contradiction.
+*Variante (sans passer par la continuité).* Si $f$ était différentiable en $0$, la formule (V.3.3) donnerait $df_0(h)=\frac{\partial f}{\partial x}(0,0)\,h_1+\frac{\partial f}{\partial y}(0,0)\,h_2=0$ pour tout $h=(h_1,h_2)$, et la dérivée directionnelle $\lim_{t\to0}\frac{f(th)-f(0)}{t}$ vaudrait $df_0(h)=0$ pour tout $h$ ([[ch05-derivee-directionnelle-unicite]]). Or pour $h=(1,1)$, $\frac{f(t,t)-f(0,0)}{t}=\frac{1}{2t}$ n'a pas de limite finie : contradiction.
 
 ## Preuve à trous
 

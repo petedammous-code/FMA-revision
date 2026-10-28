@@ -39,6 +39,7 @@ FMA.registerViz({
     const ro2 = kit.readout(controls, { label: 'pente en $s=0$' });
     const ro3 = kit.readout(controls, { label: 'courbure' });
     const note = document.createElement('div'); note.className = 'viz-note'; container.appendChild(note);
+    [ro1, ro2, ro3].forEach(r => { r.el.style.maxWidth = '100%'; r.el.style.flexWrap = 'wrap'; const v = r.el.querySelector('.viz-readout-val'); if (v) { v.style.minWidth = '0'; v.style.overflowWrap = 'anywhere'; } });
 
     function setLabel(sl, tex) { const el = sl.el.querySelector('.viz-ctl-label'); if (!el) return; el.innerHTML = (window.FMA && FMA.render) ? FMA.render(tex, { inline: true }) : tex; }
     function syncPar() {
@@ -69,7 +70,7 @@ FMA.registerViz({
     function toggleAnim() { if (anim) { stopAnim(); return; } bPlay.textContent = '⏸ pause'; ph = Math.asin(Math.max(-1, Math.min(1, sS.value))); anim = kit.animate(dt => { ph += dt * 1.6; sS.value = Math.round(Math.sin(ph) * 100) / 100; draw(); }); }
 
     function panel(x, y, w, h, fn) { const { ctx } = st; ctx.save(); ctx.translate(x, y); ctx.beginPath(); ctx.rect(0, 0, w, h); ctx.clip(); try { fn(); } finally { ctx.restore(); } }
-    function label(x, y, s, color, align = 'left') { const { ctx } = st; ctx.save(); ctx.font = '12px system-ui, sans-serif'; ctx.fillStyle = color; ctx.textAlign = align; ctx.textBaseline = 'top'; ctx.fillText(s, x, y); ctx.restore(); }
+    function label(x, y, s, color, align = 'left') { const { ctx } = st; const T = kit.theme(); ctx.save(); ctx.font = '12px system-ui, sans-serif'; const w = ctx.measureText(s).width; const xl = align === 'right' ? x - w : x; ctx.globalAlpha = 0.85; ctx.fillStyle = T.bg; ctx.fillRect(xl - 3, y - 1, w + 6, 15); ctx.globalAlpha = 1; ctx.fillStyle = color; ctx.textAlign = align; ctx.textBaseline = 'top'; ctx.fillText(s, x, y); ctx.restore(); }
 
     function draw() { try { render(); } catch (e) { console.warn(e); } }
     function render() {

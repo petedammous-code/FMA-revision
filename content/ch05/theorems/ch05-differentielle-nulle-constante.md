@@ -66,7 +66,7 @@ Soit $x\in U$. Comme $U$ est ouvert, il existe $r>0$ avec $B(x,r)\subset U$ ; ce
 
 * **Différentielle constante ⇒ affine.** Si $U$ est un ouvert connexe et $df_x=L$ pour tout $x\in U$ (un même $L\in\mathcal L(E;F)$), alors $g=f-L$ vérifie $dg_x=df_x-L=0$ ([[ch05-linearite-differentielle]], [[ch05-differentielle-lineaire]]), donc $g$ est constante : $f(x)=L(x)+c$ sur $U$.
 * **Ouvert connexe non convexe.** Sur $U=\R^2\setminus\{0\}$ (connexe), si $f:U\to\R$ a ses deux dérivées partielles nulles et est différentiable, alors $f$ est constante. Le TAF seul ne suffirait pas pour relier $(1,0)$ et $(-1,0)$, car le segment passe par $0\notin U$ ; la connexité (chaîne de boules) règle le problème.
-* **Analyse complexe.** Si $f$ est holomorphe sur un ouvert connexe $\Omega\subset\C$ avec $f'\equiv0$, alors $df_z(h)=f'(z)h=0$ pour tout $z$, donc $f$ est constante sur $\Omega$ : c'est l'argument utilisé pour conclure dans la variante de [[ch01-liouville]].
+* **Analyse complexe.** Si $f$ est holomorphe sur un ouvert connexe $\Omega\subset\C$ avec $f'\equiv0$, alors $df_z(h)=f'(z)h=0$ pour tout $z$, donc $f$ est constante sur $\Omega$ (un ouvert connexe de $\C\simeq\R^2$). C'est une autre façon de conclure la *variante* de la preuve de [[ch01-liouville]] une fois obtenu $f'\equiv0$ (la fiche y passe, elle, par une primitive le long d'un segment).
 
 ## Pièges
 

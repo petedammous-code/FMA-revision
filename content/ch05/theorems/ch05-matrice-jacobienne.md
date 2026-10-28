@@ -6,7 +6,7 @@ title: Matrice jacobienne, formule (V.3.4), jacobien $\mathrm{Jac}(f)(a)$
 ref: "non numéroté, section V.3.5, p. 103"
 page: 103
 importance: 2
-depends: [ch05-differentiabilite-composantes, ch05-differentielles-partielles, ch05-lef-banach-norme-algebre, ch05-projections-injections-canoniques, ch05-derivee-variable-reelle]
+depends: [ch05-differentiabilite-composantes, ch05-differentielles-partielles, ch05-projections-injections-canoniques, ch05-derivee-variable-reelle]
 tags: [jacobienne, jacobien, derivees-partielles, matrice, dimension-finie]
 ---
 ## Intuition

@@ -6,7 +6,7 @@ title: Théorème des accroissements finis (TAF) dans les espaces vectoriels nor
 ref: Théorème V.4.4
 page: 104
 importance: 3
-depends: [ch05-accroissements-finis-borne, ch05-composition-differentielles, ch05-differentiable-implique-continue, ch05-derivee-variable-reelle, ch05-norme-operateur-def]
+depends: [ch05-accroissements-finis-borne, ch05-composition-differentielles, ch05-differentielle-lineaire, ch05-differentiable-implique-continue, ch05-derivee-variable-reelle, ch05-norme-operateur-def]
 tags: [accroissements-finis, taf, inegalite, lipschitz, convexe, segment]
 ---
 ## Intuition

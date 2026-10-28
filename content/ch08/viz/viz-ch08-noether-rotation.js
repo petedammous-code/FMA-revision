@@ -35,6 +35,7 @@ et l'identité infinitésimale d'invariance ([[ch08-invariance-infinitesimale]])
     const roQ = kit.readout(controls, { label: '$Q$' });
     const roH = kit.readout(controls, { label: '$H$' });
     const note = document.createElement('div'); note.className = 'viz-note'; container.appendChild(note);
+    [roQ, roH].forEach(r => { r.el.style.maxWidth = '100%'; r.el.style.flexWrap = 'wrap'; const v = r.el.querySelector('.viz-readout-val'); if (v) { v.style.minWidth = '0'; v.style.overflowWrap = 'anywhere'; } });
 
     function grad(x, y) { const e = sE.value; if (selU.value === 'kepler') { const r = Math.hypot(x, y), r3 = r * r * r; return [x / r3 + e * x, y / r3]; } return [x + e * x, y]; }
     function Upot(x, y) { const e = sE.value, r = Math.hypot(x, y); return (selU.value === 'kepler' ? -1 / r : 0.5 * r * r) + 0.5 * e * x * x; }
@@ -62,7 +63,7 @@ et l'identité infinitésimale d'invariance ([[ch08-invariance-infinitesimale]])
     function stopAnim() { if (anim) { anim.stop(); anim = null; } bPlay.textContent = '▶ animer'; }
     function toggleAnim() { if (anim) { stopAnim(); return; } bPlay.textContent = '⏸ pause'; anim = kit.animate(dt => { let v = sTau.value + dt / Math.max(4, sT.value) * 1.2; if (v > 1) v = 0; sTau.value = v; draw(); }); }
 
-    function label(x, y, s, color, align = 'left') { const { ctx } = st; ctx.save(); ctx.font = '12px system-ui, sans-serif'; ctx.fillStyle = color; ctx.textAlign = align; ctx.textBaseline = 'top'; ctx.fillText(s, x, y); ctx.restore(); }
+    function label(x, y, s, color, align = 'left') { const { ctx } = st; const T = kit.theme(); ctx.save(); ctx.font = '12px system-ui, sans-serif'; const w = ctx.measureText(s).width; const xl = align === 'right' ? x - w : x; ctx.globalAlpha = 0.85; ctx.fillStyle = T.bg; ctx.fillRect(xl - 3, y - 1, w + 6, 15); ctx.globalAlpha = 1; ctx.fillStyle = color; ctx.textAlign = align; ctx.textBaseline = 'top'; ctx.fillText(s, x, y); ctx.restore(); }
     function sampleAt(pts, t) { let lo = 0, hi = pts.length - 1; if (t >= pts[hi].t) return pts[hi]; while (hi - lo > 1) { const m = (lo + hi) >> 1; if (pts[m].t <= t) lo = m; else hi = m; } return pts[lo]; }
 
     function draw() { try { render(); } catch (e) { console.warn(e); } }
@@ -101,8 +102,13 @@ et l'identité infinitésimale d'invariance ([[ch08-invariance-infinitesimale]])
         ctx.save(); ctx.translate(x, y); ctx.beginPath(); ctx.rect(0, 0, w, h); ctx.clip();
         const Tm = sT.value; const Qp = kit.plane(ctx, { xmin: -0.04 * Tm, xmax: 1.03 * Tm, ymin: lo - m, ymax: hi + 2.6 * m, W: w, H: h, keepAspect: false });
         const stepT = Tm > 20 ? 10 : Tm > 8 ? 2 : 1; const span = hi - lo + 3.6 * m; const stepY = span > 4 ? 1 : span > 2 ? 0.5 : span > 0.8 ? 0.25 : 0.1;
-        Qp.grid(stepY, T.grid); Qp.axes({ labels: true, step: stepY, xlabel: 't' });
-        ctx.save(); ctx.fillStyle = T.muted; ctx.font = '11px system-ui, sans-serif'; ctx.textAlign = 'center'; ctx.textBaseline = 'bottom'; for (let t = stepT; t <= Tm + 1e-9; t += stepT) { const [px] = Qp.toPx(t, 0); ctx.fillText(String(t), px, h - 2); } ctx.restore();
+        ctx.save(); ctx.strokeStyle = T.grid; ctx.lineWidth = 1;
+        for (let v = Math.ceil(Qp.ymin / stepY) * stepY; v <= Qp.ymax; v += stepY) { const [, py] = Qp.toPx(0, v); ctx.beginPath(); ctx.moveTo(0, py); ctx.lineTo(w, py); ctx.stroke(); }
+        for (let t = stepT; t <= Tm + 1e-9; t += stepT) { const [px] = Qp.toPx(t, 0); ctx.beginPath(); ctx.moveTo(px, 0); ctx.lineTo(px, h); ctx.stroke(); }
+        const [ox, oy] = Qp.toPx(0, 0); ctx.strokeStyle = T.axis; ctx.lineWidth = 1.2; ctx.beginPath(); ctx.moveTo(0, oy); ctx.lineTo(w, oy); ctx.moveTo(ox, 0); ctx.lineTo(ox, h); ctx.stroke();
+        ctx.fillStyle = T.muted; ctx.font = '11px system-ui, sans-serif'; ctx.textAlign = 'center'; ctx.textBaseline = 'bottom'; for (let t = stepT; t <= Tm + 1e-9; t += stepT) { const [px] = Qp.toPx(t, 0); ctx.fillText(String(t), px, h - 2); }
+        ctx.textAlign = 'left'; ctx.textBaseline = 'middle'; for (let v = Math.ceil(Qp.ymin / stepY) * stepY; v <= Qp.ymax; v += stepY) { if (Math.abs(v) < 1e-9) continue; const [, py] = Qp.toPx(0, v); if (py < 22 || py > h - 16) continue; ctx.fillText(kit.fmt(+v.toFixed(2)), ox + 3, py); }
+        ctx.textAlign = 'right'; ctx.textBaseline = 'bottom'; ctx.fillStyle = T.fg; ctx.fillText('t', w - 4, oy - 2); ctx.restore();
         Qp.curve(pts.map((p, i) => [p.t, Hs[i]]), { color: T.accent4, width: 2 });
         Qp.curve(pts.map((p, i) => [p.t, Qs[i]]), { color: T.accent2, width: 2.2 });
         const [px] = Qp.toPx(Math.min(tau, sol.Tend), 0); ctx.save(); ctx.strokeStyle = T.fg; ctx.globalAlpha = 0.5; ctx.setLineDash([3, 3]); ctx.beginPath(); ctx.moveTo(px, 0); ctx.lineTo(px, h); ctx.stroke(); ctx.restore();
@@ -112,8 +118,8 @@ et l'identité infinitésimale d'invariance ([[ch08-invariance-infinitesimale]])
         const Q0 = Qs[0], H0 = Hs[0]; let dQ = 0, dH = 0; for (let i = 0; i < Qs.length; i++) { dQ = Math.max(dQ, Math.abs(Qs[i] - Q0)); dH = Math.max(dH, Math.abs(Hs[i] - H0)); }
         let intD = 0; for (let i = 1; i < pts.length; i++) { const a = pts[i - 1].s, b = pts[i].s; intD += (pts[i].t - pts[i - 1].t) * 0.5 * eps * (a[0] * a[1] + b[0] * b[1]); }
         const Qc = Qof(cur), Hc = Hof(cur);
-        roQ.set(`Q(t) = ⟨γ′, X(γ)⟩ = ${Qc.toFixed(4)} ; max|Q − Q(0)| = ${dQ.toExponential(1)} ; Q(T) − Q(0) = ${(Qs[Qs.length - 1] - Q0).toFixed(4)}, ∫ε x y dt = ${intD.toFixed(4)}`);
-        roH.set(`H(t) = ${Hc.toFixed(4)} ; max|H − H(0)| = ${dH.toExponential(1)}`);
+        roQ.set(`Q(t) = ⟨γ′, X(γ)⟩ = ${Qc.toFixed(4)} ; écart max ${dQ.toExponential(1)} ; Q(T) − Q(0) = ${(Qs[Qs.length - 1] - Q0).toFixed(4)} = ∫ε x y dt = ${intD.toFixed(4)}`);
+        roH.set(`H(t) = ${Hc.toFixed(4)} ; écart max ${dH.toExponential(1)}`);
         let msg = Math.abs(eps) < 1e-9 ? 'ε = 0 : L est invariant par les rotations F_s, donc Q est constant (Noether) ; la courbe tournée F_s∘γ est encore une solution (vert et violet confondus).' : 'ε ≠ 0 : la symétrie est cassée, Q′ = ε x y ≠ 0 et Q varie ; H reste constant (L autonome) ; F_s∘γ n’est plus une solution (vert ≠ violet).';
         if (sol.status === 'collision') msg += ` Collision avec l’origine en t ≈ ${sol.Tend.toFixed(2)} : la courbe sort de l’ouvert V∖{0} où U est défini.`;
         if (sol.status === 'fuite') msg += ` La trajectoire s’échappe à l’infini (énergie positive), calcul arrêté en t ≈ ${sol.Tend.toFixed(2)}.`;

@@ -102,7 +102,7 @@ Soit $\eps>0$. Pour $k$ grand, la différentiabilité de $f$ et $g$ en $w$ et l'
 
 * **Corde et cercle.** $f(t)=e^{it}\in\C\simeq\R^2$ (norme euclidienne = module), $g(t)=t$, sur $[0;\theta]$ avec $\theta>0$. On a $f'(t)=ie^{it}$, $|f'(t)|=1=g'(t)$. Le théorème donne $|e^{i\theta}-1|\le\theta$, c'est-à-dire $2|\sin(\theta/2)|\le\theta$ : la corde est plus courte que l'arc. En revanche $f(2\pi)-f(0)=0$ alors que $f'$ ne s'annule jamais : **pas d'égalité** des accroissements finis.
 * **Une majoration optimale.** $F=\R^2$ muni de $\|(x,y)\|_1=|x|+|y|$, $f(t)=(\cos t,\sin t)$ sur $[0;\pi/2]$. Alors $\|f'(t)\|_1=|\sin t|+|\cos t|=\sin t+\cos t=g'(t)$ avec $g(t)=\sin t-\cos t$. Le théorème donne $\|f(\pi/2)-f(0)\|_1\le g(\pi/2)-g(0)=1-(-1)=2$, et en effet $\|(-1,1)\|_1=2$ : l'inégalité est ici une égalité.
-* **Longueur d'une courbe.** Si $F$ est de Banach et $f:[a;b]\to F$ est de classe $C^1$, on peut prendre $g(t)=\int_a^t\|f'(s)\|_F\,ds$ (qui est dérivable de dérivée $\|f'(t)\|_F$ par [[ch05-primitive-integrale]]). On obtient $\|f(b)-f(a)\|_F\le\int_a^b\|f'(s)\|_F\,ds$ : la distance entre les extrémités est au plus la longueur de la courbe.
+* **Longueur d'une courbe.** Si $f:[a;b]\to F$ est de classe $C^1$ (ici $F$ est un e.v.n. quelconque : la fonction que l'on intègre, $s\mapsto\|f'(s)\|_F$, est continue et **à valeurs réelles**), on peut prendre $g(t)=\int_a^t\|f'(s)\|_F\,ds$, qui est continue sur $[a;b]$ et dérivable sur $]a;b[$ de dérivée $\|f'(t)\|_F$ ([[ch05-primitive-integrale]] appliqué dans $\R$). On obtient $\|f(b)-f(a)\|_F\le\int_a^b\|f'(s)\|_F\,ds$ : la distance entre les extrémités est au plus la longueur de la courbe.
 
 ## Pièges
 

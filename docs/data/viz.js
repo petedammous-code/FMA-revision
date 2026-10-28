@@ -14,7 +14,7 @@ où $S$ est l'ensemble (fini) des pôles de $f$ dans $U$ (poly, Formule (II.6.1)
 
 **À faire.**
 * Faites varier $R$ (ou « ▶ faire grandir $R$ ») : l'égalité est vraie **pour chaque $R$**, pas seulement à la limite, et elle **saute** quand un pôle entre dans $U$ (il s'allume). Pôle exactement sur $\Gamma$ : l'intégrale n'est pas définie.
-* *Exemple II.6.1* (p. 48), $f(z)=\dfrac{e^{ikz}}{z^2+a^2}$ sur le demi-disque : pour $R>a$ seul $ia$ est dedans et $\mathrm{res}_{ia}(f)=\dfrac{e^{-ka}}{2ia}$. La courbe du bas montre $\int_{C_R^+}f\to0$ et la partie réelle de $\int_{-R}^{R}f$ tend vers $\frac{\pi}{a}e^{-ka}$ ([[ch02-exemple-integrale-fourier]]). Passez à $k<0$ : $|e^{ikz}|=e^{-k\,\Im z}$ **explose** sur le demi-cercle supérieur, l'intégrale sur l'arc ne tend plus vers $0$ (la courbe remonte) : il faut alors fermer par le demi-plan inférieur.
+* *Exemple II.6.1* (p. 48), $f(z)=\dfrac{e^{ikz}}{z^2+a^2}$ sur le demi-disque : pour $R>a$ seul $ia$ est dedans et $\mathrm{res}_{ia}(f)=\dfrac{e^{-ka}}{2ia}$. La courbe du bas montre $\int_{C_R^+}f\to0$ et la partie réelle de $\int_{-R}^{R}f$ tend vers $\frac{\pi}{a}e^{-ka}$ ([[ch02-exemple-integrale-fourier]]). Passez à $k<0$ : $|e^{ikz}|=e^{-k\,\Im z}$ **explose** sur le demi-cercle supérieur (il vaut $e^{|k|R}$ en $iR$), la majoration disparaît et l'intégrale sur l'arc ne tend plus vers $0$ (la courbe du bas reste haute) ; la formule des résidus reste vraie pour chaque $R$, mais elle ne donne plus l'intégrale réelle : il faut fermer par le demi-plan inférieur.
 * $\dfrac{1}{1+z^4}$ : **deux** pôles, $e^{i\pi/4}$ et $e^{3i\pi/4}$, dans le demi-disque (piège classique : n'en compter qu'un) ; on trouve $\int_{-\infty}^{+\infty}\frac{dx}{1+x^4}=\frac{\pi}{\sqrt2}$.
 * Secteur d'angle $\frac{2\pi}{3}$ pour $\dfrac{1}{1+z^3}$ : le segment de retour donne $-e^{2i\pi/3}\int_0^R\frac{dx}{1+x^3}$ (car $(xe^{2i\pi/3})^3=x^3$), d'où $\int_0^{+\infty}\frac{dx}{1+x^3}=\dfrac{2i\pi\,\mathrm{res}_{e^{i\pi/3}}(f)}{1-e^{2i\pi/3}}=\dfrac{2\pi}{3\sqrt3}$.
 * *Exemple II.9.7* (p. 57), trou de serrure, $f(z)=\dfrac{z^{\alpha-1}}{1+z}$ avec $z^{\alpha-1}=e^{(\alpha-1)\mathrm{Log}\,z}$ et $\arg z\in\,]0,2\pi[$ : le domain coloring montre la **coupure** le long de $\R_+$ (saut de couleur). Les bords $\gamma_+$ (au-dessus) et $\gamma_-$ (en dessous) ne se compensent pas, car sur $\gamma_-$ on a $z^{\alpha-1}=x^{\alpha-1}e^{2i\pi\alpha}$. Les arcs $C_R$ et $C_\varepsilon$ tendent vers $0$ grâce à $0<\alpha<1$ (majorations $\frac{2\pi R^{\alpha}}{R-1}$ et $\frac{2\pi\varepsilon^{\alpha}}{1-\varepsilon}$), d'où $\int_0^{+\infty}\frac{x^{\alpha-1}}{1+x}dx=\frac{\pi}{\sin(\alpha\pi)}$ ([[ch02-exemple-trou-de-serrure]]).
@@ -72,7 +72,7 @@ où $S$ est l'ensemble (fini) des pôles de $f$ dans $U$ (poly, Formule (II.6.1)
           return [
             { kind: 'seg', label: '[0, R]', F: u => { const z = [R * u, 0]; return [z, C.scale(f(z, q), R)]; } },
             { kind: 'arcR', label: 'C_R', F: u => { const z = C.scale(cexp(TAU / 3 * u), R); return [z, C.mul(f(z, q), C.mul([0, TAU / 3], z))]; } },
-            { kind: 'seg2', label: '[Re^{2iπ/3}, 0]', F: u => { const z = C.scale(w, R * (1 - u)); return [z, C.mul(f(z, q), C.scale(w, -R))]; } },
+            { kind: 'seg2', label: '[R·e^(2iπ/3), 0]', F: u => { const z = C.scale(w, R * (1 - u)); return [z, C.mul(f(z, q), C.scale(w, -R))]; } },
           ];
         },
         poles: () => [1, 3, 5].map(m => { const z = cexp(m * Math.PI / 3); return { z, name: m === 3 ? '−1' : `e^(${m === 1 ? '' : '−'}iπ/3)`, tex: m === 3 ? '-1' : `e^{${m === 1 ? '' : '-'}i\\pi/3}`, res: C.inv(C.scale(C.mul(z, z), 3)) }; }),
@@ -269,7 +269,7 @@ FMA.registerViz({
   description: String.raw`**Ce que l'on voit.** Un *lacet* $\gamma:[0,1]\to\C$ (chemin $C^1$ par morceaux tel que $\gamma(0)=\gamma(1)$), son image $\Gamma=\gamma([0,1])$ (trait bleu épais, les flèches donnent le sens de parcours, le petit point creux est $\gamma(0)$) et un point $z_0\notin\Gamma$ (point orange) que l'on **déplace en cliquant ou en glissant**. Chaque point $z$ du plan hors de $\Gamma$ est teinté selon la valeur de l'entier $\Ind_z(\gamma)$ (légende en haut à gauche ; fond neutre = $0$, bleu = positif, rose = négatif). La flèche rose va de $z_0$ à $\gamma(t)$ ; la petite spirale autour de $z_0$ compte les tours qu'elle a déjà faits. La bande du bas trace $t\mapsto\frac{\theta(t)-\theta(0)}{2\pi}$, où $\theta(t)$ est un argument de $\gamma(t)-z_0$ **qui varie continûment** avec $t$.
 
 **Le lien avec le cours.** L'indice est défini par (poly, Définition II.3.1, p. 40)
-$$\Ind_{z_0}(\gamma)=\frac{1}{2i\pi}\int_\gamma\frac{dz}{z-z_0}=\frac{1}{2i\pi}\int_0^1\frac{\gamma'(t)}{\gamma(t)-z_0}\,dt .$$
+$$\begin{aligned}\Ind_{z_0}(\gamma)&=\frac{1}{2i\pi}\int_\gamma\frac{dz}{z-z_0}\\&=\frac{1}{2i\pi}\int_0^1\frac{\gamma'(t)}{\gamma(t)-z_0}\,dt .\end{aligned}$$
 Sur le morceau $[0,t]$ du lacet, cette intégrale vaut $\frac{\theta(t)-\theta(0)}{2\pi}-\frac{i}{2\pi}\ln\frac{|\gamma(t)-z_0|}{|\gamma(0)-z_0|}$ (lecture « intégrale sur $[0,t]$ ») : pour $t<1$ ce n'est en général **pas** un entier (le chemin n'est pas fermé). En $t=1$, $|\gamma(1)-z_0|=|\gamma(0)-z_0|$, la partie imaginaire s'annule et il reste un **entier** : le nombre de tours de $\gamma$ autour de $z_0$. Les couleurs illustrent la Proposition II.3.2 (p. 40) : $z\mapsto\Ind_z(\gamma)$ est constante sur chaque composante connexe de $\C\setminus\Gamma$ et nulle sur la composante non bornée. [[ch02-indice-def]], [[ch02-indice-entier-localement-constant]].
 
 **À faire.**
@@ -453,7 +453,7 @@ Sur le morceau $[0,t]$ du lacet, cette intégrale vaut $\frac{\theta(t)-\theta(0
       drawStrip(A);
       // lectures
       if (n < 3) { roI.set('—'); roP.set('—'); }
-      else if (onCurve) { roI.set('$z_0\\in\\Gamma$ : non défini', true); roP.set('—'); }
+      else if (onCurve) { roI.set('z₀ ∈ Γ : non défini'); roP.set('—'); }
       else {
         roI.set(String(ind));
         const re = A ? (A.theta - th[0]) / TAU : 0;
@@ -545,7 +545,7 @@ FMA.registerViz({
 
 **Principe de l'argument** (poly, Lemme II.8.1 et Corollaire II.8.2, p. 53). Pour $g$ méromorphe sans zéro ni pôle sur $\Gamma$,
 $$\frac{1}{2i\pi}\int_\Gamma\frac{g'(z)}{g(z)}\,dz=Z(g,U)-P(g,U),$$
-nombre de zéros moins nombre de pôles dans $U$, **comptés avec multiplicité**. Le membre de gauche est exactement $\Ind_0(g\circ\gamma)$, le nombre de tours de la courbe image autour de $0$ (changement de variable $w=g(z)$ dans la [[ch02-indice-def|définition de l'indice]]). Glissez les zéros et les pôles (configurations « Argument ») ou changez $r$ : chaque zéro qui entre dans $U$ ajoute $m$ tours, chaque pôle en retire $m$. Quand un zéro ou un pôle est **sur** $\Gamma$, la courbe image passe par $0$ ou part à l'infini et l'intégrale n'est pas définie. Cochez « échelle compressée » pour voir la courbe en entier : on remplace $w$ par $\frac{w}{|w|+s_0}$, ce qui garde l'argument, donc le nombre de tours.
+nombre de zéros moins nombre de pôles dans $U$, **comptés avec multiplicité**. Le membre de gauche est exactement $\Ind_0(g\circ\gamma)$, le nombre de tours de la courbe image autour de $0$ (changement de variable $w=g(z)$ dans la définition de l'indice, [[ch02-indice-def]]). Glissez les zéros et les pôles (configurations « Argument ») ou changez $r$ : chaque zéro qui entre dans $U$ ajoute $m$ tours, chaque pôle en retire $m$. Quand un zéro ou un pôle est **sur** $\Gamma$, la courbe image passe par $0$ ou part à l'infini et l'intégrale n'est pas définie. Cochez « échelle compressée » pour voir la courbe en entier : on remplace $w$ par $\frac{w}{|w|+s_0}$, ce qui garde l'argument, donc le nombre de tours.
 
 **Rouché** (poly, Théorème II.8.4, p. 54). Si $|f(z)-g(z)|<|g(z)|$ pour tout $z\in\Gamma$, alors $Z(f,U)-P(f,U)=Z(g,U)-P(g,U)$. Image : le maître $g(\gamma(t))$ (bleu) promène son chien $f(\gamma(t))$ (rose) autour du poteau $0$ ; la laisse est le segment de longueur $|f-g|$. L'hypothèse dit que la laisse est **plus courte que la distance du maître au poteau** : le chien reste dans le disque en tirets, de centre $g(\gamma(t))$ et de rayon $|g(\gamma(t))|$, qui ne contient pas $0$ ; il ne peut donc pas tourner autour du poteau un nombre de fois différent de son maître. Sur $\Gamma$, les arcs **verts** sont ceux où l'inégalité est vraie, les **rouges** ceux où elle est fausse.
 
@@ -1911,6 +1911,7 @@ FMA.registerViz({
     const ro2 = kit.readout(controls, { label: 'pente en $s=0$' });
     const ro3 = kit.readout(controls, { label: 'courbure' });
     const note = document.createElement('div'); note.className = 'viz-note'; container.appendChild(note);
+    [ro1, ro2, ro3].forEach(r => { r.el.style.maxWidth = '100%'; r.el.style.flexWrap = 'wrap'; const v = r.el.querySelector('.viz-readout-val'); if (v) { v.style.minWidth = '0'; v.style.overflowWrap = 'anywhere'; } });
 
     function setLabel(sl, tex) { const el = sl.el.querySelector('.viz-ctl-label'); if (!el) return; el.innerHTML = (window.FMA && FMA.render) ? FMA.render(tex, { inline: true }) : tex; }
     function syncPar() {
@@ -1941,7 +1942,7 @@ FMA.registerViz({
     function toggleAnim() { if (anim) { stopAnim(); return; } bPlay.textContent = '⏸ pause'; ph = Math.asin(Math.max(-1, Math.min(1, sS.value))); anim = kit.animate(dt => { ph += dt * 1.6; sS.value = Math.round(Math.sin(ph) * 100) / 100; draw(); }); }
 
     function panel(x, y, w, h, fn) { const { ctx } = st; ctx.save(); ctx.translate(x, y); ctx.beginPath(); ctx.rect(0, 0, w, h); ctx.clip(); try { fn(); } finally { ctx.restore(); } }
-    function label(x, y, s, color, align = 'left') { const { ctx } = st; ctx.save(); ctx.font = '12px system-ui, sans-serif'; ctx.fillStyle = color; ctx.textAlign = align; ctx.textBaseline = 'top'; ctx.fillText(s, x, y); ctx.restore(); }
+    function label(x, y, s, color, align = 'left') { const { ctx } = st; const T = kit.theme(); ctx.save(); ctx.font = '12px system-ui, sans-serif'; const w = ctx.measureText(s).width; const xl = align === 'right' ? x - w : x; ctx.globalAlpha = 0.85; ctx.fillStyle = T.bg; ctx.fillRect(xl - 3, y - 1, w + 6, 15); ctx.globalAlpha = 1; ctx.fillStyle = color; ctx.textAlign = align; ctx.textBaseline = 'top'; ctx.fillText(s, x, y); ctx.restore(); }
 
     function draw() { try { render(); } catch (e) { console.warn(e); } }
     function render() {
@@ -2086,6 +2087,7 @@ et l'identité infinitésimale d'invariance ([[ch08-invariance-infinitesimale]])
     const roQ = kit.readout(controls, { label: '$Q$' });
     const roH = kit.readout(controls, { label: '$H$' });
     const note = document.createElement('div'); note.className = 'viz-note'; container.appendChild(note);
+    [roQ, roH].forEach(r => { r.el.style.maxWidth = '100%'; r.el.style.flexWrap = 'wrap'; const v = r.el.querySelector('.viz-readout-val'); if (v) { v.style.minWidth = '0'; v.style.overflowWrap = 'anywhere'; } });
 
     function grad(x, y) { const e = sE.value; if (selU.value === 'kepler') { const r = Math.hypot(x, y), r3 = r * r * r; return [x / r3 + e * x, y / r3]; } return [x + e * x, y]; }
     function Upot(x, y) { const e = sE.value, r = Math.hypot(x, y); return (selU.value === 'kepler' ? -1 / r : 0.5 * r * r) + 0.5 * e * x * x; }
@@ -2113,7 +2115,7 @@ et l'identité infinitésimale d'invariance ([[ch08-invariance-infinitesimale]])
     function stopAnim() { if (anim) { anim.stop(); anim = null; } bPlay.textContent = '▶ animer'; }
     function toggleAnim() { if (anim) { stopAnim(); return; } bPlay.textContent = '⏸ pause'; anim = kit.animate(dt => { let v = sTau.value + dt / Math.max(4, sT.value) * 1.2; if (v > 1) v = 0; sTau.value = v; draw(); }); }
 
-    function label(x, y, s, color, align = 'left') { const { ctx } = st; ctx.save(); ctx.font = '12px system-ui, sans-serif'; ctx.fillStyle = color; ctx.textAlign = align; ctx.textBaseline = 'top'; ctx.fillText(s, x, y); ctx.restore(); }
+    function label(x, y, s, color, align = 'left') { const { ctx } = st; const T = kit.theme(); ctx.save(); ctx.font = '12px system-ui, sans-serif'; const w = ctx.measureText(s).width; const xl = align === 'right' ? x - w : x; ctx.globalAlpha = 0.85; ctx.fillStyle = T.bg; ctx.fillRect(xl - 3, y - 1, w + 6, 15); ctx.globalAlpha = 1; ctx.fillStyle = color; ctx.textAlign = align; ctx.textBaseline = 'top'; ctx.fillText(s, x, y); ctx.restore(); }
     function sampleAt(pts, t) { let lo = 0, hi = pts.length - 1; if (t >= pts[hi].t) return pts[hi]; while (hi - lo > 1) { const m = (lo + hi) >> 1; if (pts[m].t <= t) lo = m; else hi = m; } return pts[lo]; }
 
     function draw() { try { render(); } catch (e) { console.warn(e); } }
@@ -2152,8 +2154,13 @@ et l'identité infinitésimale d'invariance ([[ch08-invariance-infinitesimale]])
         ctx.save(); ctx.translate(x, y); ctx.beginPath(); ctx.rect(0, 0, w, h); ctx.clip();
         const Tm = sT.value; const Qp = kit.plane(ctx, { xmin: -0.04 * Tm, xmax: 1.03 * Tm, ymin: lo - m, ymax: hi + 2.6 * m, W: w, H: h, keepAspect: false });
         const stepT = Tm > 20 ? 10 : Tm > 8 ? 2 : 1; const span = hi - lo + 3.6 * m; const stepY = span > 4 ? 1 : span > 2 ? 0.5 : span > 0.8 ? 0.25 : 0.1;
-        Qp.grid(stepY, T.grid); Qp.axes({ labels: true, step: stepY, xlabel: 't' });
-        ctx.save(); ctx.fillStyle = T.muted; ctx.font = '11px system-ui, sans-serif'; ctx.textAlign = 'center'; ctx.textBaseline = 'bottom'; for (let t = stepT; t <= Tm + 1e-9; t += stepT) { const [px] = Qp.toPx(t, 0); ctx.fillText(String(t), px, h - 2); } ctx.restore();
+        ctx.save(); ctx.strokeStyle = T.grid; ctx.lineWidth = 1;
+        for (let v = Math.ceil(Qp.ymin / stepY) * stepY; v <= Qp.ymax; v += stepY) { const [, py] = Qp.toPx(0, v); ctx.beginPath(); ctx.moveTo(0, py); ctx.lineTo(w, py); ctx.stroke(); }
+        for (let t = stepT; t <= Tm + 1e-9; t += stepT) { const [px] = Qp.toPx(t, 0); ctx.beginPath(); ctx.moveTo(px, 0); ctx.lineTo(px, h); ctx.stroke(); }
+        const [ox, oy] = Qp.toPx(0, 0); ctx.strokeStyle = T.axis; ctx.lineWidth = 1.2; ctx.beginPath(); ctx.moveTo(0, oy); ctx.lineTo(w, oy); ctx.moveTo(ox, 0); ctx.lineTo(ox, h); ctx.stroke();
+        ctx.fillStyle = T.muted; ctx.font = '11px system-ui, sans-serif'; ctx.textAlign = 'center'; ctx.textBaseline = 'bottom'; for (let t = stepT; t <= Tm + 1e-9; t += stepT) { const [px] = Qp.toPx(t, 0); ctx.fillText(String(t), px, h - 2); }
+        ctx.textAlign = 'left'; ctx.textBaseline = 'middle'; for (let v = Math.ceil(Qp.ymin / stepY) * stepY; v <= Qp.ymax; v += stepY) { if (Math.abs(v) < 1e-9) continue; const [, py] = Qp.toPx(0, v); if (py < 22 || py > h - 16) continue; ctx.fillText(kit.fmt(+v.toFixed(2)), ox + 3, py); }
+        ctx.textAlign = 'right'; ctx.textBaseline = 'bottom'; ctx.fillStyle = T.fg; ctx.fillText('t', w - 4, oy - 2); ctx.restore();
         Qp.curve(pts.map((p, i) => [p.t, Hs[i]]), { color: T.accent4, width: 2 });
         Qp.curve(pts.map((p, i) => [p.t, Qs[i]]), { color: T.accent2, width: 2.2 });
         const [px] = Qp.toPx(Math.min(tau, sol.Tend), 0); ctx.save(); ctx.strokeStyle = T.fg; ctx.globalAlpha = 0.5; ctx.setLineDash([3, 3]); ctx.beginPath(); ctx.moveTo(px, 0); ctx.lineTo(px, h); ctx.stroke(); ctx.restore();
@@ -2163,8 +2170,8 @@ et l'identité infinitésimale d'invariance ([[ch08-invariance-infinitesimale]])
         const Q0 = Qs[0], H0 = Hs[0]; let dQ = 0, dH = 0; for (let i = 0; i < Qs.length; i++) { dQ = Math.max(dQ, Math.abs(Qs[i] - Q0)); dH = Math.max(dH, Math.abs(Hs[i] - H0)); }
         let intD = 0; for (let i = 1; i < pts.length; i++) { const a = pts[i - 1].s, b = pts[i].s; intD += (pts[i].t - pts[i - 1].t) * 0.5 * eps * (a[0] * a[1] + b[0] * b[1]); }
         const Qc = Qof(cur), Hc = Hof(cur);
-        roQ.set(`Q(t) = ⟨γ′, X(γ)⟩ = ${Qc.toFixed(4)} ; max|Q − Q(0)| = ${dQ.toExponential(1)} ; Q(T) − Q(0) = ${(Qs[Qs.length - 1] - Q0).toFixed(4)}, ∫ε x y dt = ${intD.toFixed(4)}`);
-        roH.set(`H(t) = ${Hc.toFixed(4)} ; max|H − H(0)| = ${dH.toExponential(1)}`);
+        roQ.set(`Q(t) = ⟨γ′, X(γ)⟩ = ${Qc.toFixed(4)} ; écart max ${dQ.toExponential(1)} ; Q(T) − Q(0) = ${(Qs[Qs.length - 1] - Q0).toFixed(4)} = ∫ε x y dt = ${intD.toFixed(4)}`);
+        roH.set(`H(t) = ${Hc.toFixed(4)} ; écart max ${dH.toExponential(1)}`);
         let msg = Math.abs(eps) < 1e-9 ? 'ε = 0 : L est invariant par les rotations F_s, donc Q est constant (Noether) ; la courbe tournée F_s∘γ est encore une solution (vert et violet confondus).' : 'ε ≠ 0 : la symétrie est cassée, Q′ = ε x y ≠ 0 et Q varie ; H reste constant (L autonome) ; F_s∘γ n’est plus une solution (vert ≠ violet).';
         if (sol.status === 'collision') msg += ` Collision avec l’origine en t ≈ ${sol.Tend.toFixed(2)} : la courbe sort de l’ouvert V∖{0} où U est défini.`;
         if (sol.status === 'fuite') msg += ` La trajectoire s’échappe à l’infini (énergie positive), calcul arrêté en t ≈ ${sol.Tend.toFixed(2)}.`;
