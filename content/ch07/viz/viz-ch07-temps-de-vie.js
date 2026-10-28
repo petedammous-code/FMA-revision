@@ -122,7 +122,7 @@ Idée de la preuve du lemme des bouts : sur le compact $K$, le flot local existe
         P.curve(sampleCurve(peanoSol(c1, c2), -INF, INF, P.xmin, P.xmax), { color: T.accent2, width: 3 });
         P.point(c1, 0, { r: 3, color: T.accent4 }); P.point(c2, 0, { r: 3, color: T.accent4 });
         roJ.set(`= ℝ · solution choisie : nulle sur [${fmt(c1)} ; ${fmt(c2)}] (points orange), parabole ailleurs`);
-        roK.set(x0 === 0 ? 'x₀ = 0 : α₁ ≡ 0 et α₂(t) = signe(t)t² en font partie' : 'non-unicité : X n\'est pas lipschitzien en x = 0');
+        roK.set(x0 === 0 ? 'sans objet ici · x₀ = 0 : α₁ ≡ 0 et α₂(t) = signe(t)t² en font partie' : 'sans objet ici · non-unicité : X n\'est pas lipschitzien en x = 0');
       } else {
         const f = t => F.sol(t, tau, x0);
         P.curve(sampleCurve(f, J[0], J[1], P.xmin, P.xmax), { color: T.accent2, width: 3 });

@@ -17,7 +17,7 @@ FMA.registerViz({
 
 > ⚠️ Avec $\exp$ ou $1/z$ on voit que la conformité est **locale** : les angles sont conservés mais les longueurs sont multipliées par $|f'(z_0)|$, qui varie d'un point à l'autre (les carrés du quadrillage deviennent des « carrés courbes » de tailles différentes).`,
   related: ['ch04-holomorphe-conserve-angles', 'ch04-transformation-conforme-def', 'ch04-lignes-niveau-orthogonales', 'ch04-zeros-derivee-isoles', 'ch04-exemple-argtanh', 'ch04-joukovski'],
-  height: 640,
+  height: 420,
   mount(container, kit) {
     const C = kit.complex;
     const DEG = 180 / Math.PI;
@@ -245,7 +245,7 @@ est le potentiel complexe ; pour $c=0$, $R=1$, c'est exactement celui de l'Exerc
 * **Glissez le centre $c$** (cliquer-glisser à gauche, avec $\Re c\le0$) : le cercle passe toujours par le point critique $z=1$ de $J$, d'où un **bord de fuite pointu** en $w=1$ ; si $\Re c<0$, le point $-1$ est à l'intérieur et le bord d'attaque est arrondi. Avec $\Im c>0$, le profil est **cambré**.
 * **Condition de Kutta** (hors programme, pour la culture) : on ajoute au potentiel le terme $\frac{i\Gamma}{2\pi}\log(z-c)$, dont la partie imaginaire $\frac{\Gamma}{2\pi}\ln|z-c|$ est harmonique et constante sur le cercle, qui reste donc une ligne de courant. On choisit la **circulation** $\Gamma$ pour que $F'(1)=0$ : la vitesse au bord de fuite devient finie, le point d'arrêt arrière se place exactement en $w=1$, et l'écoulement devient dissymétrique (c'est l'origine de la **portance**).`,
   related: ['ch04-joukovski', 'ch04-composition-harmonique-holomorphe', 'ch04-ecoulement-potentiel', 'ch04-holomorphe-conserve-angles', 'ch04-reduction-demi-plan'],
-  height: 640,
+  height: 420,
   mount(container, kit) {
     const C = kit.complex;
     const row = document.createElement('div');
@@ -327,7 +327,7 @@ est le potentiel complexe ; pour $c=0$, $R=1$, c'est exactement celui de l'Exerc
     }
     function marker(ctx, P, z, t, text) { // point critique de J
       const [px, py] = P.toPx(z[0], z[1]); ctx.save(); ctx.strokeStyle = t.fg; ctx.lineWidth = 1.5; ctx.beginPath(); ctx.arc(px, py, 4.5, 0, 2 * Math.PI); ctx.stroke();
-      if (text) { ctx.font = '11px system-ui, sans-serif'; ctx.fillStyle = t.fg; ctx.textAlign = 'center'; ctx.textBaseline = 'top'; ctx.fillText(text, px, py + 7); } ctx.restore();
+      if (text) { ctx.font = '11px system-ui, sans-serif'; ctx.fillStyle = t.fg; ctx.textAlign = z[0] < 0 ? 'right' : 'left'; ctx.textBaseline = 'bottom'; ctx.fillText(text, px + (z[0] < 0 ? -6 : 6), py - 4); } ctx.restore();
     }
     function diamond(ctx, P, z, t) {
       const [px, py] = P.toPx(z[0], z[1]); ctx.save(); ctx.fillStyle = '#ffffff'; ctx.strokeStyle = '#111111'; ctx.lineWidth = 1.5;
@@ -336,7 +336,9 @@ est le potentiel complexe ; pour $c=0$, $R=1$, c'est exactement celui de l'Exerc
     function inflow(ctx, P, t, al, scale) {
       const x = 14, y = P.H - 26, L = 34;
       kit.arrow(ctx, x, y, x + L * Math.cos(al), y - L * Math.sin(al), { color: t.accent, width: 2.2, head: 8 });
-      ctx.save(); ctx.font = '11px system-ui, sans-serif'; ctx.fillStyle = t.fg; ctx.textAlign = 'left'; ctx.textBaseline = 'middle'; ctx.fillText('vitesse à l’infini' + scale, x + L + 6, y - 6 - 8 * Math.sin(al)); ctx.restore();
+      const txt = 'vitesse à l’infini' + scale, tx = x + L + 6, ty = y - 6 - 8 * Math.sin(al);
+      ctx.save(); ctx.font = '11px system-ui, sans-serif'; const tw = ctx.measureText(txt).width; ctx.globalAlpha = 0.85; ctx.fillStyle = t.bg; ctx.fillRect(tx - 3, ty - 8, tw + 6, 16); ctx.globalAlpha = 1;
+      ctx.fillStyle = t.fg; ctx.textAlign = 'left'; ctx.textBaseline = 'middle'; ctx.fillText(txt, tx, ty); ctx.restore();
     }
     // peint un champ scalaire (valeurs par nœud) + lignes de courant
     function paint(st, P, vals, speeds, M, t) {
@@ -436,7 +438,7 @@ et, sur un ouvert connexe, n'a **aucun maximum local** sauf si elle est constant
 * Avec $\log|z|$ ou $\Re(1/z)$, harmoniques sur $\C^\times = \C\setminus\{0\}$ seulement : tant que le disque fermé évite $0$, l'égalité tient ; dès qu'il contient $0$ (cercle en tirets), l'hypothèse $\bar D(z_0,r)\subset\Omega$ tombe et l'égalité est fausse (pour $\log|z|$ la moyenne vaut alors $\log r$).
 * Le bouton anime $r$ : l'égalité vaut pour **tous** les rayons, pas seulement pour $r$ petit.`,
   related: ['ch04-harmonique-moyenne-maximum', 'ch04-harmonique-def', 'ch04-maximum-unicite-bord', 'ch04-holomorphe-implique-harmonique', 'ch04-harmonique-reelle-partie-reelle'],
-  height: 560,
+  height: 520,
   mount(container, kit) {
     const st = kit.canvas(container, { height: 330 });
     const st2 = kit.canvas(container, { height: 130 });
@@ -537,7 +539,9 @@ et, sur un ouvert connexe, n'a **aucun maximum local** sauf si elle est constant
       const bg = rgbOf(t.bg);
       // échelle de couleur : écart typique |h - h0| sur la fenêtre
       const { nx, ny, v } = grid; let acc = 0, n = 0;
-      for (let k = 0; k < v.length; k += 7) { const d = Math.abs(v[k] - S.h0); if (isFinite(d)) { acc += Math.min(d, 50); n++; } }
+      const [i0, j1] = P.toPx(L.x, L.y), [i1, j0] = P.toPx(L.X, L.Y);
+      for (let j = Math.max(0, Math.floor(j0 / CELL)); j < Math.min(ny, Math.ceil(j1 / CELL)); j += 2) for (let i = Math.max(0, Math.floor(i0 / CELL)); i < Math.min(nx, Math.ceil(i1 / CELL)); i += 2) {
+        const d = Math.abs(v[j * nx + i] - S.h0); if (isFinite(d)) { acc += Math.min(d, 50); n++; } }
       const scale = Math.max(1e-6, acc / Math.max(1, n));
       const img = ctx.createImageData(nx, ny), D = img.data;
       for (let k = 0; k < nx * ny; k++) {
@@ -1043,7 +1047,7 @@ Idée de la preuve du lemme des bouts : sur le compact $K$, le flot local existe
         P.curve(sampleCurve(peanoSol(c1, c2), -INF, INF, P.xmin, P.xmax), { color: T.accent2, width: 3 });
         P.point(c1, 0, { r: 3, color: T.accent4 }); P.point(c2, 0, { r: 3, color: T.accent4 });
         roJ.set(`= ℝ · solution choisie : nulle sur [${fmt(c1)} ; ${fmt(c2)}] (points orange), parabole ailleurs`);
-        roK.set(x0 === 0 ? 'x₀ = 0 : α₁ ≡ 0 et α₂(t) = signe(t)t² en font partie' : 'non-unicité : X n\'est pas lipschitzien en x = 0');
+        roK.set(x0 === 0 ? 'sans objet ici · x₀ = 0 : α₁ ≡ 0 et α₂(t) = signe(t)t² en font partie' : 'sans objet ici · non-unicité : X n\'est pas lipschitzien en x = 0');
       } else {
         const f = t => F.sol(t, tau, x0);
         P.curve(sampleCurve(f, J[0], J[1], P.xmin, P.xmax), { color: T.accent2, width: 3 });

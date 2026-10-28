@@ -111,7 +111,7 @@ car $c(t,2\pi)=c(t,0)$. La fonction $I$ est donc constante sur $]0,1[$, donc sur
 
 On écrit $\frac{f(\omega)}{\omega-z}=\frac{f(\omega)-f(z)}{\omega-z}+\frac{f(z)}{\omega-z}$ et l'on se ramène à $z_0=0$, $r=1$, $|z|<1$.
 
-*Étape 1.* Avec $\omega=e^{i\theta}$, $\int_\Gamma\frac{d\omega}{\omega-z}=i\int_0^{2\pi}\frac{d\theta}{1-ze^{-i\theta}}$, et l'on développe <trou indice="|z|<1 : quelle série ?">$\frac{1}{1-ze^{-i\theta}}=\sum_{n\ge0}z^ne^{-in\theta}$, normalement convergente car $|z|<1$, puis on intègre terme à terme : seul $n=0$ contribue</trou>, d'où $2i\pi$.
+*Étape 1.* Avec $\omega=e^{i\theta}$, $\int_\Gamma\frac{d\omega}{\omega-z}=i\int_0^{2\pi}\frac{d\theta}{1-ze^{-i\theta}}$, et l'on développe <trou indice="|z| est strictement inférieur à 1 : quelle série ?">$\frac{1}{1-ze^{-i\theta}}=\sum_{n\ge0}z^ne^{-in\theta}$, normalement convergente car $|z|<1$, puis on intègre terme à terme : seul $n=0$ contribue</trou>, d'où $2i\pi$.
 
 *Étape 2.* On pose $c(t,\theta)=tz+(1-t)e^{i\theta}$ (le cercle $\Gamma_t=C(tz,1-t)$ se rétracte sur $z$) et
 $$

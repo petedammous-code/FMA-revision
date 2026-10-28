@@ -13,7 +13,7 @@ est le potentiel complexe ; pour $c=0$, $R=1$, c'est exactement celui de l'Exerc
 * **Glissez le centre $c$** (cliquer-glisser à gauche, avec $\Re c\le0$) : le cercle passe toujours par le point critique $z=1$ de $J$, d'où un **bord de fuite pointu** en $w=1$ ; si $\Re c<0$, le point $-1$ est à l'intérieur et le bord d'attaque est arrondi. Avec $\Im c>0$, le profil est **cambré**.
 * **Condition de Kutta** (hors programme, pour la culture) : on ajoute au potentiel le terme $\frac{i\Gamma}{2\pi}\log(z-c)$, dont la partie imaginaire $\frac{\Gamma}{2\pi}\ln|z-c|$ est harmonique et constante sur le cercle, qui reste donc une ligne de courant. On choisit la **circulation** $\Gamma$ pour que $F'(1)=0$ : la vitesse au bord de fuite devient finie, le point d'arrêt arrière se place exactement en $w=1$, et l'écoulement devient dissymétrique (c'est l'origine de la **portance**).`,
   related: ['ch04-joukovski', 'ch04-composition-harmonique-holomorphe', 'ch04-ecoulement-potentiel', 'ch04-holomorphe-conserve-angles', 'ch04-reduction-demi-plan'],
-  height: 640,
+  height: 420,
   mount(container, kit) {
     const C = kit.complex;
     const row = document.createElement('div');
@@ -95,7 +95,7 @@ est le potentiel complexe ; pour $c=0$, $R=1$, c'est exactement celui de l'Exerc
     }
     function marker(ctx, P, z, t, text) { // point critique de J
       const [px, py] = P.toPx(z[0], z[1]); ctx.save(); ctx.strokeStyle = t.fg; ctx.lineWidth = 1.5; ctx.beginPath(); ctx.arc(px, py, 4.5, 0, 2 * Math.PI); ctx.stroke();
-      if (text) { ctx.font = '11px system-ui, sans-serif'; ctx.fillStyle = t.fg; ctx.textAlign = 'center'; ctx.textBaseline = 'top'; ctx.fillText(text, px, py + 7); } ctx.restore();
+      if (text) { ctx.font = '11px system-ui, sans-serif'; ctx.fillStyle = t.fg; ctx.textAlign = z[0] < 0 ? 'right' : 'left'; ctx.textBaseline = 'bottom'; ctx.fillText(text, px + (z[0] < 0 ? -6 : 6), py - 4); } ctx.restore();
     }
     function diamond(ctx, P, z, t) {
       const [px, py] = P.toPx(z[0], z[1]); ctx.save(); ctx.fillStyle = '#ffffff'; ctx.strokeStyle = '#111111'; ctx.lineWidth = 1.5;
@@ -104,7 +104,9 @@ est le potentiel complexe ; pour $c=0$, $R=1$, c'est exactement celui de l'Exerc
     function inflow(ctx, P, t, al, scale) {
       const x = 14, y = P.H - 26, L = 34;
       kit.arrow(ctx, x, y, x + L * Math.cos(al), y - L * Math.sin(al), { color: t.accent, width: 2.2, head: 8 });
-      ctx.save(); ctx.font = '11px system-ui, sans-serif'; ctx.fillStyle = t.fg; ctx.textAlign = 'left'; ctx.textBaseline = 'middle'; ctx.fillText('vitesse à l’infini' + scale, x + L + 6, y - 6 - 8 * Math.sin(al)); ctx.restore();
+      const txt = 'vitesse à l’infini' + scale, tx = x + L + 6, ty = y - 6 - 8 * Math.sin(al);
+      ctx.save(); ctx.font = '11px system-ui, sans-serif'; const tw = ctx.measureText(txt).width; ctx.globalAlpha = 0.85; ctx.fillStyle = t.bg; ctx.fillRect(tx - 3, ty - 8, tw + 6, 16); ctx.globalAlpha = 1;
+      ctx.fillStyle = t.fg; ctx.textAlign = 'left'; ctx.textBaseline = 'middle'; ctx.fillText(txt, tx, ty); ctx.restore();
     }
     // peint un champ scalaire (valeurs par nœud) + lignes de courant
     function paint(st, P, vals, speeds, M, t) {

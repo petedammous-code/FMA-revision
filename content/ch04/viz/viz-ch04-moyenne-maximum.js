@@ -14,7 +14,7 @@ et, sur un ouvert connexe, n'a **aucun maximum local** sauf si elle est constant
 * Avec $\log|z|$ ou $\Re(1/z)$, harmoniques sur $\C^\times = \C\setminus\{0\}$ seulement : tant que le disque fermé évite $0$, l'égalité tient ; dès qu'il contient $0$ (cercle en tirets), l'hypothèse $\bar D(z_0,r)\subset\Omega$ tombe et l'égalité est fausse (pour $\log|z|$ la moyenne vaut alors $\log r$).
 * Le bouton anime $r$ : l'égalité vaut pour **tous** les rayons, pas seulement pour $r$ petit.`,
   related: ['ch04-harmonique-moyenne-maximum', 'ch04-harmonique-def', 'ch04-maximum-unicite-bord', 'ch04-holomorphe-implique-harmonique', 'ch04-harmonique-reelle-partie-reelle'],
-  height: 560,
+  height: 520,
   mount(container, kit) {
     const st = kit.canvas(container, { height: 330 });
     const st2 = kit.canvas(container, { height: 130 });
@@ -115,7 +115,9 @@ et, sur un ouvert connexe, n'a **aucun maximum local** sauf si elle est constant
       const bg = rgbOf(t.bg);
       // échelle de couleur : écart typique |h - h0| sur la fenêtre
       const { nx, ny, v } = grid; let acc = 0, n = 0;
-      for (let k = 0; k < v.length; k += 7) { const d = Math.abs(v[k] - S.h0); if (isFinite(d)) { acc += Math.min(d, 50); n++; } }
+      const [i0, j1] = P.toPx(L.x, L.y), [i1, j0] = P.toPx(L.X, L.Y);
+      for (let j = Math.max(0, Math.floor(j0 / CELL)); j < Math.min(ny, Math.ceil(j1 / CELL)); j += 2) for (let i = Math.max(0, Math.floor(i0 / CELL)); i < Math.min(nx, Math.ceil(i1 / CELL)); i += 2) {
+        const d = Math.abs(v[j * nx + i] - S.h0); if (isFinite(d)) { acc += Math.min(d, 50); n++; } }
       const scale = Math.max(1e-6, acc / Math.max(1, n));
       const img = ctx.createImageData(nx, ny), D = img.data;
       for (let k = 0; k < nx * ny; k++) {

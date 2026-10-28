@@ -6,7 +6,7 @@ title: Retrouver une fonction holomorphe à partir de sa partie réelle
 source: "Inventé (sur un thème classique : conjuguée harmonique)"
 difficulty: 1
 time: 15
-tools: [ch04-harmonique-def, ch04-harmonique-reelle-partie-reelle, ch01-cauchy-riemann, ch02-primitive-simplement-connexe]
+tools: [ch04-harmonique-def, ch04-harmonique-reelle-partie-reelle, ch01-cauchy-riemann, ch01-integrale-primitive, ch02-primitive-simplement-connexe]
 ---
 ## Énoncé
 

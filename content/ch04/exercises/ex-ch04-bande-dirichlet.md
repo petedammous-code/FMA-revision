@@ -3,7 +3,7 @@ id: ex-ch04-bande-dirichlet
 type: exercise
 chapters: [4, 1, 2]
 title: Température stationnaire dans une bande, par transport conforme
-source: Inventé
+source: "Inventé (variante en bande de l'Exercice IV.4.3 du poly, p. 86, qui traite le demi-plan)"
 difficulty: 3
 time: 40
 tools: [ch04-composition-harmonique-holomorphe, ch04-reduction-demi-plan, ch04-holomorphe-implique-harmonique, ch02-logarithme-determination-principale-def, ch04-lignes-niveau-orthogonales]
@@ -111,5 +111,6 @@ Le flux de chaleur explose au point de discontinuité des données au bord (vér
 * **Limite au bord le long de la coupure** : pour $x_0<\alpha$, la limite de $\mathrm{Arg}(w-\alpha)$ depuis $H$ est $\pi$, alors que $\mathrm{Arg}$ n'est pas défini (ni continu) sur $\R_-$ ; il faut une formule continue sur $\bar H\setminus\{0\}$ comme $\arccos(s/|\zeta|)$.
 * **Unicité** : on a trouvé **une** solution. Le principe du maximum (Corollaire IV.2.5, Remarque IV.2.6) ne donne pas directement l'unicité ici : le domaine n'est pas borné et la donnée au bord est discontinue en $0$. Sans l'hypothèse « bornée », l'unicité est d'ailleurs fausse : $\Im\big(\sinh z\big)=\cosh x\sin y$ est harmonique sur $S$, nulle sur tout le bord, et non bornée ; on peut l'ajouter à $u$. (L'unicité parmi les fonctions bornées est vraie, mais demande un argument de type Phragmén–Lindelöf, hors programme.)
 * **Oublier $\exp(S)\subset H$** avant de composer : la formule de composition exige que la fonction harmonique soit définie sur un ouvert contenant l'image.
+* Variante (cas du demi-plan, Exercice IV.4.3 du poly, p. 86) : sur $H$ avec $T=T_1$ sur $]0,+\infty[$ et $T=T_0$ sur $]-\infty,0[$, la solution bornée est $T=T_1+\frac{T_0-T_1}{\pi}\mathrm{Arg}(z)$ ; la question 3 ci-dessus est exactement ce résultat (avec $T_1=1$, $T_0=0$, $\alpha=1$) transporté par $\exp$.
 * Variante : données $u=1$ sur tout le bord inférieur $\R$ et $u=0$ sur le bord supérieur : la solution bornée est $1-y/\pi$ (et l'on retrouve $1-\frac1\pi\mathrm{Arg}(e^z)$, cas « $\alpha=0$ »).
 * Variante : bande $\{0<\Im z<\pi\}$ avec $u=1$ sur le segment $]-L,L[$ du bord inférieur et $0$ ailleurs : $u(z)=\frac1\pi\big(\mathrm{Arg}(e^z-e^{L})-\mathrm{Arg}(e^z-e^{-L})\big)$.
