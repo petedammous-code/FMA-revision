@@ -35,7 +35,7 @@ $$
 $$
 comme une application linéaire de $V$ à valeurs dans $\mathcal L(V;\R)$. On dit que le Lagrangien est **régulier** si, en tout point $(u,q,v)\in I\times V\times V$, cette application linéaire est un isomorphisme de $V$ sur $\mathcal L(V;\R)$.
 
-*Formulations équivalentes.* Comme $\dim V=\dim\mathcal L(V;\R)<\infty$, une application linéaire $V\to\mathcal L(V;\R)$ est un isomorphisme si et seulement si elle est injective. Donc $L$ est régulier si et seulement si, en tout point, la forme bilinéaire symétrique $\frac{\partial^2L}{\partial v^2}(u,q,v)$ est **non dégénérée** : le seul $\ell_1$ tel que $\frac{\partial^2L}{\partial v^2}(u,q,v)\cdot(\ell_1,\ell_2)=0$ pour tout $\ell_2$ est $\ell_1=0$. Dans une base orthonormée $(e_i)$ de $V$, cela signifie que la matrice $\Big(\frac{\partial^2L}{\partial v_i\,\partial v_j}(u,q,v)\Big)_{i,j}$ est inversible.
+*Formulations équivalentes.* Comme $\dim V=\dim\mathcal L(V;\R)<\infty$, une application linéaire $V\to\mathcal L(V;\R)$ est un isomorphisme si et seulement si elle est injective. Donc $L$ est régulier si et seulement si, en tout point, la forme bilinéaire symétrique $\frac{\partial^2L}{\partial v^2}(u,q,v)$ est **non dégénérée** : le seul $\ell_1$ tel que $\frac{\partial^2L}{\partial v^2}(u,q,v)\cdot(\ell_1,\ell_2)=0$ pour tout $\ell_2$ est $\ell_1=0$. Dans une base $(e_i)$ de $V$ (orthonormée ou non), cela signifie que la matrice $\Big(\frac{\partial^2L}{\partial v_i\,\partial v_j}(u,q,v)\Big)_{i,j}$ est inversible.
 
 ## Hypothèses
 

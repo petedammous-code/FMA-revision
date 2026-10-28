@@ -6,7 +6,7 @@ title: "Application $\Phi(u,q,v)=(u,q,\frac{\partial L}{\partial v}(u,q,v))$ («
 ref: "Question 13, p. 146 (non numérotée, section VIII)"
 page: 146
 importance: 2
-depends: [ch08-lagrangien-regulier, ch06-inversion-locale, ch05-differentielles-partielles, ch05-differentiabilite-composantes, ch05-composition-differentielles, ch05-isomorphisme-banach]
+depends: [ch08-lagrangien-regulier, ch06-inversion-locale, ch05-differentielles-partielles, ch05-differentiabilite-composantes, ch05-composition-differentielles, ch05-differentielle-lineaire, ch05-isometrie-bilineaire-curryfication, ch05-isomorphisme-banach]
 tags: [legendre, inversion-locale, lagrangien-regulier, impulsion, calcul-des-variations]
 ---
 ## Intuition
@@ -37,7 +37,7 @@ $$
 v=g(u,q,p).
 $$
 
-Précisément (c'est le sens de « localement ») : il existe un voisinage ouvert $\mathcal U_0$ de $(u_0,q_0,v_0)$ dans $I\times V\times V$ et un voisinage ouvert $\mathcal V_0$ de $\Phi(u_0,q_0,v_0)$ dans $\R\times V\times L(V;\R)$ tels que $\Phi$ se restreigne en un $C^1$-difféomorphisme de $\mathcal U_0$ sur $\mathcal V_0$, dont la réciproque est $(u,q,p)\mapsto(u,q,g(u,q,p))$ avec $g:\mathcal V_0\to V$ de classe $C^1$. Autrement dit, pour $(u,q,v)\in\mathcal U_0$ et $(u,q,p)\in\mathcal V_0$ :
+Précisément (c'est le sens de « localement ») : il existe un voisinage ouvert $\mathcal U_0$ de $(u_0,q_0,v_0)$ dans $I\times V\times V$ et un voisinage ouvert $\mathcal V_0$ de $\Phi(u_0,q_0,v_0)$ dans $I\times V\times L(V;\R)$ tels que $\Phi$ se restreigne en un $C^1$-difféomorphisme de $\mathcal U_0$ sur $\mathcal V_0$, dont la réciproque est $(u,q,p)\mapsto(u,q,g(u,q,p))$ avec $g:\mathcal V_0\to V$ de classe $C^1$. Autrement dit, pour $(u,q,v)\in\mathcal U_0$ et $(u,q,p)\in\mathcal V_0$ :
 $$
 p=\frac{\partial L}{\partial v}(u,q,v)\iff v=g(u,q,p).
 $$
@@ -117,7 +117,7 @@ la deuxième équivalence venant de ce que $\Phi:\mathcal U_0\to\mathcal V_0$ es
 ## Pièges
 
 * > ⚠️ Le résultat est **local** : « $d\Phi$ est un isomorphisme en tout point » n'entraîne pas que $\Phi$ soit injective (troisième exemple). La fonction $g$ dépend du point $(u_0,q_0,v_0)$ autour duquel on travaille. En dimension $1$ ($V=\R$), en revanche, la régularité force $v\mapsto\frac{\partial L}{\partial v}(u,q,v)$ à être strictement monotone, donc $\Phi$ injective.
-* > ⚠️ $g$ n'est que de classe $C^1$ (car $\Phi$ n'est que $C^1$ quand $L$ est $C^2$), et elle est définie sur l'ouvert $\mathcal V_0$, qui n'est en général **pas un produit** $J\times U'$ (deuxième exemple) : il faudra le réduire pour appliquer Cauchy-Lipschitz ([[ch08-systeme-premier-ordre-cauchy-lipschitz]]).
+* > ⚠️ $g$ n'est que de classe $C^1$ (car $\Phi$ n'est que $C^1$ quand $L$ est $C^2$), et elle est définie sur l'ouvert $\mathcal V_0$ fourni par l'inversion locale, qui n'est en général **pas un produit** $J\times U'$ ni tout l'espace $I\times V\times L(V;\R)$ (deuxième exemple : l'image de $\Phi$ est $I\times\R\times\,]-1,1[$) : il faudra le réduire à un produit pour appliquer Cauchy-Lipschitz ([[ch08-systeme-premier-ordre-cauchy-lipschitz]]).
 * On n'inverse pas « $v\mapsto\frac{\partial L}{\partial v}$ à $(u,q)$ fixés » directement (ce serait un énoncé sans dépendance $C^1$ en $(u,q)$) : on inverse $\Phi$, qui recopie $(u,q)$. C'est ce qui donne d'un coup un $g$ de classe $C^1$ **en les trois variables**.
 * Seul le bloc $\frac{\partial^2L}{\partial v^2}$ de la différentielle seconde de $L$ compte : grâce à la structure triangulaire de $d\Phi$, les blocs $\frac{\partial^2L}{\partial u\partial v}$, $\frac{\partial^2L}{\partial q\partial v}$ n'ont aucune influence sur l'inversibilité. Ne pas confondre la régularité avec la non-dégénérescence de la hessienne complète de $L$.
 * $p$ vit dans $L(V;\R)$ (une forme linéaire, l'« impulsion ») ; on l'identifie à un vecteur de $V$ par le produit scalaire. Pour $L=\tfrac12\norm v^2-U(q)$ cette identification donne $p=v$, mais en général $p\neq v$ (premier et deuxième exemples).

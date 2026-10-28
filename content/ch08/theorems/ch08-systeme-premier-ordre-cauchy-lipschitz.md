@@ -6,7 +6,7 @@ title: "Réécriture locale de (E.L) en un système du premier ordre en $(\gamma
 ref: "Question 14, p. 146 (non numérotée, section VIII)"
 page: 146
 importance: 2
-depends: [ch08-legendre-inversion-locale, ch08-euler-lagrange, ch07-cauchy-lipschitz, ch07-restriction-domaine-c1-lipschitz, ch07-champ-vecteurs-courbe-integrale-def, ch05-accroissements-finis, ch05-composition-differentielles, ch05-differentiabilite-composantes]
+depends: [ch08-legendre-inversion-locale, ch08-lagrangien-regulier, ch08-euler-lagrange, ch07-cauchy-lipschitz, ch07-restriction-domaine-c1-lipschitz, ch07-champ-vecteurs-courbe-integrale-def, ch05-accroissements-finis, ch05-composition-differentielles, ch05-differentiabilite-composantes]
 tags: [euler-lagrange, cauchy-lipschitz, systeme-premier-ordre, hamiltonien, impulsion, lagrangien-regulier]
 ---
 ## Intuition
@@ -42,7 +42,7 @@ Précisément : (a) si $\gamma$ vérifie (E.L) sur $J$ et $(t,\gamma(t),\gamma'(
 
 **Rôle.** Elle intervient deux fois : (i) pour que $\Phi$ soit $C^1$ et que la question 13 fournisse $g$ de classe $C^1$ ; (ii) pour que $\frac{\partial L}{\partial q}$ soit $C^1$. Ensemble, elles rendent $Y$ de classe $C^1$, donc localement lipschitzien.
 
-**Si on la retire.** On peut parfois encore écrire le système, mais $Y$ n'est plus lipschitzien et l'unicité tombe. Exemple vérifié : $V=\R$, $L(u,q,v)=\tfrac12v^2+F(q)$ avec $F(q)=8\,\mathrm{signe}(q)\abs q^{3/2}$. On a $F'(q)=12\abs q^{1/2}$ (pour $q>0$ : $8\cdot\tfrac32q^{1/2}$ ; pour $q<0$ : $F=-8(-q)^{3/2}$, $F'=12(-q)^{1/2}$ ; en $0$ : taux $8\,\mathrm{signe}(h)\abs h^{1/2}\to0$), continue : $L$ est $C^1$ mais pas $C^2$ ($F'$ n'est pas dérivable en $0$). Ici $\frac{\partial L}{\partial v}=v$, donc $\Phi=\mathrm{Id}$, $g(u,q,p)=p$ et $Y(u,q,p)=(p,\,12\abs q^{1/2})$, qui n'est pas lipschitzien en $q$ près de $q=0$ (le quotient $12\abs q^{1/2}/\abs q$ tend vers $+\infty$). Et en effet $\gamma''=12\abs\gamma^{1/2}$ a deux solutions avec $\gamma(\tfrac12)=0$, $\gamma'(\tfrac12)=0$ : $\gamma_1\equiv0$ et $\gamma_2(t)=(t-\tfrac12)^4$ pour $t\ge\tfrac12$, $\gamma_2(t)=0$ pour $t\le\tfrac12$ (on vérifie $\gamma_2''=12(t-\tfrac12)^2=12\abs{\gamma_2}^{1/2}$ pour $t\ge\tfrac12$). C'est le même phénomène que le contre-exemple de Peano ([[ch07-peano-non-unicite]]).
+**Si on la retire.** On peut parfois encore écrire le système, mais $Y$ n'est plus lipschitzien et l'unicité tombe. Exemple vérifié : $V=\R$, $L(u,q,v)=\tfrac12v^2+F(q)$ avec $F(q)=8\,\mathrm{signe}(q)\abs q^{3/2}$. On a $F'(q)=12\abs q^{1/2}$ (pour $q>0$ : $8\cdot\tfrac32q^{1/2}$ ; pour $q<0$ : $F=-8(-q)^{3/2}$, $F'=12(-q)^{1/2}$ ; en $0$ : taux $F(h)/h=8\,\mathrm{signe}(h)\abs h^{3/2}/h=8\abs h^{1/2}\to0$), continue : $L$ est $C^1$ mais pas $C^2$ ($F'$ n'est pas dérivable en $0$). Ici $\frac{\partial L}{\partial v}=v$, donc $\Phi=\mathrm{Id}$, $g(u,q,p)=p$ et $Y(u,q,p)=(p,\,12\abs q^{1/2})$, qui n'est pas lipschitzien en $q$ près de $q=0$ (le quotient $12\abs q^{1/2}/\abs q$ tend vers $+\infty$). Et en effet $\gamma''=12\abs\gamma^{1/2}$ a deux solutions avec $\gamma(\tfrac12)=0$, $\gamma'(\tfrac12)=0$ : $\gamma_1\equiv0$ et $\gamma_2(t)=(t-\tfrac12)^4$ pour $t\ge\tfrac12$, $\gamma_2(t)=0$ pour $t\le\tfrac12$ (on vérifie $\gamma_2''=12(t-\tfrac12)^2=12\abs{\gamma_2}^{1/2}$ pour $t\ge\tfrac12$). C'est le même phénomène que le contre-exemple de Peano ([[ch07-peano-non-unicite]]).
 
 ### H2 — $L$ est régulier
 
