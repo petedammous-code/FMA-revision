@@ -5,10 +5,10 @@ FMA.registerViz({
   description: String.raw`**Ce que l'on voit.** La courbe de niveau $\{f(x,y)=c\}$ d'une fonction $f:\mathbb R^2\to\mathbb R$ (en gris). Le point orange $(x_0,y_0)$ est **à glisser le long de la courbe**. Le théorème des fonctions implicites (poly, Théorème VI.2.1, p. 118) dit : si $\dfrac{\partial f}{\partial y}(x_0,y_0)\neq 0$, il existe un rectangle $U_0\times V_0$ autour de $(x_0,y_0)$ dans lequel
 $$f(x,y)=f(x_0,y_0)\iff y=\varphi(x),$$
 $$\varphi'(x)=-\frac{\partial_x f(x,\varphi(x))}{\partial_y f(x,\varphi(x))}.$$
-Ce rectangle (bleu) est **calculé numériquement** : $V_0=\,]y_0-s,y_0+s[$ est fixé par le curseur $s$, et l'on cherche le plus large $U_0$ tel que, pour tout $x\in U_0$, $y\mapsto f(x,y)$ soit strictement monotone sur $V_0$ et change de signe (par rapport à $c$) entre les deux bords : la courbe y est alors exactement le graphe de $\varphi$ (en rouge). La tangente (orange, pointillée) a pour pente $\varphi'(x_0)$, et le gradient $\nabla f$ (violet) lui est orthogonal.
+Ce rectangle (bleu) est **calculé numériquement** : $V_0=\,]y_0-s,y_0+s[$ est fixé par le curseur $s$, et l'on cherche le plus large $U_0=\,]x_0-r,x_0+r[$ (symétrique autour de $x_0$) tel que, pour tout $x\in U_0$, $y\mapsto f(x,y)$ soit strictement monotone sur $V_0$ et change de signe (par rapport à $c$) entre les deux bords : la courbe y est alors exactement le graphe de $\varphi$ (en rouge). La tangente (orange, pointillée) a pour pente $\varphi'(x_0)$, et le gradient $\nabla f$ (violet) lui est orthogonal.
 
 **Ce qu'il faut regarder.**
-* **Réduisez $s$** : le rectangle s'élargit ($U_0$ grandit) ; **augmentez-le** : $U_0$ se rétrécit, car un autre morceau de la courbe finit par entrer dans $V_0$. Le théorème ne promet que *l'existence* d'un tel rectangle, pas sa taille.
+* **Jouez sur $s$** : si $s$ est petit, $U_0$ est petit aussi (il faut $\varphi(U_0)\subset V_0$ : la courbe sort de la bande $V_0$ par le haut ou par le bas, et sur le cercle $U_0=\{x:|\sqrt{1-x^2}-y_0|<s\}$ se réduit à rien quand $s\to0$) ; si $s$ est trop grand, un autre morceau de la courbe entre dans $V_0$ (la monotonie en $y$ est perdue) et $U_0$ disparaît. Le théorème ne promet que *l'existence* d'un rectangle convenable, pas sa taille.
 * **Approchez-vous d'un point à tangente verticale** (cercle en $(1,0)$, lemniscate en $(\sqrt2,0)$) : $\partial_yf\to0$, la pente explose et $U_0$ se réduit à rien : *aucun* rectangle ne convient. L'hypothèse $\partial_yf(x_0,y_0)\ne0$ est indispensable.
 * **Changez de variable** (« résoudre $x$ en fonction de $y$ ») : là où $\partial_yf=0$ mais $\partial_xf\ne0$, on obtient quand même un graphe $x=\psi(y)$. Le théorème s'applique avec les rôles échangés.
 * **Points doubles** ($\nabla f=0$ : lemniscate et folium en $(0,0)$) : les deux dérivées partielles s'annulent, aucun des deux graphes n'existe, la courbe se croise.
@@ -108,9 +108,10 @@ Ce rectangle (bleu) est **calculé numériquement** : $V_0=\,]y_0-s,y_0+s[$ est 
         if (strict) for (let j = 0; j <= 14; j++) { const v = v0 - s + 2 * s * j / 14; if (Gv(u, v) * sg <= 0) return false; }
         return true;
       };
-      const width = strict => { if (strict && Math.abs(gv0) < 1e-6) return 0; if (!okRect(u0, strict)) return 0; let k = 0; while (k < maxN && okRect(u0 + (k + 1) * du, strict) && okRect(u0 - (k + 1) * du, strict)) k++; return k * du; };
-      const rStrict = width(true);
-      const rWeak = rStrict > 0 ? 0 : width(false);
+      const width = (strict, h, N) => { if (strict && Math.abs(gv0) < 1e-6) return 0; if (!okRect(u0, strict)) return 0; let k = 0; while (k < N && okRect(u0 + (k + 1) * h, strict) && okRect(u0 - (k + 1) * h, strict)) k++; return k * h; };
+      const rStrict = width(true, du, maxN);
+      // branche continue sans dérivée (ex. y³ = x en 0 : demi-largeur s³) : pas fin pour ne pas la rater
+      const rWeak = rStrict > 0 ? 0 : width(false, du / 20, maxN * 20);
       const r = rStrict > 0 ? rStrict : rWeak;
       const rectPts = rr => [W2(u0 - rr, v0 - s), W2(u0 + rr, v0 - s), W2(u0 + rr, v0 + s), W2(u0 - rr, v0 + s)];
 
@@ -127,7 +128,7 @@ Ce rectangle (bleu) est **calculé numériquement** : $V_0=\,]y_0-s,y_0+s[$ est 
         }
         P.curve(pts, { color: t.accent2, width: 3.2 });
         const lb = W2(u0 - r, v0 + s), lb2 = W2(u0, v0 - s);
-        P.text(lb[0], lb[1], sw ? 'V₀' : 'U₀×V₀', { color: col, dx: 4, dy: -3, font: 'bold 12px system-ui, sans-serif' });
+        P.text(lb[0], lb[1], sw ? 'V₀×U₀' : 'U₀×V₀', { color: col, dx: 4, dy: -3, font: 'bold 12px system-ui, sans-serif' });
       }
       // tangente et gradient
       const n2 = Math.hypot(C.fx(px, py), C.fy(px, py));
@@ -155,7 +156,7 @@ Ce rectangle (bleu) est **calculé numériquement** : $V_0=\,]y_0-s,y_0+s[$ est 
       } else if (rStrict > 0) {
         key = 'ok' + (sw ? 's' : 'n'); text = String.raw`$${dv}(x_0,y_0)\neq 0$ : sur le rectangle bleu, $\{f=c\}$ est exactement le graphe de $${fn}$ ($${dvName}=${fn}(${uName})$, en rouge), avec $${fn}'=-\dfrac{\partial_${uName} f}{\partial_${dvName} f}$.`;
       } else if (rWeak > 0) {
-        key = 'weak'; text = String.raw`$${dv}(x_0,y_0)=0$ : le théorème ne s'applique pas. Il existe encore une branche **continue** (rectangle en pointillés) mais sa pente est infinie : $${fn}$ n'est pas dérivable en ce point. Essayez de résoudre l'autre variable.`;
+        key = 'weak'; text = String.raw`$${dv}(x_0,y_0)=0$ : le théorème ne s'applique pas. Il existe encore une branche **continue** (rectangle en pointillés, très étroit : augmentez $s$ pour le voir) mais sa pente est infinie : $${fn}$ n'est pas dérivable en ce point. Essayez de résoudre l'autre variable.`;
       } else if (Math.abs(gv0) < 1e-6) {
         key = 'none' + (sw ? 's' : 'n'); text = String.raw`$${dv}(x_0,y_0)=0$ : **aucun rectangle** $U_0\times V_0$ ne convient (la tangente est ${sw ? 'horizontale' : 'verticale'}). ${Math.abs(gu0) > 1e-6 ? 'Mais l\'autre dérivée partielle est non nulle : cochez / décochez « résoudre $x$ en fonction de $y$ ».' : ''}`;
       } else {

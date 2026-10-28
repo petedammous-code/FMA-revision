@@ -9,10 +9,10 @@ $$|x_n-x^*|\le \frac{a^n}{1-a}\,|x_1-x_0|.$$
 Ici $a=\sup_X|T'|$ (inégalité des accroissements finis sur l'intervalle $X$) : c'est la **pente maximale en valeur absolue** du graphe sur $X$.
 
 **Ce qu'il faut regarder.**
-* **Fonction affine, curseur $s$ (pente)** : pour $|s|<1$ l'escalier ($s>0$) ou la spirale ($s<0$) se resserre vers $x^*$ et la droite d'erreur est parallèle à la borne, de pente $\log_{10}|s|$ ; pour $|s|>1$ la toile s'évade ; à $|s|=1$ rien ne converge.
+* **Fonction affine, curseur $s$ (pente)** : sur $X=[0,1]$, $T(X)\subset X$ exactement quand $|s|\le1$ ; pour $|s|<1$ l'escalier ($s>0$) ou la spirale ($s<0$) se resserre vers $x^*$ et la droite d'erreur est parallèle à la borne, de pente $\log_{10}|s|$ ; pour $|s|>1$ la toile s'évade ; à $|s|=1$ plus de contraction : pour $s=1$, $T=\mathrm{Id}$ et *tout* point est fixe (l'unicité est perdue), pour $s=-1$ la suite oscille sur un cycle de période $2$.
 * **Les deux hypothèses oubliées** : « $x/2+1$ sur $[0,1]$ » est $\frac12$-lipschitzienne mais $T(X)\not\subset X$ : les itérées sortent de $X$ et convergent vers $2\notin X$. Le théorème exige $T(X)\subset X$.
 * **Condition suffisante, pas nécessaire** : pour la logistique $T(x)=\mu x(1-x)$ sur $[0,1]$, $a=\mu$ ; pour $1<\mu<3$ la suite converge quand même vers $1-1/\mu$ (le théorème ne s'applique plus sur $X=[0,1]$), mais pour $\mu>3$ on obtient un cycle, puis du chaos.
-* **Newton, c'est un point fixe** : $T(x)=x-f(x)/f'(x)$ a $T'(x^*)=0$ en une racine simple : la contraction y est « infiniment forte » et l'erreur **s'effondre** (convergence quadratique, le nombre de chiffres exacts double). Mais pour $f=x^3-2x+2$ depuis $x_0$ proche de $0$, on tombe dans un cycle $0\leftrightarrow1$ : la convergence n'est que **locale** (poly, Exercice VI.4.2, p. 121).`,
+* **Newton, c'est un point fixe** : $T(x)=x-f(x)/f'(x)$ a $T'(x^*)=0$ en une racine simple : la contraction y est « infiniment forte » et l'erreur **s'effondre** (convergence quadratique, le nombre de chiffres exacts double). Mais pour $f=x^3-2x+2$ depuis $x_0$ proche de $0$, on tombe dans un cycle $0\leftrightarrow1$ (on vérifie $T(0)=1$, $T(1)=0$) : la convergence n'est que **locale**, c'est précisément ce que démontre le poly (Exercice VI.4.2, p. 121 : la contraction n'est obtenue que sur une petite boule $B(x_0,\delta)$, pour $f(x_0)$ assez petit). Ici, sur $X=[-2,1]$, $T$ n'est même pas définie ($f'$ s'annule en $\pm\sqrt{2/3}$).`,
   related: ['ch06-point-fixe-banach', 'ch06-lipschitz-contractante-def', 'ch06-methode-de-newton', 'ch06-point-fixe-iteree-contractante'],
   height: 600,
   mount(container, kit) {
@@ -21,7 +21,7 @@ Ici $a=\sup_X|T'|$ (inégalité des accroissements finis sur l'intervalle $X$) :
     const controls = kit.controls(container);
     const NMAX = 40;
     const FUNS = {
-      affine: { name: 'affine : T(x) = 0,6 + s(x − 0,6)', T: (x, p) => 0.6 + p * (x - 0.6), dT: (x, p) => p, win: [-0.25, 1.25, -0.25, 1.25], X: [0, 1], x0: 0.05,
+      affine: { name: 'affine : T(x) = 0,5 + s(x − 0,5)', T: (x, p) => 0.5 + p * (x - 0.5), dT: (x, p) => p, win: [-0.25, 1.25, -0.25, 1.25], X: [0, 1], x0: 0.05,
         param: { label: 's (pente)', min: -1.5, max: 1.5, step: 0.01, val: 0.7 } },
       cos: { name: 'cos x sur [0,1]', T: x => Math.cos(x), dT: x => -Math.sin(x), win: [-0.25, 1.25, -0.25, 1.25], X: [0, 1], x0: 0.1 },
       hors: { name: 'x/2 + 1 sur [0,1]  (T(X) ⊄ X)', T: x => x / 2 + 1, dT: () => 0.5, win: [-0.25, 2.4, -0.25, 2.4], X: [0, 1], x0: 0.2 },
@@ -104,10 +104,10 @@ Ici $a=\sup_X|T'|$ (inégalité des accroissements finis sur l'intervalle $X$) :
       // ---- erreur ----
       const e = stE.ctx; stE.clear(); e.fillStyle = t.bg; e.fillRect(0, 0, stE.W, stE.H);
       const m = { l: 40, r: 10, t: 14, b: 22 }, WW = stE.W - m.l - m.r, HH = stE.H - m.t - m.b;
-      const ylo = -16, yhi = 1;
+      const ylo = -16, yhi = 4;
       const X2 = k => m.l + WW * k / NMAX, Y2 = v => m.t + HH * (1 - (Math.max(ylo, Math.min(yhi, v)) - ylo) / (yhi - ylo));
       e.save(); e.strokeStyle = t.grid; e.fillStyle = t.muted; e.font = '10px system-ui, sans-serif'; e.lineWidth = 1; e.textAlign = 'right'; e.textBaseline = 'middle';
-      for (let v = -16; v <= 0; v += 4) { e.beginPath(); e.moveTo(m.l, Y2(v)); e.lineTo(m.l + WW, Y2(v)); e.stroke(); e.fillText(String(v), m.l - 4, Y2(v)); }
+      for (let v = -16; v <= 4; v += 4) { e.beginPath(); e.moveTo(m.l, Y2(v)); e.lineTo(m.l + WW, Y2(v)); e.stroke(); e.fillText(String(v), m.l - 4, Y2(v)); }
       e.textAlign = 'center'; e.textBaseline = 'top';
       for (let k = 0; k <= NMAX; k += 10) e.fillText(String(k), X2(k), m.t + HH + 4);
       e.fillStyle = t.fg; e.textAlign = 'left'; e.textBaseline = 'top'; e.fillText('log₁₀|xₙ − x*|  en fonction de n', m.l + 4, 2);

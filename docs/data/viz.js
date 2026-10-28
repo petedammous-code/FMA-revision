@@ -2735,10 +2735,10 @@ $$|x_n-x^*|\le \frac{a^n}{1-a}\,|x_1-x_0|.$$
 Ici $a=\sup_X|T'|$ (inégalité des accroissements finis sur l'intervalle $X$) : c'est la **pente maximale en valeur absolue** du graphe sur $X$.
 
 **Ce qu'il faut regarder.**
-* **Fonction affine, curseur $s$ (pente)** : pour $|s|<1$ l'escalier ($s>0$) ou la spirale ($s<0$) se resserre vers $x^*$ et la droite d'erreur est parallèle à la borne, de pente $\log_{10}|s|$ ; pour $|s|>1$ la toile s'évade ; à $|s|=1$ rien ne converge.
+* **Fonction affine, curseur $s$ (pente)** : sur $X=[0,1]$, $T(X)\subset X$ exactement quand $|s|\le1$ ; pour $|s|<1$ l'escalier ($s>0$) ou la spirale ($s<0$) se resserre vers $x^*$ et la droite d'erreur est parallèle à la borne, de pente $\log_{10}|s|$ ; pour $|s|>1$ la toile s'évade ; à $|s|=1$ plus de contraction : pour $s=1$, $T=\mathrm{Id}$ et *tout* point est fixe (l'unicité est perdue), pour $s=-1$ la suite oscille sur un cycle de période $2$.
 * **Les deux hypothèses oubliées** : « $x/2+1$ sur $[0,1]$ » est $\frac12$-lipschitzienne mais $T(X)\not\subset X$ : les itérées sortent de $X$ et convergent vers $2\notin X$. Le théorème exige $T(X)\subset X$.
 * **Condition suffisante, pas nécessaire** : pour la logistique $T(x)=\mu x(1-x)$ sur $[0,1]$, $a=\mu$ ; pour $1<\mu<3$ la suite converge quand même vers $1-1/\mu$ (le théorème ne s'applique plus sur $X=[0,1]$), mais pour $\mu>3$ on obtient un cycle, puis du chaos.
-* **Newton, c'est un point fixe** : $T(x)=x-f(x)/f'(x)$ a $T'(x^*)=0$ en une racine simple : la contraction y est « infiniment forte » et l'erreur **s'effondre** (convergence quadratique, le nombre de chiffres exacts double). Mais pour $f=x^3-2x+2$ depuis $x_0$ proche de $0$, on tombe dans un cycle $0\leftrightarrow1$ : la convergence n'est que **locale** (poly, Exercice VI.4.2, p. 121).`,
+* **Newton, c'est un point fixe** : $T(x)=x-f(x)/f'(x)$ a $T'(x^*)=0$ en une racine simple : la contraction y est « infiniment forte » et l'erreur **s'effondre** (convergence quadratique, le nombre de chiffres exacts double). Mais pour $f=x^3-2x+2$ depuis $x_0$ proche de $0$, on tombe dans un cycle $0\leftrightarrow1$ (on vérifie $T(0)=1$, $T(1)=0$) : la convergence n'est que **locale**, c'est précisément ce que démontre le poly (Exercice VI.4.2, p. 121 : la contraction n'est obtenue que sur une petite boule $B(x_0,\delta)$, pour $f(x_0)$ assez petit). Ici, sur $X=[-2,1]$, $T$ n'est même pas définie ($f'$ s'annule en $\pm\sqrt{2/3}$).`,
   related: ['ch06-point-fixe-banach', 'ch06-lipschitz-contractante-def', 'ch06-methode-de-newton', 'ch06-point-fixe-iteree-contractante'],
   height: 600,
   mount(container, kit) {
@@ -2747,7 +2747,7 @@ Ici $a=\sup_X|T'|$ (inégalité des accroissements finis sur l'intervalle $X$) :
     const controls = kit.controls(container);
     const NMAX = 40;
     const FUNS = {
-      affine: { name: 'affine : T(x) = 0,6 + s(x − 0,6)', T: (x, p) => 0.6 + p * (x - 0.6), dT: (x, p) => p, win: [-0.25, 1.25, -0.25, 1.25], X: [0, 1], x0: 0.05,
+      affine: { name: 'affine : T(x) = 0,5 + s(x − 0,5)', T: (x, p) => 0.5 + p * (x - 0.5), dT: (x, p) => p, win: [-0.25, 1.25, -0.25, 1.25], X: [0, 1], x0: 0.05,
         param: { label: 's (pente)', min: -1.5, max: 1.5, step: 0.01, val: 0.7 } },
       cos: { name: 'cos x sur [0,1]', T: x => Math.cos(x), dT: x => -Math.sin(x), win: [-0.25, 1.25, -0.25, 1.25], X: [0, 1], x0: 0.1 },
       hors: { name: 'x/2 + 1 sur [0,1]  (T(X) ⊄ X)', T: x => x / 2 + 1, dT: () => 0.5, win: [-0.25, 2.4, -0.25, 2.4], X: [0, 1], x0: 0.2 },
@@ -2830,10 +2830,10 @@ Ici $a=\sup_X|T'|$ (inégalité des accroissements finis sur l'intervalle $X$) :
       // ---- erreur ----
       const e = stE.ctx; stE.clear(); e.fillStyle = t.bg; e.fillRect(0, 0, stE.W, stE.H);
       const m = { l: 40, r: 10, t: 14, b: 22 }, WW = stE.W - m.l - m.r, HH = stE.H - m.t - m.b;
-      const ylo = -16, yhi = 1;
+      const ylo = -16, yhi = 4;
       const X2 = k => m.l + WW * k / NMAX, Y2 = v => m.t + HH * (1 - (Math.max(ylo, Math.min(yhi, v)) - ylo) / (yhi - ylo));
       e.save(); e.strokeStyle = t.grid; e.fillStyle = t.muted; e.font = '10px system-ui, sans-serif'; e.lineWidth = 1; e.textAlign = 'right'; e.textBaseline = 'middle';
-      for (let v = -16; v <= 0; v += 4) { e.beginPath(); e.moveTo(m.l, Y2(v)); e.lineTo(m.l + WW, Y2(v)); e.stroke(); e.fillText(String(v), m.l - 4, Y2(v)); }
+      for (let v = -16; v <= 4; v += 4) { e.beginPath(); e.moveTo(m.l, Y2(v)); e.lineTo(m.l + WW, Y2(v)); e.stroke(); e.fillText(String(v), m.l - 4, Y2(v)); }
       e.textAlign = 'center'; e.textBaseline = 'top';
       for (let k = 0; k <= NMAX; k += 10) e.fillText(String(k), X2(k), m.t + HH + 4);
       e.fillStyle = t.fg; e.textAlign = 'left'; e.textBaseline = 'top'; e.fillText('log₁₀|xₙ − x*|  en fonction de n', m.l + 4, 2);
@@ -2877,10 +2877,10 @@ FMA.registerViz({
   description: String.raw`**Ce que l'on voit.** La courbe de niveau $\{f(x,y)=c\}$ d'une fonction $f:\mathbb R^2\to\mathbb R$ (en gris). Le point orange $(x_0,y_0)$ est **à glisser le long de la courbe**. Le théorème des fonctions implicites (poly, Théorème VI.2.1, p. 118) dit : si $\dfrac{\partial f}{\partial y}(x_0,y_0)\neq 0$, il existe un rectangle $U_0\times V_0$ autour de $(x_0,y_0)$ dans lequel
 $$f(x,y)=f(x_0,y_0)\iff y=\varphi(x),$$
 $$\varphi'(x)=-\frac{\partial_x f(x,\varphi(x))}{\partial_y f(x,\varphi(x))}.$$
-Ce rectangle (bleu) est **calculé numériquement** : $V_0=\,]y_0-s,y_0+s[$ est fixé par le curseur $s$, et l'on cherche le plus large $U_0$ tel que, pour tout $x\in U_0$, $y\mapsto f(x,y)$ soit strictement monotone sur $V_0$ et change de signe (par rapport à $c$) entre les deux bords : la courbe y est alors exactement le graphe de $\varphi$ (en rouge). La tangente (orange, pointillée) a pour pente $\varphi'(x_0)$, et le gradient $\nabla f$ (violet) lui est orthogonal.
+Ce rectangle (bleu) est **calculé numériquement** : $V_0=\,]y_0-s,y_0+s[$ est fixé par le curseur $s$, et l'on cherche le plus large $U_0=\,]x_0-r,x_0+r[$ (symétrique autour de $x_0$) tel que, pour tout $x\in U_0$, $y\mapsto f(x,y)$ soit strictement monotone sur $V_0$ et change de signe (par rapport à $c$) entre les deux bords : la courbe y est alors exactement le graphe de $\varphi$ (en rouge). La tangente (orange, pointillée) a pour pente $\varphi'(x_0)$, et le gradient $\nabla f$ (violet) lui est orthogonal.
 
 **Ce qu'il faut regarder.**
-* **Réduisez $s$** : le rectangle s'élargit ($U_0$ grandit) ; **augmentez-le** : $U_0$ se rétrécit, car un autre morceau de la courbe finit par entrer dans $V_0$. Le théorème ne promet que *l'existence* d'un tel rectangle, pas sa taille.
+* **Jouez sur $s$** : si $s$ est petit, $U_0$ est petit aussi (il faut $\varphi(U_0)\subset V_0$ : la courbe sort de la bande $V_0$ par le haut ou par le bas, et sur le cercle $U_0=\{x:|\sqrt{1-x^2}-y_0|<s\}$ se réduit à rien quand $s\to0$) ; si $s$ est trop grand, un autre morceau de la courbe entre dans $V_0$ (la monotonie en $y$ est perdue) et $U_0$ disparaît. Le théorème ne promet que *l'existence* d'un rectangle convenable, pas sa taille.
 * **Approchez-vous d'un point à tangente verticale** (cercle en $(1,0)$, lemniscate en $(\sqrt2,0)$) : $\partial_yf\to0$, la pente explose et $U_0$ se réduit à rien : *aucun* rectangle ne convient. L'hypothèse $\partial_yf(x_0,y_0)\ne0$ est indispensable.
 * **Changez de variable** (« résoudre $x$ en fonction de $y$ ») : là où $\partial_yf=0$ mais $\partial_xf\ne0$, on obtient quand même un graphe $x=\psi(y)$. Le théorème s'applique avec les rôles échangés.
 * **Points doubles** ($\nabla f=0$ : lemniscate et folium en $(0,0)$) : les deux dérivées partielles s'annulent, aucun des deux graphes n'existe, la courbe se croise.
@@ -2980,9 +2980,10 @@ Ce rectangle (bleu) est **calculé numériquement** : $V_0=\,]y_0-s,y_0+s[$ est 
         if (strict) for (let j = 0; j <= 14; j++) { const v = v0 - s + 2 * s * j / 14; if (Gv(u, v) * sg <= 0) return false; }
         return true;
       };
-      const width = strict => { if (strict && Math.abs(gv0) < 1e-6) return 0; if (!okRect(u0, strict)) return 0; let k = 0; while (k < maxN && okRect(u0 + (k + 1) * du, strict) && okRect(u0 - (k + 1) * du, strict)) k++; return k * du; };
-      const rStrict = width(true);
-      const rWeak = rStrict > 0 ? 0 : width(false);
+      const width = (strict, h, N) => { if (strict && Math.abs(gv0) < 1e-6) return 0; if (!okRect(u0, strict)) return 0; let k = 0; while (k < N && okRect(u0 + (k + 1) * h, strict) && okRect(u0 - (k + 1) * h, strict)) k++; return k * h; };
+      const rStrict = width(true, du, maxN);
+      // branche continue sans dérivée (ex. y³ = x en 0 : demi-largeur s³) : pas fin pour ne pas la rater
+      const rWeak = rStrict > 0 ? 0 : width(false, du / 20, maxN * 20);
       const r = rStrict > 0 ? rStrict : rWeak;
       const rectPts = rr => [W2(u0 - rr, v0 - s), W2(u0 + rr, v0 - s), W2(u0 + rr, v0 + s), W2(u0 - rr, v0 + s)];
 
@@ -2999,7 +3000,7 @@ Ce rectangle (bleu) est **calculé numériquement** : $V_0=\,]y_0-s,y_0+s[$ est 
         }
         P.curve(pts, { color: t.accent2, width: 3.2 });
         const lb = W2(u0 - r, v0 + s), lb2 = W2(u0, v0 - s);
-        P.text(lb[0], lb[1], sw ? 'V₀' : 'U₀×V₀', { color: col, dx: 4, dy: -3, font: 'bold 12px system-ui, sans-serif' });
+        P.text(lb[0], lb[1], sw ? 'V₀×U₀' : 'U₀×V₀', { color: col, dx: 4, dy: -3, font: 'bold 12px system-ui, sans-serif' });
       }
       // tangente et gradient
       const n2 = Math.hypot(C.fx(px, py), C.fy(px, py));
@@ -3027,7 +3028,7 @@ Ce rectangle (bleu) est **calculé numériquement** : $V_0=\,]y_0-s,y_0+s[$ est 
       } else if (rStrict > 0) {
         key = 'ok' + (sw ? 's' : 'n'); text = String.raw`$${dv}(x_0,y_0)\neq 0$ : sur le rectangle bleu, $\{f=c\}$ est exactement le graphe de $${fn}$ ($${dvName}=${fn}(${uName})$, en rouge), avec $${fn}'=-\dfrac{\partial_${uName} f}{\partial_${dvName} f}$.`;
       } else if (rWeak > 0) {
-        key = 'weak'; text = String.raw`$${dv}(x_0,y_0)=0$ : le théorème ne s'applique pas. Il existe encore une branche **continue** (rectangle en pointillés) mais sa pente est infinie : $${fn}$ n'est pas dérivable en ce point. Essayez de résoudre l'autre variable.`;
+        key = 'weak'; text = String.raw`$${dv}(x_0,y_0)=0$ : le théorème ne s'applique pas. Il existe encore une branche **continue** (rectangle en pointillés, très étroit : augmentez $s$ pour le voir) mais sa pente est infinie : $${fn}$ n'est pas dérivable en ce point. Essayez de résoudre l'autre variable.`;
       } else if (Math.abs(gv0) < 1e-6) {
         key = 'none' + (sw ? 's' : 'n'); text = String.raw`$${dv}(x_0,y_0)=0$ : **aucun rectangle** $U_0\times V_0$ ne convient (la tangente est ${sw ? 'horizontale' : 'verticale'}). ${Math.abs(gu0) > 1e-6 ? 'Mais l\'autre dérivée partielle est non nulle : cochez / décochez « résoudre $x$ en fonction de $y$ ».' : ''}`;
       } else {
@@ -3058,7 +3059,7 @@ FMA.registerViz({
 
 **Ce qu'il faut regarder.**
 * **Avec $\rho$ petit et $\det df_a\neq0$** : l'image est un petit disque déformé, *injectif*, presque confondu avec l'ellipse tiretée. C'est le théorème d'inversion locale (poly, Théorème VI.3.2, p. 120) : $f$ est un difféomorphisme d'un voisinage de $a$ sur un voisinage de $f(a)$, et sa réciproque a pour différentielle $(df_a)^{-1}$.
-* **Faites grandir $\rho$** : le théorème est *local*. Pour $z\mapsto z^2$ (ou $\exp$) la différentielle est inversible là où l'on regarde, mais dès que le disque est assez grand l'image se recouvre elle-même : $f$ n'est plus injective (poly, Corollaire VI.3.3, p. 120 : il faut **aussi** l'injectivité pour avoir un difféomorphisme global). Le diagnostic, calculé en direct, utilise le fait que, si $df$ est inversible sur tout le disque, $f$ y est injective si et seulement si l'image du cercle est une courbe simple.
+* **Faites grandir $\rho$** : le théorème est *local*. Pour $\exp$ (ou les polaires) la différentielle est inversible **partout**, et pourtant dès que $\rho>\pi$ le disque contient deux points dont les ordonnées diffèrent de $2\pi$ : l'image se recouvre elle-même et $f$ n'est plus injective (poly, Corollaire VI.3.3, p. 120 : il faut **aussi** l'injectivité pour avoir un difféomorphisme global). Pour $z\mapsto z^2$ au contraire, un disque qui évite $0$ ne contient jamais deux points opposés $z,-z$ (car $2|a|\le|z-a|+|z+a|<2\rho$) : $z^2$ y est injective, et la non-injectivité n'apparaît que quand le disque englobe le point critique $0$. Le diagnostic, calculé en direct, utilise le fait que, si $df$ est inversible sur tout le disque, $f$ y est injective si et seulement si l'image du cercle est une courbe simple.
 * **Approchez-vous du lieu critique rouge** (là où $\det df=0$, c'est-à-dire $df_a$ non inversible) : l'ellipse tiretée s'aplatit en segment, et l'image du disque se **replie** (pli de $(x,y)\mapsto(x,y^2)$ : les deux moitiés du disque s'envoient sur la même région). Aucune réciproque locale n'existe autour de ces points.
 * **$(x,y)\mapsto(x^3,y)$** : $\det df=3x^2$ s'annule sur l'axe $x=0$, et pourtant $f$ y est injective. Mais sa réciproque $X\mapsto X^{1/3}$ n'est pas dérivable : l'hypothèse « $df_a$ isomorphisme » ne peut pas être remplacée par « $f$ bijective ».`,
   related: ['ch06-inversion-locale', 'ch06-inversion-globale', 'ch06-diffeomorphisme-def'],
@@ -3176,7 +3177,7 @@ FMA.registerViz({
       let key, text;
       if (hitsCrit) { key = 'crit' + sel.value + (Math.abs(det) < 1e-9 ? 'a' : ''); text = String.raw`**Le disque rencontre le lieu critique** (${Fd.critNote}) : $df$ n'est pas inversible en certains points du disque, le théorème d'inversion locale ne s'applique pas autour d'eux${Math.abs(det) < 1e-9 ? ", y compris en $a$ : l'ellipse tiretée est dégénérée" : ''}.`; }
       else if (selfIntersects(bdImg)) { key = 'noninj'; text = String.raw`$df$ est inversible en tout point du disque (jacobien $\ne0$) **mais l'image du cercle se recoupe** : $f$ n'est pas injective sur ce disque. Le théorème est local : diminuez $\rho$. (Corollaire VI.3.3 : il faut l'injectivité *en plus*.)`; }
-      else { key = 'diffeo'; text = String.raw`$\det df_a\neq 0$ et l'image du cercle est une courbe simple : $f$ réalise un difféomorphisme du disque sur son image (ouvert), de réciproque de différentielle $(df_a)^{-1}$ en $f(a)$.`; }
+      else { key = 'diffeo'; text = String.raw`$\det df\neq 0$ sur tout le disque et l'image du cercle est une courbe simple : $f$ réalise un difféomorphisme du disque sur son image (un ouvert), dont la réciproque a pour différentielle $(df_a)^{-1}$ au point $f(a)$.`; }
       const f3 = v => String(+v.toFixed(3));
       ro.set(`a = (${f3(a[0])}, ${f3(a[1])}) ; df_a = [[${f3(J[0])}, ${f3(J[1])}], [${f3(J[2])}, ${f3(J[3])}]] ; det df_a = ${f3(det)}`);
       if (key !== lastKey) { lastKey = key; kit.md(msg, text); }
