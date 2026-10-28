@@ -4,6 +4,8 @@ export const meta = {
   phases: [{ title: 'Rédaction', detail: 'un agent par unité : lot de fiches, lot d\'exercices, flashcards ou visualisations d\'un chapitre' }],
 }
 const MODEL_OPTS = (typeof args === "object" && args && args.model) ? { model: args.model } : {}
+// Modèle par type d'unité (args.model_by_kind = {flashcards:'sonnet', viz:'sonnet', ...}) : la rédaction mécanique peut aller à un modèle plus léger.
+const MODEL_FOR = kind => (typeof args === 'object' && args && args.model_by_kind && args.model_by_kind[kind]) ? { model: args.model_by_kind[kind] } : MODEL_OPTS
 const ROOT = '/home/user/FMA-revision'
 const CH = {
   1: { roman: 'I', title: 'Fonctions holomorphes', file: 'sources/poly/ch01_holomorphes.txt', td: ['sources/td/TD1_ANA_COMP_2023__1_.txt'] },
@@ -94,10 +96,10 @@ const units = args.units; const info = args.info || {}
 log(`Étape 2 : ${units.length} unités de rédaction`)
 const results = await pipeline(units, u => {
   const chapterIds = []
-  if (u.kind === 'theorems') return agent(theoremsPrompt(u, {}), { label: u.label, phase: 'Rédaction', schema: UNIT_SCHEMA, effort: 'high', ...MODEL_OPTS })
-  if (u.kind === 'exercises') return agent(exercisesPrompt(u, { n: u.chapter === 8 ? 4 : 5, mix: u.chapter === 8 ? '1 exercice de niveau 1, 2 de niveau 2, 1 de niveau 3' : (u.variant === 0 ? '1 exercice de niveau 1, 2 de niveau 2, 2 de niveau 3' : '1 exercice de niveau 1, 1 de niveau 2, 2 de niveau 3, 1 de niveau 4 (problème long en 3-4 parties)'), chapterIds }), { label: u.label, phase: 'Rédaction', schema: UNIT_SCHEMA, effort: 'high', ...MODEL_OPTS })
-  if (u.kind === 'flashcards') return agent(flashcardsPrompt(u, { min: u.chapter === 8 ? 12 : 30, max: u.chapter === 8 ? 25 : 70, chapterIds }), { label: u.label, phase: 'Rédaction', schema: UNIT_SCHEMA, effort: 'high', ...MODEL_OPTS })
-  if (u.kind === 'viz') return agent(vizPrompt(u, { n: u.chapter === 8 ? '1 ou 2' : '3', ideas: '', chapterIds }), { label: u.label, phase: 'Rédaction', schema: UNIT_SCHEMA, effort: 'high', ...MODEL_OPTS })
+  if (u.kind === 'theorems') return agent(theoremsPrompt(u, {}), { label: u.label, phase: 'Rédaction', schema: UNIT_SCHEMA, effort: 'high', ...MODEL_FOR('theorems') })
+  if (u.kind === 'exercises') return agent(exercisesPrompt(u, { n: u.chapter === 8 ? 4 : 5, mix: u.chapter === 8 ? '1 exercice de niveau 1, 2 de niveau 2, 1 de niveau 3' : (u.variant === 0 ? '1 exercice de niveau 1, 2 de niveau 2, 2 de niveau 3' : '1 exercice de niveau 1, 1 de niveau 2, 2 de niveau 3, 1 de niveau 4 (problème long en 3-4 parties)'), chapterIds }), { label: u.label, phase: 'Rédaction', schema: UNIT_SCHEMA, effort: 'high', ...MODEL_FOR('exercises') })
+  if (u.kind === 'flashcards') return agent(flashcardsPrompt(u, { min: u.chapter === 8 ? 12 : 30, max: u.chapter === 8 ? 25 : 70, chapterIds }), { label: u.label, phase: 'Rédaction', schema: UNIT_SCHEMA, effort: 'high', ...MODEL_FOR('flashcards') })
+  if (u.kind === 'viz') return agent(vizPrompt(u, { n: u.chapter === 8 ? '1 ou 2' : '3', ideas: '', chapterIds }), { label: u.label, phase: 'Rédaction', schema: UNIT_SCHEMA, effort: 'high', ...MODEL_FOR('viz') })
   return null
 })
 return results.map((r, i) => ({ unit: units[i].label, ok: !!(r && r.validated), n_files: r ? r.n_files : 0, doubts: r ? r.doubts : ['agent nul'] }))

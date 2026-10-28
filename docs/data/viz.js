@@ -642,9 +642,9 @@ FMA.registerViz({
 * **Rose (rempli)** : on repart de là pour une durée $t$, *en partant de l'instant $s$* : $F\bigl(s,s+t,F(0,s,A)\bigr)$.
 * **Contour vert épais** : $F(0,s+t,A)$, calculé d'une traite. Il coïncide **toujours** avec le rose : c'est la formule de composition $F(t_0,s+t,x)=F\bigl(s,s+t,F(t_0,s,x)\bigr)$ (poly, Théorème VII.3.7, p. 135).
 * **Orange pointillé** (case « composition naïve ») : $F(0,t,F(0,s,A))$, où l'on repart « à l'instant $0$ » au lieu de $s$. Pour un champ **autonome**, il coïncide aussi avec le vert : c'est l'invariance par translation en temps (Théorème VII.3.5) et la propriété de groupe $F_t\cdot(F_s\cdot x)=F_{s+t}\cdot x$ (Remarque VII.3.6). Pour le champ **non autonome** (rotation + vent périodique $X(t,x,y)=(-y+1{,}2\cos 2t,\;x)$), l'orange se **décolle** : la propriété de groupe à deux arguments est fausse, il faut les trois arguments.
-* Bouton « $t=-s$ » : le rose revient exactement sur $A$, c'est $F(s,0,F(0,s,x))=x$ (Corollaire VII.3.8) : $F_{-s}$ est l'inverse de $F_s$.
+* Bouton « $t=-s$ » : le rose revient exactement sur $A$, c'est $F(s,0,F(0,s,x))=x$ (Corollaire VII.3.8) : l'inverse de $F(0,s,\cdot)$ est $F(s,0,\cdot)$. Dans le cas autonome, $F(s,0,\cdot)=F(0,-s,\cdot)=F_{-s}$ est l'inverse de $F_s$ ; dans le cas non autonome, l'inverse de $F(0,s,\cdot)$ n'est **pas** $F(0,-s,\cdot)$ : avec $t=-s$ et la case « composition naïve » cochée, l'orange $F(0,-s,F(0,s,A))$ ne revient pas sur $A$.
 
-Les flèches grises représentent le champ (à l'instant $0$ pour le champ non autonome). Pour ces champs, toutes les courbes intégrales sont définies sur $\mathbb R$ ($D_0=\mathbb R\times U$), donc $t\mapsto F_t$ est un vrai morphisme de groupes $(\mathbb R,+)\to$ bijections du plan. Observe aussi la déformation du quadrillage : la selle étire dans une direction et écrase dans l'autre, la rotation et le pendule conservent l'aire.`,
+Les flèches grises représentent le champ (à l'instant $0$ pour le champ non autonome). Pour ces cinq champs, toutes les courbes intégrales maximales sont définies sur $\mathbb R$ tout entier (pour les quatre champs autonomes, $D_0=\mathbb R\times U$, donc $t\mapsto F_t$ est un vrai morphisme de groupes de $(\mathbb R,+)$ dans les bijections du plan ; pour le champ non autonome, $D=\mathbb R\times\mathbb R\times U$ et ce sont les applications $F(s,t,\cdot)$ qui se composent : $F(t,u,\cdot)\circ F(s,t,\cdot)=F(s,u,\cdot)$). Observe aussi la déformation du quadrillage : la selle étire d'un facteur $e^{s}$ selon $x$ et écrase d'un facteur $e^{-s}$ selon $y$, la rotation déplace $A$ rigidement, le pendule et le champ polynomial le tordent ; mais les cinq champs sont de divergence nulle, donc leur flot **conserve l'aire** de $A$ (selle comprise : $e^{s}e^{-s}=1$).`,
   related: ['ch07-groupe-un-parametre', 'ch07-translation-temps-autonome', 'ch07-composition-flot', 'ch07-flot-inverse', 'ch07-flot-global-def', 'ch07-proprietes-flot-formules'],
   height: 520,
   mount(container, kit) {
@@ -654,7 +654,7 @@ Les flèches grises représentent le champ (à l'instant $0$ pour le champ non a
       rot: { label: 'rotation (−y, x)', auto: true, X: (t, x, y) => [-y, x] },
       selle: { label: 'selle (x, −y)', auto: true, X: (t, x, y) => [x, -y] },
       pend: { label: 'pendule (y, −sin x)', auto: true, X: (t, x, y) => [y, -Math.sin(x)] },
-      poly: { label: 'poly (y − y⁵, x)', auto: true, X: (t, x, y) => [y - Math.pow(y, 5), x] },
+      poly: { label: 'polynomial (y − y⁵, x)', auto: true, X: (t, x, y) => [y - Math.pow(y, 5), x] },
       vent: { label: 'non autonome : (−y + 1,2 cos 2t, x)', auto: false, X: (t, x, y) => [-y + 1.2 * Math.cos(2 * t), x] },
     };
     const sel = kit.select(controls, { label: 'champ $X$', options: Object.keys(fields).map(k => [fields[k].label, k]), value: 'vent', onChange: () => draw() });
@@ -762,8 +762,8 @@ FMA.registerViz({
 
 **Quoi regarder.**
 * **En haut** : la boîte $[-b\,;b]\times \bar B(x_0,2a)$ (rectangle bleu) et le « cône » $\vert x-x_0\vert\le \ell\vert t\vert$ (zone hachurée), où $\ell$ majore $\vert X\vert$ sur la boîte et $k$ est la constante de Lipschitz en $x$ sur la boîte (toutes deux calculées et affichées). Les itérées $\varphi_0,\dots,\varphi_n$ (de pâle à foncé, la dernière en rose épais) se rapprochent de la vraie solution (pointillés verts).
-* **En bas** : les écarts $\Vert\varphi_{j+1}-\varphi_j\Vert_\infty$ en échelle logarithmique (barres) et la borne géométrique $(bk)^j\,\Vert\varphi_1-\varphi_0\Vert_\infty\le 2^{-j}\Vert\varphi_1-\varphi_0\Vert_\infty$ (ligne orange) que donne le théorème du point fixe de Banach.
-* **Les deux conditions de la preuve** (poly, Lemme VII.2.7 et preuve du Théorème VII.2.1, p. 130-131) sont testées en direct : $b\ell< a$ assure que $S$ **envoie la boîte dans elle-même** (les itérées restent dans le cône), $bk\le \frac12$ assure que $S$ est **$\frac12$-contractante**. Augmente $b$ avec $\alpha'=\alpha^2$ : les conditions tombent, les itérées sortent de la boîte et finissent par diverger (la vraie solution $x/(1-tx)$ explose en $t=1/x$).
+* **En bas** : les écarts $\Vert\varphi_{j+1}-\varphi_j\Vert_\infty$ en échelle logarithmique (barres) et la borne géométrique $\Vert\varphi_{j+1}-\varphi_j\Vert_\infty\le(bk)^j\,\Vert\varphi_1-\varphi_0\Vert_\infty\le 2^{-j}\Vert\varphi_1-\varphi_0\Vert_\infty$ que donne le théorème du point fixe de Banach (ligne orange pleine pour $2^{-j}$, pointillée pour $(bk)^j$). Elle n'est une majoration que **si les deux conditions ci-dessous sont vérifiées** (c'est ce qui garantit que les itérées restent dans la boîte, où $k$ est la constante de Lipschitz) ; sinon les barres peuvent la dépasser.
+* **Les deux conditions de la preuve** (poly, Lemme VII.2.7 et preuve du Théorème VII.2.1, p. 130-131) sont testées en direct : $b\ell< a$ assure que $S$ **envoie la boîte dans elle-même** (les itérées restent dans le cône), $bk\le \frac12$ assure que $S$ est **$\frac12$-contractante**. (Ici $x=x_0$, donc $b\ell\le 2a$ suffirait pour la stabilité ; la marge $a$ sert dans le poly à faire varier la condition initiale $x\in B(x_0,a)$ avec le même $b$, c'est ce qui donne un $\epsilon$ uniforme.) Augmente $b$ avec $\alpha'=\alpha^2$ : les conditions tombent, les itérées sortent de la boîte et finissent par diverger (la vraie solution $x/(1-tx)$ explose en $t=1/x$).
 
 Les conditions sont **suffisantes**, pas nécessaires : pour une équation linéaire ($\alpha'=\alpha$) les itérées convergent même quand $b\ell\ge a$ ; c'est l'équation non linéaire qui montre pourquoi il faut un petit $b$. La convergence observée est même bien plus rapide que $2^{-j}$ (en $b^j k^j/j!$), la borne de Banach n'étant qu'une majoration.`,
   related: ['ch07-cauchy-lipschitz', 'ch07-lemme-operateur-integral', 'ch07-equation-integrale', 'ch06-point-fixe-banach', 'ch07-localement-lipschitzien-def'],
@@ -906,11 +906,11 @@ Les conditions sont **suffisantes**, pas nécessaires : pour une équation liné
         ctx.globalAlpha = 1; ctx.fillStyle = T.muted; ctx.fillText(String(j), x, bot + 3);
       }
       // geometric bound (bk)^j d0 and 2^-j d0
-      const q = Math.min(b * k, 0.5) > 0 ? b * k : 0;
+      const q = b * k > 0 ? b * k : 0; // (bk)^j line, drawn even when bk > 1/2 (it then grows : Banach gives nothing)
       ctx.strokeStyle = T.accent4; ctx.lineWidth = 2; ctx.beginPath();
       for (let j = 0; j < NMAX; j++) { const x = left + slot * (j + 0.5); const y = yOf(Math.max(lmin, Math.min(lmax, L(d0) + j * Math.log10(0.5)))); j ? ctx.lineTo(x, y) : ctx.moveTo(x, y); }
       ctx.stroke();
-      if (q > 0 && q < 0.5) { ctx.setLineDash([3, 3]); ctx.lineWidth = 1.3; ctx.beginPath();
+      if (q > 0 && Math.abs(q - 0.5) > 1e-9) { ctx.setLineDash([3, 3]); ctx.lineWidth = 1.3; ctx.beginPath();
         for (let j = 0; j < NMAX; j++) { const x = left + slot * (j + 0.5); const y = yOf(Math.max(lmin, Math.min(lmax, L(d0) + j * Math.log10(q)))); j ? ctx.lineTo(x, y) : ctx.moveTo(x, y); }
         ctx.stroke(); ctx.setLineDash([]); }
       ctx.textAlign = 'right'; ctx.textBaseline = 'top'; ctx.fillStyle = T.accent4;
@@ -935,10 +935,10 @@ FMA.registerViz({
 
 **Quoi regarder.**
 * $\alpha'=\alpha^2$ et $\alpha'=1+\alpha^2$ : champs $C^\infty$, donc Cauchy-Lipschitz s'applique, et pourtant $b<+\infty$ : la solution **explose en temps fini** ($x_0/(1-(t-\tau_0)x_0)$, resp. $\tan$). Cauchy-Lipschitz est un résultat **local**.
-* La bande bleue est un compact $K$ (curseur $R$). **Lemme des bouts** (Théorème VII.3.10, p. 136) : si $\alpha([\tau_0\,;b[)\subset K$ compact de $U$, alors $b=+\infty$. Contraposée visible : quand $b$ est fini, la courbe **sort de $K$** (cercle orange) avant $b$, **quel que soit** $R$ ; en augmentant $R$, l'instant de sortie se rapproche de $b$ sans l'atteindre.
+* La bande bleue est un compact $K$ (curseur $R$). **Lemme des bouts** (Théorème VII.3.10, p. 136) : si $\alpha([\tau_0\,;b[)\subset K$ compact de $U$, alors $b=+\infty$. (Le poly l'énonce pour $X$ « lipschitzien » ; sa preuve n'utilise que l'existence du flot local autour de chaque point de $K$, donc $X$ localement lipschitzien, par exemple $C^1$ comme $\alpha^2$ ici, suffit.) Contraposée visible : quand $b$ est fini, la courbe **sort de $K$** (cercle orange) avant $b$, **quel que soit** $R$ ; en augmentant $R$, l'instant de sortie se rapproche de $b$ sans l'atteindre.
 * $\alpha'=\alpha-\alpha^3$ : pour $\vert x_0\vert\le1$, la courbe reste coincée entre les équilibres $0$ et $\pm1$, donc dans un compact : $b=+\infty$ (et même $a=-\infty$). Pour $\vert x_0\vert>1$, elle reste bornée vers le futur ($b=+\infty$) mais explose **dans le passé** : c'est « l'énoncé analogue avec la borne inférieure ».
 * $\alpha'=-1$ sur $U=\,]0\,;+\infty[$ : la courbe reste **bornée** et pourtant $b=\tau_0+x_0<+\infty$ : elle ne reste dans aucun compact **de $U$**, car elle s'approche du bord $x=0$ (zone hachurée, hors de $U$). L'hypothèse « compact de $U$ » ne peut pas être remplacée par « borné ».
-* $\alpha'=2\vert\alpha\vert^{1/2}$ (poly, Remarque VII.2.5, p. 129) : $X$ est continu mais **pas lipschitzien en $0$**. Par chaque point passe tout un faisceau de solutions (courbes pâles) : on peut rester en $0$ aussi longtemps qu'on veut puis « décoller » en parabole. Le curseur « palier » choisit l'une d'elles. Place $x_0=0$ (le point s'aimante sur l'axe) pour retrouver $\alpha_1=0$ et $\alpha_2(t)=\mathrm{signe}(t)\,t^2$ du poly. Ici la notion de courbe intégrale *maximale unique* n'a plus de sens : l'unicité de [[ch07-unicite-globale]] repose sur Cauchy-Lipschitz.
+* $\alpha'=2\vert\alpha\vert^{1/2}$ (poly, Remarque VII.2.5, p. 129) : $X$ est continu mais **pas lipschitzien en $0$**. Par chaque point passe tout un faisceau de solutions (courbes pâles) : on peut rester en $0$ aussi longtemps qu'on veut puis « décoller » en parabole. Loin de $0$, $X$ est lipschitzien et l'unicité locale tient : pour $x_0>0$ toutes ces solutions coïncident pour $t\ge\tau_0$ et ne se séparent que dans le passé, là où la courbe touche $0$ (pour $x_0<0$, c'est dans le futur). Le curseur « palier » choisit l'une d'elles. Place $x_0=0$ (le point s'aimante sur l'axe) et $\tau_0=0$ pour retrouver $\alpha_1=0$ et, avec un palier nul, $\alpha_2(t)=\mathrm{signe}(t)\,t^2$ du poly. Ici la notion de courbe intégrale *maximale unique* n'a plus de sens : l'unicité de [[ch07-unicite-globale]] repose sur Cauchy-Lipschitz.
 
 Idée de la preuve du lemme des bouts : sur le compact $K$, le flot local existe pendant un temps $2\epsilon$ **uniforme** (recouvrement fini) ; si $b<+\infty$, on repart du point $\alpha(b-\epsilon)\in K$ et on prolonge au-delà de $b$, contradiction.`,
   related: ['ch07-lemme-des-bouts', 'ch07-courbe-integrale-maximale-def', 'ch07-peano-non-unicite', 'ch07-cauchy-lipschitz', 'ch07-unicite-globale', 'ch07-flot-global-def'],
@@ -1069,7 +1069,7 @@ Idée de la preuve du lemme des bouts : sur le compact $K$, le flot local existe
         else {
           const tp = exitTime(f, J, K, 1), tm = exitTime(f, J, K, -1);
           for (const te of [tp, tm]) if (te !== null && te > P.xmin && te < P.xmax) { const v = f(te); const [px, py] = P.toPx(te, v); ctx.save(); ctx.strokeStyle = T.accent4; ctx.lineWidth = 2.5; ctx.beginPath(); ctx.arc(px, py, 7, 0, 2 * Math.PI); ctx.stroke(); ctx.restore(); }
-          const fwd = tp === null ? (J[1] === INF ? 'α([τ₀ ; b[) ⊂ K et b = +∞ ✓' : '—') : `sortie de K à t = ${fmt(tp)} < b = ${fmt(J[1])}`;
+          const fwd = tp === null ? (J[1] === INF ? 'α([τ₀ ; b[) ⊂ K et b = +∞ ✓' : `b = ${fmt(J[1])} : sortie de K après t = τ₀ + 60 (hors de l'horizon calculé)`) : `sortie de K à t = ${fmt(tp)} < b = ${fmt(J[1])}`;
           msg = `K = [${fmt(K[0])} ; ${fmt(K[1])}] · ${fwd}`;
         }
         roK.set(msg);

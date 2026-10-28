@@ -6,7 +6,7 @@ title: "Principe de l'argument pour le bord d'un domaine : $Z(g,U)-P(g,U)$"
 ref: Corollaire II.8.2
 page: 53
 importance: 3
-depends: [ch02-principe-argument, ch02-rouche-faits-admis-remarque, ch02-residus-hypothese-homotope-remarque, ch02-jordan-remarque, ch02-meromorphes-corps, ch02-localement-fini-caracterisations]
+depends: [ch02-principe-argument, ch02-rouche-faits-admis-remarque, ch02-residus-hypothese-homotope-remarque, ch02-jordan-remarque, ch02-indice-entier-localement-constant, ch02-meromorphes-corps, ch02-localement-fini-caracterisations]
 tags: [principe-argument, zeros, poles, comptage, domaine, orientation]
 ---
 ## Intuition

@@ -102,8 +102,8 @@ Les flèches grises représentent le champ (à l'instant $0$ pour le champ non a
       const f = v => (isFinite(v) ? v.toFixed(2) : '∞');
       ro.set(`x = (${f(center[0])}, ${f(center[1])}) · écart rose/vert = ${isFinite(gap) ? gap.toExponential(0) : '—'}` + (naive.value ? ` · écart orange/vert = ${isFinite(gapN) ? gapN.toFixed(2) : '—'}` : ''));
       // title text on canvas
-      ctx.save(); ctx.font = '12px system-ui, sans-serif'; ctx.fillStyle = T.fg; ctx.textAlign = 'left'; ctx.textBaseline = 'top';
-      ctx.fillText(F.auto ? 'champ autonome' : 'champ dépendant du temps', 6, 6); ctx.restore();
+      ctx.save(); ctx.font = '12px system-ui, sans-serif'; ctx.fillStyle = T.fg; ctx.textAlign = 'left'; ctx.textBaseline = 'bottom';
+      ctx.fillText(F.auto ? 'champ autonome' : 'champ dépendant du temps', 6, H - 6); ctx.restore(); // bottom-left : the y label sits at the top centre
       const sw = c => `<span style="display:inline-block;width:12px;height:12px;border-radius:2px;background:${c};vertical-align:-2px;margin:0 4px 0 10px"></span>`;
       legend.innerHTML = `${sw(T.muted)}A ${sw(T.accent)}F(0,s,A) ${sw(T.accent2)}F(s,s+t,F(0,s,A)) ${sw(T.accent3)}F(0,s+t,A)` + (naive.value ? ` ${sw(T.accent4)}F(0,t,F(0,s,A)) (naïf)` : '');
     }

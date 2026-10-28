@@ -6,7 +6,7 @@ title: Affaiblissement de l'hypothèse « simplement connexe »
 ref: Remarque II.5.3
 page: 48
 importance: 2
-depends: [ch02-formule-residus, ch02-invariance-homotopie-integrale, ch02-laurent-developpement, ch02-indice-def, ch01-integrale-primitive, ch02-localement-fini-caracterisations]
+depends: [ch02-formule-residus, ch02-invariance-homotopie-integrale, ch02-laurent-developpement, ch02-residu-def, ch02-indice-def, ch01-integrale-primitive, ch02-localement-fini-caracterisations]
 tags: [residus, homotopie, simplement-connexe, lacet, indice]
 ---
 ## Intuition

@@ -6,7 +6,7 @@ title: "Calcul d'une intégrale de Fourier : $\int_{-\infty}^{+\infty}\frac{\cos
 ref: Exemple II.6.1
 page: 48
 importance: 2
-depends: [ch02-formule-residus-pratique, ch02-residu-pole-simple, ch01-longueur-majoration-integrale]
+depends: [ch02-formule-residus-pratique, ch02-residu-pole-simple, ch01-longueur-majoration-integrale, ch02-meromorphes-operations, ch01-integrale-reparametrage-oppose-concatenation]
 tags: [residus, fourier, calcul-integrales, demi-disque, contour]
 ---
 ## Intuition

@@ -6,7 +6,7 @@ title: Théorème de Rouché (1862)
 ref: Théorème II.8.4
 page: 54
 importance: 3
-depends: [ch02-principe-argument-domaine, ch02-cauchy-simplement-connexe, ch02-etoile-simplement-connexe, ch02-meromorphes-corps, ch02-indice-def, ch02-principe-argument, ch01-derivee-f-rond-gamma]
+depends: [ch02-principe-argument-domaine, ch02-cauchy-simplement-connexe, ch02-etoile-simplement-connexe, ch02-meromorphes-corps, ch02-indice-def, ch01-derivee-f-rond-gamma]
 tags: [rouche, zeros, poles, comptage, principe-argument, perturbation]
 ---
 ## Intuition
