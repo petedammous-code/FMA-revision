@@ -1148,6 +1148,492 @@ nombre de zéros moins nombre de pôles dans $U$, **comptés avec multiplicité*
 
 } catch (e) { console.error('viz viz-ch02-rouche-chien failed to register', e); }
 
+// ---- content/ch03/viz/viz-ch03-convergence-locale-uniforme.js ----
+try {
+FMA.registerViz({
+  id: 'viz-ch03-convergence-locale-uniforme',
+  chapter: 3,
+  title: "Convergence localement uniforme : sur tout compact, mais pas sur tout le disque",
+  description: String.raw`**Ce que l'on voit.** On étudie une suite de fonctions $f_n$ qui converge simplement vers une limite $f$ sur un ouvert $\Omega$. À gauche, la **carte de l'erreur** $z\mapsto\log_{10}|f_n(z)-f(z)|$ (bleu foncé = erreur minuscule, jaune/blanc = erreur de l'ordre de $1$ ou plus) ; le cercle pointillé est le bord de $\bar D(0,r)$. À droite, le graphe de
+$$r\longmapsto \sup_{z\in\bar D(0,r)}|f_n(z)-f(z)|$$
+en échelle logarithmique, pour le $n$ choisi (trait épais) et quelques autres valeurs de $n$ (traits fins) ; la droite horizontale est le seuil $\varepsilon$. **Glissez** le curseur $r$ (ou cliquez-glissez sur l'un des deux graphiques).
+
+**Ce qu'il faut regarder.**
+* Pour $r<1$ fixé, le $\sup$ sur $\bar D(0,r)$ (un **compact** de $\Omega=D(0,1)$) tend vers $0$ quand $n$ augmente : c'est la convergence **uniforme sur tout compact**, équivalente à la convergence **localement uniforme** (poly, Proposition III.1.2, p. 59).
+* Mais la zone « chaude » se **colle au bord** $|z|=1$ : le $\sup$ sur tout $D(0,1)$ reste égal à $1$ pour $z^n$ (et vaut $+\infty$ pour $\sum z^k$). La convergence n'est **pas uniforme sur $\Omega$** ; c'est pourquoi les théorèmes du chapitre (Weierstraß, Hurwitz, Montel) sont énoncés « sur tout compact » (poly, Définition III.1.1, p. 59).
+* L'entier $n_{\min}(r,\varepsilon)$ affiché (plus petit $n$ tel que $\sup_{\bar D(0,r)}|f_n-f|\le\varepsilon$) **explose quand $r\to1$** : aucun $n$ ne convient pour tout $r<1$ à la fois. Le contre-exemple $z^n/n$ converge au contraire uniformément sur $D(0,1)$ (le $\sup$ vaut $1/n$).
+* Dans la famille $\sum_{k\le n}z^k/k!$ sur $\mathbb C$ tout entier, la convergence vers $e^z$ est localement uniforme (et même normale sur tout disque) : essayez $r$ grand, il faut juste un $n$ plus grand.`,
+  related: ['ch03-convergence-localement-uniforme', 'ch03-convergence-uniforme-compacts', 'ch03-weierstrass', 'ch03-convergence-normale-definition'],
+  height: 700,
+  mount(container, kit) {
+    const C = kit.complex;
+    const th = () => kit.theme();
+    const LO = -8, HI = 2;
+    const pw = (z, m) => { const r = Math.hypot(z[0], z[1]); if (r === 0) return m === 0 ? [1, 0] : [0, 0]; return C.fromPolar(Math.pow(r, m), m * Math.atan2(z[1], z[0])); };
+    const tail = (n, z) => { // somme_{k>n} z^k/k!
+      let t = [1, 0]; for (let k = 1; k <= n; k++) t = C.scale(C.mul(t, z), 1 / k);
+      let s = [0, 0]; for (let k = n + 1; k <= n + 90; k++) { t = C.scale(C.mul(t, z), 1 / k); s = C.add(s, t); if (C.abs(t) < 1e-300) break; }
+      return s;
+    };
+    const FAM = {
+      pow: { lab: 'z^n  (limite 0 sur D(0,1))', rmax: 1, nmax: 80, n0: 12, view: 1.4, disk: true,
+        err: (n, z) => pw(z, n), sup: (n, r) => Math.pow(r, n), all: n => '1' },
+      geo: { lab: 'somme des z^k, k≤n  (limite 1/(1−z))', rmax: 0.995, nmax: 80, n0: 12, view: 1.4, disk: true,
+        err: (n, z) => C.scale(C.div(pw(z, n + 1), C.sub([1, 0], z)), -1), sup: (n, r) => Math.pow(r, n + 1) / (1 - r), all: n => '+\\infty' },
+      pown: { lab: 'z^n / n  (limite 0, uniforme sur D(0,1))', rmax: 1, nmax: 80, n0: 12, view: 1.4, disk: true,
+        err: (n, z) => C.scale(pw(z, n), 1 / n), sup: (n, r) => Math.pow(r, n) / n, all: n => '\\tfrac{1}{' + n + '}' },
+      exp: { lab: 'somme des z^k/k!, k≤n  (limite e^z sur C)', rmax: 5, nmax: 40, n0: 6, view: 5.6, disk: false,
+        err: (n, z) => tail(n, z), sup: (n, r) => tail(n, [r, 0])[0], all: n => '+\\infty' },
+    };
+    let fam = 'pow', n = FAM.pow.n0, r = 0.8, eps = -3;
+
+    // --- structure : deux cellules responsives ---
+    const grid = document.createElement('div');
+    grid.style.cssText = 'display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:10px;margin-top:6px';
+    const cellL = document.createElement('div'), cellR = document.createElement('div');
+    grid.appendChild(cellL); grid.appendChild(cellR);
+    const controls = kit.controls(container);
+    container.appendChild(grid);
+    const sL = kit.canvas(cellL, { height: 300 });
+    const sR = kit.canvas(cellR, { height: 300 });
+
+    const sel = kit.select(controls, { label: '$f_n$ :', options: Object.keys(FAM).map(k => [FAM[k].lab, k]), value: fam, onChange: v => { fam = v; const F = FAM[v]; stop(); n = Math.min(F.n0, F.nmax); nS.input.max = F.nmax; nS.value = n; rS.input.max = F.rmax; r = (v === 'exp') ? 3 : 0.8; rS.value = r; heat = null; draw(); } });
+    const nS = kit.slider(controls, { label: '$n$', min: 1, max: 80, step: 1, value: n, onChange: v => { n = v; heat = null; draw(); } });
+    const rS = kit.slider(controls, { label: '$r$', min: 0, max: 1, step: 0.005, value: r, onChange: v => { r = v; draw(); } });
+    const eS = kit.slider(controls, { label: '$\\log_{10}\\varepsilon$', min: -6, max: -1, step: 0.1, value: eps, format: v => (+v).toFixed(1), onChange: v => { eps = v; draw(); } });
+    const playB = kit.button(controls, { label: '▶ faire croître n', primary: true, onClick: () => { if (anim) stop(); else start(); } });
+    const ro1 = kit.readout(controls, { label: '' });
+    const ro2 = kit.readout(controls, { label: '' });
+    const ro3 = kit.readout(controls, { label: '' });
+
+    const sup10 = k => { const m = { '-': '⁻', '0': '⁰', '1': '¹', '2': '²', '3': '³', '4': '⁴', '5': '⁵', '6': '⁶', '7': '⁷', '8': '⁸', '9': '⁹' }; return '10' + String(k).split('').map(c => m[c] || c).join(''); };
+    const sciTex = x => { if (!isFinite(x)) return '+\\infty'; if (x === 0) return '0'; const e = Math.floor(Math.log10(x)); const m = x / Math.pow(10, e); return Math.abs(e) <= 1 ? x.toPrecision(3) : m.toFixed(2) + '\\times10^{' + e + '}'; };
+
+    // --- animation ---
+    let anim = null, acc = 0;
+    function stop() { if (anim) { anim.stop(); anim = null; } playB.textContent = '▶ faire croître n'; }
+    function start() {
+      const F = FAM[fam]; if (n >= F.nmax) { n = 1; nS.value = 1; }
+      playB.textContent = '❚❚ pause'; acc = 0;
+      anim = kit.animate(dt => { acc += dt; if (acc < 0.12) return; acc = 0; const F2 = FAM[fam]; if (n >= F2.nmax) { stop(); return; } n++; nS.value = n; heat = null; draw(); });
+    }
+
+    // --- carte de l'erreur (mise en cache) ---
+    let heat = null, heatKey = '';
+    function colorOf(t) { t = Math.max(0, Math.min(1, t)); return kit.hsl2rgb(0.66 * (1 - t) % 1, 0.85, 0.16 + 0.5 * t); }
+    function buildHeat(P) {
+      const F = FAM[fam]; const W = sL.W, H = sL.H, step = 2;
+      const img = sL.ctx.createImageData(Math.ceil(W / step), Math.ceil(H / step)); const d = img.data; let k = 0;
+      for (let j = 0; j < img.height; j++) for (let i = 0; i < img.width; i++) {
+        const [x, y] = P.toWorld(i * step + step / 2, j * step + step / 2);
+        let a = 0, rgb = null;
+        if (F.disk && x * x + y * y >= 1) { a = 0; rgb = [0, 0, 0]; }
+        else { const e = C.abs(F.err(n, [x, y])); const lg = Math.log10(e + 1e-300); rgb = colorOf((lg - LO) / (HI - LO)); a = 255; }
+        d[k++] = rgb[0]; d[k++] = rgb[1]; d[k++] = rgb[2]; d[k++] = a;
+      }
+      const off = document.createElement('canvas'); off.width = img.width; off.height = img.height; off.getContext('2d').putImageData(img, 0, 0);
+      return off;
+    }
+
+    let PL = null, plot = null;
+    function drawLeft() {
+      const ctx = sL.ctx, t = th(), F = FAM[fam];
+      sL.clear();
+      const P = kit.plane(ctx, { xmin: -F.view, xmax: F.view, ymin: -F.view, ymax: F.view, W: sL.W, H: sL.H });
+      PL = P;
+      const key = [fam, n, sL.W, sL.H].join('|');
+      if (!heat || key !== heatKey) { heat = buildHeat(P); heatKey = key; }
+      ctx.save(); ctx.imageSmoothingEnabled = true; ctx.drawImage(heat, 0, 0, heat.width, heat.height, 0, 0, sL.W, sL.H); ctx.restore();
+      P.axes({ labels: false });
+      if (F.disk) P.circle(0, 0, 1, { color: t.fg, width: 1.5 });
+      P.circle(0, 0, Math.max(r, 1e-3), { color: '#ffffff', width: 2.2, dash: [6, 4] });
+      // étiquettes
+      ctx.save(); ctx.font = '12px system-ui, sans-serif'; ctx.fillStyle = '#fff'; ctx.shadowColor = 'rgba(0,0,0,.7)'; ctx.shadowBlur = 3;
+      ctx.textAlign = 'left'; ctx.textBaseline = 'top';
+      ctx.fillText(F.disk ? 'bord de D(0,1)' : 'plan complexe', 8, 6);
+      ctx.fillText('r = ' + r.toFixed(3), 8, 22);
+      ctx.restore();
+      // légende (barre de couleur)
+      const bx = 8, by = sL.H - 22, bw = Math.min(180, sL.W - 16), bh = 8;
+      for (let i = 0; i < bw; i++) { const c = colorOf(i / (bw - 1)); ctx.fillStyle = `rgb(${c[0]},${c[1]},${c[2]})`; ctx.fillRect(bx + i, by, 1, bh); }
+      ctx.save(); ctx.fillStyle = '#fff'; ctx.shadowColor = 'rgba(0,0,0,.8)'; ctx.shadowBlur = 3; ctx.font = '10.5px system-ui, sans-serif'; ctx.textBaseline = 'bottom'; ctx.textAlign = 'left'; ctx.fillText(sup10(LO), bx, by - 1);
+      ctx.textAlign = 'right'; ctx.fillText(sup10(HI), bx + bw, by - 1); ctx.textAlign = 'left'; ctx.fillText('|f_n − f|', bx + bw + 6, by + bh + 1); ctx.restore();
+    }
+
+    function drawRight() {
+      const ctx = sR.ctx, t = th(), F = FAM[fam]; sR.clear();
+      const W = sR.W, H = sR.H, ml = 44, mr = 10, mt = 12, mb = 30;
+      const X = x => ml + (x / F.rmax) * (W - ml - mr);
+      const Y = lg => mt + (1 - (Math.max(LO, Math.min(HI, lg)) - LO) / (HI - LO)) * (H - mt - mb);
+      plot = { X, ml, mr, W, rmax: F.rmax };
+      ctx.save(); ctx.font = '10.5px system-ui, sans-serif';
+      // grille
+      ctx.strokeStyle = t.grid; ctx.lineWidth = 1; ctx.fillStyle = t.muted; ctx.textAlign = 'right'; ctx.textBaseline = 'middle';
+      for (let k = LO; k <= HI; k += 2) { const y = Y(k); ctx.beginPath(); ctx.moveTo(ml, y); ctx.lineTo(W - mr, y); ctx.stroke(); ctx.fillText(sup10(k), ml - 4, y); }
+      ctx.textAlign = 'center'; ctx.textBaseline = 'top';
+      const xs = F.rmax <= 1 ? [0, 0.25, 0.5, 0.75, 1] : [0, 1, 2, 3, 4, 5];
+      xs.forEach(x => { const px = X(x); ctx.beginPath(); ctx.moveTo(px, mt); ctx.lineTo(px, H - mb); ctx.strokeStyle = t.grid; ctx.stroke(); ctx.fillText(String(x), px, H - mb + 3); });
+      ctx.strokeStyle = t.axis; ctx.beginPath(); ctx.moveTo(ml, mt); ctx.lineTo(ml, H - mb); ctx.lineTo(W - mr, H - mb); ctx.stroke();
+      ctx.fillStyle = t.fg; ctx.textAlign = 'right'; ctx.textBaseline = 'bottom'; ctx.fillText('r', W - mr, H - 4);
+      ctx.textAlign = 'left'; ctx.textBaseline = 'top'; ctx.fillText('sup sur la boule fermée de rayon r', ml + 6, mt - 1);
+      ctx.restore();
+      // courbes
+      const pal = kit.palette();
+      const curve = (nn, color, width, alpha) => {
+        ctx.save(); ctx.strokeStyle = color; ctx.lineWidth = width; ctx.globalAlpha = alpha; ctx.beginPath(); let first = true;
+        const M = 160;
+        for (let i = 0; i <= M; i++) { const rr = F.rmax * i / M; const v = F.sup(nn, rr); const lg = v > 0 ? Math.log10(v) : LO - 5; const px = X(rr), py = Y(lg); if (first) { ctx.moveTo(px, py); first = false; } else ctx.lineTo(px, py); }
+        ctx.stroke(); ctx.restore();
+      };
+      [1, 2, 4, 8, 16, 32, 64].filter(m => m <= F.nmax && m !== n).forEach(m => curve(m, pal[0], 1.2, 0.35));
+      curve(n, pal[0], 2.8, 1);
+      // seuil
+      ctx.save(); ctx.strokeStyle = pal[3]; ctx.lineWidth = 1.6; ctx.setLineDash([5, 4]); ctx.beginPath(); ctx.moveTo(ml, Y(eps)); ctx.lineTo(W - mr, Y(eps)); ctx.stroke();
+      ctx.fillStyle = pal[3]; ctx.font = '11px system-ui, sans-serif'; ctx.textAlign = 'right'; ctx.textBaseline = 'bottom'; ctx.setLineDash([]); ctx.fillText('ε', W - mr - 2, Y(eps) - 2); ctx.restore();
+      // bord du disque
+      if (F.disk) { ctx.save(); ctx.strokeStyle = t.fg; ctx.globalAlpha = 0.5; ctx.setLineDash([2, 3]); ctx.beginPath(); ctx.moveTo(X(1), mt); ctx.lineTo(X(1), H - mb); ctx.stroke(); ctx.setLineDash([]); ctx.globalAlpha = 1; ctx.fillStyle = t.muted; ctx.font = '10.5px system-ui, sans-serif'; ctx.textAlign = 'right'; ctx.textBaseline = 'top'; ctx.fillText('bord', X(1) - 3, mt + 14); ctx.restore(); }
+      // curseur r
+      const v = F.sup(n, r); const lgv = v > 0 ? Math.log10(v) : LO;
+      ctx.save(); ctx.strokeStyle = pal[1]; ctx.lineWidth = 1.6; ctx.setLineDash([3, 3]); ctx.beginPath(); ctx.moveTo(X(r), mt); ctx.lineTo(X(r), H - mb); ctx.stroke(); ctx.setLineDash([]);
+      ctx.fillStyle = pal[1]; ctx.beginPath(); ctx.arc(X(r), Y(lgv), 5, 0, 2 * Math.PI); ctx.fill(); ctx.restore();
+    }
+
+    function nMin() {
+      const F = FAM[fam]; const LIM = F.nmax > 50 ? 200000 : 400; const e = Math.pow(10, eps);
+      for (let m = 1; m <= LIM; m++) if (F.sup(m, r) <= e) return m;
+      return null;
+    }
+    function draw() {
+      try {
+        drawLeft(); drawRight();
+        const F = FAM[fam];
+        ro1.set('\\sup_{\\bar D(0,r)}|f_n-f| = ' + sciTex(F.sup(n, r)), true);
+        ro2.set((F.disk ? '\\sup_{D(0,1)}|f_n-f| = ' : '\\sup_{\\mathbb C}|f_n-f| = ') + F.all(n), true);
+        const m = nMin();
+        ro3.set('n_{\\min}(r,\\varepsilon) = ' + (m == null ? '\\text{>}\\,' + (F.nmax > 50 ? '2\\cdot10^{5}' : '400') : m), true);
+      } catch (e) { console.error(e); }
+    }
+
+    // --- interactions : on glisse r sur les deux graphiques ---
+    const setR = v => { const F = FAM[fam]; r = Math.max(0, Math.min(F.rmax, v)); rS.value = r; draw(); };
+    const offL = kit.drag(sL.canvas, { onDown: p => { const [x, y] = PL.toWorld(p.x, p.y); setR(Math.hypot(x, y)); }, onMove: (p, ev, down) => { if (down) { const [x, y] = PL.toWorld(p.x, p.y); setR(Math.hypot(x, y)); } } });
+    const offR = kit.drag(sR.canvas, { onDown: p => setR((p.x - plot.ml) / (plot.W - plot.ml - plot.mr) * plot.rmax), onMove: (p, ev, down) => { if (down) setR((p.x - plot.ml) / (plot.W - plot.ml - plot.mr) * plot.rmax); } });
+    sL.onResize = () => { heat = null; draw(); }; sR.onResize = draw;
+    draw();
+    return () => { stop(); offL(); offR(); sL.destroy(); sR.destroy(); };
+  }
+});
+
+} catch (e) { console.error('viz viz-ch03-convergence-locale-uniforme failed to register', e); }
+
+// ---- content/ch03/viz/viz-ch03-hurwitz-zeros.js ----
+try {
+FMA.registerViz({
+  id: 'viz-ch03-hurwitz-zeros',
+  chapter: 3,
+  title: "Théorème de Hurwitz : les zéros passent à la limite",
+  description: String.raw`**Ce que l'on voit.** Une suite $(f_n)$ de fonctions holomorphes sur un ouvert $\Omega$ qui converge localement uniformément vers $f$. Les **points pleins** sont les zéros de $f_n$ (pour le $n$ du curseur), les **croix** les zéros de la limite $f$ (avec multiplicité) ; les points pâles retracent les zéros des $f_m$, $m<n$ (case « trajectoires »). Le fond est le domain coloring de $f_n$. Le **disque $D$** (cercle blanc) se **déplace en le glissant** ; son rayon $\rho$ se règle au curseur. On affiche $Z(f_n,D)$ et $Z(f,D)$, nombres de zéros comptés avec multiplicité.
+
+**Ce qu'il faut regarder.**
+* **Famille $z^2-1/n$.** Les deux zéros simples $\pm1/\sqrt n$ se rapprochent et **fusionnent** en le zéro double de $z^2$ : dès que $D$ contient $0$ et que son bord évite les zéros de $f$, on a $Z(f_n,D)=Z(f,D)=2$ pour $n$ grand (poly, Remarque III.2.3, p. 63). Faites passer le bord de $D$ **exactement** par un zéro de $f$ : l'égalité peut alors tomber en défaut, d'où l'hypothèse « $\partial D$ ne rencontre pas les zéros de $f$ ».
+* **Sommes partielles de $e^z$.** La limite $e^z$ n'a **aucun** zéro, donc (Hurwitz) tout disque fixe finit par ne plus contenir de zéro de $f_n$ : les zéros de $\sum_{k\le n}z^k/k!$ **fuient vers l'infini** (ils longent la courbe de Szegő).
+* **Famille $z^n$ sur le disque épointé $D(0,1)\setminus\{0\}$.** Les $f_n$ ne s'annulent pas sur $\Omega$ mais la limite est $f\equiv0$ : c'est le cas **exclu** par le théorème (poly, Remarque III.2.2, p. 63). Un « zéro » de la limite n'a pas de sens ici, et rien n'est contredit.
+* **Sommes $\sum_{k\le n}z^k$ sur $D(0,1)$.** Leurs zéros sont les racines de l'unité (sauf $1$), situées **sur le bord de $\Omega$** donc hors de $\Omega$ : $f=1/(1-z)$ sans zéro, ce qui est cohérent. Si $D$ sort de $\Omega$, l'application du théorème n'est plus permise (l'indicateur le signale).
+* Le théorème de Hurwitz s'énonce **pour un disque $D$ avec $\bar D\subset\Omega$** (poly, Théorème III.2.1, p. 62).`,
+  related: ['ch03-hurwitz', 'ch03-hurwitz-contre-exemple', 'ch03-hurwitz-zeros-locaux', 'ch03-weierstrass'],
+  height: 640,
+  mount(container, kit) {
+    const C = kit.complex;
+    const th = () => kit.theme();
+    const pw = (z, m) => { const q = Math.hypot(z[0], z[1]); if (q === 0) return m === 0 ? [1, 0] : [0, 0]; return C.fromPolar(Math.pow(q, m), m * Math.atan2(z[1], z[0])); };
+
+    // racines d'un polynôme (Durand-Kerner), coefficients c[k] de z^k (réels)
+    function polyRoots(c) {
+      const d = c.length - 1; if (d < 1) return [];
+      const a = c.map(v => v / c[d]);
+      let R = 0; for (let k = 1; k <= d; k++) R = Math.max(R, Math.pow(Math.abs(a[d - k]), 1 / k));
+      R = Math.max(0.5 * 2 * R, 0.1);
+      let z = []; for (let j = 0; j < d; j++) z.push(C.fromPolar(R * (0.6 + 0.04 * (j % 5)), 2 * Math.PI * j / d + 0.4));
+      const ev = (w) => { let p = [1, 0]; for (let k = d - 1; k >= 0; k--) p = C.add(C.mul(p, w), [a[k], 0]); return p; };
+      for (let it = 0; it < 500; it++) {
+        let mx = 0;
+        for (let j = 0; j < d; j++) {
+          let den = [1, 0]; for (let k = 0; k < d; k++) if (k !== j) den = C.mul(den, C.sub(z[j], z[k]));
+          const dl = C.div(ev(z[j]), den); z[j] = C.sub(z[j], dl); mx = Math.max(mx, C.abs(dl));
+        }
+        if (mx < 1e-13 * Math.max(1, R)) break;
+      }
+      return z;
+    }
+    const expCoef = n => { const out = []; out[n] = 1; for (let k = n - 1; k >= 0; k--) out[k] = out[k + 1] * (k + 1); return out; }; // n!/k!
+    const rootCache = {};
+    const rootsOf = (fam, nn) => { const key = fam + ':' + nn; if (!rootCache[key]) rootCache[key] = FAM[fam].roots(nn); return rootCache[key]; };
+
+    const FAM = {
+      deg2: { lab: 'z² − 1/n  →  z²', nmax: 60, n0: 3, view: 1.5, rhoMax: 1.4, rho0: 0.6, c0: [0, 0], omega: 'C',
+        evalf: (n, z) => C.sub(C.mul(z, z), [1 / n, 0]), roots: n => [[Math.sqrt(1 / n), 0], [-Math.sqrt(1 / n), 0]], lim: [[[0, 0], 2]], limTxt: 'z^2',
+        zero: false },
+      exp: { lab: 'Σ_{k≤n} z^k/k!  →  e^z', nmax: 30, n0: 3, view: 11, rhoMax: 9, rho0: 3, c0: [0, 0], omega: 'C',
+        evalf: (n, z) => { let s = [1, 0], t = [1, 0]; for (let k = 1; k <= n; k++) { t = C.scale(C.mul(t, z), 1 / k); s = C.add(s, t); } return s; },
+        roots: n => polyRoots(expCoef(n)), lim: [], limTxt: 'e^z', zero: false },
+      geo: { lab: 'Σ_{k≤n} z^k sur D(0,1)  →  1/(1−z)', nmax: 40, n0: 5, view: 1.45, rhoMax: 1.2, rho0: 0.5, c0: [0.2, 0], omega: 'D',
+        evalf: (n, z) => { let s = [1, 0], t = [1, 0]; for (let k = 1; k <= n; k++) { t = C.mul(t, z); s = C.add(s, t); } return s; },
+        roots: n => { const out = []; for (let j = 1; j <= n; j++) out.push(C.fromPolar(1, 2 * Math.PI * j / (n + 1))); return out; }, lim: [], limTxt: '1/(1-z)', zero: false },
+      punct: { lab: 'z^n sur D(0,1)∖{0}  →  0   (cas exclu)', nmax: 40, n0: 4, view: 1.45, rhoMax: 1.2, rho0: 0.5, c0: [0.2, 0.1], omega: 'P',
+        evalf: (n, z) => pw(z, n), roots: n => [], lim: null, limTxt: '0', zero: true },
+      cub: { lab: 'z²(z−1) − (1+i)/n  →  z²(z−1)', nmax: 60, n0: 3, view: 1.7, rhoMax: 1.6, rho0: 0.5, c0: [0, 0], omega: 'C',
+        evalf: (n, z) => C.sub(C.mul(C.mul(z, z), C.sub(z, [1, 0])), [1 / n, 1 / n]),
+        roots: n => { const e = 1 / n; /* z^3 - z^2 - (1+i)e */ return polyRoots([-e, 0, -1, 1]).length ? cubic(n) : []; }, lim: [[[0, 0], 2], [[1, 0], 1]], limTxt: 'z^2(z-1)', zero: false },
+    };
+    // racines de z^3 - z^2 - (1+i) e : Durand-Kerner complexe
+    function cubic(n) {
+      const e = [1 / n, 1 / n]; // coefficient constant = -(1+i)/n
+      const p = w => C.sub(C.mul(C.mul(w, w), C.sub(w, [1, 0])), e);
+      let z = [[0.9, 0.1], [-0.3, 0.4], [-0.3, -0.4]];
+      for (let it = 0; it < 500; it++) { let mx = 0; for (let j = 0; j < 3; j++) { let den = [1, 0]; for (let k = 0; k < 3; k++) if (k !== j) den = C.mul(den, C.sub(z[j], z[k])); const dl = C.div(p(z[j]), den); z[j] = C.sub(z[j], dl); mx = Math.max(mx, C.abs(dl)); } if (mx < 1e-14) break; }
+      return z;
+    }
+
+    let fam = 'deg2', n = FAM.deg2.n0, rho = FAM.deg2.rho0, cen = FAM.deg2.c0.slice();
+    let showTraj = true, showBg = true;
+
+    const st = kit.canvas(container, { height: 400 });
+    const controls = kit.controls(container);
+    const selF = kit.select(controls, { label: '$f_n$ :', options: Object.keys(FAM).map(k => [FAM[k].lab, k]), value: fam, onChange: v => { fam = v; stopA(); const F = FAM[v]; n = F.n0; nS.input.max = F.nmax; nS.value = n; rho = F.rho0; rhoS.input.max = F.rhoMax; rhoS.value = rho; cen = F.c0.slice(); draw(); } });
+    const nS = kit.slider(controls, { label: '$n$', min: 1, max: FAM.deg2.nmax, step: 1, value: n, onChange: v => { n = v; draw(); } });
+    const rhoS = kit.slider(controls, { label: '$\\rho$', min: 0.05, max: FAM.deg2.rhoMax, step: 0.05, value: rho, onChange: v => { rho = v; draw(); } });
+    const cbT = kit.checkbox(controls, { label: 'trajectoires', checked: true, onChange: v => { showTraj = v; draw(); } });
+    const cbB = kit.checkbox(controls, { label: 'fond coloré', checked: true, onChange: v => { showBg = v; draw(); } });
+    const playB = kit.button(controls, { label: '▶ faire croître n', primary: true, onClick: () => { if (anim) stopA(); else startA(); } });
+    const ro1 = kit.readout(controls, { label: '' });
+    const ro2 = kit.readout(controls, { label: '' });
+    const ro3 = kit.readout(controls, { label: '' });
+
+    let anim = null, acc = 0;
+    function stopA() { if (anim) { anim.stop(); anim = null; } playB.textContent = '▶ faire croître n'; }
+    function startA() {
+      const F = FAM[fam]; if (n >= F.nmax) { n = 1; nS.value = 1; }
+      playB.textContent = '❚❚ pause'; acc = 0;
+      anim = kit.animate(dt => { acc += dt; if (acc < 0.25) return; acc = 0; if (n >= FAM[fam].nmax) { stopA(); return; } n++; nS.value = n; draw(); });
+    }
+
+    const inOmega = (F, z) => { const m = Math.hypot(z[0], z[1]); if (F.omega === 'C') return true; if (F.omega === 'D') return m < 1 - 1e-9; return m < 1 - 1e-9 && m > 1e-9; };
+    let P = null;
+    function draw() {
+      try {
+        const F = FAM[fam]; const ctx = st.ctx, t = th(); st.clear();
+        const asp = st.W / st.H; const vy = F.view, vx = F.view * asp;
+        P = kit.plane(ctx, { xmin: -vx, xmax: vx, ymin: -vy, ymax: vy, W: st.W, H: st.H });
+        if (showBg) {
+          kit.domainColor(st, P, z => F.evalf(n, z), { step: 3 });
+          ctx.save(); ctx.globalAlpha = 0.5; ctx.fillStyle = t.bg; ctx.fillRect(0, 0, st.W, st.H); ctx.restore();
+        }
+        const stepGrid = F.view > 5 ? 2 : (F.view > 1.6 ? 0.5 : 0.5);
+        P.grid(stepGrid, t.grid); P.axes({ labels: true, step: F.view > 5 ? 2 : 0.5 });
+        // bord de Omega
+        if (F.omega !== 'C') { P.circle(0, 0, 1, { color: t.fg, width: 1.8 }); if (F.omega === 'P') P.point(0, 0, { r: 4, color: t.bg, stroke: t.fg }); P.text(0.72, 0.78, '∂Ω', { color: t.fg, font: '12px system-ui, sans-serif' }); }
+        // trajectoires
+        if (showTraj) {
+          ctx.save(); ctx.fillStyle = t.accent; ctx.globalAlpha = 0.35;
+          for (let m = 1; m < n; m++) for (const zz of rootsOf(fam, m)) { if (!isFinite(zz[0])) continue; const [px, py] = P.toPx(zz[0], zz[1]); if (px < -5 || px > st.W + 5 || py < -5 || py > st.H + 5) continue; ctx.beginPath(); ctx.arc(px, py, 2.2, 0, 2 * Math.PI); ctx.fill(); }
+          ctx.restore();
+        }
+        // le disque D
+        const [cx, cy] = P.toPx(cen[0], cen[1]);
+        P.circle(cen[0], cen[1], rho, { color: '#ffffff', width: 3, fill: 'rgba(255,255,255,0.10)' });
+        P.circle(cen[0], cen[1], rho, { color: t.fg, width: 1, dash: [5, 4] });
+        P.point(cen[0], cen[1], { r: 5, color: t.accent4, stroke: t.fg });
+        P.text(cen[0], cen[1], 'D', { dx: 8, dy: -6, font: 'bold 13px system-ui, sans-serif', color: t.fg });
+        // zéros de f_n
+        const rts = rootsOf(fam, n); let cntN = 0;
+        for (const zz of rts) {
+          if (!inOmega(F, zz)) { const [px, py] = P.toPx(zz[0], zz[1]); ctx.save(); ctx.strokeStyle = t.fg; ctx.lineWidth = 1.5; ctx.beginPath(); ctx.arc(px, py, 4.5, 0, 2 * Math.PI); ctx.stroke(); ctx.restore(); continue; }
+          const inside = Math.hypot(zz[0] - cen[0], zz[1] - cen[1]) < rho; if (inside) cntN++;
+          P.point(zz[0], zz[1], { r: inside ? 6 : 4.5, color: inside ? t.accent2 : t.accent, stroke: t.fg });
+        }
+        if (fam === 'punct') { P.text(0, 0, 'zéro d’ordre n en 0 ∉ Ω', { dx: 8, dy: 16, color: t.fg, baseline: 'top', font: '11px system-ui, sans-serif' }); }
+        // zéros de f
+        let cntF = 0, edge = false, lim = F.lim;
+        if (lim) for (const [zz, mult] of lim) {
+          const [px, py] = P.toPx(zz[0], zz[1]); ctx.save(); ctx.strokeStyle = t.fg; ctx.lineWidth = 2.6; ctx.beginPath(); ctx.moveTo(px - 8, py - 8); ctx.lineTo(px + 8, py + 8); ctx.moveTo(px - 8, py + 8); ctx.lineTo(px + 8, py - 8); ctx.stroke(); ctx.restore();
+          const dd = Math.hypot(zz[0] - cen[0], zz[1] - cen[1]); if (dd < rho) cntF += mult; if (Math.abs(dd - rho) < 0.02 * Math.max(1, F.view / 2)) edge = true;
+        }
+        // lecture
+        const inOm = (F.omega === 'C') || (Math.hypot(cen[0], cen[1]) + rho < 1 - 1e-9);
+        const fz = F.lim === null;
+        ro1.set('Z(f_n,D) = ' + cntN, true);
+        ro2.set(fz ? 'f \\equiv 0' : 'Z(f,D) = ' + cntF, true);
+        if (fz) ro3.set('<span style="color:' + t.accent2 + '">f ≡ 0 : Hurwitz ne s’applique pas</span>');
+        else if (!inOm) ro3.set('<span style="color:' + t.accent2 + '">D ⊄ Ω : hypothèse non vérifiée</span>');
+        else if (edge) ro3.set('<span style="color:' + t.accent2 + '">∂D passe par un zéro de f : hypothèse non vérifiée</span>');
+        else ro3.set(cntN === cntF ? '<span style="color:' + t.accent3 + '">Z(f_n,D) = Z(f,D) ✓</span>' : 'pas encore égaux : augmenter n');
+      } catch (e) { console.error(e); }
+    }
+
+    const setC = p => { const [x, y] = P.toWorld(p.x, p.y); cen = [x, y]; draw(); };
+    const off = kit.drag(st.canvas, { onDown: setC, onMove: (p, ev, down) => { if (down) setC(p); } });
+    st.onResize = draw;
+    draw();
+    return () => { stopA(); off(); st.destroy(); };
+  }
+});
+
+} catch (e) { console.error('viz viz-ch03-hurwitz-zeros failed to register', e); }
+
+// ---- content/ch03/viz/viz-ch03-produits-partiels.js ----
+try {
+FMA.registerViz({
+  id: 'viz-ch03-produits-partiels',
+  chapter: 3,
+  title: "Produits infinis : les zéros apparaissent un à un",
+  description: String.raw`**Ce que l'on voit.** À gauche, le *domain coloring* du produit partiel $P_N(z)$ (teinte = argument, clair = grand module, sombre = petit module) ; les **zéros** sont les points noirs autour desquels toutes les couleurs tournent. À droite, pour le point-sonde $z_0$ (**à glisser** sur le plan) : en haut la suite $k\mapsto|P_k(z_0)|$ et sa limite (tirets), en bas la somme partielle $S_k=\sum_{j\le k}|u_j(z_0)|$ où $u_j$ est « ce qu'on ajoute à $1$ » dans le $j$-ième facteur $1+u_j$. Le curseur $N$ (ou le bouton ▶) ajoute les facteurs un par un.
+
+**Les trois produits.**
+* **Sinus (Euler).** $P_N(z)=\pi z\prod_{n\le N}\big(1-\tfrac{z^2}{n^2}\big)$, avec $u_n=-z^2/n^2$ : la série $\sum|u_n|$ converge **normalement sur tout compact**, donc $P_N\to\sin(\pi z)$ localement uniformément (poly, Théorème III.5.1, p. 68, et Exemple III.6.3, p. 70). Chaque facteur ajoute les deux zéros $\pm N$ ; les zéros lointains ne sont pas encore corrects, car la convergence n'est qu'**uniforme sur les compacts**.
+* **$1/\Gamma$ (Weierstraß).** $P_N(z)=z\,e^{\gamma z}\prod_{k\le N}\big(1+\tfrac zk\big)e^{-z/k}\to 1/\Gamma(z)$ (poly, Exemple III.6.4, p. 71-72). Le facteur correcteur $e^{-z/k}$ transforme $u_k=(1+z/k)e^{-z/k}-1=O(|z|^2/k^2)$ : la série $\sum|u_k|$ converge.
+* **Sans correction.** $P_N(z)=z\prod_{k\le N}(1+z/k)$, avec $u_k=z/k$ : $\sum|u_k|$ **diverge** (comme $\log N$) ; le produit se comporte comme $N^{z}/\Gamma(z)$ et n'a pas de limite : il tend vers $0$ pour $\Re z<0$ et explose pour $\Re z>0$ (poly, Remarque III.5.2, p. 68). Le fond du plan « s'éclaircit » à droite et « s'assombrit » à gauche quand $N$ augmente. Cochez « afficher la limite » pour comparer (rien à afficher dans ce cas).
+
+Comparez, pour $z_0$ fixé, la courbe du haut à son asymptote et la somme du bas : borne = produit convergent, croissance = produit divergent.`,
+  related: ['ch03-produits-infinis', 'ch03-produits-infinis-remarque', 'ch03-produit-sinus', 'ch03-gamma-produit-weierstrass', 'ch03-log-estimation', 'ch03-exp-estimation'],
+  height: 780,
+  mount(container, kit) {
+    const C = kit.complex;
+    const th = () => kit.theme();
+    const GAMMA_E = 0.5772156649015329;
+    const NMAX = 200;
+
+    // Gamma complexe (Lanczos) et 1/Gamma
+    const LC = [0.99999999999980993, 676.5203681218851, -1259.1392167224028, 771.32342877765313, -176.61502916214059, 12.507343278686905, -0.13857109526572012, 9.9843695780195716e-6, 1.5056327351493116e-7];
+    function gamma(z) {
+      if (z[0] < 0.5) { // réflexion : Gamma(z) = pi / (sin(pi z) Gamma(1-z))
+        return C.div([Math.PI, 0], C.mul(C.sin(C.scale(z, Math.PI)), gamma(C.sub([1, 0], z))));
+      }
+      z = C.sub(z, [1, 0]); let x = [LC[0], 0];
+      for (let i = 1; i < 9; i++) x = C.add(x, C.div([LC[i], 0], C.add(z, [i, 0])));
+      const t = C.add(z, [7.5, 0]);
+      const p = C.powc(t, C.add(z, [0.5, 0]));
+      return C.scale(C.mul(C.mul(p, C.exp(C.scale(t, -1))), x), Math.sqrt(2 * Math.PI));
+    }
+    const rgamma = z => C.mul(C.mul(C.sin(C.scale(z, Math.PI)), gamma(C.sub([1, 0], z))), [1 / Math.PI, 0]); // 1/Gamma(z)
+
+    const FAM = {
+      sin: { lab: 'πz ∏ (1 − z²/n²)  →  sin(πz)', xmax: 5.5, ymax: 3, z0: [1.6, 0.7],
+        u: (k, z) => C.scale(C.mul(z, z), -1 / (k * k)),
+        P0: z => C.scale(z, Math.PI),
+        factor: (k, z) => [1 - (z[0] * z[0] - z[1] * z[1]) / (k * k), -(2 * z[0] * z[1]) / (k * k)],
+        limit: z => C.sin(C.scale(z, Math.PI)), limTxt: '\\sin(\\pi z)', zeros: N => { const a = [[0, 0]]; for (let k = 1; k <= N; k++) { a.push([k, 0]); a.push([-k, 0]); } return a; } },
+      wei: { lab: 'z e^{γz} ∏ (1+z/k) e^{−z/k}  →  1/Γ(z)', xmax: 3.5, xmin: -7, ymax: 3.2, z0: [-2.4, 0.8],
+        u: (k, z) => C.sub(C.mul(C.add([1, 0], C.scale(z, 1 / k)), C.exp(C.scale(z, -1 / k))), [1, 0]),
+        P0: z => C.mul(z, C.exp(C.scale(z, GAMMA_E))),
+        factor: (k, z) => C.mul(C.add([1, 0], C.scale(z, 1 / k)), C.exp(C.scale(z, -1 / k))),
+        limit: z => rgamma(z), limTxt: '1/\\Gamma(z)', zeros: N => { const a = [[0, 0]]; for (let k = 1; k <= N; k++) a.push([-k, 0]); return a; } },
+      naive: { lab: 'z ∏ (1 + z/k)  (sans correction : diverge)', xmax: 3.5, xmin: -7, ymax: 3.2, z0: [-2.4, 0.8],
+        u: (k, z) => C.scale(z, 1 / k),
+        P0: z => z,
+        factor: (k, z) => [1 + z[0] / k, z[1] / k],
+        limit: null, limTxt: '', zeros: N => { const a = [[0, 0]]; for (let k = 1; k <= N; k++) a.push([-k, 0]); return a; } },
+    };
+    let fam = 'sin', N = 3, z0 = FAM.sin.z0.slice(), showLim = false;
+
+    const grid = document.createElement('div');
+    grid.style.cssText = 'display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:10px;margin-top:6px';
+    const cellL = document.createElement('div'), cellR = document.createElement('div');
+    grid.appendChild(cellL); grid.appendChild(cellR);
+    const controls = kit.controls(container);
+    container.appendChild(grid);
+    const sL = kit.canvas(cellL, { height: 330 });
+    const sR = kit.canvas(cellR, { height: 330 });
+    kit.colorLegend(container);
+
+    kit.select(controls, { label: 'produit :', options: Object.keys(FAM).map(k => [FAM[k].lab, k]), value: fam, onChange: v => { fam = v; stopA(); z0 = FAM[v].z0.slice(); cache = null; draw(); } });
+    const nS = kit.slider(controls, { label: '$N$', min: 0, max: NMAX, step: 1, value: N, onChange: v => { N = v; cache = null; draw(); } });
+    const cbL = kit.checkbox(controls, { label: 'afficher la limite', checked: false, onChange: v => { showLim = v; cache = null; draw(); } });
+    const playB = kit.button(controls, { label: '▶ ajouter des facteurs', primary: true, onClick: () => { if (anim) stopA(); else startA(); } });
+    const ro1 = kit.readout(controls, { label: '' });
+    const ro2 = kit.readout(controls, { label: '' });
+
+    let anim = null, acc = 0;
+    function stopA() { if (anim) { anim.stop(); anim = null; } playB.textContent = '▶ ajouter des facteurs'; }
+    function startA() {
+      if (N >= NMAX) { N = 0; nS.value = 0; }
+      playB.textContent = '❚❚ pause'; acc = 0;
+      anim = kit.animate(dt => { acc += dt; if (acc < 0.1) return; acc = 0; if (N >= NMAX) { stopA(); return; } N = Math.min(NMAX, N + (N < 20 ? 1 : 3)); nS.value = N; cache = null; draw(); });
+    }
+
+    const prodAt = (F, M, z) => { let p = F.P0(z); for (let k = 1; k <= M; k++) p = C.mul(p, F.factor(k, z)); return p; };
+    let cache = null, P = null, PR = null;
+    function drawLeft() {
+      const F = FAM[fam], ctx = sL.ctx, t = th(); sL.clear();
+      const xmin = F.xmin !== undefined ? F.xmin : -F.xmax; const asp = sL.W / sL.H;
+      P = kit.plane(ctx, { xmin, xmax: F.xmax, ymin: -F.ymax, ymax: F.ymax, W: sL.W, H: sL.H });
+      const f = (showLim && F.limit) ? F.limit : (z => prodAt(F, N, z));
+      kit.domainColor(sL, P, f, { step: 3, lines: true });
+      P.axes({ labels: true, step: 1 });
+      // zéros théoriques du produit partiel
+      const zs = (showLim && F.limit) ? null : F.zeros(N);
+      if (zs) for (const zz of zs) { if (zz[0] < P.xmin || zz[0] > P.xmax) continue; P.point(zz[0], zz[1], { r: 3.2, color: '#000', stroke: '#fff' }); }
+      // point-sonde
+      P.point(z0[0], z0[1], { r: 6, color: t.accent4, stroke: t.fg });
+      P.text(z0[0], z0[1], 'z₀', { dx: 8, dy: -6, font: 'bold 13px system-ui, sans-serif', color: '#fff' });
+      ctx.save(); ctx.font = '12px system-ui, sans-serif'; ctx.fillStyle = '#fff'; ctx.shadowColor = 'rgba(0,0,0,.8)'; ctx.shadowBlur = 3; ctx.textBaseline = 'top'; ctx.fillText((showLim && F.limit) ? 'limite : ' + (fam === 'sin' ? 'sin(πz)' : '1/Γ(z)') : 'P_N,  N = ' + N, 8, 6); ctx.restore();
+    }
+
+    function series(F) {
+      if (cache && cache.fam === fam && cache.z0[0] === z0[0] && cache.z0[1] === z0[1]) return cache;
+      const mod = [], S = []; let p = F.P0(z0), s = 0; mod.push(C.abs(p)); S.push(0);
+      for (let k = 1; k <= NMAX; k++) { p = C.mul(p, F.factor(k, z0)); s += C.abs(F.u(k, z0)); mod.push(C.abs(p)); S.push(s); }
+      const lim = F.limit ? C.abs(F.limit(z0)) : null;
+      cache = { fam, z0: z0.slice(), mod, S, lim };
+      return cache;
+    }
+
+    function drawRight() {
+      const F = FAM[fam], ctx = sR.ctx, t = th(), pal = kit.palette(); sR.clear();
+      const W = sR.W, H = sR.H, ml = 46, mr = 10;
+      const se = series(F);
+      const panels = [{ y0: 14, y1: H / 2 - 22, data: se.mod, color: pal[0], title: '|P_k(z₀)|', lim: se.lim }, { y0: H / 2 + 14, y1: H - 24, data: se.S, color: pal[1], title: 'S_k = Σ_{j≤k} |u_j(z₀)|', lim: null }];
+      const X = k => ml + (k / NMAX) * (W - ml - mr);
+      for (const pn of panels) {
+        let mx = 0; for (const v of pn.data) if (isFinite(v)) mx = Math.max(mx, v); if (pn.lim != null) mx = Math.max(mx, pn.lim);
+        if (pn === panels[0] && F.limit) { // éviter qu'un transitoire minuscule écrase le graphe
+          const tail = pn.data.slice(40); const tm = Math.max(...tail, pn.lim); mx = Math.min(mx, tm * 2.2 + 1e-9);
+        }
+        mx = mx * 1.12 || 1;
+        const Y = v => pn.y1 - Math.max(0, Math.min(1.05, v / mx)) * (pn.y1 - pn.y0);
+        ctx.save(); ctx.strokeStyle = t.axis; ctx.lineWidth = 1; ctx.beginPath(); ctx.moveTo(ml, pn.y0); ctx.lineTo(ml, pn.y1); ctx.lineTo(W - mr, pn.y1); ctx.stroke();
+        ctx.fillStyle = t.muted; ctx.font = '10.5px system-ui, sans-serif'; ctx.textAlign = 'right'; ctx.textBaseline = 'middle';
+        [0, 0.5, 1].forEach(a => { const v = mx / 1.12 * a; ctx.fillText(kit.fmt(+v.toPrecision(2)), ml - 4, Y(v)); });
+        ctx.fillStyle = t.fg; ctx.textAlign = 'left'; ctx.textBaseline = 'bottom'; ctx.fillText(pn.title, ml + 4, pn.y0 + 10);
+        ctx.restore();
+        if (pn.lim != null) { ctx.save(); ctx.strokeStyle = pal[2]; ctx.lineWidth = 1.6; ctx.setLineDash([6, 4]); ctx.beginPath(); ctx.moveTo(ml, Y(pn.lim)); ctx.lineTo(W - mr, Y(pn.lim)); ctx.stroke(); ctx.setLineDash([]); ctx.fillStyle = pal[2]; ctx.textAlign = 'right'; ctx.textBaseline = 'bottom'; ctx.font = '10.5px system-ui, sans-serif'; ctx.fillText('limite', W - mr - 2, Y(pn.lim) - 2); ctx.restore(); }
+        ctx.save(); ctx.strokeStyle = pn.color; ctx.lineWidth = 2; ctx.beginPath(); pn.data.forEach((v, k) => { const px = X(k), py = Y(v); k ? ctx.lineTo(px, py) : ctx.moveTo(px, py); }); ctx.stroke();
+        // curseur N
+        ctx.strokeStyle = pal[3]; ctx.lineWidth = 1.4; ctx.setLineDash([3, 3]); ctx.beginPath(); ctx.moveTo(X(N), pn.y0); ctx.lineTo(X(N), pn.y1); ctx.stroke(); ctx.setLineDash([]);
+        ctx.fillStyle = pal[3]; ctx.beginPath(); ctx.arc(X(N), Y(pn.data[N]), 4.5, 0, 2 * Math.PI); ctx.fill(); ctx.restore();
+      }
+      ctx.save(); ctx.fillStyle = t.muted; ctx.font = '10.5px system-ui, sans-serif'; ctx.textAlign = 'center'; ctx.textBaseline = 'top';
+      [0, 50, 100, 150, 200].forEach(k => ctx.fillText(String(k), X(k), H - 20)); ctx.textAlign = 'right'; ctx.fillStyle = t.fg; ctx.fillText('k', W - mr, H - 20); ctx.restore();
+      return se;
+    }
+
+    function draw() {
+      try {
+        const F = FAM[fam]; drawLeft(); const se = drawRight();
+        ro1.set('|P_N(z_0)| = ' + se.mod[N].toPrecision(4) + (se.lim != null ? ' — |limite| = ' + se.lim.toPrecision(4) : ' — pas de limite'));
+        ro2.set('S_N = ' + se.S[N].toPrecision(4) + (fam === 'naive' ? ' (diverge, ~ |z₀| ln N)' : ' (borné)'));
+      } catch (e) { console.error(e); }
+    }
+
+    const setZ = p => { const [x, y] = P.toWorld(p.x, p.y); z0 = [x, y]; cache = null; draw(); };
+    const off = kit.drag(sL.canvas, { onDown: setZ, onMove: (p, ev, down) => { if (down) setZ(p); } });
+    sL.onResize = draw; sR.onResize = draw;
+    draw();
+    return () => { stopA(); off(); sL.destroy(); sR.destroy(); };
+  }
+});
+
+} catch (e) { console.error('viz viz-ch03-produits-partiels failed to register', e); }
+
 // ---- content/ch04/viz/viz-ch04-grillage-conforme.js ----
 try {
 FMA.registerViz({

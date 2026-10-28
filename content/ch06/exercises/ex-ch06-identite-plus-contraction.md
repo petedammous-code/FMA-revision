@@ -18,7 +18,7 @@ Soit $n\ge1$ et $\norm\cdot$ une norme sur $\R^n$ ; on note encore $\norm L$ la 
 4. En déduire que $f$ est un $C^1$-difféomorphisme de $\R^n$ sur $\R^n$, et que $f^{-1}$ est $\frac1{1-k}$-lipschitzienne.
 5. Application. Montrer que pour tout $(a,b)\in\R^2$ le système
 $$
-\begin{cases} x+\frac14\sin(x+y)=a\\[2pt] y+\frac14\cos(x-y)=b\end{cases}
+\begin{cases} x+\frac14\sin(x+y)=a\\ y+\frac14\cos(x-y)=b\end{cases}
 $$
 admet une unique solution $(x,y)=\Theta(a,b)$, que $\Theta:\R^2\to\R^2$ est de classe $C^\infty$, et calculer $\Theta(0,\frac14)$ et $d\Theta_{(0,1/4)}$.
 

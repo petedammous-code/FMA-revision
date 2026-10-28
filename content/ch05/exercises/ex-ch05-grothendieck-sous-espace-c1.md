@@ -6,7 +6,7 @@ title: Un sous-espace fermé de fonctions dérivables est de dimension finie
 source: "Classique (théorème de Grothendieck, version $C^1$ ; cf. Rudin, *Functional Analysis*, Thm 5.2 pour la version $L^p$) — rédaction et question 3 adaptées"
 difficulty: 2
 time: 25
-tools: [ch05-graphe-ferme, ch05-norme-operateur-def, ch05-primitive-integrale, ch05-accroissements-finis-borne, ch05-normes-comparables-equivalentes]
+tools: [ch05-graphe-ferme, ch05-norme-operateur-def, ch05-theoreme-fondamental, ch05-primitive-integrale, ch05-accroissements-finis-borne, ch05-normes-comparables-equivalentes]
 ---
 ## Énoncé
 
@@ -34,7 +34,7 @@ Pour 3, si $f$ s'annule aux points $k/m$, tout $x\in[0,1]$ est à distance au pl
 
 **1.** *Les espaces.* $E$ est un Banach (admis) et $F$ est un sous-espace fermé de $E$, donc complet : une suite de Cauchy de $F$ converge dans $E$, et sa limite est dans $F$ puisque $F$ est fermé. Ainsi $F$ et $E$ sont deux espaces de Banach et $D:F\to E$ est linéaire : on peut appliquer le théorème du graphe fermé ([[ch05-graphe-ferme]]) ; il suffit de montrer que le graphe de $D$ est fermé dans $F\times E$.
 
-*Graphe fermé.* Soit $(f_n)$ une suite de $F$ telle que $f_n\to f$ dans $F$ et $f_n'=D(f_n)\to g$ dans $E$ (convergences uniformes sur $[0,1]$). Il s'agit de montrer que $g=D(f)=f'$. Pour $x\in[0,1]$, comme $f_n$ est $C^1$ sur $[0,1]$,
+*Graphe fermé.* Soit $(f_n)$ une suite de $F$ telle que $f_n\to f$ dans $F$ et $f_n'=D(f_n)\to g$ dans $E$ (convergences uniformes sur $[0,1]$). Il s'agit de montrer que $g=D(f)=f'$. Pour $x\in[0,1]$, comme $f_n$ est $C^1$ sur $[0,1]$, le théorème fondamental du calcul différentiel ([[ch05-theoreme-fondamental]], version à une variable réelle) donne
 $$
 f_n(x)=f_n(0)+\int_0^xf_n'(t)\,dt .
 $$

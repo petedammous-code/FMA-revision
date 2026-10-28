@@ -1,7 +1,7 @@
 FMA.registerViz({
   id: 'viz-ch03-produits-partiels',
   chapter: 3,
-  title: "Produits infinis : les zéros apparaissent un à un (sinus, $1/\\Gamma$)",
+  title: "Produits infinis : les zéros apparaissent un à un",
   description: String.raw`**Ce que l'on voit.** À gauche, le *domain coloring* du produit partiel $P_N(z)$ (teinte = argument, clair = grand module, sombre = petit module) ; les **zéros** sont les points noirs autour desquels toutes les couleurs tournent. À droite, pour le point-sonde $z_0$ (**à glisser** sur le plan) : en haut la suite $k\mapsto|P_k(z_0)|$ et sa limite (tirets), en bas la somme partielle $S_k=\sum_{j\le k}|u_j(z_0)|$ où $u_j$ est « ce qu'on ajoute à $1$ » dans le $j$-ième facteur $1+u_j$. Le curseur $N$ (ou le bouton ▶) ajoute les facteurs un par un.
 
 **Les trois produits.**
@@ -128,7 +128,7 @@ Comparez, pour $z_0$ fixé, la courbe du haut à son asymptote et la somme du ba
         ctx.fillStyle = pal[3]; ctx.beginPath(); ctx.arc(X(N), Y(pn.data[N]), 4.5, 0, 2 * Math.PI); ctx.fill(); ctx.restore();
       }
       ctx.save(); ctx.fillStyle = t.muted; ctx.font = '10.5px system-ui, sans-serif'; ctx.textAlign = 'center'; ctx.textBaseline = 'top';
-      [0, 50, 100, 150, 200].forEach(k => ctx.fillText(String(k), X(k), H - 20)); ctx.textAlign = 'right'; ctx.fillStyle = t.fg; ctx.fillText('k', W - mr, H - 20); ctx.restore();
+      [0, 50, 100, 150].forEach(k => ctx.fillText(String(k), X(k), H - 20)); ctx.fillText('k = 200', X(200) - 14, H - 20); ctx.textAlign = 'right'; ctx.fillStyle = t.fg; ctx.fillText('k', W - mr, H - 20); ctx.restore();
       return se;
     }
 

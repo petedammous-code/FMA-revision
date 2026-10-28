@@ -3,7 +3,7 @@ id: ex-ch05-composition-phi-normes
 type: exercise
 chapters: [5]
 title: Composer par une fonction réelle, la différentiabilité dépend des normes
-source: "Inventé (dans l'esprit de PC ex. 3, opérateur de composition sur $C^0([0,1])$)"
+source: "Inventé (dans l'esprit de TD CD ex. 3, opérateur de composition terme à terme sur l'espace de suites ℓ¹, transposé ici à $C^0([0,1])$ muni de deux normes)"
 difficulty: 2
 time: 30
 tools: [ch05-differentielle-def, ch05-classe-ck-def, ch05-differentiable-implique-continue, ch05-differentielle-normes-equivalentes, ch05-composition-differentielles, ch05-differentielle-lineaire, ch05-derivee-directionnelle-unicite]
@@ -85,5 +85,5 @@ $$
 * > ⚠️ Dans la question 1, une majoration **point par point** du reste ne suffit pas : il faut qu'elle soit uniforme en $t$. C'est l'uniforme continuité de $\phi'$ sur un compact **fixe** $K$ (qui contient toutes les valeurs de $u$ et de $u+sh$ dès que $\|h\|_\infty\le1$) qui la fournit. Penser à borner $\|h\|_\infty$ par $1$ avant de choisir $K$.
 * « La différentiabilité ne dépend pas des normes » n'est vrai qu'en dimension finie, ou pour des normes **équivalentes**. En dimension infinie, changer de norme change la notion de « petit accroissement » : ici, une fonction petite en moyenne peut être grande en certains points.
 * Une application peut être lipschitzienne (donc continue) sans être différentiable : question 5. Le candidat pour la différentielle se trouve toujours par les dérivées directionnelles, puis on teste le reste sur une suite bien choisie.
-* Variante : à l'arrivée $\|\cdot\|_1$ et au départ $\|\cdot\|_\infty$, on peut prendre $\phi$ seulement $C^1$ ; si l'on veut $F_\phi$ de classe $C^2$ pour $\|\cdot\|_\infty$, il suffit que $\phi$ soit $C^2$, et alors $d^2(F_\phi)_u(h,k)=(\phi''\circ u)\,hk$.
+* Variante : l'hypothèse $\phi\in C^1$ n'est pas décorative. Si $\phi$ est seulement dérivable, avec $\phi'$ discontinue en un point $s_0$, alors $F_\phi:(E,\|\cdot\|_\infty)\to(E,\|\cdot\|_\infty)$ n'est pas différentiable en $u(t)=s_0+t-\tfrac12$ : la dérivée directionnelle dans la direction $h\equiv1$ vaut point par point $\lim_{\tau\to0}\frac{\phi(u(t)+\tau)-\phi(u(t))}{\tau}=\phi'(u(t))$ ; si $F_\phi$ était différentiable en $u$, cette limite aurait lieu uniformément ([[ch05-derivee-directionnelle-unicite]]) et $\phi'\circ u$ serait continue sur $[0,1]$ (limite uniforme de fonctions continues), ce qui est faux en $t=\tfrac12$. Dans l'autre sens, si $\phi$ est $C^2$, $F_\phi$ est de classe $C^2$ pour $\|\cdot\|_\infty$, avec $d^2(F_\phi)_u(h,k)=(\phi''\circ u)\,hk$ (même preuve qu'en 1–2 appliquée à $\phi'$).
 * Variante : on peut montrer que $F_\phi:(E,\|\cdot\|_1)\to(E,\|\cdot\|_1)$ n'est différentiable en un point que si $\phi$ est affine (même argument de pics, centrés en un point $t_0$ quelconque : le rapport reste/accroissement tend vers une moyenne de $|\phi(a+cs)-\phi(a)-\phi'(a)cs|/|c|$ avec $a=u(t_0)$).

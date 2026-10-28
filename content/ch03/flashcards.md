@@ -68,7 +68,7 @@ Soit $f:=\sum_{n\ge0}f_n$ une série de fonctions holomorphes sur $\Omega$ qui c
 ### Q
 Dans le théorème III.1.5 (séries), pourquoi la conclusion est-elle locale, et que donne-t-on si la série ne converge que localement uniformément ?
 ### R
-Les estimées de Cauchy font perdre du rayon (on contrôle $f'$ sur $D(z_0,r/2)$ à partir de $f$ sur $\bar D(z_0,r)$) : on obtient la convergence de $\sum f_n'$ localement, jamais uniformément sur tout $\Omega$ a priori. Si $\sum f_n$ converge seulement localement uniformément, le théorème III.1.4 appliqué aux sommes partielles donne $f$ holomorphe et $f^{(k)}=\lim S_n^{(k)}$ avec convergence localement uniforme (non normale). (poly, Théorèmes III.1.4 et III.1.5, p. 60-61)
+Les estimées de Cauchy font perdre du rayon (on contrôle $f'$ sur $D(z_0,r/2)$ à partir de $f$ sur $\bar D(z_0,r)$) : on obtient la convergence de $\sum f_n'$ localement, jamais uniformément sur tout $\Omega$ a priori. Si $\sum f_n$ converge seulement localement uniformément, le théorème III.1.4 appliqué aux sommes partielles donne $f$ holomorphe et $f^{(k)}=\lim S_n^{(k)}$ avec convergence localement uniforme (a priori seulement uniforme, pas normale). (poly, Théorèmes III.1.4 et III.1.5, p. 60-61)
 
 ## CARD id=fc-ch03-011 ref=ch03-convergence-normale-definition tags=definition
 ### Q
@@ -80,7 +80,7 @@ $\sum f_n$ **converge normalement** sur $U$ si la série numérique $\sum_{n\ge0
 ### Q
 Donner une série qui converge uniformément mais pas normalement.
 ### R
-$\sum_{n\ge1}(-1)^nx^n/n$ sur $[0,1]$ : critère des séries alternées uniforme (reste majoré par $1/(N+1)$), donc convergence uniforme ; mais $\|x^n/n\|_{\infty,[0,1]}=1/n$ et $\sum1/n$ diverge, donc pas de convergence normale. (Rappel p. 61)
+$\sum_{n\ge1}(-1)^nx^n/n$ sur $[0,1]$ : critère des séries alternées uniforme (reste majoré par $1/(N+1)$), donc convergence uniforme ; mais $\|x^n/n\|_{\infty,[0,1]}=1/n$ et $\sum1/n$ diverge, donc pas de convergence normale. (contre-exemple hors poly ; définitions rappelées p. 61)
 
 ## CARD id=fc-ch03-013 ref=ch03-hurwitz tags=enonce
 ### Q
@@ -150,7 +150,7 @@ $\mathcal F\subset\Hol(\Omega)$ est **normale** si toute suite d'éléments de $
 ### Q
 Donner une famille normale dont la limite sort de la famille, et une famille non normale.
 ### R
-$\{z^n\}_{n\ge1}$ sur $D(0,1)$ est normale (sous-suites $\to0$, et $0\notin$ la famille). $\{z+n\}_{n}$ sur $\C$ n'est pas normale : $|z+n|\to\infty$, aucune sous-suite ne converge. (Définition III.3.3, p. 64)
+$\{z^n\}_{n\ge1}$ sur $D(0,1)$ est normale : d'une suite $(z^{n_k})_k$ on extrait soit une sous-suite constante ($n_k$ borné), soit une sous-suite avec $n_k\to\infty$, qui converge localement uniformément vers $0$ (sur $\bar D(0,r)$, $\sup|z^{n_k}|=r^{n_k}\to0$) ; la limite $0$ n'appartient pas à la famille. $\{z+n\}_{n\ge1}$ sur $\C$ n'est pas normale : $|z+n|\to\infty$ en tout point, aucune sous-suite ne converge même simplement. (poly, Définition III.3.3, p. 64)
 
 ## CARD id=fc-ch03-024 ref=ch03-montel tags=enonce
 ### Q
@@ -176,7 +176,7 @@ Dans Montel, quel rôle jouent l'holomorphie et la borne locale uniforme ? Où s
 ### Q
 Montrer que Montel est faux sans holomorphie, et que la borne locale est nécessaire.
 ### R
-Sans holomorphie : $f_n(x)=\sin(nx)$ sur $\R$ est bornée par $1$ mais n'admet aucune sous-suite uniformément convergente sur un intervalle (pas d'équicontinuité). Sans borne locale : $\{nz\}$ et $\{z+n\}$ sur $\C$ ne sont pas normales. (poly, Remarque III.3.6, p. 65)
+Sans holomorphie : $f_n(x)=\sin(nx)$ sur $\R$ est bornée par $1$ mais n'admet aucune sous-suite uniformément convergente sur un intervalle (pas d'équicontinuité). Sans borne locale : $\{nz\}$ et $\{z+n\}$ sur $\C$ ne sont pas normales. (poly, Remarque III.3.6, p. 65-66)
 
 ## CARD id=fc-ch03-027 ref=ch03-montel-equilipschitz tags=formule
 ### Q
@@ -242,7 +242,7 @@ Non : on peut le composer par un automorphisme de $\mathbb D$ (de la forme $\lam
 ### Q
 Dans la preuve de Riemann, définir $\Sigma$, $\Sigma_{z_0}$ et énoncer l'étape 1.
 ### R
-$\Sigma=\{f\in\Hol(\Omega):f(\Omega)\subset\mathbb D,\ f\text{ injective}\}$ et $\Sigma_{z_0}=\{f\in\Sigma\mid f(z_0)=0\}$. **Étape 1** : si $\Omega$ est ouvert connexe, simplement connexe, $\Omega\ne\C$, alors $\Sigma\ne\emptyset$ et $\Sigma_{z_0}\ne\emptyset$ pour tout $z_0\in\Omega$. Construction : $\omega_0\notin\Omega$, $\varphi=\exp(u/2)$ avec $e^u=z-\omega_0$ ; $D(a,r)\subset\varphi(\Omega)$ donc $D(-a,r)\cap\varphi(\Omega)=\emptyset$ ; $\psi=r/(\varphi+a)\in\Sigma$ ; puis composer avec $f_{\psi(z_0)}$. (poly, preuve du Théorème III.4.1, p. 66)
+$\Sigma=\{f\in\Hol(\Omega):f(\Omega)\subset\mathbb D,\ f\text{ injective}\}$ et $\Sigma_{z_0}=\{f\in\Sigma\mid f(z_0)=0\}$. **Étape 1** : si $\Omega$ est ouvert connexe, simplement connexe, $\Omega\ne\C$, alors $\Sigma\ne\emptyset$ et $\Sigma_{z_0}\ne\emptyset$ pour tout $z_0\in\Omega$. Construction : $\omega_0\notin\Omega$, $\varphi=\exp(u/2)$ avec $e^u=z-\omega_0$ ; $a\in\varphi(\Omega)$ et $D(a,r)\subset\varphi(\Omega)$ avec $0<r<|a|$ ($\varphi$ ouverte), donc $D(-a,r)\cap\varphi(\Omega)=\emptyset$ ; $\psi=r/(\varphi+a)$ vérifie $|\psi|\le1$, puis $|\psi|<1$ par le principe du maximum, et $\psi$ est injective : $\psi\in\Sigma$ ; puis composer avec $f_{\psi(z_0)}$. (poly, preuve du Théorème III.4.1, p. 66)
 
 ## CARD id=fc-ch03-037 ref=ch03-riemann-etape-koebe tags=enonce
 ### Q
@@ -346,7 +346,7 @@ La fonction $\pi\cot(\pi z)$ est méromorphe, $1$-périodique, avec des pôles s
 ### Q
 Pourquoi écrit-on $\frac1{z-n}+\frac1n$ et non simplement $\sum\frac1{z-n}$ pour $\pi\cot(\pi z)$ ? Comment fixe-t-on la constante ?
 ### R
-$\sum_{n\ne0}\frac1{z-n}$ diverge (série harmonique) : la série des parties polaires n'est pas normalement convergente, d'où les termes correcteurs $+\frac1n$, qui donnent $\frac{z}{n(z-n)}$ de norme $\le R/(|n|(|n|-R))$ sur $\bar D(0,R)$. Preuve : le membre de droite $g$ a pour dérivée $-\sum1/(z-n)^2=-\pi^2/\sin^2(\pi z)=(\pi\cot\pi z)'$, donc $g-\pi\cot(\pi z)$ est constante sur $\C\setminus\Z$ (connexe) ; elle est impaire, donc nulle. (poly, Exemple III.6.2, p. 69)
+$\sum_{n\ne0}\frac1{z-n}$ n'est pas normalement (ni absolument) convergente : $\|1/(z-n)\|_{\bar D(0,R)}\sim1/|n|$, série harmonique ; d'où les termes correcteurs $+\frac1n$, qui donnent $\frac{z}{n(z-n)}$ de norme $\le R/(|n|(|n|-R))$ sur $\bar D(0,R)$. Preuve : le membre de droite $g$ a pour dérivée $-\sum1/(z-n)^2=-\pi^2/\sin^2(\pi z)=(\pi\cot\pi z)'$, donc $g-\pi\cot(\pi z)$ est constante sur $\C\setminus\Z$ (connexe) ; elle est impaire, donc nulle. (poly, Exemple III.6.2, p. 69)
 
 ## CARD id=fc-ch03-053 ref=ch03-produit-sinus tags=enonce
 ### Q
@@ -372,7 +372,7 @@ Pour $\Re(z)>0$ : $\Gamma(z):=\int_0^\infty e^{-t}t^{z-1}dt$ (avec $t^{z-1}=e^{(
 ### Q
 Quel est le résidu de $\Gamma$ en $-n$ ($n\in\N$) ?
 ### R
-$\mathrm{Res}_{-n}(\Gamma)=\dfrac{(-1)^n}{n!}$. Calcul : $\Gamma(z)=\dfrac{\Gamma(z+n+1)}{z(z+1)\cdots(z+n)}$ ; en $z=-n$ le numérateur vaut $\Gamma(1)=1$, et le produit des facteurs $z+k$ avec $k\ne n$ vaut $\prod_{k=0}^{n-1}(k-n)=(-1)^nn!$ ; le facteur restant $z+n$ donne le pôle simple. (Exemple III.6.4, p. 71)
+$\mathrm{Res}_{-n}(\Gamma)=\dfrac{(-1)^n}{n!}$. Calcul : $\Gamma(z)=\dfrac{\Gamma(z+n+1)}{z(z+1)\cdots(z+n)}$ ; en $z=-n$ le numérateur vaut $\Gamma(1)=1$, et le produit des facteurs $z+k$ avec $k\ne n$ vaut $\prod_{k=0}^{n-1}(k-n)=(-1)^nn!$ ; le facteur restant $z+n$ donne le pôle simple. (poly, Exemple III.6.4, p. 71)
 
 ## CARD id=fc-ch03-057 ref=ch03-gamma-produit-weierstrass tags=formule,enonce
 ### Q
@@ -388,7 +388,7 @@ Donc $1/\Gamma$ est entière et $\Gamma$ ne s'annule jamais. (poly, Exemple III.
 ### Q
 Pourquoi le produit de Weierstrass de $1/\Gamma$ contient-il les facteurs $e^{-z/k}$ ? Quelle estimation permet de conclure ?
 ### R
-Le produit $\prod(1+z/k)$ diverge car $\sum z/k$ ne converge pas normalement. On pose $u_k(z)=(1+z/k)e^{-z/k}-1$ ; comme $(1+w)e^{-w}-1=O(w^2)$, on a $|u_k(z)|\le CR^2/k^2$ sur $\bar D(0,R)$, donc $\sum u_k$ converge normalement sur tout compact et le théorème III.5.1 s'applique. La constante $\gamma$ compense le facteur $n^{-z}\prod(1+z/k)$. (poly, Exemple III.6.4, p. 72)
+Le produit $\prod(1+z/k)$ diverge car $\sum z/k$ ne converge pas normalement. On pose $u_k(z)=(1+z/k)e^{-z/k}-1$ ; comme $(1+w)e^{-w}-1=O(w^2)$, on a $|u_k(z)|\le CR^2/k^2$ sur $\bar D(0,R)$, donc $\sum u_k$ converge normalement sur tout compact et le théorème III.5.1 s'applique. Le facteur $e^{\gamma z}$ vient de $n^{-z}\prod_{k=1}^n e^{z/k}=e^{-z(\log n-\sum_{k=1}^n1/k)}\to e^{\gamma z}$ (uniformément sur tout compact), où $\gamma$ est la constante d'Euler. (poly, Exemple III.6.4, p. 72)
 
 ## CARD id=fc-ch03-059 ref=ch03-exp-estimation tags=formule
 ### Q

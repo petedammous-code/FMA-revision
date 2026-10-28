@@ -60,7 +60,7 @@ Soit $x\in[1,2]$. Par hypothèse $f(nx)\to0$, donc il existe $N_x$ tel que $|f(n
 
 ## Pièges et variantes
 
-* > ⚠️ Baire demande des **fermés**. C'est l'erreur classique : définir $F_N$ par une inégalité **stricte** $|f(nx)|<\eps$ donne des ouverts, et l'argument s'effondre. Avec $\le$ et $f$ continue, chaque $G_n$ est fermé, et une intersection (même infinie) de fermés est fermée.
+* > ⚠️ Baire demande des **fermés**. C'est l'erreur classique : définir $F_N$ par une inégalité **stricte** $|f(nx)|<\eps$ donne une intersection **infinie** d'ouverts, qui n'a aucune raison d'être fermée (ni d'ailleurs ouverte), et l'argument s'effondre. Avec $\le$ et $f$ continue, chaque $G_n$ est fermé, et une intersection (même infinie) de fermés est fermée.
 * Bien choisir l'espace complet : on applique Baire dans $[1,2]$ (ou n'importe quel segment de $]0,+\infty[$), pas dans $]0,+\infty[$, qui n'est pas complet pour la distance usuelle (même si Baire y reste vrai, car c'est un ouvert de $\R$, cela demande une justification supplémentaire).
 * Ne pas oublier que Baire ne dit pas **quel** $F_N$ a un intérieur non vide : $N$, $\alpha$, $\beta$ dépendent de $\eps$, et c'est sans importance.
 * Le recouvrement de la question 3 est essentiel : un seul intervalle $]n\alpha,n\beta[$ ne suffit pas ; c'est parce que leur longueur $n(\beta-\alpha)$ tend vers l'infini qu'ils finissent par se chevaucher.

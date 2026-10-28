@@ -94,9 +94,10 @@ en échelle logarithmique, pour le $n$ choisi (trait épais) et quelques autres 
       ctx.save(); ctx.imageSmoothingEnabled = true; ctx.drawImage(heat, 0, 0, heat.width, heat.height, 0, 0, sL.W, sL.H); ctx.restore();
       P.axes({ labels: false });
       if (F.disk) P.circle(0, 0, 1, { color: t.fg, width: 1.5 });
-      P.circle(0, 0, Math.max(r, 1e-3), { color: '#ffffff', width: 2.2, dash: [6, 4] });
+      P.circle(0, 0, Math.max(r, 1e-3), { color: '#ffffff', width: 2.4, dash: [6, 4] });
+      P.circle(0, 0, Math.max(r, 1e-3), { color: '#000000', width: 0.8, dash: [6, 4] });
       // étiquettes
-      ctx.save(); ctx.font = '12px system-ui, sans-serif'; ctx.fillStyle = '#fff'; ctx.shadowColor = 'rgba(0,0,0,.7)'; ctx.shadowBlur = 3;
+      ctx.save(); ctx.font = '12px system-ui, sans-serif'; ctx.fillStyle = t.fg;
       ctx.textAlign = 'left'; ctx.textBaseline = 'top';
       ctx.fillText(F.disk ? 'bord de D(0,1)' : 'plan complexe', 8, 6);
       ctx.fillText('r = ' + r.toFixed(3), 8, 22);
@@ -104,7 +105,7 @@ en échelle logarithmique, pour le $n$ choisi (trait épais) et quelques autres 
       // légende (barre de couleur)
       const bx = 8, by = sL.H - 22, bw = Math.min(180, sL.W - 16), bh = 8;
       for (let i = 0; i < bw; i++) { const c = colorOf(i / (bw - 1)); ctx.fillStyle = `rgb(${c[0]},${c[1]},${c[2]})`; ctx.fillRect(bx + i, by, 1, bh); }
-      ctx.save(); ctx.fillStyle = '#fff'; ctx.shadowColor = 'rgba(0,0,0,.8)'; ctx.shadowBlur = 3; ctx.font = '10.5px system-ui, sans-serif'; ctx.textBaseline = 'bottom'; ctx.textAlign = 'left'; ctx.fillText(sup10(LO), bx, by - 1);
+      ctx.save(); ctx.fillStyle = t.fg; ctx.font = '10.5px system-ui, sans-serif'; ctx.textBaseline = 'bottom'; ctx.textAlign = 'left'; ctx.fillText(sup10(LO), bx, by - 1);
       ctx.textAlign = 'right'; ctx.fillText(sup10(HI), bx + bw, by - 1); ctx.textAlign = 'left'; ctx.fillText('|f_n − f|', bx + bw + 6, by + bh + 1); ctx.restore();
     }
 
