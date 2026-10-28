@@ -8,7 +8,7 @@
       5,
       34
     ],
-    "summary": "Le chapitre I introduit les fonctions holomorphes, d'abord comme fonctions $\\C$-dérivables à dérivée continue (Définition I.1.1), puis par les conditions de Cauchy réelles, qui expriment que la différentielle réelle $df_z$ est $\\C$-linéaire, c'est-à-dire $\\partial f/\\partial\\bar z = 0$ (Lemme I.2.1, Proposition I.2.3, Corollaire I.2.4). On construit ensuite des exemples (polynômes, fractions rationnelles, séries entières, exponentielle) et l'on montre que l'inversion locale réelle se transporte au cadre holomorphe (Proposition I.4.4, logarithme local). Après la définition de l'intégrale le long d'un chemin et l'inégalité $|\\int_\\gamma f|\\le \\sup|f|\\,L(\\gamma)$, le cœur du chapitre est la formule intégrale de Cauchy sur un disque (Théorème I.6.1), démontrée par rétraction du cercle sur le point. Elle entraîne aussitôt : holomorphe $\\Leftrightarrow$ analytique (Théorème I.7.4), les estimées de Cauchy et la formule $f^{(n)}(z)=\\frac{n!}{2i\\pi}\\int_{C}\\frac{f(\\omega)}{(\\omega-z)^{n+1}}d\\omega$ (Corollaire I.7.5), l'existence locale de primitives, l'holomorphie des intégrales à paramètre (Théorème I.9.1, fonction $\\Gamma$), Liouville et d'Alembert–Gauss, le principe des zéros isolés et le prolongement analytique (Théorème I.11.1, Corollaire I.11.6), le principe du maximum (Théorème I.12.1, Corollaire I.12.2), le lemme de Schwarz et les automorphismes du disque (Lemme I.13.1, Proposition I.13.3), et le théorème de l'application ouverte (Théorème I.14.1). Les cinq résultats centraux sont : la caractérisation par Cauchy–Riemann, la formule de Cauchy, l'équivalence holomorphe/analytique avec les estimées de Cauchy, le principe des zéros isolés/prolongement analytique et le principe du maximum.",
+    "summary": "Le chapitre I introduit les fonctions holomorphes, d'abord comme fonctions $\\C$-dérivables à dérivée continue (Définition I.1.1), puis par les conditions de Cauchy réelles, qui expriment que la différentielle réelle $df_z$ est $\\C$-linéaire, c'est-à-dire $\\partial f/\\partial\\bar z = 0$ (Lemme I.2.1, Proposition I.2.3, Corollaire I.2.4). On construit ensuite des exemples (polynômes, fractions rationnelles, séries entières, exponentielle) et l'on montre que l'inversion locale réelle se transporte au cadre holomorphe (Proposition I.4.4, logarithme local). Après la définition de l'intégrale le long d'un chemin et l'inégalité $|\\int_\\gamma f|\\le \\sup|f|\\,L(\\gamma)$, le cœur du chapitre est la formule intégrale de Cauchy sur un disque (Théorème I.6.1), démontrée par rétraction du cercle sur le point. Elle entraîne aussitôt : holomorphe $\\Leftrightarrow$ analytique (Théorème I.7.4), les estimées de Cauchy et la formule $f^{(n)}(z)=\\frac{n!}{2i\\pi}\\int_{C}\\frac{f(\\omega)}{(\\omega-z)^{n+1}}d\\omega$ (Corollaire I.7.5), l'existence locale de primitives, les caractérisations de Morera et de Goursat (section I.8, en exercices), l'holomorphie des intégrales à paramètre (Théorème I.9.1, fonction $\\Gamma$), Liouville et d'Alembert–Gauss, le principe des zéros isolés et le prolongement analytique (Théorème I.11.1, Corollaire I.11.6), le principe du maximum (Théorème I.12.1, Corollaire I.12.2), le lemme de Schwarz et les automorphismes du disque (Lemme I.13.1, Proposition I.13.3), et le théorème de l'application ouverte (Théorème I.14.1). Les cinq résultats centraux sont : la caractérisation par Cauchy–Riemann, la formule de Cauchy, l'équivalence holomorphe/analytique avec les estimées de Cauchy, le principe des zéros isolés/prolongement analytique et le principe du maximum.",
     "sections": [
       {
         "num": "I.1",
@@ -479,7 +479,7 @@
       "proof_in_poly": "full",
       "proof_length": "medium",
       "counterexample_hints": [
-        "Rien n'est affirmé sur le cercle de convergence : $\\sum z^n/n^2$ converge sur $\\bar D(0,1)$ mais n'est pas dérivable en $z=1$ (la série dérivée $\\sum z^{n-1}/n$ diverge en $1$)."
+        "Rien n'est affirmé sur le cercle de convergence : $\\sum z^n/n^2$ converge normalement sur $\\bar D(0,1)$, mais la série dérivée $\\sum z^{n-1}/n$ diverge en $z=1$ et $f'(z)=-\\log(1-z)/z$ n'est pas bornée près de $1$ : $f$ ne se prolonge pas en une fonction holomorphe au voisinage de $1$."
       ],
       "viz_hint": "Domain coloring des sommes partielles $S_N$ vs la somme : accord dans le disque, divergence hors du disque."
     },
@@ -489,7 +489,7 @@
       "ref": "Corollaire I.3.4",
       "title": "Une série entière admet des dérivées complexes de tout ordre, $f^{(k)}(z)=\\sum_{n\\ge k}n(n-1)\\cdots(n-k+1)a_nz^{n-k}$",
       "page": 12,
-      "statement": "Une série entière $f(z):=\\sum_{n\\ge0}a_nz^n$, à coefficients complexes, de rayon de convergence $R>0$, admet des dérivées au sens complexe de tout ordre, données par des séries entières de même rayon de convergence $R$ par les formules\n$$f^{(k)}(z)=\\sum_{n\\ge k}n(n-1)\\dots(n-k+1)\\,a_n\\,z^{n-k}.$$\nEn particulier $a_k=f^{(k)}(0)/k!$.",
+      "statement": "Une série entière $f(z):=\\sum_{n\\ge0}a_nz^n$, à coefficients complexes, de rayon de convergence $R>0$, admet des dérivées au sens complexe de tout ordre, données par des séries entières de même rayon de convergence $R$ par les formules\n$$f^{(k)}(z)=\\sum_{n\\ge k}n(n-1)\\dots(n-k+1)\\,a_n\\,z^{n-k}.$$\n(Conséquence immédiate, non écrite dans l'énoncé du poly mais utilisée au Corollaire I.7.5 : $a_k=f^{(k)}(0)/k!$.)",
       "hypotheses": [
         "rayon de convergence $R>0$",
         "$z\\in D(0,R)$"
@@ -510,7 +510,7 @@
       "ref": "Exemple I.3.5",
       "title": "Exponentielle, fonctions trigonométriques et hyperboliques complexes",
       "page": 12,
-      "statement": "La fonction exponentielle $z\\mapsto e^z:=\\sum_{n\\ge0}\\frac{z^n}{n!}$ (rayon de convergence infini) est holomorphe sur $\\C$, de dérivée complexe $z\\mapsto e^z$, et $e^{z_1+z_2}=e^{z_1}e^{z_2}$ pour tous $z_1,z_2\\in\\C$. Les fonctions\n$$\\cos z:=\\frac{e^{iz}+e^{-iz}}{2},\\quad \\sin z:=\\frac{e^{iz}-e^{-iz}}{2i},\\quad \\tan z:=\\frac{\\sin z}{\\cos z},$$\n$$\\cosh z:=\\frac{e^z+e^{-z}}{2}=\\cos(iz),\\quad \\sinh z:=\\frac{e^z-e^{-z}}{2}=-i\\sin(iz),\\quad \\tanh z:=\\frac{\\sinh z}{\\cosh z}=-i\\tan(iz)$$\nsont holomorphes sur leurs domaines de définition respectifs ($\\tan$ sur $\\C\\setminus(\\frac\\pi2+\\pi\\Z)$, $\\tanh$ sur $\\C\\setminus(i\\frac\\pi2+i\\pi\\Z)$).",
+      "statement": "La fonction exponentielle $z\\mapsto e^z:=\\sum_{n\\ge0}\\frac{z^n}{n!}$ (rayon de convergence infini) est holomorphe sur $\\C$, de dérivée complexe $z\\mapsto e^z$, et $e^{z_1+z_2}=e^{z_1}e^{z_2}$ pour tous $z_1,z_2\\in\\C$. Les fonctions\n$$\\cos z:=\\frac{e^{iz}+e^{-iz}}{2},\\quad \\sin z:=\\frac{e^{iz}-e^{-iz}}{2i},\\quad \\tan z:=\\frac{\\sin z}{\\cos z},$$\n$$\\cosh z:=\\frac{e^z+e^{-z}}{2}=\\cos(iz),\\quad \\sinh z:=\\frac{e^z-e^{-z}}{2}=-i\\sin(iz),\\quad \\tanh z:=\\frac{\\sinh z}{\\cosh z}=-i\\tan(iz)$$\nsont holomorphes sur leurs domaines de définition respectifs. (Le poly laisse au lecteur la détermination des domaines de $\\tan$ et $\\tanh$ et des dérivées complexes : $\\tan$ est définie sur $\\C\\setminus(\\frac\\pi2+\\pi\\Z)$, $\\tanh$ sur $\\C\\setminus(i\\frac\\pi2+i\\pi\\Z)$ ; $(e^z)'=e^z$, $\\cos'=-\\sin$, $\\sin'=\\cos$, $\\tan'=1/\\cos^2$, $\\cosh'=\\sinh$, $\\sinh'=\\cosh$, $\\tanh'=1/\\cosh^2$.)",
       "hypotheses": [],
       "depends_on": [
         "Proposition I.3.3",
@@ -610,7 +610,7 @@
       "ref": "Proposition I.4.4",
       "title": "Inversion locale holomorphe : $f'(z_0)\\neq0$ $\\Rightarrow$ $f$ est un biholomorphisme local en $z_0$",
       "page": 14,
-      "statement": "Soit $f\\in\\Hol(\\Omega)$ et $z_0\\in\\Omega$ tel que $f'(z_0)\\neq0$. Alors il existe un ouvert $\\Omega_1\\subset\\Omega$ contenant $z_0$ tel que :\n(i) le sous-ensemble $\\Omega_2:=f(\\Omega_1)$ est un ouvert de $\\C$ ;\n(ii) la restriction de $f$ à $\\Omega_1$ est une application biholomorphe de $\\Omega_1$ sur $\\Omega_2$.\nDe plus $(f^{-1})'=\\dfrac{1}{f'\\circ f^{-1}}$ sur $\\Omega_2$.",
+      "statement": "Soit $f\\in\\Hol(\\Omega)$ et $z_0\\in\\Omega$ tel que $f'(z_0)\\neq0$. Alors il existe un ouvert $\\Omega_1\\subset\\Omega$ contenant $z_0$ tel que :\n(i) le sous-ensemble $\\Omega_2:=f(\\Omega_1)$ est un ouvert de $\\C$ ;\n(ii) la restriction de $f$ à $\\Omega_1$ est une application biholomorphe de $\\Omega_1$ sur $\\Omega_2$.\n(Établi dans la démonstration, hors énoncé : $f'$ ne s'annule pas sur $\\Omega_1$ et $(f^{-1})'=\\dfrac{1}{f'\\circ f^{-1}}$ sur $\\Omega_2$.)",
       "hypotheses": [
         "$f$ holomorphe sur $\\Omega$ (donc $C^1$ au sens réel)",
         "$f'(z_0)\\neq0$ (jacobienne inversible : $\\det=|f'(z_0)|^2$)"
@@ -681,7 +681,7 @@
       "ref": "Définition I.5.1",
       "title": "Chemin (orienté), lacet, chemin opposé $\\gamma^{opp}$",
       "page": 15,
-      "statement": "Soit $\\Omega$ un ouvert non vide de $\\C$. Un **chemin** $\\gamma$ (orienté) de $\\Omega$ est une application continue de classe $C^1$ par morceaux $\\gamma:[a,b]\\to\\Omega$, où $a<b$. Si de plus $\\gamma(a)=\\gamma(b)$, on dira que $\\gamma$ est un **lacet**. Le **chemin opposé** $\\gamma^{opp}:[a,b]\\to\\Omega$ est défini par $\\gamma^{opp}(t):=\\gamma(a+b-t)$.\n(Remarque I.5.2 : « $C^1$ par morceaux » suppose que la dérivée admet des limites à gauche et à droite en tout point de discontinuité ; en particulier $\\gamma'$ reste bornée.)",
+      "statement": "Soit $\\Omega$ un ouvert non vide de $\\C$. Un **chemin** $\\gamma$ (orienté) de $\\Omega$ est une application continue de classe $C^1$ par morceaux $\\gamma:[a,b]\\to\\Omega$, où $a<b$. Si de plus $\\gamma(a)=\\gamma(b)$, on dira que $\\gamma$ est un **lacet**. Le **chemin opposé** $\\gamma^{opp}:[a,b]\\to\\Omega$ est défini par $\\gamma^{opp}(t):=\\gamma(a+b-t)$.\n(La convention « $C^1$ par morceaux » est précisée par la Remarque I.5.2.)",
       "hypotheses": [
         "$\\gamma$ continue sur $[a,b]$, $C^1$ par morceaux avec dérivée admettant des limites à gauche et à droite (donc bornée)"
       ],
@@ -694,6 +694,28 @@
         "Un chemin seulement continu (courbe de Peano, rectifiable ou non) n'a pas de $\\gamma'$ : l'intégrale $\\int_\\gamma f\\,dz$ de la Définition I.5.4 n'a pas de sens."
       ],
       "viz_hint": "Tracé d'un chemin $C^1$ par morceaux avec son vecteur vitesse $\\gamma'(t)$ ; lacet vs chemin ouvert ; chemin opposé."
+    },
+    {
+      "id": "ch01-chemin-c1-par-morceaux-derivee-bornee",
+      "kind": "remark",
+      "ref": "Remarque I.5.2",
+      "title": "Convention « $C^1$ par morceaux » : $\\gamma'$ admet des limites à gauche et à droite, donc reste bornée",
+      "page": 15,
+      "statement": "Dans la définition de « $C^1$ par morceaux » (Définition I.5.1), nous supposons que la dérivée $\\gamma'$ admet des limites à gauche et à droite en tout point de discontinuité. En particulier, cette dérivée reste bornée.",
+      "hypotheses": [
+        "$\\gamma:[a,b]\\to\\Omega$ chemin au sens de la Définition I.5.1"
+      ],
+      "depends_on": [
+        "Définition I.5.1"
+      ],
+      "used_by_hint": "Définition I.5.4 (l'intégrale $\\int_\\gamma f\\,dz$ est bien définie), Proposition I.5.7 ($L(\\gamma)<+\\infty$), Corollaire I.9.4 (dominante constante $MM'$).",
+      "importance": 1,
+      "proof_in_poly": "none",
+      "proof_length": "short",
+      "counterexample_hints": [
+        "Sans cette convention, $\\gamma(t)=t\\sin(1/t)$ (prolongée par $0$ en $0$) est continue sur $[0,1]$ et $C^1$ sur $]0,1]$, mais $|\\gamma'(t)|\\sim|\\cos(1/t)|/t$ n'est pas bornée et $L(\\gamma)=+\\infty$ : la majoration (I.5.1) perd son sens."
+      ],
+      "viz_hint": ""
     },
     {
       "id": "ch01-cercle-sens-direct",
@@ -745,7 +767,8 @@
         "$\\gamma$ chemin $C^1$ par morceaux à valeurs dans $\\Omega$"
       ],
       "depends_on": [
-        "Définition I.5.1"
+        "Définition I.5.1",
+        "Remarque I.5.2"
       ],
       "used_by_hint": "Tout le reste du chapitre et le chapitre II (formule des résidus).",
       "importance": 2,
@@ -815,7 +838,8 @@
         "$\\gamma$ chemin ($\\gamma'$ bornée)"
       ],
       "depends_on": [
-        "Définition I.5.4"
+        "Définition I.5.4",
+        "Remarque I.5.2"
       ],
       "used_by_hint": "Estimées de Cauchy (Corollaire I.7.5), lemmes de Jordan et passages à la limite du chapitre II, Exercice I.14.2.",
       "importance": 3,
@@ -911,7 +935,8 @@
         "Exemple I.5.5",
         "Proposition I.3.1",
         "Lemme I.5.10",
-        "Définition I.5.4"
+        "Définition I.5.4",
+        "Définition I.1.1"
       ],
       "used_by_hint": "Corollaire I.6.2, Théorème I.7.4, Corollaire I.7.5, Théorème I.9.1 ; généralisée au chapitre II (homotopie, résidus).",
       "importance": 3,
@@ -920,7 +945,7 @@
       "counterexample_hints": [
         "$f(\\omega)=\\bar\\omega$ (non holomorphe) : sur $C(0,1)$, $\\bar\\omega=1/\\omega$ et $\\frac{1}{\\omega(\\omega-z)}=\\frac1z\\bigl(\\frac1{\\omega-z}-\\frac1\\omega\\bigr)$, donc $\\frac1{2i\\pi}\\int_{C(0,1)}\\frac{\\bar\\omega}{\\omega-z}d\\omega=0\\neq\\bar z$ pour $z\\in D(0,1)^\\times$ : sans holomorphie la formule est fausse.",
         "$f(\\omega)=1/\\omega$ sur $\\Omega=\\C^\\times$ avec $\\bar D(0,1)\\not\\subset\\Omega$ : le même calcul donne $0\\neq 1/z$ : l'hypothèse $\\bar D(z_0,r)\\subset\\Omega$ est essentielle.",
-        "Pour $|z-z_0|>r$ l'intégrale vaut $0$ (Théorème I.5.9 : $\\omega\\mapsto f(\\omega)/(\\omega-z)$ a localement des primitives, cf. chapitre II), pas $f(z)$."
+        "Pour $|z-z_0|>r$ l'intégrale vaut $0$, pas $f(z)$ : il existe $r'$ avec $r<r'<|z-z_0|$ et $\\bar D(z_0,r')\\subset\\Omega$ ; $\\omega\\mapsto f(\\omega)/(\\omega-z)$ est holomorphe sur le disque $D(z_0,r')$, y admet une primitive (Corollaire I.7.6), donc son intégrale sur le lacet $\\Gamma$ est nulle (Théorème I.5.9)."
       ],
       "viz_hint": "Rétraction du cercle $\\Gamma_t=C(tz,1-t)$ sur le point $z$ (animation en $t$) avec la valeur constante de $I(t)$ ; et vérification numérique de $\\frac1{2i\\pi}\\int_\\Gamma f(\\omega)/(\\omega-z)\\,d\\omega=f(z)$ quand $z$ bouge dans le disque (et $0$ dehors)."
     },
@@ -1088,7 +1113,8 @@
         "Définition I.1.1",
         "Théorème I.7.4",
         "Corollaire I.7.6",
-        "Théorème I.5.9"
+        "Théorème I.5.9",
+        "Proposition I.5.6"
       ],
       "used_by_hint": "Exercice I.8.2 (Goursat) ; chapitre III (limite localement uniforme de fonctions holomorphes : Théorème de Weierstrass) ; principe de réflexion de Schwarz.",
       "importance": 2,
@@ -1106,7 +1132,7 @@
       "ref": "Exercice I.8.2",
       "title": "Théorème de Goursat (1900) : $\\C$-dérivable en tout point $\\Rightarrow$ holomorphe",
       "page": 23,
-      "statement": "Si $f:\\Omega\\to\\C$ est une fonction continue admettant une dérivée au sens complexe $f'(z)$ en tout point $z\\in\\Omega$, alors $f$ est holomorphe (i.e. $f'$ est automatiquement continue). La preuve consiste à établir (I.8.1) pour tout triangle plein $T\\subset\\Omega$ par subdivision en quatre triangles homothétiques et passage à la limite, puis à appliquer le théorème de Morera.",
+      "statement": "Si $f:\\Omega\\to\\C$ est une fonction continue admettant une dérivée au sens complexe $f'(z)$ en tout point $z\\in\\Omega$, alors $f$ est holomorphe (autrement dit, $f'$ est automatiquement continue). Le poly demande de le démontrer « en utilisant l'exercice précédent » (Morera).\n(Idée de preuve classique, non détaillée dans le poly : établir (I.8.1) pour tout triangle plein $T\\subset\\Omega$ par subdivision en quatre triangles homothétiques de rapport $1/2$ et passage à la limite, puis appliquer le théorème de Morera.)",
       "hypotheses": [
         "$f$ continue sur $\\Omega$",
         "$f$ $\\C$-dérivable en **tout** point de $\\Omega$ (pas d'hypothèse sur $f'$)"
@@ -1185,7 +1211,8 @@
       ],
       "depends_on": [
         "Remarque I.2.6",
-        "Corollaire I.2.4"
+        "Corollaire I.2.4",
+        "Proposition I.3.3"
       ],
       "used_by_hint": "Méthode alternative dans les exercices quand la dominante de $F$ est pénible mais celle de $\\partial F/\\partial z$ facile.",
       "importance": 1,
@@ -1209,7 +1236,8 @@
       "depends_on": [
         "Théorème I.9.1",
         "Définition I.5.4",
-        "Définition I.5.1"
+        "Définition I.5.1",
+        "Remarque I.5.2"
       ],
       "used_by_hint": "Chapitre II (intégrales de Cauchy $\\int_\\gamma\\frac{f(\\omega)}{\\omega-z}d\\omega$ comme fonctions holomorphes de $z$, indice d'un lacet), noyau de Bergman (IV).",
       "importance": 2,
@@ -1271,6 +1299,33 @@
       "viz_hint": "Image du cercle $C(0,R)$ par $P$ : pour $R$ grand elle entoure $0$ $d$ fois (lien avec l'indice, chapitre II)."
     },
     {
+      "id": "ch01-liouville-consequences-image-dense-croissance-polynomiale",
+      "kind": "proposition",
+      "ref": "Exercice I.10.3",
+      "title": "Conséquences de Liouville et des estimées de Cauchy : image dense d'une fonction entière non constante ; croissance polynomiale $\\Rightarrow$ polynôme",
+      "page": 26,
+      "statement": "(Questions 4 et 5 de l'Exercice I.10.3.) Soit $h$ une fonction non constante, holomorphe sur $\\C$. Alors $h(\\C)$, l'image de $\\C$ par $h$, est dense dans $\\C$.\nSoit $f$ une fonction holomorphe qui est définie sur $\\C$. On suppose qu'il existe deux réels $a,b>0$ et un entier $m\\in\\N$ tels que\n$$|f(z)|\\le a+b|z|^m\\qquad\\text{pour tout } z\\in\\C.$$\nAlors $f$ est un polynôme de degré $\\le m$.",
+      "hypotheses": [
+        "$h$ holomorphe sur $\\C$ **tout entier** et non constante",
+        "$f$ entière et majorée par $a+b|z|^m$ sur **tout** $\\C$"
+      ],
+      "depends_on": [
+        "Théorème I.10.1",
+        "Corollaire I.7.5",
+        "Proposition I.3.1"
+      ],
+      "used_by_hint": "Réflexe « montrer qu'une fonction entière est un polynôme / est constante » ; Exercice II.7.5 (automorphismes de $\\C$ : $f(z)=az+b$) ; le théorème de Picard (hors programme) renforce la densité.",
+      "importance": 2,
+      "proof_in_poly": "exercise",
+      "proof_length": "short",
+      "counterexample_hints": [
+        "Densité : si $h(\\C)$ évitait un disque $D(w,\\epsilon)$, $1/(h-w)$ serait entière et bornée par $1/\\epsilon$, donc constante (Liouville), contradiction.",
+        "Croissance : les estimées de Cauchy donnent $|f^{(n)}(0)|/n!\\le(a+bR^m)/R^n\\to0$ pour $n>m$ quand $R\\to+\\infty$, donc $f$ est égale à son polynôme de Taylor de degré $\\le m$ (série de Taylor de rayon infini).",
+        "$e^z$ n'est majorée par aucun polynôme sur $\\C$ (seulement sur les demi-plans $\\Re z\\le a$) : la majoration doit valoir sur tout $\\C$."
+      ],
+      "viz_hint": ""
+    },
+    {
       "id": "ch01-zeros-isoles",
       "kind": "theorem",
       "ref": "Théorème I.11.1",
@@ -1313,7 +1368,7 @@
         "Corollaire I.7.5"
       ],
       "used_by_hint": "Chapitre II : multiplicité d'un pôle, résidu de $f'/f$, principe de l'argument, Rouché ; Remarque I.14.3 ($N\\ge2$).",
-      "importance": 2,
+      "importance": 3,
       "proof_in_poly": "sketch",
       "proof_length": "short",
       "counterexample_hints": [
@@ -1345,7 +1400,7 @@
       "ref": "Remarque I.11.4",
       "title": "$Z(f,\\Omega)$ est discret et fermé dans $\\Omega$, donc localement fini",
       "page": 28,
-      "statement": "L'ensemble des zéros d'une fonction holomorphe $f$ (non identiquement nulle sur un connexe) sur $\\Omega$, noté désormais $Z(f,\\Omega)$, est discret et fermé (dans $\\Omega$). Il est donc localement fini (voir Proposition II.4.1).",
+      "statement": "L'ensemble des zéros d'une fonction holomorphe $f$ sur $\\Omega$ (dans le contexte du Théorème I.11.1 : $\\Omega$ connexe, $f$ non identiquement nulle), que nous noterons désormais $Z(f,\\Omega)$, est donc discret et fermé (dans $\\Omega$). Il est donc localement fini (voir Proposition II.4.1).",
       "hypotheses": [
         "$\\Omega$ connexe, $f\\not\\equiv 0$"
       ],
@@ -1416,7 +1471,8 @@
       "hypotheses": [],
       "depends_on": [
         "Corollaire I.11.6",
-        "Proposition I.3.3"
+        "Proposition I.3.3",
+        "Exemple I.3.2"
       ],
       "used_by_hint": "Modèle du prolongement analytique ; section III.5 ($\\Gamma$).",
       "importance": 1,
@@ -1524,6 +1580,32 @@
       "viz_hint": "Paysage analytique $|f|$ sur $\\bar D$ : le maximum est toujours sur le cercle ; curseur pour déplacer les zéros de $f$."
     },
     {
+      "id": "ch01-trois-cercles-hadamard",
+      "kind": "theorem",
+      "ref": "Exercice I.12.5",
+      "title": "Théorème des trois cercles d'Hadamard : $\\log M(\\rho)$ est une fonction convexe de $\\log\\rho$",
+      "page": 31,
+      "statement": "Soient $0<r<R$, $\\Omega\\subset\\C$ un ouvert connexe contenant la couronne $\\mathcal C:=\\{z\\in\\C : r\\le|z|\\le R\\}$ et $f\\in\\Hol(\\Omega)$. Pour tout $\\rho\\in[r,R]$, on pose $M(\\rho):=\\sup_{|z|=\\rho}|f(z)|$. Alors :\n1. pour tout $\\rho\\in[r,R]$ et tous $p,q\\in\\Z$ avec $q>0$, on a $\\rho^pM(\\rho)^q\\le\\max\\{r^pM(r)^q,\\,R^pM(R)^q\\}$ ;\n2. pour tout $\\rho\\in[r,R]$ et tout $\\alpha\\in\\R$, on a $\\rho^\\alpha M(\\rho)\\le\\max\\{r^\\alpha M(r),\\,R^\\alpha M(R)\\}$ ;\n3. pour tout $t\\in[0,1]$, on a $M(r^tR^{1-t})\\le M(r)^t\\,M(R)^{1-t}$.",
+      "hypotheses": [
+        "$f$ holomorphe sur un ouvert connexe contenant la couronne **fermée** $r\\le|z|\\le R$",
+        "$q>0$ entier : la fonction auxiliaire $z^pf(z)^q$ est holomorphe au voisinage de la couronne (même pour $p<0$, car $0\\notin\\mathcal C$)"
+      ],
+      "depends_on": [
+        "Corollaire I.12.2",
+        "Proposition I.3.1"
+      ],
+      "used_by_hint": "Exemple-type du principe du maximum avec fonction auxiliaire $z^pf^q$ puis passage des rationnels $p/q$ aux réels $\\alpha$ ; convexité logarithmique de $M$ ; comparer l'Exercice I.12.4 ($M(r)/r^d$ décroissante pour un polynôme de degré $d$).",
+      "importance": 2,
+      "proof_in_poly": "exercise",
+      "proof_length": "medium",
+      "counterexample_hints": [
+        "Cas d'égalité : $f(z)=z^k$ donne $M(\\rho)=\\rho^k$ et $\\log M$ affine en $\\log\\rho$.",
+        "Le point 3 découle du point 2 en choisissant $\\alpha$ tel que $r^\\alpha M(r)=R^\\alpha M(R)$ (si $M(r)=0$, $f\\equiv0$ par les zéros isolés).",
+        "Si $f$ avait une singularité **à l'intérieur** de la couronne, le principe du maximum ne s'appliquerait plus : l'hypothèse « holomorphe sur un voisinage de $\\mathcal C$ » est essentielle."
+      ],
+      "viz_hint": "Courbe $\\log\\rho\\mapsto\\log M(\\rho)$ pour $f=e^z$, $f=1/(z-2)$, $f=z^k$ : toujours convexe, la corde entre $\\log r$ et $\\log R$ domine la courbe."
+    },
+    {
       "id": "ch01-lemme-schwarz",
       "kind": "lemma",
       "ref": "Lemme I.13.1",
@@ -1568,7 +1650,7 @@
         "Définition I.4.1"
       ],
       "used_by_hint": "Remarque I.4.2 ; Exercice I.13.4 (loi de groupe, transitivité, distance hyperbolique) ; Théorème III.4.1 (unicité dans Riemann) ; les contrôles rappellent souvent cet énoncé.",
-      "importance": 2,
+      "importance": 3,
       "proof_in_poly": "exercise",
       "proof_length": "medium",
       "counterexample_hints": [
@@ -1620,7 +1702,8 @@
         "Théorème VI.3.2",
         "Corollaire I.7.5",
         "Corollaire I.7.6",
-        "Théorème I.14.1"
+        "Théorème I.14.1",
+        "Définition I.11.2"
       ],
       "used_by_hint": "Simplifie la Définition I.4.1 (il suffit de vérifier la bijectivité) ; Théorème III.4.1 (Riemann) ; Exercice I.13.2 (2).",
       "importance": 2,
@@ -1677,6 +1760,11 @@
     {
       "symbol": "$z=x+iy$, $\\omega=s+it$",
       "meaning": "identification $\\C\\simeq\\R^2$ : $x=\\Re z$, $y=\\Im z$",
+      "page": 6
+    },
+    {
+      "symbol": "$\\bar z$, $\\bar\\omega$, $\\overline{f(z)}$",
+      "meaning": "conjugaison complexe : $\\overline{x+iy}=x-iy$ ; $\\bar\\omega$ est la seconde « coordonnée » dans la décomposition $a\\omega+b\\bar\\omega$ du Lemme I.2.1",
       "page": 6
     },
     {
@@ -1746,7 +1834,7 @@
     },
     {
       "symbol": "$D$",
-      "meaning": "disque unité $D(0,1)$ ; $\\bar D$ son adhérence ; $D^\\times=D\\setminus\\{0\\}$ (section I.13)",
+      "meaning": "disque unité $D(0,1)$ ; $\\bar D$ son adhérence ; $D^\\times=D\\setminus\\{0\\}$ (Exemple I.4.3, section I.13, Exercice I.12.3). **Attention** : au Corollaire I.7.6 (p. 22) $D$ désigne un disque ouvert quelconque $D(z_0,\\rho)$.",
       "page": 13
     },
     {
@@ -1785,13 +1873,18 @@
       "page": 16
     },
     {
+      "symbol": "$\\tilde\\gamma=\\gamma\\circ\\varphi$",
+      "meaning": "reparamétrage du chemin $\\gamma$ par un $C^1$-difféomorphisme croissant $\\varphi:[\\tilde a,\\tilde b]\\to[a,b]$ (Proposition I.5.6 (i))",
+      "page": 16
+    },
+    {
       "symbol": "$L(\\gamma)$",
       "meaning": "longueur du chemin $\\int_a^b|\\gamma'(t)|\\,dt$",
       "page": 16
     },
     {
       "symbol": "$\\int_\\Gamma f(z)\\,dz$, $\\Gamma=C(z_0,r)$",
-      "meaning": "intégrale sur le cercle paramétré dans le sens trigonométrique ($\\omega=z_0+re^{i\\theta}$, $d\\omega=ire^{i\\theta}d\\theta$)",
+      "meaning": "intégrale sur le cercle paramétré dans le sens trigonométrique ($\\omega=z_0+re^{i\\theta}$, $d\\omega=ire^{i\\theta}d\\theta$) ; ne pas confondre $\\Gamma$ (cercle) avec la fonction $\\Gamma$ d'Euler de l'Exemple I.9.2",
       "page": 17
     },
     {
@@ -1826,7 +1919,7 @@
     },
     {
       "symbol": "$\\Gamma(z)$",
-      "meaning": "fonction Gamma d'Euler $\\int_0^{+\\infty}t^{z-1}e^{-t}dt$, $\\Re z>0$, avec $t^{z-1}:=e^{(z-1)\\ln t}$",
+      "meaning": "fonction Gamma d'Euler $\\int_0^{+\\infty}t^{z-1}e^{-t}dt$, $\\Re z>0$, avec $t^{z-1}:=e^{(z-1)\\ln t}$ ($\\ln$ : logarithme réel). **Attention** : $\\Gamma$ désigne aussi le cercle $C(z_0,r)$ aux sections I.5–I.7 (Remarque I.5.8).",
       "page": 25
     },
     {
@@ -1862,6 +1955,11 @@
     {
       "symbol": "$M(r)$",
       "meaning": "$\\sup_{|z|=r}|f(z)|$ (Exercices I.12.4, I.12.5)",
+      "page": 31
+    },
+    {
+      "symbol": "$\\mathcal C=\\{z\\in\\C : r\\le|z|\\le R\\}$",
+      "meaning": "couronne fermée de l'Exercice I.12.5 (trois cercles d'Hadamard) ; le poly la note $C$, à ne pas confondre avec le cercle $C(z_0,r)$",
       "page": 31
     },
     {
@@ -1943,7 +2041,7 @@
       "ref": "Exercice I.10.3",
       "page": 26,
       "topic": "Liouville, d'Alembert–Gauss, image dense, croissance polynomiale",
-      "statement_short": "$f$ entière bornée : 1. $f^{(k)}(0)=0$ pour $k\\ge1$ ; 2. $f$ constante ; 3. tout polynôme non constant a un zéro ; 4. l'image d'une entière non constante est dense ; 5. si $|f(z)|\\le a+b|z|^m$ alors $f$ est un polynôme de degré $\\le m$.",
+      "statement_short": "$f$ entière bornée : 1. $f^{(k)}(0)=0$ pour $k\\ge1$ ; 2. $f$ constante ; 3. tout polynôme non constant a un zéro ; 4. l'image d'une entière non constante est dense ; 5. si $|f(z)|\\le a+b|z|^m$ alors $f$ est un polynôme de degré $\\le m$. (Questions 4–5 reprises comme résultat dans « results », ref Exercice I.10.3.)",
       "chapters_involved": [
         1
       ]
@@ -1970,7 +2068,7 @@
       "ref": "Exercice I.12.5",
       "page": 31,
       "topic": "Théorème des trois cercles d'Hadamard",
-      "statement_short": "$f$ holomorphe au voisinage de la couronne $r\\le|z|\\le R$, $M(\\rho)=\\sup_{|z|=\\rho}|f|$. 1. $\\rho^pM(\\rho)^q\\le\\max(r^pM(r)^q,R^pM(R)^q)$ (max sur $z^pf^q$). 2. Idem avec $\\alpha\\in\\R$. 3. $\\log M$ est convexe en $\\log\\rho$ : $M(r^tR^{1-t})\\le M(r)^tM(R)^{1-t}$.",
+      "statement_short": "$f$ holomorphe au voisinage de la couronne $r\\le|z|\\le R$, $M(\\rho)=\\sup_{|z|=\\rho}|f|$. 1. $\\rho^pM(\\rho)^q\\le\\max(r^pM(r)^q,R^pM(R)^q)$ (max sur $z^pf^q$). 2. Idem avec $\\alpha\\in\\R$. 3. $\\log M$ est convexe en $\\log\\rho$ : $M(r^tR^{1-t})\\le M(r)^tM(R)^{1-t}$. (Repris comme résultat dans « results », ref Exercice I.12.5.)",
       "chapters_involved": [
         1
       ]
@@ -1997,7 +2095,7 @@
       "ref": "Exercice I.14.2",
       "page": 33,
       "topic": "Preuve du théorème de l'application ouverte",
-      "statement_short": "Par l'absurde : $\\alpha_n\\notin f(\\Omega)$, $\\alpha_n\\to f(z_0)$. 1. Choisir $r$ avec $f(z)\\neq f(z_0)$ sur $\\bar D(z_0,r)\\setminus\\{z_0\\}$ (zéros isolés). 2. $g_n=1/(f-\\alpha_n)$ holomorphe ; principe du maximum donne $z_n\\in C(z_0,r)$ minimisant $|f-\\alpha_n|$. 3. $|f-f(z_0)|\\ge\\epsilon$ sur le cercle ; contradiction.",
+      "statement_short": "Par l'absurde : $\\alpha_n\\notin f(\\Omega)$, $\\alpha_n\\to f(z_0)$. 1. Choisir $r$ avec $f(z)\\neq f(z_0)$ sur $\\bar D(z_0,r)\\setminus\\{z_0\\}$ (zéros isolés). 2. $g_n=1/(f-\\alpha_n)$ holomorphe ; principe du maximum donne $z_n\\in C(z_0,r)$ minimisant $|f-\\alpha_n|$. 3. $|f-f(z_0)|\\ge\\epsilon$ sur le cercle ; contradiction. Coquille du poly : « $|f(z_n)-\\alpha_n|\\ge2\\epsilon$ » doit se lire $\\ge\\epsilon/2$ (pour $n$ assez grand, $|f(z_n)-\\alpha_n|\\ge|f(z_n)-f(z_0)|-|f(z_0)-\\alpha_n|\\ge\\epsilon-\\epsilon/2$) ; la question 2 en $z=z_0$ donne alors $|f(z_0)-\\alpha_n|\\ge\\epsilon/2$, contradiction avec $\\alpha_n\\to f(z_0)$.",
       "chapters_involved": [
         1
       ]
@@ -2018,7 +2116,9 @@
     "L'holomorphie sous l'intégrale (Théorème I.9.1) demande une dominante **intégrable, indépendante de $z$ sur un disque** autour de chaque point (domination locale) : pour $\\Gamma$ on travaille sur des bandes $\\alpha\\le\\Re z\\le\\beta$, jamais sur tout le demi-plan.",
     "Dans la Définition I.1.1 la continuité de $f'$ est une hypothèse de confort (Goursat) ; en revanche la continuité de $f$ elle-même n'est pas négociable dans Morera.",
     "Confondre « bijection holomorphe » et « biholomorphisme » est sans danger en complexe (Remarque I.14.3), contrairement au cas réel ($x^3$) : mais il faut le justifier par $f'\\neq0$ + inversion locale.",
-    "L'inversion locale (Proposition I.4.4) est **locale** : $f'\\neq0$ partout n'entraîne pas l'injectivité globale ($\\exp$, $z^2$ sur $\\C^\\times$)."
+    "L'inversion locale (Proposition I.4.4) est **locale** : $f'\\neq0$ partout n'entraîne pas l'injectivité globale ($\\exp$, $z^2$ sur $\\C^\\times$).",
+    "La formule (I.7.1) donne $f^{(n)}(z)$ en **tout** point $z\\in D(z_0,r)$ (pas seulement au centre), alors que les estimées de Cauchy $|f^{(n)}(z_0)|/n!\\le\\sup_{C(z_0,r)}|f|/r^n$ sont écrites **au centre** $z_0$ ; pour estimer $f^{(n)}$ en un autre point, recentrer le cercle (ou minorer $|\\omega-z|\\ge r-|z-z_0|$).",
+    "$\\rho(z_0)=\\sup\\{r>0\\mid\\bar D(z_0,r)\\subset\\Omega\\}$ est la distance de $z_0$ au complémentaire de $\\Omega$ ($+\\infty$ si $\\Omega=\\C$) : pour une fonction entière, la série de Taylor en tout point converge sur tout $\\C$ (c'est ce qui fait marcher Liouville et « croissance polynomiale ⇒ polynôme »)."
   ],
   "viz_opportunities": [
     {
@@ -2096,6 +2196,15 @@
         "Corollaire I.7.5",
         "Théorème I.7.4",
         "Remarque I.7.2"
+      ]
+    },
+    {
+      "title": "Intégrale à paramètre et domination locale : la fonction $\\Gamma$",
+      "shows": "Pour $z$ dans une bande $\\alpha\\le\\Re z\\le\\beta$, tracer $t\\mapsto|t^{z-1}e^{-t}|$ et la dominante $g_{\\alpha,\\beta}(t)=(t^{\\alpha-1}+t^{\\beta-1})e^{-t}$ ; faire glisser $z$ vers $\\Re z\\to0^+$ pour voir la dominante exploser en $t=0$ (il n'y a pas de dominante globale, d'où la domination seulement locale du Théorème I.9.1) ; graphe réel de $\\Gamma$ passant par les $n!$ et domain coloring de $\\Gamma$ prolongée (pôles en $0,-1,-2,\\dots$).",
+      "results": [
+        "Théorème I.9.1",
+        "Exemple I.9.2",
+        "Corollaire I.9.4"
       ]
     }
   ],

@@ -28,26 +28,25 @@ ATTENTION EXTRACTION PDF : le texte extrait perd parfois des barres de conjugais
 const theoremsPrompt = (u, info) => `${COMMON(u)}
 
 TA MISSION : rédiger les FICHES DE COURS (format § 1 de FORMAT.md) pour les résultats suivants du chapitre, un fichier par résultat dans ${ROOT}/content/ch${u.nn}/theorems/<id>.md :
-${info.items.map(r => `- id=${r.id} | ${r.ref} | « ${r.title} » | p. ${r.page} | kind=${r.kind} | importance=${r.importance} | depends=[${(r.depends_ids || []).join(', ')}]${r.depends_unresolved && r.depends_unresolved.length ? ' (non résolus : ' + r.depends_unresolved.join('; ') + ')' : ''}`).join('\n')}
-Les énoncés exacts, hypothèses, idées de contre-exemples (counterexample_hints) et viz_hint sont dans ch${u.nn}.json (champ "results", cherche par id). Relis dans le poly l'énoncé ET la preuve de chaque résultat avant d'écrire.
+${u.ids.map(id => '- ' + id).join('\n')}
+Les métadonnées de chaque résultat (ref, title, page, kind, importance, depends_ids = ids des résultats utilisés dans la preuve) sont dans ${ROOT}/content/map/map.json ; les énoncés EXACTS, hypothèses, idées de contre-exemples (counterexample_hints) et viz_hint sont dans ${ROOT}/content/map/ch${u.nn}.json. Commence par les extraire : \`node -e "const m=require('${ROOT}/content/map/map.json');const c=require('${ROOT}/content/map/ch${u.nn}.json');const ids=${JSON.stringify(u.ids)};for(const r of m.results)if(ids.includes(r.id)){const x=c.results.find(y=>y.id===r.id)||{};console.log(JSON.stringify({...r,statement:x.statement,hypotheses:x.hypotheses,counterexample_hints:x.counterexample_hints,viz_hint:x.viz_hint},null,1))}"\`. Relis ensuite dans le poly l'énoncé ET la preuve de chaque résultat avant d'écrire.
 
 MODÈLE À IMITER (lis-le d'abord) : ${ROOT}/content/_examples/theorems/ch01-liouville.md
 
-Pour chaque fiche, dans cet ordre : frontmatter (id, type, chapter=${u.chapter}, title, ref, page, importance, depends = ids ci-dessus (et ceux des autres chapitres si la preuve les utilise : ids dans map.json), tags) puis
+Pour chaque fiche, dans cet ordre : frontmatter (id, type, chapter=${u.chapter}, title, ref, page, importance, depends = depends_ids de map.json (complète si la preuve utilise d'autres résultats : ids dans map.json), tags) puis
 ## Intuition — 3 à 8 lignes, une image mentale, les termes non encore définis sont définis ou liés par [[id]] ;
 ## Énoncé — l'énoncé EXACT du poly, commençant par « **Théorème (poly, ${'Théorème X.Y.Z'}, p. N).** » (adapter le type) ; toutes les hypothèses ; mêmes notations ;
 ## Hypothèses — une sous-section « ### H1 — nom » par hypothèse avec « **Rôle.** » et « **Si on la retire.** » (contre-exemple EXPLICITE et VÉRIFIÉ par toi ; sinon dire honnêtement que l'hypothèse est de confort et ce qui change) ;
 ## Idée de la preuve — 3 lignes max ;
 ## Preuve — complète, rigoureuse, fidèle au poly (clarifiée, pas remplacée sans le signaler par « *Variante du poly :* »), chaque résultat utilisé cité par [[id]] ;
 ## Preuve à trous — la même preuve avec 2 à 5 étapes CLÉS cachées dans <trou>...</trou> (en ligne, option indice="...") ;
-## Exemples — 1 à 3 exemples concrets calculés (une visualisation [[viz:...]] seulement si elle existe : ids viz-ch${u.nn}-... en cours de création par un autre agent → n'en insère pas) ;
+## Exemples — 1 à 3 exemples concrets calculés (n'insère PAS de [[viz:...]] : les visualisations sont créées par un autre agent) ;
 ## Pièges — liste des erreurs classiques.
-Pour type=definition : Intuition, Énoncé (définition exacte), Hypothèses (facultatif : conditions cachées), Exemples, Pièges. Si kind=remark ou formula dans la carte : utilise type: proposition (ou definition si c'est une définition, corollary si c'est une conséquence directe) et formule l'énoncé comme un résultat précis. Pour les résultats d'importance 1, les sections peuvent être plus courtes mais toutes présentes.
+Pour type=definition : Intuition, Énoncé (définition exacte), Hypothèses (facultatif : conditions cachées), Exemples, Pièges. Si kind=remark, formula ou example dans la carte : utilise type: proposition (ou definition si c'est une définition, corollary si c'est une conséquence directe) et formule l'énoncé comme un résultat précis. Pour les résultats d'importance 1, les sections peuvent être plus courtes mais toutes présentes.
 Exigence de niveau : rigueur de concours ; pas d'affirmation non justifiée ; chaque contre-exemple vérifié ; chaque formule recalculée.
-Ids disponibles pour les liens [[id]] dans ce chapitre : ${info.chapterIds.join(', ')}.
-Autres résultats centraux du cours (ids) : ${info.otherIds.join(', ')}.
+Ids disponibles pour les liens [[id]] : tous les ids de map.json (ceux du chapitre : \`node -e "const m=require('${ROOT}/content/map/map.json');console.log(m.results.filter(r=>r.chapter===${u.chapter}).map(r=>r.id+' : '+r.title).join('\\n'))"\` ; ceux des autres chapitres d'importance 3 : même commande avec r.importance===3).
 
-Quand tout est validé (node tools/build.mjs --check content/ch${u.nn}/theorems sans ✖), renvoie la liste des fichiers écrits et les points où tu as un doute mathématique.`
+Écris les fiches UNE PAR UNE (un fichier à la fois, puis la suivante) pour ne rien perdre en cas d'interruption. Quand tout est validé (node tools/build.mjs --check content/ch${u.nn}/theorems sans ✖), renvoie la liste des fichiers écrits et les points où tu as un doute mathématique.`
 
 const exercisesPrompt = (u, info) => `${COMMON(u)}
 
@@ -61,7 +60,7 @@ RÉPARTITION IMPOSÉE pour ce lot : ${info.mix}.
 SOURCES : variées — ${u.variant === 0 ? 'classiques (Stein–Shakarchi, Cartan, Amar–Matheron, Rudin, Rouvière, Lang, Berger–Gostiaux, Lafontaine selon le chapitre), PC (adaptées), et au moins un exercice INVENTÉ par toi' : 'au moins deux exercices INVENTÉS par toi (originaux, qui forcent à reconnaître l\'outil dans une situation nouvelle), un classique et un exercice qui mélange ce chapitre avec un autre chapitre du cours (chapters: [${u.chapter}, autre])'} ; toujours renseigner le champ source honnêtement (« Inventé » si c'est le cas).
 INTERDIT : reprendre le contenu des annales (annexe A) — elles ne servent qu'à calibrer ; les exercices « type examen » n'existent pas, l'objectif est d'apprendre à attaquer un problème jamais vu avec les outils du cours.
 Chaque exercice : énoncé auto-suffisant sans indication de chapitre ni d'outil ; questions numérotées progressives ; 2 à 4 indices progressifs (orienter → outil précis + hypothèses → calcul amorcé) ; CORRIGÉ COMPLET rédigé au niveau d'un corrigé de contrôle, hypothèses des théorèmes vérifiées explicitement, théorèmes cités par [[id]], CALCULS REFAITS ET VÉRIFIÉS (fais-les deux fois, ou vérifie numériquement avec python3 -I quand c'est possible : intégrales, résidus, dérivées, points fixes...) ; « Pièges et variantes ».
-Champs frontmatter : chapters (liste), difficulty, time (minutes : niv.1 ≈ 10-15, niv.2 ≈ 20-30, niv.3 ≈ 35-50, niv.4 ≈ 60-90), tools = ids des résultats du cours mobilisés parmi : ${info.chapterIds.join(', ')} (autres chapitres : ids dans map.json).
+Champs frontmatter : chapters (liste), difficulty, time (minutes : niv.1 ≈ 10-15, niv.2 ≈ 20-30, niv.3 ≈ 35-50, niv.4 ≈ 60-90), tools = ids des résultats du cours mobilisés (liste des ids du chapitre : « node -e "const m=require('${ROOT}/content/map/map.json');console.log(m.results.filter(r=>r.chapter===${u.chapter}).map(r=>r.id+' : '+r.title).join('\\n'))" » ; autres chapitres : ids dans map.json).
 
 Quand tout est validé (node tools/build.mjs --check content/ch${u.nn}/exercises sans ✖), renvoie la liste des fichiers avec pour chacun : source, difficulté, et ton degré de confiance dans le corrigé.`
 
@@ -75,7 +74,7 @@ Contenu obligatoire, à partir de ch${u.nn}.json (results, notations) et du poly
 - les formules à connaître par cœur (tags=formule) : ex. formule de Cauchy, estimées de Cauchy, calcul d'un résidu en un pôle d'ordre n, indice, formule des résidus, différentielle d'une composée, TAF, Taylor, point fixe, inversion locale, fonctions implicites (formule de la différentielle de la fonction implicite), Cauchy-Lipschitz, lemme de Gronwall, Euler-Lagrange, espace tangent... selon le chapitre ;
 - les notations du chapitre (tags=notation, ref=none) ;
 - quelques cartes tags=methode (« pour montrer que ..., on ... ») tirées des techniques de preuve du chapitre.
-Cible : entre ${info.min} et ${info.max} cartes, concises, exactes (relis les énoncés dans le poly : une flashcard fausse est pire qu'absente). Ids des résultats : ${info.chapterIds.join(', ')}.
+Cible : entre ${info.min} et ${info.max} cartes, concises, exactes (relis les énoncés dans le poly : une flashcard fausse est pire qu'absente). Ids des résultats : ceux de ch${u.nn}.json (champ results[].id).
 Valide avec node tools/build.mjs --check content/ch${u.nn} (le fichier flashcards.md est vérifié) ; corrige les ✖. Renvoie le nombre de cartes par tag.`
 
 const vizPrompt = (u, info) => `${COMMON(u)}
@@ -83,21 +82,21 @@ const vizPrompt = (u, info) => `${COMMON(u)}
 TA MISSION : créer ${info.n} VISUALISATIONS INTERACTIVES pour ce chapitre (format § 5 de FORMAT.md), un fichier JavaScript par visualisation dans ${ROOT}/content/ch${u.nn}/viz/<id>.js, id de la forme viz-ch${u.nn}-<slug>.
 Kit d'aide (lis-le : canvas HiDPI, contrôles, repère/plane, nombres complexes, domain coloring, rk4, drag, animate) : ${ROOT}/docs/js/vizkit.js
 Modèle fonctionnel à imiter : ${ROOT}/content/_examples/viz/viz-ex-domain-coloring.js
-Pistes (champ viz_opportunities de ch${u.nn}.json, et la liste de l'élève) : ${info.ideas}
-Règles : une visualisation ne se justifie que si elle montre quelque chose que le texte ne montre pas ; elle doit être INTERACTIVE (curseurs, choix de fonction, glisser un point, animation avec bouton) ; description en Markdown+LaTeX dans String.raw\`...\` expliquant QUOI regarder et le lien avec le théorème ; champ related = ids des résultats liés (parmi : ${info.chapterIds.join(', ')}) ; pas de dépendance externe ; pas d'exception ; redessin rapide ; fonction de nettoyage retournée ; fonctionne à 360 px de large.
+Pistes : le champ viz_opportunities de ch${u.nn}.json (lis-le), et la liste de l'élève : différentielle comme approximation linéaire, inversion locale et fonctions implicites, domain coloring, applications conformes, contours et résidus, principe du maximum, flots, sous-variétés et espaces tangents.
+Règles : une visualisation ne se justifie que si elle montre quelque chose que le texte ne montre pas ; elle doit être INTERACTIVE (curseurs, choix de fonction, glisser un point, animation avec bouton) ; description en Markdown+LaTeX dans String.raw\`...\` expliquant QUOI regarder et le lien avec le théorème ; champ related = ids des résultats liés (ids de ch${u.nn}.json) ; pas de dépendance externe ; pas d'exception ; redessin rapide ; fonction de nettoyage retournée ; fonctionne à 360 px de large.
 TEST OBLIGATOIRE : après écriture, exécute \`cd ${ROOT} && node tools/build.mjs && node tools/check_site.cjs --routes "#/viz/<id1>,#/viz/<id2>,..." --shots /tmp/claude-0/-home-user-FMA-revision/a354ab57-23c8-54ee-bc46-435d87e86fdf/scratchpad/shots-ch${u.nn}\` ; le JSON de sortie doit avoir problems=[] et bad=[] ; REGARDE chaque capture d'écran (outil Read sur le .png) et corrige jusqu'à ce que le rendu soit correct et lisible (axes, légendes, couleurs du thème via kit.theme()). Si build.mjs échoue à cause d'un fichier d'un autre agent (en cours d'écriture), relance une minute plus tard.
 Renvoie la liste des visualisations (id, titre, ce qu'elle montre) et l'état des tests.`
 
 const UNIT_SCHEMA = { type: 'object', properties: { label: { type: 'string' }, files: { type: 'array', items: { type: 'string' } }, n_files: { type: 'number' }, validated: { type: 'boolean' }, doubts: { type: 'array', items: { type: 'string' } }, notes: { type: 'string' } }, required: ['label', 'files', 'n_files', 'validated', 'doubts'] }
 
-const units = args.units; const info = args.info // info: { chapterIds: {nn: [...]}, otherIds: [...], results: {id: {...}} , ideas: {nn: '...'} }
+const units = args.units; const info = args.info || {}
 log(`Étape 2 : ${units.length} unités de rédaction`)
 const results = await pipeline(units, u => {
-  const chapterIds = info.chapterIds[u.nn] || []
-  if (u.kind === 'theorems') return agent(theoremsPrompt(u, { items: u.ids.map(id => info.results[id]), chapterIds, otherIds: info.otherIds.filter(x => !x.startsWith('ch' + u.nn)) }), { label: u.label, phase: 'Rédaction', schema: UNIT_SCHEMA })
-  if (u.kind === 'exercises') return agent(exercisesPrompt(u, { n: u.chapter === 8 ? 4 : 5, mix: u.chapter === 8 ? '1 exercice de niveau 1, 2 de niveau 2, 1 de niveau 3' : (u.variant === 0 ? '1 exercice de niveau 1, 2 de niveau 2, 2 de niveau 3' : '1 exercice de niveau 1, 1 de niveau 2, 2 de niveau 3, 1 de niveau 4 (problème long en 3-4 parties)'), chapterIds }), { label: u.label, phase: 'Rédaction', schema: UNIT_SCHEMA })
-  if (u.kind === 'flashcards') return agent(flashcardsPrompt(u, { min: u.chapter === 8 ? 12 : 30, max: u.chapter === 8 ? 25 : 70, chapterIds }), { label: u.label, phase: 'Rédaction', schema: UNIT_SCHEMA })
-  if (u.kind === 'viz') return agent(vizPrompt(u, { n: u.chapter === 8 ? '1 ou 2' : '3', ideas: info.ideas[u.nn] || '', chapterIds }), { label: u.label, phase: 'Rédaction', schema: UNIT_SCHEMA })
+  const chapterIds = []
+  if (u.kind === 'theorems') return agent(theoremsPrompt(u, {}), { label: u.label, phase: 'Rédaction', schema: UNIT_SCHEMA, effort: 'high' })
+  if (u.kind === 'exercises') return agent(exercisesPrompt(u, { n: u.chapter === 8 ? 4 : 5, mix: u.chapter === 8 ? '1 exercice de niveau 1, 2 de niveau 2, 1 de niveau 3' : (u.variant === 0 ? '1 exercice de niveau 1, 2 de niveau 2, 2 de niveau 3' : '1 exercice de niveau 1, 1 de niveau 2, 2 de niveau 3, 1 de niveau 4 (problème long en 3-4 parties)'), chapterIds }), { label: u.label, phase: 'Rédaction', schema: UNIT_SCHEMA, effort: 'high' })
+  if (u.kind === 'flashcards') return agent(flashcardsPrompt(u, { min: u.chapter === 8 ? 12 : 30, max: u.chapter === 8 ? 25 : 70, chapterIds }), { label: u.label, phase: 'Rédaction', schema: UNIT_SCHEMA, effort: 'high' })
+  if (u.kind === 'viz') return agent(vizPrompt(u, { n: u.chapter === 8 ? '1 ou 2' : '3', ideas: '', chapterIds }), { label: u.label, phase: 'Rédaction', schema: UNIT_SCHEMA, effort: 'high' })
   return null
 })
 return results.map((r, i) => ({ unit: units[i].label, ok: !!(r && r.validated), n_files: r ? r.n_files : 0, doubts: r ? r.doubts : ['agent nul'] }))

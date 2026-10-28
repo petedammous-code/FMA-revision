@@ -9,6 +9,7 @@
 | $\Hol(\Omega)$ | espace vectoriel complexe des fonctions holomorphes sur l'ouvert $\Omega$ | I | 5 |
 | $\Omega$ | ouvert (non vide) de $\C$, domaine de définition des fonctions considérées | I | 5 |
 | $z=x+iy$, $\omega=s+it$ | identification $\C\simeq\R^2$ : $x=\Re z$, $y=\Im z$ | I | 6 |
+| $\bar z$, $\bar\omega$, $\overline{f(z)}$ | conjugaison complexe : $\overline{x+iy}=x-iy$ ; $\bar\omega$ est la seconde « coordonnée » dans la décomposition $a\omega+b\bar\omega$ du Lemme I.2.1 | I | 6 |
 | $P$, $Q$ | parties réelle et imaginaire de $f$ : $f=P+iQ$, $f(x,y)=(P(x,y),Q(x,y))$ | I | 6 |
 | $df_{(x,y)}$, $df_z$ | différentielle (réelle) de $f$ au point $(x,y)=z$, application $\R$-linéaire $\R^2\to\R^2$ vue comme $\C\to\C$ | I | 6 |
 | $\frac{\partial P}{\partial x},\frac{\partial P}{\partial y},\dots$ | dérivées partielles ; la matrice jacobienne (I.2.2) représente $df_{(x,y)}$ dans la base canonique | I | 6 |
@@ -22,7 +23,7 @@
 | $e^z$, $\cos z$, $\sin z$, $\tan z$, $\cosh z$, $\sinh z$, $\tanh z$ | exponentielle $\sum z^n/n!$ et fonctions trigonométriques/hyperboliques complexes définies à partir d'elle | I | 12 |
 | $h^{-1}$ | réciproque d'un biholomorphisme $h:\Omega_1\to\Omega_2$ | I | 13 |
 | $\mathrm{Aut}_{hol}(\Omega)$ | groupe des automorphismes holomorphes de l'ouvert $\Omega$ (pour la composition) | I | 13 |
-| $D$ | disque unité $D(0,1)$ ; $\bar D$ son adhérence ; $D^\times=D\setminus\{0\}$ (section I.13) | I | 13 |
+| $D$ | disque unité $D(0,1)$ ; $\bar D$ son adhérence ; $D^\times=D\setminus\{0\}$ (Exemple I.4.3, section I.13, Exercice I.12.3). **Attention** : au Corollaire I.7.6 (p. 22) $D$ désigne un disque ouvert quelconque $D(z_0,\rho)$. | I | 13 |
 | $H$ | demi-plan de Poincaré $\{z\in\C\mid\Im(z)>0\}$ | I | 13 |
 | $\C^\times$ | $\C\setminus\{0\}$, image de $\exp$ | I | 14 |
 | $\mathrm{Log}(z)$ | logarithme complexe local (holomorphe sur un petit disque de $\C^\times$, dépend du choix d'un antécédent par $\exp$) | I | 14 |
@@ -30,15 +31,16 @@
 | $\gamma^{opp}$ | chemin opposé $t\mapsto\gamma(a+b-t)$ | I | 15 |
 | $\gamma_1\vee\gamma_2$ | chemin composé (concaténation) de deux chemins composables ($\gamma_1(b_1)=\gamma_2(a_2)$) | I | 15 |
 | $\int_\gamma f(z)\,dz$ | intégrale de $f$ le long de $\gamma$ : $\int_a^bf(\gamma(t))\gamma'(t)\,dt$ | I | 16 |
+| $\tilde\gamma=\gamma\circ\varphi$ | reparamétrage du chemin $\gamma$ par un $C^1$-difféomorphisme croissant $\varphi:[\tilde a,\tilde b]\to[a,b]$ (Proposition I.5.6 (i)) | I | 16 |
 | $L(\gamma)$ | longueur du chemin $\int_a^b\|\gamma'(t)\|\,dt$ | I | 16 |
-| $\int_\Gamma f(z)\,dz$, $\Gamma=C(z_0,r)$ | intégrale sur le cercle paramétré dans le sens trigonométrique ($\omega=z_0+re^{i\theta}$, $d\omega=ire^{i\theta}d\theta$) | I | 17 |
+| $\int_\Gamma f(z)\,dz$, $\Gamma=C(z_0,r)$ | intégrale sur le cercle paramétré dans le sens trigonométrique ($\omega=z_0+re^{i\theta}$, $d\omega=ire^{i\theta}d\theta$) ; ne pas confondre $\Gamma$ (cercle) avec la fonction $\Gamma$ d'Euler de l'Exemple I.9.2 | I | 17 |
 | $F$ primitive holomorphe de $f$ | $F\in\Hol(\Omega)$ avec $F'=f$ | I | 17 |
 | $\Gamma_t=C(tz,1-t)$ | famille de cercles rétractant $C(0,1)$ sur le point $z$ (preuve de la formule de Cauchy) | I | 18 |
 | $\rho(z_0)$ | $\sup\{r>0\mid\bar D(z_0,r)\subset\Omega\}$ : rayon du plus grand disque centré en $z_0$ contenu dans $\Omega$ | I | 22 |
 | $\int_{[a,b]}f(z)\,dz$ | intégrale sur le segment orienté de $a$ vers $b$ (chemin $t\mapsto a+t(b-a)$) | I | 23 |
 | $X\subset\R^N$, $dx$ | ensemble mesurable et mesure de Lebesgue (intégrales à paramètre, section I.9) | I | 24 |
 | $g_{z_0}$ | fonction intégrable dominant $\|F(z,x)\|$ pour $z\in D(z_0,r_0)$ (hypothèse (ii) du Théorème I.9.1) | I | 24 |
-| $\Gamma(z)$ | fonction Gamma d'Euler $\int_0^{+\infty}t^{z-1}e^{-t}dt$, $\Re z>0$, avec $t^{z-1}:=e^{(z-1)\ln t}$ | I | 25 |
+| $\Gamma(z)$ | fonction Gamma d'Euler $\int_0^{+\infty}t^{z-1}e^{-t}dt$, $\Re z>0$, avec $t^{z-1}:=e^{(z-1)\ln t}$ ($\ln$ : logarithme réel). **Attention** : $\Gamma$ désigne aussi le cercle $C(z_0,r)$ aux sections I.5–I.7 (Remarque I.5.8). | I | 25 |
 | $\hat f(z)$ | $\int_\R e^{-izt}f(t)\,dt$ (transformée de Fourier complexe, Exercice I.9.5) ; $H^-=\{\Im z<0\}$ | I | 26 |
 | $m(z_0)$ | multiplicité (ordre) du zéro $z_0$ : $\min\{n\ge0: f^{(n)}(z_0)\neq0\}$ | I | 27 |
 | $Z(f,\Omega)$ | ensemble des zéros de $f$ dans $\Omega$ (discret et fermé dans $\Omega$) | I | 28 |
@@ -46,6 +48,7 @@
 | $c_n$ | coefficients de Fourier $\frac1{2\pi}\int_0^{2\pi}f(z_0+re^{i\theta})e^{-in\theta}d\theta$ de $\theta\mapsto f(z_0+re^{i\theta})$ (preuve du principe du maximum) | I | 30 |
 | $\partial\Omega$ | bord $\bar\Omega\setminus\Omega$ d'un ouvert $\Omega$ | I | 31 |
 | $M(r)$ | $\sup_{\|z\|=r}\|f(z)\|$ (Exercices I.12.4, I.12.5) | I | 31 |
+| $\mathcal C=\{z\in\C : r\le|z|\le R\}$ | couronne fermée de l'Exercice I.12.5 (trois cercles d'Hadamard) ; le poly la note $C$, à ne pas confondre avec le cercle $C(z_0,r)$ | I | 31 |
 | $f_a$, $f_{a,\theta}$ | $f_a(z)=\frac{z-a}{1-\bar az}$, $f_{a,\theta}=e^{i\theta}f_a$ : automorphismes du disque unité | I | 32 |
 | $l_{hyp}(\gamma)$, $d_{hyp}(z_1,z_2)$ | longueur hyperbolique $\int_0^1\frac{\|\gamma'(t)\|}{1-\|\gamma(t)\|^2}dt$ et distance hyperbolique sur $D$ (Exercice I.13.4) | I | 33 |
 | $\gamma \in C([0,1]^2;\Omega)$, $\gamma(s,t)$ | homotopie entre $\gamma_0 = \gamma(0,\cdot)$ et $\gamma_1 = \gamma(1,\cdot)$ ; $s$ = paramètre de déformation, $t$ = paramètre du lacet | II | 35 |
@@ -121,13 +124,13 @@
 | transformation conforme ; $\Omega$ conformément équivalent à $\mathbb D$ | biholomorphisme de $\Omega$ sur $\mathbb D$ ; existence d'un tel biholomorphisme | III | 66 |
 | $\mathbb D = D(0,1)$ | disque unité ouvert | III | 66 |
 | $\Sigma = \{f \in \mathrm{Hol}(\Omega) : f(\Omega)\subset\mathbb D,\ f \text{ injective}\}$, $\Sigma_{z_0} = \{f\in\Sigma \mid f(z_0)=0\}$ | familles extrémales de la preuve du théorème de Riemann | III | 66 |
-| $f_\alpha : z \mapsto \dfrac{z-\alpha}{1-\bar\alpha z}$ ($\alpha\in\mathbb D$) | automorphisme du disque unité envoyant $\alpha$ sur $0$ (Proposition I.13.3 et exercice précédent) ; $f_\alpha^{-1} = f_{-\alpha}$ | III | 66 |
+| $f_\alpha : z \mapsto \dfrac{z-\alpha}{1-\bar\alpha z}$ ($\alpha\in\mathbb D$) | automorphisme du disque unité envoyant $\alpha$ sur $0$ (Exercice I.13.2 et Proposition I.13.3) ; $f_\alpha^{-1} = f_{-\alpha}$ | III | 66 |
 | $\eta = \sup\{|\psi'(z_0)|,\ \psi\in\Sigma_{z_0}\}$ | quantité maximisée dans la preuve de Riemann ; finie par l'estimée de Cauchy ($\leq 1/\rho$) | III | 67 |
 | $s : z \mapsto z^2$, $F = f_{-\alpha}\circ s\circ f_{-\beta}$ | application non injective $\mathbb D\to\mathbb D$, $F(0)=0$, à laquelle on applique le lemme de Schwarz ($\|F'(0)\|<1$) | III | 67 |
 | $\mathbb H$ | demi-plan de Poincaré $\{z \in \mathbb C \mid \Im(z) > 0\}$ | III | 67 |
 | $g_n = 1 + f_n$, $G_n = \prod_{j=0}^n g_j$, $G = \prod_{j=0}^\infty (1+f_j)$ | facteurs, produits partiels et produit infini (Théorème III.5.1) | III | 68 |
 | $\tilde G_n = \prod_{k=m}^n g_k$, $\tilde G = \exp\big(\sum_{j\geq m}\mathrm{Log}(1+f_j)\big)$ | produit partiel et produit infini « queue » à partir du rang $m$ où $\sup_K\|f_n\| < 1/2$ (ne s'annule pas sur $K$) | III | 68 |
-| $\mathrm{Log}$ | détermination principale du logarithme complexe sur $\mathbb C\setminus\mathbb R_-$ (chapitre II, p. 55) | III | 68 |
+| $\mathrm{Log}$ | détermination principale du logarithme complexe sur $\mathbb C\setminus\mathbb R_-$ (chapitre II, section II.9, p. 56) ; $\mathrm{Log}(1+\omega) = \sum_{k\geq1}(-1)^{k-1}\omega^k/k$ pour $\|\omega\|<1$ | III | 68 |
 | $M = \sum_{k\geq m}\|f_k\|_{\infty,K}$ | somme des normes des queues, donne la minoration $\|\tilde G_n\| \geq e^{-CM}$ | III | 68 |
 | $\Re(z)$, $\Im(z)$ (poly : $\Re e(z)$, $\Im m(z)$) | parties réelle et imaginaire | III | 69 |
 | $B = \{z\in\mathbb C \mid \Re(z)\in[0,1]\}$ | bande verticale fondamentale d'une fonction $1$-périodique (Exemple III.6.1) | III | 69 |
@@ -376,6 +379,7 @@
 | $p=\frac{\partial L}{\partial v}(u,q,v)$, $p(t)=\frac{\partial L}{\partial v}(t,\gamma(t),\gamma'(t))$ | variable conjuguée (impulsion), élément de $L(V;\mathbb R)$ | VIII | 146 |
 | $v=g(u,q,p)$ | inverse local de la transformation de Legendre : vitesse exprimée en fonction de $(u,q,p)$, de classe $C^1$ | VIII | 146 |
 | $J$ | intervalle ouvert $J\subset\,]0,1[$ contenant $t_0$ sur lequel la solution locale de (E.L) est définie | VIII | 146 |
+| $\mathbb N^\times$ | entiers naturels non nuls ; la classe $k$ d'une sous-variété est dans $\mathbb N^\times\cup\{\infty\}$ (Définition IX.2.1) | IX | 148 |
 | $C^k$, $k\in\mathbb N^\times\cup\{\infty\}$ | classe de régularité ; dans tout le chapitre $k\ge1$ ou $k=+\infty$ | IX | 147 |
 | immersion / submersion en $a$ | $df_a$ injective / surjective (Définition IX.1.1) | IX | 147 |
 | $\mathbb R^N=df_a(\mathbb R^m)\oplus H$ | $H$ supplémentaire de l'image de $df_a$ (construction d'extension $F(q,t)=f(q)+t$) | IX | 147 |
@@ -434,3 +438,5 @@
 | $TS=\{(p,v)\ ;\ p\in S,\ v\in T_pS\}$ | fibré tangent de $S$, sous-variété de $\mathbb R^N\times\mathbb R^N$ (Exercice IX.9.3) | IX | 175 |
 | $S(f)=\{f(p)p\ ;\ p\in\mathbb S^2\}$, surface radialement transverse, $\pi(p)=p/\|p\|$ | surface « étoilée par rapport à $0$ », projection radiale (Exercice IX.9.4) | IX | 176 |
 | $(v_1|v_2|\dots|v_n)$, $\mathrm{Vect}(u_1,\dots,u_k)$ | matrice de colonnes $v_i$ ; sous-espace engendré (Exercice IX.9.15) | IX | 177 |
+| $C(a,r)$ | cercle de centre $a$ et de rayon $r$ dans $\mathbb R^2$ (Exercice IX.2.10) | IX | 150 |
+| $\mathbb R_+^\times$ | réels strictement positifs (Exercice IX.9.4 : $f : \mathbb S^2\to\mathbb R_+^\times$) | IX | 176 |

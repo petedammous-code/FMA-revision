@@ -53,6 +53,6 @@ const units = args.units
 log(`Étape 3 : ${units.length} unités à vérifier`)
 const results = await pipeline(units, u => {
   const p = u.kind === 'theorems' ? theoremsPrompt(u) : u.kind === 'exercises' ? exercisesPrompt(u) : u.kind === 'flashcards' ? flashcardsPrompt(u) : vizPrompt(u)
-  return agent(p, { label: 'verif:' + u.label, phase: 'Vérification', schema: SCHEMA })
+  return agent(p, { label: 'verif:' + u.label, phase: 'Vérification', schema: SCHEMA, effort: 'high' })
 })
 return results.map((r, i) => ({ unit: units[i].label, ok: !!(r && r.check_passed), n_errors: r ? r.errors.length : -1, grave: r ? r.errors.filter(e => /grave/i.test(e.severity)).length : -1, unfixed: r ? r.errors.filter(e => !e.fixed).map(e => e.file + ': ' + e.description) : ['agent nul'], notes: r ? r.notes : '' }))
