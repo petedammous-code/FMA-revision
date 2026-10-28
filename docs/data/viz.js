@@ -4542,8 +4542,8 @@ et le plan qu'ils engendrent est l'**espace tangent** $T_pS=dx_q(\mathbb R^2)$ (
     const rowS = kit.row(controls);
     // le navigateur n'atteint pas toujours exactement la borne max d'un curseur (arrondi du pas) : on aimante sur les bornes
     const snapEnds = (v, a, b) => (Math.abs(v - a) < 1.2 * (b - a) / 200 ? a : Math.abs(v - b) < 1.2 * (b - a) / 200 ? b : v);
-    const su = kit.slider(rowS, { label: '$u$', min: -3.14, max: 3.14, step: 0.01, value: q[0], onChange: v => { const S = SURF[cur]; q[0] = clampU(snapEnds(v, S.u0, S.u1)); draw(); } });
-    const sv = kit.slider(rowS, { label: '$v$', min: -3.14, max: 3.14, step: 0.01, value: q[1], onChange: v => { const S = SURF[cur]; q[1] = clampV(snapEnds(v, S.v0, S.v1)); draw(); } });
+    const su = kit.slider(rowS, { label: '$u$', min: -3.14, max: 3.14, step: 0.01, value: q[0], onChange: v => { const S = SURF[cur]; q[0] = clampU(snapEnds(v, S.u0, S.u1)); su.value = q[0]; draw(); } });
+    const sv = kit.slider(rowS, { label: '$v$', min: -3.14, max: 3.14, step: 0.01, value: q[1], onChange: v => { const S = SURF[cur]; q[1] = clampV(snapEnds(v, S.v0, S.v1)); sv.value = q[1]; draw(); } });
     const rowC = kit.row(controls);
     const cCurves = kit.checkbox(rowC, { label: 'courbes par $p$', checked: false, onChange: draw });
     const cNormal = kit.checkbox(rowC, { label: 'normale', checked: false, onChange: draw });
