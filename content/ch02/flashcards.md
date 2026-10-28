@@ -55,7 +55,7 @@ Dans le Théorème II.2.1, où servent les hypothèses « $f\in\Hol(\Omega)$ » 
 ### Q
 Contre-exemples à l'invariance par homotopie si (a) $f$ a une singularité dans la zone balayée ; (b) on n'a qu'une homotopie de **chemins** (extrémités libres).
 ### R
-(a) $f(z)=1/z$, $\gamma_0=C(0,1)$, $\gamma_1$ = lacet constant $0$... plus précisément constant égal à $1$ : ils sont homotopes dans $\C$ (homotopie $(1-s)e^{2i\pi t}+s$), mais $f\notin\Hol(\C)$ et $\int_{\gamma_0}f=2i\pi\neq0=\int_{\gamma_1}f$.
+(a) $f(z)=1/z$, $\gamma_0=C(0,1)$, $\gamma_1$ = lacet constant égal à $1$ : ils sont homotopes dans $\C$ (homotopie $(1-s)e^{2i\pi t}+s$, qui passe par $0$), mais $f\notin\Hol(\C)$ et $\int_{\gamma_0}f=2i\pi\neq0=\int_{\gamma_1}f$.
 
 (b) $f\equiv1$ : deux chemins d'extrémités différentes sont homotopes dans $\C$ (comme applications continues), mais $\int_\gamma 1\,dz=\gamma(1)-\gamma(0)$ diffère.
 
@@ -212,7 +212,7 @@ Vrai ou faux : (a) en un pôle le résidu est non nul ; (b) $\Res_{z_0}(fg)=\Res
 
 (b) Faux : $\Res_0\big(\frac1z\cdot\frac1z\big)=0\neq1=\Res_0(1/z)^2$. Le résidu est linéaire, pas multiplicatif.
 
-## CARD id=fc-ch02-027 ref=ch02-residu-integrale-cercle tags=enonce,formule
+## CARD id=fc-ch02-027 ref=ch02-residu-integrale-cercle tags=enonce,formule,hypothese
 ### Q
 Énoncer la formule qui exprime le résidu comme une intégrale. Quelles précautions ?
 ### R
@@ -576,6 +576,10 @@ Méthode générale pour calculer une intégrale réelle par les résidus.
 
 ## CARD id=fc-ch02-070 ref=ch02-indice-invariance-homotopie tags=methode
 ### Q
-En copie, comment justifier proprement que l'indice d'un contour usuel (demi-disque, rectangle) vaut $1$ en un point $z_0$ intérieur ?
+En copie, comment justifier proprement que l'indice d'un contour usuel (ex. le demi-disque $\Gamma_R=[-R,R]\vee C_R^+$) vaut $1$ en un point $z_0$ intérieur ?
 ### R
-Exhiber une homotopie de lacets **dans $\C\setminus\{z_0\}$** entre le contour et un cercle $C(z_0,\rho)$ parcouru dans le sens direct (par exemple la projection radiale $\gamma_s(t)=z_0+\big((1-s)+\frac{s\rho}{|\gamma(t)-z_0|}\big)(\gamma(t)-z_0)$ si le domaine est étoilé en $z_0$), puis appliquer la Proposition II.3.4 et l'Exemple II.3.3. Sinon, utiliser que l'indice est constant sur les composantes connexes de $\C\setminus\Gamma$ et nul sur la composante non bornée (Proposition II.3.2).
+Deux outils démontrés, sans invoquer Jordan :
+* **Homotopie** : déformer le contour en un cercle $C(z_0,\rho)$ (sens direct) par une homotopie de lacets qui **ne passe jamais par $z_0$**, puis Proposition II.3.4 et Exemple II.3.3.
+* **Découpage** : l'indice est additif ($\frac{1}{2i\pi}\int\frac{dz}{z-z_0}$ est additive sur les chemins, les segments parcourus dans les deux sens se compensent), et un lacet contenu dans un ouvert **convexe** ne contenant pas $z_0$ a un indice nul en $z_0$ (Corollaire II.2.2 pour $1/(z-z_0)$).
+
+Exemple : $\Im z_0>0$, $|z_0|<R$. $\int_{C(0,R)}=\int_{\Gamma_R}+\int_{\gamma'}$ où $\gamma'$ = demi-cercle inférieur puis segment de $R$ à $-R$ ; $\gamma'$ vit dans le demi-plan convexe $\{\Im z<\Im z_0\}$, donc $\Ind_{z_0}(\gamma')=0$ et $\Ind_{z_0}(\Gamma_R)=\Ind_{z_0}(C(0,R))=1$.

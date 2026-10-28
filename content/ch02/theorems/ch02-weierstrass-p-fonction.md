@@ -6,12 +6,12 @@ title: Fonctions elliptiques — la fonction ℘ de Weierstrass
 ref: Exercice II.7.10
 page: 52
 importance: 2
-depends: [ch01-liouville, ch02-pole-meromorphe-def, ch02-laurent-developpement, ch01-zeros-isoles, ch03-weierstrass-series, ch02-singularite-effacable-riemann, ch02-meromorphes-operations]
+depends: [ch01-liouville, ch02-pole-meromorphe-def, ch02-laurent-developpement, ch03-weierstrass-series, ch02-singularite-effacable-riemann, ch02-meromorphes-operations]
 tags: [weierstrass, fonction elliptique, reseau, periodique, meromorphe, laurent, liouville]
 ---
 ## Intuition
 
-> 💡 Peut-on fabriquer une fonction méromorphe **doublement périodique**, c'est-à-dire invariante par deux translations indépendantes ($z\mapsto z+\omega_1$ et $z\mapsto z+\omega_2$) ? Holomorphe, c'est impossible (elle serait bornée, donc constante par Liouville). Il faut donc des pôles. L'idée de Weierstrass : placer un pôle double $\frac{1}{(z+\lambda)^2}$ en chaque point du réseau et **sommer** — en corrigeant chaque terme par $-\frac1{\lambda^2}$ pour que la série converge.
+> 💡 Peut-on fabriquer une fonction méromorphe **doublement périodique**, c'est-à-dire invariante par deux translations indépendantes ($z\mapsto z+\omega_1$ et $z\mapsto z+\omega_2$) ? Holomorphe et non constante, c'est impossible (elle serait bornée, donc constante par Liouville). Il faut donc des pôles. L'idée de Weierstrass : placer un pôle double $\frac{1}{(z+\lambda)^2}$ en chaque point du réseau et **sommer** — en corrigeant chaque terme par $-\frac1{\lambda^2}$ pour que la série converge.
 
 Image mentale : le plan est pavé par des parallélogrammes identiques ; $\wp$ (lire « p de Weierstrass ») est la même dans chaque pavé, avec un pôle double à chaque sommet. C'est l'exemple fondamental de fonction méromorphe non rationnelle, et elle satisfait une équation différentielle algébrique remarquable : $\wp'^2$ est un polynôme de degré $3$ en $\wp$.
 

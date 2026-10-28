@@ -186,6 +186,8 @@ FMA.registerViz({
       if (dirs[0] && dirs[1] && C.abs(dirs[0]) > 0 && C.abs(dirs[1]) > 0) {
         dirs.forEach((dv, k) => { const n = C.abs(dv); kit.arrow(ctx, qx, qy, qx + 30 * dv[0] / n, qy - 30 * dv[1] / n, { color: cols[k], width: 1.5, head: 7 }); });
         measured = C.arg(C.div(dirs[1], dirs[0]));
+        // en un point critique l'angle image vaut 2θ ∈ ]0°, 340°] : on l'affiche dans [0°, 360°[ plutôt que dans ]−180°, 180°]
+        const dv0 = safe(F.df, z0); if (dv0 && C.abs(dv0) < 1e-9 && measured < 0) measured += 2 * Math.PI;
         wedge(ctx, qx, qy, C.arg(dirs[0]), measured, 16, t.fg, (measured * DEG).toFixed(1) + '°');
       }
       PW.point(w0[0], w0[1], { r: 6, color: t.accent4, stroke: t.fg });
@@ -240,12 +242,12 @@ FMA.registerViz({
 $$F(z)=V_0\Big((z-c)\,e^{-i\alpha}+\frac{R^2e^{i\alpha}}{z-c}\Big)$$
 est le potentiel complexe ; pour $c=0$, $R=1$, c'est exactement celui de l'Exercice IV.4.1 (poly, p. 84). À droite (en dessous sur un téléphone), le *plan des $w=J(z)=\tfrac12(z+1/z)$* : les **images** de ces lignes par la transformation de Joukovski, qui sont les lignes de courant autour du profil $J(\text{cercle})$. Le fond colore la vitesse $|v|$ rapportée à la vitesse à l'infini (bleu : plus lent, rouge : plus rapide). Les losanges blancs sont les **points d'arrêt** ($v=0$).
 
-**Le lien avec le cours.** $J$ est un biholomorphisme de l'extérieur du cercle sur l'extérieur du profil (pour $c=0$ : de $\{|z|>1\}$ sur $\C\setminus[-1,1]$, et $J(e^{i\theta})=\cos\theta$). Le potentiel des vitesses autour du profil est $\Phi = \Re G$ avec $G = F\circ J^{-1}$ : composée d'une fonction harmonique et d'une fonction holomorphe, il est harmonique ([[ch04-composition-harmonique-holomorphe|harmonique ∘ holomorphe]]), et comme $J$ conserve les angles là où $J'\neq0$, le bord (une ligne de courant) reste une ligne de courant ([[ch04-joukovski|transformation de Joukovski]]). Pour $\alpha=0$ et $c=0$ : $F = 2V_0\,J(z)$, donc le potentiel autour du disque est $\lambda\,\Re J(z)$.
+**Le lien avec le cours.** $J$ est un biholomorphisme de l'extérieur du cercle sur l'extérieur du profil (pour $c=0$ : de $\{|z|>1\}$ sur $\C\setminus[-1,1]$, et $J(e^{i\theta})=\cos\theta$). Le potentiel des vitesses autour du profil est $\Phi = \Re G$ avec $G = F\circ J^{-1}$ : composée d'une fonction harmonique et d'une fonction holomorphe, il est harmonique ([[ch04-composition-harmonique-holomorphe|harmonique ∘ holomorphe]]), le bord reste une ligne de courant ($\Im G=\Im F\circ J^{-1}$ est constante sur $J(\text{cercle})$), et comme $J$ conserve les angles là où $J'\neq0$, la condition d'étanchéité $\partial_n\Phi=0$ est transportée (poly, p. 82 ; [[ch04-joukovski|transformation de Joukovski]]). Pour $\alpha=0$ et $c=0$ : $F = 2V_0\,J(z)$, donc le potentiel autour du disque est $\lambda\,\Re J(z)$.
 
 **À faire.**
 * **Plaque plane** ($c=0$), $\alpha\neq0$ : la vitesse $v=\overline{G'(w)}$ avec $G'(w)=F'(z)/J'(z)$ **explose** aux deux bouts $w=\pm1$ de la plaque, car $J'(\pm1)=0$ alors que $F'(\pm1)\neq0$ (question 5 de l'exercice). Mettez $\alpha=0$ : $F'(\pm1)=0$ et tout redevient fini.
 * **Glissez le centre $c$** (cliquer-glisser à gauche, avec $\Re c\le0$) : le cercle passe toujours par le point critique $z=1$ de $J$, d'où un **bord de fuite pointu** en $w=1$ ; si $\Re c<0$, le point $-1$ est à l'intérieur et le bord d'attaque est arrondi. Avec $\Im c>0$, le profil est **cambré**.
-* **Condition de Kutta** (hors programme, pour la culture) : on ajoute au potentiel le terme $\frac{i\Gamma}{2\pi}\log(z-c)$, dont la partie imaginaire $\frac{\Gamma}{2\pi}\ln|z-c|$ est harmonique et constante sur le cercle, qui reste donc une ligne de courant. On choisit la **circulation** $\Gamma$ pour que $F'(1)=0$ : la vitesse au bord de fuite devient finie, le point d'arrêt arrière se place exactement en $w=1$, et l'écoulement devient dissymétrique (c'est l'origine de la **portance**).`,
+* **Condition de Kutta** (hors programme, pour la culture) : on ajoute au potentiel le terme $\frac{i\Gamma}{2\pi}\log(z-c)$, dont la partie imaginaire $\frac{\Gamma}{2\pi}\ln|z-c|$ est harmonique et constante sur le cercle, qui reste donc une ligne de courant ($\log$ est multiforme sur $\C\setminus\{c\}$, mais $\Im F$ et la vitesse $F'$ sont bien définies). On choisit la **circulation** $\Gamma$ pour que $F'(1)=0$ : la vitesse au bord de fuite devient finie, le point d'arrêt arrière se place exactement en $w=1$, et l'écoulement devient dissymétrique (c'est l'origine de la **portance**).`,
   related: ['ch04-joukovski', 'ch04-composition-harmonique-holomorphe', 'ch04-ecoulement-potentiel', 'ch04-holomorphe-conserve-angles', 'ch04-reduction-demi-plan'],
   height: 420,
   mount(container, kit) {
@@ -437,8 +439,8 @@ et, sur un ouvert connexe, n'a **aucun maximum local** sauf si elle est constant
 
 **À faire.**
 * Avec une fonction harmonique ($x^2-y^2$, $\Re(z^3)$, $e^x\cos y$), déplacez le cercle et changez $r$ : « valeur au centre » et « moyenne » coïncident toujours. Dans la bande du bas, l'aire rouge (au-dessus de $h(z_0)$) compense exactement l'aire bleue. Le trait épais traverse **toujours** le cercle : il y a du rouge et du bleu sur tout cercle, donc $z_0$ n'est jamais un maximum local. Le maximum sur le disque fermé (triangle ▲) est toujours **sur le bord** : c'est ce qui donne l'unicité des problèmes de Dirichlet (poly, Remarque IV.2.6, p. 77 ; [[ch04-maximum-unicite-bord|fiche]]).
-* Avec $-(x^2+y^2)$ (non harmonique, $\Delta = -4$) placez $z_0$ en $0$ : tout est bleu autour, la moyenne est **strictement plus petite** que la valeur au centre et le maximum est **intérieur**. Avec $x^2+y^2$ ($\Delta = 4$) c'est l'inverse.
-* Avec $\log|z|$ ou $\Re(1/z)$, harmoniques sur $\C^\times = \C\setminus\{0\}$ seulement : tant que le disque fermé évite $0$, l'égalité tient ; dès qu'il contient $0$ (cercle en tirets), l'hypothèse $\bar D(z_0,r)\subset\Omega$ tombe et l'égalité est fausse (pour $\log|z|$ la moyenne vaut alors $\log r$).
+* Avec $-(x^2+y^2)$ (non harmonique, $\Delta = -4$) placez $z_0$ en $0$ : tout est bleu autour, la moyenne est **strictement plus petite** que la valeur au centre et le maximum est **intérieur**. Avec $x^2+y^2$ ($\Delta = 4$) c'est l'inverse : la moyenne vaut $|z_0|^2+r^2 > h(z_0)$ et, en $z_0=0$, c'est le **minimum** qui est intérieur (pour $h$ harmonique, le principe du maximum appliqué à $-h$ interdit aussi un minimum local).
+* Avec $\log|z|$ ou $\Re(1/z)$, harmoniques sur $\C^\times = \C\setminus\{0\}$ seulement : tant que le disque fermé évite $0$, l'égalité tient ; dès que $0$ est dans le disque (cercle en tirets), l'hypothèse $\bar D(z_0,r)\subset\Omega$ tombe et l'égalité est fausse : pour $\log|z|$ la moyenne vaut alors $\log r$ (et non $\log|z_0|$), pour $\Re(1/z)$ elle vaut $0$ (théorème des résidus).
 * Le bouton anime $r$ : l'égalité vaut pour **tous** les rayons, pas seulement pour $r$ petit.`,
   related: ['ch04-harmonique-moyenne-maximum', 'ch04-harmonique-def', 'ch04-maximum-unicite-bord', 'ch04-holomorphe-implique-harmonique', 'ch04-harmonique-reelle-partie-reelle'],
   height: 520,
@@ -448,13 +450,14 @@ et, sur un ouvert connexe, n'a **aucun maximum local** sauf si elle est constant
     const controls = kit.controls(container);
     const L = { x: -2.1, X: 2.1, y: -2.1, Y: 2.1 };
     const FN = {
-      x2y2: { name: 'x² − y² = Re(z²)  (harmonique)', h: (x, y) => x * x - y * y, z0: [0.4, 0.3], r: 1 },
-      cube: { name: 'x³ − 3xy² = Re(z³)  (harmonique)', h: (x, y) => x * x * x - 3 * x * y * y, z0: [0, 0], r: 1 },
-      expc: { name: 'eˣ cos y = Re(eᶻ)  (harmonique)', h: (x, y) => Math.exp(x) * Math.cos(y), z0: [0, 0.5], r: 1.2 },
-      log: { name: 'log|z|  (harmonique sur ℂ∖{0})', h: (x, y) => 0.5 * Math.log(x * x + y * y), z0: [1, 0.4], r: 0.6, sing: true },
-      rinv: { name: 'Re(1/z)  (harmonique sur ℂ∖{0})', h: (x, y) => x / (x * x + y * y), z0: [1, 0.5], r: 0.6, sing: true },
-      bump: { name: '−(x² + y²)  (NON harmonique)', h: (x, y) => -(x * x + y * y), z0: [0, 0], r: 1, nonh: true },
-      bowl: { name: 'x² + y²  (NON harmonique)', h: (x, y) => x * x + y * y, z0: [0.3, 0.2], r: 1, nonh: true },
+      // lap : laplacien exact (Δh = h_xx + h_yy), affiché dans la lecture « Δh(z₀) »
+      x2y2: { name: 'x² − y² = Re(z²)  (harmonique)', h: (x, y) => x * x - y * y, lap: 0, z0: [0.4, 0.3], r: 1 },
+      cube: { name: 'x³ − 3xy² = Re(z³)  (harmonique)', h: (x, y) => x * x * x - 3 * x * y * y, lap: 0, z0: [0, 0], r: 1 },
+      expc: { name: 'eˣ cos y = Re(eᶻ)  (harmonique)', h: (x, y) => Math.exp(x) * Math.cos(y), lap: 0, z0: [0, 0.5], r: 1.2 },
+      log: { name: 'log|z|  (harmonique sur ℂ∖{0})', h: (x, y) => 0.5 * Math.log(x * x + y * y), lap: 0, z0: [1, 0.4], r: 0.6, sing: true },
+      rinv: { name: 'Re(1/z)  (harmonique sur ℂ∖{0})', h: (x, y) => x / (x * x + y * y), lap: 0, z0: [1, 0.5], r: 0.6, sing: true },
+      bump: { name: '−(x² + y²)  (NON harmonique)', h: (x, y) => -(x * x + y * y), lap: -4, z0: [0, 0], r: 1, nonh: true },
+      bowl: { name: 'x² + y²  (NON harmonique)', h: (x, y) => x * x + y * y, lap: 4, z0: [0.3, 0.2], r: 1, nonh: true },
     };
     const sel = kit.select(controls, { label: '$h=$', options: Object.keys(FN).map(k => [FN[k].name, k]), value: 'x2y2', onChange: () => { const F = FN[sel.value]; z0 = F.z0.slice(); sR.value = F.r; computeGrid(); draw(); } });
     sel.select.style.maxWidth = '240px';
@@ -525,15 +528,20 @@ et, sur un ouvert connexe, n'a **aucun maximum local** sauf si elle est constant
       let s = 0; const ring = new Float64Array(N + 1);
       for (let k = 0; k <= N; k++) { const t = 2 * Math.PI * k / N; ring[k] = h(z0[0] + r * Math.cos(t), z0[1] + r * Math.sin(t)); if (k < N) s += ring[k]; }
       const mean = s / N;
-      let best = -Infinity, bx = 0, by = 0, onB = false, worst = Infinity, wx = 0, wy = 0;
-      for (let i = 0; i <= 30; i++) { const rr = r * i / 30; const na = i === 0 ? 1 : 96;
+      // max / min sur le disque fermé : on échantillonne l'intérieur (29 cercles × 96 angles + le centre), puis le bord
+      // finement (les 720 valeurs de `ring`) ; le bord ne « gagne » que s'il fait au moins aussi bien que l'intérieur.
+      let best = -Infinity, bx = 0, by = 0, onB = false, worst = Infinity, wx = 0, wy = 0, onBmin = false;
+      for (let i = 0; i < 30; i++) { const rr = r * i / 30; const na = i === 0 ? 1 : 96;
         for (let k = 0; k < na; k++) { const t = 2 * Math.PI * k / na, x = z0[0] + rr * Math.cos(t), y = z0[1] + rr * Math.sin(t), v = h(x, y);
           if (!isFinite(v)) continue;
-          if (v > best + 1e-12) { best = v; bx = x; by = y; onB = i === 30; }
+          if (v > best + 1e-12) { best = v; bx = x; by = y; }
           if (v < worst - 1e-12) { worst = v; wx = x; wy = y; } } }
-      const e = 1e-3, lap = (h(z0[0] + e, z0[1]) + h(z0[0] - e, z0[1]) + h(z0[0], z0[1] + e) + h(z0[0], z0[1] - e) - 4 * h0) / (e * e);
+      for (let k = 0; k < N; k++) { const v = ring[k]; if (!isFinite(v)) continue; const t = 2 * Math.PI * k / N;
+        if (v >= best - 1e-12) { best = v; bx = z0[0] + r * Math.cos(t); by = z0[1] + r * Math.sin(t); onB = true; }
+        if (v <= worst + 1e-12) { worst = v; wx = z0[0] + r * Math.cos(t); wy = z0[1] + r * Math.sin(t); onBmin = true; } }
+      const lap = (F.sing && !(Math.hypot(z0[0], z0[1]) > 0)) ? NaN : F.lap;
       const broken = !!F.sing && Math.hypot(z0[0], z0[1]) <= r + 1e-9;
-      return { h0, mean, ring, best, bx, by, onB, worst, wx, wy, lap, broken };
+      return { h0, mean, ring, best, bx, by, onB, worst, wx, wy, onBmin, lap, broken };
     }
 
     // ---------- dessin ----------
@@ -585,7 +593,7 @@ et, sur un ouvert connexe, n'a **aucun maximum local** sauf si elle est constant
       roC.set(fmt(S.h0));
       roM.set(fmt(S.mean) + ` &nbsp;(écart ${fmt(S.mean - S.h0)})` + (S.broken ? ' — hypothèse violée : 0 ∈ D̄(z₀,r)' : ''));
       roX.set(`${fmt(S.best)} atteint ${S.onB ? 'sur le bord' : '<b>à l’intérieur</b>'}`);
-      roL.set(Math.abs(S.lap) < 1e-3 ? '0 (harmonique)' : S.lap.toFixed(2) + (F.nonh ? ' (non harmonique)' : ''));
+      roL.set(!isFinite(S.lap) ? 'non défini (0 ∉ Ω)' : S.lap === 0 ? '0 (harmonique)' : S.lap.toFixed(0) + ' (non harmonique)');
     }
     function drawStrip(S, t) {
       const ctx = st2.ctx, W = st2.W, H = st2.H, ring = S.ring, N = ring.length - 1;

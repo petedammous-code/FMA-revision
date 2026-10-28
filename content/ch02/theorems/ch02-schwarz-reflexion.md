@@ -13,7 +13,7 @@ tags: [schwarz, reflexion, prolongement, morera, conjugaison, segment reel]
 
 > 💡 Un segment de droite est « trop fin » pour empêcher l'holomorphie : si une fonction est holomorphe au-dessus et au-dessous d'un segment réel et **continue à travers**, elle est holomorphe partout. Et si une fonction n'est définie que sur le demi-disque supérieur mais prend des **valeurs réelles** sur le diamètre, on peut la prolonger au demi-disque inférieur « en miroir » : on symétrise à la fois la variable ($z\mapsto\bar z$) et la valeur ($w\mapsto\bar w$).
 
-Image mentale : posez un miroir sur l'axe réel du plan de départ **et** un miroir sur l'axe réel du plan d'arrivée. Une conjugaison seule renverse l'orientation (la fonction $z\mapsto f(\bar z)$ n'est pas holomorphe) ; deux conjugaisons se compensent, et $z\mapsto\overline{f(\bar z)}$ redevient holomorphe.
+Image mentale : posez un miroir sur l'axe réel du plan de départ **et** un miroir sur l'axe réel du plan d'arrivée. Une conjugaison seule renverse l'orientation (la fonction $z\mapsto f(\bar z)$ n'est pas holomorphe, sauf si $f$ est localement constante) ; deux conjugaisons se compensent, et $z\mapsto\overline{f(\bar z)}$ redevient holomorphe.
 
 L'outil clé est le **théorème de Morera** ([[ch01-morera]]) : une fonction **continue** dont l'intégrale sur le bord de tout triangle plein contenu dans l'ouvert est nulle est holomorphe. Rappel : $f$ est **holomorphe** sur un ouvert $\Omega$ si elle est $\C$-dérivable en tout point avec $f'$ continue ([[ch01-def-holomorphe]]).
 
@@ -131,7 +131,7 @@ donc $F$ est holomorphe hors de $\R$, et (1') conclut. $\square$
 
 ## Pièges
 
-* > ⚠️ La réflexion est $F(z)=\overline{f(\bar z)}$ (**deux** conjugaisons). La fonction $z\mapsto f(\bar z)$ seule n'est pas holomorphe (elle est « antiholomorphe »), et $\overline{f(z)}$ non plus.
+* > ⚠️ La réflexion est $F(z)=\overline{f(\bar z)}$ (**deux** conjugaisons). La fonction $z\mapsto f(\bar z)$ seule n'est pas holomorphe (elle est « antiholomorphe »), et $\overline{f(z)}$ non plus — sauf si $f$ est localement constante ([[ch01-module-conjugue-non-holomorphes]]).
 * > ⚠️ La continuité **jusqu'au** segment est indispensable : être holomorphe séparément au-dessus et au-dessous ne suffit pas (contre-exemple de H1).
 * $D^+$ et $D^-$ sont les demi-disques **fermés du côté du diamètre** : le diamètre est dans les deux, c'est là que la réalité des valeurs assure la cohérence.
 * L'ensemble exceptionnel doit être mince (segment, ou plus généralement une droite) : hors d'un disque fermé, le résultat est faux (contre-exemple de H2).
