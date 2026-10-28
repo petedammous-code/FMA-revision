@@ -47,7 +47,7 @@
     head.addEventListener('click', () => card.classList.toggle('open'));
     const body = h('div', { class: 'card-body' }, bodyEl); card.append(head, body); return card;
   }
-  function setPage(title, ...els) { FMA.unmountAllViz(); main.innerHTML = ''; const mm = h('div', { class: 'modes-mobile' }, ...[['cours', 'Cours'], ['reflexes', 'Réflexes'], ['probleme', 'Problème inconnu'], ['flashcards', 'Flashcards']].map(([r, l]) => h('a', { href: '#/' + r }, l))); main.append(mm, ...els.flat().filter(Boolean)); document.title = (title ? title + ' — ' : '') + 'FMA'; main.querySelectorAll('.viz-slot').forEach(s => FMA.mountViz(s.dataset.viz, s)); window.scrollTo(0, 0); }
+  function setPage(title, ...els) { FMA.unmountAllViz(); main.innerHTML = ''; const mm = h('div', { class: 'modes-mobile' }, ...[['cours', 'Cours'], ['reflexes', 'Réflexes'], ['probleme', 'Problème inconnu'], ['flashcards', 'Flashcards']].map(([r, l]) => h('a', { href: '#/' + r }, l))); main.append(mm, ...els.flat().filter(Boolean)); document.title = (title ? title + ' — ' : '') + 'FMA'; main.querySelectorAll('.viz-slot').forEach(s => FMA.mountViz(s.dataset.viz, s)); FMA.fixStrayMath(main); window.scrollTo(0, 0); }
 
   // ---------- sidebar ----------
   function renderSidebar(route) {
@@ -60,7 +60,7 @@
       parts.push(`<a href="#/cours/ch${c.nn}"${active('#/cours/ch' + c.nn)}><b>${c.roman}</b> ${esc(c.title)} <span class="muted" style="color:var(--muted);font-size:.8em">${read}/${ths.length}</span></a>`);
       if (route && route.chapter === c.num) parts.push('<div class="sub">' + ths.map(t => `<a href="#/fiche/${t.id}" class="${location.hash === '#/fiche/' + t.id ? 'active' : ''}${P.read[t.id] ? ' done' : ''}">${esc(t.title)}</a>`).join('') + '</div>');
     }
-    sidebar.innerHTML = parts.join('');
+    sidebar.innerHTML = parts.join(''); FMA.fixStrayMath(sidebar);
     document.querySelectorAll('.modes a').forEach(a => a.classList.toggle('active', location.hash.startsWith('#/' + a.dataset.route)));
   }
 

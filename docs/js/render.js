@@ -29,11 +29,26 @@
     if (C.reflexes && C.reflexes[id]) return `#/reflexes/${id}`;
     return `#/fiche/${id}`;
   };
+  // Titre court pouvant contenir des maths en ligne ($...$) : échappe le texte, rend les maths avec KaTeX.
+  function inlineTitle(s) {
+    if (s == null) return '';
+    return String(s).split(/(\$[^$\n]{1,200}\$)/g).map((seg, i) => i % 2 ? tex(seg.slice(1, -1).trim(), false) : escapeHtml(seg)).join('');
+  }
+  // Rend a posteriori les $...$ restés en texte brut dans un sous-arbre DOM (titres injectés comme texte par l'application).
+  function fixStrayMath(root) {
+    if (!root || !window.katex) return;
+    const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, { acceptNode: n => {
+      if (!/\$[^$\n]{1,200}\$/.test(n.nodeValue)) return NodeFilter.FILTER_REJECT;
+      for (let e = n.parentElement; e && e !== root; e = e.parentElement) { if (e.closest && (e.matches('.katex, code, pre, script, style, textarea, input, option'))) return NodeFilter.FILTER_REJECT; }
+      return NodeFilter.FILTER_ACCEPT; } });
+    const nodes = []; let n; while ((n = walker.nextNode())) nodes.push(n);
+    for (const node of nodes) { const span = document.createElement('span'); span.innerHTML = inlineTitle(node.nodeValue); node.replaceWith(...span.childNodes); }
+  }
   function xref(id, text) {
     const t = titleOf(id);
-    const label = text || (t ? t : id);
     const cls = t ? 'xref' : 'xref xref-missing';
-    return `<a class="${cls}" href="${hrefOf(id)}" data-id="${escapeHtml(id)}" title="${escapeHtml(t || 'fiche absente')}">${escapeHtml(label)}</a>`;
+    const label = text ? escapeHtml(text) : (t ? inlineTitle(t) : escapeHtml(id));
+    return `<a class="${cls}" href="${hrefOf(id)}" data-id="${escapeHtml(id)}" title="${escapeHtml((t || 'fiche absente').replace(/\$/g, ''))}">${label}</a>`;
   }
   // Marked configuration
   if (window.marked) marked.setOptions({ gfm: true, breaks: false, mangle: false, headerIds: false });
@@ -96,5 +111,5 @@
   }
   function renderInto(el, md, opts) { el.innerHTML = render(md, opts); activate(el); return el; }
   window.FMA = window.FMA || {};
-  Object.assign(window.FMA, { render, renderInto, activate, tex, escapeHtml, xref, titleOf, hrefOf, MACROS });
+  Object.assign(window.FMA, { render, renderInto, activate, tex, escapeHtml, xref, titleOf, hrefOf, inlineTitle, fixStrayMath, MACROS });
 })();
