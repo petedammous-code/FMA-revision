@@ -60,11 +60,7 @@ Pour $j=1$ et $t=0$ ($x(0)=a$), $(P_1)$ est exactement (V.5.3).
 
 ## Preuve à trous
 
-On pose $x(t)=a+\sum_it_ih_i$ et $\varphi(t)=f(x(t))$ pour $t$ proche de $0$. Pour $\psi$ différentiable et $T$ linéaire continue, la règle de la chaîne donne
-$$
-\frac{\partial}{\partial t_j}\big[T(\psi(x(t)))\big]=\text{\small (à retrouver)}
-$$
-à savoir <trou indice="dériver s ↦ T(ψ(x(t)+s h_j)) en s=0">$T\big(d\psi_{x(t)}(h_j)\big)$, car $x(t+se_j)=x(t)+sh_j$</trou>.
+On pose $x(t)=a+\sum_it_ih_i$ et $\varphi(t)=f(x(t))$ pour $t$ proche de $0$. Pour $\psi$ différentiable et $T$ linéaire continue, la règle de la chaîne donne $\frac{\partial}{\partial t_j}\big[T(\psi(x(t)))\big]=$ <trou indice="dériver s ↦ T(ψ(x(t)+s h_j)) en s=0">$T\big(d\psi_{x(t)}(h_j)\big)$, car $x(t+se_j)=x(t)+sh_j$</trou>.
 
 On montre par récurrence descendante sur $j$ que <trou indice="formule pour la dérivée partielle itérée en t_j,…,t_p">$\frac{\partial}{\partial t_j}\cdots\frac{\partial}{\partial t_p}\varphi(t)=d^{p-j+1}f_{x(t)}(h_j,\dots,h_p)$</trou>. Pour $j=p$, c'est le cas $\psi=f$, $T=\mathrm{Id}$. Pour passer de $j+1$ à $j$, on applique la règle ci-dessus avec <trou indice="quelle application ψ, quelle forme linéaire T ?">$\psi=d^{p-j}f$ et $T=$ évaluation en $(h_{j+1},\dots,h_p)$</trou>, et l'on utilise la convention $\big(d(d^{p-j}f)_x(h_j)\big)(h_{j+1},\dots,h_p)=d^{p-j+1}f_x(h_j,\dots,h_p)$. En $j=1$, $t=0$, on obtient (V.5.3). $\square$
 
@@ -76,7 +72,7 @@ d^2f_a(h,k)=2h_1k_1a_2+2a_1(h_1k_2+k_1h_2),
 $$
 ce qui coïncide avec la hessienne $\begin{pmatrix}2a_2&2a_1\\2a_1&0\end{pmatrix}$ (car $\frac{\partial^2 f}{\partial x^2}=2y$, $\frac{\partial^2 f}{\partial x\partial y}=2x$, $\frac{\partial^2f}{\partial y^2}=0$).
 * **Carré de la norme.** Dans un Hilbert, $q(x)=\|x\|^2$ : $q(a+t_1h+t_2k)=\|a\|^2+2t_1\langle a,h\rangle+2t_2\langle a,k\rangle+t_1^2\|h\|^2+t_2^2\|k\|^2+2t_1t_2\langle h,k\rangle$, donc $d^2q_a(h,k)=2\langle h,k\rangle$ ; et $q(a+th)$ est un polynôme de degré $2$ en $t$, donc $d^3q_a(h,h,h)=0$, puis $d^3q_a=0$ par polarisation.
-* **Inverse matriciel, forme diagonale.** $f(A)=A^{-1}$ près de $A=I_n$ : pour $t$ petit, $(I+tH)^{-1}=\sum_{k\ge0}(-t)^kH^k$ (série de Neumann, [[ch05-serie-neumann]]), donc $\frac{d^p}{dt^p}\big[(I+tH)^{-1}\big]_{t=0}=(-1)^p\,p!\,H^p$ et $d^pf_{I}(H,\dots,H)=(-1)^pp!\,H^p$ (sachant que $f$ est $C^\infty$, [[ch05-inversion-c-infini]]).
+* **Inverse matriciel, forme diagonale.** $f(A)=A^{-1}$ près de $A=I_n$ : pour $t$ petit, $(I+tH)^{-1}=\sum_{k\ge0}(-t)^kH^k$ (série de Neumann, [[ch05-serie-neumann]] ; c'est une série entière en $t$ à coefficients dans $\mathrm M_n(\R)$, de rayon $\ge1/\|H\|$, que l'on peut dériver terme à terme), donc $\frac{d^p}{dt^p}\big[(I+tH)^{-1}\big]_{t=0}=(-1)^p\,p!\,H^p$ et $d^pf_{I}(H,\dots,H)=(-1)^pp!\,H^p$ (sachant que $f$ est $C^\infty$, [[ch05-inversion-c-infini]]).
 
 ## Pièges
 

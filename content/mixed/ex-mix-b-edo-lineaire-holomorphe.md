@@ -111,4 +111,4 @@ Pour $\lambda\notin\Z$, $\varphi=\cos(\lambda\arccos\cdot)$ est développable en
 * **Disque (ou ouvert simplement connexe) indispensable** : sur une couronne, les solutions peuvent être « multiformes ». Pour $w'=\frac{\alpha}{z}w$ sur $\C^*$ ($\alpha\notin\Z$), la solution locale $z^\alpha$ ne se prolonge pas en une fonction holomorphe sur $\C^*$ ; l'opérateur $I$ n'a d'ailleurs pas de sens hors d'un ouvert étoilé.
 * **Linéarité indispensable** : pour l'équation non linéaire $y'=y^2$, $y(0)=1$, le second membre est entier mais la solution $1/(1-z)$ a un rayon $1$. Le rayon ne se lit plus sur les coefficients.
 * Le résultat est une **minoration** du domaine d'holomorphie (6 c), cas $\lambda\in\N$).
-* Variante : équation d'Airy $w''=zw$ ($A$ entière, $R=+\infty$) : toutes les solutions sont entières ; relation $c_{m+3}=c_m/((m+2)(m+3))$, $c_2=0$.
+* Variante : équation d'Airy $w''=zw$ ($A$ entière, $R=+\infty$) : toutes les solutions sont entières, avec $c_2=0$ et $c_{m+3}=c_m/((m+2)(m+3))$ ; leur croissance et leurs zéros sont étudiés dans [[ex-mix-b-zeros-airy]].

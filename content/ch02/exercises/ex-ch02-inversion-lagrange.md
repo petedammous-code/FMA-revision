@@ -5,7 +5,7 @@ chapters: [2, 1]
 title: Formule d'inversion de Lagrange
 source: "Classique (formule d'inversion de Lagrange, preuve par Rouché et les résidus)"
 difficulty: 3
-time: 45
+time: 40
 tools: [ch02-rouche, ch02-formule-residus, ch02-meromorphes-operations, ch02-principe-argument, ch01-estimees-cauchy, ch01-serie-entiere-holomorphe, ch01-integrale-primitive]
 ---
 ## Énoncé
