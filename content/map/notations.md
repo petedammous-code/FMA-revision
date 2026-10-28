@@ -123,7 +123,7 @@
 | $f(z) := z^{1/(2\alpha)}$ | puissance envoyant le coin $K_\alpha$ sur $H$ | IV | 83 |
 | $f(z) = J(z) := \tfrac12\big(z+\tfrac1z\big)$ | transformation de Joukovski (1910), définie sur $\mathbb C^*$ | IV | 83 |
 | $\Psi$, $G = \Phi+i\Psi$ | fonction de courant (conjuguée harmonique de $\Phi$) et potentiel complexe, holomorphe | IV | 84 |
-| $v = v_x+iv_y$ | vitesse complexe (affixe du vecteur vitesse) ; $G'(z) = v_x - iv_y$, donc $v = \overline{G'(z)}$ | IV | 84 |
+| $v = v_x+iv_y$ | vitesse complexe (affixe du vecteur vitesse) ; $G'(z) = \partial_x\Phi+i\partial_x\Psi = v_x - iv_y$, donc $v = \overline{G'(z)}$ (**vérifié sur le PDF** : la barre de conjugaison est perdue dans le texte extrait, p. 84 et question 5 p. 85) | IV | 84 |
 | $C_R$ | cercle de centre $0$ et de rayon $R$ | IV | 84 |
 | $F(z) = V_0\big(ze^{-i\alpha}+\tfrac{e^{i\alpha}}z\big)$ | potentiel complexe de l'écoulement uniforme de vitesse $V_0$, d'incidence $\alpha$, autour du cylindre unité | IV | 84 |
 | $S_{in}$, $S_{out}$ | points d'arrêt entrant et sortant sur la plaque plane | IV | 85 |
@@ -134,6 +134,11 @@
 | $f(z) = \dfrac{az+b}{cz+d}$ | transformation homographique (de Möbius) | IV | 86 |
 | $\rho^-<\rho^+$, $\rho^+/\rho^-$ | rayons de la couronne centrée image et son **module conforme** | IV | 86 |
 | $\mathrm{Log}$, $\mathrm{Arg}(z)$ | détermination principale du logarithme sur $\mathbb C\setminus\mathbb R_-$ et son argument principal $\in]-\pi,\pi[$ ; $\Im m\,\mathrm{Log}(z) = \mathrm{Arg}(z)$ | IV | 86 |
+| $\mathrm{Hol}(\Omega)$ | espace des fonctions holomorphes sur l'ouvert $\Omega$ (Définition I.1.1, p. 5) ; utilisé dès la première ligne du chapitre | IV | 75 |
+| $\alpha$ (trois usages) | $\alpha\in]0,1[$ ouverture du coin $K_\alpha$ (p. 83) ; $\alpha$ angle d'incidence de l'écoulement (Exercice IV.4.1, p. 84-85) ; $\alpha,\beta$ constantes réelles de $\alpha\log\|z\|+\beta$ (p. 85). Ne pas confondre | IV | 83 |
+| $z(w)$ | réciproque de $J$ sur $\mathbb C\setminus[-1,1]$, à valeurs dans $\mathbb C\setminus\bar D(0,1)$ : $z(w) = w+\sqrt{w^2-1}$ avec la branche telle que $\|z\|>1$ (équivalent : $z = w\big(1+\sqrt{1-1/w^2}\big)$, racine principale) | IV | 85 |
+| $J'(z) = \tfrac12\big(1-\tfrac1{z^2}\big)$ | dérivée de Joukovski, nulle en $z = \pm1$ (points où $J$ n'est pas conforme et où la vitesse $G'(w) = F'(z)/J'(z)$ explose) | IV | 85 |
+| $T(x,y)$, $T_0$, $T_1$ | température stationnaire sur $H$ et valeurs imposées sur le bord : $T_1$ pour $x>0$, $T_0$ pour $x<0$ (Exercice IV.4.3) | IV | 86 |
 | $E$, $F$, $G$ | espaces vectoriels normés RÉELS (tout le chapitre est sur le corps $\mathbb R$) | V | 93 |
 | $\|\cdot\|_E$, $\|\cdot\|$ | norme de $E$ ; souvent notée $\\|\cdot\\|$ sans mention de l'espace | V | 93 |
 | $\mathcal L(E;F)$ | espace des applications linéaires continues de $E$ dans $F$ (le poly écrit $L(E;F)$ avec un point-virgule) | V | 93 |
@@ -187,6 +192,50 @@
 | $M_m(\mathbb R)$ | matrices carrées réelles de taille $m$ (Exercice V.6.2) | V | 112 |
 | $\ell^1(\mathbb R)$ | espace de Banach des suites réelles sommables, $\\|x\\|=\sum_i\|x_i\|$ | V | 113 |
 | $C^1([0,1],\mathbb R^2)$, $C^0([0;1],\mathbb R)$ | espaces de fonctions de classe $C^1$ (resp. continues) sur $[0,1]$ (Exercices V.6.5, V.6.6) | V | 113 |
+| $(X,d_X)$, $(Y,d_Y)$, $(X,d)$ | espaces métriques (complets pour les théorèmes de point fixe) | VI | 115 |
+| $T$ $a$-lipschitzienne | $d_Y(T(x),T(y))\le a\,d_X(x,y)$ pour tous $x,y$ ; contractante si $Y=X$ et $a<1$ | VI | 115 |
+| $a\in[0\,;1[$ | constante de contraction (notation d'intervalle du poly : $[0\,;1[$) | VI | 115 |
+| $T^n$, $T^m(T^{n-m}(x_0))$ | itérées de $T$ ; suite des itérées $x_{n+1}=T(x_n)$ partant de $x_0$ | VI | 115 |
+| $\Lambda$ | espace des paramètres (espace topologique dans VI.1.2, ouvert d'un Banach $E$ dans VI.1.4) | VI | 116 |
+| $g_\lambda : X\to X$, $x\mapsto g(\lambda,x)$ | application partielle à paramètre $\lambda$ fixé | VI | 116 |
+| $\varphi(\lambda)$ | l'unique point fixe de $g_\lambda$ ; $\varphi : \Lambda\to X$ | VI | 116 |
+| $f$ différentiable / $C^p$ sur une partie $X$ non ouverte | restriction à $X$ d'une application différentiable / $C^p$ sur un voisinage ouvert $U$ de $X$ (Définition VI.1.3) | VI | 116 |
+| $\dfrac{\partial g}{\partial x}(\lambda,x)\in\mathcal L(F)$, $\dfrac{\partial g}{\partial\lambda}(\lambda,x)\in\mathcal L(E;F)$ | différentielles partielles de $g : \Lambda\times X\to X\subset F$ par rapport à la seconde et à la première variable (cf. section V.3.4) | VI | 117 |
+| $A:=\frac{\partial g}{\partial x}(\lambda,\varphi(\lambda))$, $B:=\frac{\partial g}{\partial\lambda}(\lambda,\varphi(\lambda))$ | notations de la preuve de VI.1.4 ; $d\varphi_\lambda=(\mathrm{Id}_F-A)^{-1}\circ B$ | VI | 117 |
+| $\mathrm{Id}_F$, $\mathrm{Id}_E$, $\mathrm{Id}-L$ | application identité ; $(\mathrm{Id}-L)^{-1}=\sum_{n\ge0}L^n$ si $\\|L\\|<1$ | VI | 117 |
+| $\bar B(\lambda,\rho)$, $B(x_0,r)$, $\bar B(y_0,s)$, $B_E(0,\delta)$, $B_F(0,\epsilon)$, $B_{\mathcal L(E)}(0,a)$ | boules fermées ($\bar B$) et ouvertes ($B$) de centre et rayon indiqués, l'indice précisant l'espace | VI | 117 |
+| $\gamma(h)=\varphi(\lambda+h)-\varphi(\lambda)$ | accroissement du point fixe (preuve de VI.1.4) | VI | 117 |
+| (VI.1.1) $\|\gamma(h)\|_F\le\frac{C}{1-a}\|h\|_E$ | estimation lipschitzienne locale du point fixe en le paramètre | VI | 117 |
+| $o(\|h\|)$, $O(\|h\|)$ | notations de Landau pour les restes | VI | 117 |
+| $\mathcal L(E)$, $\mathcal L(E;F)$ | applications linéaires continues de $E$ dans $E$ (resp. dans $F$), munies de la norme d'opérateur $\\|\cdot\\|$ | VI | 117 |
+| $\dfrac{\partial f}{\partial y}(x_0,y_0)$, $\dfrac{\partial f}{\partial x}(x,\varphi(x))$ | différentielles partielles de $f : U\times V\to G$ ; $\partial f/\partial y\in\mathcal L(F;G)$, $\partial f/\partial x\in\mathcal L(E;G)$ | VI | 118 |
+| isomorphisme bicontinu | application linéaire bijective, continue, d'inverse continu (automatique entre Banach, Théorème V.2.3) ; notation $\mathrm{Iso}(E;F)$ au chapitre V | VI | 118 |
+| $U_0$, $V_0$ | voisinages ouverts de $x_0$ et $y_0$ sur lesquels l'équation $f(x,y)=f(x_0,y_0)$ se résout en $y=\varphi(x)$ (dans la preuve $U_0=B(x_0,r)$, $V_0=B(y_0,s)$) | VI | 118 |
+| $g(x,y)=y-\big(\frac{\partial f}{\partial y}(x_0,y_0)\big)^{-1}(f(x,y)-f(x_0,y_0))$ | application auxiliaire de la preuve des fonctions implicites, dont les points fixes en $y$ sont les solutions ; $g_x=g(x,\cdot)$ | VI | 118 |
+| $M$, $r_0$, $s$, $r$ | constantes de la preuve de VI.2.1 : $\\|\partial f/\partial x\\|\le M$ et $\\|\partial g/\partial y\\|\le1/2$ sur $\bar B(x_0,r_0)\times\bar B(y_0,s)$ ; $r=\min(r_0, s/(2M\\|(\partial f/\partial y(x_0,y_0))^{-1}\\|))$ | VI | 118 |
+| $C^k$-difféomorphisme | bijection $C^k$ entre ouverts dont l'inverse est $C^k$ (Définition VI.3.1) | VI | 119 |
+| $df_{x_0}$, $df_x$ | différentielle de $f$ au point $x_0$ (notation du chapitre V) | VI | 120 |
+| $f(U)$ | image de $U$ par $f$ (ouvert dans le théorème d'inversion globale) | VI | 120 |
+| $d^2f_a$ | différentielle seconde en $a$, forme bilinéaire symétrique ; non dégénérée de signature $(r,s)$ | VI | 120 |
+| $\mathrm M_m(\mathbb R)$, $\mathrm{Sym}_m$, $\mathrm{ASym}_m$, $\mathrm{GL}(m,\mathbb R)$ | matrices carrées réelles de taille $m$ ; sous-espaces des symétriques et antisymétriques ; groupe des inversibles | VI | 120 |
+| $I_{r,s}=\begin{pmatrix}I_r&0\\0&-I_s\end{pmatrix}$, $I_m$ | matrice de la forme quadratique normale de signature $(r,s)$ ; matrice identité | VI | 120 |
+| ${}^thSk$ | forme bilinéaire de matrice $S$ ($\mathbb R^m$ identifié aux matrices colonnes, ${}^t$ = transposée) | VI | 120 |
+| $B : U_0\to\mathrm{Sym}_m$, $g(C)={}^tCI_{r,s}C$, $\eta : Y\to\mathrm{GL}(m,\mathbb R)$, $\mathcal E$ | objets du lemme de Morse : $f(x)={}^txB(x)x$ ; $g$ congruence ; $\eta$ racine carrée lisse ($S={}^t\eta(S)I_{r,s}\eta(S)$) ; $\mathcal E=\{X\,;\,I_{r,s}X\in\mathrm{Sym}_m\}$ supplémentaire de $\ker dg_{I_m}$ | VI | 120 |
+| $\psi$, $\varphi=\eta(B(x))x$ | difféomorphisme de Morse $\psi=\varphi^{-1}$, $f\circ\psi(h)=f(a)+\sum_{i\le r}h_i^2-\sum_{i>r}h_i^2$ | VI | 120 |
+| $\mathbb N^\times$ | entiers naturels non nuls | VI | 121 |
+| $[a,b]=\{ta+(1-t)b\,;\,t\in[0;1]\}$ | segment de $a$ à $b$ dans un espace vectoriel | VI | 121 |
+| $g(r)=df_{x_0+r}^{-1}$, $C=\|df_{x_0}^{-1}\|$, $M$, $R(r)$, $\phi(r)$, $K$ | notations de la méthode de Newton : inverse de la différentielle, constante de Lipschitz de $df$, reste $R(r)=f(x_0)-f(x_0+r)+df_{x_0+r}(r)$, application de point fixe $\phi(r)=df_{x_0+r}^{-1}(f(x_0+r)-df_{x_0+r}(r))$, rapport de contraction | VI | 122 |
+| $x_{n+1}=x_n-df_{x_n}^{-1}(f(x_n))$ | itération de Newton | VI | 122 |
+| $P_\varepsilon(x)=(x-a)(b-x)+\varepsilon x^3$, $x_a(\varepsilon)<x_b(\varepsilon)<x_c(\varepsilon)$ | polynôme perturbé et ses trois racines | VI | 122 |
+| $I(\varepsilon)=\int_{x_a(\varepsilon)}^{x_b(\varepsilon)}\frac{dx}{\sqrt{P_\varepsilon(x)}}$ | intégrale elliptique (angle balayé entre aphélie et périhélie) | VI | 123 |
+| $\Delta\varpi$, $p$, $\varepsilon=2GM/c^2$ | avance du périhélie par révolution ; paramètre de l'ellipse ; rayon de Schwarzschild | VI | 123 |
+| $E_1=\ker df_a$, $E_2$ supplémentaire fermé | décomposition $E=E_1\oplus E_2$ utilisée pour les submersions | VI | 124 |
+| $\|f\|_1=\sup|f|+\sup|f'|$, $\|f\|_0=\sup|f|$ | normes $C^1$ et $C^0$ sur $C^1([0;1];\mathbb R)$ et $C^0([0;1];\mathbb R)$ | VI | 124 |
+| $\Psi(f)(t)=f'(t)+tf(t)^2$ | opérateur différentiel non linéaire de l'exercice VI.4.6 | VI | 124 |
+| $\lambda_i(A)$, $v_i(A)$ | valeurs propres et vecteurs propres dépendant lissement de $A\in\mathrm M_n(\mathbb R)$ | VI | 124 |
+| immersion en $a$ / submersion en $a$ | $df_a$ injective / surjective | VI | 125 |
+| $\mathrm{rang}(df_a)$, $r$ | rang de la différentielle (de la matrice jacobienne) en $a$ | VI | 125 |
+| $\Theta(x)=(f_1(x),\dots,f_r(x),x_{r+1},\dots,x_n)$, $\Phi=\Theta^{-1}$, $g=f\circ\Phi$, $\Psi$ | changements de coordonnées à la source ($\Phi$) et au but ($\Psi$) du théorème du rang constant ; $dg_y=\begin{pmatrix}I_r&0\\ *&B(y)\end{pmatrix}$ | VI | 126 |
 | $\alpha^{(k)}(t)=X(t,\alpha(t),\dots,\alpha^{(k-1)}(t))$ (VII.1.1) | équation différentielle d'ordre $k$ ; $\alpha^{(j)}$ dérivée $j$-ième | VII | 127 |
 | $\alpha'(t)=X(t,\alpha(t))$ (VII.1.2) | forme générale d'un système d'ordre 1, $X : I\times U\to\mathbb R^r$ (ou $E$ Banach) | VII | 127 |
 | $X : I\times U\to E$ | champ de vecteurs dépendant du temps sur l'ouvert $U$ de l'espace de Banach $E$ ($I$ intervalle ouvert de $\mathbb R$) ; $X : U\to E$ si autonome | VII | 128 |

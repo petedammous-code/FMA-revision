@@ -1,0 +1,990 @@
+{
+  "chapter": {
+    "num": 6,
+    "nn": "06",
+    "roman": "VI",
+    "title": "Inversion locale et fonctions implicites",
+    "printed_pages": [
+      115,
+      126
+    ],
+    "summary": "Le chapitre VI est court (douze pages) mais c'est la clé de voûte de la partie « calcul différentiel » : il relie l'outil analytique le plus simple qui soit, le point fixe d'une application contractante, aux deux grands théorèmes de redressement local, fonctions implicites et inversion locale, dont dépendent ensuite Cauchy-Lipschitz (chapitre VII) et toute la théorie des sous-variétés (chapitre IX). Le fil logique est linéaire et doit être su : le Théorème VI.1.1 (point fixe de Banach) donne un unique point fixe à toute application $a$-lipschitzienne, $a<1$, d'un espace métrique complet dans lui-même, par convergence de la suite des itérées ; le Théorème VI.1.2 (paramètre I) montre que ce point fixe dépend continûment d'un paramètre topologique ; le Théorème VI.1.4 (paramètre II), sous l'hypothèse $\\|\\partial g/\\partial x\\|\\le a<1$ sur $\\Lambda\\times X$ avec $X$ fermé convexe d'un Banach, montre qu'il dépend de façon $C^p$ du paramètre, avec la formule $d\\varphi_\\lambda=(\\mathrm{Id}_F-\\partial g/\\partial x)^{-1}\\circ\\partial g/\\partial\\lambda$. Le Théorème VI.2.1 (fonctions implicites) s'en déduit en réécrivant l'équation $f(x,y)=f(x_0,y_0)$ comme une équation de point fixe $y=g(x,y)$ avec $g(x,y)=y-(\\partial f/\\partial y(x_0,y_0))^{-1}(f(x,y)-f(x_0,y_0))$, de différentielle partielle nulle en $(x_0,y_0)$ donc $\\le 1/2$ au voisinage : on obtient $\\varphi$ de classe $C^p$ avec $d\\varphi_x=-(\\partial f/\\partial y)^{-1}\\circ\\partial f/\\partial x$. Le Théorème VI.3.2 (inversion locale) est à son tour un corollaire des fonctions implicites appliqué à $g(y,x)=f(x)-y$ ; le Corollaire VI.3.3 (inversion globale) ajoute l'injectivité pour obtenir un difféomorphisme global sur l'image, qui est ouverte. Les résultats centraux sont donc VI.1.1, VI.1.4, VI.2.1, VI.3.2 et VI.3.3. Le reste du chapitre est constitué d'applications en exercice qui sont de vrais résultats de cours ailleurs : le lemme de Morse (VI.3.4, forme normale d'une fonction au voisinage d'un point critique non dégénéré, réutilisé au chapitre IX), la méthode de Newton dans les Banach (VI.4.2), la perturbation des racines d'un polynôme et le calcul du périhélie de Mercure (VI.4.3, Remarque VI.4.4), la surjectivité locale d'une submersion (VI.4.5) avec application à une équation différentielle non linéaire (VI.4.6), la dépendance lisse des valeurs et vecteurs propres simples (VI.4.7), un problème aux limites (VI.4.8) et le théorème du rang constant (VI.4.9).",
+    "sections": [
+      {
+        "num": "VI.1",
+        "title": "Théorème de point fixe de Banach",
+        "page": 115
+      },
+      {
+        "num": "VI.2",
+        "title": "Théorème des fonctions implicites",
+        "page": 118
+      },
+      {
+        "num": "VI.3",
+        "title": "Théorèmes d'inversion locale et globale",
+        "page": 119
+      },
+      {
+        "num": "VI.4",
+        "title": "Exercices",
+        "page": 121
+      }
+    ]
+  },
+  "results": [
+    {
+      "id": "ch06-lipschitz-contractante-def",
+      "kind": "definition",
+      "ref": "non numéroté, section VI.1, p. 115",
+      "title": "Application lipschitzienne, $a$-lipschitzienne, contractante",
+      "page": 115,
+      "statement": "Soient $(X,d_X)$ et $(Y,d_Y)$ des espaces métriques. Une application $T : X\\to Y$ est dite **lipschitzienne** s'il existe une constante réelle positive $a$ telle que, quels que soient $x,y\\in X$,\n$$d_Y(T(x),T(y))\\le a\\,d_X(x,y).$$\nOn dit alors que $T$ est **$a$-lipschitzienne**. Une application lipschitzienne est en particulier continue. Si $(Y,d_Y)=(X,d_X)$ et que la constante $a$ est strictement plus petite que $1$, on dit que $T : X\\to X$ est **contractante**.",
+      "hypotheses": [
+        "la constante $a$ est uniforme sur tout $X$ (pas seulement locale)",
+        "contractante exige $a<1$ strictement, et $Y=X$"
+      ],
+      "depends_on": [],
+      "used_by_hint": "Hypothèse de tous les théorèmes de point fixe VI.1.1, VI.1.2, VI.1.4 ; hypothèse « localement lipschitzien » de Cauchy-Lipschitz VII.2.1.",
+      "importance": 2,
+      "proof_in_poly": "none",
+      "proof_length": "short",
+      "counterexample_hints": [
+        "$d(T(x),T(y))<d(x,y)$ pour tous $x\\ne y$ (strictement contractante point par point) n'est pas « contractante » : $T(x)=x+1/x$ sur $[1,+\\infty[$ ou $T(x)=\\sqrt{x^2+1}$ sur $\\mathbb R$ n'a pas de point fixe."
+      ]
+    },
+    {
+      "id": "ch06-point-fixe-banach",
+      "kind": "theorem",
+      "ref": "Théorème VI.1.1",
+      "title": "Point fixe de Banach (Picard)",
+      "page": 115,
+      "statement": "Soient $(X,d)$ un espace métrique complet, $a\\in[0\\,;1[$ et\n$$T : X\\to X$$\nune application $a$-lipschitzienne. Alors $T$ admet un unique point fixe $x\\in X$.\n\n(La preuve montre de plus que pour tout $x_0\\in X$, la suite des itérées $x_{n+1}=T(x_n)$ converge vers $x$, avec l'estimation $d(x_n,x_m)\\le \\dfrac{a^m}{1-a}\\,d(T(x_0),x_0)$ pour $n\\ge m$, donc $d(x_m,x)\\le \\dfrac{a^m}{1-a}\\,d(T(x_0),x_0)$.)",
+      "hypotheses": [
+        "$(X,d)$ espace métrique complet",
+        "$T$ à valeurs dans $X$ (stabilité : $T(X)\\subset X$)",
+        "$T$ $a$-lipschitzienne avec $a<1$ (constante uniforme strictement inférieure à 1)"
+      ],
+      "depends_on": [],
+      "used_by_hint": "Théorème VI.1.2 (existence/unicité pour chaque $\\lambda$), Théorème VI.1.4 (Étape 0), Cauchy-Lipschitz VII.2.1 (opérateur de Picard sur $C^0([c-\\epsilon;c+\\epsilon],\\bar B(x_0,2\\rho))$), méthode de Newton VI.4.2, exercice VI.4.1.",
+      "importance": 3,
+      "proof_in_poly": "full",
+      "proof_length": "short",
+      "counterexample_hints": [
+        "Sans complétude : $T(x)=x/2$ sur $X=\\,]0,1]$ (contractante, pas de point fixe dans $X$).",
+        "Avec $a=1$ : la translation $T(x)=x+1$ sur $\\mathbb R$ est $1$-lipschitzienne sans point fixe ; $T(x)=x+1/x$ sur $[1,+\\infty[$ vérifie $|T(x)-T(y)|<|x-y|$ et n'a pas de point fixe.",
+        "Sans $T(X)\\subset X$ : $T(x)=x/2+1$ de $[0,1]$ dans $[1,3/2]$ : le point fixe $2$ est hors de $X$."
+      ],
+      "viz_hint": "Toile d'araignée (cobweb) des itérées $x_{n+1}=T(x_n)$ sur un graphe de $T$ : convergence géométrique de raison $a$ quand la pente est $<1$ en valeur absolue, divergence quand $a>1$ ; curseur sur la pente."
+    },
+    {
+      "id": "ch06-point-fixe-parametre-continu",
+      "kind": "theorem",
+      "ref": "Théorème VI.1.2",
+      "title": "Point fixe de Banach à paramètre I (continuité)",
+      "page": 116,
+      "statement": "Soient $\\Lambda$ un espace topologique, $(X,d)$ un espace métrique complet et\n$$g : \\Lambda\\times X\\to X$$\nune application continue. Soit $a\\in[0\\,;1[$. On suppose que pour tout $\\lambda\\in\\Lambda$, l'application\n$$g_\\lambda : X\\to X,\\qquad x\\mapsto g(\\lambda,x)$$\nest $a$-lipschitzienne. Alors, pour tout $\\lambda\\in\\Lambda$, l'application $g_\\lambda$ admet un unique point fixe $\\varphi(\\lambda)$ et l'application $\\Lambda\\to X$, $\\lambda\\mapsto\\varphi(\\lambda)$ est continue.",
+      "hypotheses": [
+        "$(X,d)$ complet",
+        "$g$ continue sur $\\Lambda\\times X$ (en fait seule la continuité de $\\lambda\\mapsto g(\\lambda,x)$ à $x$ fixé sert dans la preuve)",
+        "constante de Lipschitz $a<1$ uniforme en $\\lambda$"
+      ],
+      "depends_on": [
+        "Théorème VI.1.1"
+      ],
+      "used_by_hint": "Étape 0 du Théorème VI.1.4 ; cas $p=0$ de Cauchy-Lipschitz à paramètres VII.2.8 (continuité de la solution en la condition initiale).",
+      "importance": 2,
+      "proof_in_poly": "full",
+      "proof_length": "short",
+      "counterexample_hints": [
+        "Si la constante $a$ dépend de $\\lambda$ et tend vers 1, l'estimation $(1-a)d(\\varphi(\\lambda_1),\\varphi(\\lambda_2))\\le\\dots$ ne donne plus rien : $g(\\lambda,x)=\\lambda x+1$ sur $\\mathbb R$, $\\lambda\\in[0,1[$, $\\varphi(\\lambda)=1/(1-\\lambda)$ explose en $\\lambda\\to1$."
+      ],
+      "viz_hint": "Famille de courbes $x\\mapsto g(\\lambda,x)$ dont l'intersection avec la diagonale (le point fixe) se déplace continûment quand on fait varier $\\lambda$ au curseur."
+    },
+    {
+      "id": "ch06-differentiable-sur-partie-def",
+      "kind": "definition",
+      "ref": "Définition VI.1.3",
+      "title": "Application différentiable / de classe $C^p$ sur une partie non ouverte",
+      "page": 116,
+      "statement": "On dit qu'une application $f$ définie sur une partie $X$ d'un espace vectoriel normé $E$ et à valeurs dans un espace vectoriel normé $F$ est **différentiable** (resp. **de classe $C^p$**, $p\\in\\mathbb N\\cup\\{+\\infty\\}$), s'il existe un voisinage ouvert $U$ de $X$ dans $E$ et une application $g$ différentiable (resp. de classe $C^p$) de l'ouvert $U$ à valeurs dans $F$ telle que $f$ soit la restriction de $g$ à $X$.",
+      "hypotheses": [
+        "$X$ partie quelconque (typiquement un fermé convexe, une boule fermée)",
+        "existence d'un prolongement régulier à un ouvert contenant $X$"
+      ],
+      "depends_on": [
+        "Définition V.3.1"
+      ],
+      "used_by_hint": "Permet d'énoncer le Théorème VI.1.4 sur $\\Lambda\\times X$ avec $X$ fermé convexe, et de l'appliquer dans la preuve de VI.2.1 sur $B(x_0,r)\\times\\bar B(y_0,s)$.",
+      "importance": 1,
+      "proof_in_poly": "none",
+      "proof_length": "short",
+      "counterexample_hints": [
+        "La différentielle de $f$ en un point de $X$ n'est pas définie intrinsèquement par cette définition : elle dépend a priori du prolongement $g$ si $X$ est d'intérieur vide (par ex. $X$ un point). Sur un fermé convexe d'intérieur non vide elle est bien déterminée par continuité."
+      ]
+    },
+    {
+      "id": "ch06-point-fixe-parametre-cp",
+      "kind": "theorem",
+      "ref": "Théorème VI.1.4",
+      "title": "Point fixe de Banach à paramètre II (régularité $C^p$)",
+      "page": 117,
+      "statement": "Soient $\\Lambda$ un ouvert d'un espace de Banach $E$, $X$ un fermé convexe d'un espace de Banach $F$ et\n$$g : \\Lambda\\times X\\to X$$\nune application de classe $C^p$, $p\\in(\\mathbb N\\setminus\\{0\\})\\cup\\{+\\infty\\}$. Soit $a\\in[0\\,;1[$. On suppose que\n$$\\Big\\|\\frac{\\partial g}{\\partial x}(\\lambda,x)\\Big\\|\\le a\\qquad\\text{pour tout }(\\lambda,x)\\in\\Lambda\\times X.$$\nAlors, pour tout $\\lambda\\in\\Lambda$, l'application $g_\\lambda : x\\mapsto g(\\lambda,x)$ admet un unique point fixe $\\varphi(\\lambda)$ et l'application $\\Lambda\\to X$, $\\lambda\\mapsto\\varphi(\\lambda)$ est de classe $C^p$ et\n$$d\\varphi_\\lambda=\\Big(\\mathrm{Id}_F-\\frac{\\partial g}{\\partial x}(\\lambda,\\varphi(\\lambda))\\Big)^{-1}\\circ\\frac{\\partial g}{\\partial\\lambda}(\\lambda,\\varphi(\\lambda)).$$\n\n(Au passage la preuve établit l'estimation (VI.1.1) : $\\|\\varphi(\\lambda+h)-\\varphi(\\lambda)\\|_F\\le\\dfrac{C}{1-a}\\|h\\|_E$ pour $\\|h\\|\\le\\rho$, où $C=\\sup_{\\mu\\in\\bar B(\\lambda,\\rho)}\\|\\partial g/\\partial\\lambda(\\mu,\\varphi(\\lambda))\\|$ : $\\varphi$ est localement lipschitzienne.)",
+      "hypotheses": [
+        "$\\Lambda$ ouvert d'un Banach $E$ (pour différentier en $\\lambda$)",
+        "$X$ fermé (complétude) et convexe (pour que l'inégalité des accroissements finis donne le caractère lipschitzien global sur $X$) dans un Banach $F$",
+        "$g$ de classe $C^p$ avec $p\\ge1$, au sens de la Définition VI.1.3",
+        "$g(\\Lambda\\times X)\\subset X$ (stabilité)",
+        "$\\|\\partial g/\\partial x\\|\\le a<1$ uniformément sur $\\Lambda\\times X$"
+      ],
+      "depends_on": [
+        "Théorème VI.1.2",
+        "Théorème V.4.4",
+        "Exercice VI.1.5",
+        "Exemple V.3.6",
+        "Proposition V.3.12"
+      ],
+      "used_by_hint": "Cœur de la preuve du Théorème des fonctions implicites VI.2.1 (appliqué à $g : B(x_0,r)\\times\\bar B(y_0,s)\\to\\bar B(y_0,s)$) et de Cauchy-Lipschitz à paramètres VII.2.8 (régularité $C^p$ du flot).",
+      "importance": 3,
+      "proof_in_poly": "full",
+      "proof_length": "long",
+      "counterexample_hints": [
+        "Sans convexité de $X$ : $\\|\\partial g/\\partial x\\|\\le a$ n'entraîne plus que $g_\\lambda$ soit $a$-lipschitzienne sur $X$ (prendre $X=[0,1]\\cup[2,3]$ et $g$ constante égale à $0$ sur $[0,1]$, à $3$ sur $[2,3]$ : dérivée nulle, deux points fixes $0$ et $3$).",
+        "Avec $\\|\\partial g/\\partial x\\|<1$ seulement point par point (pas de $a<1$ uniforme) : $g(x)=x+e^{-x}$ sur $[0,+\\infty[$, $0<g'<1$, pas de point fixe.",
+        "La formule de $d\\varphi_\\lambda$ est exactement ce que donne la différentiation formelle de $\\varphi(\\lambda)=g(\\lambda,\\varphi(\\lambda))$ : $d\\varphi=\\partial_x g\\circ d\\varphi+\\partial_\\lambda g$."
+      ],
+      "viz_hint": "Point fixe $\\varphi(\\lambda)$ d'une famille $g(\\lambda,\\cdot)$ tracé en fonction de $\\lambda$, avec la tangente de pente $(1-\\partial_x g)^{-1}\\partial_\\lambda g$ ; montrer que la pente explose quand $\\partial_x g\\to1$."
+    },
+    {
+      "id": "ch06-neumann-inverse-id-moins-l",
+      "kind": "lemma",
+      "ref": "Exercice VI.1.5",
+      "title": "Inversibilité de $\\mathrm{Id}-L$ pour $\\|L\\|<1$ (série de Neumann) et régularité $C^\\infty$ de $L\\mapsto(\\mathrm{Id}-L)^{-1}$",
+      "page": 118,
+      "statement": "Soit $E$ un espace de Banach et soit $a\\in[0;1[$. Pour tout $L\\in\\mathcal L(E)$ tel que $\\|L\\|\\le a$, $\\mathrm{Id}_E-L$ est inversible, et son inverse est borné, de norme plus petite que $(1-a)^{-1}$. L'application\n$$B_{\\mathcal L(E)}(0,a)\\to\\mathcal L(E),\\qquad L\\mapsto(\\mathrm{Id}-L)^{-1}$$\nest de classe $C^\\infty$.\n\n(Énoncé en exercice mais utilisé comme lemme dans la preuve du Théorème VI.1.4 : l'inverse est $\\sum_{n\\ge0}L^n$, série normalement convergente dans l'espace de Banach $\\mathcal L(E)$.)",
+      "hypotheses": [
+        "$E$ espace de Banach (donc $\\mathcal L(E)$ complet, pour sommer la série)",
+        "$\\|L\\|\\le a<1$"
+      ],
+      "depends_on": [
+        "Théorème V.5.7"
+      ],
+      "used_by_hint": "Étapes 1 et 4 de la preuve du Théorème VI.1.4 ; question 2 de la méthode de Newton VI.4.2 ; preuve du Théorème V.5.7 (ouverture de $\\mathrm{Iso}(E;F)$).",
+      "importance": 2,
+      "proof_in_poly": "exercise",
+      "proof_length": "short",
+      "counterexample_hints": [
+        "Si $E$ n'est pas complet, $\\sum L^n$ peut ne pas converger dans $\\mathcal L(E)$ ; la borne $\\|L\\|<1$ est optimale : $L=\\mathrm{Id}$ donne $\\mathrm{Id}-L=0$."
+      ]
+    },
+    {
+      "id": "ch06-fonctions-implicites",
+      "kind": "theorem",
+      "ref": "Théorème VI.2.1",
+      "title": "Théorème des fonctions implicites",
+      "page": 118,
+      "statement": "Soient $E$, $F$ et $G$ trois espaces de Banach, $U$ un ouvert de $E$, $V$ un ouvert de $F$, $f$ une application de classe $C^p$, $p\\ge1$, de $U\\times V$ dans $G$ et $(x_0,y_0)$ un point de $U\\times V$ tel que la différentielle partielle $\\dfrac{\\partial f}{\\partial y}(x_0,y_0)$ soit un isomorphisme bicontinu de $F$ dans $G$. Alors il existe un ouvert $U_0$ de $U$ contenant $x_0$, un ouvert $V_0$ de $V$ contenant $y_0$ et une application $\\varphi$ de classe $C^p$, définie sur $U_0$ à valeurs dans $V_0$ telle que :\n$$\\varphi(x_0)=y_0\\quad\\text{et}\\quad\\forall(x,y)\\in U_0\\times V_0,\\quad f(x,y)=f(x_0,y_0)\\iff y=\\varphi(x).$$\nLa différentielle de $\\varphi$ est donnée par\n$$d\\varphi_x=-\\Big(\\frac{\\partial f}{\\partial y}(x,\\varphi(x))\\Big)^{-1}\\circ\\frac{\\partial f}{\\partial x}(x,\\varphi(x)).$$\nEn outre, si $U_0$ est connexe, il existe au plus une application continue $\\varphi : U_0\\to V_0$ vérifiant $\\varphi(x_0)=y_0$ et $f(x,\\varphi(x))=f(x_0,y_0)$ pour tout $x\\in U_0$.",
+      "hypotheses": [
+        "$E,F,G$ espaces de Banach (complétude de $F$ pour le point fixe)",
+        "$f$ de classe $C^p$ avec $p\\ge1$ (au moins $C^1$ : la continuité de $\\partial f/\\partial y$ sert à rendre $g$ $\\frac12$-contractante au voisinage)",
+        "$\\partial f/\\partial y(x_0,y_0)$ isomorphisme bicontinu $F\\to G$ (en Banach, bijectif continu suffit par le Théorème V.2.3)",
+        "conclusion locale uniquement : $U_0\\times V_0$ voisinage de $(x_0,y_0)$ ; la résolution se fait au niveau $f(x_0,y_0)$"
+      ],
+      "depends_on": [
+        "Théorème VI.1.4",
+        "Théorème V.4.4",
+        "Proposition V.3.17"
+      ],
+      "used_by_hint": "Théorème d'inversion locale VI.3.2 ; perturbation des racines VI.4.3 ; valeurs propres VI.4.7 ; équations différentielles implicites (Remarque VII.1.2) ; sous-variétés définies par équations (chapitre IX) ; multiplicateurs de Lagrange.",
+      "importance": 3,
+      "proof_in_poly": "full",
+      "proof_length": "long",
+      "counterexample_hints": [
+        "Si $\\partial f/\\partial y(x_0,y_0)$ n'est pas inversible : $f(x,y)=y^2-x$ en $(0,0)$ : pas de fonction $\\varphi$ définie sur un voisinage de $0$ ($y=\\pm\\sqrt x$, rien pour $x<0$) ; $f(x,y)=y^3-x$ en $(0,0)$ : $\\varphi(x)=x^{1/3}$ existe, continue, mais n'est pas $C^1$ (l'hypothèse n'est pas nécessaire pour l'existence, elle l'est pour la régularité).",
+        "Si $f$ est seulement continue : $f(x,y)=y-x\\sin(1/x)$... existence sans régularité ; sans $C^1$, $\\partial f/\\partial y$ peut exister en $(x_0,y_0)$ sans être inversible au voisinage.",
+        "Unicité seulement parmi les $\\varphi$ **continues** et **à valeurs dans $V_0$** : pour $f(x,y)=y^2-x^2$ en $(1,1)$, $\\varphi(x)=x$ est l'unique branche continue proche de $y_0=1$, mais $y=-x$ est une autre solution de $f=0$ loin de $V_0$ ; sur $U_0$ non connexe on peut recoller des branches différentes.",
+        "La formule de $d\\varphi_x$ s'obtient aussi en différentiant $f(x,\\varphi(x))=\\text{cst}$ : $\\partial_x f+\\partial_y f\\circ d\\varphi_x=0$."
+      ],
+      "viz_hint": "Courbe de niveau $f(x,y)=c$ dans le plan ; en un point où $\\partial_y f\\ne0$ la courbe est localement un graphe $y=\\varphi(x)$ (rectangle $U_0\\times V_0$ affiché) ; aux points où $\\partial_y f=0$ (tangente verticale, point double) le rectangle ne peut plus être choisi. Afficher la pente $-\\partial_x f/\\partial_y f$."
+    },
+    {
+      "id": "ch06-diffeomorphisme-def",
+      "kind": "definition",
+      "ref": "Définition VI.3.1",
+      "title": "$C^k$-difféomorphisme",
+      "page": 119,
+      "statement": "Soit $f$ une application de $U$ dans $V$, où $U$ est un ouvert d'un espace de Banach $E$ et $V$ un ouvert d'un espace de Banach $F$. On dit que $f$ est un **$C^k$-difféomorphisme** si $f$ est une bijection de $U$ dans $V$, de classe $C^k$, ainsi que $f^{-1}$.",
+      "hypotheses": [
+        "bijection entre ouverts",
+        "régularité $C^k$ de $f$ **et** de $f^{-1}$ (la régularité de l'inverse n'est pas automatique)"
+      ],
+      "depends_on": [],
+      "used_by_hint": "Conclusion des Théorèmes VI.3.2, VI.3.3, du lemme de Morse VI.3.4, du théorème du rang constant VI.4.9 ; changements de coordonnées du chapitre IX.",
+      "importance": 2,
+      "proof_in_poly": "none",
+      "proof_length": "short",
+      "counterexample_hints": [
+        "$x\\mapsto x^3$ est une bijection $C^\\infty$ de $\\mathbb R$ sur $\\mathbb R$ dont l'inverse $x^{1/3}$ n'est pas dérivable en $0$ : homéomorphisme $C^\\infty$ mais pas $C^1$-difféomorphisme.",
+        "Si $f$ est un $C^1$-difféomorphisme alors $df_x$ est inversible en tout point (différentier $f^{-1}\\circ f=\\mathrm{Id}$), d'inverse $d(f^{-1})_{f(x)}$ : condition nécessaire, et $E\\simeq F$."
+      ]
+    },
+    {
+      "id": "ch06-inversion-locale",
+      "kind": "theorem",
+      "ref": "Théorème VI.3.2",
+      "title": "Théorème d'inversion locale",
+      "page": 120,
+      "statement": "Soit $f$ une application de $U$ dans $F$, où $U$ est un ouvert d'un espace de Banach réel et $F$ un espace de Banach et soit $x_0$ un point de $U$. Si $f$ est de classe $C^k$, $k\\ge1$ et si la différentielle de $f$ au point $x_0$ est un isomorphisme bicontinu, alors il existe un voisinage ouvert $U_0$ de $x_0$ dans $U$ et un voisinage ouvert $V_0$ de $f(x_0)$ tels que $f$ se restreigne en un $C^k$-difféomorphisme de $U_0$ dans $V_0$.",
+      "hypotheses": [
+        "$U$ ouvert d'un espace de Banach réel $E$, $F$ espace de Banach",
+        "$f$ de classe $C^k$, $k\\ge1$ (la seule différentiabilité en $x_0$ ne suffit pas)",
+        "$df_{x_0}$ isomorphisme bicontinu $E\\to F$ (en dimension finie : $\\dim E=\\dim F$ et jacobien non nul ; en Banach, bijectif continu suffit par V.2.3)",
+        "conclusion locale : $U_0$ voisinage de $x_0$, pas de contrôle de la taille de $U_0$"
+      ],
+      "depends_on": [
+        "Théorème VI.2.1",
+        "Définition VI.3.1"
+      ],
+      "used_by_hint": "Corollaire VI.3.3 ; Proposition I.4.4 (fonction holomorphe à dérivée non nulle = biholomorphisme local) ; lemme de Morse VI.3.4 (deux fois) ; rang constant VI.4.9 ; exercices VI.4.5, VI.4.7 ; Proposition IX.1.2, paramétrages et redressements du chapitre IX ; redressement d'un champ de vecteurs (chapitre VII).",
+      "importance": 3,
+      "proof_in_poly": "full",
+      "proof_length": "medium",
+      "counterexample_hints": [
+        "$df_{x_0}$ non inversible : $f(x)=x^3$ en $0$ (bijection, inverse non dérivable) ; $f(x)=x^2$ en $0$ (pas injective au voisinage).",
+        "$f$ différentiable partout mais pas $C^1$ : $f(x)=x+2x^2\\sin(1/x)$, $f(0)=0$, $f'(0)=1\\ne0$ mais $f$ n'est injective sur aucun voisinage de $0$ ($f'$ change de signe arbitrairement près de $0$).",
+        "Conclusion non globale : $f(z)=e^z$ sur $\\mathbb C\\simeq\\mathbb R^2$, ou $(r,\\theta)\\mapsto(r\\cos\\theta,r\\sin\\theta)$ sur $]0,\\infty[\\times\\mathbb R$ : différentielle inversible partout, difféomorphisme local en tout point, mais pas injective.",
+        "Espace de Banach réel : la version complexe (holomorphe) est la Proposition I.4.4, qui s'en déduit."
+      ],
+      "viz_hint": "Image par $f : \\mathbb R^2\\to\\mathbb R^2$ (ex. $(x,y)\\mapsto(x^2-y^2,2xy)$, $(r,\\theta)\\mapsto$ polaires) d'un petit disque autour d'un point : quand le jacobien est non nul l'image est un petit ouvert déformé et $f$ y est injective ; près d'un point critique (jacobien nul) le disque se replie sur lui-même. Comparer avec la différentielle $df_{x_0}$ (parallélogramme image)."
+    },
+    {
+      "id": "ch06-inversion-globale",
+      "kind": "corollary",
+      "ref": "Corollaire VI.3.3",
+      "title": "Théorème d'inversion globale",
+      "page": 120,
+      "statement": "Soit $f$ une application de classe $C^k$ de $U$ dans $F$, où $U$ est un ouvert d'un espace de Banach réel et $F$ un espace de Banach. Si $f$ est injective et si pour tout $x$ de $U$ la différentielle $df_x$ de $f$ au point $x$ est un isomorphisme bicontinu, alors $f(U)$ est un ouvert et la bijection réciproque, de $f(U)$ dans $U$, est de classe $C^k$.\n\n(Autrement dit $f$ est un $C^k$-difféomorphisme de $U$ sur l'ouvert $f(U)$.)",
+      "hypotheses": [
+        "$f$ de classe $C^k$, $k\\ge1$",
+        "$f$ injective sur $U$ (hypothèse globale, à vérifier à la main)",
+        "$df_x$ isomorphisme bicontinu pour **tout** $x\\in U$"
+      ],
+      "depends_on": [
+        "Théorème VI.3.2"
+      ],
+      "used_by_hint": "Critère standard pour montrer qu'une application est un difféomorphisme sur son image (changements de variables, coordonnées polaires sur $]0,\\infty[\\times]-\\pi,\\pi[$, paramétrages de sous-variétés au chapitre IX).",
+      "importance": 3,
+      "proof_in_poly": "sketch",
+      "proof_length": "short",
+      "counterexample_hints": [
+        "Sans injectivité : $\\exp : \\mathbb C\\to\\mathbb C^*$ (ou $(r,\\theta)\\mapsto(r\\cos\\theta,r\\sin\\theta)$ sur $]0,\\infty[\\times\\mathbb R$), différentielle inversible partout, image ouverte, mais pas de réciproque globale.",
+        "Sans l'inversibilité de $df_x$ en tout point : $x\\mapsto x^3$ est injective et $C^\\infty$ sur $\\mathbb R$, d'image ouverte, mais sa réciproque $x^{1/3}$ n'est pas $C^1$ en $0$.",
+        "L'ouverture de $f(U)$ vient de l'inversion locale en chaque point ; l'injectivité sert seulement à définir la réciproque globale, qui coïncide localement avec les inverses locaux $C^k$."
+      ]
+    },
+    {
+      "id": "ch06-point-critique-non-degenere-def",
+      "kind": "definition",
+      "ref": "non numéroté, Exercice VI.3.4, p. 120",
+      "title": "Point critique, point critique non dégénéré, signature de $d^2f_a$",
+      "page": 120,
+      "statement": "Soit $U$ un ouvert de $\\mathbb R^m$ et $f : U\\to\\mathbb R$ de classe $C^\\infty$ (ou $C^2$). Un point $a\\in U$ est un **point critique** de $f$ si $df_a=0$. En un point critique, la différentielle seconde $d^2f_a$ est une forme bilinéaire symétrique sur $\\mathbb R^m$ (Théorème V.5.3) ; on dit que le point critique est **non dégénéré** si $d^2f_a$ est non dégénérée (sa matrice dans la base canonique, la hessienne, est inversible). Sa **signature** est le couple $(r,s)$, $r+s=m$, où $r$ (resp. $s$) est le nombre de carrés positifs (resp. négatifs) dans une réduction de Gauss ; on note $I_{r,s}=\\begin{pmatrix}I_r&0\\\\0&-I_s\\end{pmatrix}\\in\\mathrm{Sym}_m$ la matrice normale de cette signature. On identifie $\\mathbb R^m$ aux matrices colonnes, de sorte qu'une forme bilinéaire symétrique de matrice $S$ s'écrit $(h,k)\\mapsto {}^t h\\,S\\,k$.",
+      "hypotheses": [
+        "$f$ au moins $C^2$ pour que $d^2f_a$ existe et soit symétrique",
+        "non dégénérée : $\\det(\\mathrm{Hess}_a f)\\ne0$"
+      ],
+      "depends_on": [
+        "Théorème V.5.3"
+      ],
+      "used_by_hint": "Lemme de Morse VI.3.4 ; chapitre IX (points critiques sur une sous-variété, hessienne, lemme de Morse sur une surface, p. 171) ; extrema libres et liés.",
+      "importance": 2,
+      "proof_in_poly": "none",
+      "proof_length": "short",
+      "counterexample_hints": [
+        "Point critique dégénéré : $f(x,y)=x^2+y^3$ ou $f(x,y)=x^2+y^4$ en $0$ : hessienne de rang 1, le lemme de Morse ne s'applique pas et le comportement n'est pas déterminé par la hessienne (selle « de singe » $x^3-3xy^2$, minimum $x^2+y^4$, selle $x^2+y^3$).",
+        "Signature $(m,0)$ : minimum local strict ; $(0,m)$ : maximum ; $(r,s)$ avec $r,s\\ge1$ : col (selle)."
+      ]
+    },
+    {
+      "id": "ch06-lemme-de-morse",
+      "kind": "theorem",
+      "ref": "Exercice VI.3.4",
+      "title": "Lemme de Morse",
+      "page": 120,
+      "statement": "Soit $U$ un ouvert de $\\mathbb R^m$ et soit $f : U\\to\\mathbb R$ une fonction de classe $C^\\infty$. Soit $a\\in U$ un point critique de $f$, c'est-à-dire tel que $df_a=0$. On suppose que la forme bilinéaire symétrique $d^2f_a$ est non dégénérée, de signature $(r,s)$, avec $r+s=m$. On note $\\mathrm M_m(\\mathbb R)$ l'espace des matrices carrées réelles de taille $m$, $\\mathrm{Sym}_m$ et $\\mathrm{ASym}_m$ les sous-espaces des matrices symétriques et antisymétriques, et l'on pose $I_{r,s}=\\begin{pmatrix}I_r&0\\\\0&-I_s\\end{pmatrix}\\in\\mathrm{Sym}_m$. On identifie $\\mathbb R^m$ à l'espace des matrices colonnes, de sorte qu'une forme bilinéaire symétrique de matrice $S$ dans la base canonique s'écrit $(h,k)\\mapsto{}^th\\,S\\,k$.\n\n**Lemme de Morse.** Il existe un voisinage ouvert $W$ de $0$ dans $\\mathbb R^m$ et un $C^\\infty$-difféomorphisme $\\psi$ de $W$ sur un voisinage ouvert de $a$ dans $U$, vérifiant $\\psi(0)=a$, tel que\n$$f\\big(\\psi(h)\\big)=f(a)+\\sum_{i=1}^r h_i^2-\\sum_{i=r+1}^m h_i^2,\\qquad h=(h_1,\\dots,h_m)\\in W.$$\n\nPlan de la preuve (questions de l'exercice) : 1. se ramener à $a=0$, $f(0)=0$, matrice de $d^2f_0$ égale à $2I_{r,s}$ (translation puis changement linéaire $P$ avec ${}^tPHP=2I_{r,s}$, Sylvester) ; on fixe une boule ouverte $U_0\\subset U$ centrée en $0$. 2. Par Taylor avec reste intégral (V.5.11) : il existe $B : U_0\\to\\mathrm{Sym}_m$ de classe $C^\\infty$ avec $f(x)={}^txB(x)x$ sur $U_0$ et $B(0)=I_{r,s}$ (explicitement $B(x)=\\int_0^1(1-t)\\,\\mathrm{Hess}_{tx}f\\,dt$). 3. Pour $g : \\mathrm M_m(\\mathbb R)\\to\\mathrm{Sym}_m$, $g(C)={}^tC\\,I_{r,s}\\,C$ : $dg_{I_m}(X)={}^tX I_{r,s}+I_{r,s}X$, $\\mathrm M_m(\\mathbb R)=\\mathcal E\\oplus\\ker dg_{I_m}$ avec $\\mathcal E=\\{X\\,;\\,I_{r,s}X\\in\\mathrm{Sym}_m\\}$ ; par inversion locale appliquée à $g|_{\\mathcal E}$, il existe un voisinage ouvert $Y$ de $I_{r,s}$ dans $\\mathrm{Sym}_m$ et $\\eta : Y\\to\\mathrm{GL}(m,\\mathbb R)$ de classe $C^\\infty$ avec $\\eta(I_{r,s})=I_m$ et $S={}^t\\eta(S)\\,I_{r,s}\\,\\eta(S)$ pour $S\\in Y$ (racine carrée lisse pour la congruence). 4. $\\varphi(x)=\\eta(B(x))\\,x$ vérifie $f(x)={}^t\\varphi(x)I_{r,s}\\varphi(x)$ et $d\\varphi_0=\\mathrm{Id}_{\\mathbb R^m}$ ; par inversion locale $\\varphi$ est un difféomorphisme local et $\\psi=\\varphi^{-1}$ convient.",
+      "hypotheses": [
+        "$f$ de classe $C^\\infty$ (pour obtenir $\\psi$ $C^\\infty$ ; avec $f$ de classe $C^{k}$, $k\\ge3$, on obtient $\\psi$ de classe $C^{k-2}$)",
+        "$a$ point critique : $df_a=0$",
+        "$d^2f_a$ non dégénérée (hessienne inversible)",
+        "dimension finie $\\mathbb R^m$ (Sylvester, matrices)"
+      ],
+      "depends_on": [
+        "Théorème VI.3.2",
+        "Théorème V.5.11",
+        "Théorème V.5.3",
+        "Exemple V.3.6",
+        "Proposition V.3.12"
+      ],
+      "used_by_hint": "Chapitre IX : lemme de Morse sur une sous-variété (p. 171, via un paramétrage) ; classification des points critiques non dégénérés (minimum, maximum, col) ; théorie de Morse.",
+      "importance": 2,
+      "proof_in_poly": "exercise",
+      "proof_length": "long",
+      "counterexample_hints": [
+        "Si $d^2f_a$ est dégénérée : $f(x,y)=x^2+y^3$ en $0$ n'est équivalente à aucune forme quadratique (lieu des zéros non réduit à des droites) ; $f(x)=x^4$ en $0$ non plus.",
+        "Si $a$ n'est pas critique : $f$ est localement une coordonnée (submersion, VI.4.9 question 2), pas une forme quadratique.",
+        "Conséquence : les points critiques non dégénérés sont isolés ($d\\varphi_0$ inversible, et $0$ est le seul point critique de la forme quadratique)."
+      ],
+      "viz_hint": "Lignes de niveau de $f$ près d'un col ou d'un minimum (ex. $f(x,y)=x^2-y^2+x^3$ ou $\\cos x+\\cos y$) et, après le difféomorphisme $\\psi$, les lignes de niveau de $h_1^2-h_2^2$ (hyperboles exactes) : le changement de coordonnées « redresse » les courbes de niveau."
+    },
+    {
+      "id": "ch06-point-fixe-iteree-contractante",
+      "kind": "proposition",
+      "ref": "Exercice VI.4.1",
+      "title": "Variante du théorème de Picard : $T^n$ contractante",
+      "page": 121,
+      "statement": "Soit $(X,d)$ un espace métrique complet, et $T : X\\to X$ une application telle qu'il existe $n\\in\\mathbb N^\\times$ avec $T^n$ contractante. Alors $T$ admet un unique point fixe $x$ et pour tout $x_0\\in X$, $x$ est limite de la suite $(T^k(x_0))_k$ lorsque $k$ tend vers l'infini.\n\n(Idée : $T^n$ a un unique point fixe $x$ ; $T(x)$ est aussi point fixe de $T^n$ donc $T(x)=x$ ; les $n$ sous-suites $(T^{nk+j}(x_0))_k$ convergent vers $x$. Aucune hypothèse de continuité sur $T$ n'est nécessaire.)",
+      "hypotheses": [
+        "$(X,d)$ complet",
+        "une itérée $T^n$ est contractante ($T$ elle-même n'est pas supposée continue ni lipschitzienne)"
+      ],
+      "depends_on": [
+        "Théorème VI.1.1"
+      ],
+      "used_by_hint": "Permet de démontrer Cauchy-Lipschitz global sur un intervalle compact pour un champ globalement lipschitzien (l'opérateur de Picard $S^n$ est $\\frac{(kT)^n}{n!}$-lipschitzien), et le théorème de Picard-Lindelöf linéaire.",
+      "importance": 2,
+      "proof_in_poly": "exercise",
+      "proof_length": "short",
+      "counterexample_hints": [
+        "$T$ n'a pas besoin d'être continue : sur $X=[0,1]$, $T(x)=0$ pour $x\\ne1$ et $T(1)=1/2$ ; $T^2\\equiv0$ est contractante, $T$ est discontinue en $1$, et l'unique point fixe est $0$.",
+        "Application typique : l'opérateur de Picard $S$ de Cauchy-Lipschitz pour un champ $k$-lipschitzien sur $[0,T]$ vérifie $\\|S^n\\alpha-S^n\\beta\\|_\\infty\\le\\frac{(kT)^n}{n!}\\|\\alpha-\\beta\\|_\\infty$ : $S^n$ est contractante pour $n$ grand même si $S$ ne l'est pas."
+      ]
+    },
+    {
+      "id": "ch06-methode-de-newton",
+      "kind": "theorem",
+      "ref": "Exercice VI.4.2",
+      "title": "Méthode de Newton dans les espaces de Banach",
+      "page": 121,
+      "statement": "Soit $U$ un ouvert convexe d'un espace de Banach $E$ et $f : U\\to F$ une application de classe $C^1$ à valeurs dans un espace de Banach $F$. On suppose : (i) en un point $x_0\\in U$, $df_{x_0} : E\\to F$ est un isomorphisme entre espaces de Banach ; (ii) il existe $M>0$ tel que $\\|df_b-df_a\\|\\le M\\|b-a\\|_E$ pour tous $a,b\\in U$ ($df$ lipschitzienne). On pose $C=\\|df_{x_0}^{-1}\\|$.\n\n**Résultat.** Il existe $\\delta>0$ (avec $\\delta<(2MC)^{-1}$ et $\\bar B_E(x_0,\\delta)\\subset U$) tel que $df_{x_0+r}$ reste un isomorphisme pour $\\|r\\|<\\delta$, avec $\\|df_{x_0+r}^{-1}\\|\\le C/(1-MC\\|r\\|)\\le2C$ ; et si $\\delta$ et $\\|f(x_0)\\|_F$ sont assez petits (par exemple $C\\|f(x_0)\\|_F\\le(1-K)\\delta$), l'application $\\phi(r)=df_{x_0+r}^{-1}\\big(f(x_0+r)-df_{x_0+r}(r)\\big)$ est une contraction de rapport $K<1$ de $B_E(0,\\delta)$ dans elle-même. La suite $x_{n+1}=x_n-df_{x_n}^{-1}(f(x_n))$, $x_n=x_0+r_n$, est bien définie et converge vers un $z$ vérifiant $f(z)=0$ ; la convergence est quadratique : $\\|x_{n+1}-z\\|\\le 2CM\\,\\|x_n-z\\|^2$ (question 7).\n\nQuestion préliminaire (inégalité des accroissements finis « centrée ») : pour $a,b,c\\in U$, $\\|f(b)-f(a)-df_c(b-a)\\|_F\\le\\big(\\sup_{u\\in[a,b]}\\|df_u-df_c\\|\\big)\\|b-a\\|_E$.",
+      "hypotheses": [
+        "$U$ ouvert convexe d'un Banach $E$, $F$ Banach",
+        "$f$ de classe $C^1$ avec $df$ $M$-lipschitzienne sur $U$",
+        "$df_{x_0}$ isomorphisme (inverse de norme $C$)",
+        "point de départ $x_0$ « presque racine » : $\\|f(x_0)\\|$ assez petit par rapport à $\\delta$, $C$, $M$"
+      ],
+      "depends_on": [
+        "Théorème VI.1.1",
+        "Théorème V.4.4",
+        "Exercice VI.1.5",
+        "Théorème V.5.7"
+      ],
+      "used_by_hint": "Preuve alternative du théorème d'inversion locale (Kantorovitch) ; schéma numérique ; analogie avec la preuve de VI.2.1 (où l'on fige la différentielle en $(x_0,y_0)$ : Newton « modifié », convergence seulement linéaire).",
+      "importance": 2,
+      "proof_in_poly": "exercise",
+      "proof_length": "long",
+      "counterexample_hints": [
+        "Si $df$ n'est pas lipschitzienne ou si $x_0$ est loin d'une racine, Newton peut diverger ou cycler : $f(x)=x^3-2x+2$ depuis $x_0=0$ oscille entre $0$ et $1$ ; $f(x)=\\operatorname{arctan} x$ depuis $|x_0|>1{,}39$ diverge.",
+        "Si $df_z=0$ en la racine (racine multiple), la convergence n'est plus quadratique : $f(x)=x^2$, $x_{n+1}=x_n/2$."
+      ],
+      "viz_hint": "Itérations de Newton sur le graphe d'une fonction réelle : tangente, intersection avec l'axe, zoom montrant le doublement du nombre de décimales exactes ; bassin de convergence et cas de divergence au curseur $x_0$."
+    },
+    {
+      "id": "ch06-perturbation-racines-mercure",
+      "kind": "example",
+      "ref": "Exercice VI.4.3",
+      "title": "Perturbation des racines d'un polynôme et intégrale elliptique (périhélie de Mercure)",
+      "page": 122,
+      "statement": "Soient $a<b$ deux réels et, pour $\\varepsilon\\in\\mathbb R$, $P_\\varepsilon(x)=(x-a)(b-x)+\\varepsilon x^3$.\n1. Pour $\\varepsilon>0$ assez petit, $P_\\varepsilon$ admet trois racines réelles distinctes $x_a(\\varepsilon)<x_b(\\varepsilon)<x_c(\\varepsilon)$ ; $\\varepsilon\\mapsto x_a(\\varepsilon)$ et $\\varepsilon\\mapsto x_b(\\varepsilon)$ sont de classe $C^\\infty$ au voisinage de $0$ avec $x_a(0)=a$, $x_b(0)=b$ (fonctions implicites appliquées à $(\\varepsilon,x)\\mapsto P_\\varepsilon(x)$, $\\partial_xP_0(a)=b-a\\ne0$), et $x_c(\\varepsilon)\\sim1/\\varepsilon$ quand $\\varepsilon\\to0^+$.\n2. Développements limités à l'ordre 1 : $x_a(\\varepsilon)=a-\\dfrac{a^3}{b-a}\\varepsilon+O(\\varepsilon^2)$, $x_b(\\varepsilon)=b+\\dfrac{b^3}{b-a}\\varepsilon+O(\\varepsilon^2)$ (obtenus par $x'(0)=-\\partial_\\varepsilon P/\\partial_xP$) : pour $0<a<b$ les racines perturbées s'écartent, $x_a<a$ et $x_b>b$.\n3. $P_\\varepsilon(x)=(x-x_a(\\varepsilon))(x_b(\\varepsilon)-x)\\big(1-\\varepsilon(x+x_a(\\varepsilon)+x_b(\\varepsilon))\\big)$, $P_\\varepsilon>0$ sur $]x_a(\\varepsilon);x_b(\\varepsilon)[$, et l'intégrale elliptique $I(\\varepsilon)=\\displaystyle\\int_{x_a(\\varepsilon)}^{x_b(\\varepsilon)}\\frac{dx}{\\sqrt{P_\\varepsilon(x)}}$ est bien définie.\n4. Avec $x=u+v\\sin t$, $u=\\frac12(x_a+x_b)$, $v=\\frac12(x_b-x_a)$ : $I(\\varepsilon)=\\displaystyle\\int_{-\\pi/2}^{\\pi/2}\\big(1-\\varepsilon(3u+v\\sin t)\\big)^{-1/2}dt$, d'où par Taylor uniforme en $t$ :\n$$I(\\varepsilon)=\\pi+\\frac{3\\pi(a+b)}{4}\\varepsilon+O(\\varepsilon^2).$$",
+      "hypotheses": [
+        "$a<b$ (racines simples de $P_0$, ce qui rend $\\partial_xP_0$ inversible en $a$ et $b$)",
+        "$\\varepsilon$ petit"
+      ],
+      "depends_on": [
+        "Théorème VI.2.1",
+        "Théorème V.5.11"
+      ],
+      "used_by_hint": "Remarque VI.4.4 (avance du périhélie) ; modèle de l'usage des fonctions implicites pour la dépendance lisse des racines simples en un paramètre (aussi VI.4.7).",
+      "importance": 2,
+      "proof_in_poly": "exercise",
+      "proof_length": "long",
+      "counterexample_hints": [
+        "Racine double de $P_0$ ($a=b$) : les racines perturbées ne sont plus $C^\\infty$ en $\\varepsilon$ ($\\sqrt\\varepsilon$), le théorème des fonctions implicites ne s'applique pas."
+      ],
+      "viz_hint": "Graphe de $P_\\varepsilon$ pour $\\varepsilon$ au curseur : les deux racines proches de $a,b$ bougent lissement, la troisième part à l'infini ; en parallèle l'orbite $r(\\varphi)$ qui ne se referme plus (précession)."
+    },
+    {
+      "id": "ch06-perihelie-mercure-remarque",
+      "kind": "remark",
+      "ref": "Remarque VI.4.4",
+      "title": "Le périhélie de Mercure (application physique)",
+      "page": 123,
+      "statement": "Avec $r$ la distance planète-Soleil, $\\varphi$ l'angle polaire et $x=1/r$, la conservation de l'énergie et du moment cinétique $L$ donne $\\big(\\frac{dx}{d\\varphi}\\big)^2=C+\\frac{2GM}{L^2}x-x^2+\\varepsilon x^3$, $\\varepsilon=\\frac{2GM}{c^2}$ (rayon de Schwarzschild du Soleil, $2{,}95$ km) ; le terme cubique est toute la différence entre Newton et Einstein. Le trinôme newtonien s'écrit $(x-a)(b-x)$ avec $a=1/r_{\\max}$, $b=1/r_{\\min}$. L'intégrale $I(\\varepsilon)$ de l'exercice VI.4.3 est l'angle balayé entre aphélie et périhélie ; $I(0)=\\pi$ (ellipse de Kepler fermée) et l'avance du périhélie par révolution est\n$$\\Delta\\varpi=2I(\\varepsilon)-2\\pi\\simeq\\frac{3\\pi}{2}(a+b)\\varepsilon=\\frac{6\\pi GM}{c^2p},$$\n$a+b=2/p$, $p$ paramètre de l'ellipse. Pour Mercure ($p=0{,}371$ ua, $\\varepsilon(a+b)=1{,}1\\cdot10^{-7}$) : $0{,}104''$ par révolution, soit $43''$ par siècle (415 révolutions), le résidu inexpliqué connu depuis Le Verrier (1859). La troisième racine $x_c\\sim1/\\varepsilon$ correspond à l'horizon de Schwarzschild $r\\sim\\varepsilon$.",
+      "hypotheses": [],
+      "depends_on": [
+        "Exercice VI.4.3"
+      ],
+      "used_by_hint": "Culture et motivation ; exemple parfait de « premier ordre suffit » quand le petit paramètre vaut $10^{-7}$.",
+      "importance": 1,
+      "proof_in_poly": "sketch",
+      "proof_length": "medium",
+      "counterexample_hints": []
+    },
+    {
+      "id": "ch06-submersion-ouverte",
+      "kind": "proposition",
+      "ref": "Exercice VI.4.5",
+      "title": "Une application de différentielle surjective (à noyau scindé) est localement surjective (submersion ouverte)",
+      "page": 124,
+      "statement": "Soient $E$ et $F$ des espaces de Banach, $U$ un ouvert de $E$ et $f : U\\to F$ une application de classe $C^1$. Supposons qu'il existe un point $a\\in U$ tel que $df_a : E\\to F$ soit surjective et supposons qu'il existe un supplémentaire fermé $E_2$ de $E_1=\\ker df_a$ dans $E$. Alors $f(U)$ contient un voisinage ouvert de $f(a)$.\n\n(Preuve : $df_a|_{E_2} : E_2\\to F$ est un isomorphisme bicontinu (bijectif continu entre Banach, V.2.3) ; appliquer l'inversion locale à la restriction de $f$ à $U\\cap(a+E_2)$, ouvert de l'espace de Banach $E_2$.)",
+      "hypotheses": [
+        "$E,F$ Banach, $f$ de classe $C^1$",
+        "$df_a$ surjective",
+        "$\\ker df_a$ admet un supplémentaire **fermé** (automatique en dimension finie ou si $\\ker df_a$ est de dimension ou codimension finie, ou dans un Hilbert)"
+      ],
+      "depends_on": [
+        "Théorème VI.3.2",
+        "Théorème V.2.3"
+      ],
+      "used_by_hint": "Exercice VI.4.6 (résolution de $f'+tf^2=g$ pour $g$ petit) ; forme locale des submersions (VI.4.9 question 2) ; Proposition IX sur les submersions et images réciproques de valeurs régulières ; multiplicateurs de Lagrange.",
+      "importance": 2,
+      "proof_in_poly": "exercise",
+      "proof_length": "short",
+      "counterexample_hints": [
+        "Sans surjectivité de $df_a$ : $f(x,y)=(x,y^2)$ en $(0,0)$ : l'image $\\{v\\ge0\\}$ ne contient aucun voisinage de $f(0)$.",
+        "L'hypothèse de supplémentaire fermé est là pour pouvoir restreindre à un Banach sur lequel $df_a$ est un isomorphisme ; sans elle on utiliserait un théorème de type Lusternik / Graves."
+      ]
+    },
+    {
+      "id": "ch06-edo-non-lineaire-surjectivite",
+      "kind": "example",
+      "ref": "Exercice VI.4.6",
+      "title": "Résolution de $f'(t)+tf(t)^2=g(t)$ pour $g$ petit (application de VI.4.5)",
+      "page": 124,
+      "statement": "Soit $E=C^1([0\\,;1];\\mathbb R)$ muni de la norme $\\|f\\|_1=\\sup_{t}|f(t)|+\\sup_t|f'(t)|$ et $F=C^0([0\\,;1];\\mathbb R)$ muni de $\\|f\\|_0=\\sup_t|f(t)|$ (espaces de Banach). On définit $\\Psi : E\\to F$, $\\Psi(f)(t)=f'(t)+tf(t)^2$. Alors $\\Psi$ est de classe $C^1$, $d\\Psi_0=\\frac{d}{dt}$ est surjective de $E$ sur $F$, $E_1=\\ker d\\Psi_0$ (les constantes) admet le supplémentaire fermé $E_2=\\{f\\in E\\,;\\,f(0)=0\\}$, et il existe $\\epsilon>0$ tel que pour tout $g\\in B_F(0,\\epsilon)$ il existe $f\\in E$ vérifiant $f'(t)+tf(t)^2=g(t)$ pour tout $t\\in[0\\,;1]$.",
+      "hypotheses": [
+        "normes $C^1$ et $C^0$ rendant $E$, $F$ complets et $\\Psi$ de classe $C^1$ ($d\\Psi_f(h)=h'+2tfh$)",
+        "petitesse de $g$ (résultat local au voisinage de $g=0$)"
+      ],
+      "depends_on": [
+        "Exercice VI.4.5",
+        "Exemple V.3.6"
+      ],
+      "used_by_hint": "Modèle d'application du calcul différentiel en dimension infinie à une EDO non linéaire ; à comparer avec le point de vue Cauchy-Lipschitz (chapitre VII) qui ne donne a priori qu'une solution locale en $t$.",
+      "importance": 1,
+      "proof_in_poly": "exercise",
+      "proof_length": "medium",
+      "counterexample_hints": [
+        "Le résultat est local en $g$ : pour $g$ grand il n'y a pas de solution définie sur tout $[0;1]$ en général (l'équation de Riccati $f'=-tf^2+g$ peut exploser avant $t=1$ si $g\\equiv-c$ avec $c>0$ grand : $f$ décroît et $f'\\le-tf^2$ force $f\\to-\\infty$ en temps fini).",
+        "Le noyau de $d\\Psi_0=d/dt$ n'est pas réduit à $0$ : on n'a pas unicité de $f$, seulement existence ; VI.4.5 ne donne que la surjectivité locale."
+      ]
+    },
+    {
+      "id": "ch06-valeurs-propres-simples-lisses",
+      "kind": "proposition",
+      "ref": "Exercice VI.4.7",
+      "title": "Dépendance $C^\\infty$ des valeurs propres simples et des vecteurs propres",
+      "page": 124,
+      "statement": "Soit $A_0\\in\\mathrm M_n(\\mathbb R)$ une matrice admettant $n$ valeurs propres (réelles) distinctes $\\lambda_1(0),\\dots,\\lambda_n(0)$.\n(1) Il existe un voisinage $U$ de $A_0$ dans $\\mathrm M_n(\\mathbb R)$ et des fonctions $\\lambda_i : U\\to\\mathbb R$, $i=1,\\dots,n$, de classe $C^\\infty$ telles que pour tout $A\\in U$, $\\lambda_1(A),\\dots,\\lambda_n(A)$ soient les valeurs propres de $A$ et restent distinctes. (Fonctions implicites appliquées à $(A,\\lambda)\\mapsto\\chi_A(\\lambda)=\\det(\\lambda I-A)$, avec $\\partial_\\lambda\\chi_{A_0}(\\lambda_i(0))\\ne0$ car racine simple.)\n(2) Pour $i$ fixé et $v_i(0)$ vecteur propre de $A_0$ pour $\\lambda_i(0)$, quitte à restreindre $U$, il existe $v_i : U\\to\\mathbb R^n$ de classe $C^\\infty$ telle que $v_i(A)$ soit un vecteur propre non nul de $A$ pour la valeur propre $\\lambda_i(A)$. (Fonctions implicites ou inversion locale appliquées à $(A,v)\\mapsto\\big((A-\\lambda_i(A)I)v,\\ \\langle v,v_i(0)\\rangle\\big)$, ou à la restriction à un hyperplan affine de normalisation.)",
+      "hypotheses": [
+        "valeurs propres de $A_0$ deux à deux distinctes (racines simples du polynôme caractéristique) et réelles",
+        "normalisation du vecteur propre pour lever l'indétermination scalaire"
+      ],
+      "depends_on": [
+        "Théorème VI.2.1",
+        "Théorème VI.3.2"
+      ],
+      "used_by_hint": "Théorie des perturbations ; diagonalisation lisse d'une famille de matrices ; exercices croisés algèbre linéaire / calcul différentiel.",
+      "importance": 2,
+      "proof_in_poly": "exercise",
+      "proof_length": "medium",
+      "counterexample_hints": [
+        "Valeur propre double : $A(t)=\\begin{pmatrix}0&t\\\\1&0\\end{pmatrix}$ a pour valeurs propres $\\pm\\sqrt t$, non lisses (ni même réelles) en $t=0$ ; $A(t)=\\begin{pmatrix}0&t\\\\t&0\\end{pmatrix}$ : $\\pm t$ lisses mais se croisent, et les vecteurs propres ne se prolongent pas continûment par le choix « ordonné » $\\lambda_1\\le\\lambda_2$ ($|t|$)."
+      ]
+    },
+    {
+      "id": "ch06-probleme-aux-limites-non-lineaire",
+      "kind": "example",
+      "ref": "Exercice VI.4.8",
+      "title": "Problème aux limites $u''-\\lambda f(u)=0$, $u(0)=u(1)=0$ pour $\\lambda$ petit",
+      "page": 124,
+      "statement": "Soit $f\\in C^1(\\mathbb R,\\mathbb R)$ telle qu'il existe $C$ avec, pour tous $x,y\\in\\mathbb R$, $|f(x)-f(y)|\\le C|x-y|$ et $|f'(x)-f'(y)|\\le C|x-y|$. On considère l'équation différentielle sur $[0,1]$ avec condition aux bords\n$$\\begin{cases}u''-\\lambda f(u)=0\\ \\text{sur }]0,1[,\\\\u(0)=u(1)=0.\\end{cases}$$\nAlors il existe un intervalle ouvert $I$ contenant $0$ tel que pour tout $\\lambda\\in I$, l'équation ci-dessus admet une solution $u_\\lambda\\in C^2([0,1],\\mathbb R)$.\n\n(Méthode : fonctions implicites pour $\\Phi : \\mathbb R\\times E\\to F$, $\\Phi(\\lambda,u)=u''-\\lambda f(u)$ avec $E=\\{u\\in C^2([0,1])\\,;\\,u(0)=u(1)=0\\}$, $F=C^0([0,1])$ ; $\\partial_u\\Phi(0,0)=\\frac{d^2}{dt^2} : E\\to F$ est un isomorphisme (problème de Dirichlet linéaire, résolu par double intégration). Les hypothèses lipschitziennes sur $f$ et $f'$ garantissent que $u\\mapsto f\\circ u$ est $C^1$ de $E$ dans $F$. Variante : point fixe de Banach à paramètre sur $u=\\lambda\\,G(f(u))$, $G$ fonction de Green.)",
+      "hypotheses": [
+        "$f$ et $f'$ globalement lipschitziennes (pour la régularité $C^1$ de l'opérateur de Nemytskii $u\\mapsto f\\circ u$ en dimension infinie)",
+        "$\\lambda$ petit (résultat perturbatif autour de $\\lambda=0$, $u_0=0$)"
+      ],
+      "depends_on": [
+        "Théorème VI.2.1",
+        "Théorème VI.1.4"
+      ],
+      "used_by_hint": "Croisement typique chapitres VI / VII : existence pour un problème aux limites (non couvert par Cauchy-Lipschitz, qui traite les problèmes de Cauchy) par méthode perturbative.",
+      "importance": 1,
+      "proof_in_poly": "exercise",
+      "proof_length": "medium",
+      "counterexample_hints": [
+        "Pour $\\lambda$ grand, pas d'existence ou pas d'unicité en général : $u''+\\lambda u=0$ ($f(u)=-u$) admet des solutions non nulles pour $\\lambda=k^2\\pi^2$ ; $u''=\\lambda e^u$ (Gelfand/Bratu) n'a aucune solution pour $\\lambda>\\lambda^*$."
+      ]
+    },
+    {
+      "id": "ch06-immersion-submersion-def",
+      "kind": "definition",
+      "ref": "non numéroté, Exercice VI.4.9, p. 125",
+      "title": "Immersion, submersion en un point ; rang d'une application",
+      "page": 125,
+      "statement": "Soit $f : U\\to\\mathbb R^m$ une application $C^p$ ($p\\ge1$) d'un ouvert $U$ de $\\mathbb R^n$ et $a\\in U$. On dit que $f$ est une **immersion en $a$** si $df_a$ est injective (ce qui impose $n\\le m$), une **submersion en $a$** si $df_a$ est surjective ($n\\ge m$). Le **rang** de $f$ en $a$ est $\\mathrm{rang}(df_a)$, rang de la matrice jacobienne $\\big(\\frac{\\partial f_i}{\\partial x_j}(a)\\big)_{1\\le i\\le m,1\\le j\\le n}$. On dit que $f$ est de **rang constant** $r$ au voisinage de $a$ si $\\mathrm{rang}(df_x)=r$ pour tout $x$ dans un voisinage de $a$.",
+      "hypotheses": [
+        "le rang est semi-continu inférieurement : si $\\mathrm{rang}(df_a)=r$ alors $\\mathrm{rang}(df_x)\\ge r$ près de $a$ (un mineur $r\\times r$ non nul reste non nul) ; immersion et submersion en $a$ sont donc des conditions ouvertes, mais « rang constant » intermédiaire ne l'est pas"
+      ],
+      "depends_on": [],
+      "used_by_hint": "Théorème du rang constant VI.4.9 ; Définition IX.1.1 et toute la théorie des sous-variétés (paramétrages = immersions, équations = submersions).",
+      "importance": 2,
+      "proof_in_poly": "none",
+      "proof_length": "short",
+      "counterexample_hints": [
+        "$f(x,y)=(x,xy)$ : rang 2 hors de $\\{x=0\\}$, rang 1 sur $\\{x=0\\}$ : le rang n'est pas localement constant en $0$ et $f$ n'admet pas de forme normale linéaire en $0$ (image = plan privé d'une droite épointée)."
+      ]
+    },
+    {
+      "id": "ch06-theoreme-rang-constant",
+      "kind": "theorem",
+      "ref": "Exercice VI.4.9",
+      "title": "Théorème du rang constant (formes normales des immersions, submersions, applications de rang constant)",
+      "page": 125,
+      "statement": "Soit $f : U\\to\\mathbb R^m$ une application $C^p$ d'un ouvert $U$ de $\\mathbb R^n$ dans $\\mathbb R^m$. Soit $a\\in U$.\n\n**1. (Immersion.)** Si $f$ est une immersion en $a$ (i.e. si $df_a$ est injective) alors il existe un voisinage ouvert $U_1$ de $a$ dans $U$, un voisinage ouvert $W_1$ de $f(a)$ dans $\\mathbb R^m$ et $\\Psi : W_1\\to W_2\\subset\\mathbb R^m$ un difféomorphisme de $W_1$ sur un ouvert $W_2$ de $\\mathbb R^m$ tels que $f(U_1)\\subset W_1$ et $\\Psi\\circ f(x_1,\\dots,x_n)=(x_1,\\dots,x_n,0,\\dots,0)$ pour tout $x\\in U_1$ : à un changement de variable au but près, toute immersion est localement l'injection canonique $\\mathbb R^n\\to\\mathbb R^m$.\n\n**2. (Submersion.)** Si $f$ est une submersion en $a$ (i.e. si $df_a$ est surjective), alors il existe un voisinage ouvert $U_1$ de $a$ dans $U$, un ouvert $U_2$ de $\\mathbb R^n$ et un difféomorphisme $\\Phi : U_2\\to U_1$ tels que $f\\circ\\Phi(x_1,\\dots,x_n)=(x_1,\\dots,x_m)$ pour tout $x\\in U_2$ : à un changement de variable à la source près, toute submersion est la projection canonique $\\mathbb R^n\\to\\mathbb R^m$.\n\n**3. (Rang constant.)** Posons $r=\\mathrm{rang}(df_a)$ et supposons $df_x$ de rang $r$ pour tout $x$ dans un voisinage de $a$. Alors il existe (a) un difféomorphisme $\\Phi : U_2\\to U_1$ d'un ouvert $U_2$ de $\\mathbb R^n$ sur un voisinage ouvert $U_1$ de $a$ dans $U$, (b) un difféomorphisme $\\Psi : W_1\\to W_2$ d'un voisinage ouvert $W_1$ de $f(a)$ dans $\\mathbb R^m$ sur un ouvert $W_2$ de $\\mathbb R^m$, vérifiant $f(U_1)\\subset W_1$ et\n$$\\Psi\\circ f\\circ\\Phi : U_2\\to W_2,\\qquad(x_1,\\dots,x_n)\\mapsto(x_1,\\dots,x_r,0,\\dots,0).$$\n\nIndication du poly : après normalisation ($a=0$, $f(a)=0$, bloc $r\\times r$ supérieur gauche de la jacobienne inversible), poser $\\Theta(x)=(f_1(x),\\dots,f_r(x),x_{r+1},\\dots,x_n)$ ; $d\\Theta_0$ est inversible, $\\Phi=\\Theta^{-1}$, $g=f\\circ\\Phi$ vérifie $g(y)=(y_1,\\dots,y_r,g_{r+1}(y),\\dots,g_m(y))$ et $dg_y=\\begin{pmatrix}I_r&0\\\\ *&B(y)\\end{pmatrix}$ ; l'hypothèse de rang constant force $B\\equiv0$, donc $g_{r+1},\\dots,g_m$ ne dépendent que de $y_1,\\dots,y_r$ (sur un pavé) ; on redresse au but par $\\Psi(z)=(z_1,\\dots,z_r,z_{r+1}-g_{r+1}(z_1,\\dots,z_r),\\dots,z_m-g_m(z_1,\\dots,z_r))$. Pour 1, construire directement $F(u,t)=f(u)+\\phi(t)$ avec $\\phi : \\mathbb R^{m-n}\\to H$ isomorphisme sur un supplémentaire $H$ de $\\mathrm{Im}\\,df_a$ et prendre $\\Psi=F^{-1}$.",
+      "hypotheses": [
+        "$f$ de classe $C^p$, $p\\ge1$ (les difféomorphismes obtenus sont $C^p$)",
+        "dimension finie",
+        "cas 3 : rang constant sur tout un **voisinage** de $a$ (pas seulement en $a$) ; les cas 1 et 2 (rang maximal) satisfont automatiquement cette hypothèse par semi-continuité du rang"
+      ],
+      "depends_on": [
+        "Théorème VI.3.2",
+        "Corollaire V.4.5"
+      ],
+      "used_by_hint": "Remarque IX.1.4 ; Proposition IX.1.2 (immersion = homéomorphisme local sur l'image) ; caractérisations des sous-variétés (paramétrage local, équations, graphe) au chapitre IX ; image réciproque d'une valeur régulière.",
+      "importance": 3,
+      "proof_in_poly": "exercise",
+      "proof_length": "long",
+      "counterexample_hints": [
+        "Rang non constant : $f(x,y)=(x,xy)$ ou $f(x)=x^2$ ($\\mathbb R\\to\\mathbb R$) en $0$ : aucune forme normale linéaire possible (l'image d'un voisinage de $0$ par $x^2$ est $[0,\\epsilon[$, pas l'image d'une application linéaire).",
+        "La forme normale 1 est locale : l'immersion $t\\mapsto(\\cos t,\\sin t)$ n'est pas injective globalement ; la lemniscate $t\\mapsto(\\sin 2t,\\sin t)$ est une immersion injective sur $]-\\pi,\\pi[$ dont l'image n'est pas une sous-variété."
+      ],
+      "viz_hint": "Submersion $f : \\mathbb R^2\\to\\mathbb R$ (ex. $f=x^2+y^2$ hors de $0$) : les lignes de niveau sont redressées en droites parallèles par $\\Phi$ ; immersion $\\mathbb R\\to\\mathbb R^2$ : la courbe est redressée en un segment de droite par $\\Psi$. Afficher le quadrillage image."
+    }
+  ],
+  "notations": [
+    {
+      "symbol": "$(X,d_X)$, $(Y,d_Y)$, $(X,d)$",
+      "meaning": "espaces métriques (complets pour les théorèmes de point fixe)",
+      "page": 115
+    },
+    {
+      "symbol": "$T$ $a$-lipschitzienne",
+      "meaning": "$d_Y(T(x),T(y))\\le a\\,d_X(x,y)$ pour tous $x,y$ ; contractante si $Y=X$ et $a<1$",
+      "page": 115
+    },
+    {
+      "symbol": "$a\\in[0\\,;1[$",
+      "meaning": "constante de contraction (notation d'intervalle du poly : $[0\\,;1[$)",
+      "page": 115
+    },
+    {
+      "symbol": "$T^n$, $T^m(T^{n-m}(x_0))$",
+      "meaning": "itérées de $T$ ; suite des itérées $x_{n+1}=T(x_n)$ partant de $x_0$",
+      "page": 115
+    },
+    {
+      "symbol": "$\\Lambda$",
+      "meaning": "espace des paramètres (espace topologique dans VI.1.2, ouvert d'un Banach $E$ dans VI.1.4)",
+      "page": 116
+    },
+    {
+      "symbol": "$g_\\lambda : X\\to X$, $x\\mapsto g(\\lambda,x)$",
+      "meaning": "application partielle à paramètre $\\lambda$ fixé",
+      "page": 116
+    },
+    {
+      "symbol": "$\\varphi(\\lambda)$",
+      "meaning": "l'unique point fixe de $g_\\lambda$ ; $\\varphi : \\Lambda\\to X$",
+      "page": 116
+    },
+    {
+      "symbol": "$f$ différentiable / $C^p$ sur une partie $X$ non ouverte",
+      "meaning": "restriction à $X$ d'une application différentiable / $C^p$ sur un voisinage ouvert $U$ de $X$ (Définition VI.1.3)",
+      "page": 116
+    },
+    {
+      "symbol": "$\\dfrac{\\partial g}{\\partial x}(\\lambda,x)\\in\\mathcal L(F)$, $\\dfrac{\\partial g}{\\partial\\lambda}(\\lambda,x)\\in\\mathcal L(E;F)$",
+      "meaning": "différentielles partielles de $g : \\Lambda\\times X\\to X\\subset F$ par rapport à la seconde et à la première variable (cf. section V.3.4)",
+      "page": 117
+    },
+    {
+      "symbol": "$A:=\\frac{\\partial g}{\\partial x}(\\lambda,\\varphi(\\lambda))$, $B:=\\frac{\\partial g}{\\partial\\lambda}(\\lambda,\\varphi(\\lambda))$",
+      "meaning": "notations de la preuve de VI.1.4 ; $d\\varphi_\\lambda=(\\mathrm{Id}_F-A)^{-1}\\circ B$",
+      "page": 117
+    },
+    {
+      "symbol": "$\\mathrm{Id}_F$, $\\mathrm{Id}_E$, $\\mathrm{Id}-L$",
+      "meaning": "application identité ; $(\\mathrm{Id}-L)^{-1}=\\sum_{n\\ge0}L^n$ si $\\|L\\|<1$",
+      "page": 117
+    },
+    {
+      "symbol": "$\\bar B(\\lambda,\\rho)$, $B(x_0,r)$, $\\bar B(y_0,s)$, $B_E(0,\\delta)$, $B_F(0,\\epsilon)$, $B_{\\mathcal L(E)}(0,a)$",
+      "meaning": "boules fermées ($\\bar B$) et ouvertes ($B$) de centre et rayon indiqués, l'indice précisant l'espace",
+      "page": 117
+    },
+    {
+      "symbol": "$\\gamma(h)=\\varphi(\\lambda+h)-\\varphi(\\lambda)$",
+      "meaning": "accroissement du point fixe (preuve de VI.1.4)",
+      "page": 117
+    },
+    {
+      "symbol": "(VI.1.1) $\\|\\gamma(h)\\|_F\\le\\frac{C}{1-a}\\|h\\|_E$",
+      "meaning": "estimation lipschitzienne locale du point fixe en le paramètre",
+      "page": 117
+    },
+    {
+      "symbol": "$o(\\|h\\|)$, $O(\\|h\\|)$",
+      "meaning": "notations de Landau pour les restes",
+      "page": 117
+    },
+    {
+      "symbol": "$\\mathcal L(E)$, $\\mathcal L(E;F)$",
+      "meaning": "applications linéaires continues de $E$ dans $E$ (resp. dans $F$), munies de la norme d'opérateur $\\|\\cdot\\|$",
+      "page": 117
+    },
+    {
+      "symbol": "$\\dfrac{\\partial f}{\\partial y}(x_0,y_0)$, $\\dfrac{\\partial f}{\\partial x}(x,\\varphi(x))$",
+      "meaning": "différentielles partielles de $f : U\\times V\\to G$ ; $\\partial f/\\partial y\\in\\mathcal L(F;G)$, $\\partial f/\\partial x\\in\\mathcal L(E;G)$",
+      "page": 118
+    },
+    {
+      "symbol": "isomorphisme bicontinu",
+      "meaning": "application linéaire bijective, continue, d'inverse continu (automatique entre Banach, Théorème V.2.3) ; notation $\\mathrm{Iso}(E;F)$ au chapitre V",
+      "page": 118
+    },
+    {
+      "symbol": "$U_0$, $V_0$",
+      "meaning": "voisinages ouverts de $x_0$ et $y_0$ sur lesquels l'équation $f(x,y)=f(x_0,y_0)$ se résout en $y=\\varphi(x)$ (dans la preuve $U_0=B(x_0,r)$, $V_0=B(y_0,s)$)",
+      "page": 118
+    },
+    {
+      "symbol": "$g(x,y)=y-\\big(\\frac{\\partial f}{\\partial y}(x_0,y_0)\\big)^{-1}(f(x,y)-f(x_0,y_0))$",
+      "meaning": "application auxiliaire de la preuve des fonctions implicites, dont les points fixes en $y$ sont les solutions ; $g_x=g(x,\\cdot)$",
+      "page": 118
+    },
+    {
+      "symbol": "$M$, $r_0$, $s$, $r$",
+      "meaning": "constantes de la preuve de VI.2.1 : $\\|\\partial f/\\partial x\\|\\le M$ et $\\|\\partial g/\\partial y\\|\\le1/2$ sur $\\bar B(x_0,r_0)\\times\\bar B(y_0,s)$ ; $r=\\min(r_0, s/(2M\\|(\\partial f/\\partial y(x_0,y_0))^{-1}\\|))$",
+      "page": 118
+    },
+    {
+      "symbol": "$C^k$-difféomorphisme",
+      "meaning": "bijection $C^k$ entre ouverts dont l'inverse est $C^k$ (Définition VI.3.1)",
+      "page": 119
+    },
+    {
+      "symbol": "$df_{x_0}$, $df_x$",
+      "meaning": "différentielle de $f$ au point $x_0$ (notation du chapitre V)",
+      "page": 120
+    },
+    {
+      "symbol": "$f(U)$",
+      "meaning": "image de $U$ par $f$ (ouvert dans le théorème d'inversion globale)",
+      "page": 120
+    },
+    {
+      "symbol": "$d^2f_a$",
+      "meaning": "différentielle seconde en $a$, forme bilinéaire symétrique ; non dégénérée de signature $(r,s)$",
+      "page": 120
+    },
+    {
+      "symbol": "$\\mathrm M_m(\\mathbb R)$, $\\mathrm{Sym}_m$, $\\mathrm{ASym}_m$, $\\mathrm{GL}(m,\\mathbb R)$",
+      "meaning": "matrices carrées réelles de taille $m$ ; sous-espaces des symétriques et antisymétriques ; groupe des inversibles",
+      "page": 120
+    },
+    {
+      "symbol": "$I_{r,s}=\\begin{pmatrix}I_r&0\\\\0&-I_s\\end{pmatrix}$, $I_m$",
+      "meaning": "matrice de la forme quadratique normale de signature $(r,s)$ ; matrice identité",
+      "page": 120
+    },
+    {
+      "symbol": "${}^thSk$",
+      "meaning": "forme bilinéaire de matrice $S$ ($\\mathbb R^m$ identifié aux matrices colonnes, ${}^t$ = transposée)",
+      "page": 120
+    },
+    {
+      "symbol": "$B : U_0\\to\\mathrm{Sym}_m$, $g(C)={}^tCI_{r,s}C$, $\\eta : Y\\to\\mathrm{GL}(m,\\mathbb R)$, $\\mathcal E$",
+      "meaning": "objets du lemme de Morse : $f(x)={}^txB(x)x$ ; $g$ congruence ; $\\eta$ racine carrée lisse ($S={}^t\\eta(S)I_{r,s}\\eta(S)$) ; $\\mathcal E=\\{X\\,;\\,I_{r,s}X\\in\\mathrm{Sym}_m\\}$ supplémentaire de $\\ker dg_{I_m}$",
+      "page": 120
+    },
+    {
+      "symbol": "$\\psi$, $\\varphi=\\eta(B(x))x$",
+      "meaning": "difféomorphisme de Morse $\\psi=\\varphi^{-1}$, $f\\circ\\psi(h)=f(a)+\\sum_{i\\le r}h_i^2-\\sum_{i>r}h_i^2$",
+      "page": 120
+    },
+    {
+      "symbol": "$\\mathbb N^\\times$",
+      "meaning": "entiers naturels non nuls",
+      "page": 121
+    },
+    {
+      "symbol": "$[a,b]=\\{ta+(1-t)b\\,;\\,t\\in[0;1]\\}$",
+      "meaning": "segment de $a$ à $b$ dans un espace vectoriel",
+      "page": 121
+    },
+    {
+      "symbol": "$g(r)=df_{x_0+r}^{-1}$, $C=\\|df_{x_0}^{-1}\\|$, $M$, $R(r)$, $\\phi(r)$, $K$",
+      "meaning": "notations de la méthode de Newton : inverse de la différentielle, constante de Lipschitz de $df$, reste $R(r)=f(x_0)-f(x_0+r)+df_{x_0+r}(r)$, application de point fixe $\\phi(r)=df_{x_0+r}^{-1}(f(x_0+r)-df_{x_0+r}(r))$, rapport de contraction",
+      "page": 122
+    },
+    {
+      "symbol": "$x_{n+1}=x_n-df_{x_n}^{-1}(f(x_n))$",
+      "meaning": "itération de Newton",
+      "page": 122
+    },
+    {
+      "symbol": "$P_\\varepsilon(x)=(x-a)(b-x)+\\varepsilon x^3$, $x_a(\\varepsilon)<x_b(\\varepsilon)<x_c(\\varepsilon)$",
+      "meaning": "polynôme perturbé et ses trois racines",
+      "page": 122
+    },
+    {
+      "symbol": "$I(\\varepsilon)=\\int_{x_a(\\varepsilon)}^{x_b(\\varepsilon)}\\frac{dx}{\\sqrt{P_\\varepsilon(x)}}$",
+      "meaning": "intégrale elliptique (angle balayé entre aphélie et périhélie)",
+      "page": 123
+    },
+    {
+      "symbol": "$\\Delta\\varpi$, $p$, $\\varepsilon=2GM/c^2$",
+      "meaning": "avance du périhélie par révolution ; paramètre de l'ellipse ; rayon de Schwarzschild",
+      "page": 123
+    },
+    {
+      "symbol": "$E_1=\\ker df_a$, $E_2$ supplémentaire fermé",
+      "meaning": "décomposition $E=E_1\\oplus E_2$ utilisée pour les submersions",
+      "page": 124
+    },
+    {
+      "symbol": "$\\|f\\|_1=\\sup|f|+\\sup|f'|$, $\\|f\\|_0=\\sup|f|$",
+      "meaning": "normes $C^1$ et $C^0$ sur $C^1([0;1];\\mathbb R)$ et $C^0([0;1];\\mathbb R)$",
+      "page": 124
+    },
+    {
+      "symbol": "$\\Psi(f)(t)=f'(t)+tf(t)^2$",
+      "meaning": "opérateur différentiel non linéaire de l'exercice VI.4.6",
+      "page": 124
+    },
+    {
+      "symbol": "$\\lambda_i(A)$, $v_i(A)$",
+      "meaning": "valeurs propres et vecteurs propres dépendant lissement de $A\\in\\mathrm M_n(\\mathbb R)$",
+      "page": 124
+    },
+    {
+      "symbol": "immersion en $a$ / submersion en $a$",
+      "meaning": "$df_a$ injective / surjective",
+      "page": 125
+    },
+    {
+      "symbol": "$\\mathrm{rang}(df_a)$, $r$",
+      "meaning": "rang de la différentielle (de la matrice jacobienne) en $a$",
+      "page": 125
+    },
+    {
+      "symbol": "$\\Theta(x)=(f_1(x),\\dots,f_r(x),x_{r+1},\\dots,x_n)$, $\\Phi=\\Theta^{-1}$, $g=f\\circ\\Phi$, $\\Psi$",
+      "meaning": "changements de coordonnées à la source ($\\Phi$) et au but ($\\Psi$) du théorème du rang constant ; $dg_y=\\begin{pmatrix}I_r&0\\\\ *&B(y)\\end{pmatrix}$",
+      "page": 126
+    }
+  ],
+  "poly_exercises": [
+    {
+      "ref": "Exercice VI.1.5",
+      "page": 118,
+      "topic": "Série de Neumann et régularité de l'inversion",
+      "statement_short": "Pour $L\\in\\mathcal L(E)$, $\\|L\\|\\le a<1$ ($E$ Banach), montrer que $\\mathrm{Id}_E-L$ est inversible d'inverse de norme $\\le(1-a)^{-1}$, et que $L\\mapsto(\\mathrm{Id}-L)^{-1}$ est $C^\\infty$ sur $B_{\\mathcal L(E)}(0,a)$.",
+      "chapters_involved": [
+        6,
+        5
+      ]
+    },
+    {
+      "ref": "Exercice VI.3.4",
+      "page": 120,
+      "topic": "Lemme de Morse",
+      "statement_short": "Au voisinage d'un point critique non dégénéré de signature $(r,s)$ d'une fonction $C^\\infty$ sur un ouvert de $\\mathbb R^m$, construire un difféomorphisme $\\psi$ tel que $f\\circ\\psi(h)=f(a)+\\sum_{i\\le r}h_i^2-\\sum_{i>r}h_i^2$ : réduction, Taylor avec reste intégral ($f={}^txB(x)x$), racine carrée lisse de la congruence par inversion locale, puis inversion locale de $\\varphi(x)=\\eta(B(x))x$.",
+      "chapters_involved": [
+        6,
+        5
+      ]
+    },
+    {
+      "ref": "Exercice VI.4.1",
+      "page": 121,
+      "topic": "Point fixe quand une itérée est contractante",
+      "statement_short": "Si $T : X\\to X$ ($X$ complet) a une itérée $T^n$ contractante, $T$ a un unique point fixe, limite de $T^k(x_0)$ pour tout $x_0$.",
+      "chapters_involved": [
+        6
+      ]
+    },
+    {
+      "ref": "Exercice VI.4.2",
+      "page": 121,
+      "topic": "Méthode de Newton dans les espaces de Banach",
+      "statement_short": "Pour $f : U\\to F$ de classe $C^1$ à différentielle $M$-lipschitzienne, $df_{x_0}$ inversible et $\\|f(x_0)\\|$ petit, montrer que $\\phi(r)=df_{x_0+r}^{-1}(f(x_0+r)-df_{x_0+r}(r))$ est une contraction de $B_E(0,\\delta)$, en déduire la convergence de $x_{n+1}=x_n-df_{x_n}^{-1}(f(x_n))$ vers un zéro de $f$ et évaluer la vitesse.",
+      "chapters_involved": [
+        6,
+        5
+      ]
+    },
+    {
+      "ref": "Exercice VI.4.3",
+      "page": 122,
+      "topic": "Perturbation des racines et périhélie de Mercure",
+      "statement_short": "Racines $x_a(\\varepsilon),x_b(\\varepsilon)$ de $(x-a)(b-x)+\\varepsilon x^3$ lisses en $\\varepsilon$ par fonctions implicites, DL à l'ordre 1, troisième racine $\\sim1/\\varepsilon$ ; développement $I(\\varepsilon)=\\pi+\\frac{3\\pi(a+b)}4\\varepsilon+O(\\varepsilon^2)$ de l'intégrale elliptique $\\int dx/\\sqrt{P_\\varepsilon}$ par Taylor uniforme.",
+      "chapters_involved": [
+        6,
+        5
+      ]
+    },
+    {
+      "ref": "Exercice VI.4.5",
+      "page": 124,
+      "topic": "Submersion à noyau scindé : image localement ouverte",
+      "statement_short": "Si $f : U\\to F$ est $C^1$ entre Banach, $df_a$ surjective et $\\ker df_a$ admet un supplémentaire fermé, alors $f(U)$ contient un voisinage de $f(a)$ (inversion locale sur le supplémentaire).",
+      "chapters_involved": [
+        6,
+        5
+      ]
+    },
+    {
+      "ref": "Exercice VI.4.6",
+      "page": 124,
+      "topic": "EDO non linéaire $f'+tf^2=g$ par surjectivité locale",
+      "statement_short": "$\\Psi(f)=f'+tf^2$ est $C^1$ de $C^1([0;1])$ dans $C^0([0;1])$, $d\\Psi_0=d/dt$ surjective de noyau les constantes, supplémentaire fermé $\\{f(0)=0\\}$ ; en déduire que $f'+tf^2=g$ a une solution pour tout $g$ de norme $<\\epsilon$.",
+      "chapters_involved": [
+        6,
+        5,
+        7
+      ]
+    },
+    {
+      "ref": "Exercice VI.4.7",
+      "page": 124,
+      "topic": "Valeurs et vecteurs propres simples dépendent lissement de la matrice",
+      "statement_short": "Si $A_0$ a $n$ valeurs propres distinctes, les valeurs propres $\\lambda_i(A)$ et des vecteurs propres $v_i(A)$ sont des fonctions $C^\\infty$ de $A$ au voisinage de $A_0$ (fonctions implicites sur le polynôme caractéristique puis sur $(A-\\lambda I)v=0$ normalisé).",
+      "chapters_involved": [
+        6
+      ]
+    },
+    {
+      "ref": "Exercice VI.4.8",
+      "page": 124,
+      "topic": "Problème aux limites non linéaire pour $\\lambda$ petit",
+      "statement_short": "Pour $f\\in C^1(\\mathbb R)$ avec $f$ et $f'$ lipschitziennes, montrer qu'il existe un intervalle ouvert $I\\ni0$ tel que $u''-\\lambda f(u)=0$, $u(0)=u(1)=0$ ait une solution $C^2$ pour tout $\\lambda\\in I$ (fonctions implicites ou point fixe à paramètre en dimension infinie).",
+      "chapters_involved": [
+        6,
+        7
+      ]
+    },
+    {
+      "ref": "Exercice VI.4.9",
+      "page": 125,
+      "topic": "Théorème du rang constant",
+      "statement_short": "Formes normales locales : une immersion en $a$ est, à difféomorphisme au but près, $(x_1,\\dots,x_n)\\mapsto(x_1,\\dots,x_n,0,\\dots,0)$ ; une submersion est, à difféomorphisme à la source près, la projection $(x_1,\\dots,x_n)\\mapsto(x_1,\\dots,x_m)$ ; une application de rang constant $r$ près de $a$ est, à difféomorphismes près à la source et au but, $(x_1,\\dots,x_n)\\mapsto(x_1,\\dots,x_r,0,\\dots,0)$.",
+      "chapters_involved": [
+        6,
+        9
+      ]
+    }
+  ],
+  "pitfalls": [
+    "Confondre « contractante » ($a<1$ uniforme) avec « $d(T(x),T(y))<d(x,y)$ pour $x\\ne y$ » : la seconde condition ne donne pas de point fixe ($T(x)=x+1/x$ sur $[1,+\\infty[$, $T(x)=\\sqrt{x^2+1}$ sur $\\mathbb R$).",
+    "Oublier de vérifier la stabilité $T(X)\\subset X$ (ou $g(\\Lambda\\times X)\\subset X$) : c'est souvent la partie délicate (choix de $r$ dans la preuve de VI.2.1, choix de $\\delta$ dans Newton, boîte $\\bar B(x_0,2\\rho)$ dans Cauchy-Lipschitz).",
+    "Appliquer le point fixe sur un espace non complet (ouvert, boule ouverte) : il faut une boule **fermée** ou un fermé ; c'est pourquoi le poly travaille sur $\\bar B(y_0,s)$ et pose ensuite $V_0=B(y_0,s)$.",
+    "Dans VI.1.4, la convexité de $X$ est indispensable pour passer de $\\|\\partial g/\\partial x\\|\\le a$ à « $g_\\lambda$ $a$-lipschitzienne » via les accroissements finis ; une borne sur la différentielle sans convexité ne contrôle pas les accroissements.",
+    "L'hypothèse « isomorphisme bicontinu » : en dimension finie elle se lit $\\det\\ne0$ et impose $\\dim E=\\dim F$ ; entre Banach, bijectif + continu suffit (Théorème V.2.3). Vérifier surjectivité **et** injectivité en dimension infinie, pas seulement l'injectivité.",
+    "Le théorème des fonctions implicites résout l'équation au niveau $f(x_0,y_0)$, pas $f=0$ en général, et ne donne qu'une résolution **locale** ($U_0\\times V_0$) : hors de $V_0$ il peut y avoir d'autres solutions $y$ pour le même $x$ (cercle $x^2+y^2=1$ : deux branches $\\pm\\sqrt{1-x^2}$).",
+    "Dériver dans la variable qu'on veut exprimer : pour résoudre $y=\\varphi(x)$ c'est $\\partial f/\\partial y$ qui doit être inversible, pas $\\partial f/\\partial x$ ; et la formule $d\\varphi_x=-(\\partial_yf)^{-1}\\circ\\partial_xf$ a un signe moins et un ordre de composition (en dimension infinie l'ordre compte).",
+    "Inversion locale ≠ inversion globale : $df_x$ inversible partout ne donne pas l'injectivité ($\\exp$ complexe, coordonnées polaires). Pour un difféomorphisme global il faut vérifier l'injectivité à la main (Corollaire VI.3.3).",
+    "La régularité $C^1$ est nécessaire dans l'inversion locale : « différentiable en $x_0$ avec $df_{x_0}$ inversible » ne suffit pas ($x+2x^2\\sin(1/x)$). De même une bijection $C^\\infty$ n'est pas forcément un difféomorphisme ($x^3$).",
+    "La régularité obtenue est celle de $f$ : $\\varphi$ est $C^p$ si $f$ est $C^p$, pas plus. Dans le lemme de Morse, la racine carrée $\\eta$ et le changement de variables perdent deux ordres de dérivation si $f$ n'est que $C^k$.",
+    "Dans la formule de $d\\varphi_\\lambda$ (VI.1.4), ne pas oublier que $(\\mathrm{Id}_F-\\partial_xg)^{-1}$ est bien défini grâce à $\\|\\partial_xg\\|\\le a<1$ (série de Neumann) : la même borne qui donne l'existence du point fixe donne sa différentiabilité.",
+    "Théorème du rang constant : l'hypothèse est le rang constant sur un **voisinage**, pas seulement en $a$ ; le rang en $a$ seul ne contrôle que les cas de rang maximal (immersion, submersion). Et « immersion » ne signifie pas « injective » : c'est $df_a$ qui est injective.",
+    "Dans les applications en dimension infinie (VI.4.6, VI.4.8), vérifier soigneusement que l'opérateur non linéaire est $C^1$ pour les normes choisies (normes $C^1$ au départ, $C^0$ à l'arrivée) : c'est là que servent les hypothèses lipschitziennes sur $f$ et $f'$."
+  ],
+  "viz_opportunities": [
+    {
+      "title": "Itérées d'une contraction (toile d'araignée)",
+      "shows": "Sur le graphe d'une fonction $T : [0,1]\\to[0,1]$ réglable, la suite $x_{n+1}=T(x_n)$ en escalier/toile d'araignée vers la diagonale ; afficher la pente maximale $a$ et la majoration géométrique $d(x_n,x)\\le a^n d(x_0,x_1)/(1-a)$ ; cas $a\\ge1$ (divergence ou cycle) pour voir la nécessité de $a<1$, et cas $T(X)\\not\\subset X$.",
+      "results": [
+        "Théorème VI.1.1",
+        "Exercice VI.4.1"
+      ]
+    },
+    {
+      "title": "Point fixe dépendant d'un paramètre",
+      "shows": "Famille $x\\mapsto g(\\lambda,x)$ au curseur $\\lambda$ ; le point fixe $\\varphi(\\lambda)$ se déplace continûment et lissement ; graphe de $\\lambda\\mapsto\\varphi(\\lambda)$ avec sa tangente de pente $\\partial_\\lambda g/(1-\\partial_xg)$ ; explosion de la pente quand $\\partial_xg\\to1$ (bifurcation).",
+      "results": [
+        "Théorème VI.1.2",
+        "Théorème VI.1.4"
+      ]
+    },
+    {
+      "title": "Fonctions implicites : une courbe de niveau est localement un graphe",
+      "shows": "Courbe $f(x,y)=c$ (cercle, lemniscate, $y^3-x$, $y^2-x^3$...) ; en cliquant un point, affichage du rectangle $U_0\\times V_0$ où la courbe est le graphe $y=\\varphi(x)$ et de la tangente de pente $-\\partial_xf/\\partial_yf$ ; aux points à tangente verticale ou aux points doubles ($\\partial_yf=0$), impossibilité d'un tel rectangle, ou perte de régularité (racine cubique).",
+      "results": [
+        "Théorème VI.2.1"
+      ]
+    },
+    {
+      "title": "Inversion locale : image d'un petit disque et différentielle",
+      "shows": "Application $f : \\mathbb R^2\\to\\mathbb R^2$ (ex. $(x,y)\\mapsto(x^2-y^2,2xy)$, polaires, $(x,y)\\mapsto(x,y^2)$) ; un petit disque centré en un point déplaçable, son image (déformée mais injective si $\\det df\\ne0$, repliée sinon) et l'image du parallélogramme par $df_{x_0}$ superposée ; coloration du lieu $\\det df=0$ ; illustration de la non-injectivité globale ($z^2$ recouvre deux fois).",
+      "results": [
+        "Théorème VI.3.2",
+        "Corollaire VI.3.3",
+        "Définition VI.3.1"
+      ]
+    },
+    {
+      "title": "Lemme de Morse : redresser les lignes de niveau près d'un col",
+      "shows": "Lignes de niveau de $f$ près d'un point critique non dégénéré (col, minimum) et, après application du difféomorphisme $\\psi$, celles de $h_1^2-h_2^2$ ou $h_1^2+h_2^2$ (hyperboles / cercles exacts) ; cas dégénéré $x^2+y^3$ où aucun redressement quadratique n'existe.",
+      "results": [
+        "Exercice VI.3.4"
+      ]
+    },
+    {
+      "title": "Méthode de Newton : convergence quadratique et bassins",
+      "shows": "Sur une fonction réelle, les tangentes successives et le zoom sur l'erreur (nombre de décimales doublant à chaque pas) ; déplacer $x_0$ pour voir cycles et divergence ($x^3-2x+2$, $\\arctan$) ; en 2D ou dans $\\mathbb C$, bassins d'attraction colorés de $z^3-1$ (fractale de Newton) pour illustrer le caractère local de la convergence.",
+      "results": [
+        "Exercice VI.4.2"
+      ]
+    },
+    {
+      "title": "Perturbation des racines et précession de l'orbite",
+      "shows": "Graphe de $P_\\varepsilon(x)=(x-a)(b-x)+\\varepsilon x^3$ avec $\\varepsilon$ au curseur : $x_a$, $x_b$ bougent lissement, $x_c$ part à l'infini ; à côté, l'orbite $r(\\varphi)$ tracée sur plusieurs révolutions, qui se referme pour $\\varepsilon=0$ et précesse de $\\Delta\\varpi\\simeq\\frac{3\\pi}{2}(a+b)\\varepsilon$ sinon ($\\varepsilon$ exagéré pour être visible).",
+      "results": [
+        "Exercice VI.4.3",
+        "Remarque VI.4.4"
+      ]
+    },
+    {
+      "title": "Formes normales : immersion et submersion redressées",
+      "shows": "Submersion $f : \\mathbb R^2\\to\\mathbb R$ : lignes de niveau courbes transformées en droites parallèles par le changement de coordonnées $\\Phi$ (grille image) ; immersion $\\mathbb R\\to\\mathbb R^2$ : courbe redressée en segment par $\\Psi$ ; application de rang non constant $(x,y)\\mapsto(x,xy)$ où ça échoue.",
+      "results": [
+        "Exercice VI.4.9"
+      ]
+    }
+  ],
+  "proof_techniques": [
+    "Point fixe contractant : réécrire l'équation à résoudre sous la forme $y=g(y)$ (Newton modifié : $g(y)=y-A^{-1}(f(y)-c)$ avec $A$ la différentielle figée en un point), montrer que $g$ est contractante sur une boule fermée et la stabilise, conclure par Banach.",
+    "Rendre une application contractante par continuité de la différentielle : $\\partial_yg(x_0,y_0)=0$ donc $\\|\\partial_yg\\|\\le1/2$ au voisinage, puis inégalité des accroissements finis (Théorème V.4.4) sur un convexe pour obtenir le caractère $\\frac12$-lipschitzien.",
+    "Choix du rayon pour la stabilité d'une boule : $\\|g_x(y)-y_0\\|\\le\\|g_x(y)-g_x(y_0)\\|+\\|g_x(y_0)-g_{x_0}(y_0)\\|\\le\\frac s2+(\\text{petit en }r)$, puis $r$ assez petit (insertion d'un terme intermédiaire).",
+    "Série de Neumann : $\\|A\\|<1\\Rightarrow(\\mathrm{Id}-A)^{-1}=\\sum A^n$, de norme $\\le(1-\\|A\\|)^{-1}$ ; plus généralement ouverture de $\\mathrm{Iso}(E;F)$ et régularité $C^\\infty$ de l'inversion (Théorème V.5.7).",
+    "Dérivation de l'identité de point fixe / implicite : différentier formellement $\\varphi(\\lambda)=g(\\lambda,\\varphi(\\lambda))$ ou $f(x,\\varphi(x))=c$ pour deviner la formule de $d\\varphi$, puis la justifier en montrant d'abord que $\\varphi$ est localement lipschitzienne (pour transformer $o(\\|h\\|+\\|\\gamma(h)\\|)$ en $o(\\|h\\|)$).",
+    "Bootstrap de régularité : récurrence $C^{k-1}\\Rightarrow C^k$ en lisant la formule de $d\\varphi$ comme composée d'applications $C^{k-1}$, de l'inversion $C^\\infty$ et d'une application bilinéaire continue.",
+    "Déduction inversion locale ⇐ fonctions implicites : appliquer les fonctions implicites à $g(y,x)=f(x)-y$, le paramètre étant la valeur $y$ ; vérifier que $U_0=\\varphi(V_0)=U_1\\cap f^{-1}(V_0)$ est ouvert.",
+    "Réduction par changements de variables affines/linéaires avant d'appliquer un théorème local : se ramener à $a=0$, $f(0)=0$, différentielle ou hessienne normalisée ($2I_{r,s}$, bloc $r\\times r$ inversible par permutation des coordonnées).",
+    "Formule de Taylor avec reste intégral pour écrire $f(x)={}^txB(x)x$ avec $B$ lisse (dérivation sous le signe intégral), i.e. factoriser un développement par des coefficients variables réguliers.",
+    "Construire des inverses lisses d'applications algébriques par inversion locale restreinte à un supplémentaire du noyau de la différentielle (racine carrée de la congruence $C\\mapsto{}^tCI_{r,s}C$, $E=E_1\\oplus E_2$ pour les submersions).",
+    "Compléter une immersion en un difféomorphisme en ajoutant des directions supplémentaires ($F(u,t)=f(u)+\\phi(t)$) ; compléter une submersion en ajoutant des coordonnées ($\\Theta=(f_1,\\dots,f_r,x_{r+1},\\dots,x_n)$) : « ajouter des variables pour rendre la jacobienne carrée et inversible ».",
+    "Argument de rang : si les $r$ premières colonnes d'une matrice de rang $r$ sont indépendantes, les autres sont combinaisons linéaires ; avec la structure $\\begin{pmatrix}I_r&0\\\\ *&B\\end{pmatrix}$ cela force $B=0$, puis annulation de dérivées partielles sur un pavé ⇒ indépendance de variables.",
+    "Fonctions implicites pour la dépendance lisse en un paramètre d'une racine simple ($\\partial_x P\\ne0$), avec DL de la racine obtenu par $x'(0)=-\\partial_\\varepsilon P/\\partial_xP$ ; la racine qui part à l'infini se traite par le changement $x=1/\\varepsilon\\cdot u$.",
+    "Calcul différentiel en dimension infinie sur des espaces de fonctions ($C^1([0;1])\\to C^0([0;1])$) : montrer la classe $C^1$ d'un opérateur de Nemytskii à l'aide des accroissements finis et des hypothèses lipschitziennes, identifier sa différentielle en $0$ à un opérateur différentiel linéaire et résoudre le problème linéaire explicitement pour en montrer l'inversibilité."
+  ]
+}

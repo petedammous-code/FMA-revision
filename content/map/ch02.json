@@ -8,7 +8,7 @@
       35,
       58
     ],
-    "summary": "Le chapitre II étend le théorème de Cauchy du disque à des ouverts quelconques via la notion de déformation continue de lacets (homotopie), puis en déduit la formule des résidus et ses applications. Le fil logique est le suivant : (1) on définit l'homotopie de lacets et les ouverts simplement connexes (étoilé implique simplement connexe) ; (2) on démontre, par un argument de « grillage » compact utilisant l'existence locale de primitives, que l'intégrale d'une fonction holomorphe sur un lacet est invariante par homotopie (Théorème II.2.1), d'où la nullité de l'intégrale sur tout lacet d'un ouvert simplement connexe (Corollaire II.2.2) ; (3) on introduit l'indice d'un lacet en un point, entier localement constant et invariant par homotopie, qui compte le nombre de tours ; (4) on définit pôles, fonctions méromorphes, développement de Laurent et résidu, avec le théorème de Riemann sur les singularités effaçables et la formule résidu = intégrale sur un petit cercle ; (5) on démontre la formule des résidus (Théorème II.5.1) en soustrayant les parties polaires, puis on l'applique au calcul d'intégrales réelles (contour demi-disque, contour en trou de serrure) ; (6) on en tire le principe de l'argument (dérivée logarithmique) et le théorème de Rouché, qui compare zéros et pôles de deux fonctions proches sur un bord et redonne d'Alembert-Gauss ; (7) on construit des primitives globales sur les ouverts simplement connexes, donc le logarithme complexe, sa détermination principale et les puissances complexes. Les cinq résultats centraux sont : l'invariance par homotopie (II.2.1/II.2.2), les propriétés de l'indice (II.3.2), le développement de Laurent et le résidu (II.4.6, II.4.11), la formule des résidus (II.5.1 et sa forme pratique (II.6.1)), le principe de l'argument et Rouché (II.8.1, II.8.4), et l'existence de primitives/logarithme sur un simplement connexe (II.9.1, II.9.3).",
+    "summary": "Le chapitre II étend le théorème de Cauchy du disque à des ouverts quelconques via la notion de déformation continue de lacets (homotopie), puis en déduit la formule des résidus et ses applications. Le fil logique est le suivant : (1) on définit l'homotopie de lacets et les ouverts simplement connexes (étoilé implique simplement connexe) ; (2) on démontre, par un argument de « grillage » compact utilisant l'existence locale de primitives, que l'intégrale d'une fonction holomorphe sur un lacet est invariante par homotopie (Théorème II.2.1), d'où la nullité de l'intégrale sur tout lacet d'un ouvert simplement connexe (Corollaire II.2.2) ; (3) on introduit l'indice d'un lacet en un point, entier localement constant et invariant par homotopie, qui compte le nombre de tours ; (4) on définit pôles, fonctions méromorphes, développement de Laurent et résidu, avec le théorème de Riemann sur les singularités effaçables et la formule résidu = intégrale sur un petit cercle ; (5) on démontre la formule des résidus (Théorème II.5.1) en soustrayant les parties polaires, puis on l'applique au calcul d'intégrales réelles (contour demi-disque, contour en trou de serrure) ; (6) on en tire le principe de l'argument (dérivée logarithmique) et le théorème de Rouché, qui compare zéros et pôles de deux fonctions proches sur un bord et redonne d'Alembert-Gauss ; (7) on construit des primitives globales sur les ouverts simplement connexes, donc le logarithme complexe, sa détermination principale et les puissances complexes. Les résultats centraux sont : l'invariance par homotopie (II.2.1/II.2.2), les propriétés de l'indice (II.3.2), le développement de Laurent et le résidu (II.4.6, II.4.11), la formule des résidus (II.5.1 et sa forme pratique (II.6.1)), le principe de l'argument et Rouché (II.8.1, II.8.4), et l'existence de primitives/logarithme sur un simplement connexe (II.9.1, II.9.3).",
     "sections": [
       {
         "num": "II.1",
@@ -64,7 +64,7 @@
       "ref": "Définition II.1.1",
       "title": "Homotopie, homotopie de chemins / de lacets, ouvert simplement connexe",
       "page": 35,
-      "statement": "Soient $\\Omega$ un ouvert non vide de $\\mathbb C$ et $\\gamma_0, \\gamma_1 : [0,1] \\to \\Omega$ des applications continues. Une **homotopie** entre $\\gamma_0$ et $\\gamma_1$ dans $\\Omega$ est une application $\\gamma \\in C([0,1]^2 ; \\Omega)$ telle que $\\gamma(0,t) = \\gamma_0(t)$ et $\\gamma(1,t) = \\gamma_1(t)$ pour tout $t \\in [0,1]$. On dit que $\\gamma_0$ et $\\gamma_1$ sont **homotopes**. Si $\\gamma_0$ et $\\gamma_1$ sont des chemins, on dit que $\\gamma$ est une **homotopie de chemins**. Si l'on demande de plus $\\gamma(s,0) = \\gamma(s,1)$ pour tout $s \\in [0,1]$ (en particulier $\\gamma_0$ et $\\gamma_1$ sont des lacets), on dit que $\\gamma$ est une **homotopie de lacets** : le point base $\\gamma(s,0)$ a le droit de se déplacer avec $s$, c'est pourquoi on parle aussi d'**homotopie libre de lacets**. C'est cette seconde notion qu'utilise le théorème d'invariance (II.2.1). On dit que $\\Omega$ est **simplement connexe** s'il est connexe et si tout lacet $\\gamma$ de $\\Omega$ est homotope à un lacet constant. (Précision du poly, p. 36 : on n'exige pas que $t \\mapsto \\gamma(s,t)$ soit un chemin, c'est-à-dire $C^1$ par morceaux, pour $s \\in ]0,1[$ ; mais pour les lacets on exige $\\gamma(s,0) = \\gamma(s,1)$.)",
+      "statement": "Soient $\\Omega$ un ouvert non vide de $\\mathbb C$ et $\\gamma_0, \\gamma_1 : [0,1] \\to \\Omega$ des applications continues. Une **homotopie** entre $\\gamma_0$ et $\\gamma_1$ dans $\\Omega$ est une application $\\gamma \\in C([0,1]^2 ; \\Omega)$ telle que $\\gamma(0,t) = \\gamma_0(t)$ et $\\gamma(1,t) = \\gamma_1(t)$ pour tout $t \\in [0,1]$. On dit que $\\gamma_0$ et $\\gamma_1$ sont **homotopes**. Si $\\gamma_0$ et $\\gamma_1$ sont des chemins, on dit que $\\gamma$ est une **homotopie de chemins**. Si l'on demande de plus $\\gamma(s,0) = \\gamma(s,1)$ pour tout $s \\in [0,1]$ (en particulier $\\gamma_0$ et $\\gamma_1$ sont des lacets), on dit que $\\gamma$ est une **homotopie de lacets** : le point base $\\gamma(s,0)$ a le droit de se déplacer avec $s$, c'est pourquoi on parle aussi d'**homotopie libre de lacets**. C'est cette seconde notion qu'utilise le théorème d'invariance (II.2.1). On dit que $\\Omega$ est **simplement connexe** s'il est connexe et si tout lacet $\\gamma$ de $\\Omega$ est homotope à un lacet constant. (Précision du poly, p. 36 : on n'exige pas que $t \\mapsto \\gamma(s,t)$ soit un chemin, c'est-à-dire $C^1$ par morceaux, pour tout $s \\in [0,1]$ ; mais pour les lacets on exige $\\gamma(s,0) = \\gamma(s,1)$.)",
       "hypotheses": [
         "$\\Omega$ ouvert non vide de $\\mathbb C$",
         "$\\gamma_0,\\gamma_1$ continues à valeurs dans $\\Omega$",
@@ -83,6 +83,27 @@
         "Un ouvert non connexe (deux disques disjoints) n'est pas simplement connexe par définition, même si chaque composante l'est."
       ],
       "viz_hint": "Slider $s \\in [0,1]$ déformant continûment $\\gamma_0$ en $\\gamma_1$ ; comparer une homotopie dans $\\mathbb C$ et l'obstruction dans $\\mathbb C\\setminus\\{0\\}$."
+    },
+    {
+      "id": "ch02-homotopie-generale-remarque",
+      "kind": "remark",
+      "ref": "Remarque II.1.2",
+      "title": "Homotopie entre applications continues (notion générale)",
+      "page": 35,
+      "statement": "On peut définir plus généralement la notion d'homotopie entre deux applications continues $f_0, f_1 : X \\to Y$ entre espaces topologiques $X$ et $Y$ : c'est une application continue $F : [0,1]\\times X \\to Y$ telle que $F(0,x) = f_0(x)$ et $F(1,x) = f_1(x)$ pour tout $x\\in X$. Lorsque $f_0$ et $f_1$ ont des propriétés supplémentaires, par exemple de différentiabilité, on peut vouloir ou non, selon le contexte, que les applications partielles $x\\mapsto F(x,s)$ aient les mêmes propriétés pour tout $s\\in[0,1]$.",
+      "hypotheses": [
+        "$X$, $Y$ espaces topologiques",
+        "$f_0, f_1 : X\\to Y$ continues"
+      ],
+      "depends_on": [
+        "Définition II.1.1"
+      ],
+      "used_by_hint": "Culture : la Définition II.1.1 est le cas $X=[0,1]$, $Y=\\Omega$. Jamais réutilisée dans le poly.",
+      "importance": 1,
+      "proof_in_poly": "none",
+      "proof_length": "short",
+      "counterexample_hints": [],
+      "viz_hint": ""
     },
     {
       "id": "ch02-homotopie-relation-equivalence",
@@ -161,7 +182,7 @@
         "Définition II.1.1"
       ],
       "used_by_hint": "Fournit les exemples usuels d'ouverts simplement connexes (disques, demi-plans, plan coupé $\\mathbb C\\setminus\\mathbb R_-$) ; utilisé dans la preuve de Rouché (II.8.4) avec $D(1,1)$ et pour la détermination principale du logarithme (II.9.3).",
-      "importance": 2,
+      "importance": 3,
       "proof_in_poly": "full",
       "proof_length": "short",
       "counterexample_hints": [
@@ -343,7 +364,7 @@
       "ref": "Proposition II.3.4",
       "title": "Invariance de l'indice par homotopie de lacets dans $\\mathbb C\\setminus\\{z_0\\}$",
       "page": 41,
-      "statement": "L'indice est invariant par homotopie de lacets. Plus précisément, s'il existe une homotopie (de lacets) dans $\\mathbb C\\setminus\\{z_0\\}$ entre deux lacets $\\gamma_0$ et $\\gamma_1$, alors $\\mathrm{Ind}_{z_0}(\\gamma_0) = \\mathrm{Ind}_{z_0}(\\gamma_1)$.",
+      "statement": "L'indice est invariant par homotopie de lacets. Plus précisément, s'il existe une homotopie dans $\\mathbb C\\setminus\\{z_0\\}$ entre deux lacets $\\gamma_0$ et $\\gamma_1$, alors $\\mathrm{Ind}_{z_0}(\\gamma_0) = \\mathrm{Ind}_{z_0}(\\gamma_1)$. (Il s'agit d'une homotopie de lacets au sens de la Définition II.1.1, pour pouvoir appliquer le Théorème II.2.1 à $z\\mapsto 1/(z-z_0)$ sur $\\mathbb C\\setminus\\{z_0\\}$ ; la preuve souligne qu'il est crucial qu'aucun des lacets $\\gamma_s$ de l'homotopie ne passe par $z_0$.)",
       "hypotheses": [
         "homotopie de lacets",
         "à valeurs dans $\\mathbb C\\setminus\\{z_0\\}$ : aucun lacet intermédiaire $\\gamma_s$ ne passe par $z_0$"
@@ -506,7 +527,9 @@
         "Remarque II.4.4",
         "Théorème I.11.1",
         "Théorème I.7.4",
-        "Définition II.4.2"
+        "Définition II.4.2",
+        "Proposition II.4.1",
+        "Définition I.11.2"
       ],
       "used_by_hint": "Proposition II.4.8 ($\\mathcal M(\\Omega)$ corps), principe de l'argument ($g'/g$ méromorphe), Rouché ($h=f/g$).",
       "importance": 2,
@@ -532,7 +555,8 @@
       ],
       "depends_on": [
         "Corollaire I.7.5",
-        "Définition II.4.2"
+        "Définition II.4.2",
+        "Définition I.1.1"
       ],
       "used_by_hint": "Définition du résidu (II.4.9), II.4.7, II.4.8, II.4.10, II.4.11, II.4.12, formule des résidus (II.5.1), principe de l'argument (II.8.1).",
       "importance": 3,
@@ -582,7 +606,9 @@
         "Proposition II.4.5",
         "Corollaire II.4.7",
         "Proposition II.4.6",
-        "Remarque II.4.4"
+        "Remarque II.4.4",
+        "Théorème I.11.1",
+        "Proposition II.4.1"
       ],
       "used_by_hint": "Principe de l'argument (II.8.1 : $g'/g\\in\\mathcal M(\\Omega)$), Rouché (II.8.4 : $h=f/g$).",
       "importance": 2,
@@ -785,7 +811,8 @@
         "Théorème II.5.1",
         "Proposition II.3.4",
         "Exemple II.3.3",
-        "Remarque II.3.5"
+        "Remarque II.3.5",
+        "Proposition II.3.2"
       ],
       "used_by_hint": "Exemples II.6.1, II.9.7 ; Exercices II.7.6-II.7.8 ; Corollaire II.8.2 ; chapitre IV.",
       "importance": 3,
@@ -840,7 +867,9 @@
         "Théorème II.5.1",
         "Proposition II.4.6",
         "Proposition II.4.8",
-        "Remarque II.5.2"
+        "Remarque II.5.2",
+        "Définition I.11.2",
+        "Définition II.4.2"
       ],
       "used_by_hint": "Corollaire II.8.2, Théorème de Rouché (II.8.4) ; chapitre IV (application ouverte, biholomorphismes) ; comptage de zéros.",
       "importance": 3,
@@ -918,16 +947,18 @@
         "Corollaire II.2.2",
         "Proposition II.1.5",
         "Proposition II.4.8",
-        "Définition II.3.1"
+        "Définition II.3.1",
+        "Lemme II.8.1"
       ],
       "used_by_hint": "Théorème de d'Alembert-Gauss (p. 54), localisation de racines (Exercices II.8.5, II.8.6), chapitre IV (application ouverte, Hurwitz au ch. III).",
       "importance": 3,
       "proof_in_poly": "full",
       "proof_length": "medium",
       "counterexample_hints": [
-        "Inégalité large insuffisante : $f(z)=z$, $g(z)=1$ sur $C(0,1)$ : $|f-g|\\le 2$ n'est pas $<|g|=1$ ; en fait $|z-1|<1$ échoue en $z=-1$, et $Z(f,D)=1\\ne 0=Z(g,D)$.",
-        "Fonctions méromorphes : Rouché compare $Z-P$, pas $Z$ seul ($f = 1/z$, $g = 1/z + \\varepsilon$ sur $C(0,1)$ pour $\\varepsilon$ petit : $Z-P = -1$ pour les deux, mais $Z(g,D)=1$, $Z(f,D)=0$).",
-        "Il faut l'inégalité sur **tout** le bord : $f(z)=z^2 - 1/4$ et $g(z)=z^2$ sur $C(0,1)$ marchent ; sur $C(0,1/2)$ non ($|f-g| = 1/4 = |g|$ en tout point)."
+        "Rôle de l'inégalité **stricte** : elle garantit automatiquement que ni $f$ ni $g$ ne s'annule sur $\\Gamma$. Avec seulement $|f-g|\\le|g|$ on peut avoir un zéro de $f$ sur le bord : $f(z) = z-1$, $g\\equiv -1$ sur $C(0,1)$ donnent $|f-g| = |z| = 1 = |g|$ partout et $f$ s'annule en $1\\in\\Gamma$, le comptage n'a plus de sens.",
+        "Fonctions méromorphes : Rouché compare $Z-P$, pas $Z$ seul. Sur $C(0,1)$, $f\\equiv 1$ et $g(z) = \\frac{z-1/5}{z+1/5}$ vérifient $|f-g| = \\frac{2/5}{|z+1/5|}\\le\\frac{1}{2} < \\frac{2}{3}\\le|g|$ ; on a bien $Z-P = 0$ pour les deux, mais $Z(g,D)=1\\ne 0=Z(f,D)$ et $P(g,D)=1\\ne 0=P(f,D)$.",
+        "Il faut l'inégalité sur **tout** le bord : $f(z)=z^2 - 1/4$ et $g(z)=z^2$ sur $C(0,1)$ marchent ($|f-g| = 1/4 < 1$) ; sur $C(0,1/2)$ non ($|f-g| = 1/4 = |g|$ en tout point, et $f$ s'annule en $\\pm 1/2\\in\\Gamma$).",
+        "Si $|f-g|<|g|$ échoue en un seul point, la conclusion peut tomber : $f(z) = z$, $g\\equiv 1$ sur $C(0,1)$ : $|f-g| = |z-1|<1$ échoue en $z=-1$, et $Z(f,D) = 1\\ne 0 = Z(g,D)$."
       ],
       "viz_hint": "« Le chien et son maître » : tracer $g(\\Gamma)$ et $f(\\Gamma)$ ; la laisse $|f-g|$ plus courte que la distance du maître à l'origine force le même nombre de tours autour de $0$."
     },
@@ -966,7 +997,8 @@
       "depends_on": [
         "Théorème II.2.1",
         "Proposition I.5.6",
-        "Définition II.1.1"
+        "Définition II.1.1",
+        "Définition I.1.1"
       ],
       "used_by_hint": "Logarithme complexe (II.9.2, II.9.3), puissances complexes, racines ; chapitre IV (fonctions harmoniques : $u$ harmonique sur un simplement connexe est la partie réelle d'une holomorphe).",
       "importance": 3,
@@ -1118,7 +1150,8 @@
       "depends_on": [
         "Théorème II.2.1",
         "Corollaire II.4.7",
-        "Théorème I.6.1"
+        "Exemple II.3.3",
+        "Définition II.3.1"
       ],
       "used_by_hint": "Généralise II.4.6 aux singularités essentielles ; questions 5)-8) (classification des singularités) ; chapitre III (séries de Laurent, résidu à l'infini).",
       "importance": 2,
@@ -1140,7 +1173,9 @@
       "depends_on": [
         "Corollaire II.4.7",
         "Proposition II.4.6",
-        "Définition II.4.2"
+        "Définition II.4.2",
+        "Proposition II.4.5",
+        "Définition I.11.2"
       ],
       "used_by_hint": "Trichotomie effaçable / pôle / essentielle ; Exercice II.7.5 (automorphismes de $\\mathbb C$) ; Exercice II.7.2.",
       "importance": 2,
@@ -1163,8 +1198,9 @@
         "$f$ bijective holomorphe $\\mathbb C\\to\\mathbb C$ de réciproque holomorphe"
       ],
       "depends_on": [
-        "Exercice II.7.4, question 8)",
-        "Exercice II.7.2"
+        "Exercice II.7.4, questions 5) à 8), p. 50-51",
+        "Exercice II.7.2",
+        "Corollaire I.10.2"
       ],
       "used_by_hint": "Chapitre IV (automorphismes du disque et du demi-plan, transformations conformes).",
       "importance": 2,
@@ -1189,8 +1225,9 @@
         "pour (2) : valeurs réelles sur $]-1,1[$"
       ],
       "depends_on": [
-        "Théorème I.6.1",
-        "Théorème I.5.9"
+        "Exercice I.8.1",
+        "Corollaire II.2.2",
+        "Théorème I.6.1"
       ],
       "used_by_hint": "Prolongement de fonctions holomorphes à travers un segment réel ; chapitre IV (transformations conformes, fonctions harmoniques).",
       "importance": 2,
@@ -1200,6 +1237,34 @@
         "Sans la réalité de $f$ sur $]-1,1[$, le recollement $F$ n'est pas continu : $f(z) = i$ donne $F = i$ en haut et $-i$ en bas."
       ],
       "viz_hint": "Réflexion $z\\mapsto\\bar z$ et $w\\mapsto\\bar w$ : image d'un quadrillage du demi-disque et de son symétrique."
+    },
+    {
+      "id": "ch02-weierstrass-p-fonction",
+      "kind": "proposition",
+      "ref": "Exercice II.7.10, p. 52",
+      "title": "Fonctions elliptiques : fonction $\\wp$ de Weierstrass",
+      "page": 52,
+      "statement": "Soit $\\Lambda = \\mathbb Z\\omega_1\\oplus\\mathbb Z\\omega_2\\subset\\mathbb C$ un réseau ($\\omega_1,\\omega_2$ linéairement indépendants sur $\\mathbb R$) ; on admet que $\\sum_{\\lambda\\in\\Lambda\\setminus\\{0\\}}|\\lambda|^{-k}$ converge pour tout entier $k\\ge 3$. 1) Une fonction holomorphe sur $\\mathbb C$ et $\\Lambda$-périodique ($f(z+\\lambda) = f(z)$ pour tout $\\lambda\\in\\Lambda$) est constante. 2) La série $$\\wp(z) = \\frac{1}{z^2} + \\sum_{\\lambda\\in\\Lambda\\setminus\\{0\\}}\\Big(\\frac{1}{(z+\\lambda)^2} - \\frac{1}{\\lambda^2}\\Big)$$ définit une fonction méromorphe sur $\\mathbb C$, paire, $\\Lambda$-périodique (on calcule $\\wp'$ pour la périodicité), dont les pôles sont les points de $\\Lambda$ (pôles doubles). 3) Pour $k\\ge 3$, $E_k(\\Lambda) = \\sum_{\\lambda\\ne 0}\\lambda^{-k}$ ; de $\\frac{1}{(z+\\lambda)^2}-\\frac{1}{\\lambda^2} = \\sum_{k\\ge 1}(k+1)\\lambda^{-k-2}(-1)^k z^k$ on déduit le développement de Laurent de $\\wp$ en $0$ en fonction des $E_k(\\Lambda)$ ; les $E_k$ d'indice impair sont nuls. 4) $\\wp'(z)^2 = 4\\wp(z)^3 - 60E_4(\\Lambda)\\wp(z) - 140E_6(\\Lambda)$.",
+      "hypotheses": [
+        "$\\Lambda$ réseau de $\\mathbb C$ (sous-groupe discret de rang 2)",
+        "convergence de $\\sum|\\lambda|^{-k}$ pour $k\\ge 3$ (admise)",
+        "pour 1) : $f$ entière et $\\Lambda$-périodique"
+      ],
+      "depends_on": [
+        "Théorème I.10.1",
+        "Définition II.4.2",
+        "Proposition II.4.6",
+        "Théorème I.11.1"
+      ],
+      "used_by_hint": "Exemple fondamental de fonction méromorphe non rationnelle ; chapitre III (séries de fonctions méromorphes, convergence normale sur les compacts) ; fonctions elliptiques (somme des résidus nulle sur un parallélogramme fondamental, nombre de zéros = nombre de pôles).",
+      "importance": 2,
+      "proof_in_poly": "exercise",
+      "proof_length": "long",
+      "counterexample_hints": [
+        "Sans le terme correcteur $-1/\\lambda^2$, la série $\\sum 1/(z+\\lambda)^2$ ne converge pas ($\\sum|\\lambda|^{-2}$ diverge sur un réseau plan).",
+        "Une fonction méromorphe $\\Lambda$-périodique non constante a au moins deux pôles (avec multiplicité) par parallélogramme : la somme des résidus sur le bord est nulle, donc un unique pôle simple est impossible."
+      ],
+      "viz_hint": "Domain coloring de $\\wp$ sur quelques mailles du réseau : périodicité visible, pôles doubles aux nœuds, parité."
     }
   ],
   "notations": [
@@ -1246,6 +1311,11 @@
     {
       "symbol": "$\\Gamma = \\gamma(C) = \\gamma_0^{\\mathrm{opp}}\\vee v\\vee\\gamma_1\\vee v^{\\mathrm{opp}}$, $v(s) = \\gamma(s,0)=\\gamma(s,1)$, $\\Gamma_{i,j}$",
       "meaning": "image du bord du carré par l'homotopie, chemin du point base, quadrilatères (affines par morceaux) du grillage",
+      "page": 37
+    },
+    {
+      "symbol": "Formule (II.2.1) : $\\int_\\Gamma f(z)\\,dz = -\\int_{\\gamma_0} f + \\int_v f + \\int_{\\gamma_1} f - \\int_v f$",
+      "meaning": "décomposition de l'intégrale sur l'image du bord du carré (preuve de II.2.1 ; valable une fois $v$ remplacé par un chemin affine par morceaux)",
       "page": 37
     },
     {
@@ -1394,7 +1464,7 @@
       "page": 53
     },
     {
-      "symbol": "$\\mathbb D$ ou $D := \\{z : |z|<1\\}$, $\\bar D$, $C := \\partial D$",
+      "symbol": "$D := \\{z\\in\\mathbb C : |z|<1\\}$, $\\bar D$, $C := \\partial D$",
       "meaning": "disque unité ouvert, son adhérence, le cercle unité (Exercice II.8.5)",
       "page": 54
     },
@@ -1436,6 +1506,11 @@
     {
       "symbol": "$\\Gamma_{\\varepsilon,R}$, $\\gamma_+$, $\\gamma_-$, $C_R$, $C_\\varepsilon$",
       "meaning": "contour en trou de serrure : segments au-dessus/au-dessous de $\\mathbb R_+$, grand cercle direct, petit cercle horaire",
+      "page": 57
+    },
+    {
+      "symbol": "$\\mathrm{Log}$ sur $\\mathbb C\\setminus\\mathbb R_+$, argument dans $]0,2\\pi[$",
+      "meaning": "détermination du logarithme de coupure $\\mathbb R_+$ ($\\mathrm{Log}(-1) = i\\pi$) utilisée pour le contour en trou de serrure ; différente de la détermination principale",
       "page": 57
     }
   ],
@@ -1599,7 +1674,7 @@
     "Formule des résidus : $\\gamma$ ne doit passer par aucun pôle ; chaque pôle est pondéré par son indice (0 pour les pôles extérieurs, $\\pm1$ ou plus pour les autres) ; penser au facteur $2i\\pi$ et au signe lié à l'orientation.",
     "Calcul d'intégrales réelles : choisir la fonction complexe auxiliaire ($e^{ikz}$ et non $\\cos(kz)$, qui explose sur le demi-cercle) ; fermer dans le demi-plan où l'exponentielle est bornée ($k>0$ : en haut) ; majorer les arcs avec $|\\int|\\le L\\sup|f|$ (Proposition I.5.7) ; vérifier que **tous** les pôles intérieurs sont comptés (ex. $z^4+1$ : deux pôles dans le demi-plan supérieur).",
     "Contour en trou de serrure : la détermination du logarithme doit avoir sa coupure sur $\\mathbb R_+$ (argument dans $]0,2\\pi[$), pas la détermination principale ; les deux segments ne se compensent pas, c'est le facteur $e^{2i\\pi\\alpha}$ qui donne le résultat.",
-    "Rouché : inégalité **stricte** $|f-g|<|g|$ **en tout point** du bord ; le théorème compare $Z-P$ (pas $Z$ seul si les fonctions ont des pôles) ; l'hypothèse implique qu'aucune des deux ne s'annule sur $\\Gamma$ ; les zéros sont comptés avec multiplicité. Choisir $g$ = le terme dominant sur le contour, qui peut changer d'un cercle à l'autre (couronne : Exercice II.8.5 3).",
+    "Rouché : inégalité **stricte** $|f-g|<|g|$ **en tout point** du bord (la stricte inégalité entraîne que ni $f$ ni $g$ ne s'annule sur $\\Gamma$) ; le théorème compare $Z-P$ (pas $Z$ seul si les fonctions ont des pôles) ; les zéros sont comptés avec multiplicité. Choisir $g$ = le terme dominant sur le contour, qui peut changer d'un cercle à l'autre (couronne : Exercice II.8.5 3).",
     "Principe de l'argument : $\\frac{1}{2i\\pi}\\int g'/g$ compte zéros **moins** pôles, avec multiplicités ; sans zéro ni pôle sur le lacet ; $\\Omega$ simplement connexe (ou lacet homotope à un point) pour II.8.1.",
     "$\\mathcal M(\\Omega)$ n'est un corps que si $\\Omega$ est **connexe** ; l'inverse d'une holomorphe non identiquement nulle n'est méromorphe que sur un connexe (zéros isolés).",
     "Logarithme complexe : $\\mathrm{Log}(z_1z_2) = \\mathrm{Log} z_1+\\mathrm{Log} z_2$ seulement modulo $2i\\pi$ ; $\\mathrm{Log}(e^z) = z$ seulement pour $|\\Im z|<\\pi$ ; $\\mathrm{Log}$ n'existe pas sur $\\mathbb C^\\times$ ; une fonction sans zéro sur un ouvert non simplement connexe peut ne pas avoir de logarithme ($z$ sur une couronne) — mais peut en avoir ($e^z$) : l'obstruction est $\\int_\\gamma h'/h\\ne 0$.",
