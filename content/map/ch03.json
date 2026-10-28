@@ -4,16 +4,47 @@
     "nn": "03",
     "roman": "III",
     "title": "Suites, séries et produits de fonctions holomorphes",
-    "printed_pages": [59, 74],
+    "printed_pages": [
+      59,
+      74
+    ],
     "summary": "Le chapitre III étudie les passages à la limite dans la classe des fonctions holomorphes : suites, séries, puis produits infinis. Le bon mode de convergence est la convergence localement uniforme, qui équivaut à la convergence uniforme sur tout compact de $\\Omega$ (Proposition III.1.2) et dont on dispose d'un critère de Cauchy (Lemme III.1.3). Le théorème de Weierstraß (III.1.4) montre, grâce à la formule intégrale de Cauchy, qu'une limite localement uniforme de fonctions holomorphes est holomorphe et que toutes les dérivées convergent elles aussi localement uniformément ; la version pour les séries localement normalement convergentes est le Théorème III.1.5, utilisé partout ensuite. Le théorème de Hurwitz (III.2.1) transporte à la limite la non-annulation et l'injectivité, à une dégénérescence près ($f \\equiv 0$ ou $f$ constante), via le principe de l'argument (comptage des zéros par $\\frac{1}{2i\\pi}\\int f'/f$). Le théorème de Montel (III.3.4) est le résultat de compacité du chapitre : une famille de fonctions holomorphes est localement uniformément bornée si et seulement si elle est normale (toute suite admet une sous-suite localement uniformément convergente) ; sa preuve est un théorème d'Ascoli « à la main » dans lequel les inégalités de Cauchy fournissent gratuitement l'équicontinuité. Ces trois théorèmes se combinent dans la démonstration du théorème de représentation conforme de Riemann (III.4.1) : tout ouvert simplement connexe $\\Omega \\neq \\mathbb C$ est biholomorphe au disque unité, le biholomorphisme étant obtenu en maximisant $|\\psi'(z_0)|$ dans une famille normale et en montrant par le lemme de Schwarz qu'un extrémal est surjectif. La section III.5 étend les résultats sur les séries aux produits infinis $\\prod (1+f_n)$ lorsque $\\sum f_n$ converge localement normalement (Théorème III.5.1 : holomorphie du produit, localisation et ordre des zéros, dérivée logarithmique $G'/G = \\sum g_n'/g_n$). La section III.6 applique ces outils à des formules classiques d'Euler : $\\pi^2/\\sin^2(\\pi z) = \\sum_{n\\in\\mathbb Z} 1/(z-n)^2$, la formule de la cotangente, le développement en produit du sinus, et le prolongement méromorphe de $\\Gamma$ par son produit de Weierstrass. Les exercices portent sur le noyau de Bergman, les systèmes dynamiques holomorphes au voisinage d'un point fixe (linéarisation, exemple non linéarisable), un critère de représentation conforme par une suite d'automorphismes, et la formule des compléments avec l'intégrale de Gauss. Les cinq résultats centraux sont Weierstraß (III.1.4/III.1.5), Hurwitz (III.2.1), Montel (III.3.4), Riemann (III.4.1) et le théorème sur les produits infinis (III.5.1).",
     "sections": [
-      { "num": "III.1", "title": "Un théorème de Weierstrass", "page": 59 },
-      { "num": "III.2", "title": "Le théorème de Hurwitz", "page": 62 },
-      { "num": "III.3", "title": "Le théorème de Montel", "page": 63 },
-      { "num": "III.4", "title": "Le théorème de représentation conforme de Riemann", "page": 66 },
-      { "num": "III.5", "title": "Produits infinis de fonctions holomorphes", "page": 67 },
-      { "num": "III.6", "title": "Quelques exemples", "page": 68 },
-      { "num": "III.7", "title": "Exercices", "page": 73 }
+      {
+        "num": "III.1",
+        "title": "Un théorème de Weierstrass",
+        "page": 59
+      },
+      {
+        "num": "III.2",
+        "title": "Le théorème de Hurwitz",
+        "page": 62
+      },
+      {
+        "num": "III.3",
+        "title": "Le théorème de Montel",
+        "page": 63
+      },
+      {
+        "num": "III.4",
+        "title": "Le théorème de représentation conforme de Riemann",
+        "page": 66
+      },
+      {
+        "num": "III.5",
+        "title": "Produits infinis de fonctions holomorphes",
+        "page": 67
+      },
+      {
+        "num": "III.6",
+        "title": "Quelques exemples",
+        "page": 68
+      },
+      {
+        "num": "III.7",
+        "title": "Exercices",
+        "page": 73
+      }
     ]
   },
   "results": [
@@ -29,7 +60,9 @@
         "$(f_n)$ suite de fonctions $\\Omega \\to \\mathbb C$ (aucune régularité exigée)",
         "convergence uniforme sur un voisinage $U_x$ de chaque point (pas sur $\\Omega$ entier)"
       ],
-      "depends_on": ["Remarque I.4.6"],
+      "depends_on": [
+        "Remarque I.4.6"
+      ],
       "used_by_hint": "Hypothèse de tous les théorèmes du chapitre (Weierstraß III.1.4, Hurwitz III.2.1, Montel III.3.4) ; reformulée sur les compacts par III.1.2.",
       "importance": 2,
       "proof_in_poly": "none",
@@ -71,7 +104,9 @@
         "$\\Omega$ ouvert de $\\mathbb C$",
         "$(f_n)$ suite de fonctions $\\Omega \\to \\mathbb C$ ; complétude de $\\mathbb C$"
       ],
-      "depends_on": ["Proposition III.1.2"],
+      "depends_on": [
+        "Proposition III.1.2"
+      ],
       "used_by_hint": "Première étape de la preuve de Weierstraß III.1.4 ; conclusion de la preuve de Montel III.3.4 (suite extraite uniformément de Cauchy sur $\\bar D(z_0, r/2)$).",
       "importance": 1,
       "proof_in_poly": "full",
@@ -91,7 +126,12 @@
         "chaque $f_n$ holomorphe sur $\\Omega$",
         "$(f_n)$ localement uniformément de Cauchy (équivalent : converge uniformément sur tout compact, Lemme III.1.3 et Proposition III.1.2)"
       ],
-      "depends_on": ["Lemme III.1.3", "Théorème I.6.1", "Corollaire I.7.5"],
+      "depends_on": [
+        "Lemme III.1.3",
+        "Théorème I.6.1",
+        "Corollaire I.7.5",
+        "Corollaire I.9.4"
+      ],
       "used_by_hint": "Hurwitz III.2.1 (convergence de $f_n'/f_n$), Riemann III.4.1 ($\\psi_{n_k}'(z_0) \\to h'(z_0)$), Théorème III.1.5, Exemples III.6.1 et III.6.2 ; Exercice III.7.1.",
       "importance": 3,
       "proof_in_poly": "full",
@@ -114,7 +154,10 @@
         "$f, f_n$ holomorphes sur $\\Omega$",
         "estimation seulement sur le disque de rayon moitié $D(z_0, r/2)$"
       ],
-      "depends_on": ["Corollaire I.7.5"],
+      "depends_on": [
+        "Théorème I.6.1",
+        "Corollaire I.7.5"
+      ],
       "used_by_hint": "Donne la convergence des dérivées dans Weierstraß ; même mécanisme pour la question 2 de l'Exercice III.7.1 (bornes $C(k,K)$ sur les dérivées).",
       "importance": 1,
       "proof_in_poly": "full",
@@ -133,7 +176,9 @@
         "$\\Omega$ ouvert de $\\mathbb C$, chaque $f_n$ holomorphe",
         "la série $\\sum f_n$ converge localement normalement (i.e. $\\sum \\|f_n\\|_{\\infty, U}$ converge sur un voisinage $U$ de chaque point) — ou seulement localement uniformément, et alors la conclusion est en convergence localement uniforme"
       ],
-      "depends_on": ["Théorème III.1.4"],
+      "depends_on": [
+        "Théorème III.1.4"
+      ],
       "used_by_hint": "Cœur de la preuve du Théorème III.5.1 (série $\\sum \\mathrm{Log}(1+f_j)$ et dérivée logarithmique) ; Exemples III.6.1 à III.6.4.",
       "importance": 3,
       "proof_in_poly": "sketch",
@@ -150,7 +195,9 @@
       "title": "Rappel : convergence normale et uniforme d'une série de fonctions",
       "page": 61,
       "statement": "Une série de fonctions $\\sum_{n\\geq0} f_n$ **converge normalement** sur un ouvert $U$ si la série $\\sum_{n\\geq0} \\|f_n\\|_{\\infty, U}$ converge (i.e. elle converge normalement pour la norme de la convergence uniforme $\\|h\\|_{\\infty, U} = \\sup_{z\\in U} |h(z)|$) et l'on dit que la série de fonctions $\\sum_{n\\geq0} f_n$ **converge uniformément** si la suite $\\big(\\sum_{j=0}^n f_j\\big)_{n\\geq0}$ converge uniformément. La convergence normale d'une série de fonctions entraîne sa convergence uniforme.",
-      "hypotheses": ["$f_n$ fonctions bornées sur $U$ pour que $\\|f_n\\|_{\\infty,U} < +\\infty$"],
+      "hypotheses": [
+        "$f_n$ fonctions bornées sur $U$ pour que $\\|f_n\\|_{\\infty,U} < +\\infty$"
+      ],
       "depends_on": [],
       "used_by_hint": "Hypothèse du Théorème III.1.5 et du Théorème III.5.1 (« converge localement normalement »).",
       "importance": 1,
@@ -173,7 +220,12 @@
         "$f_n$ holomorphes, convergence localement uniforme vers $f$ (donc $f$ holomorphe par III.1.4)",
         "1 : chaque $f_n$ sans zéro ; 2 : chaque $f_n$ injective"
       ],
-      "depends_on": ["Théorème I.11.1", "Théorème III.1.4", "Lemme II.8.1", "Corollaire II.8.2"],
+      "depends_on": [
+        "Théorème I.11.1",
+        "Théorème III.1.4",
+        "Lemme II.8.1",
+        "Corollaire II.8.2"
+      ],
       "used_by_hint": "Riemann III.4.1 (injectivité de la limite $h$) ; Exercices III.7.2, III.7.6 ; très fréquent en examen avec Montel (« toute sous-suite admet une sous-suite… »).",
       "importance": 3,
       "proof_in_poly": "full",
@@ -213,7 +265,12 @@
         "$\\Omega$ connexe, $f_n$ holomorphes, convergence localement uniforme",
         "$f \\not\\equiv 0$ (pour choisir $r$ avec $f \\neq 0$ sur $C(z,r)$)"
       ],
-      "depends_on": ["Théorème III.2.1"],
+      "depends_on": [
+        "Théorème III.2.1",
+        "Théorème I.11.1",
+        "Théorème III.1.4",
+        "Corollaire II.8.2"
+      ],
       "used_by_hint": "Permet de dire qu'un zéro d'ordre $m$ de $f$ est limite de $m$ zéros (avec multiplicité) des $f_n$ ; utile pour les exercices « racines d'un polynôme perturbé ».",
       "importance": 2,
       "proof_in_poly": "sketch",
@@ -228,7 +285,10 @@
       "title": "Famille localement uniformément bornée",
       "page": 64,
       "statement": "Soit $\\Omega$ un ouvert de $\\mathbb C$. Une famille de fonctions $\\mathcal F \\subset \\mathrm{Hol}(\\Omega)$ est **localement uniformément bornée** si pour tout $x \\in \\Omega$, il existe un voisinage $U_x$ et une constante $C > 0$ (dépendant évidemment du voisinage choisi) tels que $|f(z)| \\leq C$ pour tout $f \\in \\mathcal F$ et tout $z \\in U_x$.",
-      "hypotheses": ["$\\mathcal F \\subset \\mathrm{Hol}(\\Omega)$", "la constante $C$ est la même pour toutes les $f \\in \\mathcal F$, mais dépend du voisinage"],
+      "hypotheses": [
+        "$\\mathcal F \\subset \\mathrm{Hol}(\\Omega)$",
+        "la constante $C$ est la même pour toutes les $f \\in \\mathcal F$, mais dépend du voisinage"
+      ],
       "depends_on": [],
       "used_by_hint": "Hypothèse 1 du théorème de Montel III.3.4.",
       "importance": 2,
@@ -247,8 +307,12 @@
       "title": "Reformulation : bornée sur tout compact",
       "page": 64,
       "statement": "Comme dans la Proposition III.1.2, on peut reformuler la Définition III.3.1 en une propriété sur les compacts : $\\mathcal F$ est localement uniformément bornée si et seulement si pour tout compact $K \\subset \\Omega$, il existe une constante $C = C(K) > 0$ telle que $|f(z)| \\leq C$ pour tout $f \\in \\mathcal F$ et tout $z \\in K$.",
-      "hypotheses": ["$\\mathcal F \\subset \\mathrm{Hol}(\\Omega)$"],
-      "depends_on": ["Proposition III.1.2"],
+      "hypotheses": [
+        "$\\mathcal F \\subset \\mathrm{Hol}(\\Omega)$"
+      ],
+      "depends_on": [
+        "Proposition III.1.2"
+      ],
       "used_by_hint": "C'est sous cette forme que l'hypothèse est utilisée dans la preuve de Montel (constante $C(K)$ sur $K = \\bar D(z_0, r+\\delta)$) et dans l'Exercice III.7.1.",
       "importance": 1,
       "proof_in_poly": "none",
@@ -263,7 +327,10 @@
       "title": "Famille normale",
       "page": 64,
       "statement": "Soit $\\Omega$ un ouvert de $\\mathbb C$. Une famille de fonctions $\\mathcal F \\subset \\mathrm{Hol}(\\Omega)$ est dite **normale** si toute suite d'éléments de $\\mathcal F$ admet une sous-suite qui converge localement uniformément sur $\\Omega$. On n'exige pas que la limite fasse partie de la famille $\\mathcal F$.",
-      "hypotheses": ["$\\mathcal F \\subset \\mathrm{Hol}(\\Omega)$", "la limite peut sortir de $\\mathcal F$ (relative compacité, pas compacité)"],
+      "hypotheses": [
+        "$\\mathcal F \\subset \\mathrm{Hol}(\\Omega)$",
+        "la limite peut sortir de $\\mathcal F$ (relative compacité, pas compacité)"
+      ],
       "depends_on": [],
       "used_by_hint": "Hypothèse 2 de Montel III.3.4 ; dans Riemann III.4.1 la famille $\\Sigma_{z_0}$ est normale.",
       "importance": 2,
@@ -286,7 +353,11 @@
         "$\\mathcal F$ formée de fonctions **holomorphes** (essentiel pour $1 \\Rightarrow 2$)",
         "borne locale uniforme en $f \\in \\mathcal F$ (Définition III.3.1 / Remarque III.3.2)"
       ],
-      "depends_on": ["Remarque III.3.2", "Corollaire I.7.5", "Lemme III.1.3"],
+      "depends_on": [
+        "Remarque III.3.2",
+        "Corollaire I.7.5",
+        "Lemme III.1.3"
+      ],
       "used_by_hint": "Riemann III.4.1 (extraction dans $\\Sigma_{z_0}$) ; Exercices III.7.1, III.7.2 (4), III.7.4, III.7.6 ; en examen : combiné avec Hurwitz et l'argument « toute sous-suite a une sous-suite convergeant vers la même limite ».",
       "importance": 3,
       "proof_in_poly": "full",
@@ -305,8 +376,14 @@
       "title": "Estimation équilipschitzienne issue des inégalités de Cauchy",
       "page": 65,
       "statement": "Soient $z_0 \\in \\Omega$ et $\\delta, r > 0$ tels que $K := \\bar D(z_0, r+\\delta) \\subset \\Omega$, et soit $C(K)$ une constante telle que $|f_n(w)| \\leq C(K)$ pour tout $w \\in K$ et tout $n$. Alors les inégalités de Cauchy donnent $|f_n'(z)| \\leq \\sup_{|\\zeta - z| = \\delta} |f_n(\\zeta)| / \\delta \\leq C(K)/\\delta$ pour tout $z \\in \\bar D(z_0, r)$, et le théorème des accroissements finis appliqué aux parties réelle et imaginaire sur le segment $[z, z']$ donne\n$$|f_n(z) - f_n(z')| \\leq \\frac{2C(K)}{\\delta} |z - z'| \\qquad \\text{(III.3.1)}$$\npour tout $n \\geq 0$ et tous $z, z' \\in D(z_0, r)$.",
-      "hypotheses": ["$\\bar D(z_0, r + \\delta) \\subset \\Omega$", "borne uniforme $C(K)$ sur $K$", "$f_n$ holomorphes"],
-      "depends_on": ["Corollaire I.7.5"],
+      "hypotheses": [
+        "$\\bar D(z_0, r + \\delta) \\subset \\Omega$",
+        "borne uniforme $C(K)$ sur $K$",
+        "$f_n$ holomorphes"
+      ],
+      "depends_on": [
+        "Corollaire I.7.5"
+      ],
       "used_by_hint": "C'est l'équicontinuité (condition 1 d'Ascoli) dans la preuve de Montel ; Remarque III.3.6.",
       "importance": 1,
       "proof_in_poly": "full",
@@ -321,7 +398,11 @@
       "title": "Rappel : théorème d'Ascoli",
       "page": 65,
       "statement": "Soient $X$ un espace topologique localement compact (et séparé) et $Y$ un $\\mathbb R$- ou $\\mathbb C$-espace vectoriel de dimension finie, muni d'une norme $\\|\\cdot\\|$ (le choix est indifférent). On munit l'espace $\\mathscr C(X, Y)$ des applications continues de $X$ dans $Y$ de la topologie de la convergence uniforme sur les compacts. Une partie $\\mathcal H \\subset \\mathscr C(X,Y)$ est dite **équicontinue** en un point $x_0 \\in X$ si\n$$(\\forall \\varepsilon > 0)\\ (\\exists V \\text{ voisinage de } x_0)\\ (\\forall f \\in \\mathcal H)\\ (\\forall x \\in V),\\quad \\|f(x) - f(x_0)\\| \\leq \\varepsilon,$$\nle point important étant que le voisinage $V$ est le même pour toutes les fonctions de la famille. Le **théorème d'Ascoli** affirme que $\\mathcal H$ est relativement compacte dans $\\mathscr C(X,Y)$ si et seulement si\n1. $\\mathcal H$ est équicontinue en tout point de $X$,\n2. pour tout $x \\in X$, l'ensemble $\\mathcal H(x) = \\{f(x),\\ f \\in \\mathcal H\\}$ est borné dans $Y$.\nSi de plus $X$ est métrisable et $\\sigma$-compact (cas d'un ouvert $\\Omega$ de $\\mathbb C$), $\\mathscr C(X,Y)$ est métrisable et la conclusion se lit sous forme séquentielle : de toute suite d'éléments de $\\mathcal H$ on peut extraire une sous-suite qui converge uniformément sur tout compact de $X$.",
-      "hypotheses": ["$X$ localement compact séparé", "$Y$ de dimension finie", "équicontinuité en tout point + bornitude ponctuelle"],
+      "hypotheses": [
+        "$X$ localement compact séparé",
+        "$Y$ de dimension finie",
+        "équicontinuité en tout point + bornitude ponctuelle"
+      ],
       "depends_on": [],
       "used_by_hint": "Cadre général dont Montel est un cas particulier (Remarque III.3.6) ; utile pour les exercices mélangeant calcul différentiel (familles de solutions d'EDO) et analyse complexe.",
       "importance": 2,
@@ -341,12 +422,20 @@
       "page": 65,
       "statement": "Dans la preuve de Montel, l'assertion 1 (borne locale uniforme) est exactement la condition (2) d'Ascoli, et la majoration (III.3.1), conséquence des inégalités de Cauchy, est exactement la condition (1) : la famille est même localement équilipschitzienne. La démonstration donnée est une preuve d'Ascoli « à la main » : extraction diagonale le long d'une partie dénombrable dense, puis recouvrement fini d'un compact. Le contenu proprement complexe : pour des fonctions continues quelconques, être localement uniformément bornée n'entraîne nullement l'équicontinuité (la suite $f_n(x) = \\sin(nx)$ sur $\\mathbb R$ est bornée par $1$ et n'admet aucune sous-suite uniformément convergente sur un intervalle). L'holomorphie, via les inégalités de Cauchy, fait passer gratuitement d'un contrôle de $f$ à un contrôle de $f'$, donc de la borne à l'équicontinuité. Le théorème de Weierstrass assure enfin que la limite est encore holomorphe, ce qu'Ascoli seul ne donne pas.",
       "hypotheses": [],
-      "depends_on": ["Théorème III.3.4", "Remarque III.3.5", "Formule (III.3.1)", "Corollaire I.7.5", "Théorème III.1.4"],
+      "depends_on": [
+        "Théorème III.3.4",
+        "Remarque III.3.5",
+        "Formule (III.3.1)",
+        "Corollaire I.7.5",
+        "Théorème III.1.4"
+      ],
       "used_by_hint": "À réutiliser pour expliquer « pourquoi Montel est vrai » dans la fiche ; donne le réflexe « borne sur $f$ $\\Rightarrow$ borne sur $f'$ » propre à l'holomorphie.",
       "importance": 1,
       "proof_in_poly": "sketch",
       "proof_length": "short",
-      "counterexample_hints": ["$\\sin(nx)$ sur $\\mathbb R$."],
+      "counterexample_hints": [
+        "$\\sin(nx)$ sur $\\mathbb R$."
+      ],
       "viz_hint": "Graphes de $\\sin(nx)$ pour $n$ croissant vs graphes de $|f_n|$ pour une famille holomorphe bornée."
     },
     {
@@ -356,8 +445,12 @@
       "title": "Transformation conforme ; ouverts conformément équivalents",
       "page": 66,
       "statement": "Lorsqu'un ouvert $\\Omega$ est l'image par un biholomorphisme du disque unité $\\mathbb D = D(0,1)$, on utilise la terminologie de **transformation conforme** pour ce biholomorphisme, et on dit que $\\Omega$ est **conformément équivalent** au disque unité $\\mathbb D$. (Plus généralement deux ouverts sont conformément équivalents s'il existe un biholomorphisme de l'un sur l'autre.)",
-      "hypotheses": ["biholomorphisme = bijection holomorphe de réciproque holomorphe (automatique d'après la Remarque I.14.3)"],
-      "depends_on": ["Remarque I.14.3"],
+      "hypotheses": [
+        "biholomorphisme = bijection holomorphe de réciproque holomorphe (automatique d'après la Remarque I.14.3)"
+      ],
+      "depends_on": [
+        "Remarque I.14.3"
+      ],
       "used_by_hint": "Théorème III.4.1, Remarque III.4.2 ; chapitre IV (transformations conformes).",
       "importance": 2,
       "proof_in_poly": "none",
@@ -377,8 +470,20 @@
         "$\\Omega$ simplement connexe (tout lacet homotope à un lacet constant)",
         "$\\Omega \\neq \\mathbb C$"
       ],
-      "depends_on": ["Proposition II.9.3", "Théorème I.14.1", "Théorème I.12.1", "Proposition I.13.3", "Lemme I.13.1", "Corollaire I.7.5", "Théorème III.3.4", "Théorème III.1.4", "Théorème III.2.1", "Remarque I.14.3"],
-      "used_by_hint": "Remarque III.4.2 ; Exercice III.7.6 ; chapitre IV (transformations conformes, problème de Dirichlet) ; en examen : montrer qu'un ouvert est biholomorphe au disque après avoir prouvé sa simple connexité.",
+      "depends_on": [
+        "Proposition II.9.3",
+        "Théorème I.14.1",
+        "Théorème I.12.1",
+        "Exercice I.13.2",
+        "Proposition I.13.3",
+        "Lemme I.13.1",
+        "Corollaire I.7.5",
+        "Théorème III.3.4",
+        "Théorème III.1.4",
+        "Théorème III.2.1",
+        "Remarque I.14.3"
+      ],
+      "used_by_hint": "Remarque III.4.2 ; Exercice III.7.6 ; chapitre IV (transformations conformes, problème de Dirichlet) ; en examen : montrer qu'un ouvert est biholomorphe au disque après avoir prouvé sa simple connexité. Les deux étapes clés de la preuve ($\\Sigma \\neq \\emptyset$, puis « non surjectif $\\Rightarrow$ non extrémal ») ont leur propre entrée (non numérotées, p. 66-67).",
       "importance": 3,
       "proof_in_poly": "full",
       "proof_length": "long",
@@ -390,6 +495,63 @@
       "viz_hint": "Pour $\\Omega$ = demi-plan, bande, quadrant ou carré : tracer l'image de la grille polaire de $\\mathbb D$ par $h^{-1}$ (ou des cercles concentriques), et animer l'étape clé de la preuve : $\\psi \\mapsto \\psi_1 = f_\\beta \\circ \\sqrt{f_\\alpha \\circ \\psi}$ qui « ouvre » l'image et augmente $|\\psi'(z_0)|$."
     },
     {
+      "id": "ch03-riemann-sigma-non-vide",
+      "kind": "lemma",
+      "ref": "non numéroté, preuve du Théorème III.4.1, p. 66",
+      "title": "Étape 1 de la preuve de Riemann : la famille $\\Sigma$ n'est pas vide (racine carrée holomorphe injective)",
+      "page": 66,
+      "statement": "Soient $\\Omega$ un ouvert connexe, simplement connexe, distinct de $\\mathbb C$, et\n$$\\Sigma = \\{f \\in \\mathrm{Hol}(\\Omega) : f(\\Omega) \\subset \\mathbb D,\\ \\text{et } f \\text{ est injective}\\}.$$\nAlors $\\Sigma \\neq \\emptyset$, et pour tout $z_0 \\in \\Omega$, $\\Sigma_{z_0} = \\{f \\in \\Sigma \\mid f(z_0) = 0\\} \\neq \\emptyset$.\n\nConstruction du poly : soit $\\omega_0 \\in \\mathbb C \\setminus \\Omega$. Comme $\\Omega$ est simplement connexe et $z - \\omega_0 \\neq 0$ pour tout $z \\in \\Omega$, il existe (Proposition II.9.3) $u \\in \\mathrm{Hol}(\\Omega)$ telle que $\\exp(u(z)) = z - \\omega_0$, et $\\varphi := \\exp(u/2)$ vérifie $\\varphi(z)^2 = z - \\omega_0$. Si $\\varphi(z) = \\varphi(z')$ alors $z = z'$ ($\\varphi$ est injective) ; si $\\varphi(z) = -\\varphi(z')$ on a de même $z = z'$, ce qui est impossible. Soit $a \\in \\varphi(\\Omega)$ ; $\\varphi$ étant ouverte, il existe $D(a, r) \\subset \\varphi(\\Omega)$ avec $0 < r < |a|$, et alors $D(-a, r) \\cap \\varphi(\\Omega) = \\emptyset$. On pose $\\psi = r/(\\varphi + a)$ : pour tout $z \\in \\Omega$, $|\\varphi(z) + a| \\geq r$ donc $|\\psi(z)| \\leq 1$ ; $\\psi$ est injective (composée de $\\varphi$ et d'une homographie) donc non constante, et le principe du maximum I.12.1 donne $\\psi(\\Omega) \\subset \\mathbb D$, i.e. $\\psi \\in \\Sigma$. Quitte à composer par l'automorphisme $f_{\\psi(z_0)}$ de $\\mathbb D$, on peut supposer $\\psi(z_0) = 0$.",
+      "hypotheses": [
+        "$\\Omega$ simplement connexe (existence du logarithme, donc de la racine carrée $\\varphi$ de $z - \\omega_0$)",
+        "$\\Omega \\neq \\mathbb C$ (existence de $\\omega_0 \\notin \\Omega$)",
+        "$\\varphi$ ouverte (théorème de l'application ouverte, $\\varphi$ non constante)"
+      ],
+      "depends_on": [
+        "Proposition II.9.3",
+        "Théorème I.14.1",
+        "Théorème I.12.1",
+        "Proposition I.13.3"
+      ],
+      "used_by_hint": "Preuve du Théorème III.4.1 ; question classique d'examen : « montrer qu'il existe une fonction holomorphe injective de $\\Omega$ dans $\\mathbb D$ » ; même astuce (racine carrée d'une fonction sans zéro sur un simplement connexe) dans l'étape 2.",
+      "importance": 2,
+      "proof_in_poly": "full",
+      "proof_length": "medium",
+      "counterexample_hints": [
+        "$\\Omega = \\mathbb C$ : aucune fonction holomorphe injective $\\mathbb C \\to \\mathbb D$ (bornée donc constante, Liouville I.10.1) ; c'est ici que sert $\\Omega \\neq \\mathbb C$.",
+        "Sans simple connexité la racine carrée holomorphe peut ne pas exister : $\\Omega = \\mathbb C^\\times$, $\\omega_0 = 0$, $z \\mapsto \\sqrt z$ n'a pas de détermination holomorphe sur $\\mathbb C^\\times$."
+      ],
+      "viz_hint": "Image $\\varphi(\\Omega)$ et son opposée $-\\varphi(\\Omega)$, disjointes ; le disque $D(a,r)$ dans $\\varphi(\\Omega)$ et le disque « interdit » $D(-a,r)$ ; puis l'homographie $w \\mapsto r/(w + a)$ qui envoie le complémentaire de $D(-a,r)$ dans $\\bar{\\mathbb D}$."
+    },
+    {
+      "id": "ch03-riemann-etape-koebe",
+      "kind": "lemma",
+      "ref": "non numéroté, preuve du Théorème III.4.1, p. 66-67",
+      "title": "Étape clé de la preuve de Riemann : un élément non surjectif de $\\Sigma_{z_0}$ n'est pas extrémal pour $|\\psi'(z_0)|$",
+      "page": 66,
+      "statement": "Soient $\\Omega$, $\\Sigma$, $\\Sigma_{z_0}$ comme ci-dessus et $\\psi \\in \\Sigma_{z_0}$ non surjective sur $\\mathbb D$. Alors il existe $\\psi_1 \\in \\Sigma_{z_0}$ telle que $|\\psi_1'(z_0)| > |\\psi'(z_0)|$.\n\nConstruction du poly : soit $\\alpha \\in \\mathbb D \\setminus \\psi(\\Omega)$ ; $f_\\alpha \\circ \\psi \\in \\Sigma$ ne s'annule pas sur $\\Omega$, donc (comme à l'étape 1) il existe $g \\in \\mathrm{Hol}(\\Omega)$ avec $g^2 = f_\\alpha \\circ \\psi$ ; $g$ est injective et $|g(z)|^2 = |f_\\alpha \\circ \\psi(z)| < 1$, donc $g \\in \\Sigma$. On pose $\\beta := g(z_0)$, $s : z \\mapsto z^2$ et $\\psi_1 := f_\\beta \\circ g \\in \\Sigma_{z_0}$. Alors\n$$\\psi = f_{-\\alpha} \\circ g^2 = f_{-\\alpha} \\circ s \\circ g = f_{-\\alpha} \\circ s \\circ f_{-\\beta} \\circ \\psi_1 = F \\circ \\psi_1, \\qquad F := f_{-\\alpha} \\circ s \\circ f_{-\\beta}.$$\nComme $\\psi_1(z_0) = 0$, $\\psi'(z_0) = F'(0)\\,\\psi_1'(z_0)$. Or $F \\in \\mathrm{Hol}(\\mathbb D)$, $F(\\mathbb D) \\subset \\mathbb D$, $F(0) = 0$ et $F$ n'est pas injective (à cause de $s$) : le lemme de Schwarz I.13.1 donne $|F'(0)| < 1$, d'où $|\\psi'(z_0)| < |\\psi_1'(z_0)|$.\n\nConséquence : $\\eta := \\sup\\{|\\psi'(z_0)|,\\ \\psi \\in \\Sigma_{z_0}\\}$ est fini (si $\\bar D(z_0, \\rho) \\subset \\Omega$, l'estimée de Cauchy donne $|\\psi'(z_0)| \\leq 1/\\rho$) et tout $h \\in \\Sigma_{z_0}$ vérifiant $|h'(z_0)| = \\eta$ est surjectif : $h(\\Omega) = \\mathbb D$.",
+      "hypotheses": [
+        "$\\psi \\in \\Sigma_{z_0}$ : holomorphe, injective, $\\psi(\\Omega) \\subset \\mathbb D$, $\\psi(z_0) = 0$",
+        "$\\psi$ non surjective (existence de $\\alpha \\in \\mathbb D \\setminus \\psi(\\Omega)$)",
+        "$\\Omega$ simplement connexe (racine carrée holomorphe $g$ de $f_\\alpha \\circ \\psi$)"
+      ],
+      "depends_on": [
+        "Proposition II.9.3",
+        "Exercice I.13.2",
+        "Proposition I.13.3",
+        "Lemme I.13.1",
+        "Corollaire I.7.5"
+      ],
+      "used_by_hint": "Cœur de la preuve du Théorème III.4.1 : l'extrémal $h$ obtenu par Montel + Weierstraß + Hurwitz est surjectif. Étape idéale pour une « preuve à trous » (retrouver $F$ et l'usage du lemme de Schwarz).",
+      "importance": 2,
+      "proof_in_poly": "full",
+      "proof_length": "medium",
+      "counterexample_hints": [
+        "Si $F$ était un automorphisme de $\\mathbb D$ on aurait $|F'(0)| = 1$ (cas d'égalité du lemme de Schwarz) : c'est la non-injectivité de $s : z \\mapsto z^2$ qui donne l'inégalité stricte.",
+        "L'extrémal n'est pas unique : $\\lambda h$ ($|\\lambda| = 1$) est encore extrémal ; la normalisation $h'(z_0) > 0$ le rend unique."
+      ],
+      "viz_hint": "Pour $\\psi(\\Omega) = \\mathbb D$ privé d'un petit disque autour de $\\alpha$ : tracer successivement $f_\\alpha \\circ \\psi(\\Omega)$ (évite $0$), $g(\\Omega)$ (la racine carrée « déplie » l'image), $\\psi_1(\\Omega) = f_\\beta(g(\\Omega))$ ; afficher $|\\psi'(z_0)|$ et $|\\psi_1'(z_0)|$."
+    },
+    {
       "id": "ch03-riemann-demi-plan",
       "kind": "remark",
       "ref": "Remarque III.4.2",
@@ -397,7 +559,10 @@
       "page": 67,
       "statement": "Le disque unité $\\mathbb D$ étant conformément équivalent au demi-plan de Poincaré $\\mathbb H = \\{z \\in \\mathbb C \\mid \\Im(z) > 0\\}$ (via $z \\mapsto i\\frac{1-z}{1+z}$, Exemple I.4.3, cité « exercice I.4.3 » dans le poly), on peut remplacer $\\mathbb D$ par $\\mathbb H$ dans l'énoncé du théorème de Riemann.",
       "hypotheses": [],
-      "depends_on": ["Théorème III.4.1", "Exemple I.4.3"],
+      "depends_on": [
+        "Théorème III.4.1",
+        "Exemple I.4.3"
+      ],
       "used_by_hint": "Chapitre IV (transformations conformes usuelles).",
       "importance": 1,
       "proof_in_poly": "none",
@@ -411,13 +576,18 @@
       "ref": "Théorème III.5.1",
       "title": "Produits infinis de fonctions holomorphes",
       "page": 68,
-      "statement": "Soit $\\sum_{n\\geq0} f_n$ une série de fonctions holomorphes, définies sur un ouvert $\\Omega$ et qui converge localement normalement. Posons $g_n = 1 + f_n$. Alors, la suite $(G_n)_{n\\geq0}$ définie par\n$$G_n(z) := \\prod_{j=0}^n g_j(z) = \\prod_{j=0}^n (1 + f_j(z)),$$\nconverge localement uniformément vers une fonction holomorphe $G$ sur $\\Omega$. On note alors $G(z) = \\prod_{j=0}^{\\infty} (1 + f_j(z))$. La fonction $G$ s'annule en un point exactement lorsque l'un des facteurs du produit infini s'annule en ce point, ce qui n'arrive que pour un nombre fini de facteurs, et l'ordre de ce zéro de $G$ est la somme des ordres de ce zéro pour ces facteurs. On a alors\n$$\\frac{G'}{G} = \\sum_{n\\in\\mathbb N} \\frac{g_n'}{g_n},$$\nla convergence de la série étant uniforme sur tout compact de $\\Omega$ (i.e. pour un compact $K$ fixé, à partir d'un certain rang $n_0$, la fonction $g_n$ ne s'annule plus sur $K$ et on a convergence uniforme de la série $\\sum_{n \\geq n_0} \\frac{g_n'}{g_n}$ sur ce compact).",
+      "statement": "Soit $\\sum_{n\\geq0} f_n$ une série de fonctions holomorphes, définies sur un ouvert $\\Omega$ et qui converge localement normalement. Posons $g_n = 1 + f_n$. Alors, la suite $(G_n)_{n\\geq0}$ définie par\n$$G_n(z) := \\prod_{j=0}^n g_j(z) = \\prod_{j=0}^n (1 + f_j(z)),$$\nconverge localement uniformément vers une fonction holomorphe $G$ sur $\\Omega$. On note alors $G(z) = \\prod_{j=0}^{\\infty} (1 + f_j(z))$. La fonction $G$ s'annule en un point exactement lorsque l'un des facteurs du produit infini s'annule en ce point, ce qui n'arrive que pour un nombre fini de facteurs, et l'ordre de ce zéro de $G$ est la somme des ordres de ce zéro pour ces facteurs. On a alors\n$$\\frac{G'}{G} = \\sum_{n\\in\\mathbb N} \\frac{g_n'}{g_n},$$\nla convergence de la série étant uniforme sur tout compact de $\\Omega$ (i.e. pour un compact $K$ fixé, à partir d'un certain rang $n_0$, la fonction $g_n$ ne s'annule plus sur $K$ et on a convergence uniforme de la série $\\sum_{n\\in\\mathbb N} \\frac{g_n'}{g_n}$ sur ce compact). [Lecture : c'est la série des termes de rang $n \\geq n_0$ qui converge uniformément sur $K$, les premiers termes $g_n'/g_n$ ($n < n_0$) pouvant avoir des pôles sur $K$ ; la preuve montre $\\tilde G_n'/\\tilde G_n = \\sum_{k=m}^n g_k'/g_k \\to \\tilde G'/\\tilde G$ uniformément sur $K$.]",
       "hypotheses": [
         "$\\Omega$ ouvert, $f_n$ holomorphes",
         "$\\sum f_n$ converge **localement normalement** (i.e. $\\sum \\|f_n\\|_{\\infty,K} < +\\infty$ pour tout compact $K$) — pas seulement $\\sum f_n$ convergente",
-        "forme $g_n = 1 + f_n$ des facteurs"
+        "forme $g_n = 1 + f_n$ des facteurs",
+        "$\\mathrm{Log}$ = détermination principale du logarithme (p. 56), appliquée à $1 + f_n \\in D(1, 1/2) \\subset \\mathbb C \\setminus \\mathbb R_-$ pour $n \\geq m$ sur un compact $K$"
       ],
-      "depends_on": ["Théorème III.1.5", "Proposition II.9.3", "non numéroté, section III.5, p. 68"],
+      "depends_on": [
+        "Théorème III.1.5",
+        "non numéroté, section II.9, p. 56",
+        "non numéroté, section III.5, p. 68"
+      ],
       "used_by_hint": "Exemples III.6.3 (produit du sinus) et III.6.4 (produit de Weierstrass de $\\Gamma$) ; Exercice III.7.7 ; en examen : produits de Blaschke, fonctions entières à zéros prescrits.",
       "importance": 3,
       "proof_in_poly": "full",
@@ -437,12 +607,16 @@
       "page": 68,
       "statement": "On veut éviter pour diverses raisons de considérer des produits infinis qui s'annulent sans que l'un des facteurs s'annule, ou bien des zéros d'ordre infini. Les hypothèses du Théorème III.5.1 garantissent ceci.",
       "hypotheses": [],
-      "depends_on": ["Théorème III.5.1"],
+      "depends_on": [
+        "Théorème III.5.1"
+      ],
       "used_by_hint": "Justifie la définition retenue de la convergence d'un produit infini.",
       "importance": 1,
       "proof_in_poly": "none",
       "proof_length": "short",
-      "counterexample_hints": ["$\\prod_{n\\geq2}(1 - 1/n) = \\lim 1/n = 0$."],
+      "counterexample_hints": [
+        "$\\prod_{n\\geq2}(1 - 1/n) = \\lim 1/n = 0$."
+      ],
       "viz_hint": ""
     },
     {
@@ -452,8 +626,12 @@
       "title": "Estimation $|\\mathrm{Log}(1+\\omega)| \\leq C|\\omega|$ près de $0$",
       "page": 68,
       "statement": "Il existe une constante $C > 0$ telle que $|\\mathrm{Log}(1 + \\omega)| \\leq C\\,|\\omega|$ pour tout $\\omega \\in D(0, 1/2)$, où $\\mathrm{Log}$ est la détermination principale du logarithme sur $\\mathbb C \\setminus \\mathbb R_-$. (Conséquence du développement $\\mathrm{Log}(1+\\omega) = \\sum_{k\\geq1} (-1)^{k-1}\\omega^k/k$ ; on peut prendre $C = 2\\log 2 \\leq 2$.) De même, sur un compact $K$ où $\\sup_K |f_n| < 1/2$ pour $n \\geq m$, on a $|g_n| = |1 + f_n| > 1/2$ et $\\big|\\prod_{k=m}^n g_k\\big| = e^{\\Re \\sum_{k=m}^n \\mathrm{Log}(1+f_k)} \\geq e^{-CM} > 0$ avec $M = \\sum_{k\\geq m} \\|f_k\\|_{\\infty,K}$.",
-      "hypotheses": ["$|\\omega| < 1/2$ (tout rayon $< 1$ convient, avec une autre constante)"],
-      "depends_on": ["Proposition II.9.3"],
+      "hypotheses": [
+        "$|\\omega| < 1/2$ (tout rayon $< 1$ convient, avec une autre constante)"
+      ],
+      "depends_on": [
+        "non numéroté, section II.9, p. 56"
+      ],
       "used_by_hint": "Preuve du Théorème III.5.1 (convergence normale de $\\sum \\mathrm{Log}(1 + f_j)$, minoration uniforme des produits partiels).",
       "importance": 1,
       "proof_in_poly": "none",
@@ -468,8 +646,14 @@
       "title": "Formule d'Euler (1740) : $\\pi^2/\\sin^2(\\pi z) = \\sum_{n\\in\\mathbb Z} 1/(z-n)^2$ — Formule (III.6.1)",
       "page": 69,
       "statement": "Pour tout $z \\in \\mathbb C \\setminus \\mathbb Z$,\n$$\\frac{\\pi^2}{\\sin^2(\\pi z)} = \\sum_{n\\in\\mathbb Z} \\frac{1}{(z-n)^2}. \\qquad \\text{(III.6.1)}$$\nPlus précisément : $g : z \\mapsto \\pi^2/\\sin^2(\\pi z)$ est méromorphe sur $\\mathbb C$, $1$-périodique, de pôles les entiers, avec partie singulière $1/(z-n)^2$ au pôle $n$ (développement de Laurent en $0$ : $1/z^2 + \\sum_{n\\geq0} c_{n+2} z^n$). Pour tout $R>0$, la série $\\sum_{|n|>R} 1/(z-n)^2$ converge normalement sur $\\bar D(0,R)$ ($\\|f_n\\|_{\\bar D(0,R)} \\leq 1/(|n|-R)^2$), de sorte que $f := \\sum_{n\\in\\mathbb Z} 1/(z-n)^2$ est méromorphe sur $\\mathbb C$ de pôles les entiers avec les mêmes parties singulières. La différence $h = g - f$ se prolonge en une fonction entière, $1$-périodique, bornée sur la bande $B = \\{0 \\leq \\Re(z) \\leq 1\\}$ et tendant vers $0$ quand $|\\Im(z)| \\to \\infty$ dans $B$ (car $2|\\sin^2(\\pi z)| = \\cosh(2\\pi\\Im(z)) - \\cos(2\\pi\\Re(z))$), donc nulle par Liouville.",
-      "hypotheses": ["$z \\in \\mathbb C \\setminus \\mathbb Z$"],
-      "depends_on": ["Théorème III.1.4", "Théorème I.10.1"],
+      "hypotheses": [
+        "$z \\in \\mathbb C \\setminus \\mathbb Z$"
+      ],
+      "depends_on": [
+        "Proposition II.4.6",
+        "Théorème III.1.4",
+        "Théorème I.10.1"
+      ],
       "used_by_hint": "Exemple III.6.2 (dérivation de la cotangente) ; modèle de la méthode « fonction méromorphe = somme de ses parties polaires + Liouville » (très classique en examen, cf. fonctions elliptiques).",
       "importance": 2,
       "proof_in_poly": "full",
@@ -486,8 +670,14 @@
       "title": "Formule de la cotangente — Formule (III.6.2)",
       "page": 69,
       "statement": "La fonction $z \\mapsto \\pi\\cot(\\pi z) = \\pi\\frac{\\cos(\\pi z)}{\\sin(\\pi z)}$ est méromorphe sur $\\mathbb C$, $1$-périodique, de pôles les entiers, tous simples de résidu $1$ (car $\\lim_{z\\to0} z\\pi\\cot(\\pi z) = 1$). Pour tout $z \\in \\mathbb C \\setminus \\mathbb Z$,\n$$\\pi\\cot(\\pi z) = \\frac1z + \\sum_{n\\in\\mathbb Z\\setminus\\{0\\}} \\left( \\frac{1}{z-n} + \\frac1n \\right) = \\frac1z + \\sum_{n\\geq1} \\frac{2z}{z^2 - n^2}. \\qquad \\text{(III.6.2)}$$\nPreuve : $f_n(z) = \\frac{1}{z-n} + \\frac1n = \\frac{z}{n(z-n)}$ vérifie $\\|f_n\\|_{\\bar D(0,R)} \\leq R/(|n|(|n|-R))$ pour $|n| > R$, donc le membre de droite $g$ est méromorphe sur $\\mathbb C$, impair, et $g'(z) = -\\sum_{n\\in\\mathbb Z} 1/(z-n)^2 = -\\pi^2/\\sin^2(\\pi z) = (\\pi\\cot(\\pi z))'$ par (III.6.1) ; $\\mathbb C\\setminus\\mathbb Z$ étant connexe, $g - \\pi\\cot(\\pi z)$ est une constante, impaire, donc nulle.",
-      "hypotheses": ["$z \\in \\mathbb C \\setminus \\mathbb Z$", "sommation avec les termes correcteurs $1/n$ (ou sommation symétrique $\\sum_{n\\geq1} 2z/(z^2-n^2)$)"],
-      "depends_on": ["Théorème III.1.4", "Exemple III.6.1"],
+      "hypotheses": [
+        "$z \\in \\mathbb C \\setminus \\mathbb Z$",
+        "sommation avec les termes correcteurs $1/n$ (ou sommation symétrique $\\sum_{n\\geq1} 2z/(z^2-n^2)$)"
+      ],
+      "depends_on": [
+        "Théorème III.1.4",
+        "Exemple III.6.1"
+      ],
       "used_by_hint": "Exemple III.6.3 (identification de la dérivée logarithmique du produit du sinus) ; calcul de $\\zeta(2k)$ et de sommes $\\sum 1/(n^2+a^2)$ en exercice.",
       "importance": 2,
       "proof_in_poly": "full",
@@ -505,8 +695,13 @@
       "title": "Produit d'Euler (1735) du sinus — Formule (III.6.3)",
       "page": 70,
       "statement": "Pour tout $z \\in \\mathbb C$,\n$$\\sin(\\pi z) = \\pi z \\prod_{n\\geq1} \\left( 1 - \\frac{z^2}{n^2} \\right). \\qquad \\text{(III.6.3)}$$\nPreuve : la série $\\sum_{n\\geq1} z^2/n^2$ converge normalement sur tout compact de $\\mathbb C$, donc par le Théorème III.5.1 $F(z) = \\pi z\\prod_{n\\geq1}(1 - z^2/n^2)$ est holomorphe sur $\\mathbb C$, de zéros les entiers relatifs, simples, et pour $z \\in \\mathbb C\\setminus\\mathbb Z$, $F'(z)/F(z) = \\frac1z + \\sum_{n\\geq1}\\frac{2z}{z^2-n^2} = \\pi\\cot(\\pi z) = \\sin(\\pi z)'/\\sin(\\pi z)$ ; donc $F = c\\sin(\\pi z)$ et $c = 1$ en comparant les dérivées en $0$.",
-      "hypotheses": ["$z \\in \\mathbb C$ (le produit converge partout, y compris aux zéros)"],
-      "depends_on": ["Théorème III.5.1", "Exemple III.6.2"],
+      "hypotheses": [
+        "$z \\in \\mathbb C$ (le produit converge partout, y compris aux zéros)"
+      ],
+      "depends_on": [
+        "Théorème III.5.1",
+        "Exemple III.6.2"
+      ],
       "used_by_hint": "Exercice III.7.7 (formule des compléments, $\\Gamma(1/2) = \\sqrt\\pi$, intégrale de Gauss) ; produit de Wallis en $z = 1/2$.",
       "importance": 2,
       "proof_in_poly": "full",
@@ -518,13 +713,18 @@
     },
     {
       "id": "ch03-gamma-definition-prolongement",
-      "kind": "definition",
+      "kind": "example",
       "ref": "Exemple III.6.4",
       "title": "Fonction $\\Gamma$ : définition, équation fonctionnelle, prolongement méromorphe",
       "page": 71,
       "statement": "La fonction $\\Gamma$ est définie, pour tout $z \\in \\mathbb C$ tel que $\\Re(z) > 0$, par\n$$\\Gamma(z) := \\int_0^{\\infty} e^{-t} t^{z-1}\\, dt.$$\nElle est holomorphe sur le demi-plan $\\Re(z) > 0$ (Exemple I.9.2 ; ou directement : $\\Gamma$ est $C^1$ comme fonction de deux variables réelles et la dérivation sous l'intégrale montre $\\frac{\\partial\\Gamma}{\\partial\\bar z} = 0$). Pour tout $\\Re(z) > 0$, $\\Gamma(z+1) = z\\,\\Gamma(z)$, et en particulier $\\Gamma(n+1) = n!$ pour tout $n \\in \\mathbb N$. Cette formule permet de définir $\\Gamma$ comme fonction méromorphe sur le demi-plan $\\Re(z) > -1$ avec pour seul pôle $0$, puis, par une récurrence simple, comme fonction méromorphe sur $\\mathbb C$ avec pour pôles les entiers négatifs ou nuls (pôles simples).",
-      "hypotheses": ["$\\Re(z) > 0$ pour la définition intégrale", "prolongement par $\\Gamma(z) = \\Gamma(z+1)/z$"],
-      "depends_on": ["Exemple I.9.2"],
+      "hypotheses": [
+        "$\\Re(z) > 0$ pour la définition intégrale",
+        "prolongement par $\\Gamma(z) = \\Gamma(z+1)/z$"
+      ],
+      "depends_on": [
+        "Exemple I.9.2"
+      ],
       "used_by_hint": "Produit de Weierstrass de $\\Gamma$ (même exemple, p. 72) ; Exercice III.7.7 (formule des compléments) ; chapitre IV et exercices sur les intégrales.",
       "importance": 2,
       "proof_in_poly": "sketch",
@@ -542,8 +742,14 @@
       "title": "Formule de Gauss et produit de Weierstrass de $\\Gamma$",
       "page": 72,
       "statement": "Pour $\\Re(z) > 0$, par convergence dominée ($f_n(t) := (1 - t/n)^n t^{z-1}\\mathbf 1_{[0,n]}(t) \\to e^{-t}t^{z-1}$ et $|f_n(t)| \\leq e^{-t}t^{\\Re(z)-1}$), changement de variable et $n$ intégrations par parties :\n$$\\Gamma(z) = \\lim_{n\\to+\\infty} \\int_0^n \\left(1 - \\frac tn\\right)^n t^{z-1}\\,dt = \\lim_{n\\to+\\infty} \\frac{n^z\\, n!}{z(z+1)\\cdots(z+n)}, \\qquad \\frac{1}{\\Gamma(z)} = \\lim_{n\\to+\\infty} z\\, n^{-z} \\prod_{k=1}^n \\left(1 + \\frac zk\\right).$$\nOn écrit $n^{-z}\\prod_{k=1}^n(1 + z/k) = e^{-z(\\log n - \\sum_{k=1}^n 1/k)} \\prod_{k=1}^n (1 + z/k) e^{-z/k}$. Avec la constante d'Euler $\\gamma := \\lim_{n\\to+\\infty} \\big(\\sum_{k=1}^n \\frac1k - \\log n\\big)$, la suite $z \\mapsto e^{-z(\\log n - \\sum_{j=1}^n 1/j)}$ converge uniformément sur tout compact vers $e^{\\gamma z}$. Posant $u_k(z) := (1 + z/k)e^{-z/k} - 1$ pour $k \\in \\mathbb N^\\times$, on a $|u_k(z)| \\leq C R^2/k^2$ sur $\\bar D(0,R)$, donc $\\sum_{k\\geq1} u_k$ converge normalement sur tout $\\bar D(0,R)$ et, par le Théorème III.5.1, $z \\mapsto \\prod_{k=1}^{\\infty}(1 + z/k)e^{-z/k}$ est holomorphe sur $\\mathbb C$, de zéros (simples) les entiers strictement négatifs. Finalement\n$$\\Gamma(z) = \\frac{e^{-\\gamma z}}{z} \\prod_{k=1}^{\\infty} \\left(1 + \\frac zk\\right)^{-1} e^{z/k}, \\quad \\text{i.e.} \\quad \\frac{1}{\\Gamma(z)} = z\\, e^{\\gamma z} \\prod_{k=1}^{\\infty} \\left(1 + \\frac zk\\right) e^{-z/k},$$\nfonction holomorphe sur $\\mathbb C \\setminus (-\\mathbb N)$, méromorphe sur $\\mathbb C$ avec pôles simples en $-\\mathbb N$, qui coïncide avec $\\Gamma$ sur $\\Re(z) > 0$ : c'est le prolongement analytique de $\\Gamma$, et $\\Gamma(z+1) = z\\Gamma(z)$ reste valide sur $\\mathbb C\\setminus(-\\mathbb N)$.",
-      "hypotheses": ["$z \\in \\mathbb C \\setminus (-\\mathbb N)$ pour les formules produit", "facteurs de convergence $e^{-z/k}$ indispensables ($\\sum z/k$ diverge)"],
-      "depends_on": ["Théorème III.5.1", "non numéroté, Exemple III.6.4, p. 72"],
+      "hypotheses": [
+        "$z \\in \\mathbb C \\setminus (-\\mathbb N)$ pour les formules produit",
+        "facteurs de convergence $e^{-z/k}$ indispensables ($\\sum z/k$ diverge)"
+      ],
+      "depends_on": [
+        "Théorème III.5.1",
+        "non numéroté, Exemple III.6.4, p. 72"
+      ],
       "used_by_hint": "Exercice III.7.7 : $\\Gamma(z)\\Gamma(-z)$ et le produit du sinus donnent $\\Gamma(z)\\Gamma(1-z) = \\pi/\\sin(\\pi z)$, puis $\\Gamma(1/2) = \\sqrt\\pi$ et $\\int e^{-x^2} = \\sqrt\\pi$.",
       "importance": 2,
       "proof_in_poly": "sketch",
@@ -561,7 +767,9 @@
       "title": "Estimation $|(1+z)e^{-z} - 1| \\leq C|z|^2$",
       "page": 72,
       "statement": "Pour tout $R > 0$ il existe une constante $C > 0$ telle que $|(1 + z)e^{-z} - 1| \\leq C|z|^2$ pour tout $z \\in \\bar D(0,R)$ (la fonction entière $((1+z)e^{-z} - 1)/z^2$ est bornée sur $\\bar D(0,R)$, puisque $(1+z)e^{-z} = 1 - z^2/2 + O(z^3)$). Conséquence : $u_k(z) = (1 + z/k)e^{-z/k} - 1$ vérifie $|u_k(z)| \\leq CR^2/k^2$ sur $\\bar D(0,R)$.",
-      "hypotheses": ["$|z| \\leq R$ ; la constante dépend de $R$"],
+      "hypotheses": [
+        "$|z| \\leq R$ ; la constante dépend de $R$"
+      ],
       "depends_on": [],
       "used_by_hint": "Convergence normale de $\\sum u_k$ dans le produit de Weierstrass de $\\Gamma$ ; même astuce pour les facteurs élémentaires $E_p(z) = (1-z)e^{z + z^2/2 + \\dots + z^p/p}$ (produits canoniques de Weierstrass, hors programme).",
       "importance": 1,
@@ -572,69 +780,326 @@
     }
   ],
   "notations": [
-    { "symbol": "$\\|f\\|_{\\infty, U} = \\sup_{x\\in U} \\|f(x)\\|_V$", "meaning": "norme de la convergence uniforme sur $U$ d'une fonction $f : U \\to (V, \\|\\cdot\\|_V)$ ; pour $V = \\mathbb C$, $\\|h\\|_{\\infty,U} = \\sup_{z\\in U}|h(z)|$ ; écrit aussi $\\|f_n\\|_{\\bar D(0,R)}$ (p. 69)", "page": 59 },
-    { "symbol": "$(f_n)_{n\\in\\mathbb N}$ converge localement uniformément", "meaning": "convergence uniforme sur un voisinage $U_x$ de chaque point $x \\in \\Omega$ ; équivaut à la convergence uniforme sur tout compact $K \\subset \\Omega$ (Proposition III.1.2)", "page": 59 },
-    { "symbol": "$(f_n)$ localement uniformément de Cauchy", "meaning": "uniformément de Cauchy sur un voisinage $U_x$ de chaque point ; équivaut à : uniformément de Cauchy sur tout compact", "page": 59 },
-    { "symbol": "$U_x$", "meaning": "voisinage (ouvert) du point $x$ dans $\\Omega$", "page": 59 },
-    { "symbol": "$C(K)$, $C = C(K)$", "meaning": "constante (de borne) dépendant du compact $K$", "page": 64 },
-    { "symbol": "$f^{(k)}$, $f_n^{(k)}$", "meaning": "dérivée complexe $k$-ième", "page": 60 },
-    { "symbol": "$C(z_0,r)$, $D(z_0,r)$, $\\bar D(z_0,r)$", "meaning": "cercle, disque ouvert, disque fermé de centre $z_0$ et de rayon $r$ (notations du chapitre I, utilisées partout)", "page": 60 },
-    { "symbol": "$\\sum_{n\\geq0} f_n$ converge normalement sur $U$", "meaning": "la série numérique $\\sum_{n\\geq0}\\|f_n\\|_{\\infty,U}$ converge ; « localement normalement » = normalement sur un voisinage de chaque point (sur tout compact)", "page": 61 },
-    { "symbol": "$\\mathrm{Hol}^2(\\mathbb D)$", "meaning": "espace des fonctions holomorphes de carré sommable sur le disque unité $\\mathbb D = D(0,1)$ (Exercice III.1.6) ; s'injecte dans $L^2(\\mathbb D)$", "page": 62 },
-    { "symbol": "$g_y$", "meaning": "noyau de Bergman : $f(y) = \\int_{\\mathbb D} g_y(z) f(z)\\,du\\,dv$ pour $f \\in \\mathrm{Hol}^2(\\mathbb D)$ ; explicitement $\\frac{1}{\\pi(1 - \\bar z y)^2}$ (Exercice III.1.6)", "page": 62 },
-    { "symbol": "$Z(f, D)$, $Z(\\cdot, D)$", "meaning": "nombre de zéros de $f$ dans le disque $D$, comptés avec leur multiplicité", "page": 63 },
-    { "symbol": "$\\mathcal F \\subset \\mathrm{Hol}(\\Omega)$", "meaning": "famille de fonctions holomorphes sur $\\Omega$ ($\\mathrm{Hol}(\\Omega)$ = fonctions holomorphes sur $\\Omega$, chapitre I)", "page": 64 },
-    { "symbol": "famille localement uniformément bornée", "meaning": "$|f(z)| \\leq C$ pour tout $f \\in \\mathcal F$ et $z \\in U_x$ (Définition III.3.1)", "page": 64 },
-    { "symbol": "famille normale", "meaning": "toute suite de $\\mathcal F$ admet une sous-suite localement uniformément convergente (Définition III.3.3)", "page": 64 },
-    { "symbol": "$S = \\{y_n, n \\geq 0\\}$", "meaning": "sous-ensemble dénombrable dense de $\\Omega$ (preuve de Montel)", "page": 64 },
-    { "symbol": "$\\varphi_p : \\mathbb N \\to \\mathbb N$, $f_{\\varphi(n)} := f_{\\varphi_0\\circ\\cdots\\circ\\varphi_n(n)}$", "meaning": "extractrices (strictement croissantes) et extraction diagonale (preuve de Montel)", "page": 64 },
-    { "symbol": "$d(z, \\partial K)$", "meaning": "distance de $z$ au bord du compact $K$", "page": 64 },
-    { "symbol": "$\\mathscr C(X, Y)$", "meaning": "espace des applications continues de $X$ dans $Y$, muni de la topologie de la convergence uniforme sur les compacts (Remarque III.3.5)", "page": 65 },
-    { "symbol": "$\\mathcal H \\subset \\mathscr C(X,Y)$, $\\mathcal H(x) = \\{f(x), f \\in \\mathcal H\\}$", "meaning": "partie de $\\mathscr C(X,Y)$ et ensemble de ses valeurs en $x$ (théorème d'Ascoli)", "page": 65 },
-    { "symbol": "équicontinue en $x_0$", "meaning": "$(\\forall\\varepsilon>0)(\\exists V \\ni x_0)(\\forall f\\in\\mathcal H)(\\forall x\\in V)\\ \\|f(x)-f(x_0)\\|\\leq\\varepsilon$, le voisinage $V$ étant le même pour toute la famille", "page": 65 },
-    { "symbol": "$\\sigma$-compact", "meaning": "réunion dénombrable de compacts (cas d'un ouvert de $\\mathbb C$)", "page": 65 },
-    { "symbol": "transformation conforme ; $\\Omega$ conformément équivalent à $\\mathbb D$", "meaning": "biholomorphisme de $\\Omega$ sur $\\mathbb D$ ; existence d'un tel biholomorphisme", "page": 66 },
-    { "symbol": "$\\mathbb D = D(0,1)$", "meaning": "disque unité ouvert", "page": 66 },
-    { "symbol": "$\\Sigma = \\{f \\in \\mathrm{Hol}(\\Omega) : f(\\Omega)\\subset\\mathbb D,\\ f \\text{ injective}\\}$, $\\Sigma_{z_0} = \\{f\\in\\Sigma \\mid f(z_0)=0\\}$", "meaning": "familles extrémales de la preuve du théorème de Riemann", "page": 66 },
-    { "symbol": "$f_\\alpha : z \\mapsto \\dfrac{z-\\alpha}{1-\\bar\\alpha z}$ ($\\alpha\\in\\mathbb D$)", "meaning": "automorphisme du disque unité envoyant $\\alpha$ sur $0$ (Proposition I.13.3 et exercice précédent) ; $f_\\alpha^{-1} = f_{-\\alpha}$", "page": 66 },
-    { "symbol": "$\\eta = \\sup\\{|\\psi'(z_0)|,\\ \\psi\\in\\Sigma_{z_0}\\}$", "meaning": "quantité maximisée dans la preuve de Riemann ; finie par l'estimée de Cauchy ($\\leq 1/\\rho$)", "page": 67 },
-    { "symbol": "$s : z \\mapsto z^2$, $F = f_{-\\alpha}\\circ s\\circ f_{-\\beta}$", "meaning": "application non injective $\\mathbb D\\to\\mathbb D$, $F(0)=0$, à laquelle on applique le lemme de Schwarz ($|F'(0)|<1$)", "page": 67 },
-    { "symbol": "$\\mathbb H$", "meaning": "demi-plan de Poincaré $\\{z \\in \\mathbb C \\mid \\Im(z) > 0\\}$", "page": 67 },
-    { "symbol": "$g_n = 1 + f_n$, $G_n = \\prod_{j=0}^n g_j$, $G = \\prod_{j=0}^\\infty (1+f_j)$", "meaning": "facteurs, produits partiels et produit infini (Théorème III.5.1)", "page": 68 },
-    { "symbol": "$\\tilde G_n = \\prod_{k=m}^n g_k$, $\\tilde G = \\exp\\big(\\sum_{j\\geq m}\\mathrm{Log}(1+f_j)\\big)$", "meaning": "produit partiel et produit infini « queue » à partir du rang $m$ où $\\sup_K|f_n| < 1/2$ (ne s'annule pas sur $K$)", "page": 68 },
-    { "symbol": "$\\mathrm{Log}$", "meaning": "détermination principale du logarithme complexe sur $\\mathbb C\\setminus\\mathbb R_-$ (chapitre II, p. 55)", "page": 68 },
-    { "symbol": "$M = \\sum_{k\\geq m}\\|f_k\\|_{\\infty,K}$", "meaning": "somme des normes des queues, donne la minoration $|\\tilde G_n| \\geq e^{-CM}$", "page": 68 },
-    { "symbol": "$\\Re(z)$, $\\Im(z)$ (poly : $\\Re e(z)$, $\\Im m(z)$)", "meaning": "parties réelle et imaginaire", "page": 69 },
-    { "symbol": "$B = \\{z\\in\\mathbb C \\mid \\Re(z)\\in[0,1]\\}$", "meaning": "bande verticale fondamentale d'une fonction $1$-périodique (Exemple III.6.1)", "page": 69 },
-    { "symbol": "$\\lim_{z\\in B\\to\\infty}$", "meaning": "limite lorsque $|z|\\to\\infty$ en restant dans la bande $B$ (i.e. $|\\Im(z)|\\to\\infty$)", "page": 69 },
-    { "symbol": "$\\pi\\cot(\\pi z) = \\pi\\cos(\\pi z)/\\sin(\\pi z)$", "meaning": "cotangente, méromorphe sur $\\mathbb C$, pôles simples en $\\mathbb Z$ de résidu $1$", "page": 69 },
-    { "symbol": "$\\Gamma(z) = \\int_0^\\infty e^{-t}t^{z-1}\\,dt$", "meaning": "fonction Gamma d'Euler ($\\Re(z)>0$), prolongée méromorphiquement à $\\mathbb C$ ; $t^{z-1} = e^{(z-1)\\ln t}$", "page": 71 },
-    { "symbol": "$-\\mathbb N$", "meaning": "ensemble des entiers négatifs ou nuls $\\{0,-1,-2,\\dots\\}$ (pôles de $\\Gamma$)", "page": 71 },
-    { "symbol": "$\\mathbf 1_{[0,n]}$", "meaning": "fonction indicatrice de l'intervalle $[0,n]$", "page": 71 },
-    { "symbol": "$\\gamma := \\lim_{n\\to+\\infty}\\big(\\sum_{k=1}^n \\frac1k - \\log n\\big)$", "meaning": "constante d'Euler ($\\approx 0{,}5772$)", "page": 72 },
-    { "symbol": "$\\mathbb N^\\times$", "meaning": "entiers strictement positifs", "page": 72 },
-    { "symbol": "$u_k(z) := (1 + z/k)e^{-z/k} - 1$", "meaning": "terme général de la série normalement convergente définissant le produit de Weierstrass de $1/\\Gamma$", "page": 72 },
-    { "symbol": "$f^n = f\\circ\\cdots\\circ f$, $f^0 = \\mathrm{id}_\\Omega$", "meaning": "$n$-ième itérée de $f$ (systèmes dynamiques holomorphes, Exercices III.7.2 à III.7.5) — attention : ce n'est pas la puissance $n$-ième", "page": 73 },
-    { "symbol": "$D_r = D(0,r)$", "meaning": "disque ouvert de centre $0$ et de rayon $r$ (Exercices III.7.3 à III.7.5)", "page": 73 },
-    { "symbol": "$\\varphi_n := f^n/\\lambda^n$ ; $\\phi_n(z) = \\frac1n\\sum_{0\\leq j\\leq n-1}\\lambda^{-j}f^j(z)$", "meaning": "suites de fonctions de linéarisation (Kœnigs, $|\\lambda|<1$ ; moyennes de Cesàro, $|\\lambda|=1$)", "page": 73 },
-    { "symbol": "$A = \\{z\\in\\mathbb C \\mid (f^n(z))_{n\\geq0} \\to 0\\}$", "meaning": "bassin d'attraction de $0$ pour $f$", "page": 74 },
-    { "symbol": "$f$ linéarisable en $0$", "meaning": "il existe $\\phi$ holomorphe au voisinage de $0$, non constante et injective près de $0$, telle que $\\phi\\circ f = \\lambda\\phi$ avec $\\lambda = f'(0)$", "page": 74 }
+    {
+      "symbol": "$\\|f\\|_{\\infty, U} = \\sup_{x\\in U} \\|f(x)\\|_V$",
+      "meaning": "norme de la convergence uniforme sur $U$ d'une fonction $f : U \\to (V, \\|\\cdot\\|_V)$ ; pour $V = \\mathbb C$, $\\|h\\|_{\\infty,U} = \\sup_{z\\in U}|h(z)|$ ; écrit aussi $\\|f_n\\|_{\\bar D(0,R)}$ (p. 69)",
+      "page": 59
+    },
+    {
+      "symbol": "$(f_n)_{n\\in\\mathbb N}$ converge localement uniformément",
+      "meaning": "convergence uniforme sur un voisinage $U_x$ de chaque point $x \\in \\Omega$ ; équivaut à la convergence uniforme sur tout compact $K \\subset \\Omega$ (Proposition III.1.2)",
+      "page": 59
+    },
+    {
+      "symbol": "$(f_n)$ localement uniformément de Cauchy",
+      "meaning": "uniformément de Cauchy sur un voisinage $U_x$ de chaque point ; équivaut à : uniformément de Cauchy sur tout compact",
+      "page": 59
+    },
+    {
+      "symbol": "$U_x$",
+      "meaning": "voisinage (ouvert) du point $x$ dans $\\Omega$",
+      "page": 59
+    },
+    {
+      "symbol": "$C(K)$, $C = C(K)$",
+      "meaning": "constante (de borne) dépendant du compact $K$",
+      "page": 64
+    },
+    {
+      "symbol": "$f^{(k)}$, $f_n^{(k)}$",
+      "meaning": "dérivée complexe $k$-ième",
+      "page": 60
+    },
+    {
+      "symbol": "$C(z_0,r)$, $D(z_0,r)$, $\\bar D(z_0,r)$",
+      "meaning": "cercle, disque ouvert, disque fermé de centre $z_0$ et de rayon $r$ (notations du chapitre I, utilisées partout)",
+      "page": 60
+    },
+    {
+      "symbol": "$\\sum_{n\\geq0} f_n$ converge normalement sur $U$",
+      "meaning": "la série numérique $\\sum_{n\\geq0}\\|f_n\\|_{\\infty,U}$ converge ; « localement normalement » = normalement sur un voisinage de chaque point (sur tout compact)",
+      "page": 61
+    },
+    {
+      "symbol": "$\\mathrm{Hol}^2(\\mathbb D)$",
+      "meaning": "espace des fonctions holomorphes de carré sommable sur le disque unité $\\mathbb D = D(0,1)$ (Exercice III.1.6) ; s'injecte dans $L^2(\\mathbb D)$",
+      "page": 62
+    },
+    {
+      "symbol": "$g_y$",
+      "meaning": "noyau de Bergman : $f(y) = \\int_{\\mathbb D} g_y(z) f(z)\\,du\\,dv$ pour $f \\in \\mathrm{Hol}^2(\\mathbb D)$ ; explicitement $\\frac{1}{\\pi(1 - \\bar z y)^2}$ (Exercice III.1.6)",
+      "page": 62
+    },
+    {
+      "symbol": "$Z(f, D)$, $Z(\\cdot, D)$",
+      "meaning": "nombre de zéros de $f$ dans le disque $D$, comptés avec leur multiplicité",
+      "page": 63
+    },
+    {
+      "symbol": "$\\mathcal F \\subset \\mathrm{Hol}(\\Omega)$",
+      "meaning": "famille de fonctions holomorphes sur $\\Omega$ ($\\mathrm{Hol}(\\Omega)$ = fonctions holomorphes sur $\\Omega$, chapitre I)",
+      "page": 64
+    },
+    {
+      "symbol": "famille localement uniformément bornée",
+      "meaning": "$|f(z)| \\leq C$ pour tout $f \\in \\mathcal F$ et $z \\in U_x$ (Définition III.3.1)",
+      "page": 64
+    },
+    {
+      "symbol": "famille normale",
+      "meaning": "toute suite de $\\mathcal F$ admet une sous-suite localement uniformément convergente (Définition III.3.3)",
+      "page": 64
+    },
+    {
+      "symbol": "$S = \\{y_n, n \\geq 0\\}$",
+      "meaning": "sous-ensemble dénombrable dense de $\\Omega$ (preuve de Montel)",
+      "page": 64
+    },
+    {
+      "symbol": "$\\varphi_p : \\mathbb N \\to \\mathbb N$, $f_{\\varphi(n)} := f_{\\varphi_0\\circ\\cdots\\circ\\varphi_n(n)}$",
+      "meaning": "extractrices (strictement croissantes) et extraction diagonale (preuve de Montel)",
+      "page": 64
+    },
+    {
+      "symbol": "$d(z, \\partial K)$",
+      "meaning": "distance de $z$ au bord du compact $K$",
+      "page": 64
+    },
+    {
+      "symbol": "$\\mathscr C(X, Y)$",
+      "meaning": "espace des applications continues de $X$ dans $Y$, muni de la topologie de la convergence uniforme sur les compacts (Remarque III.3.5)",
+      "page": 65
+    },
+    {
+      "symbol": "$\\mathcal H \\subset \\mathscr C(X,Y)$, $\\mathcal H(x) = \\{f(x), f \\in \\mathcal H\\}$",
+      "meaning": "partie de $\\mathscr C(X,Y)$ et ensemble de ses valeurs en $x$ (théorème d'Ascoli)",
+      "page": 65
+    },
+    {
+      "symbol": "équicontinue en $x_0$",
+      "meaning": "$(\\forall\\varepsilon>0)(\\exists V \\ni x_0)(\\forall f\\in\\mathcal H)(\\forall x\\in V)\\ \\|f(x)-f(x_0)\\|\\leq\\varepsilon$, le voisinage $V$ étant le même pour toute la famille",
+      "page": 65
+    },
+    {
+      "symbol": "$\\sigma$-compact",
+      "meaning": "réunion dénombrable de compacts (cas d'un ouvert de $\\mathbb C$)",
+      "page": 65
+    },
+    {
+      "symbol": "transformation conforme ; $\\Omega$ conformément équivalent à $\\mathbb D$",
+      "meaning": "biholomorphisme de $\\Omega$ sur $\\mathbb D$ ; existence d'un tel biholomorphisme",
+      "page": 66
+    },
+    {
+      "symbol": "$\\mathbb D = D(0,1)$",
+      "meaning": "disque unité ouvert",
+      "page": 66
+    },
+    {
+      "symbol": "$\\Sigma = \\{f \\in \\mathrm{Hol}(\\Omega) : f(\\Omega)\\subset\\mathbb D,\\ f \\text{ injective}\\}$, $\\Sigma_{z_0} = \\{f\\in\\Sigma \\mid f(z_0)=0\\}$",
+      "meaning": "familles extrémales de la preuve du théorème de Riemann",
+      "page": 66
+    },
+    {
+      "symbol": "$f_\\alpha : z \\mapsto \\dfrac{z-\\alpha}{1-\\bar\\alpha z}$ ($\\alpha\\in\\mathbb D$)",
+      "meaning": "automorphisme du disque unité envoyant $\\alpha$ sur $0$ (Exercice I.13.2 et Proposition I.13.3) ; $f_\\alpha^{-1} = f_{-\\alpha}$",
+      "page": 66
+    },
+    {
+      "symbol": "$\\eta = \\sup\\{|\\psi'(z_0)|,\\ \\psi\\in\\Sigma_{z_0}\\}$",
+      "meaning": "quantité maximisée dans la preuve de Riemann ; finie par l'estimée de Cauchy ($\\leq 1/\\rho$)",
+      "page": 67
+    },
+    {
+      "symbol": "$s : z \\mapsto z^2$, $F = f_{-\\alpha}\\circ s\\circ f_{-\\beta}$",
+      "meaning": "application non injective $\\mathbb D\\to\\mathbb D$, $F(0)=0$, à laquelle on applique le lemme de Schwarz ($|F'(0)|<1$)",
+      "page": 67
+    },
+    {
+      "symbol": "$\\mathbb H$",
+      "meaning": "demi-plan de Poincaré $\\{z \\in \\mathbb C \\mid \\Im(z) > 0\\}$",
+      "page": 67
+    },
+    {
+      "symbol": "$g_n = 1 + f_n$, $G_n = \\prod_{j=0}^n g_j$, $G = \\prod_{j=0}^\\infty (1+f_j)$",
+      "meaning": "facteurs, produits partiels et produit infini (Théorème III.5.1)",
+      "page": 68
+    },
+    {
+      "symbol": "$\\tilde G_n = \\prod_{k=m}^n g_k$, $\\tilde G = \\exp\\big(\\sum_{j\\geq m}\\mathrm{Log}(1+f_j)\\big)$",
+      "meaning": "produit partiel et produit infini « queue » à partir du rang $m$ où $\\sup_K|f_n| < 1/2$ (ne s'annule pas sur $K$)",
+      "page": 68
+    },
+    {
+      "symbol": "$\\mathrm{Log}$",
+      "meaning": "détermination principale du logarithme complexe sur $\\mathbb C\\setminus\\mathbb R_-$ (chapitre II, section II.9, p. 56) ; $\\mathrm{Log}(1+\\omega) = \\sum_{k\\geq1}(-1)^{k-1}\\omega^k/k$ pour $|\\omega|<1$",
+      "page": 68
+    },
+    {
+      "symbol": "$M = \\sum_{k\\geq m}\\|f_k\\|_{\\infty,K}$",
+      "meaning": "somme des normes des queues, donne la minoration $|\\tilde G_n| \\geq e^{-CM}$",
+      "page": 68
+    },
+    {
+      "symbol": "$\\Re(z)$, $\\Im(z)$ (poly : $\\Re e(z)$, $\\Im m(z)$)",
+      "meaning": "parties réelle et imaginaire",
+      "page": 69
+    },
+    {
+      "symbol": "$B = \\{z\\in\\mathbb C \\mid \\Re(z)\\in[0,1]\\}$",
+      "meaning": "bande verticale fondamentale d'une fonction $1$-périodique (Exemple III.6.1)",
+      "page": 69
+    },
+    {
+      "symbol": "$\\lim_{z\\in B\\to\\infty}$",
+      "meaning": "limite lorsque $|z|\\to\\infty$ en restant dans la bande $B$ (i.e. $|\\Im(z)|\\to\\infty$)",
+      "page": 69
+    },
+    {
+      "symbol": "$\\pi\\cot(\\pi z) = \\pi\\cos(\\pi z)/\\sin(\\pi z)$",
+      "meaning": "cotangente, méromorphe sur $\\mathbb C$, pôles simples en $\\mathbb Z$ de résidu $1$",
+      "page": 69
+    },
+    {
+      "symbol": "$\\Gamma(z) = \\int_0^\\infty e^{-t}t^{z-1}\\,dt$",
+      "meaning": "fonction Gamma d'Euler ($\\Re(z)>0$), prolongée méromorphiquement à $\\mathbb C$ ; $t^{z-1} = e^{(z-1)\\ln t}$",
+      "page": 71
+    },
+    {
+      "symbol": "$-\\mathbb N$",
+      "meaning": "ensemble des entiers négatifs ou nuls $\\{0,-1,-2,\\dots\\}$ (pôles de $\\Gamma$)",
+      "page": 71
+    },
+    {
+      "symbol": "$\\mathbf 1_{[0,n]}$",
+      "meaning": "fonction indicatrice de l'intervalle $[0,n]$",
+      "page": 71
+    },
+    {
+      "symbol": "$\\gamma := \\lim_{n\\to+\\infty}\\big(\\sum_{k=1}^n \\frac1k - \\log n\\big)$",
+      "meaning": "constante d'Euler ($\\approx 0{,}5772$)",
+      "page": 72
+    },
+    {
+      "symbol": "$\\mathbb N^\\times$",
+      "meaning": "entiers strictement positifs",
+      "page": 72
+    },
+    {
+      "symbol": "$u_k(z) := (1 + z/k)e^{-z/k} - 1$",
+      "meaning": "terme général de la série normalement convergente définissant le produit de Weierstrass de $1/\\Gamma$",
+      "page": 72
+    },
+    {
+      "symbol": "$f^n = f\\circ\\cdots\\circ f$, $f^0 = \\mathrm{id}_\\Omega$",
+      "meaning": "$n$-ième itérée de $f$ (systèmes dynamiques holomorphes, Exercices III.7.2 à III.7.5) — attention : ce n'est pas la puissance $n$-ième",
+      "page": 73
+    },
+    {
+      "symbol": "$D_r = D(0,r)$",
+      "meaning": "disque ouvert de centre $0$ et de rayon $r$ (Exercices III.7.3 à III.7.5)",
+      "page": 73
+    },
+    {
+      "symbol": "$\\varphi_n := f^n/\\lambda^n$ ; $\\phi_n(z) = \\frac1n\\sum_{0\\leq j\\leq n-1}\\lambda^{-j}f^j(z)$",
+      "meaning": "suites de fonctions de linéarisation (Kœnigs, $|\\lambda|<1$ ; moyennes de Cesàro, $|\\lambda|=1$)",
+      "page": 73
+    },
+    {
+      "symbol": "$A = \\{z\\in\\mathbb C \\mid (f^n(z))_{n\\geq0} \\to 0\\}$",
+      "meaning": "bassin d'attraction de $0$ pour $f$",
+      "page": 74
+    },
+    {
+      "symbol": "$f$ linéarisable en $0$",
+      "meaning": "il existe $\\phi$ holomorphe au voisinage de $0$, non constante et injective près de $0$, telle que $\\phi\\circ f = \\lambda\\phi$ avec $\\lambda = f'(0)$",
+      "page": 74
+    }
   ],
   "poly_exercises": [
-    { "ref": "Exercice III.1.6", "page": 62, "topic": "Formule du noyau de Bergman", "statement_short": "Sur $\\mathrm{Hol}^2(\\mathbb D)$ (holomorphes de carré sommable) : montrer que c'est un sous-espace fermé de $L^2(\\mathbb D)$ (via l'Exercice I.7.8, formule de la moyenne sur un disque), en déduire un noyau reproduisant $g_y$, l'expliciter par développement en série entière appliqué à $z^n$, obtenir $f(z) = \\frac1\\pi\\int_{\\mathbb D} \\frac{f(u+iv)}{(1-(u-iv)z)^2}du\\,dv$ et montrer que $\\{\\sqrt{(n+1)/\\pi}\\, z^n\\}_{n\\geq0}$ est une base hilbertienne.", "chapters_involved": [1, 3] },
-    { "ref": "Exercice III.7.1", "page": 73, "topic": "Convergence simple + borne locale $\\Rightarrow$ limite holomorphe (Montel + Weierstraß)", "statement_short": "$(f_n)$ holomorphes sur $\\Omega$, convergeant simplement vers $f$ et uniformément bornées sur tout compact. 1) Montrer que $f$ est holomorphe. 2) Montrer que pour tout $k$ et tout compact $K$, $\\sup_K |f_n^{(k)}| \\leq C(k,K)$ pour tout $n$.", "chapters_involved": [3] },
-    { "ref": "Exercice III.7.2", "page": 73, "topic": "Systèmes dynamiques holomorphes : point fixe, multiplicateur $f'(a)$", "statement_short": "$\\Omega$ connexe borné, $f : \\Omega\\to\\Omega$ holomorphe avec $f(a) = a$. Montrer $|f'(a)| \\leq 1$ ; si $f'(a) = 1$ alors $f = \\mathrm{id}$ ; si $|f'(a)| = 1$ alors $f$ est un automorphisme ; si $|f'(a)| < 1$ alors $f^n \\to a$ uniformément sur tout compact (Montel, Hurwitz, estimées de Cauchy sur les itérées).", "chapters_involved": [1, 3] },
-    { "ref": "Exercice III.7.3", "page": 73, "topic": "Linéarisation de Kœnigs d'un point fixe attractif ($0 < |\\lambda| < 1$) et bassin d'attraction", "statement_short": "$f : \\Omega\\to\\Omega$, $f(0) = 0$, $f'(0) = \\lambda$, $0<|\\lambda|<1$. Contrôle $|f^n(z)| \\leq c^n|z|$ sur un petit disque, $|f(z) - \\lambda z| \\leq k|z|^2$, convergence uniforme de $\\varphi_n = f^n/\\lambda^n$ vers $\\varphi$ holomorphe avec $\\varphi'(0) = 1$ et $\\varphi\\circ f = \\lambda\\varphi$ ; si $f$ est entière, prolonger $\\varphi$ au bassin d'attraction $A$ (ouvert) avec $\\varphi(A) = \\mathbb C$.", "chapters_involved": [1, 3] },
-    { "ref": "Exercice III.7.4", "page": 74, "topic": "Linéarisation d'un point fixe indifférent ($|\\lambda| = 1$) par moyennes de Cesàro et Montel", "statement_short": "$f : \\Omega\\to\\Omega$ ($\\Omega$ connexe borné), $f(0) = 0$, $|f'(0)| = |\\lambda| = 1$. Avec $\\phi_n = \\frac1n\\sum_{j<n}\\lambda^{-j}f^j$, montrer $|\\phi_n\\circ f - \\lambda\\phi_n| \\leq 2c/n$ et en déduire (Montel, Hurwitz) une $\\phi$ non constante, injective près de $0$, avec $\\phi\\circ f = \\lambda\\phi$ : $f$ est linéarisable en $0$.", "chapters_involved": [3] },
-    { "ref": "Exercice III.7.5", "page": 74, "topic": "Un polynôme quadratique non linéarisable (exemple de type Cremer)", "statement_short": "$f(z) = z^2 + \\lambda z$ avec $\\lambda = e^{2i\\pi\\theta}$, $\\theta = \\sum_k 2^{-q_k}$ et $\\log q_{k+1} \\geq k 2^{q_k}$. En supposant $f$ linéarisable, minorer $|1 - \\lambda^n| = \\prod|z_j|$ sur les points fixes de $f^n$ par $\\delta^{2^n - 1}$, en déduire que $(q_{k+1}/2^{2^{q_k}})$ est bornée, et une contradiction : la série linéarisante formelle a un rayon de convergence nul.", "chapters_involved": [1, 3] },
-    { "ref": "Exercice III.7.6", "page": 74, "topic": "Suite d'automorphismes dégénérant vers le bord $\\Rightarrow$ $\\Omega$ biholomorphe au disque", "statement_short": "$\\Omega$ connexe borné à bord $C^1$, $\\varphi_n$ automorphismes de $\\Omega$, $a \\in \\Omega$, $\\eta\\in\\partial\\Omega$ avec $\\varphi_n(a)\\to\\eta$. Montrer qu'il existe une bijection holomorphe entre $\\Omega$ et $\\mathbb D$ (Montel, Hurwitz, puis simple connexité et Riemann).", "chapters_involved": [2, 3] },
-    { "ref": "Exercice III.7.7", "page": 74, "topic": "Formule des compléments et intégrale de Gauss", "statement_short": "À partir du produit d'Euler du sinus et du produit de Weierstrass de $\\Gamma$ : calculer $\\Gamma(z)\\Gamma(-z)$ et démontrer $\\Gamma(z)\\Gamma(1-z) = \\pi/\\sin(\\pi z)$ pour $z\\in\\mathbb C\\setminus\\mathbb Z$ ; en déduire $\\Gamma(1/2) = \\sqrt\\pi$ puis, par changement de variable, $\\int_{-\\infty}^{+\\infty} e^{-x^2}dx = \\sqrt\\pi$.", "chapters_involved": [3] }
+    {
+      "ref": "Exercice III.1.6",
+      "page": 62,
+      "topic": "Formule du noyau de Bergman",
+      "statement_short": "Sur $\\mathrm{Hol}^2(\\mathbb D)$ (holomorphes de carré sommable) : montrer que c'est un sous-espace fermé de $L^2(\\mathbb D)$ (via l'Exercice I.7.8, formule de la moyenne sur un disque), en déduire un noyau reproduisant $g_y$, l'expliciter par développement en série entière appliqué à $z^n$, obtenir $f(z) = \\frac1\\pi\\int_{\\mathbb D} \\frac{f(u+iv)}{(1-(u-iv)z)^2}du\\,dv$ et montrer que $\\{\\sqrt{(n+1)/\\pi}\\, z^n\\}_{n\\geq0}$ est une base hilbertienne.",
+      "chapters_involved": [
+        1,
+        3
+      ]
+    },
+    {
+      "ref": "Exercice III.7.1",
+      "page": 73,
+      "topic": "Convergence simple + borne locale $\\Rightarrow$ limite holomorphe (Montel + Weierstraß)",
+      "statement_short": "$(f_n)$ holomorphes sur $\\Omega$, convergeant simplement vers $f$ et uniformément bornées sur tout compact. 1) Montrer que $f$ est holomorphe. 2) Montrer que pour tout $k$ et tout compact $K$, $\\sup_K |f_n^{(k)}| \\leq C(k,K)$ pour tout $n$.",
+      "chapters_involved": [
+        3
+      ]
+    },
+    {
+      "ref": "Exercice III.7.2",
+      "page": 73,
+      "topic": "Systèmes dynamiques holomorphes : point fixe, multiplicateur $f'(a)$",
+      "statement_short": "$\\Omega$ connexe borné, $f : \\Omega\\to\\Omega$ holomorphe avec $f(a) = a$. Montrer $|f'(a)| \\leq 1$ ; si $f'(a) = 1$ alors $f = \\mathrm{id}$ ; si $|f'(a)| = 1$ alors $f$ est un automorphisme ; si $|f'(a)| < 1$ alors $f^n \\to a$ uniformément sur tout compact (Montel, Hurwitz, estimées de Cauchy sur les itérées).",
+      "chapters_involved": [
+        1,
+        3
+      ]
+    },
+    {
+      "ref": "Exercice III.7.3",
+      "page": 73,
+      "topic": "Linéarisation de Kœnigs d'un point fixe attractif ($0 < |\\lambda| < 1$) et bassin d'attraction",
+      "statement_short": "$f : \\Omega\\to\\Omega$, $f(0) = 0$, $f'(0) = \\lambda$, $0<|\\lambda|<1$. Contrôle $|f^n(z)| \\leq c^n|z|$ sur un petit disque, $|f(z) - \\lambda z| \\leq k|z|^2$, convergence uniforme de $\\varphi_n = f^n/\\lambda^n$ vers $\\varphi$ holomorphe avec $\\varphi'(0) = 1$ et $\\varphi\\circ f = \\lambda\\varphi$ ; si $f$ est entière, prolonger $\\varphi$ au bassin d'attraction $A$ (ouvert) avec $\\varphi(A) = \\mathbb C$.",
+      "chapters_involved": [
+        1,
+        3
+      ]
+    },
+    {
+      "ref": "Exercice III.7.4",
+      "page": 74,
+      "topic": "Linéarisation d'un point fixe indifférent ($|\\lambda| = 1$) par moyennes de Cesàro et Montel",
+      "statement_short": "$f : \\Omega\\to\\Omega$ ($\\Omega$ connexe borné), $f(0) = 0$, $|f'(0)| = |\\lambda| = 1$. Avec $\\phi_n = \\frac1n\\sum_{j<n}\\lambda^{-j}f^j$, montrer $|\\phi_n\\circ f - \\lambda\\phi_n| \\leq 2c/n$ et en déduire (Montel, Hurwitz) une $\\phi$ non constante, injective près de $0$, avec $\\phi\\circ f = \\lambda\\phi$ : $f$ est linéarisable en $0$.",
+      "chapters_involved": [
+        3
+      ]
+    },
+    {
+      "ref": "Exercice III.7.5",
+      "page": 74,
+      "topic": "Un polynôme quadratique non linéarisable (exemple de type Cremer)",
+      "statement_short": "$f(z) = z^2 + \\lambda z$ avec $\\lambda = e^{2i\\pi\\theta}$, $\\theta = \\sum_k 2^{-q_k}$ et $\\log q_{k+1} \\geq k 2^{q_k}$. En supposant $f$ linéarisable, minorer $|1 - \\lambda^n| = \\prod|z_j|$ sur les points fixes de $f^n$ par $\\delta^{2^n - 1}$, en déduire que $(q_{k+1}/2^{2^{q_k}})$ est bornée, et une contradiction : la série linéarisante formelle a un rayon de convergence nul.",
+      "chapters_involved": [
+        1,
+        3
+      ]
+    },
+    {
+      "ref": "Exercice III.7.6",
+      "page": 74,
+      "topic": "Suite d'automorphismes dégénérant vers le bord $\\Rightarrow$ $\\Omega$ biholomorphe au disque",
+      "statement_short": "$\\Omega$ connexe borné à bord $C^1$, $\\varphi_n$ automorphismes de $\\Omega$, $a \\in \\Omega$, $\\eta\\in\\partial\\Omega$ avec $\\varphi_n(a)\\to\\eta$. Montrer qu'il existe une bijection holomorphe entre $\\Omega$ et $\\mathbb D$ (Montel, Hurwitz, puis simple connexité et Riemann).",
+      "chapters_involved": [
+        2,
+        3
+      ]
+    },
+    {
+      "ref": "Exercice III.7.7",
+      "page": 74,
+      "topic": "Formule des compléments et intégrale de Gauss",
+      "statement_short": "À partir du produit d'Euler du sinus et du produit de Weierstrass de $\\Gamma$ : calculer $\\Gamma(z)\\Gamma(-z)$ et démontrer $\\Gamma(z)\\Gamma(1-z) = \\pi/\\sin(\\pi z)$ pour $z\\in\\mathbb C\\setminus\\mathbb Z$ ; en déduire $\\Gamma(1/2) = \\sqrt\\pi$ puis, par changement de variable, $\\int_{-\\infty}^{+\\infty} e^{-x^2}dx = \\sqrt\\pi$.",
+      "chapters_involved": [
+        3
+      ]
+    }
   ],
   "pitfalls": [
     "Le mode de convergence du chapitre est la convergence **localement uniforme** (= uniforme sur tout compact), pas la convergence uniforme sur $\\Omega$ ni la convergence simple : $z^n$ sur $D(0,1)$ converge localement uniformément mais pas uniformément ; la convergence simple seule ne suffit pas pour Weierstraß (mais simple + localement bornée suffit, Exercice III.7.1, via Montel et l'unicité de la limite).",
     "Weierstraß est un phénomène **complexe** : en variable réelle, une limite uniforme de fonctions $C^\\infty$ n'est même pas dérivable en général ($|x|$ limite de polynômes). Ce qui fait marcher la preuve est la formule de Cauchy, qui exprime $f_n$ et ses dérivées par des intégrales sur un cercle où la convergence est uniforme.",
     "Dans la preuve de Weierstraß, l'estimation des dérivées se fait sur $D(z_0, r/2)$ et non sur $D(z_0, r)$ : contrôler $f^{(k)}$ coûte de la place (facteur $1/\\mathrm{dist}(z, C(z_0,r))^{k+1}$). D'où les énoncés « localement » et jamais « uniformément sur $\\Omega$ ».",
-    "Hurwitz : ne pas oublier l'alternative dégénérée ($f \\equiv 0$, ou $f$ constante pour l'injectivité) ; elle se produit vraiment (Remarque III.2.2, $f_n = z/n$). La connexité de $\\Omega$ est indispensable (sinon la limite peut être nulle sur une composante et non nulle sur une autre).",
+    "Hurwitz : ne pas oublier l'alternative dégénérée ($f \\equiv 0$, ou $f$ constante pour l'injectivité) ; elle se produit vraiment (Remarque III.2.2 : $f_n = z^n$ sur $D(0,1)\\setminus\\{0\\}$ pour la non-annulation ; $f_n = z/n$ pour l'injectivité). La connexité de $\\Omega$ est indispensable (sinon la limite peut être nulle sur une composante et non nulle sur une autre).",
     "Montel : « normale » n'exige pas que la limite appartienne à la famille (relative compacité). L'hypothèse est une borne **locale** uniforme en $f$ ; et l'holomorphie est essentielle ($\\sin(nx)$ est bornée sans sous-suite convergente). Réflexe d'examen : pour montrer que toute la suite converge, extraire de toute sous-suite une sous-suite convergeant vers la **même** limite (identifiée par unicité : Hurwitz, zéros isolés, valeur en un point…).",
     "Dans la preuve de Montel, l'extraction diagonale $f_{\\varphi_0\\circ\\cdots\\circ\\varphi_n(n)}$ doit être composée dans le bon ordre et la densité de $S$ sert à relier deux points quelconques via un point de $S$ (argument en $\\varepsilon/3$).",
     "Riemann : trois hypothèses, chacune nécessaire — connexe, simplement connexe, **distinct de $\\mathbb C$** ($\\mathbb C$ n'est pas biholomorphe à $\\mathbb D$ par Liouville). Le théorème ne dit rien sur le comportement au bord. Le biholomorphisme n'est unique qu'à un automorphisme de $\\mathbb D$ près (normalisation $h(z_0) = 0$, $h'(z_0) > 0$).",
@@ -644,22 +1109,91 @@
     "Pour développer une fonction méromorphe en somme de parties polaires, la série des parties polaires doit converger normalement sur les compacts : vrai pour $1/(z-n)^2$, faux pour $1/(z-n)$ (série harmonique) ; il faut alors des termes correcteurs ($+1/n$) ou une sommation symétrique ($2z/(z^2 - n^2)$). La constante restante se détermine par parité ou par une valeur/dérivée en un point.",
     "Deux fonctions entières ayant les mêmes zéros avec multiplicité ne coïncident qu'à un facteur $e^{g}$ près : pour identifier $\\pi z\\prod(1 - z^2/n^2)$ à $\\sin(\\pi z)$, le poly compare les dérivées logarithmiques (cotangente) puis les dérivées en $0$.",
     "$\\Gamma$ : la représentation intégrale n'est valable que pour $\\Re(z) > 0$ ; le prolongement méromorphe se fait par $\\Gamma(z) = \\Gamma(z+1)/z$ ou par le produit de Weierstrass. $\\Gamma$ ne s'annule jamais ($1/\\Gamma$ est entière), ses pôles sont simples, en $-\\mathbb N$, de résidu $(-1)^n/n!$. Les facteurs $e^{-z/k}$ sont indispensables à la convergence du produit.",
-    "Notation : $f^n$ dans les exercices III.7.2 à III.7.5 désigne l'itérée $f\\circ\\cdots\\circ f$, pas la puissance ; et $Z(f, D)$ compte les zéros **avec multiplicité**."
+    "Notation : $f^n$ dans les exercices III.7.2 à III.7.5 désigne l'itérée $f\\circ\\cdots\\circ f$, pas la puissance ; et $Z(f, D)$ compte les zéros **avec multiplicité**.",
+    "Dans la preuve de Riemann, deux fonctions de $\\Sigma_{z_0}$ se comparent par $|\\psi'(z_0)|$ : c'est la quantité maximisée, pas $\\sup|\\psi|$ (toutes sont bornées par $1$). La finitude de $\\eta$ vient de l'estimée de Cauchy et $\\eta > 0$ de l'injectivité ($\\psi'(z_0) \\neq 0$, Remarque I.14.3)."
   ],
   "viz_opportunities": [
-    { "title": "Convergence localement uniforme vs uniforme", "shows": "Sur $D(0,1)$, la suite $f_n(z) = z^n$ : curseur $n$ et curseur $r$ ; on affiche $\\sup_{\\bar D(0,r)}|f_n| = r^n$ qui tend vers $0$ pour $r<1$ mais reste $1$ pour $r = 1$. Fait comprendre pourquoi les énoncés sont « sur tout compact ».", "results": ["Définition III.1.1", "Proposition III.1.2"] },
-    { "title": "Weierstraß : la dérivation passe à la limite (complexe) mais pas en réel", "shows": "À gauche, domain coloring des polynômes de Taylor $P_n$ de $e^z$ ou $1/(1-z)$ sur un disque compact et de $P_n'$ : les deux convergent. À droite, approximation uniforme de $|x|$ par des polynômes (Bernstein) dont les dérivées ne convergent pas. Un cercle $C(z_0,r)$ et le disque $D(z_0, r/2)$ illustrent la perte de rayon dans l'estimation des dérivées.", "results": ["Théorème III.1.4", "Théorème III.1.5"] },
-    { "title": "Hurwitz : les zéros passent à la limite", "shows": "Zéros des $f_n$ (points) et de $f$ ; un petit disque $D$ déplaçable avec affichage de $Z(f_n, D)$ et $Z(f, D)$. Exemples : $f_n(z) = z^2 - 1/n \\to z^2$ (deux zéros simples fusionnent en un zéro double), $f_n = z^n$ sur $D(0,1)\\setminus\\{0\\}$ (limite nulle), $f_n = z/n$ (injectives, limite constante).", "results": ["Théorème III.2.1", "Remarque III.2.2", "Remarque III.2.3"] },
-    { "title": "Montel vs Ascoli : où l'holomorphie intervient", "shows": "Graphes de $\\sin(nx)$ pour $n$ croissant (bornés, pentes non bornées, aucune sous-suite convergente) face à une famille bornée de fonctions holomorphes sur un disque ($|f_n'| \\leq C/\\delta$ par Cauchy : graphes de $|f_n|$ tous lipschitziens de même constante). Animation de l'extraction diagonale sur une grille dense.", "results": ["Théorème III.3.4", "Formule (III.3.1)", "Remarque III.3.5", "Remarque III.3.6"] },
-    { "title": "Représentation conforme de Riemann", "shows": "Pour $\\Omega$ = demi-plan, bande, quadrant, disque fendu : image par $h^{-1}$ de la grille polaire de $\\mathbb D$ (cercles et rayons), angles conservés. Animation de l'étape clé de la preuve : $\\psi$ non surjective évite $\\alpha$ ; $f_\\alpha\\circ\\psi$ ne s'annule pas ; sa racine carrée $g$ « déplie » l'image ; $\\psi_1 = f_{g(z_0)}\\circ g$ a une dérivée plus grande en $z_0$ (lemme de Schwarz).", "results": ["Théorème III.4.1", "Remarque III.4.2"] },
-    { "title": "Produit d'Euler du sinus et produits partiels", "shows": "Produits partiels $\\pi z\\prod_{n\\leq N}(1 - z^2/n^2)$ en domain coloring et sur l'axe réel : les zéros $\\pm n$ apparaissent un à un et la fonction converge vers $\\sin(\\pi z)$ sur tout compact ; en regard, les produits partiels de $\\prod(1 - 1/n)$ qui tendent vers $0$ (pas de convergence normale).", "results": ["Théorème III.5.1", "Remarque III.5.2", "Exemple III.6.3"] },
-    { "title": "Cotangente et sommes de parties polaires", "shows": "Graphe réel de $\\pi\\cot(\\pi x)$ et de $\\pi^2/\\sin^2(\\pi x)$ avec les sommes partielles symétriques $\\frac1x + \\sum_{n\\leq N} 2x/(x^2 - n^2)$ et $\\sum_{|n|\\leq N} 1/(x-n)^2$ ; bouton montrant la divergence de $\\sum_{0<n\\leq N} 1/(x - n)$ sans terme correcteur. Surface $|h|$ sur la bande $B$ qui s'écrase (argument de Liouville).", "results": ["Exemple III.6.1", "Exemple III.6.2"] },
-    { "title": "La fonction $\\Gamma$ et son produit de Weierstrass", "shows": "Surface de $|\\Gamma|$ (pôles en $0, -1, -2, \\dots$), graphe réel de $\\Gamma$ et de $1/\\Gamma$ (entière, zéros en $-\\mathbb N$), produits partiels $z e^{\\gamma z}\\prod_{k\\leq N}(1 + z/k)e^{-z/k}$ convergeant vers $1/\\Gamma$ ; curseur montrant que sans $e^{-z/k}$ le produit diverge.", "results": ["Exemple III.6.4"] },
-    { "title": "Dynamique holomorphe près d'un point fixe (exercices)", "shows": "Itérées $f^n(z)$ d'un point pour $f(z) = \\lambda z + z^2$ selon $|\\lambda| < 1$ (spirale vers $0$, bassin d'attraction coloré), $|\\lambda| = 1$ (rotation, linéarisation ou non) ; coordonnée de Kœnigs $\\varphi = \\lim f^n/\\lambda^n$ redressant la dynamique en $z\\mapsto\\lambda z$.", "results": ["Théorème III.3.4", "Théorème III.2.1"] }
+    {
+      "title": "Convergence localement uniforme vs uniforme",
+      "shows": "Sur $D(0,1)$, la suite $f_n(z) = z^n$ : curseur $n$ et curseur $r$ ; on affiche $\\sup_{\\bar D(0,r)}|f_n| = r^n$ qui tend vers $0$ pour $r<1$ mais reste $1$ pour $r = 1$. Fait comprendre pourquoi les énoncés sont « sur tout compact ».",
+      "results": [
+        "Définition III.1.1",
+        "Proposition III.1.2"
+      ]
+    },
+    {
+      "title": "Weierstraß : la dérivation passe à la limite (complexe) mais pas en réel",
+      "shows": "À gauche, domain coloring des polynômes de Taylor $P_n$ de $e^z$ ou $1/(1-z)$ sur un disque compact et de $P_n'$ : les deux convergent. À droite, approximation uniforme de $|x|$ par des polynômes (Bernstein) dont les dérivées ne convergent pas. Un cercle $C(z_0,r)$ et le disque $D(z_0, r/2)$ illustrent la perte de rayon dans l'estimation des dérivées.",
+      "results": [
+        "Théorème III.1.4",
+        "Théorème III.1.5"
+      ]
+    },
+    {
+      "title": "Hurwitz : les zéros passent à la limite",
+      "shows": "Zéros des $f_n$ (points) et de $f$ ; un petit disque $D$ déplaçable avec affichage de $Z(f_n, D)$ et $Z(f, D)$. Exemples : $f_n(z) = z^2 - 1/n \\to z^2$ (deux zéros simples fusionnent en un zéro double), $f_n = z^n$ sur $D(0,1)\\setminus\\{0\\}$ (limite nulle), $f_n = z/n$ (injectives, limite constante).",
+      "results": [
+        "Théorème III.2.1",
+        "Remarque III.2.2",
+        "Remarque III.2.3"
+      ]
+    },
+    {
+      "title": "Montel vs Ascoli : où l'holomorphie intervient",
+      "shows": "Graphes de $\\sin(nx)$ pour $n$ croissant (bornés, pentes non bornées, aucune sous-suite convergente) face à une famille bornée de fonctions holomorphes sur un disque ($|f_n'| \\leq C/\\delta$ par Cauchy : graphes de $|f_n|$ tous lipschitziens de même constante). Animation de l'extraction diagonale sur une grille dense.",
+      "results": [
+        "Théorème III.3.4",
+        "Formule (III.3.1)",
+        "Remarque III.3.5",
+        "Remarque III.3.6"
+      ]
+    },
+    {
+      "title": "Représentation conforme de Riemann",
+      "shows": "Pour $\\Omega$ = demi-plan, bande, quadrant, disque fendu : image par $h^{-1}$ de la grille polaire de $\\mathbb D$ (cercles et rayons), angles conservés. Animation de l'étape clé de la preuve : $\\psi$ non surjective évite $\\alpha$ ; $f_\\alpha\\circ\\psi$ ne s'annule pas ; sa racine carrée $g$ « déplie » l'image ; $\\psi_1 = f_{g(z_0)}\\circ g$ a une dérivée plus grande en $z_0$ (lemme de Schwarz).",
+      "results": [
+        "Théorème III.4.1",
+        "non numéroté, preuve du Théorème III.4.1, p. 66",
+        "non numéroté, preuve du Théorème III.4.1, p. 66-67",
+        "Remarque III.4.2"
+      ]
+    },
+    {
+      "title": "Produit d'Euler du sinus et produits partiels",
+      "shows": "Produits partiels $\\pi z\\prod_{n\\leq N}(1 - z^2/n^2)$ en domain coloring et sur l'axe réel : les zéros $\\pm n$ apparaissent un à un et la fonction converge vers $\\sin(\\pi z)$ sur tout compact ; en regard, les produits partiels de $\\prod(1 - 1/n)$ qui tendent vers $0$ (pas de convergence normale).",
+      "results": [
+        "Théorème III.5.1",
+        "Remarque III.5.2",
+        "Exemple III.6.3"
+      ]
+    },
+    {
+      "title": "Cotangente et sommes de parties polaires",
+      "shows": "Graphe réel de $\\pi\\cot(\\pi x)$ et de $\\pi^2/\\sin^2(\\pi x)$ avec les sommes partielles symétriques $\\frac1x + \\sum_{n\\leq N} 2x/(x^2 - n^2)$ et $\\sum_{|n|\\leq N} 1/(x-n)^2$ ; bouton montrant la divergence de $\\sum_{0<n\\leq N} 1/(x - n)$ sans terme correcteur. Surface $|h|$ sur la bande $B$ qui s'écrase (argument de Liouville).",
+      "results": [
+        "Exemple III.6.1",
+        "Exemple III.6.2"
+      ]
+    },
+    {
+      "title": "La fonction $\\Gamma$ et son produit de Weierstrass",
+      "shows": "Surface de $|\\Gamma|$ (pôles en $0, -1, -2, \\dots$), graphe réel de $\\Gamma$ et de $1/\\Gamma$ (entière, zéros en $-\\mathbb N$), produits partiels $z e^{\\gamma z}\\prod_{k\\leq N}(1 + z/k)e^{-z/k}$ convergeant vers $1/\\Gamma$ ; curseur montrant que sans $e^{-z/k}$ le produit diverge.",
+      "results": [
+        "Exemple III.6.4"
+      ]
+    },
+    {
+      "title": "Dynamique holomorphe près d'un point fixe (exercices)",
+      "shows": "Itérées $f^n(z)$ d'un point pour $f(z) = \\lambda z + z^2$ selon $|\\lambda| < 1$ (spirale vers $0$, bassin d'attraction coloré), $|\\lambda| = 1$ (rotation, linéarisation ou non) ; coordonnée de Kœnigs $\\varphi = \\lim f^n/\\lambda^n$ redressant la dynamique en $z\\mapsto\\lambda z$.",
+      "results": [
+        "Théorème III.3.4",
+        "Théorème III.2.1"
+      ]
+    }
   ],
   "proof_techniques": [
     "Passage « local $\\leftrightarrow$ sur tout compact » : recouvrir un compact $K$ par les voisinages $U_x$, extraire un sous-recouvrement fini ; réciproque par locale compacité de $\\mathbb C$ (tout point a un voisinage compact dans $\\Omega$).",
-    "Formule intégrale de Cauchy pour passer à la limite : écrire $f_n(z) = \\frac{1}{2i\\pi}\\int_{C(z_0,r)} \\frac{f_n(\\zeta)}{\\zeta - z}d\\zeta$, utiliser la convergence uniforme sur le cercle $C(z_0,r)$ pour intervertir limite et intégrale ; l'intégrale de type Cauchy d'une fonction continue est holomorphe à l'intérieur (développement en série géométrique, cf. preuve du Théorème I.7.4 / Théorème I.9.1).",
+    "Formule intégrale de Cauchy pour passer à la limite : écrire $f_n(z) = \\frac{1}{2i\\pi}\\int_{C(z_0,r)} \\frac{f_n(\\zeta)}{\\zeta - z}d\\zeta$, utiliser la convergence uniforme sur le cercle $C(z_0,r)$ pour intervertir limite et intégrale ; l'intégrale de type Cauchy $z \\mapsto \\frac{1}{2i\\pi}\\int_{C(z_0,r)} \\frac{f(\\zeta)}{\\zeta - z}d\\zeta$ d'une fonction continue $f$ est holomorphe à l'intérieur du disque (Corollaire I.9.4, intégrale à paramètre le long d'un chemin ; ou développement en série géométrique comme dans la preuve du Théorème I.7.4).",
     "Formule de Cauchy pour les dérivées (I.7.1) et estimées de Cauchy : contrôler $\\sup_{D(z_0,r/2)} |f^{(k)} - f_n^{(k)}|$ par $\\frac{k!2^{k+1}}{r^k}\\sup_{C(z_0,r)}|f - f_n|$ ; plus généralement « borne sur $f$ $\\Rightarrow$ borne sur $f'$ » (perte de rayon), d'où l'équicontinuité (III.3.1) via les accroissements finis sur un segment.",
     "Extraction diagonale sur une partie dénombrable dense $S$ (extractrices composées $\\varphi_0\\circ\\cdots\\circ\\varphi_n$), puis argument en $\\varepsilon/3$ (équicontinuité + Cauchy en un point de $S$) et recouvrement fini d'un compact par de petits disques : preuve d'Ascoli à la main.",
     "Compter les zéros par le principe de l'argument : $Z(f, D) = \\frac{1}{2i\\pi}\\int_{C} f'/f$ est stable par convergence uniforme de $f_n'/f_n$ sur le cercle (minorer $|f|$ par $2\\varepsilon$ sur le cercle, donc $|f_n| \\geq \\varepsilon$, puis $1/f_n \\to 1/f$ uniformément) ; un entier qui est limite d'entiers nuls est nul.",

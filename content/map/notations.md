@@ -241,6 +241,8 @@
 | $M_m(\mathbb R)$ | matrices carrées réelles de taille $m$ (Exercice V.6.2) | V | 112 |
 | $\ell^1(\mathbb R)$ | espace de Banach des suites réelles sommables, $\\|x\\|=\sum_i\|x_i\|$ | V | 113 |
 | $C^1([0,1],\mathbb R^2)$, $C^0([0;1],\mathbb R)$ | espaces de fonctions de classe $C^1$ (resp. continues) sur $[0,1]$ (Exercices V.6.5, V.6.6) | V | 113 |
+| $f$ « $p$-différentiable », $f^{(p)}$, $d^pf$ | $f$ est $p$ fois différentiable : $d^{p-1}f$ est différentiable (sans continuité de $d^pf$) ; plus faible que « de classe $C^p$ » (Lemmes V.5.10, Théorèmes V.5.12, V.5.13) | V | 111 |
+| $h^n$ ($h\in\mathcal L(E)$) | $n$-ième itéré de composition $h\circ\cdots\circ h$ ($h^0=\mathrm{Id}_E$) ; $\\|h^n\\|\le\\|h\\|^n$ (norme d'algèbre) | V | 109 |
 | $(X,d_X)$, $(Y,d_Y)$, $(X,d)$ | espaces métriques (complets pour les théorèmes de point fixe) | VI | 115 |
 | $T$ $a$-lipschitzienne | $d_Y(T(x),T(y))\le a\,d_X(x,y)$ pour tous $x,y$ ; contractante si $Y=X$ et $a<1$ | VI | 115 |
 | $a\in[0\,;1[$ | constante de contraction (notation d'intervalle du poly : $[0\,;1[$) | VI | 115 |
@@ -285,6 +287,9 @@
 | immersion en $a$ / submersion en $a$ | $df_a$ injective / surjective | VI | 125 |
 | $\mathrm{rang}(df_a)$, $r$ | rang de la différentielle (de la matrice jacobienne) en $a$ | VI | 125 |
 | $\Theta(x)=(f_1(x),\dots,f_r(x),x_{r+1},\dots,x_n)$, $\Phi=\Theta^{-1}$, $g=f\circ\Phi$, $\Psi$ | changements de coordonnées à la source ($\Phi$) et au but ($\Psi$) du théorème du rang constant ; $dg_y=\begin{pmatrix}I_r&0\\ *&B(y)\end{pmatrix}$ | VI | 126 |
+| $g(y,x)=f(x)-y$, $U_1$, $U_0=\varphi(V_0)=U_1\cap f^{-1}(V_0)$ | application auxiliaire et ouverts de la preuve du théorème d'inversion locale VI.3.2 (fonctions implicites appliquées avec $y$ comme paramètre) | VI | 120 |
+| $C^p$ (VI.1, VI.2) / $C^k$ (VI.3) | le poly note $p$ l'ordre de régularité dans les théorèmes de point fixe et des fonctions implicites, et $k$ dans ceux d'inversion ; même signification ($\ge1$) | VI | 120 |
+| $B_y$, $B_0=2I_{r,s}$, $\bar g=g|_{\mathcal E}$, $Q$, $U_1$, $V$ | notations du corrigé TD du lemme de Morse : $B_y$ matrice de $d^2f_y$ dans la base canonique, $B(x)=\int_0^1(1-t)B_{tx}\,dt$ ; $\bar g$ restriction de $g$ au supplémentaire $\mathcal E$, difféomorphisme de $Q\ni I_m$ sur $Y\ni I_{r,s}$ | VI | 120 |
 | $\alpha^{(k)}(t)=X(t,\alpha(t),\dots,\alpha^{(k-1)}(t))$ (VII.1.1) | équation différentielle d'ordre $k$ ; $\alpha^{(j)}$ dérivée $j$-ième | VII | 127 |
 | $\alpha'(t)=X(t,\alpha(t))$ (VII.1.2) | forme générale d'un système d'ordre 1, $X : I\times U\to\mathbb R^r$ (ou $E$ Banach) | VII | 127 |
 | $X : I\times U\to E$ | champ de vecteurs dépendant du temps sur l'ouvert $U$ de l'espace de Banach $E$ ($I$ intervalle ouvert de $\mathbb R$) ; $X : U\to E$ si autonome | VII | 128 |

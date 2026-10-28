@@ -202,8 +202,9 @@
       "proof_length": "short",
       "counterexample_hints": [
         "Sans la condition 2 (homéomorphisme sur $V\\cap S$) : folium de Descartes (Exemple IX.2.15), immersion injective dont l'image n'est pas une sous-variété ; demi-droite $[0;+\\infty[$ (Exemple IX.2.11) et croix $xy=0$ (Exemple IX.2.12) ne sont homéomorphes à aucun ouvert de $\\mathbb R^m$ au voisinage de $0$.",
-        "Sans la condition 3 (immersion) : le cusp $t\\mapsto(t^2,t^3)$ (Exercice IX.2.13) est un homéomorphisme $C^\\infty$ sur son image, mais $dx_0=0$ ; le cône $x^2+y^2-z^2=0$ (Exercice IX.7.12).",
-        "Point multiple : $t\\mapsto(t^3-4t,t^2-4)$ est une immersion non injective (Exemple IX.2.14)."
+        "Sans la condition 3 (immersion) : le cusp $t\\mapsto(t^2,t^3)$ (Exercice IX.2.13) est un homéomorphisme $C^\\infty$ de $\\mathbb R$ sur son image, mais $dx_0=0$ et aucun autre paramétrage local en $(0,0)$ n'est une immersion.",
+        "Point multiple : $t\\mapsto(t^3-4t,t^2-4)$ est une immersion non injective (Exemple IX.2.14).",
+        "Le cône $x^2+y^2-z^2=0$ (Exercice IX.7.12) n'est pas une sous-variété au sommet : $C\\setminus\\{0\\}$ a deux composantes connexes alors qu'un ouvert connexe de $\\mathbb R^2$ privé d'un point reste connexe (c'est la condition 2 qui échoue), et l'ensemble des vecteurs tangents en $0$ par les courbes est le cône lui-même, pas un espace vectoriel."
       ],
       "viz_hint": "Figure p. 149 : un ouvert $U$ de $\\mathbb R^2$ envoyé par $x$ sur un morceau $V\\cap S$ d'une surface de $\\mathbb R^3$ ; faire bouger $q=(u,v)$ et voir $p=x(q)$ et les vecteurs $x_u,x_v$."
     },
@@ -497,7 +498,7 @@
       "proof_length": "medium",
       "counterexample_hints": [
         "Si $\\Phi$ n'est qu'un homéomorphisme, la caractérisation échoue : le cusp $\\{(t^2,t^3)\\}$ est homéomorphe à une droite via un homéomorphisme ambiant mais n'est pas une sous-variété.",
-        "La condition $\\Phi(V'\\cap S)=(\\mathbb R^m\\times\\{0\\})\\cap W$ exige l'égalité, pas seulement l'inclusion $\\subset$ (sinon la croix $xy=0$ vérifierait l'inclusion dans une droite ? non, mais un sous-ensemble arbitraire d'une droite la vérifierait)."
+        "La condition exige l'égalité $\\Phi(V'\\cap S)=(\\mathbb R^m\\times\\{0\\})\\cap W$ et non la seule inclusion $\\subset$ : n'importe quelle partie d'une droite (par exemple $[0;+\\infty[\\subset\\mathbb R\\times\\{0\\}$, Exemple IX.2.11) vérifierait l'inclusion sans être une sous-variété."
       ],
       "viz_hint": "Figure p. 152 : la surface $S\\cap V$ et son image aplatie $(\\mathbb R^2\\times\\{0\\})\\cap W$ par $\\Phi=F^{-1}$ ; animer la déformation $F(u,t)=x(u)+\\varphi(t)$ qui épaissit la nappe le long des normales."
     },
@@ -525,7 +526,7 @@
       "counterexample_hints": [
         "$f(x,y)=xy$, $a=0$ : $df_{(0,0)}=0$ n'est pas surjective, $f^{-1}(0)$ est la croix (pas une sous-variété).",
         "$f(x,y,z)=x^2+y^2-z^2$, $a=0$ : le cône (Exercice IX.7.12).",
-        "La réciproque est fausse : $f(x)=x^2$ sur $\\mathbb R$ a pour fibre $f^{-1}(0)=\\{0\\}$, qui est une sous-variété (dimension 0) alors que $0$ est valeur critique ; de même $f(x,y)=(x^2+y^2)^2$ a pour fibre $f^{-1}(1)$ le cercle, bien que la fibre de la valeur critique $0$ soit un point."
+        "La réciproque est fausse : $f(x)=x^2$ sur $\\mathbb R$ a pour fibre $f^{-1}(0)=\\{0\\}$, qui est une sous-variété (de dimension $0=N-1$) alors que $0$ est valeur critique ; de même pour $f(x,y)=(x^2+y^2-1)^2$, $0$ est valeur critique ($df$ s'annule en tout point du cercle unité) et pourtant $f^{-1}(0)$ est le cercle unité, une sous-variété de dimension 1."
       ],
       "viz_hint": "Surfaces de niveau $f=a$ d'une fonction $\\mathbb R^3\\to\\mathbb R$ (ellipsoïde, hyperboloïdes p. 153-155) ; curseur sur $a$ : passage par la valeur critique $a=0$ de $x^2+y^2-z^2$ (hyperboloïde à une nappe, cône, deux nappes)."
     },
@@ -557,8 +558,8 @@
       "page": 154,
       "statement": "Plus généralement, toutes les quadriques de $\\mathbb R^N$, c'est-à-dire les sous-ensembles de $\\mathbb R^N$ définis par une équation de la forme $\\sum_{i=1}^N a_ix_i^2=1$, où les $a_i$ sont dans $\\mathbb R$ et non tous nuls, sont des sous-variétés de $\\mathbb R^N$ (hypersurfaces). Figures : ellipsoïde $\\sum a_ix_i^2=1$, $a_i>0$ ; hyperboloïde à une nappe $x^2+y^2-z^2=1$ ; hyperboloïde à deux nappes $z^2-x^2-y^2=1$.",
       "hypotheses": [
-        "second membre $1\\neq0$ (la quadrique ne passe pas par $0$, seul point critique de $f(x)=\\sum a_ix_i^2$)",
-        "$(a_i)$ non tous nuls"
+        "second membre $1\\neq0$ : sur la fibre, $\\sum_i a_ix_i^2=1$ force $a_ix_i\\neq0$ pour au moins un $i$, donc $df_x=2(a_1x_1,\\dots,a_Nx_N)\\neq0$ et $1$ est valeur régulière de $f(x)=\\sum a_ix_i^2$",
+        "$(a_i)$ non tous nuls (sinon $f\\equiv0$ et la fibre est vide)"
       ],
       "depends_on": [
         "Proposition IX.4.1"
@@ -591,7 +592,7 @@
       "proof_length": "short",
       "counterexample_hints": [
         "Si $r=a$, le tore « pincé » touche l'axe en $(0,0,0)$ et n'est plus une sous-variété.",
-        "Si $r>a$, la surface $f^{-1}(r^2)$ dans $\\mathbb R^3\\setminus D$ reste une sous-variété non fermée dans $\\mathbb R^3$ (tore à fuseau), mais ce n'est plus le tore usuel."
+        "Si $r>a$, l'ensemble $f^{-1}(\\{r^2\\})\\subset\\mathbb R^3\\setminus D$ est encore une sous-variété ($df\\neq0$ sur la fibre), mais elle n'est plus fermée dans $\\mathbb R^3$ : son adhérence contient les deux points $(0,0,\\pm\\sqrt{r^2-a^2})$ de l'axe, où la surface complète $\\{(\\sqrt{x^2+y^2}-a)^2+z^2=r^2\\}$ présente des points coniques (« tore à fuseau »)."
       ],
       "viz_hint": "Tore de révolution p. 155 avec $a$, $r$ réglables ; dégénérescence quand $r\\to a$."
     },
@@ -716,8 +717,7 @@
       ],
       "depends_on": [
         "Définition IX.2.1",
-        "Théorème VI.3.2",
-        "Exemple IX.2.6"
+        "Théorème VI.3.2"
       ],
       "used_by_hint": "Complété par le Corollaire IX.7.27 (on peut prendre le graphe au-dessus du plan tangent $T_pS$) ; sert dans les exercices pour « redresser » localement une surface en $z=f(x,y)$.",
       "importance": 3,
@@ -1069,6 +1069,27 @@
       "viz_hint": ""
     },
     {
+      "id": "ch09-notation-cr-w1-s2",
+      "kind": "definition",
+      "ref": "Notations IX.7.18",
+      "title": "Espace $C^r(W_1,S_2)$ des applications de classe $C^r$ d'un ouvert de $S_1$ dans $S_2$",
+      "page": 164,
+      "statement": "Soient $S_1$ et $S_2$ deux sous-variétés (respectivement de $\\mathbb R^{N_1}$ et $\\mathbb R^{N_2}$). On note $C^r(W_1,S_2)$ l'espace des applications de classe $C^r$ d'un ouvert $W_1$ de $S_1$ dans $S_2$.",
+      "hypotheses": [
+        "$W_1$ ouvert de $S_1$ (c'est une sous-variété, Exemple IX.2.6, donc la Définition IX.7.5 s'applique)"
+      ],
+      "depends_on": [
+        "Définition IX.7.5",
+        "Exemple IX.2.6"
+      ],
+      "used_by_hint": "Simple notation ; $\\mathrm{Diff}^r(S)$ (Corollaire IX.8.10) en est la partie formée des difféomorphismes de $S$ sur $S$.",
+      "importance": 1,
+      "proof_in_poly": "none",
+      "proof_length": "short",
+      "counterexample_hints": [],
+      "viz_hint": ""
+    },
+    {
       "id": "ch09-ex-fonction-hauteur",
       "kind": "example",
       "ref": "Exemple IX.7.20",
@@ -1081,7 +1102,7 @@
       ],
       "depends_on": [
         "Remarques IX.7.16",
-        "Remarques IX.7.7"
+        "Exercice IX.7.19"
       ],
       "used_by_hint": "Exercices IX.9.7 et IX.9.10 : les points critiques de $h$ sont ceux où $a\\perp T_pS$ (plan tangent parallèle à $P$) ; sur une surface compacte $h$ atteint ses extrema (Théorème IX.7.31).",
       "importance": 2,
@@ -1102,7 +1123,7 @@
       ],
       "depends_on": [
         "Remarques IX.7.16",
-        "Remarques IX.7.7"
+        "Exercice IX.7.19"
       ],
       "used_by_hint": "Exercice IX.7.37 (droites normales, $S$ dans une sphère), Exercices IX.9.8, IX.9.9, IX.9.11 : $p$ critique $\\iff$ $p-p_0\\perp T_pS$ (droite normale passant par $p_0$).",
       "importance": 2,
@@ -1122,7 +1143,8 @@
         "$p_0\\notin S$ (la norme n'est pas différentiable en $0$)"
       ],
       "depends_on": [
-        "Remarques IX.7.16"
+        "Remarques IX.7.16",
+        "Exercice IX.7.19"
       ],
       "used_by_hint": "Exercice IX.7.23.",
       "importance": 1,
@@ -1219,8 +1241,7 @@
       ],
       "depends_on": [
         "Théorème IX.7.26",
-        "Remarques IX.7.16",
-        "Proposition IX.5.3"
+        "Remarques IX.7.16"
       ],
       "used_by_hint": "Précise la Proposition IX.5.3 : le « bon » plan de projection est $T_pS$ ; alors $dh_p=0$, ce qui rend les développements limités d'ordre 2 (courbure, hessienne) lisibles.",
       "importance": 2,
@@ -1401,7 +1422,7 @@
       ],
       "depends_on": [
         "Proposition IX.7.13",
-        "Remarques IX.7.16",
+        "Exemple IX.7.33",
         "Définition IX.7.32"
       ],
       "used_by_hint": "Avec le Théorème IX.7.31 et la compacité : Exercices IX.7.36 (diagonalisation des matrices symétriques), IX.9.5 (extrema de $x^2+y^2+z^2$ sur une surface), IX.9.15 (inégalité de Hadamard sur le déterminant). Le lemme d'algèbre linéaire (une forme linéaire nulle sur $\\bigcap\\ker\\ell_i$ est combinaison des $\\ell_i$) est « à faire absolument en exercice ».",
@@ -1629,7 +1650,7 @@
       "proof_length": "medium",
       "counterexample_hints": [
         "Sans le caractère lipschitzien : non-unicité (analogue de $x'=\\sqrt{|x|}$ sur $S=\\mathbb R$).",
-        "Remarquer que l'énoncé d'unicité porte sur des $\\gamma$ à valeurs dans $\\mathbb R^N$ (pas supposées dans $S$) : c'est une unicité « ambiante »."
+        "L'énoncé d'unicité écrit $\\gamma : ]t_0-\\epsilon',t_0+\\epsilon'[\\to\\mathbb R^N$, mais comme $X$ n'est défini que sur $I\\times S$, l'équation $\\gamma'(t)=X(t,\\gamma(t))$ impose implicitement $\\gamma(t)\\in S$ : l'unicité porte sur les courbes intégrales tracées sur $S$. Comparer avec la Proposition IX.8.1, où le champ est défini sur un ouvert ambiant $U\\supset S$ et où l'on démontre justement qu'une courbe intégrale ambiante issue de $S$ reste dans $S$ ($S$ fermée)."
       ],
       "viz_hint": "Champ tangent sur une sphère ou un tore et ses trajectoires locales ; lecture dans une carte : le champ transporté $Y=d\\Phi(X)$ est horizontal."
     },
@@ -1709,6 +1730,7 @@
       ],
       "depends_on": [
         "Théorème VII.3.7",
+        "Formule (VII.3.1)",
         "Définition IX.8.7"
       ],
       "used_by_hint": "Corollaire IX.8.10 (morphisme de groupes) ; Exercice IX.9.13.",
@@ -1795,6 +1817,11 @@
     }
   ],
   "notations": [
+    {
+      "symbol": "$\\mathbb N^\\times$",
+      "meaning": "entiers naturels non nuls ; la classe $k$ d'une sous-variété est dans $\\mathbb N^\\times\\cup\\{\\infty\\}$ (Définition IX.2.1)",
+      "page": 148
+    },
     {
       "symbol": "$C^k$, $k\\in\\mathbb N^\\times\\cup\\{\\infty\\}$",
       "meaning": "classe de régularité ; dans tout le chapitre $k\\ge1$ ou $k=+\\infty$",
@@ -2084,6 +2111,16 @@
       "symbol": "$(v_1|v_2|\\dots|v_n)$, $\\mathrm{Vect}(u_1,\\dots,u_k)$",
       "meaning": "matrice de colonnes $v_i$ ; sous-espace engendré (Exercice IX.9.15)",
       "page": 177
+    },
+    {
+      "symbol": "$C(a,r)$",
+      "meaning": "cercle de centre $a$ et de rayon $r$ dans $\\mathbb R^2$ (Exercice IX.2.10)",
+      "page": 150
+    },
+    {
+      "symbol": "$\\mathbb R_+^\\times$",
+      "meaning": "réels strictement positifs (Exercice IX.9.4 : $f : \\mathbb S^2\\to\\mathbb R_+^\\times$)",
+      "page": 176
     }
   ],
   "poly_exercises": [
@@ -2336,7 +2373,7 @@
     "La hessienne $d^2f_p$ n'est définie qu'en un point critique (formule (IX.7.2) : sinon elle dépend du paramétrage). Et pour $f=g|_S$, $d^2f_p\\neq d^2g_p|_{T_pS}$ en général : il manque le terme $dg_p(\\alpha''(0))$ de courbure (sauf si $dg_p=0$).",
     "Inversion locale sur les sous-variétés (Théorème IX.7.26) : l'hypothèse est « $d\\varphi_p$ isomorphisme », ce qui impose $\\dim S_1=\\dim S_2$ ; la conclusion est locale ; un difféomorphisme local bijectif est un difféomorphisme global, mais « difféo local partout » n'implique pas injectif ($\\mathbb R\\to\\mathbb S^1$).",
     "Proposition IX.7.29 : la Proposition IX.4.1 s'applique à une application définie sur un OUVERT de $\\mathbb R^N$ ; quand la source est une sous-variété il faut aussi passer en carte à la source (piège explicitement signalé par le poly).",
-    "Dans la Proposition IX.8.1, la tangence $X(t,x)\\in T_xS$ ne suffit pas : il faut l'unicité de Cauchy-Lipschitz (champ localement lipschitzien) ET la fermeture de $S$ pour que $\\gamma(\\tau)\\in S$ au temps $\\tau=\\sup\\{\\dots\\}$. L'énoncé d'unicité du Théorème IX.8.5 porte sur des courbes $\\gamma$ à valeurs dans $\\mathbb R^N$, non supposées tracées sur $S$.",
+    "Dans la Proposition IX.8.1, la tangence $X(t,x)\\in T_xS$ ne suffit pas : il faut l'unicité de Cauchy-Lipschitz (champ localement lipschitzien) ET la fermeture de $S$ pour que $\\gamma(\\tau)\\in S$ au temps $\\tau=\\sup\\{\\dots\\}$. Ne pas confondre les deux cadres : dans IX.8.1 le champ est défini sur un ouvert ambiant $U\\supset S$ (la courbe intégrale est ambiante et on montre qu'elle reste dans $S$) ; dans le Théorème IX.8.5 le champ n'est défini que sur $I\\times S$, donc toute courbe intégrale est automatiquement tracée sur $S$.",
     "Le Théorème IX.8.9 (flot complet) demande la COMPACITÉ de $S$, pas seulement la fermeture : sur $S=\\mathbb R$ le champ $x^2$ explose en temps fini.",
     "La formule de groupe $F_s\\cdot(F_t\\cdot x)=F_{t+s}\\cdot x$ n'a de sens que lorsque les points sont dans le domaine $D_0$ ; sans compacité on n'a qu'un groupe LOCAL à un paramètre.",
     "Dimension : une sous-variété de dimension 0 est un ensemble discret, un ouvert de $\\mathbb R^N$ est une sous-variété de dimension $N$ ; ne pas confondre dimension $m$ et codimension $N-m$ (le nombre d'équations)."

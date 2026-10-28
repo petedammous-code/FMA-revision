@@ -22,7 +22,8 @@ Texte du chapitre : ${ROOT}/${CH[u.chapter].file} (marqueurs « [PDF page N | pa
 Carte vérifiée du chapitre (énoncés exacts, refs, pages, dépendances, importance) : ${ROOT}/content/map/ch${u.nn}.json ; carte globale : ${ROOT}/content/map/map.json.
 Spécification du format (À LIRE EN ENTIER ET À RESPECTER À LA LETTRE, elle est vérifiée mécaniquement) : ${ROOT}/content/FORMAT.md.
 Validation : après avoir écrit tes fichiers, exécute \`cd ${ROOT} && node tools/build.mjs --check content/ch${u.nn}/<sous-dossier>\` et corrige TOUTES les erreurs (✖) de TES fichiers ; les avertissements de liens vers des ids d'autres fiches pas encore écrites sont normaux. Ne modifie JAMAIS un fichier que tu n'as pas créé (d'autres agents écrivent en parallèle dans d'autres dossiers).
-Écris les fichiers avec l'outil Write (ou cat > fichier <<'EOF' ... EOF). Pas de \\[ \\], pas de \\begin{align}, pas de \\label.`
+Écris les fichiers avec l'outil Write (ou cat > fichier <<'EOF' ... EOF). Pas de \\[ \\], pas de \\begin{align}, pas de \\label.
+ATTENTION EXTRACTION PDF : le texte extrait perd parfois des barres de conjugaison ($\\bar z$, $\\overline{f}$), des barres d'adhérence ($\\bar D$) et des accents ; en cas de doute sur un énoncé ou une preuve, regarde la page du PDF en image : « pdftoppm -f P -l P -r 110 -png /home/user/FMA-revision/Poly2026-FMA41031.pdf /tmp/claude-0/-home-user-FMA-revision/a354ab57-23c8-54ee-bc46-435d87e86fdf/scratchpad/page » avec P = page imprimée + 3, puis Read du .png produit.`
 
 const theoremsPrompt = (u, info) => `${COMMON(u)}
 

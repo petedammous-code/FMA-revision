@@ -155,7 +155,7 @@
       ],
       "depends_on": [],
       "used_by_hint": "Preuve du théorème de l'application ouverte (convergence de $\\sum x_n$) et du Théorème V.5.7 (série de Neumann $\\sum h^n$ dans $\\mathcal L(E)$).",
-      "importance": 1,
+      "importance": 2,
       "proof_in_poly": "none",
       "proof_length": "short",
       "counterexample_hints": [
@@ -406,7 +406,7 @@
       "used_by_hint": "Tout le chapitre et les chapitres VI à IX.",
       "counterexample_hints": [
         "$f(x)=|x|$ sur $\\mathbb R$ en $0$ : pas de $df_0$ linéaire.",
-        "$f(x,y)=\\sqrt{x^2+y^2}$ en $(0,0)$ : dérivées directionnelles existent toutes mais ne dépendent pas linéairement de $h$.",
+        "$f(x,y)=\\sqrt{x^2+y^2}$ (la norme euclidienne) en $(0,0)$ : $\\frac{f(th)-f(0)}{t}=\\frac{|t|\\,\\|h\\|}{t}$ n'a pas de limite quand $t\\to0$, donc pas de $df_0$ ; et $f(x,y)=\\frac{x^3}{x^2+y^2}$ ($f(0,0)=0$) : continue, toutes les dérivées directionnelles existent en $0$ ($\\lim_{t\\to0}\\frac{f(th)}{t}=\\frac{h_1^3}{h_1^2+h_2^2}$) mais ne dépendent pas linéairement de $h$ : pas de $df_0$.",
         "Oublier « continue » : en dimension infinie, si l'on admet $df_a$ non continue, $f$ peut être discontinue en $a$ (Remarque V.3.2)."
       ],
       "viz_hint": "Graphe d'une fonction $\\mathbb R^2\\to\\mathbb R$ et son plan tangent en $a$ ; zoomer autour de $a$ : la surface se confond avec le plan, l'erreur $f(a+h)-f(a)-df_a(h)$ est petite devant $\\|h\\|$ (afficher le rapport).",
@@ -415,7 +415,7 @@
     {
       "id": "ch05-derivee-directionnelle-unicite",
       "kind": "formula",
-      "ref": "non numéroté, section V.3.1, p. 98",
+      "ref": "non numéroté, section V.3.1, p. 98 (dérivée directionnelle)",
       "title": "$df_a(h)$ comme dérivée directionnelle ; unicité de la différentielle",
       "page": 98,
       "statement": "Fixons $h\\in E$. Pour $\\epsilon>0$ assez petit, $a+th\\in U$ pour tout $t\\in\\,]-\\epsilon;\\epsilon[$ car $U$ est ouvert, et si $df_a$ existe, on a $$df_a(h)=\\lim_{t\\to 0}\\frac{f(a+th)-f(a)}{t},$$ ce qui montre au passage l'unicité de $df_a$ (la différentielle est déterminée par les dérivées directionnelles).",
@@ -431,7 +431,7 @@
       "proof_length": "short",
       "used_by_hint": "Méthode de calcul pratique de $df_a(h)$ ; Remarque V.5.6 ; exercices V.6.1, V.6.2.",
       "counterexample_hints": [
-        "La réciproque est fausse : $f(x,y)=x^2y/(x^4+y^2)$ (prolongée par $0$) a toutes ses dérivées directionnelles en $0$, nulles, mais n'est pas continue en $0$ (regarder $y=x^2$)."
+        "La réciproque est fausse : $f(x,y)=\\frac{x^2y}{x^4+y^2}$ (prolongée par $0$ en $0$) a toutes ses dérivées directionnelles en $0$ ($\\lim_{t\\to0}\\frac{f(th)}{t}=\\frac{h_1^2}{h_2}$ si $h_2\\neq0$, $0$ si $h_2=0$ : elles ne sont pas linéaires en $h$) mais n'est même pas continue en $0$ ($f(t,t^2)=\\tfrac12$)."
       ]
     },
     {
@@ -468,7 +468,7 @@
       "proof_in_poly": "none",
       "proof_length": "short",
       "counterexample_hints": [
-        "En dimension infinie, avec des normes non équivalentes la notion change : $F:\\ell^1\\to\\ell^1$ de l'Exercice V.6.4 est $C^1$ pour $\\|\\cdot\\|_1$ mais le résultat tombe si l'on munit l'espace d'une norme non équivalente."
+        "En dimension infinie la différentiabilité dépend bien de la norme : sur $E=C([0,1],\\mathbb R)$, l'évaluation $\\delta_0:u\\mapsto u(0)$ est linéaire continue (donc différentiable, Exemple V.3.5) pour $\\|\\cdot\\|_\\infty$, mais n'est pas continue pour $\\|\\cdot\\|_1$ (prendre $u_n$ affine par morceaux avec $u_n(0)=1$, $u_n=0$ sur $[1/n,1]$ : $\\|u_n\\|_1\\to0$), donc pas différentiable (Remarque V.3.2) : les deux normes ne sont pas équivalentes."
       ],
       "hypotheses": []
     },
@@ -619,7 +619,7 @@
       "proof_length": "medium",
       "used_by_hint": "Partout : Propositions V.3.15, V.3.17, Remarques V.3.13-14, TAF V.4.4 (via $h(t)=f((1-t)a+tb)$), V.4.7, Taylor V.5.11, V.5.7 ; chapitres VI et IX.",
       "counterexample_hints": [
-        "Si $g$ est seulement différentiable en un autre point que $f(a)$, la formule échoue : $f(x)=x^2$, $g=|\\cdot|$, $a=0$ fonctionne ($g\\circ f=x^2$ dérivable) mais la formule $dg_{0}$ n'a pas de sens.",
+        "L'hypothèse « $g$ différentiable en $f(a)$ » (et non ailleurs) est indispensable, et la réciproque est fausse : $f(x)=x^2$, $g=|\\cdot|$, $a=0$ : $g\\circ f=x^2$ est dérivable en $0$ alors que $dg_{f(0)}=dg_0$ n'existe pas ; la formule $dg_{f(a)}\\circ df_a$ n'a alors aucun sens.",
         "L'ordre de composition compte : $dg_{f(a)}\\circ df_a$ et non $df_a\\circ dg_{f(a)}$ (dimensions incompatibles en général)."
       ],
       "viz_hint": "Chaîne $E\\to F\\to G$ avec un petit déplacement $h$ : $f$ l'envoie sur $df_a(h)+o(h)$, puis $g$ sur $dg_{f(a)}(df_a(h))+o(h)$ ; montrer que les deux restes restent négligeables."
@@ -770,7 +770,7 @@
       "proof_length": "short",
       "counterexample_hints": [
         "$f(x,y)=\\frac{xy}{x^2+y^2}$, $f(0,0)=0$ : $\\partial_xf(0,0)=\\partial_yf(0,0)=0$ mais $f(t,t)=1/2\\not\\to 0$.",
-        "$f(x,y)=\\frac{x^2y}{x^4+y^2}$ : toutes les dérivées directionnelles en $0$ existent (et sont nulles), pourtant $f(t,t^2)=1/2$.",
+        "$f(x,y)=\\frac{x^2y}{x^4+y^2}$ ($f(0,0)=0$) : toutes les dérivées directionnelles en $0$ existent ($\\frac{h_1^2}{h_2}$ si $h_2\\neq0$, $0$ sinon), pourtant $f(t,t^2)=\\tfrac12$ : $f$ n'est pas continue en $0$.",
         "$f(x,y)=\\frac{x^3}{x^2+y^2}$ : continue, dérivées directionnelles en $0$ existent mais $h\\mapsto\\partial_hf(0)=h_1^3/(h_1^2+h_2^2)$ n'est pas linéaire."
       ],
       "viz_hint": "Tracer la surface $z=xy/(x^2+y^2)$ : les deux courbes partielles en $0$ sont plates (axes) mais la surface a un « pli » le long des diagonales ; aucun plan tangent.",
@@ -814,7 +814,8 @@
         "$F$ evn quelconque (pas besoin de complétude)"
       ],
       "depends_on": [
-        "Définition V.3.1"
+        "Définition V.3.1",
+        "Exemple V.3.4"
       ],
       "importance": 2,
       "proof_in_poly": "full",
@@ -972,7 +973,8 @@
       "depends_on": [
         "Théorème V.4.6",
         "Proposition V.3.12",
-        "Corollaire V.4.3"
+        "Corollaire V.4.3",
+        "Exemple V.3.4"
       ],
       "importance": 3,
       "proof_in_poly": "full",
@@ -1016,11 +1018,14 @@
       "hypotheses": [
         "$E$ produit fini",
         "dérivées partielles existant sur un VOISINAGE de $a$ (pas seulement en $a$)",
-        "continuité des dérivées partielles en $a$"
+        "continuité des dérivées partielles en $a$",
+        "$F$ evn quelconque (aucune complétude requise)"
       ],
       "depends_on": [
         "Proposition V.3.17",
-        "Théorème V.4.4"
+        "Théorème V.4.4",
+        "Proposition V.3.11",
+        "Exemple V.3.5"
       ],
       "importance": 3,
       "proof_in_poly": "full",
@@ -1087,14 +1092,16 @@
       "depends_on": [
         "Définition V.3.1",
         "Théorème V.4.4",
-        "non numéroté, section V.1.4, p. 94"
+        "non numéroté, section V.1.4, p. 94",
+        "Proposition V.3.12",
+        "Corollaire V.4.3"
       ],
       "importance": 3,
       "proof_in_poly": "full",
       "proof_length": "long",
       "used_by_hint": "Théorème V.5.5 (symétrie de $d^pf_a$) ; Taylor-Young V.5.13 (dérivée de $h\\mapsto d^jf_a(h,\\dots,h)$) ; hessienne symétrique (chapitre IX) ; Exercice V.5.4 ($\\partial_x\\partial_yf=\\partial_y\\partial_xf$).",
       "counterexample_hints": [
-        "$f(x,y)=\\frac{xy(x^2-y^2)}{x^2+y^2}$, $f(0)=0$ : $f$ est $C^1$, les dérivées secondes croisées existent en $0$ mais $\\partial_x\\partial_yf(0)=-1\\neq1=\\partial_y\\partial_xf(0)$ ; ici $df$ n'est pas différentiable en $0$.",
+        "$f(x,y)=\\frac{xy(x^2-y^2)}{x^2+y^2}$, $f(0,0)=0$ : $f$ est $C^1$ sur $\\mathbb R^2$, les deux dérivées croisées existent en $0$ mais valent $1$ et $-1$ (on a $\\partial_xf(0,y)=-y$ et $\\partial_yf(x,0)=x$) ; ici $df$ n'est pas différentiable en $0$.",
         "L'existence des seules dérivées partielles secondes croisées ne suffit pas : il faut la différentiabilité de $df$ en $a$ (ou la continuité des dérivées secondes croisées)."
       ],
       "viz_hint": "Le « second accroissement » $g_{u,v}(t,s)=f(a+tu+sv)-f(a+sv)-f(a+tu)+f(a)$ sur les quatre coins d'un parallélogramme : il est symétrique en $(u,v)$ par construction et vaut $t s\\,d^2f_a(u,v)+o(t^2+s^2)$."
@@ -1131,7 +1138,8 @@
       ],
       "depends_on": [
         "Proposition V.3.12",
-        "non numéroté, section V.3.1, p. 98"
+        "non numéroté, section V.5.3, p. 107",
+        "Exemple V.3.4"
       ],
       "importance": 2,
       "proof_in_poly": "none",
@@ -1159,7 +1167,7 @@
       "proof_length": "short",
       "used_by_hint": "Théorème V.5.7 (ouverture de $\\mathrm{Iso}(E;F)$, continuité et différentiabilité de l'inversion) ; chapitre VI (inversion locale : $df_x$ reste inversible près de $a$).",
       "counterexample_hints": [
-        "Si $E$ n'est pas complet : $E=$ suites à support fini dans $\\ell^1$, $h$ = shift pondéré… la série $\\sum h^n x$ peut sortir de $E$."
+        "Si $E$ n'est pas complet : $E=$ suites réelles à support fini (norme $\\ell^1$), $h=\\tfrac12 S$ où $S(x_0,x_1,\\dots)=(0,x_0,x_1,\\dots)$ est le décalage ; $\\|h\\|=\\tfrac12<1$ mais $\\sum_n h^n(e_0)=\\sum_n 2^{-n}e_n$ n'a pas de support fini : $\\mathrm{Id}_E-h$ n'est pas surjective sur $E$, donc pas inversible dans $\\mathcal L(E)$."
       ],
       "viz_hint": "Pour une matrice $2\\times2$ $h$ de norme $<1$ : sommes partielles $\\sum_{n\\le N}h^n$ convergeant vers $(I-h)^{-1}$ ; divergence si $\\|h\\|>1$ (mais convergence possible si le rayon spectral $<1$)."
     },
@@ -1180,7 +1188,8 @@
         "non numéroté, section V.1.2, p. 93",
         "Exemple V.3.6",
         "Proposition V.3.12",
-        "Définition V.3.1"
+        "Définition V.3.1",
+        "Exemple V.3.5"
       ],
       "importance": 3,
       "proof_in_poly": "full",
@@ -1321,7 +1330,9 @@
       "depends_on": [
         "Définition V.3.1",
         "Théorème V.5.5",
-        "Théorème V.4.4"
+        "Théorème V.4.4",
+        "non numéroté, preuve du Théorème V.5.13, p. 112",
+        "Proposition V.3.11"
       ],
       "importance": 3,
       "proof_in_poly": "full",
@@ -1621,6 +1632,16 @@
       "symbol": "$C^1([0,1],\\mathbb R^2)$, $C^0([0;1],\\mathbb R)$",
       "meaning": "espaces de fonctions de classe $C^1$ (resp. continues) sur $[0,1]$ (Exercices V.6.5, V.6.6)",
       "page": 113
+    },
+    {
+      "symbol": "$f$ « $p$-différentiable », $f^{(p)}$, $d^pf$",
+      "meaning": "$f$ est $p$ fois différentiable : $d^{p-1}f$ est différentiable (sans continuité de $d^pf$) ; plus faible que « de classe $C^p$ » (Lemmes V.5.10, Théorèmes V.5.12, V.5.13)",
+      "page": 111
+    },
+    {
+      "symbol": "$h^n$ ($h\\in\\mathcal L(E)$)",
+      "meaning": "$n$-ième itéré de composition $h\\circ\\cdots\\circ h$ ($h^0=\\mathrm{Id}_E$) ; $\\|h^n\\|\\le\\|h\\|^n$ (norme d'algèbre)",
+      "page": 109
     }
   ],
   "poly_exercises": [
@@ -1691,7 +1712,7 @@
       "ref": "Exercice V.6.3",
       "page": 112,
       "topic": "variante utile du TAF",
-      "statement_short": "$U$ ouvert convexe d'un Banach $E$, $f:U\\to F$ de classe $C^1$ ($F$ Banach). Montrer que pour $a,b,c\\in U$ : $\\|f(b)-f(a)-df_c(b-a)\\|_F\\le\\big(\\sup_{u\\in[a,b]}\\|df_u-df_c\\|\\big)\\|b-a\\|_E$ (appliquer le TAF à $x\\mapsto f(x)-df_c(x)$). Résultat clé pour l'inversion locale au chapitre VI.",
+      "statement_short": "$U$ ouvert convexe d'un Banach $E$, $f:U\\to F$ de classe $C^1$ ($F$ Banach). Montrer que pour $a,b,c\\in U$ : $\\|f(b)-f(a)-df_c(b-a)\\|_F\\le\\big(\\sup_{u\\in[a,b]}\\|df_u-df_c\\|\\big)\\|b-a\\|_E$ (appliquer le TAF à $x\\mapsto f(x)-df_c(x)$). Résultat clé pour l'inversion locale au chapitre VI. (Seule la question 1 figure dans le texte extrait du poly : une question 2 a peut-être été perdue à la coupure de page 112/113.)",
       "chapters_involved": [
         5,
         6
@@ -1732,9 +1753,9 @@
     "L'existence de toutes les dérivées partielles, voire de toutes les dérivées directionnelles, en un point n'implique PAS la différentiabilité (Remarque V.3.18) : $f(x,y)=xy/(x^2+y^2)$, ou $x^2y/(x^4+y^2)$. Il faut en plus la continuité des dérivées partielles au voisinage (Proposition V.5.1) ou une vérification directe du $o(h)$.",
     "Le théorème des accroissements finis vectoriel est une INÉGALITÉ : pas de point $c$ avec $f(b)-f(a)=df_c(b-a)$ dès que $\\dim F\\ge2$ ($t\\mapsto e^{it}$). On raisonne toujours avec $\\sup\\|df\\|$ sur le segment.",
     "Le TAF exige que le SEGMENT $[a,b]$ soit dans $U$ ; sur un ouvert non convexe on ne peut majorer $\\|f(b)-f(a)\\|$ par $\\sup_U\\|df\\|\\,\\|b-a\\|$ (argument sur $\\mathbb C\\setminus\\mathbb R_-$). Le Corollaire V.4.5 (différentielle nulle ⇒ constante) exige $U$ connexe.",
-    "Hypothèses de complétude : $\\mathcal L(E;F)$ est de Banach seulement si $F$ l'est ; l'intégrale à valeurs vectorielles (V.4.6, V.4.7, V.5.9, V.5.11) exige $F$ de Banach ; la série de Neumann et le Théorème V.5.7 exigent $E$ de Banach ; application ouverte/Banach/graphe fermé exigent $E$ ET $F$ de Banach. En revanche, les inégalités (V.4.1, V.4.4, V.5.12, V.5.13) n'exigent aucune complétude.",
+    "Hypothèses de complétude : $\\mathcal L(E;F)$ est de Banach seulement si $F$ l'est ; l'intégrale à valeurs vectorielles (V.4.6, V.4.7, V.5.9, V.5.11) exige $F$ de Banach ; la série de Neumann exige $E$ de Banach et le Théorème V.5.7 exige $E$ et $F$ de Banach ; application ouverte/Banach/graphe fermé exigent $E$ ET $F$ de Banach. En revanche, les inégalités (V.4.1, V.4.4, V.5.12, V.5.13) n'exigent aucune complétude.",
     "Dans la Définition V.3.1, $df_a$ doit être CONTINUE : en dimension infinie une application linéaire vérifiant (V.3.1) peut être non continue si $f$ ne l'est pas en $a$ (Remarque V.3.2). En dimension finie, cette précaution est automatique.",
-    "Lemme de Schwarz : l'hypothèse est la différentiabilité de $df$ au point $a$ (par exemple $f$ de classe $C^2$), pas seulement l'existence des dérivées secondes croisées : $f(x,y)=xy(x^2-y^2)/(x^2+y^2)$ a $\\partial_x\\partial_yf(0)\\neq\\partial_y\\partial_xf(0)$.",
+    "Lemme de Schwarz : l'hypothèse est la différentiabilité de $df$ au point $a$ (par exemple $f$ de classe $C^2$), pas seulement l'existence des dérivées secondes croisées : pour $f(x,y)=xy(x^2-y^2)/(x^2+y^2)$ ($f(0)=0$) les deux dérivées croisées en $0$ existent et valent $1$ et $-1$.",
     "Matrice jacobienne : $n$ lignes (composantes $f_j$) et $m$ colonnes (variables $x_i$) ; le coefficient $(j,i)$ est $\\partial f_j/\\partial x_i$. La ligne $j$ est le gradient de $f_j$, la colonne $i$ est $\\partial f/\\partial x_i\\in\\mathbb R^n$. Le jacobien n'a de sens que si $n=m$.",
     "Dans les formules de Taylor, le terme d'ordre $k$ est $\\frac{1}{k!}d^kf_a(h,\\dots,h)$ avec le MÊME $h$ répété $k$ fois ; pour $E=\\mathbb R^m$, $d^2f_a(h,h)=\\sum_{i,j}\\partial_i\\partial_jf(a)h_ih_j=h^\\top\\mathrm{Hess}f(a)\\,h$ (pas de facteur 2 oublié : le $1/2!$ est explicite).",
     "Trois Taylor, trois jeux d'hypothèses : reste intégral (V.5.11) : $C^{p+1}$ et $F$ Banach, égalité exacte ; Taylor-Lagrange (V.5.12) : $(p+1)$ fois différentiable avec $d^{p+1}f$ bornée, inégalité globale sur le segment ; Taylor-Young (V.5.13) : $p$ fois différentiable AU POINT $a$, conclusion seulement locale $o(\\|h\\|^p)$ sans constante.",
@@ -1744,7 +1765,8 @@
     "Le gradient $\\nabla f(a)$ dépend du produit scalaire choisi (Riesz) alors que $df_a$ n'en dépend pas ; il n'existe que pour $F=\\mathbb R$ et $E$ de Hilbert.",
     "Baire, application ouverte, graphe fermé : ne jamais les appliquer à des espaces non complets (polynômes, $C([0,1])$ muni de $\\|\\cdot\\|_1$, $C^1$ muni de $\\|\\cdot\\|_\\infty$) : la dérivation sur $C^1([0,1])\\subset C([0,1])$ a un graphe fermé mais n'est pas continue.",
     "Dans la preuve de $C^1\\Leftrightarrow$ dérivées partielles continues (V.5.1), la différentiabilité en $a$ requiert les dérivées partielles sur tout un VOISINAGE de $a$ (pour appliquer le TAF aux applications partielles), pas seulement en $a$.",
-    "« Différentiable » et « de classe $C^1$ » ne sont pas synonymes ($x^2\\sin(1/x)$) ; de même « $p$ fois différentiable » et « $C^p$ »."
+    "« Différentiable » et « de classe $C^1$ » ne sont pas synonymes ($x^2\\sin(1/x)$) ; de même « $p$ fois différentiable » et « $C^p$ ».",
+    "Dérivées directionnelles : $df_a(h)=\\lim_{t\\to0}\\frac{f(a+th)-f(a)}{t}$ est une CONSÉQUENCE de la différentiabilité, utile pour calculer $df_a$ quand on sait déjà que $f$ est différentiable (composition, Leibniz, Prop. V.5.1) ; l'existence de toutes ces limites, même linéaires en $h$, ne prouve pas la différentiabilité ($x^2y/(x^4+y^2)$)."
   ],
   "viz_opportunities": [
     {

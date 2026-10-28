@@ -1212,9 +1212,9 @@
     "L'existence de toutes les dérivées partielles, voire de toutes les dérivées directionnelles, en un point n'implique PAS la différentiabilité (Remarque V.3.18) : $f(x,y)=xy/(x^2+y^2)$, ou $x^2y/(x^4+y^2)$. Il faut en plus la continuité des dérivées partielles au voisinage (Proposition V.5.1) ou une vérification directe du $o(h)$.",
     "Le théorème des accroissements finis vectoriel est une INÉGALITÉ : pas de point $c$ avec $f(b)-f(a)=df_c(b-a)$ dès que $\\dim F\\ge2$ ($t\\mapsto e^{it}$). On raisonne toujours avec $\\sup\\|df\\|$ sur le segment.",
     "Le TAF exige que le SEGMENT $[a,b]$ soit dans $U$ ; sur un ouvert non convexe on ne peut majorer $\\|f(b)-f(a)\\|$ par $\\sup_U\\|df\\|\\,\\|b-a\\|$ (argument sur $\\mathbb C\\setminus\\mathbb R_-$). Le Corollaire V.4.5 (différentielle nulle ⇒ constante) exige $U$ connexe.",
-    "Hypothèses de complétude : $\\mathcal L(E;F)$ est de Banach seulement si $F$ l'est ; l'intégrale à valeurs vectorielles (V.4.6, V.4.7, V.5.9, V.5.11) exige $F$ de Banach ; la série de Neumann et le Théorème V.5.7 exigent $E$ de Banach ; application ouverte/Banach/graphe fermé exigent $E$ ET $F$ de Banach. En revanche, les inégalités (V.4.1, V.4.4, V.5.12, V.5.13) n'exigent aucune complétude.",
+    "Hypothèses de complétude : $\\mathcal L(E;F)$ est de Banach seulement si $F$ l'est ; l'intégrale à valeurs vectorielles (V.4.6, V.4.7, V.5.9, V.5.11) exige $F$ de Banach ; la série de Neumann exige $E$ de Banach et le Théorème V.5.7 exige $E$ et $F$ de Banach ; application ouverte/Banach/graphe fermé exigent $E$ ET $F$ de Banach. En revanche, les inégalités (V.4.1, V.4.4, V.5.12, V.5.13) n'exigent aucune complétude.",
     "Dans la Définition V.3.1, $df_a$ doit être CONTINUE : en dimension infinie une application linéaire vérifiant (V.3.1) peut être non continue si $f$ ne l'est pas en $a$ (Remarque V.3.2). En dimension finie, cette précaution est automatique.",
-    "Lemme de Schwarz : l'hypothèse est la différentiabilité de $df$ au point $a$ (par exemple $f$ de classe $C^2$), pas seulement l'existence des dérivées secondes croisées : $f(x,y)=xy(x^2-y^2)/(x^2+y^2)$ a $\\partial_x\\partial_yf(0)\\neq\\partial_y\\partial_xf(0)$.",
+    "Lemme de Schwarz : l'hypothèse est la différentiabilité de $df$ au point $a$ (par exemple $f$ de classe $C^2$), pas seulement l'existence des dérivées secondes croisées : pour $f(x,y)=xy(x^2-y^2)/(x^2+y^2)$ ($f(0)=0$) les deux dérivées croisées en $0$ existent et valent $1$ et $-1$.",
     "Matrice jacobienne : $n$ lignes (composantes $f_j$) et $m$ colonnes (variables $x_i$) ; le coefficient $(j,i)$ est $\\partial f_j/\\partial x_i$. La ligne $j$ est le gradient de $f_j$, la colonne $i$ est $\\partial f/\\partial x_i\\in\\mathbb R^n$. Le jacobien n'a de sens que si $n=m$.",
     "Dans les formules de Taylor, le terme d'ordre $k$ est $\\frac{1}{k!}d^kf_a(h,\\dots,h)$ avec le MÊME $h$ répété $k$ fois ; pour $E=\\mathbb R^m$, $d^2f_a(h,h)=\\sum_{i,j}\\partial_i\\partial_jf(a)h_ih_j=h^\\top\\mathrm{Hess}f(a)\\,h$ (pas de facteur 2 oublié : le $1/2!$ est explicite).",
     "Trois Taylor, trois jeux d'hypothèses : reste intégral (V.5.11) : $C^{p+1}$ et $F$ Banach, égalité exacte ; Taylor-Lagrange (V.5.12) : $(p+1)$ fois différentiable avec $d^{p+1}f$ bornée, inégalité globale sur le segment ; Taylor-Young (V.5.13) : $p$ fois différentiable AU POINT $a$, conclusion seulement locale $o(\\|h\\|^p)$ sans constante.",
@@ -1224,7 +1224,8 @@
     "Le gradient $\\nabla f(a)$ dépend du produit scalaire choisi (Riesz) alors que $df_a$ n'en dépend pas ; il n'existe que pour $F=\\mathbb R$ et $E$ de Hilbert.",
     "Baire, application ouverte, graphe fermé : ne jamais les appliquer à des espaces non complets (polynômes, $C([0,1])$ muni de $\\|\\cdot\\|_1$, $C^1$ muni de $\\|\\cdot\\|_\\infty$) : la dérivation sur $C^1([0,1])\\subset C([0,1])$ a un graphe fermé mais n'est pas continue.",
     "Dans la preuve de $C^1\\Leftrightarrow$ dérivées partielles continues (V.5.1), la différentiabilité en $a$ requiert les dérivées partielles sur tout un VOISINAGE de $a$ (pour appliquer le TAF aux applications partielles), pas seulement en $a$.",
-    "« Différentiable » et « de classe $C^1$ » ne sont pas synonymes ($x^2\\sin(1/x)$) ; de même « $p$ fois différentiable » et « $C^p$ »."
+    "« Différentiable » et « de classe $C^1$ » ne sont pas synonymes ($x^2\\sin(1/x)$) ; de même « $p$ fois différentiable » et « $C^p$ ».",
+    "Dérivées directionnelles : $df_a(h)=\\lim_{t\\to0}\\frac{f(a+th)-f(a)}{t}$ est une CONSÉQUENCE de la différentiabilité, utile pour calculer $df_a$ quand on sait déjà que $f$ est différentiable (composition, Leibniz, Prop. V.5.1) ; l'existence de toutes ces limites, même linéaires en $h$, ne prouve pas la différentiabilité ($x^2y/(x^4+y^2)$)."
    ],
    "proof_techniques": [
     "Retour à la définition par $o(h)$ : écrire $f(a+h)=f(a)+df_a(h)+r(h)$ et contrôler le reste par des inégalités triangulaires et la norme d'opérateur (composition V.3.12, bilinéaire V.3.6, inversion V.5.7).",
@@ -1395,7 +1396,7 @@
      "ref": "Exercice V.6.3",
      "page": 112,
      "topic": "variante utile du TAF",
-     "statement_short": "$U$ ouvert convexe d'un Banach $E$, $f:U\\to F$ de classe $C^1$ ($F$ Banach). Montrer que pour $a,b,c\\in U$ : $\\|f(b)-f(a)-df_c(b-a)\\|_F\\le\\big(\\sup_{u\\in[a,b]}\\|df_u-df_c\\|\\big)\\|b-a\\|_E$ (appliquer le TAF à $x\\mapsto f(x)-df_c(x)$). Résultat clé pour l'inversion locale au chapitre VI.",
+     "statement_short": "$U$ ouvert convexe d'un Banach $E$, $f:U\\to F$ de classe $C^1$ ($F$ Banach). Montrer que pour $a,b,c\\in U$ : $\\|f(b)-f(a)-df_c(b-a)\\|_F\\le\\big(\\sup_{u\\in[a,b]}\\|df_u-df_c\\|\\big)\\|b-a\\|_E$ (appliquer le TAF à $x\\mapsto f(x)-df_c(x)$). Résultat clé pour l'inversion locale au chapitre VI. (Seule la question 1 figure dans le texte extrait du poly : une question 2 a peut-être été perdue à la coupure de page 112/113.)",
      "chapters_involved": [
       5,
       6
@@ -1477,7 +1478,11 @@
     "La régularité obtenue est celle de $f$ : $\\varphi$ est $C^p$ si $f$ est $C^p$, pas plus. Dans le lemme de Morse, la racine carrée $\\eta$ et le changement de variables perdent deux ordres de dérivation si $f$ n'est que $C^k$.",
     "Dans la formule de $d\\varphi_\\lambda$ (VI.1.4), ne pas oublier que $(\\mathrm{Id}_F-\\partial_xg)^{-1}$ est bien défini grâce à $\\|\\partial_xg\\|\\le a<1$ (série de Neumann) : la même borne qui donne l'existence du point fixe donne sa différentiabilité.",
     "Théorème du rang constant : l'hypothèse est le rang constant sur un **voisinage**, pas seulement en $a$ ; le rang en $a$ seul ne contrôle que les cas de rang maximal (immersion, submersion). Et « immersion » ne signifie pas « injective » : c'est $df_a$ qui est injective.",
-    "Dans les applications en dimension infinie (VI.4.6, VI.4.8), vérifier soigneusement que l'opérateur non linéaire est $C^1$ pour les normes choisies (normes $C^1$ au départ, $C^0$ à l'arrivée) : c'est là que servent les hypothèses lipschitziennes sur $f$ et $f'$."
+    "Dans les applications en dimension infinie (VI.4.6, VI.4.8), vérifier soigneusement que l'opérateur non linéaire est $C^1$ pour les normes choisies (normes $C^1$ au départ, $C^0$ à l'arrivée) : c'est là que servent les hypothèses lipschitziennes sur $f$ et $f'$.",
+    "Pas de signe moins dans la formule de VI.1.4, $d\\varphi_\\lambda=(\\mathrm{Id}_F-\\partial_xg)^{-1}\\circ\\partial_\\lambda g$, mais un signe moins dans celle de VI.2.1, $d\\varphi_x=-(\\partial_yf)^{-1}\\circ\\partial_xf$ : la première dérive $\\varphi=g(\\lambda,\\varphi)$, la seconde $f(x,\\varphi)=\\mathrm{cst}$ ; ne pas les mélanger.",
+    "Dans la méthode de Newton (VI.4.2), $\\phi$ est une contraction de la boule **ouverte** $B_E(0,\\delta)$, qui n'est pas complète : pour conclure, soit on travaille sur la boule fermée $\\bar B_E(0,\\delta)$ (contenue dans $U$ pour $\\delta$ assez petit), soit on observe que la suite $(r_n)$ est de Cauchy dans $E$ et que sa limite $r$ vérifie $\\|r\\|\\le\\delta$, puis $f(x_0+r)=0$ par continuité.",
+    "La dernière assertion de VI.2.1 (unicité de la branche continue si $U_0$ connexe) n'est pas démontrée dans le poly ; lue avec le même $V_0$ elle découle de l'équivalence « $f(x,y)=f(x_0,y_0)\\iff y=\\varphi(x)$ » (sans continuité ni connexité) ; sa version substantielle, pour une branche continue à valeurs dans $V$ tout entier, exige la connexité (ensemble de coïncidence ouvert par unicité locale, fermé par continuité) et tombe en défaut sur un $U_0$ non connexe.",
+    "Dans la preuve de VI.1.4 (Étape 2), la borne $C=\\sup_{\\bar B(\\lambda,\\rho)}\\|\\partial_\\lambda g(\\mu,\\varphi(\\lambda))\\|$ n'est pas « finie par compacité » en dimension infinie (la boule fermée n'y est pas compacte) : on la rend finie par continuité de $\\partial_\\lambda g$ en diminuant $\\rho$."
    ],
    "proof_techniques": [
     "Point fixe contractant : réécrire l'équation à résoudre sous la forme $y=g(y)$ (Newton modifié : $g(y)=y-A^{-1}(f(y)-c)$ avec $A$ la différentielle figée en un point), montrer que $g$ est contractante sur une boule fermée et la stabilise, conclure par Banach.",
@@ -7872,7 +7877,7 @@
    ],
    "depends_on": [],
    "used_by_hint": "Preuve du théorème de l'application ouverte (convergence de $\\sum x_n$) et du Théorème V.5.7 (série de Neumann $\\sum h^n$ dans $\\mathcal L(E)$).",
-   "importance": 1,
+   "importance": 2,
    "proof_in_poly": "none",
    "proof_length": "short",
    "counterexample_hints": [
@@ -8180,7 +8185,7 @@
    "used_by_hint": "Tout le chapitre et les chapitres VI à IX.",
    "counterexample_hints": [
     "$f(x)=|x|$ sur $\\mathbb R$ en $0$ : pas de $df_0$ linéaire.",
-    "$f(x,y)=\\sqrt{x^2+y^2}$ en $(0,0)$ : dérivées directionnelles existent toutes mais ne dépendent pas linéairement de $h$.",
+    "$f(x,y)=\\sqrt{x^2+y^2}$ (la norme euclidienne) en $(0,0)$ : $\\frac{f(th)-f(0)}{t}=\\frac{|t|\\,\\|h\\|}{t}$ n'a pas de limite quand $t\\to0$, donc pas de $df_0$ ; et $f(x,y)=\\frac{x^3}{x^2+y^2}$ ($f(0,0)=0$) : continue, toutes les dérivées directionnelles existent en $0$ ($\\lim_{t\\to0}\\frac{f(th)}{t}=\\frac{h_1^3}{h_1^2+h_2^2}$) mais ne dépendent pas linéairement de $h$ : pas de $df_0$.",
     "Oublier « continue » : en dimension infinie, si l'on admet $df_a$ non continue, $f$ peut être discontinue en $a$ (Remarque V.3.2)."
    ],
    "viz_hint": "Graphe d'une fonction $\\mathbb R^2\\to\\mathbb R$ et son plan tangent en $a$ ; zoomer autour de $a$ : la surface se confond avec le plan, l'erreur $f(a+h)-f(a)-df_a(h)$ est petite devant $\\|h\\|$ (afficher le rapport).",
@@ -8193,7 +8198,7 @@
   {
    "id": "ch05-derivee-directionnelle-unicite",
    "kind": "formula",
-   "ref": "non numéroté, section V.3.1, p. 98",
+   "ref": "non numéroté, section V.3.1, p. 98 (dérivée directionnelle)",
    "title": "$df_a(h)$ comme dérivée directionnelle ; unicité de la différentielle",
    "page": 98,
    "statement": "Fixons $h\\in E$. Pour $\\epsilon>0$ assez petit, $a+th\\in U$ pour tout $t\\in\\,]-\\epsilon;\\epsilon[$ car $U$ est ouvert, et si $df_a$ existe, on a $$df_a(h)=\\lim_{t\\to 0}\\frac{f(a+th)-f(a)}{t},$$ ce qui montre au passage l'unicité de $df_a$ (la différentielle est déterminée par les dérivées directionnelles).",
@@ -8209,7 +8214,7 @@
    "proof_length": "short",
    "used_by_hint": "Méthode de calcul pratique de $df_a(h)$ ; Remarque V.5.6 ; exercices V.6.1, V.6.2.",
    "counterexample_hints": [
-    "La réciproque est fausse : $f(x,y)=x^2y/(x^4+y^2)$ (prolongée par $0$) a toutes ses dérivées directionnelles en $0$, nulles, mais n'est pas continue en $0$ (regarder $y=x^2$)."
+    "La réciproque est fausse : $f(x,y)=\\frac{x^2y}{x^4+y^2}$ (prolongée par $0$ en $0$) a toutes ses dérivées directionnelles en $0$ ($\\lim_{t\\to0}\\frac{f(th)}{t}=\\frac{h_1^2}{h_2}$ si $h_2\\neq0$, $0$ si $h_2=0$ : elles ne sont pas linéaires en $h$) mais n'est même pas continue en $0$ ($f(t,t^2)=\\tfrac12$)."
    ],
    "chapter": 5,
    "order": 13,
@@ -8258,7 +8263,7 @@
    "proof_in_poly": "none",
    "proof_length": "short",
    "counterexample_hints": [
-    "En dimension infinie, avec des normes non équivalentes la notion change : $F:\\ell^1\\to\\ell^1$ de l'Exercice V.6.4 est $C^1$ pour $\\|\\cdot\\|_1$ mais le résultat tombe si l'on munit l'espace d'une norme non équivalente."
+    "En dimension infinie la différentiabilité dépend bien de la norme : sur $E=C([0,1],\\mathbb R)$, l'évaluation $\\delta_0:u\\mapsto u(0)$ est linéaire continue (donc différentiable, Exemple V.3.5) pour $\\|\\cdot\\|_\\infty$, mais n'est pas continue pour $\\|\\cdot\\|_1$ (prendre $u_n$ affine par morceaux avec $u_n(0)=1$, $u_n=0$ sur $[1/n,1]$ : $\\|u_n\\|_1\\to0$), donc pas différentiable (Remarque V.3.2) : les deux normes ne sont pas équivalentes."
    ],
    "hypotheses": [],
    "chapter": 5,
@@ -8452,7 +8457,7 @@
    "proof_length": "medium",
    "used_by_hint": "Partout : Propositions V.3.15, V.3.17, Remarques V.3.13-14, TAF V.4.4 (via $h(t)=f((1-t)a+tb)$), V.4.7, Taylor V.5.11, V.5.7 ; chapitres VI et IX.",
    "counterexample_hints": [
-    "Si $g$ est seulement différentiable en un autre point que $f(a)$, la formule échoue : $f(x)=x^2$, $g=|\\cdot|$, $a=0$ fonctionne ($g\\circ f=x^2$ dérivable) mais la formule $dg_{0}$ n'a pas de sens.",
+    "L'hypothèse « $g$ différentiable en $f(a)$ » (et non ailleurs) est indispensable, et la réciproque est fausse : $f(x)=x^2$, $g=|\\cdot|$, $a=0$ : $g\\circ f=x^2$ est dérivable en $0$ alors que $dg_{f(0)}=dg_0$ n'existe pas ; la formule $dg_{f(a)}\\circ df_a$ n'a alors aucun sens.",
     "L'ordre de composition compte : $dg_{f(a)}\\circ df_a$ et non $df_a\\circ dg_{f(a)}$ (dimensions incompatibles en général)."
    ],
    "viz_hint": "Chaîne $E\\to F\\to G$ avec un petit déplacement $h$ : $f$ l'envoie sur $df_a(h)+o(h)$, puis $g$ sur $dg_{f(a)}(df_a(h))+o(h)$ ; montrer que les deux restes restent négligeables.",
@@ -8652,7 +8657,7 @@
    "proof_length": "short",
    "counterexample_hints": [
     "$f(x,y)=\\frac{xy}{x^2+y^2}$, $f(0,0)=0$ : $\\partial_xf(0,0)=\\partial_yf(0,0)=0$ mais $f(t,t)=1/2\\not\\to 0$.",
-    "$f(x,y)=\\frac{x^2y}{x^4+y^2}$ : toutes les dérivées directionnelles en $0$ existent (et sont nulles), pourtant $f(t,t^2)=1/2$.",
+    "$f(x,y)=\\frac{x^2y}{x^4+y^2}$ ($f(0,0)=0$) : toutes les dérivées directionnelles en $0$ existent ($\\frac{h_1^2}{h_2}$ si $h_2\\neq0$, $0$ sinon), pourtant $f(t,t^2)=\\tfrac12$ : $f$ n'est pas continue en $0$.",
     "$f(x,y)=\\frac{x^3}{x^2+y^2}$ : continue, dérivées directionnelles en $0$ existent mais $h\\mapsto\\partial_hf(0)=h_1^3/(h_1^2+h_2^2)$ n'est pas linéaire."
    ],
    "viz_hint": "Tracer la surface $z=xy/(x^2+y^2)$ : les deux courbes partielles en $0$ sont plates (axes) mais la surface a un « pli » le long des diagonales ; aucun plan tangent.",
@@ -8710,7 +8715,8 @@
     "$F$ evn quelconque (pas besoin de complétude)"
    ],
    "depends_on": [
-    "Définition V.3.1"
+    "Définition V.3.1",
+    "Exemple V.3.4"
    ],
    "importance": 2,
    "proof_in_poly": "full",
@@ -8724,7 +8730,8 @@
    "chapter": 5,
    "order": 31,
    "depends_ids": [
-    "ch05-differentielle-def"
+    "ch05-differentielle-def",
+    "ch05-derivee-variable-reelle"
    ],
    "depends_unresolved": []
   },
@@ -8909,7 +8916,8 @@
    "depends_on": [
     "Théorème V.4.6",
     "Proposition V.3.12",
-    "Corollaire V.4.3"
+    "Corollaire V.4.3",
+    "Exemple V.3.4"
    ],
    "importance": 3,
    "proof_in_poly": "full",
@@ -8924,7 +8932,8 @@
    "depends_ids": [
     "ch05-primitive-integrale",
     "ch05-composition-differentielles",
-    "ch05-accroissements-finis-borne"
+    "ch05-accroissements-finis-borne",
+    "ch05-derivee-variable-reelle"
    ],
    "depends_unresolved": []
   },
@@ -8968,11 +8977,14 @@
    "hypotheses": [
     "$E$ produit fini",
     "dérivées partielles existant sur un VOISINAGE de $a$ (pas seulement en $a$)",
-    "continuité des dérivées partielles en $a$"
+    "continuité des dérivées partielles en $a$",
+    "$F$ evn quelconque (aucune complétude requise)"
    ],
    "depends_on": [
     "Proposition V.3.17",
-    "Théorème V.4.4"
+    "Théorème V.4.4",
+    "Proposition V.3.11",
+    "Exemple V.3.5"
    ],
    "importance": 3,
    "proof_in_poly": "full",
@@ -8987,7 +8999,9 @@
    "order": 40,
    "depends_ids": [
     "ch05-differentielles-partielles",
-    "ch05-accroissements-finis"
+    "ch05-accroissements-finis",
+    "ch05-linearite-differentielle",
+    "ch05-differentielle-lineaire"
    ],
    "depends_unresolved": []
   },
@@ -9059,14 +9073,16 @@
    "depends_on": [
     "Définition V.3.1",
     "Théorème V.4.4",
-    "non numéroté, section V.1.4, p. 94"
+    "non numéroté, section V.1.4, p. 94",
+    "Proposition V.3.12",
+    "Corollaire V.4.3"
    ],
    "importance": 3,
    "proof_in_poly": "full",
    "proof_length": "long",
    "used_by_hint": "Théorème V.5.5 (symétrie de $d^pf_a$) ; Taylor-Young V.5.13 (dérivée de $h\\mapsto d^jf_a(h,\\dots,h)$) ; hessienne symétrique (chapitre IX) ; Exercice V.5.4 ($\\partial_x\\partial_yf=\\partial_y\\partial_xf$).",
    "counterexample_hints": [
-    "$f(x,y)=\\frac{xy(x^2-y^2)}{x^2+y^2}$, $f(0)=0$ : $f$ est $C^1$, les dérivées secondes croisées existent en $0$ mais $\\partial_x\\partial_yf(0)=-1\\neq1=\\partial_y\\partial_xf(0)$ ; ici $df$ n'est pas différentiable en $0$.",
+    "$f(x,y)=\\frac{xy(x^2-y^2)}{x^2+y^2}$, $f(0,0)=0$ : $f$ est $C^1$ sur $\\mathbb R^2$, les deux dérivées croisées existent en $0$ mais valent $1$ et $-1$ (on a $\\partial_xf(0,y)=-y$ et $\\partial_yf(x,0)=x$) ; ici $df$ n'est pas différentiable en $0$.",
     "L'existence des seules dérivées partielles secondes croisées ne suffit pas : il faut la différentiabilité de $df$ en $a$ (ou la continuité des dérivées secondes croisées)."
    ],
    "viz_hint": "Le « second accroissement » $g_{u,v}(t,s)=f(a+tu+sv)-f(a+sv)-f(a+tu)+f(a)$ sur les quatre coins d'un parallélogramme : il est symétrique en $(u,v)$ par construction et vaut $t s\\,d^2f_a(u,v)+o(t^2+s^2)$.",
@@ -9075,7 +9091,9 @@
    "depends_ids": [
     "ch05-differentielle-def",
     "ch05-accroissements-finis",
-    "ch05-isometrie-bilineaire-curryfication"
+    "ch05-isometrie-bilineaire-curryfication",
+    "ch05-composition-differentielles",
+    "ch05-accroissements-finis-borne"
    ],
    "depends_unresolved": []
   },
@@ -9117,7 +9135,8 @@
    ],
    "depends_on": [
     "Proposition V.3.12",
-    "non numéroté, section V.3.1, p. 98"
+    "non numéroté, section V.5.3, p. 107",
+    "Exemple V.3.4"
    ],
    "importance": 2,
    "proof_in_poly": "none",
@@ -9128,7 +9147,8 @@
    "order": 45,
    "depends_ids": [
     "ch05-composition-differentielles",
-    "ch05-derivee-directionnelle-unicite"
+    "ch05-differentielle-seconde-def",
+    "ch05-derivee-variable-reelle"
    ],
    "depends_unresolved": []
   },
@@ -9152,7 +9172,7 @@
    "proof_length": "short",
    "used_by_hint": "Théorème V.5.7 (ouverture de $\\mathrm{Iso}(E;F)$, continuité et différentiabilité de l'inversion) ; chapitre VI (inversion locale : $df_x$ reste inversible près de $a$).",
    "counterexample_hints": [
-    "Si $E$ n'est pas complet : $E=$ suites à support fini dans $\\ell^1$, $h$ = shift pondéré… la série $\\sum h^n x$ peut sortir de $E$."
+    "Si $E$ n'est pas complet : $E=$ suites réelles à support fini (norme $\\ell^1$), $h=\\tfrac12 S$ où $S(x_0,x_1,\\dots)=(0,x_0,x_1,\\dots)$ est le décalage ; $\\|h\\|=\\tfrac12<1$ mais $\\sum_n h^n(e_0)=\\sum_n 2^{-n}e_n$ n'a pas de support fini : $\\mathrm{Id}_E-h$ n'est pas surjective sur $E$, donc pas inversible dans $\\mathcal L(E)$."
    ],
    "viz_hint": "Pour une matrice $2\\times2$ $h$ de norme $<1$ : sommes partielles $\\sum_{n\\le N}h^n$ convergeant vers $(I-h)^{-1}$ ; divergence si $\\|h\\|>1$ (mais convergence possible si le rayon spectral $<1$).",
    "chapter": 5,
@@ -9180,7 +9200,8 @@
     "non numéroté, section V.1.2, p. 93",
     "Exemple V.3.6",
     "Proposition V.3.12",
-    "Définition V.3.1"
+    "Définition V.3.1",
+    "Exemple V.3.5"
    ],
    "importance": 3,
    "proof_in_poly": "full",
@@ -9200,7 +9221,8 @@
     "ch05-lef-banach-norme-algebre",
     "ch05-differentielle-bilineaire",
     "ch05-composition-differentielles",
-    "ch05-differentielle-def"
+    "ch05-differentielle-def",
+    "ch05-differentielle-lineaire"
    ],
    "depends_unresolved": []
   },
@@ -9365,7 +9387,9 @@
    "depends_on": [
     "Définition V.3.1",
     "Théorème V.5.5",
-    "Théorème V.4.4"
+    "Théorème V.4.4",
+    "non numéroté, preuve du Théorème V.5.13, p. 112",
+    "Proposition V.3.11"
    ],
    "importance": 3,
    "proof_in_poly": "full",
@@ -9381,7 +9405,9 @@
    "depends_ids": [
     "ch05-differentielle-def",
     "ch05-differentielle-ordre-p-symetrique",
-    "ch05-accroissements-finis"
+    "ch05-accroissements-finis",
+    "ch05-derivee-forme-diagonale",
+    "ch05-linearite-differentielle"
    ],
    "depends_unresolved": []
   },
@@ -9452,7 +9478,7 @@
     "$T$ $a$-lipschitzienne avec $a<1$ (constante uniforme strictement inférieure à 1)"
    ],
    "depends_on": [],
-   "used_by_hint": "Théorème VI.1.2 (existence/unicité pour chaque $\\lambda$), Théorème VI.1.4 (Étape 0), Cauchy-Lipschitz VII.2.1 (opérateur de Picard sur $C^0([c-\\epsilon;c+\\epsilon],\\bar B(x_0,2\\rho))$), méthode de Newton VI.4.2, exercice VI.4.1.",
+   "used_by_hint": "Théorème VI.1.2 (existence/unicité pour chaque $\\lambda$), Théorème VI.1.4 (Étape 0), Cauchy-Lipschitz VII.2.1 (opérateur de Picard $S_{t_0,x}$ sur $\\mathcal X=C^0([t_0-b\\,;t_0+b],\\bar B(x_0,2a))$, $\\tfrac12$-lipschitzien), méthode de Newton VI.4.2, exercice VI.4.1.",
    "importance": 3,
    "proof_in_poly": "full",
    "proof_length": "short",
@@ -9531,7 +9557,7 @@
    "ref": "Théorème VI.1.4",
    "title": "Point fixe de Banach à paramètre II (régularité $C^p$)",
    "page": 117,
-   "statement": "Soient $\\Lambda$ un ouvert d'un espace de Banach $E$, $X$ un fermé convexe d'un espace de Banach $F$ et\n$$g : \\Lambda\\times X\\to X$$\nune application de classe $C^p$, $p\\in(\\mathbb N\\setminus\\{0\\})\\cup\\{+\\infty\\}$. Soit $a\\in[0\\,;1[$. On suppose que\n$$\\Big\\|\\frac{\\partial g}{\\partial x}(\\lambda,x)\\Big\\|\\le a\\qquad\\text{pour tout }(\\lambda,x)\\in\\Lambda\\times X.$$\nAlors, pour tout $\\lambda\\in\\Lambda$, l'application $g_\\lambda : x\\mapsto g(\\lambda,x)$ admet un unique point fixe $\\varphi(\\lambda)$ et l'application $\\Lambda\\to X$, $\\lambda\\mapsto\\varphi(\\lambda)$ est de classe $C^p$ et\n$$d\\varphi_\\lambda=\\Big(\\mathrm{Id}_F-\\frac{\\partial g}{\\partial x}(\\lambda,\\varphi(\\lambda))\\Big)^{-1}\\circ\\frac{\\partial g}{\\partial\\lambda}(\\lambda,\\varphi(\\lambda)).$$\n\n(Au passage la preuve établit l'estimation (VI.1.1) : $\\|\\varphi(\\lambda+h)-\\varphi(\\lambda)\\|_F\\le\\dfrac{C}{1-a}\\|h\\|_E$ pour $\\|h\\|\\le\\rho$, où $C=\\sup_{\\mu\\in\\bar B(\\lambda,\\rho)}\\|\\partial g/\\partial\\lambda(\\mu,\\varphi(\\lambda))\\|$ : $\\varphi$ est localement lipschitzienne.)",
+   "statement": "Soient $\\Lambda$ un ouvert d'un espace de Banach $E$, $X$ un fermé convexe d'un espace de Banach $F$ et\n$$g : \\Lambda\\times X\\to X$$\nune application de classe $C^p$, $p\\in(\\mathbb N\\setminus\\{0\\})\\cup\\{+\\infty\\}$. Soit $a\\in[0\\,;1[$. On suppose que\n$$\\Big\\|\\frac{\\partial g}{\\partial x}(\\lambda,x)\\Big\\|\\le a\\qquad\\text{pour tout }(\\lambda,x)\\in\\Lambda\\times X.$$\nAlors, pour tout $\\lambda\\in\\Lambda$, l'application $g_\\lambda : x\\mapsto g(\\lambda,x)$ admet un unique point fixe $\\varphi(\\lambda)$ et l'application $\\Lambda\\to X$, $\\lambda\\mapsto\\varphi(\\lambda)$ est de classe $C^p$ et\n$$d\\varphi_\\lambda=\\Big(\\mathrm{Id}_F-\\frac{\\partial g}{\\partial x}(\\lambda,\\varphi(\\lambda))\\Big)^{-1}\\circ\\frac{\\partial g}{\\partial\\lambda}(\\lambda,\\varphi(\\lambda)).$$\n\n(Au passage la preuve établit l'estimation (VI.1.1) : $\\|\\varphi(\\lambda+h)-\\varphi(\\lambda)\\|_F\\le\\dfrac{C}{1-a}\\|h\\|_E$ pour $\\|h\\|\\le\\rho$, où $C=\\sup_{\\mu\\in\\bar B(\\lambda,\\rho)}\\|\\partial g/\\partial\\lambda(\\mu,\\varphi(\\lambda))\\|$ : $\\varphi$ est localement lipschitzienne. Le poly justifie la finitude de $C$ « par continuité sur le compact $\\bar B(\\lambda,\\rho)$ en dimension finie, ou quitte à diminuer $\\rho$ dans le cas général » : en dimension infinie la boule fermée n'est pas compacte, et l'on borne $\\partial g/\\partial\\lambda(\\cdot,\\varphi(\\lambda))$ sur une petite boule par continuité en $\\lambda$.)",
    "hypotheses": [
     "$\\Lambda$ ouvert d'un Banach $E$ (pour différentier en $\\lambda$)",
     "$X$ fermé (complétude) et convexe (pour que l'inégalité des accroissements finis donne le caractère lipschitzien global sur $X$) dans un Banach $F$",
@@ -9544,7 +9570,9 @@
     "Théorème V.4.4",
     "Exercice VI.1.5",
     "Exemple V.3.6",
-    "Proposition V.3.12"
+    "Proposition V.3.12",
+    "Définition VI.1.3",
+    "Proposition V.3.17"
    ],
    "used_by_hint": "Cœur de la preuve du Théorème des fonctions implicites VI.2.1 (appliqué à $g : B(x_0,r)\\times\\bar B(y_0,s)\\to\\bar B(y_0,s)$) et de Cauchy-Lipschitz à paramètres VII.2.8 (régularité $C^p$ du flot).",
    "importance": 3,
@@ -9563,7 +9591,9 @@
     "ch05-accroissements-finis",
     "ch06-neumann-inverse-id-moins-l",
     "ch05-differentielle-bilineaire",
-    "ch05-composition-differentielles"
+    "ch05-composition-differentielles",
+    "ch06-differentiable-sur-partie-def",
+    "ch05-differentielles-partielles"
    ],
    "depends_unresolved": []
   },
@@ -9601,7 +9631,7 @@
    "ref": "Théorème VI.2.1",
    "title": "Théorème des fonctions implicites",
    "page": 118,
-   "statement": "Soient $E$, $F$ et $G$ trois espaces de Banach, $U$ un ouvert de $E$, $V$ un ouvert de $F$, $f$ une application de classe $C^p$, $p\\ge1$, de $U\\times V$ dans $G$ et $(x_0,y_0)$ un point de $U\\times V$ tel que la différentielle partielle $\\dfrac{\\partial f}{\\partial y}(x_0,y_0)$ soit un isomorphisme bicontinu de $F$ dans $G$. Alors il existe un ouvert $U_0$ de $U$ contenant $x_0$, un ouvert $V_0$ de $V$ contenant $y_0$ et une application $\\varphi$ de classe $C^p$, définie sur $U_0$ à valeurs dans $V_0$ telle que :\n$$\\varphi(x_0)=y_0\\quad\\text{et}\\quad\\forall(x,y)\\in U_0\\times V_0,\\quad f(x,y)=f(x_0,y_0)\\iff y=\\varphi(x).$$\nLa différentielle de $\\varphi$ est donnée par\n$$d\\varphi_x=-\\Big(\\frac{\\partial f}{\\partial y}(x,\\varphi(x))\\Big)^{-1}\\circ\\frac{\\partial f}{\\partial x}(x,\\varphi(x)).$$\nEn outre, si $U_0$ est connexe, il existe au plus une application continue $\\varphi : U_0\\to V_0$ vérifiant $\\varphi(x_0)=y_0$ et $f(x,\\varphi(x))=f(x_0,y_0)$ pour tout $x\\in U_0$.",
+   "statement": "Soient $E$, $F$ et $G$ trois espaces de Banach, $U$ un ouvert de $E$, $V$ un ouvert de $F$, $f$ une application de classe $C^p$, $p\\ge1$, de $U\\times V$ dans $G$ et $(x_0,y_0)$ un point de $U\\times V$ tel que la différentielle partielle $\\dfrac{\\partial f}{\\partial y}(x_0,y_0)$ soit un isomorphisme bicontinu de $F$ dans $G$. Alors il existe un ouvert $U_0$ de $U$ contenant $x_0$, un ouvert $V_0$ de $V$ contenant $y_0$ et une application $\\varphi$ de classe $C^p$, définie sur $U_0$ à valeurs dans $V_0$ telle que :\n$$\\varphi(x_0)=y_0\\quad\\text{et}\\quad\\forall(x,y)\\in U_0\\times V_0,\\quad f(x,y)=f(x_0,y_0)\\iff y=\\varphi(x).$$\nLa différentielle de $\\varphi$ est donnée par\n$$d\\varphi_x=-\\Big(\\frac{\\partial f}{\\partial y}(x,\\varphi(x))\\Big)^{-1}\\circ\\frac{\\partial f}{\\partial x}(x,\\varphi(x)).$$\nEn outre, si $U_0$ est connexe, il existe au plus une application continue $\\varphi : U_0\\to V_0$ vérifiant $\\varphi(x_0)=y_0$ et $f(x,\\varphi(x))=f(x_0,y_0)$ pour tout $x\\in U_0$.\n\n(La dernière assertion — unicité de la branche continue lorsque $U_0$ est connexe — est énoncée sans démonstration dans le poly : la preuve rédigée s'arrête au calcul de $d\\varphi_x$.)",
    "hypotheses": [
     "$E,F,G$ espaces de Banach (complétude de $F$ pour le point fixe)",
     "$f$ de classe $C^p$ avec $p\\ge1$ (au moins $C^1$ : la continuité de $\\partial f/\\partial y$ sert à rendre $g$ $\\frac12$-contractante au voisinage)",
@@ -9611,7 +9641,8 @@
    "depends_on": [
     "Théorème VI.1.4",
     "Théorème V.4.4",
-    "Proposition V.3.17"
+    "Proposition V.3.17",
+    "Définition VI.1.3"
    ],
    "used_by_hint": "Théorème d'inversion locale VI.3.2 ; perturbation des racines VI.4.3 ; valeurs propres VI.4.7 ; équations différentielles implicites (Remarque VII.1.2) ; sous-variétés définies par équations (chapitre IX) ; multiplicateurs de Lagrange.",
    "importance": 3,
@@ -9619,7 +9650,7 @@
    "proof_length": "long",
    "counterexample_hints": [
     "Si $\\partial f/\\partial y(x_0,y_0)$ n'est pas inversible : $f(x,y)=y^2-x$ en $(0,0)$ : pas de fonction $\\varphi$ définie sur un voisinage de $0$ ($y=\\pm\\sqrt x$, rien pour $x<0$) ; $f(x,y)=y^3-x$ en $(0,0)$ : $\\varphi(x)=x^{1/3}$ existe, continue, mais n'est pas $C^1$ (l'hypothèse n'est pas nécessaire pour l'existence, elle l'est pour la régularité).",
-    "Si $f$ est seulement continue : $f(x,y)=y-x\\sin(1/x)$... existence sans régularité ; sans $C^1$, $\\partial f/\\partial y$ peut exister en $(x_0,y_0)$ sans être inversible au voisinage.",
+    "Si $f$ n'est pas $C^1$ en la variable $x$ : $f(x,y)=y-h(x)$ avec $h(x)=x\\sin(1/x)$, $h(0)=0$ ; $\\partial f/\\partial y=1$ est inversible, la fonction implicite $\\varphi=h$ existe et est continue, mais elle n'est pas dérivable en $0$ : la régularité $C^p$ de $f$ en **toutes** les variables est nécessaire pour celle de $\\varphi$.",
     "Unicité seulement parmi les $\\varphi$ **continues** et **à valeurs dans $V_0$** : pour $f(x,y)=y^2-x^2$ en $(1,1)$, $\\varphi(x)=x$ est l'unique branche continue proche de $y_0=1$, mais $y=-x$ est une autre solution de $f=0$ loin de $V_0$ ; sur $U_0$ non connexe on peut recoller des branches différentes.",
     "La formule de $d\\varphi_x$ s'obtient aussi en différentiant $f(x,\\varphi(x))=\\text{cst}$ : $\\partial_x f+\\partial_y f\\circ d\\varphi_x=0$."
    ],
@@ -9629,7 +9660,8 @@
    "depends_ids": [
     "ch06-point-fixe-parametre-cp",
     "ch05-accroissements-finis",
-    "ch05-differentielles-partielles"
+    "ch05-differentielles-partielles",
+    "ch06-differentiable-sur-partie-def"
    ],
    "depends_unresolved": []
   },
@@ -9675,7 +9707,7 @@
     "Théorème VI.2.1",
     "Définition VI.3.1"
    ],
-   "used_by_hint": "Corollaire VI.3.3 ; Proposition I.4.4 (fonction holomorphe à dérivée non nulle = biholomorphisme local) ; lemme de Morse VI.3.4 (deux fois) ; rang constant VI.4.9 ; exercices VI.4.5, VI.4.7 ; Proposition IX.1.2, paramétrages et redressements du chapitre IX ; redressement d'un champ de vecteurs (chapitre VII).",
+   "used_by_hint": "Corollaire VI.3.3 ; Proposition I.4.4 (fonction holomorphe à dérivée non nulle = biholomorphisme local) et Corollaire I.4.5 (image de $\\exp$ ouverte) ; lemme de Morse VI.3.4 (deux fois) ; rang constant VI.4.9 ; exercices VI.4.5, VI.4.7 ; Proposition IX.1.2 (immersion = homéomorphisme local sur l'image), Théorème IX.7.26 (inversion locale entre sous-variétés, p. 166) ; Exercice VII.4.9 (redressement d'un champ de vecteurs, p. 140).",
    "importance": 3,
    "proof_in_poly": "full",
    "proof_length": "medium",
@@ -9700,7 +9732,7 @@
    "ref": "Corollaire VI.3.3",
    "title": "Théorème d'inversion globale",
    "page": 120,
-   "statement": "Soit $f$ une application de classe $C^k$ de $U$ dans $F$, où $U$ est un ouvert d'un espace de Banach réel et $F$ un espace de Banach. Si $f$ est injective et si pour tout $x$ de $U$ la différentielle $df_x$ de $f$ au point $x$ est un isomorphisme bicontinu, alors $f(U)$ est un ouvert et la bijection réciproque, de $f(U)$ dans $U$, est de classe $C^k$.\n\n(Autrement dit $f$ est un $C^k$-difféomorphisme de $U$ sur l'ouvert $f(U)$.)",
+   "statement": "Soit $f$ une application de classe $C^k$ de $U$ dans $F$, où $U$ est un ouvert d'un espace de Banach réel et $F$ un espace de Banach. Si $f$ est injective et si pour tout $x$ de $U$ la différentielle $df_x$ de $f$ au point $x$ est un isomorphisme bicontinu, alors $f(U)$ est un ouvert et la bijection réciproque, de $f(U)$ dans $U$, est de classe $C^k$.\n\n(Autrement dit $f$ est un $C^k$-difféomorphisme de $U$ sur l'ouvert $f(U)$.)\n\n(Le poly ne rédige pas la preuve : « on en déduit immédiatement ». Argument : par VI.3.2, tout $x\\in U$ a un voisinage ouvert $U_x$ tel que $f|_{U_x}$ soit un $C^k$-difféomorphisme sur l'ouvert $f(U_x)$ ; donc $f(U)=\\bigcup_x f(U_x)$ est ouvert et, $f$ étant injective, $f^{-1}$ coïncide sur chaque $f(U_x)$ avec $(f|_{U_x})^{-1}$, qui est $C^k$.)",
    "hypotheses": [
     "$f$ de classe $C^k$, $k\\ge1$",
     "$f$ injective sur $U$ (hypothèse globale, à vérifier à la main)",
@@ -9711,7 +9743,7 @@
    ],
    "used_by_hint": "Critère standard pour montrer qu'une application est un difféomorphisme sur son image (changements de variables, coordonnées polaires sur $]0,\\infty[\\times]-\\pi,\\pi[$, paramétrages de sous-variétés au chapitre IX).",
    "importance": 3,
-   "proof_in_poly": "sketch",
+   "proof_in_poly": "none",
    "proof_length": "short",
    "counterexample_hints": [
     "Sans injectivité : $\\exp : \\mathbb C\\to\\mathbb C^*$ (ou $(r,\\theta)\\mapsto(r\\cos\\theta,r\\sin\\theta)$ sur $]0,\\infty[\\times\\mathbb R$), différentielle inversible partout, image ouverte, mais pas de réciproque globale.",
@@ -9760,7 +9792,7 @@
    "ref": "Exercice VI.3.4",
    "title": "Lemme de Morse",
    "page": 120,
-   "statement": "Soit $U$ un ouvert de $\\mathbb R^m$ et soit $f : U\\to\\mathbb R$ une fonction de classe $C^\\infty$. Soit $a\\in U$ un point critique de $f$, c'est-à-dire tel que $df_a=0$. On suppose que la forme bilinéaire symétrique $d^2f_a$ est non dégénérée, de signature $(r,s)$, avec $r+s=m$. On note $\\mathrm M_m(\\mathbb R)$ l'espace des matrices carrées réelles de taille $m$, $\\mathrm{Sym}_m$ et $\\mathrm{ASym}_m$ les sous-espaces des matrices symétriques et antisymétriques, et l'on pose $I_{r,s}=\\begin{pmatrix}I_r&0\\\\0&-I_s\\end{pmatrix}\\in\\mathrm{Sym}_m$. On identifie $\\mathbb R^m$ à l'espace des matrices colonnes, de sorte qu'une forme bilinéaire symétrique de matrice $S$ dans la base canonique s'écrit $(h,k)\\mapsto{}^th\\,S\\,k$.\n\n**Lemme de Morse.** Il existe un voisinage ouvert $W$ de $0$ dans $\\mathbb R^m$ et un $C^\\infty$-difféomorphisme $\\psi$ de $W$ sur un voisinage ouvert de $a$ dans $U$, vérifiant $\\psi(0)=a$, tel que\n$$f\\big(\\psi(h)\\big)=f(a)+\\sum_{i=1}^r h_i^2-\\sum_{i=r+1}^m h_i^2,\\qquad h=(h_1,\\dots,h_m)\\in W.$$\n\nPlan de la preuve (questions de l'exercice) : 1. se ramener à $a=0$, $f(0)=0$, matrice de $d^2f_0$ égale à $2I_{r,s}$ (translation puis changement linéaire $P$ avec ${}^tPHP=2I_{r,s}$, Sylvester) ; on fixe une boule ouverte $U_0\\subset U$ centrée en $0$. 2. Par Taylor avec reste intégral (V.5.11) : il existe $B : U_0\\to\\mathrm{Sym}_m$ de classe $C^\\infty$ avec $f(x)={}^txB(x)x$ sur $U_0$ et $B(0)=I_{r,s}$ (explicitement $B(x)=\\int_0^1(1-t)\\,\\mathrm{Hess}_{tx}f\\,dt$). 3. Pour $g : \\mathrm M_m(\\mathbb R)\\to\\mathrm{Sym}_m$, $g(C)={}^tC\\,I_{r,s}\\,C$ : $dg_{I_m}(X)={}^tX I_{r,s}+I_{r,s}X$, $\\mathrm M_m(\\mathbb R)=\\mathcal E\\oplus\\ker dg_{I_m}$ avec $\\mathcal E=\\{X\\,;\\,I_{r,s}X\\in\\mathrm{Sym}_m\\}$ ; par inversion locale appliquée à $g|_{\\mathcal E}$, il existe un voisinage ouvert $Y$ de $I_{r,s}$ dans $\\mathrm{Sym}_m$ et $\\eta : Y\\to\\mathrm{GL}(m,\\mathbb R)$ de classe $C^\\infty$ avec $\\eta(I_{r,s})=I_m$ et $S={}^t\\eta(S)\\,I_{r,s}\\,\\eta(S)$ pour $S\\in Y$ (racine carrée lisse pour la congruence). 4. $\\varphi(x)=\\eta(B(x))\\,x$ vérifie $f(x)={}^t\\varphi(x)I_{r,s}\\varphi(x)$ et $d\\varphi_0=\\mathrm{Id}_{\\mathbb R^m}$ ; par inversion locale $\\varphi$ est un difféomorphisme local et $\\psi=\\varphi^{-1}$ convient.",
+   "statement": "Soit $U$ un ouvert de $\\mathbb R^m$ et soit $f : U\\to\\mathbb R$ une fonction de classe $C^\\infty$. Soit $a\\in U$ un point critique de $f$, c'est-à-dire tel que $df_a=0$. On suppose que la forme bilinéaire symétrique $d^2f_a$ est non dégénérée, de signature $(r,s)$, avec $r+s=m$. On note $\\mathrm M_m(\\mathbb R)$ l'espace des matrices carrées réelles de taille $m$, $\\mathrm{Sym}_m$ et $\\mathrm{ASym}_m$ les sous-espaces des matrices symétriques et antisymétriques, et l'on pose $I_{r,s}=\\begin{pmatrix}I_r&0\\\\0&-I_s\\end{pmatrix}\\in\\mathrm{Sym}_m$. On identifie $\\mathbb R^m$ à l'espace des matrices colonnes, de sorte qu'une forme bilinéaire symétrique de matrice $S$ dans la base canonique s'écrit $(h,k)\\mapsto{}^th\\,S\\,k$.\n\n**Lemme de Morse.** Il existe un voisinage ouvert $W$ de $0$ dans $\\mathbb R^m$ et un $C^\\infty$-difféomorphisme $\\psi$ de $W$ sur un voisinage ouvert de $a$ dans $U$, vérifiant $\\psi(0)=a$, tel que\n$$f\\big(\\psi(h)\\big)=f(a)+\\sum_{i=1}^r h_i^2-\\sum_{i=r+1}^m h_i^2,\\qquad h=(h_1,\\dots,h_m)\\in W.$$\n\nPlan de la preuve (questions de l'exercice) : 1. se ramener à $a=0$, $f(0)=0$, matrice de $d^2f_0$ égale à $2I_{r,s}$ (translation puis changement linéaire $P$ avec ${}^tPHP=2I_{r,s}$, Sylvester) ; on fixe une boule ouverte $U_0\\subset U$ centrée en $0$. 2. Par Taylor avec reste intégral (V.5.11) : il existe $B : U_0\\to\\mathrm{Sym}_m$ de classe $C^\\infty$ avec $f(x)={}^txB(x)x$ sur $U_0$ et $B(0)=I_{r,s}$ (explicitement $B(x)=\\int_0^1(1-t)\\,\\mathrm{Hess}_{tx}f\\,dt$). 3. Pour $g : \\mathrm M_m(\\mathbb R)\\to\\mathrm{Sym}_m$, $g(C)={}^tC\\,I_{r,s}\\,C$ : $dg_{I_m}(X)={}^tX I_{r,s}+I_{r,s}X$, $\\mathrm M_m(\\mathbb R)=\\mathcal E\\oplus\\ker dg_{I_m}$ avec $\\mathcal E=\\{X\\,;\\,I_{r,s}X\\in\\mathrm{Sym}_m\\}$ ; par inversion locale appliquée à $g|_{\\mathcal E}$, il existe un voisinage ouvert $Y$ de $I_{r,s}$ dans $\\mathrm{Sym}_m$ et $\\eta : Y\\to\\mathrm{GL}(m,\\mathbb R)$ de classe $C^\\infty$ avec $\\eta(I_{r,s})=I_m$ et $S={}^t\\eta(S)\\,I_{r,s}\\,\\eta(S)$ pour $S\\in Y$ (racine carrée lisse pour la congruence). 4. $\\varphi(x)=\\eta(B(x))\\,x$ vérifie $f(x)={}^t\\varphi(x)I_{r,s}\\varphi(x)$ et $d\\varphi_0=\\mathrm{Id}_{\\mathbb R^m}$ ; par inversion locale $\\varphi$ est un difféomorphisme local et $\\psi=\\varphi^{-1}$ convient.\n\n(Corrigé complet dans le complément TD « Deux exercices de calcul différentiel », Exercice 1 ; il utilise le théorème d'inertie de Sylvester pour la question 1 et la dérivation sous le signe intégral pour la question 2.)",
    "hypotheses": [
     "$f$ de classe $C^\\infty$ (pour obtenir $\\psi$ $C^\\infty$ ; avec $f$ de classe $C^{k}$, $k\\ge3$, on obtient $\\psi$ de classe $C^{k-2}$)",
     "$a$ point critique : $df_a=0$",
@@ -9774,8 +9806,8 @@
     "Exemple V.3.6",
     "Proposition V.3.12"
    ],
-   "used_by_hint": "Chapitre IX : lemme de Morse sur une sous-variété (p. 171, via un paramétrage) ; classification des points critiques non dégénérés (minimum, maximum, col) ; théorie de Morse.",
-   "importance": 2,
+   "used_by_hint": "Remarque IX.7.40 (lemme de Morse sur une sous-variété, p. 171 : transport par un paramétrage) ; classification des points critiques non dégénérés (minimum, maximum, col) ; théorie de Morse.",
+   "importance": 3,
    "proof_in_poly": "exercise",
    "proof_length": "long",
    "counterexample_hints": [
@@ -9830,7 +9862,7 @@
    "ref": "Exercice VI.4.2",
    "title": "Méthode de Newton dans les espaces de Banach",
    "page": 121,
-   "statement": "Soit $U$ un ouvert convexe d'un espace de Banach $E$ et $f : U\\to F$ une application de classe $C^1$ à valeurs dans un espace de Banach $F$. On suppose : (i) en un point $x_0\\in U$, $df_{x_0} : E\\to F$ est un isomorphisme entre espaces de Banach ; (ii) il existe $M>0$ tel que $\\|df_b-df_a\\|\\le M\\|b-a\\|_E$ pour tous $a,b\\in U$ ($df$ lipschitzienne). On pose $C=\\|df_{x_0}^{-1}\\|$.\n\n**Résultat.** Il existe $\\delta>0$ (avec $\\delta<(2MC)^{-1}$ et $\\bar B_E(x_0,\\delta)\\subset U$) tel que $df_{x_0+r}$ reste un isomorphisme pour $\\|r\\|<\\delta$, avec $\\|df_{x_0+r}^{-1}\\|\\le C/(1-MC\\|r\\|)\\le2C$ ; et si $\\delta$ et $\\|f(x_0)\\|_F$ sont assez petits (par exemple $C\\|f(x_0)\\|_F\\le(1-K)\\delta$), l'application $\\phi(r)=df_{x_0+r}^{-1}\\big(f(x_0+r)-df_{x_0+r}(r)\\big)$ est une contraction de rapport $K<1$ de $B_E(0,\\delta)$ dans elle-même. La suite $x_{n+1}=x_n-df_{x_n}^{-1}(f(x_n))$, $x_n=x_0+r_n$, est bien définie et converge vers un $z$ vérifiant $f(z)=0$ ; la convergence est quadratique : $\\|x_{n+1}-z\\|\\le 2CM\\,\\|x_n-z\\|^2$ (question 7).\n\nQuestion préliminaire (inégalité des accroissements finis « centrée ») : pour $a,b,c\\in U$, $\\|f(b)-f(a)-df_c(b-a)\\|_F\\le\\big(\\sup_{u\\in[a,b]}\\|df_u-df_c\\|\\big)\\|b-a\\|_E$.",
+   "statement": "Soit $U$ un ouvert convexe d'un espace de Banach $E$ et $f : U\\to F$ une application de classe $C^1$ à valeurs dans un espace de Banach $F$. On suppose : (i) en un point $x_0\\in U$, $df_{x_0} : E\\to F$ est un isomorphisme entre espaces de Banach ; (ii) il existe $M>0$ tel que $\\|df_b-df_a\\|\\le M\\|b-a\\|_E$ pour tous $a,b\\in U$ ($df$ lipschitzienne). On pose $C=\\|df_{x_0}^{-1}\\|$.\n\n**Résultat.** Il existe $\\delta>0$ (avec $\\delta<(2MC)^{-1}$ et $B_E(x_0,\\delta)\\subset U$) tel que $df_{x_0+r}$ reste un isomorphisme pour $\\|r\\|<\\delta$, avec $\\|df_{x_0+r}^{-1}\\|\\le C/(1-MC\\|r\\|)\\le2C$ ; et si $\\delta$ et $\\|f(x_0)\\|_F$ sont assez petits (par exemple $C\\|f(x_0)\\|_F\\le(1-K)\\delta$), l'application $\\phi(r)=df_{x_0+r}^{-1}\\big(f(x_0+r)-df_{x_0+r}(r)\\big)$ est une contraction de rapport $K<1$ de $B_E(0,\\delta)$ dans elle-même. La suite $x_{n+1}=x_n-df_{x_n}^{-1}(f(x_n))$, $x_n=x_0+r_n$, est bien définie et converge vers un $z$ vérifiant $f(z)=0$ ; la convergence est quadratique : $\\|x_{n+1}-z\\|\\le 2CM\\,\\|x_n-z\\|^2$ (question 7, non détaillée dans le poly ; vérifiée : $x_{n+1}-z=df_{x_n}^{-1}\\big(f(z)-f(x_n)-df_{x_n}(z-x_n)\\big)$, la question 1 avec $c=x_n$ donne $\\|f(z)-f(x_n)-df_{x_n}(z-x_n)\\|\\le M\\|z-x_n\\|^2$ et $\\|df_{x_n}^{-1}\\|=\\|g(r_n)\\|\\le2C$).\n\nQuestion préliminaire (inégalité des accroissements finis « centrée ») : pour $a,b,c\\in U$, $\\|f(b)-f(a)-df_c(b-a)\\|_F\\le\\big(\\sup_{u\\in[a,b]}\\|df_u-df_c\\|\\big)\\|b-a\\|_E$.",
    "hypotheses": [
     "$U$ ouvert convexe d'un Banach $E$, $F$ Banach",
     "$f$ de classe $C^1$ avec $df$ $M$-lipschitzienne sur $U$",
@@ -9868,7 +9900,7 @@
    "ref": "Exercice VI.4.3",
    "title": "Perturbation des racines d'un polynôme et intégrale elliptique (périhélie de Mercure)",
    "page": 122,
-   "statement": "Soient $a<b$ deux réels et, pour $\\varepsilon\\in\\mathbb R$, $P_\\varepsilon(x)=(x-a)(b-x)+\\varepsilon x^3$.\n1. Pour $\\varepsilon>0$ assez petit, $P_\\varepsilon$ admet trois racines réelles distinctes $x_a(\\varepsilon)<x_b(\\varepsilon)<x_c(\\varepsilon)$ ; $\\varepsilon\\mapsto x_a(\\varepsilon)$ et $\\varepsilon\\mapsto x_b(\\varepsilon)$ sont de classe $C^\\infty$ au voisinage de $0$ avec $x_a(0)=a$, $x_b(0)=b$ (fonctions implicites appliquées à $(\\varepsilon,x)\\mapsto P_\\varepsilon(x)$, $\\partial_xP_0(a)=b-a\\ne0$), et $x_c(\\varepsilon)\\sim1/\\varepsilon$ quand $\\varepsilon\\to0^+$.\n2. Développements limités à l'ordre 1 : $x_a(\\varepsilon)=a-\\dfrac{a^3}{b-a}\\varepsilon+O(\\varepsilon^2)$, $x_b(\\varepsilon)=b+\\dfrac{b^3}{b-a}\\varepsilon+O(\\varepsilon^2)$ (obtenus par $x'(0)=-\\partial_\\varepsilon P/\\partial_xP$) : pour $0<a<b$ les racines perturbées s'écartent, $x_a<a$ et $x_b>b$.\n3. $P_\\varepsilon(x)=(x-x_a(\\varepsilon))(x_b(\\varepsilon)-x)\\big(1-\\varepsilon(x+x_a(\\varepsilon)+x_b(\\varepsilon))\\big)$, $P_\\varepsilon>0$ sur $]x_a(\\varepsilon);x_b(\\varepsilon)[$, et l'intégrale elliptique $I(\\varepsilon)=\\displaystyle\\int_{x_a(\\varepsilon)}^{x_b(\\varepsilon)}\\frac{dx}{\\sqrt{P_\\varepsilon(x)}}$ est bien définie.\n4. Avec $x=u+v\\sin t$, $u=\\frac12(x_a+x_b)$, $v=\\frac12(x_b-x_a)$ : $I(\\varepsilon)=\\displaystyle\\int_{-\\pi/2}^{\\pi/2}\\big(1-\\varepsilon(3u+v\\sin t)\\big)^{-1/2}dt$, d'où par Taylor uniforme en $t$ :\n$$I(\\varepsilon)=\\pi+\\frac{3\\pi(a+b)}{4}\\varepsilon+O(\\varepsilon^2).$$",
+   "statement": "Soient $a<b$ deux réels et, pour $\\varepsilon\\in\\mathbb R$, $P_\\varepsilon(x)=(x-a)(b-x)+\\varepsilon x^3$.\n1. Pour $\\varepsilon>0$ assez petit, $P_\\varepsilon$ admet trois racines réelles distinctes $x_a(\\varepsilon)<x_b(\\varepsilon)<x_c(\\varepsilon)$ ; $\\varepsilon\\mapsto x_a(\\varepsilon)$ et $\\varepsilon\\mapsto x_b(\\varepsilon)$ sont de classe $C^\\infty$ au voisinage de $0$ avec $x_a(0)=a$, $x_b(0)=b$ (fonctions implicites appliquées à $(\\varepsilon,x)\\mapsto P_\\varepsilon(x)$, $\\partial_xP_0(a)=b-a\\ne0$), et $x_c(\\varepsilon)\\sim1/\\varepsilon$ quand $\\varepsilon\\to0^+$.\n2. Développements limités à l'ordre 1 : $x_a(\\varepsilon)=a-\\dfrac{a^3}{b-a}\\varepsilon+O(\\varepsilon^2)$, $x_b(\\varepsilon)=b+\\dfrac{b^3}{b-a}\\varepsilon+O(\\varepsilon^2)$ (réponse non écrite dans le poly, obtenue par $x'(0)=-\\partial_\\varepsilon P/\\partial_xP$ avec $\\partial_xP_0(a)=b-a$, $\\partial_xP_0(b)=a-b$ ; vérifiée) : pour $0<a<b$ les racines perturbées s'écartent, $x_a<a$ et $x_b>b$.\n3. $P_\\varepsilon(x)=(x-x_a(\\varepsilon))(x_b(\\varepsilon)-x)\\big(1-\\varepsilon(x+x_a(\\varepsilon)+x_b(\\varepsilon))\\big)$, $P_\\varepsilon>0$ sur $]x_a(\\varepsilon);x_b(\\varepsilon)[$, et l'intégrale elliptique $I(\\varepsilon)=\\displaystyle\\int_{x_a(\\varepsilon)}^{x_b(\\varepsilon)}\\frac{dx}{\\sqrt{P_\\varepsilon(x)}}$ est bien définie.\n4. Avec $x=u+v\\sin t$, $u=\\frac12(x_a+x_b)$, $v=\\frac12(x_b-x_a)$ : $I(\\varepsilon)=\\displaystyle\\int_{-\\pi/2}^{\\pi/2}\\big(1-\\varepsilon(3u+v\\sin t)\\big)^{-1/2}dt$, d'où par Taylor uniforme en $t$ :\n$$I(\\varepsilon)=\\pi+\\frac{3\\pi(a+b)}{4}\\varepsilon+O(\\varepsilon^2).$$",
    "hypotheses": [
     "$a<b$ (racines simples de $P_0$, ce qui rend $\\partial_xP_0$ inversible en $a$ et $b$)",
     "$\\varepsilon$ petit"
@@ -9932,7 +9964,7 @@
     "Théorème VI.3.2",
     "Théorème V.2.3"
    ],
-   "used_by_hint": "Exercice VI.4.6 (résolution de $f'+tf^2=g$ pour $g$ petit) ; forme locale des submersions (VI.4.9 question 2) ; Proposition IX sur les submersions et images réciproques de valeurs régulières ; multiplicateurs de Lagrange.",
+   "used_by_hint": "Exercice VI.4.6 (résolution de $f'+tf^2=g$ pour $g$ petit) ; forme locale des submersions (VI.4.9 question 2) ; chapitre IX : Définition IX.1.3 (points/valeurs régulières), sous-variétés définies par équations ; multiplicateurs de Lagrange.",
    "importance": 2,
    "proof_in_poly": "exercise",
    "proof_length": "short",
@@ -9954,7 +9986,7 @@
    "ref": "Exercice VI.4.6",
    "title": "Résolution de $f'(t)+tf(t)^2=g(t)$ pour $g$ petit (application de VI.4.5)",
    "page": 124,
-   "statement": "Soit $E=C^1([0\\,;1];\\mathbb R)$ muni de la norme $\\|f\\|_1=\\sup_{t}|f(t)|+\\sup_t|f'(t)|$ et $F=C^0([0\\,;1];\\mathbb R)$ muni de $\\|f\\|_0=\\sup_t|f(t)|$ (espaces de Banach). On définit $\\Psi : E\\to F$, $\\Psi(f)(t)=f'(t)+tf(t)^2$. Alors $\\Psi$ est de classe $C^1$, $d\\Psi_0=\\frac{d}{dt}$ est surjective de $E$ sur $F$, $E_1=\\ker d\\Psi_0$ (les constantes) admet le supplémentaire fermé $E_2=\\{f\\in E\\,;\\,f(0)=0\\}$, et il existe $\\epsilon>0$ tel que pour tout $g\\in B_F(0,\\epsilon)$ il existe $f\\in E$ vérifiant $f'(t)+tf(t)^2=g(t)$ pour tout $t\\in[0\\,;1]$.",
+   "statement": "Soit $E=C^1([0\\,;1];\\mathbb R)$ muni de la norme $\\|f\\|_1=\\sup_{t}|f(t)|+\\sup_t|f'(t)|$ et $F=C^0([0\\,;1];\\mathbb R)$ muni de $\\|f\\|_0=\\sup_t|f(t)|$ (espaces de Banach). On définit $\\Psi : E\\to F$, $\\Psi(f)(t)=f'(t)+tf(t)^2$. Alors (réponses attendues, exercice non corrigé dans le poly ni dans les TD) $\\Psi$ est de classe $C^1$, $d\\Psi_0=\\frac{d}{dt}$ est surjective de $E$ sur $F$, $E_1=\\ker d\\Psi_0$ (les constantes) admet le supplémentaire fermé $E_2=\\{f\\in E\\,;\\,f(0)=0\\}$, et il existe $\\epsilon>0$ tel que pour tout $g\\in B_F(0,\\epsilon)$ il existe $f\\in E$ vérifiant $f'(t)+tf(t)^2=g(t)$ pour tout $t\\in[0\\,;1]$.",
    "hypotheses": [
     "normes $C^1$ et $C^0$ rendant $E$, $F$ complets et $\\Psi$ de classe $C^1$ ($d\\Psi_f(h)=h'+2tfh$)",
     "petitesse de $g$ (résultat local au voisinage de $g=0$)"
@@ -10015,7 +10047,7 @@
    "ref": "Exercice VI.4.8",
    "title": "Problème aux limites $u''-\\lambda f(u)=0$, $u(0)=u(1)=0$ pour $\\lambda$ petit",
    "page": 124,
-   "statement": "Soit $f\\in C^1(\\mathbb R,\\mathbb R)$ telle qu'il existe $C$ avec, pour tous $x,y\\in\\mathbb R$, $|f(x)-f(y)|\\le C|x-y|$ et $|f'(x)-f'(y)|\\le C|x-y|$. On considère l'équation différentielle sur $[0,1]$ avec condition aux bords\n$$\\begin{cases}u''-\\lambda f(u)=0\\ \\text{sur }]0,1[,\\\\u(0)=u(1)=0.\\end{cases}$$\nAlors il existe un intervalle ouvert $I$ contenant $0$ tel que pour tout $\\lambda\\in I$, l'équation ci-dessus admet une solution $u_\\lambda\\in C^2([0,1],\\mathbb R)$.\n\n(Méthode : fonctions implicites pour $\\Phi : \\mathbb R\\times E\\to F$, $\\Phi(\\lambda,u)=u''-\\lambda f(u)$ avec $E=\\{u\\in C^2([0,1])\\,;\\,u(0)=u(1)=0\\}$, $F=C^0([0,1])$ ; $\\partial_u\\Phi(0,0)=\\frac{d^2}{dt^2} : E\\to F$ est un isomorphisme (problème de Dirichlet linéaire, résolu par double intégration). Les hypothèses lipschitziennes sur $f$ et $f'$ garantissent que $u\\mapsto f\\circ u$ est $C^1$ de $E$ dans $F$. Variante : point fixe de Banach à paramètre sur $u=\\lambda\\,G(f(u))$, $G$ fonction de Green.)",
+   "statement": "Soit $f\\in C^1(\\mathbb R,\\mathbb R)$ telle qu'il existe $C$ avec, pour tous $x,y\\in\\mathbb R$, $|f(x)-f(y)|\\le C|x-y|$ et $|f'(x)-f'(y)|\\le C|x-y|$. On considère l'équation différentielle sur $[0,1]$ avec condition aux bords\n$$\\begin{cases}u''-\\lambda f(u)=0\\ \\text{sur }]0,1[,\\\\u(0)=u(1)=0.\\end{cases}$$\nAlors il existe un intervalle ouvert $I$ contenant $0$ tel que pour tout $\\lambda\\in I$, l'équation ci-dessus admet une solution $u_\\lambda\\in C^2([0,1],\\mathbb R)$.\n\n(Méthode proposée par le cartographe — exercice non corrigé dans le poly ni dans les TD, à recalculer par le rédacteur : fonctions implicites pour $\\Phi : \\mathbb R\\times E\\to F$, $\\Phi(\\lambda,u)=u''-\\lambda f(u)$ avec $E=\\{u\\in C^2([0,1])\\,;\\,u(0)=u(1)=0\\}$, $F=C^0([0,1])$ ; $\\partial_u\\Phi(0,0)=\\frac{d^2}{dt^2} : E\\to F$ est un isomorphisme (problème de Dirichlet linéaire, résolu par double intégration). Les hypothèses lipschitziennes sur $f$ et $f'$ garantissent que $u\\mapsto f\\circ u$ est $C^1$ de $E$ dans $F$. Variante : point fixe de Banach à paramètre sur $u=\\lambda\\,G(f(u))$, $G$ fonction de Green.)",
    "hypotheses": [
     "$f$ et $f'$ globalement lipschitziennes (pour la régularité $C^1$ de l'opérateur de Nemytskii $u\\mapsto f\\circ u$ en dimension infinie)",
     "$\\lambda$ petit (résultat perturbatif autour de $\\lambda=0$, $u_0=0$)"
@@ -10068,7 +10100,7 @@
    "ref": "Exercice VI.4.9",
    "title": "Théorème du rang constant (formes normales des immersions, submersions, applications de rang constant)",
    "page": 125,
-   "statement": "Soit $f : U\\to\\mathbb R^m$ une application $C^p$ d'un ouvert $U$ de $\\mathbb R^n$ dans $\\mathbb R^m$. Soit $a\\in U$.\n\n**1. (Immersion.)** Si $f$ est une immersion en $a$ (i.e. si $df_a$ est injective) alors il existe un voisinage ouvert $U_1$ de $a$ dans $U$, un voisinage ouvert $W_1$ de $f(a)$ dans $\\mathbb R^m$ et $\\Psi : W_1\\to W_2\\subset\\mathbb R^m$ un difféomorphisme de $W_1$ sur un ouvert $W_2$ de $\\mathbb R^m$ tels que $f(U_1)\\subset W_1$ et $\\Psi\\circ f(x_1,\\dots,x_n)=(x_1,\\dots,x_n,0,\\dots,0)$ pour tout $x\\in U_1$ : à un changement de variable au but près, toute immersion est localement l'injection canonique $\\mathbb R^n\\to\\mathbb R^m$.\n\n**2. (Submersion.)** Si $f$ est une submersion en $a$ (i.e. si $df_a$ est surjective), alors il existe un voisinage ouvert $U_1$ de $a$ dans $U$, un ouvert $U_2$ de $\\mathbb R^n$ et un difféomorphisme $\\Phi : U_2\\to U_1$ tels que $f\\circ\\Phi(x_1,\\dots,x_n)=(x_1,\\dots,x_m)$ pour tout $x\\in U_2$ : à un changement de variable à la source près, toute submersion est la projection canonique $\\mathbb R^n\\to\\mathbb R^m$.\n\n**3. (Rang constant.)** Posons $r=\\mathrm{rang}(df_a)$ et supposons $df_x$ de rang $r$ pour tout $x$ dans un voisinage de $a$. Alors il existe (a) un difféomorphisme $\\Phi : U_2\\to U_1$ d'un ouvert $U_2$ de $\\mathbb R^n$ sur un voisinage ouvert $U_1$ de $a$ dans $U$, (b) un difféomorphisme $\\Psi : W_1\\to W_2$ d'un voisinage ouvert $W_1$ de $f(a)$ dans $\\mathbb R^m$ sur un ouvert $W_2$ de $\\mathbb R^m$, vérifiant $f(U_1)\\subset W_1$ et\n$$\\Psi\\circ f\\circ\\Phi : U_2\\to W_2,\\qquad(x_1,\\dots,x_n)\\mapsto(x_1,\\dots,x_r,0,\\dots,0).$$\n\nIndication du poly : après normalisation ($a=0$, $f(a)=0$, bloc $r\\times r$ supérieur gauche de la jacobienne inversible), poser $\\Theta(x)=(f_1(x),\\dots,f_r(x),x_{r+1},\\dots,x_n)$ ; $d\\Theta_0$ est inversible, $\\Phi=\\Theta^{-1}$, $g=f\\circ\\Phi$ vérifie $g(y)=(y_1,\\dots,y_r,g_{r+1}(y),\\dots,g_m(y))$ et $dg_y=\\begin{pmatrix}I_r&0\\\\ *&B(y)\\end{pmatrix}$ ; l'hypothèse de rang constant force $B\\equiv0$, donc $g_{r+1},\\dots,g_m$ ne dépendent que de $y_1,\\dots,y_r$ (sur un pavé) ; on redresse au but par $\\Psi(z)=(z_1,\\dots,z_r,z_{r+1}-g_{r+1}(z_1,\\dots,z_r),\\dots,z_m-g_m(z_1,\\dots,z_r))$. Pour 1, construire directement $F(u,t)=f(u)+\\phi(t)$ avec $\\phi : \\mathbb R^{m-n}\\to H$ isomorphisme sur un supplémentaire $H$ de $\\mathrm{Im}\\,df_a$ et prendre $\\Psi=F^{-1}$.",
+   "statement": "Soit $f : U\\to\\mathbb R^m$ une application $C^p$ d'un ouvert $U$ de $\\mathbb R^n$ dans $\\mathbb R^m$. Soit $a\\in U$.\n\n**1. (Immersion.)** Si $f$ est une immersion en $a$ (i.e. si $df_a$ est injective) alors il existe un voisinage ouvert $U_1$ de $a$ dans $U$, un voisinage ouvert $W_1$ de $f(a)$ dans $\\mathbb R^m$ et $\\Psi : W_1\\to W_2\\subset\\mathbb R^m$ un difféomorphisme de $W_1$ sur un ouvert $W_2$ de $\\mathbb R^m$ tels que $f(U_1)\\subset W_1$ et $\\Psi\\circ f(x_1,\\dots,x_n)=(x_1,\\dots,x_n,0,\\dots,0)$ pour tout $x\\in U_1$ : à un changement de variable au but près, toute immersion est localement l'injection canonique $\\mathbb R^n\\to\\mathbb R^m$.\n\n**2. (Submersion.)** Si $f$ est une submersion en $a$ (i.e. si $df_a$ est surjective), alors il existe un voisinage ouvert $U_1$ de $a$ dans $U$, un ouvert $U_2$ de $\\mathbb R^n$ et un difféomorphisme $\\Phi : U_2\\to U_1$ tels que $f\\circ\\Phi(x_1,\\dots,x_n)=(x_1,\\dots,x_m)$ pour tout $x\\in U_2$ : à un changement de variable à la source près, toute submersion est la projection canonique $\\mathbb R^n\\to\\mathbb R^m$.\n\n**3. (Rang constant.)** Posons $r=\\mathrm{rang}(df_a)$ et supposons $df_x$ de rang $r$ pour tout $x$ dans un voisinage de $a$. Alors il existe (a) un difféomorphisme $\\Phi : U_2\\to U_1$ d'un ouvert $U_2$ de $\\mathbb R^n$ sur un voisinage ouvert $U_1$ de $a$ dans $U$, (b) un difféomorphisme $\\Psi : W_1\\to W_2$ d'un voisinage ouvert $W_1$ de $f(a)$ dans $\\mathbb R^m$ sur un ouvert $W_2$ de $\\mathbb R^m$, vérifiant $f(U_1)\\subset W_1$ et\n$$\\Psi\\circ f\\circ\\Phi : U_2\\to W_2,\\qquad(x_1,\\dots,x_n)\\mapsto(x_1,\\dots,x_r,0,\\dots,0).$$\n\nIndication du poly : après normalisation ($a=0$, $f(a)=0$, bloc $r\\times r$ supérieur gauche de la jacobienne inversible), poser $\\Theta(x)=(f_1(x),\\dots,f_r(x),x_{r+1},\\dots,x_n)$ ; $d\\Theta_0$ est inversible, $\\Phi=\\Theta^{-1}$, $g=f\\circ\\Phi$ vérifie $g(y)=(y_1,\\dots,y_r,g_{r+1}(y),\\dots,g_m(y))$ et $dg_y=\\begin{pmatrix}I_r&0\\\\ *&B(y)\\end{pmatrix}$ ; l'hypothèse de rang constant force $B\\equiv0$, donc $g_{r+1},\\dots,g_m$ ne dépendent que de $y_1,\\dots,y_r$ (sur un pavé) ; on redresse au but par $\\Psi(z)=(z_1,\\dots,z_r,z_{r+1}-g_{r+1}(z_1,\\dots,z_r),\\dots,z_m-g_m(z_1,\\dots,z_r))$. Pour 1, construire directement $F(u,t)=f(u)+\\phi(t)$ avec $\\phi : \\mathbb R^{m-n}\\to H$ isomorphisme sur un supplémentaire $H$ de $\\mathrm{Im}\\,df_a$ et prendre $\\Psi=F^{-1}$.\n\n(Corrigé complet dans le complément TD « Deux exercices de calcul différentiel », Exercice 2 ; le cas 1 y est traité directement par $F(u,t)=f(u)+\\phi(t)$, comme la Proposition IX.1.2.)",
    "hypotheses": [
     "$f$ de classe $C^p$, $p\\ge1$ (les difféomorphismes obtenus sont $C^p$)",
     "dimension finie",
@@ -12485,7 +12517,7 @@
     "Définition IX.2.1"
    ],
    "used_by_hint": "Généralisée aux applications entre sous-variétés (Définition IX.7.5) ; Remarque IX.7.2 (un seul paramétrage suffit) ; Exercice IX.7.3 (prolongement local).",
-   "importance": 3,
+   "importance": 2,
    "proof_in_poly": "none",
    "proof_length": "short",
    "counterexample_hints": [
@@ -12843,7 +12875,7 @@
     "Définition IX.7.15"
    ],
    "used_by_hint": "Proposition IX.7.25 (différentielle d'un difféomorphisme), Théorème IX.7.26, Remarque IX.7.40, Exercice IX.7.39.",
-   "importance": 3,
+   "importance": 2,
    "proof_in_poly": "sketch",
    "proof_length": "short",
    "counterexample_hints": [],
@@ -12955,7 +12987,7 @@
     "Définition IX.7.5"
    ],
    "used_by_hint": "Proposition IX.7.25, Théorème IX.7.26, Corollaire IX.8.10 (groupe $\\mathrm{Diff}^r(S)$) ; Exercices IX.9.1, IX.9.4, IX.9.6, IX.9.14.",
-   "importance": 3,
+   "importance": 2,
    "proof_in_poly": "none",
    "proof_length": "short",
    "counterexample_hints": [
@@ -13200,7 +13232,7 @@
     "Définition IX.1.3"
    ],
    "used_by_hint": "Exemples IX.7.33-IX.7.34, Proposition IX.7.35, Définition IX.7.38 (hessienne définie seulement en un point critique), Remarque IX.7.40.",
-   "importance": 3,
+   "importance": 2,
    "proof_in_poly": "none",
    "proof_length": "short",
    "counterexample_hints": [],
@@ -13351,7 +13383,7 @@
     "Définition IX.7.32"
    ],
    "used_by_hint": "Conditions d'ordre 2 pour les extrema (énoncé non numéroté p. 171), Exercice IX.7.39 (calcul le long d'une courbe), Remarque IX.7.40 (lemme de Morse).",
-   "importance": 3,
+   "importance": 2,
    "proof_in_poly": "full",
    "proof_length": "short",
    "counterexample_hints": [
@@ -13515,7 +13547,7 @@
     "Définition VII.2.9"
    ],
    "used_by_hint": "Théorème IX.8.5, Définition IX.8.7, Théorèmes IX.8.8-IX.8.9 ; Exercices IX.9.13, IX.9.14.",
-   "importance": 3,
+   "importance": 2,
    "proof_in_poly": "none",
    "proof_length": "short",
    "counterexample_hints": [],
@@ -13663,7 +13695,7 @@
     "Définition VII.3.4"
    ],
    "used_by_hint": "Formule (IX.8.3), Théorèmes IX.8.8-IX.8.9, Corollaire IX.8.10.",
-   "importance": 3,
+   "importance": 2,
    "proof_in_poly": "none",
    "proof_length": "short",
    "counterexample_hints": [],
