@@ -11,9 +11,11 @@ tags: [sous-variete, application-cr, parametrage-local, carte, lecture-dans-les-
 ---
 ## Intuition
 
-> 💡 Pour étudier une application $\varphi:S_1\to S_2$ entre deux sous-variétés, on la **lit dans des cartes** : on part d'un point $u$ d'un ouvert $U_1\subset\R^{m_1}$, on monte sur $S_1$ par un paramétrage $x_1$, on applique $\varphi$, puis on redescend dans $U_2\subset\R^{m_2}$ par la carte $x_2^{-1}$ de $S_2$ :
-> $$U_1\xrightarrow{\ x_1\ }S_1\xrightarrow{\ \varphi\ }S_2\xrightarrow{\ x_2^{-1}\ }U_2 .$$
-> La composée $x_2^{-1}\circ\varphi\circ x_1$ va d'un ouvert de $\R^{m_1}$ dans $\R^{m_2}$ : le calcul différentiel usuel s'y applique.
+> 💡 Pour étudier une application $\varphi:S_1\to S_2$ entre deux sous-variétés, on la **lit dans des cartes** : on part d'un point $u$ d'un ouvert $U_1\subset\R^{m_1}$, on monte sur $S_1$ par un paramétrage $x_1$, on applique $\varphi$, puis on redescend dans $U_2\subset\R^{m_2}$ par la carte $x_2^{-1}$ de $S_2$. La composée $x_2^{-1}\circ\varphi\circ x_1$ va d'un ouvert de $\R^{m_1}$ dans $\R^{m_2}$ : le calcul différentiel usuel s'y applique.
+
+$$
+U_1\xrightarrow{\ x_1\ }S_1\xrightarrow{\ \varphi\ }S_2\xrightarrow{\ x_2^{-1}\ }U_2
+$$
 
 On généralise ainsi [[ch09-fonction-differentiable-sur-sous-variete-def]] (cas $S_2=\R$). Les sous-variétés $S_1,S_2$ sont munies de la topologie induite par $\R^{N_1}$, $\R^{N_2}$, ce qui donne un sens à « $\varphi$ continue ». Les paramétrages et cartes sont ceux de [[ch09-sous-variete-def]] : $x_i:U_i\to S_i$ de classe $C^{k_i}$, immersif, homéomorphisme sur un ouvert $x_i(U_i)$ de $S_i$, de carte $x_i^{-1}$.
 

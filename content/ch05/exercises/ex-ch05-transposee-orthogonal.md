@@ -2,7 +2,7 @@
 id: ex-ch05-transposee-orthogonal
 type: exercise
 chapters: [5]
-title: "L'application A ↦ ᵗA A et les courbes tracées dans le groupe orthogonal"
+title: "L'application $A\mapsto{}^tA\,A$ et les courbes tracées dans le groupe orthogonal"
 source: "Classique (différentielle de $A\mapsto {}^tAA$, première étape de l'étude de $O(n)$)"
 difficulty: 1
 time: 15
