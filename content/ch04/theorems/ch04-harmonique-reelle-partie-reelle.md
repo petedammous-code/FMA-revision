@@ -6,7 +6,7 @@ title: Une fonction harmonique réelle sur un ouvert simplement connexe est la p
 ref: Corollaire IV.2.4
 page: 77
 importance: 3
-depends: [ch04-harmonique-f-plus-g-barre, ch01-cauchy-riemann, ch02-primitive-simplement-connexe]
+depends: [ch04-harmonique-f-plus-g-barre, ch01-cauchy-riemann, ch02-primitive-simplement-connexe, ch01-formulaire-dz-dzbar, ch01-stabilite-operations]
 tags: [harmonique, partie-reelle, simplement-connexe, fonction-conjuguee, cauchy-riemann, potentiel-complexe]
 ---
 ## Intuition
