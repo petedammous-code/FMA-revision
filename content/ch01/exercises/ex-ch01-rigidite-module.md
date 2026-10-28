@@ -3,7 +3,7 @@ id: ex-ch01-rigidite-module
 type: exercise
 chapters: [1]
 title: Ce que le module d'une fonction holomorphe impose
-source: Inventé
+source: "Inventé (questions 1 et 2 : classiques des recueils d'exercices ; questions 3 et 4 originales)"
 difficulty: 2
 time: 25
 tools: [ch01-principe-maximum, ch01-prolongement-analytique, ch01-stabilite-operations, ch01-estimees-cauchy, ch01-operateurs-dz-dzbar, ch01-formulaire-dz-dzbar, ch01-c-derivable-ssi-df-c-lineaire, ch01-holomorphe-analytique, ch01-exp-trigo-hyperboliques]

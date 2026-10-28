@@ -5,7 +5,7 @@ chapters: [1, 5, 6]
 title: Un critère d'injectivité par la partie réelle de la dérivée
 source: "Classique (critère de Noshiro–Warschawski, 1934–35) ; questions 3 à 5 inventées"
 difficulty: 3
-time: 45
+time: 40
 tools: [ch01-integrale-primitive, ch01-def-integrale-chemin, ch01-holomorphe-analytique, ch01-c-derivable-ssi-df-c-lineaire, ch01-similitude-conforme, ch06-inversion-globale, ch05-composition-differentielles, ch01-bijection-holomorphe-reciproque-holomorphe, ch01-application-ouverte, ch01-exp-trigo-hyperboliques]
 ---
 ## Énoncé
@@ -78,4 +78,4 @@ L'hypothèse qui manque est la **convexité** : $\Omega_1$ n'est pas convexe, pu
 * Dans la question 2, on a besoin de la **stricte** positivité et de la compacité de $[0,1]$ (ou de la continuité) pour conclure que l'intégrale est $>0$ ; $\Re f'\ge0$ ne suffit pas ($f$ constante).
 * Dans l'inversion globale, l'injectivité est une hypothèse **globale** qu'on ne peut pas remplacer par $df_z$ inversible partout : $\exp$ sur $\C$ a une différentielle partout inversible mais n'est pas injective. Ici c'est la question 2 qui fournit l'injectivité.
 * Comme $f$ et $e^{i\theta}f$ sont injectives en même temps, le critère s'applique dès que $\Re\bigl(e^{i\theta}f'\bigr)>0$ pour **un** réel $\theta$, c'est-à-dire dès que $f'(\Omega)$ est contenu dans un demi-plan ouvert bordé par une droite passant par $0$. Ce n'est pas une condition nécessaire : $\exp$ est injective sur la bande convexe $\{|\Im z|<\pi\}$ (deux points d'image égale diffèrent d'un élément de $2i\pi\Z$), alors que $\exp'=\exp$ y prend toutes les valeurs de $\C\setminus\,]-\infty,0]$.
-* Variante : $p_a(z)=z+az^2$ est injective sur $D(0,1)$ si et seulement si $|a|\le\frac12$. Le sens direct : si $|a|>\frac12$, $p_a'(-\frac1{2a})=0$ avec $|\frac1{2a}|<1$. Le sens réciproque : $\Re(1+2az)>1-2|a||z|\ge0$ pour $|z|<1$, puis la question 2.
+* Variante : $p_a(z)=z+az^2$ est injective sur $D(0,1)$ si et seulement si $|a|\le\frac12$. Le sens direct : si $|a|>\frac12$, $p_a'(-\frac1{2a})=0$ avec $|\frac1{2a}|<1$. Le sens réciproque : $\Re(1+2az)\ge1-2|a||z|\ge1-|z|>0$ pour $|z|<1$, puis la question 2.
