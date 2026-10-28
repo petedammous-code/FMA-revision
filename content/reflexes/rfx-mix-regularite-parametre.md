@@ -47,7 +47,7 @@ Le réflexe central : **si l'intégrande se prolonge holomorphiquement en le par
 3. **Réel.** Tenter d'abord la complexification : si l'intégrande se prolonge en une fonction holomorphe dominée sur une bande autour de $I$, on a $C^\infty$ d'un coup. Sinon : continuité (convergence dominée), $C^1$ (domination de $\partial_tf$ sur chaque compact), $C^k$ par récurrence.
 4. **Plusieurs paramètres.** Dérivées partielles sous $\int$ + continuité de chacune ⇒ $C^1$ (V.5.1). Bornes variables : V.4.6 et la chaîne.
 5. **Rédaction.** Écrire le majorant **explicite**, son intégrabilité (en $0$ et en $\infty$ séparément), et la phrase « $z_0$ étant arbitraire, $\Phi$ est holomorphe sur $\Omega$ ».
-6. **Exploiter.** Avec $\Phi'$ en main, une intégration par parties donne souvent une équation différentielle linéaire satisfaite par $\Phi$ ; la résoudre avec la condition en un point ([[rfx-diff-differentiabilite]] pour le cadre général).
+6. **Exploiter.** Avec $\Phi'$ en main, une intégration par parties donne souvent une équation différentielle linéaire satisfaite par $\Phi$ ; la résoudre avec la condition en un point (valeur en $0$, limite en $+\infty$). Pour une fonctionnelle de courbes, la différentielle obtenue mène à Euler–Lagrange ([[rfx-diff-euler-lagrange]]).
 
 ## Pièges
 

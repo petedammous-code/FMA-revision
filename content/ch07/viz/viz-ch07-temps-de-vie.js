@@ -113,7 +113,7 @@ Idée de la preuve du lemme des bouts : sur le compact $K$, le flot local existe
       const J = F.J(tau, x0);
       if (F.peano) {
         // faisceau
-        const sigmas = []; for (let s = 0; s <= 6; s += 0.5) sigmas.push(s);
+        const span = x0 > 0 ? tau - Math.sqrt(x0) - P.xmin : x0 < 0 ? P.xmax - tau - Math.sqrt(-x0) : 2 * Math.max(tau - P.xmin, P.xmax - tau); const smax = Math.max(0.6, span + 0.3); const sigmas = []; for (let i = 0; i <= 10; i++) sigmas.push(smax * i / 10);
         ctx.save(); ctx.globalAlpha = 0.45;
         for (const s of sigmas) { const [c1, c2] = peanoFamily(s); P.curve(sampleCurve(peanoSol(c1, c2), -INF, INF, P.xmin, P.xmax), { color: T.accent5, width: 1.2 }); }
         if (x0 === 0) P.curve([[P.xmin, 0], [P.xmax, 0]], { color: T.accent5, width: 1.2 });
