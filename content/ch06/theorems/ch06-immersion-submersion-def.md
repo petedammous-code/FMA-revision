@@ -3,7 +3,7 @@ id: ch06-immersion-submersion-def
 type: definition
 chapter: 6
 title: Immersion, submersion en un point ; rang d'une application
-ref: Exercice VI.4.9 (non numéroté)
+ref: non numéroté, Exercice VI.4.9, p. 125
 page: 125
 importance: 2
 depends: [ch05-differentielle-def, ch05-matrice-jacobienne]

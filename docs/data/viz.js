@@ -1197,7 +1197,7 @@ FMA.registerViz({
     const sR = kit.canvas(cellR, { height: 300 });
 
     const sel = kit.select(controls, { label: '$f_n$ :', options: Object.keys(FAM).map(k => [FAM[k].lab, k]), value: fam, onChange: v => { fam = v; const F = FAM[v]; stop(); n = Math.min(F.n0, F.nmax); nS.input.max = F.nmax; nS.value = n; rS.input.max = F.rmax; r = (v === 'exp') ? 3 : 0.8; rS.value = r; heat = null; draw(); } });
-    sel.el.style.cssText += ';min-width:0;max-width:100%'; sel.select.style.cssText += ';min-width:0;max-width:100%';
+    sel.el.style.cssText += ';display:flex;width:100%;max-width:100%;min-width:0'; sel.select.style.cssText += ';flex:1 1 0;width:0;min-width:0;max-width:100%';
     const nS = kit.slider(controls, { label: '$n$', min: 1, max: 80, step: 1, value: n, onChange: v => { n = v; heat = null; draw(); } });
     const rS = kit.slider(controls, { label: '$r$', min: 0, max: 1, step: 0.005, value: r, onChange: v => { r = v; draw(); } });
     const eS = kit.slider(controls, { label: '$\\log_{10}\\varepsilon$', min: -6, max: -1, step: 0.1, value: eps, format: v => (+v).toFixed(1), onChange: v => { eps = v; draw(); } });
@@ -1402,7 +1402,7 @@ FMA.registerViz({
     const st = kit.canvas(container, { height: 400 });
     const controls = kit.controls(container);
     const selF = kit.select(controls, { label: '$f_n$ :', options: Object.keys(FAM).map(k => [FAM[k].lab, k]), value: fam, onChange: v => { fam = v; stopA(); const F = FAM[v]; n = F.n0; nS.input.max = F.nmax; nS.value = n; rho = F.rho0; rhoS.input.max = F.rhoMax; rhoS.value = rho; cen = F.c0.slice(); draw(); } });
-    selF.el.style.cssText += ';min-width:0;max-width:100%'; selF.select.style.cssText += ';min-width:0;max-width:100%';
+    selF.el.style.cssText += ';display:flex;width:100%;max-width:100%;min-width:0'; selF.select.style.cssText += ';flex:1 1 0;width:0;min-width:0;max-width:100%';
     const nS = kit.slider(controls, { label: '$n$', min: 1, max: FAM.deg2.nmax, step: 1, value: n, onChange: v => { n = v; draw(); } });
     const rhoS = kit.slider(controls, { label: '$\\rho$', min: 0.05, max: FAM.deg2.rhoMax, step: 0.05, value: rho, onChange: v => { rho = v; draw(); } });
     const cbT = kit.checkbox(controls, { label: 'trajectoires', checked: true, onChange: v => { showTraj = v; draw(); } });
@@ -1550,12 +1550,13 @@ Comparez, pour $z_0$ fixé, la courbe du haut à son asymptote et la somme du ba
     kit.colorLegend(container);
 
     const selP = kit.select(controls, { label: 'produit :', options: Object.keys(FAM).map(k => [FAM[k].lab, k]), value: fam, onChange: v => { fam = v; stopA(); z0 = FAM[v].z0.slice(); cache = null; draw(); } });
-    selP.el.style.cssText += ';min-width:0;max-width:100%'; selP.select.style.cssText += ';min-width:0;max-width:100%';
+    selP.el.style.cssText += ';display:flex;width:100%;max-width:100%;min-width:0'; selP.select.style.cssText += ';flex:1 1 0;width:0;min-width:0;max-width:100%';
     const nS = kit.slider(controls, { label: '$N$', min: 0, max: NMAX, step: 1, value: N, onChange: v => { N = v; cache = null; draw(); } });
     const cbL = kit.checkbox(controls, { label: 'afficher la limite', checked: false, onChange: v => { showLim = v; cache = null; draw(); } });
     const playB = kit.button(controls, { label: '▶ ajouter des facteurs', primary: true, onClick: () => { if (anim) stopA(); else startA(); } });
     const ro1 = kit.readout(controls, { label: '' });
     const ro2 = kit.readout(controls, { label: '' });
+    const ro3 = kit.readout(controls, { label: '' });
 
     let anim = null, acc = 0;
     function stopA() { if (anim) { anim.stop(); anim = null; } playB.textContent = '▶ ajouter des facteurs'; }
@@ -1624,8 +1625,9 @@ Comparez, pour $z_0$ fixé, la courbe du haut à son asymptote et la somme du ba
     function draw() {
       try {
         const F = FAM[fam]; drawLeft(); const se = drawRight();
-        ro1.set('|P_N(z_0)| = ' + se.mod[N].toPrecision(4) + (se.lim != null ? ' — |limite| = ' + se.lim.toPrecision(4) : ' — pas de limite'));
-        ro2.set('S_N = ' + se.S[N].toPrecision(4) + (fam === 'naive' ? ' (diverge, ~ |z₀| ln N)' : ' (borné)'));
+        ro1.set('|P_N(z₀)| = ' + se.mod[N].toPrecision(4));
+        ro2.set(se.lim != null ? '|limite(z₀)| = ' + se.lim.toPrecision(4) : 'pas de limite');
+        ro3.set('S_N = ' + se.S[N].toPrecision(4) + (fam === 'naive' ? ' (diverge)' : ' (borné)'));
       } catch (e) { console.error(e); }
     }
 

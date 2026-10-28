@@ -71,7 +71,7 @@ FMA.registerViz({
     const st = kit.canvas(container, { height: 400 });
     const controls = kit.controls(container);
     const selF = kit.select(controls, { label: '$f_n$ :', options: Object.keys(FAM).map(k => [FAM[k].lab, k]), value: fam, onChange: v => { fam = v; stopA(); const F = FAM[v]; n = F.n0; nS.input.max = F.nmax; nS.value = n; rho = F.rho0; rhoS.input.max = F.rhoMax; rhoS.value = rho; cen = F.c0.slice(); draw(); } });
-    selF.el.style.cssText += ';min-width:0;max-width:100%'; selF.select.style.cssText += ';min-width:0;max-width:100%';
+    selF.el.style.cssText += ';display:flex;width:100%;max-width:100%;min-width:0'; selF.select.style.cssText += ';flex:1 1 0;width:0;min-width:0;max-width:100%';
     const nS = kit.slider(controls, { label: '$n$', min: 1, max: FAM.deg2.nmax, step: 1, value: n, onChange: v => { n = v; draw(); } });
     const rhoS = kit.slider(controls, { label: '$\\rho$', min: 0.05, max: FAM.deg2.rhoMax, step: 0.05, value: rho, onChange: v => { rho = v; draw(); } });
     const cbT = kit.checkbox(controls, { label: 'trajectoires', checked: true, onChange: v => { showTraj = v; draw(); } });

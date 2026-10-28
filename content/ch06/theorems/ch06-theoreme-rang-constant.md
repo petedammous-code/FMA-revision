@@ -68,7 +68,7 @@ $$
 
 **Rôle.** C'est elle, et elle seule, qui force le bloc $B(y)$ à être nul dans la preuve (voir l'étape 3). Dans les cas 1 et 2 (rang maximal), elle est automatique par semi-continuité du rang ([[ch06-immersion-submersion-def]]).
 
-**Si on la retire.** Hypothèse **nécessaire** : si $\Psi\circ f\circ\Phi=\pi_r:(x_1,\dots,x_n)\mapsto(x_1,\dots,x_r,0,\dots,0)$ sur $U_2$, alors $d\Psi_{f(\Phi(y))}\circ df_{\Phi(y)}\circ d\Phi_y=\pi_r$ et, $d\Psi$ et $d\Phi$ étant inversibles, $\mathrm{rang}(df_x)=r$ pour tout $x\in U_1$. Exemple : $f(x,y)=(x,xy)$ en $0$ : $df_{(x,y)}=\begin{pmatrix}1&0\\y&x\end{pmatrix}$ est de rang $1$ en $0$ et de rang $2$ dès que $x\ne0$ : aucune forme normale n'existe en $0$. De même $f(x)=x^2$ en $0$ (rang $0$ en $0$, $1$ ailleurs ; $f$ envoie tout voisinage de $0$ dans $[0,+\infty[$).
+**Si on la retire.** Hypothèse **nécessaire** : si $\Psi\circ f\circ\Phi=\pi_r:(x_1,\dots,x_n)\mapsto(x_1,\dots,x_r,0,\dots,0)$ sur $U_2$, alors $d\Psi_{f(\Phi(y))}\circ df_{\Phi(y)}\circ d\Phi_y=\pi_r$ et, $d\Psi$ et $d\Phi$ étant inversibles, $\mathrm{rang}(df_x)=r$ pour tout $x\in U_1$. Exemple : $f(x,y)=(x,xy)$ en $0$ : $df_{(x,y)}=\begin{pmatrix}1&0\\y&x\end{pmatrix}$ est de rang $1$ en $0$ et de rang $2$ dès que $x\ne0$ : aucune forme normale n'existe en $0$. De même $f(x)=x^2$ en $0$ (rang $r=0$ en $0$, $1$ ailleurs) : la forme normale serait $\Psi\circ f\circ\Phi=0$, donc $f$ constante sur le voisinage $U_1$ de $0$, ce qui est faux.
 
 ## Idée de la preuve
 
@@ -154,4 +154,4 @@ et $\Psi\circ f(t)=\big(\arcsin(\sin t),\ \cos t-\sqrt{1-\sin^2t}\big)=(t,\cos t
 * Le résultat est **local** : $t\mapsto(\cos t,\sin t)$ est une immersion en tout point mais n'est pas injective sur $\R$ ; $t\mapsto(\sin2t,\sin t)$ est une immersion injective sur $]-\pi,\pi[$ dont l'image (un « huit ») n'est pas une sous-variété au voisinage de l'origine (les extrémités $t\to\pm\pi$ reviennent vers $(0,0)=f(0)$).
 * Dans l'étape 4, l'annulation des dérivées partielles en $y''$ n'entraîne l'indépendance en $y''$ que sur un domaine où chaque « tranche » $\{y'\}\times\Pi''$ est connexe : d'où le choix d'un **pavé** $U_2$.
 * Ne pas oublier de **défaire la normalisation** (permutations $P$, $Q$) : $\Phi=P\circ\tilde\Phi$, $\Psi=\tilde\Psi\circ Q$. La normalisation « $a=0$, $f(a)=0$ » du poly (par translations) est commode mais pas nécessaire.
-* Tous les difféomorphismes obtenus ont la régularité $C^p$ de $f$ (pas mieux).
+* Tous les difféomorphismes obtenus ont la régularité $C^p$ de $f$ : on ne peut pas garantir mieux en général (pour $f$ seulement $C^p$, $\Theta$ et $F$ ne sont que $C^p$).

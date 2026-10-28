@@ -63,12 +63,13 @@ Comparez, pour $z_0$ fixé, la courbe du haut à son asymptote et la somme du ba
     kit.colorLegend(container);
 
     const selP = kit.select(controls, { label: 'produit :', options: Object.keys(FAM).map(k => [FAM[k].lab, k]), value: fam, onChange: v => { fam = v; stopA(); z0 = FAM[v].z0.slice(); cache = null; draw(); } });
-    selP.el.style.cssText += ';min-width:0;max-width:100%'; selP.select.style.cssText += ';min-width:0;max-width:100%';
+    selP.el.style.cssText += ';display:flex;width:100%;max-width:100%;min-width:0'; selP.select.style.cssText += ';flex:1 1 0;width:0;min-width:0;max-width:100%';
     const nS = kit.slider(controls, { label: '$N$', min: 0, max: NMAX, step: 1, value: N, onChange: v => { N = v; cache = null; draw(); } });
     const cbL = kit.checkbox(controls, { label: 'afficher la limite', checked: false, onChange: v => { showLim = v; cache = null; draw(); } });
     const playB = kit.button(controls, { label: '▶ ajouter des facteurs', primary: true, onClick: () => { if (anim) stopA(); else startA(); } });
     const ro1 = kit.readout(controls, { label: '' });
     const ro2 = kit.readout(controls, { label: '' });
+    const ro3 = kit.readout(controls, { label: '' });
 
     let anim = null, acc = 0;
     function stopA() { if (anim) { anim.stop(); anim = null; } playB.textContent = '▶ ajouter des facteurs'; }
@@ -137,8 +138,9 @@ Comparez, pour $z_0$ fixé, la courbe du haut à son asymptote et la somme du ba
     function draw() {
       try {
         const F = FAM[fam]; drawLeft(); const se = drawRight();
-        ro1.set('|P_N(z_0)| = ' + se.mod[N].toPrecision(4) + (se.lim != null ? ' — |limite| = ' + se.lim.toPrecision(4) : ' — pas de limite'));
-        ro2.set('S_N = ' + se.S[N].toPrecision(4) + (fam === 'naive' ? ' (diverge, ~ |z₀| ln N)' : ' (borné)'));
+        ro1.set('|P_N(z₀)| = ' + se.mod[N].toPrecision(4));
+        ro2.set(se.lim != null ? '|limite(z₀)| = ' + se.lim.toPrecision(4) : 'pas de limite');
+        ro3.set('S_N = ' + se.S[N].toPrecision(4) + (fam === 'naive' ? ' (diverge)' : ' (borné)'));
       } catch (e) { console.error(e); }
     }
 
