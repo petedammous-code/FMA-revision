@@ -3,7 +3,7 @@ FMA.registerViz({
   chapter: 5,
   title: "Matrice jacobienne : une petite grille devient un parallélogramme",
   description: String.raw`**Ce que l'on voit.** À gauche (en haut sur un téléphone), le plan des $x=(x_1,x_2)$ : un point $a$ (orange, **à glisser**), un petit carré $a+[-\delta,\delta]^2$ muni d'une grille (verticales bleues, horizontales roses), et une courbe $\alpha$ passant par $a$ (verte) dont le vecteur tangent en $t=0$ est $h=\alpha'(0)=\delta\,(\cos\varphi,\sin\varphi)$. À droite : le plan d'arrivée, **recentré sur $f(a)$ et agrandi** pour que l'image tienne dans la fenêtre. Traits pleins : l'image de la grille par $f:\R^2\to\R^2$ (courbée). Tirets : l'image de la même grille par l'**approximation affine** $x\mapsto f(a)+df_a(x-a)$, c'est-à-dire par la matrice jacobienne
-$$\mathrm{Jac}\text{-matrice}=\begin{pmatrix}\partial_{x_1}f_1(a)&\partial_{x_2}f_1(a)\\ \partial_{x_1}f_2(a)&\partial_{x_2}f_2(a)\end{pmatrix},$$
+$$J_f(a)=\begin{pmatrix}\partial_{x_1}f_1(a)&\partial_{x_2}f_1(a)\\ \partial_{x_1}f_2(a)&\partial_{x_2}f_2(a)\end{pmatrix},$$
 dont la colonne $i$ est $\frac{\partial f}{\partial x_i}(a)$ (poly, section V.3.5, p. 103).
 
 **Ce qu'il faut regarder.**
