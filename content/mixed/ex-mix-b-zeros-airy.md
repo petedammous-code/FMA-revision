@@ -3,7 +3,7 @@ id: ex-mix-b-zeros-airy
 type: exercise
 chapters: [7, 1, 2]
 title: "Les solutions de l'équation d'Airy w'' = zw ont une infinité de zéros"
-source: "Classique pour le résultat (zéros des fonctions d'Airy, qui se déduisent usuellement de la théorie de Hadamard des fonctions entières d'ordre fini) — démonstration élémentaire par estimation de Gronwall et coefficients de Fourier inventée"
+source: "Classique pour le résultat (zéros des fonctions d'Airy, qui se déduisent usuellement de la théorie de Hadamard des fonctions entières d'ordre fini) ; le lemme 4 est une inégalité classique de type Borel–Carathéodory — assemblage élémentaire (énergie et Gronwall, coefficients de Fourier) et progression inventés"
 difficulty: 4
 time: 75
 tools: [ch01-estimees-cauchy, ch01-def-rayon-convergence, ch01-serie-entiere-holomorphe, ch07-unicite-globale, ch07-reduction-ordre-un, ch01-derivee-f-rond-gamma, ch01-def-multiplicite-zero, ch02-logarithme-existence, ch01-zeros-isoles]
@@ -114,7 +114,7 @@ et $(A)$ donne, en simplifiant par l'exponentielle qui ne s'annule pas, l'égali
 $$
 (y^2)''=2y'^2+2yy''=2y'^2+2t\,y^2\ge0\quad\text{sur }[0,+\infty[,
 $$
-donc $y^2$ est convexe sur $[0,+\infty[$. Si $y(t_1)=y(t_2)=0$ avec $0\le t_1<t_2$, la fonction convexe positive $y^2$ est nulle aux extrémités de $[t_1,t_2]$, donc nulle sur ce segment ; $w$ s'annule alors sur un segment, qui a des points d'accumulation, donc $w\equiv0$ ([[ch01-zeros-isoles]]). Ainsi une solution réelle non nulle a au plus un zéro dans $[0,+\infty[$ : ses zéros, en nombre infini, sont tous (sauf au plus un) dans $\C\setminus[0,+\infty[$. (Pour la fonction d'Airy classique $\mathrm{Ai}$, ils sont tous réels négatifs, le premier vers $-2{,}338$ ; pour $\mathrm{Bi}$, une infinité est réelle négative, le premier vers $-1{,}174$, et les autres sont non réels.)
+donc $y^2$ est convexe sur $[0,+\infty[$. Si $y(t_1)=y(t_2)=0$ avec $0\le t_1<t_2$, la fonction convexe positive $y^2$ est nulle aux extrémités de $[t_1,t_2]$, donc nulle sur ce segment ; $w$ s'annule alors sur un segment, qui a des points d'accumulation, donc $w\equiv0$ ([[ch01-zeros-isoles]]). Ainsi une solution réelle non nulle a au plus un zéro dans $[0,+\infty[$ : ses zéros, en nombre infini, sont tous (sauf au plus un) dans $\C\setminus[0,+\infty[$. (Pour la fonction d'Airy classique $\mathrm{Ai}$, ils sont tous réels négatifs, le premier vers $-2{,}338$ ; pour $\mathrm{Bi}$, une infinité est réelle négative, le premier vers $-1{,}174$, et les autres sont non réels, proches des demi-droites $\arg z=\pm\pi/3$ — par exemple $2{,}633\pm4{,}855\,i$, de partie réelle **positive**. On ne peut donc pas remplacer $\C\setminus[0,+\infty[$ par $]-\infty,0[$ en général.)
 
 ## Pièges et variantes
 
@@ -122,4 +122,5 @@ donc $y^2$ est convexe sur $[0,+\infty[$. Si $y(t_1)=y(t_2)=0$ avec $0\le t_1<t_
 * **Gronwall « naïf » insuffisant.** Avec $N=|u|+|u'|$ on obtient seulement $N(\rho)\le N(0)e^{\rho+\rho^2/2}$ (croissance d'ordre $2$). Le lemme 4, refait avec l'exposant $2$, donnerait seulement $h$ de degré $\le2$ ; la conclusion subsiste néanmoins (reporter $w=Pe^{\alpha+\beta z+\gamma z^2}$ : le degré à gauche est $p+2$ si $\gamma\neq0$, ce qui donne encore une contradiction). Le poids $(1+\rho)$ dans $\mathcal E$ sert à obtenir l'exposant optimal $3/2$.
 * **Dérivées d'un module** : $|u|$ n'est pas dérivable là où $u$ s'annule ; c'est pour cela qu'on travaille avec $|u|^2=u\bar u$.
 * Dans le lemme 4, l'hypothèse ne porte que sur $\Re h$ **majorée** (pas sur $|h|$) : c'est l'astuce $|x|=2x^+-x$ qui permet de s'en contenter.
-* Variante : $w''=z^kw$ ($k\ge1$) : même méthode, croissance d'ordre $(k+2)/2$, et une infinité de zéros. Variante : $w''+q(z)w=0$ avec $q$ polynôme non constant.
+* Variante : $w''=z^kw$ ($k\ge1$) : même méthode, croissance d'ordre $(k+2)/2$, donc $h$ polynôme de degré $d\le(k+2)/2$, et une infinité de zéros. Pour $k$ impair la comparaison des degrés conclut comme en 5 c) ; pour $k$ pair, $d=(k+2)/2$ n'est pas exclu par le seul degré dominant, il faut pousser au coefficient suivant (pour $k=2$, $h=\pm z^2/2+\beta z+\alpha$ force $\beta=0$ puis $P''\pm2zP'\pm P=0$, impossible pour $P\neq0$ : coefficient dominant $\pm(2p+1)\neq0$).
+* **Contre-variante** : pour $w''+q(z)w=0$ avec $q$ polynôme non constant, la méthode montre encore que $w=Pe^h$ avec $h$ polynôme si $w$ a un nombre fini de zéros, mais **la conclusion peut tomber** : $w=e^{z^2/2}$ vérifie $w''=(1+z^2)w$, soit $q(z)=-(1+z^2)$, et n'a aucun zéro. Le cas d'Airy est exclu par le degré **impair** de $q$.

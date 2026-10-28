@@ -4,8 +4,8 @@ type: exercise
 chapters: [7, 1, 3]
 title: Équations linéaires à coefficients holomorphes et rayon de convergence des solutions
 source: "Classique (théorème de Cauchy sur les équations linéaires à coefficients holomorphes, cf. Hille, *Ordinary Differential Equations in the Complex Domain*, ch. 2) — preuve par itérations de Picard, progression et exemples inventés"
-difficulty: 3
-time: 50
+difficulty: 4
+time: 60
 tools: [ch01-primitive-locale, ch01-integrale-primitive, ch07-equation-integrale, ch03-weierstrass, ch03-convergence-uniforme-compacts, ch01-estimees-cauchy, ch07-unicite-globale, ch07-reduction-ordre-un, ch01-def-rayon-convergence]
 ---
 ## Énoncé
