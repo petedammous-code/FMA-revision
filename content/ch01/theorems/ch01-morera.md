@@ -48,7 +48,7 @@ $\int_{[i,0]}\bar z\,dz=\int_0^1\bigl(-i(1-t)\bigr)(-i)\,dt=-\frac12$. Total : $
 
 **Rôle.** La preuve de la réciproque découpe le triangle plein en petits triangles contenus dans des disques de $\Omega$, sur lesquels $f$ a une primitive.
 
-**Si on la retire.** $\Omega=\C^\times$, $f(z)=1/z$, et $a=1$, $b=j=e^{2i\pi/3}$, $c=j^2$ : le bord du triangle est dans $\Omega$, mais le triangle plein contient $0$. Le segment $[1,j]$ est inclus dans $\C\setminus\R_-$ (sa partie imaginaire $t\frac{\sqrt3}{2}$ ne s'annule qu'en $t=0$, au point $1$), où le logarithme principal $\mathrm{Log}$ est une primitive holomorphe de $1/z$ ; donc $\int_{[1,j]}\frac{dz}z=\mathrm{Log}\,j-\mathrm{Log}\,1=\frac{2i\pi}3$. Par le changement de variable $z=ju$ (rotation), $\int_{[j,j^2]}\frac{dz}{z}=\int_{[j^2,1]}\frac{dz}{z}=\int_{[1,j]}\frac{du}{u}=\frac{2i\pi}3$. Total : $2i\pi\neq0$.
+**Si on la retire.** $\Omega=\C^\times$, $f(z)=1/z$, et $a=1$, $b=j=e^{2i\pi/3}$, $c=j^2$ : le bord du triangle est dans $\Omega$, mais le triangle plein contient $0$. Le segment $[1,j]$ est inclus dans $\C\setminus\R_-$ (sa partie imaginaire $t\frac{\sqrt3}{2}$ ne s'annule qu'en $t=0$, au point $1$), où le logarithme principal $\mathrm{Log}$ est une primitive holomorphe de $1/z$ ; donc $\int_{[1,j]}\frac{dz}z=\mathrm{Log}\,j-\mathrm{Log}\,1=\frac{2i\pi}3$. Par les changements de variable $z=ju$ et $z=j^2u$ (rotations, qui envoient $[1,j]$ sur $[j,j^2]$ et sur $[j^2,1]$, avec $\frac{dz}{z}=\frac{du}{u}$), $\int_{[j,j^2]}\frac{dz}{z}=\int_{[j^2,1]}\frac{dz}{z}=\int_{[1,j]}\frac{du}{u}=\frac{2i\pi}3$. Total : $2i\pi\neq0$.
 
 ## Idée de la preuve
 
