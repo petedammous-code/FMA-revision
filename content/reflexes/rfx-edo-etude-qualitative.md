@@ -36,7 +36,7 @@ On a un champ autonome $X:U\to\R^N$ (souvent $N=2$ : $x'=f(x,y)$, $y'=g(x,y)$, o
 
 ## Démarche
 
-1. **Équilibres** : résoudre $X(x)=0$. Si l'énoncé demande leur nature, regarder si une intégrale première a un minimum ou maximum local strict (centre, stable) ou un col (instable).
+1. **Équilibres** : résoudre $X(x)=0$. Si l'énoncé demande leur nature, regarder si une intégrale première a un minimum ou maximum local strict en l'équilibre (centre, stable par l'argument de Lyapunov) ; si elle n'a qu'un col, la méthode ne conclut pas (l'instabilité se démontre à part, par exemple en exhibant des solutions issues de points arbitrairement proches qui s'éloignent).
 2. **Ensembles invariants** : chercher les droites ou courbes formées de trajectoires (axes où une composante du champ s'annule, cercles où le champ est tangent : [[rfx-edo-champ-tangent]]). Si l'ensemble $A$ est réunion de trajectoires, alors son complémentaire aussi, et une solution reste dans sa composante connexe.
 3. **Intégrale première** : si le champ est hamiltonien, mécanique, ou séparable, alors chercher $H$ et vérifier $\langle\nabla H,X\rangle=0$ par un calcul explicite.
 4. **Globalité** : si les niveaux de $H$ (ou les sous-niveaux de $V$) sont compacts dans $U$, alors lemme des bouts.

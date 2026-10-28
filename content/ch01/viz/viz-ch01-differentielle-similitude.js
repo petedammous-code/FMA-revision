@@ -113,6 +113,7 @@ $$\omega\longmapsto\frac{f(z_0+h\omega)-f(z_0)}{h}$$
         PZ.text(c[0], c[1], sel.value === 'mod2' ? 'b = 0' : "f' = 0", { dx: 6, dy: -6, font: '11px system-ui, sans-serif', color: t.muted });
       }
       if (F.hole) PZ.text(0, 0, '0 ∉ Ω', { dx: 6, dy: -6, font: '11px system-ui, sans-serif', color: t.muted });
+      if (F.hole && Math.hypot(z0[0], z0[1]) <= h) { ctx.save(); ctx.font = '600 11px system-ui, sans-serif'; ctx.fillStyle = t.accent2; ctx.textAlign = 'left'; ctx.textBaseline = 'bottom'; ctx.fillText('D(z₀,h) contient 0 ∉ Ω : diminuez h', 6, stZ.H - 6); ctx.restore(); }
       PZ.point(z0[0], z0[1], { r: 6, color: t.accent4, stroke: t.fg });
       PZ.text(z0[0], z0[1], 'z₀', { dx: -8, dy: 16, align: 'right', baseline: 'middle', font: '600 12px system-ui, sans-serif' });
       label(ctx, 'plan des z', t);
@@ -166,7 +167,7 @@ $$\omega\longmapsto\frac{f(z_0+h\omega)-f(z_0)}{h}$$
 
     const off = kit.drag(stZ.canvas, {
       onDown: p => { if (!PZ) return; z0 = PZ.toWorld(p.x, p.y); snap(); drawAll(); },
-      onMove: (p, ev, down) => { if (!down || !PZ) return; z0 = PZ.toWorld(p.x, p.y); z0[0] = Math.max(-1.95, Math.min(1.95, z0[0])); z0[1] = Math.max(-1.65, Math.min(1.65, z0[1])); snap(); drawAll(); },
+      onMove: (p, ev, down) => { if (!down || !PZ) return; z0 = PZ.toWorld(p.x, p.y); z0[0] = Math.max(-1.9, Math.min(1.9, z0[0])); z0[1] = Math.max(-1.45, Math.min(1.45, z0[1])); snap(); drawAll(); },
     });
     stZ.onResize = drawAll; stW.onResize = drawAll;
     drawAll();

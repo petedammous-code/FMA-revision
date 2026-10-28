@@ -27,7 +27,8 @@ et l'identité infinitésimale d'invariance ([[ch08-invariance-infinitesimale]])
     const selU = kit.select(controls, { label: 'potentiel', options: Object.keys(pots).map(k => [pots[k], k]), value: 'kepler', onChange: () => { q0 = defaults[selU.value].q.slice(); v0 = defaults[selU.value].v.slice(); recompute(); } });
     const sE = kit.slider(controls, { label: '$\\epsilon$ (brisure)', min: -0.6, max: 0.6, step: 0.01, value: 0, onChange: () => recompute() });
     const sT = kit.slider(controls, { label: 'durée $T$', min: 2, max: 40, step: 0.5, value: 14, onChange: () => { sTau.value = sTau.value; recompute(); } });
-    const sS = kit.slider(controls, { label: 'rotation $s$', min: -3.14, max: 3.14, step: 0.01, value: 0.9, onChange: () => recompute() });
+    const sS = kit.slider(controls, { label: 'rotation $s$', min: -3.14, max: 3.14, step: 0.01, value: 0.9, format: v => Math.abs(+v) >= 3.14 ? (+v < 0 ? '−π' : 'π') : (+v).toFixed(2), onChange: () => recompute() });
+    const sVal = () => { const v = sS.value; return Math.abs(v) >= 3.14 ? Math.sign(v) * Math.PI : v; }; // les extrémités du curseur valent exactement ±π
     const sTau = kit.slider(controls, { label: 'instant $t$', min: 0, max: 1, step: 0.002, value: 0.3, format: v => (v * sT.value).toFixed(2), onChange: () => { stopAnim(); draw(); } });
     const bPlay = kit.button(controls, { label: '▶ animer', primary: true, onClick: () => toggleAnim() });
     const cbX = kit.checkbox(controls, { label: 'champ $X$', checked: true, onChange: () => draw() });
@@ -58,7 +59,7 @@ et l'identité infinitésimale d'invariance ([[ch08-invariance-infinitesimale]])
     const Hof = s => 0.5 * (s[2] * s[2] + s[3] * s[3]) + Upot(s[0], s[1]);
 
     let sol = null, solS = null, P = null, G = null;
-    function recompute() { try { sol = integ(q0, v0, sT.value); solS = integ(rot(q0, sS.value), rot(v0, sS.value), sT.value); } catch (e) { console.warn(e); } draw(); }
+    function recompute() { try { sol = integ(q0, v0, sT.value); solS = integ(rot(q0, sVal()), rot(v0, sVal()), sT.value); } catch (e) { console.warn(e); } draw(); }
 
     let anim = null;
     function stopAnim() { if (anim) { anim.stop(); anim = null; } bPlay.textContent = '▶ animer'; }
@@ -75,7 +76,7 @@ et l'identité infinitésimale d'invariance ([[ch08-invariance-infinitesimale]])
       const pad = 6, hTop = Math.round(H * 0.64);
       G = { top: [pad, pad, W - 2 * pad, hTop - pad], bot: [pad, hTop + 8, W - 2 * pad, H - hTop - 8 - pad] };
       const frame = r => { ctx.save(); ctx.strokeStyle = T.grid; ctx.lineWidth = 1; ctx.strokeRect(r[0] + 0.5, r[1] + 0.5, r[2] - 1, r[3] - 1); ctx.restore(); };
-      const s = sS.value, eps = sE.value, tau = sTau.value * sT.value;
+      const s = sVal(), eps = sE.value, tau = sTau.value * sT.value;
       const cur = sampleAt(sol.pts, tau).s;
       // ---- plan des positions ----
       { const [x0, y0, w0, h0] = G.top; ctx.save(); ctx.translate(x0, y0); ctx.beginPath(); ctx.rect(0, 0, w0, h0); ctx.clip();
@@ -126,7 +127,7 @@ et l'identité infinitésimale d'invariance ([[ch08-invariance-infinitesimale]])
         const Qc = Qof(cur), Hc = Hof(cur);
         const tEnd = sol.status === 'ok' ? 'T' : sol.Tend.toFixed(2); roQ.set(`Q(t) = ⟨γ′, X(γ)⟩ = ${fx(Qc, 4)} ; écart max ${dQ.toExponential(1)} ; Q(${tEnd}) − Q(0) = ${fx((Qs[Qs.length - 1] - Q0), 4)} = ∫₀^${tEnd} ε x y dt = ${fx(intD, 4)}`);
         roH.set(`H(t) = ${fx(Hc, 4)} ; écart max ${dH.toExponential(1)} ; distance max entre F_s∘γ et la solution tournée : ${dev.toExponential(1)}`);
-        let msg = Math.abs(eps) < 1e-9 ? 'ε = 0 : L est invariant par les rotations F_s, donc Q est constant (Noether) ; la courbe tournée F_s∘γ est encore une solution (vert et violet confondus).' : 'ε ≠ 0 : la symétrie est cassée, Q′ = ε x y n’est plus identiquement nul et Q varie ; H reste constant (L autonome) ; F_s∘γ n’est en général plus une solution (vert ≠ violet' + (Math.abs(Math.abs(s) - Math.PI) < 0.02 ? ', sauf ici : s ≈ π et U(−q) = U(q), la rotation d’angle π reste une symétrie' : '') + ').';
+        let msg = Math.abs(eps) < 1e-9 ? 'ε = 0 : L est invariant par les rotations F_s, donc Q est constant (Noether) ; la courbe tournée F_s∘γ est encore une solution (vert et violet confondus).' : 'ε ≠ 0 : la symétrie est cassée, Q′ = ε x y n’est plus identiquement nul et Q varie ; H reste constant (L autonome) ; F_s∘γ n’est en général plus une solution (vert ≠ violet' + (Math.abs(Math.abs(s) - Math.PI) < 1e-9 ? ', sauf ici : s = π et U(−q) = U(q), la rotation d’angle π (q ↦ −q) reste une symétrie' : '') + ').';
         if (sol.status === 'collision') msg += ` Collision avec l’origine en t ≈ ${sol.Tend.toFixed(2)} : la courbe sort de l’ouvert V∖{0} où U est défini.`;
         if (sol.status === 'fuite') msg += ` La trajectoire s’échappe à l’infini (énergie positive), calcul arrêté en t ≈ ${sol.Tend.toFixed(2)}.`;
         note.textContent = msg;

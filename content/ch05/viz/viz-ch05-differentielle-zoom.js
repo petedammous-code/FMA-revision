@@ -16,7 +16,6 @@ $$R(\rho)=\max_{\|h\|=\rho}\frac{\|f(a+h)-f(a)-\ell(h)\|}{\|h\|}$$
   height: 760,
   mount(container, kit) {
     const th = () => kit.theme();
-    const sg = (x) => x;
     const FN = {
       smooth: { lab: 'sin x · cos y', f: (x, y) => Math.sin(x) * Math.cos(y), a0: [0.7, 0.4], vmax: 1, snap: null },
       abs: { lab: '|x| + y²/2', f: (x, y) => Math.abs(x) + y * y / 2, a0: [0, 0.6], vmax: 2, snap: [0, 0], snapLine: true },
@@ -61,7 +60,7 @@ $$R(\rho)=\max_{\|h\|=\rho}\frac{\|f(a+h)-f(a)-\ell(h)\|}{\|h\|}$$
       for (let j = 0; j < h; j++) for (let i = 0; i < w; i++) {
         const [x, y] = P.toWorld(i * step + step / 2, j * step + step / 2);
         const v = f(x, y); const u = Math.max(0, Math.min(1, (v / vm + 1) / 2));
-        const band = 0.93 + 0.07 * (((v * 6 / vm) % 1) + 1) % 1;
+        const band = 0.93 + 0.07 * ((((v * 6 / vm) % 1) + 1) % 1);
         const c = kit.hsl2rgb(0.62 - 0.62 * u, 0.65, Math.max(0.2, Math.min(0.85, (0.45 + 0.15 * (1 - Math.abs(2 * u - 1))) * band)));
         d[k++] = c[0]; d[k++] = c[1]; d[k++] = c[2]; d[k++] = 255;
       }
@@ -129,7 +128,6 @@ $$R(\rho)=\max_{\|h\|=\rho}\frac{\|f(a+h)-f(a)-\ell(h)\|}{\|h\|}$$
       try {
         const g = grad();
         P1 = drawMap();
-        s1.ctx.clearRect(0, 0, 0, 0);
         s2.clear(); s3.clear();
         drawProfile(g); drawRatio(g);
         const r1 = Rmax(g, 1e-3), r2 = Rmax(g, 1e-2);

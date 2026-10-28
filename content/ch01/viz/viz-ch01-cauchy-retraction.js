@@ -29,7 +29,7 @@ calculée numériquement (paramétrage $\omega=tz+(1-t)e^{i\theta}$ et méthode 
       mod2: { name: '|z|²  (non holomorphe)', f: z => [C.abs2(z), 0], hol: false },
       pole: { name: '1/(z − p), p dans le disque', f: z => C.inv(C.sub(z, P0)), hol: false, pole: P0 },
     };
-    const sel = kit.select(controls, { label: '$f(z)=$', options: Object.keys(FNS).map(k => [FNS[k].name, k]), value: 'exp', onChange: () => { bgKey = ''; curveKey = ''; draw(); } });
+    const sel = kit.select(controls, { label: '$f(z)=$', options: Object.keys(FNS).map(k => [FNS[k].name, k]), value: 'exp', onChange: () => { bgKey = ''; curveKey = ''; const F = FNS[sel.value]; if (F.pole && Math.hypot(z[0] - F.pole[0], z[1] - F.pole[1]) < 0.25) z = [-0.3, -0.2]; stopAnim(); draw(); } });
     sel.select.style.maxWidth = '250px';
     const sT = kit.slider(controls, { label: '$t$', min: 0, max: 1, step: 0.005, value: 0.35, onChange: () => { stopAnim(); draw(); } });
     const btn = kit.button(controls, { label: '▶ Rétracter', primary: true, onClick: () => { if (anim) { stopAnim(); draw(); } else startAnim(); } });
@@ -157,8 +157,11 @@ calculée numériquement (paramétrage $\omega=tz+(1-t)e^{i\theta}$ et méthode 
       ctx.stroke();
       const tt = sT.value; ctx.strokeStyle = t.accent4; ctx.lineWidth = 1.5; ctx.setLineDash([4, 3]); ctx.beginPath(); ctx.moveTo(X(tt), T); ctx.lineTo(X(tt), H - B); ctx.stroke(); ctx.setLineDash([]);
       const F = FNS[sel.value];
-      ctx.fillStyle = F.hol ? t.accent3 : t.accent2; ctx.textAlign = 'right'; ctx.textBaseline = 'top'; ctx.font = '600 11px system-ui, sans-serif';
-      ctx.fillText(m < 1e-8 ? 'I(t) ≡ 0 : constante, donc I(0) = I(1) = 0' : 'I(t) varie : I(0) ≠ 0, la formule tombe', W - R, T + 2);
+      const verdict = m < 1e-8 ? 'I(t) ≡ 0 : constante, donc I(0) = I(1) = 0' : 'I(t) varie : I(0) ≠ 0, la formule tombe';
+      ctx.font = '600 11px system-ui, sans-serif'; const vw = ctx.measureText(verdict).width;
+      ctx.globalAlpha = 0.9; ctx.fillStyle = t.bg; ctx.fillRect(W - R - vw - 8, T + 1, vw + 8, 16); ctx.globalAlpha = 1;
+      ctx.fillStyle = F.hol ? t.accent3 : t.accent2; ctx.textAlign = 'right'; ctx.textBaseline = 'top';
+      ctx.fillText(verdict, W - R - 4, T + 3);
       ctx.restore();
     }
 

@@ -33,7 +33,7 @@ calculée numériquement (paramétrage $\omega=tz+(1-t)e^{i\theta}$ et méthode 
       mod2: { name: '|z|²  (non holomorphe)', f: z => [C.abs2(z), 0], hol: false },
       pole: { name: '1/(z − p), p dans le disque', f: z => C.inv(C.sub(z, P0)), hol: false, pole: P0 },
     };
-    const sel = kit.select(controls, { label: '$f(z)=$', options: Object.keys(FNS).map(k => [FNS[k].name, k]), value: 'exp', onChange: () => { bgKey = ''; curveKey = ''; draw(); } });
+    const sel = kit.select(controls, { label: '$f(z)=$', options: Object.keys(FNS).map(k => [FNS[k].name, k]), value: 'exp', onChange: () => { bgKey = ''; curveKey = ''; const F = FNS[sel.value]; if (F.pole && Math.hypot(z[0] - F.pole[0], z[1] - F.pole[1]) < 0.25) z = [-0.3, -0.2]; stopAnim(); draw(); } });
     sel.select.style.maxWidth = '250px';
     const sT = kit.slider(controls, { label: '$t$', min: 0, max: 1, step: 0.005, value: 0.35, onChange: () => { stopAnim(); draw(); } });
     const btn = kit.button(controls, { label: '▶ Rétracter', primary: true, onClick: () => { if (anim) { stopAnim(); draw(); } else startAnim(); } });
@@ -161,8 +161,11 @@ calculée numériquement (paramétrage $\omega=tz+(1-t)e^{i\theta}$ et méthode 
       ctx.stroke();
       const tt = sT.value; ctx.strokeStyle = t.accent4; ctx.lineWidth = 1.5; ctx.setLineDash([4, 3]); ctx.beginPath(); ctx.moveTo(X(tt), T); ctx.lineTo(X(tt), H - B); ctx.stroke(); ctx.setLineDash([]);
       const F = FNS[sel.value];
-      ctx.fillStyle = F.hol ? t.accent3 : t.accent2; ctx.textAlign = 'right'; ctx.textBaseline = 'top'; ctx.font = '600 11px system-ui, sans-serif';
-      ctx.fillText(m < 1e-8 ? 'I(t) ≡ 0 : constante, donc I(0) = I(1) = 0' : 'I(t) varie : I(0) ≠ 0, la formule tombe', W - R, T + 2);
+      const verdict = m < 1e-8 ? 'I(t) ≡ 0 : constante, donc I(0) = I(1) = 0' : 'I(t) varie : I(0) ≠ 0, la formule tombe';
+      ctx.font = '600 11px system-ui, sans-serif'; const vw = ctx.measureText(verdict).width;
+      ctx.globalAlpha = 0.9; ctx.fillStyle = t.bg; ctx.fillRect(W - R - vw - 8, T + 1, vw + 8, 16); ctx.globalAlpha = 1;
+      ctx.fillStyle = F.hol ? t.accent3 : t.accent2; ctx.textAlign = 'right'; ctx.textBaseline = 'top';
+      ctx.fillText(verdict, W - R - 4, T + 3);
       ctx.restore();
     }
 
@@ -307,6 +310,7 @@ $$\omega\longmapsto\frac{f(z_0+h\omega)-f(z_0)}{h}$$
         PZ.text(c[0], c[1], sel.value === 'mod2' ? 'b = 0' : "f' = 0", { dx: 6, dy: -6, font: '11px system-ui, sans-serif', color: t.muted });
       }
       if (F.hole) PZ.text(0, 0, '0 ∉ Ω', { dx: 6, dy: -6, font: '11px system-ui, sans-serif', color: t.muted });
+      if (F.hole && Math.hypot(z0[0], z0[1]) <= h) { ctx.save(); ctx.font = '600 11px system-ui, sans-serif'; ctx.fillStyle = t.accent2; ctx.textAlign = 'left'; ctx.textBaseline = 'bottom'; ctx.fillText('D(z₀,h) contient 0 ∉ Ω : diminuez h', 6, stZ.H - 6); ctx.restore(); }
       PZ.point(z0[0], z0[1], { r: 6, color: t.accent4, stroke: t.fg });
       PZ.text(z0[0], z0[1], 'z₀', { dx: -8, dy: 16, align: 'right', baseline: 'middle', font: '600 12px system-ui, sans-serif' });
       label(ctx, 'plan des z', t);
@@ -360,7 +364,7 @@ $$\omega\longmapsto\frac{f(z_0+h\omega)-f(z_0)}{h}$$
 
     const off = kit.drag(stZ.canvas, {
       onDown: p => { if (!PZ) return; z0 = PZ.toWorld(p.x, p.y); snap(); drawAll(); },
-      onMove: (p, ev, down) => { if (!down || !PZ) return; z0 = PZ.toWorld(p.x, p.y); z0[0] = Math.max(-1.95, Math.min(1.95, z0[0])); z0[1] = Math.max(-1.65, Math.min(1.65, z0[1])); snap(); drawAll(); },
+      onMove: (p, ev, down) => { if (!down || !PZ) return; z0 = PZ.toWorld(p.x, p.y); z0[0] = Math.max(-1.9, Math.min(1.9, z0[0])); z0[1] = Math.max(-1.45, Math.min(1.45, z0[1])); snap(); drawAll(); },
     });
     stZ.onResize = drawAll; stW.onResize = drawAll;
     drawAll();
@@ -1779,6 +1783,303 @@ et, sur un ouvert connexe, n'a **aucun maximum local** sauf si elle est constant
 });
 
 } catch (e) { console.error('viz viz-ch04-moyenne-maximum failed to register', e); }
+
+// ---- content/ch05/viz/viz-ch05-differentielle-zoom.js ----
+try {
+FMA.registerViz({
+  id: 'viz-ch05-differentielle-zoom',
+  chapter: 5,
+  title: "La différentielle au microscope : le reste est un $o(h)$",
+  description: String.raw`**Ce que l'on voit.** On choisit une fonction $f:\R^2\to\R$ et un point $a$ (point orange, **à glisser** sur la carte du haut ; la couleur code la valeur de $f$). Le segment orange part de $a$ dans la direction $u=(\cos\theta,\sin\theta)$ réglable. On compare $f$ à son **approximation linéaire** $h\mapsto f(a)+\ell(h)$, où $\ell(h)=\partial_xf(a)\,h_1+\partial_yf(a)\,h_2$ est construite avec les dérivées partielles (calculées numériquement).
+
+* **Graphique du milieu (le zoom).** Sur la droite $a+su$, $s\in[-\rho,\rho]$, on trace $s\mapsto f(a+su)$ (trait plein) et $s\mapsto f(a)+\ell(su)$ (tirets). Le curseur $\log_{10}\rho$ règle le grossissement, et l'échelle verticale est **réadaptée** à chaque zoom. Si $f$ est différentiable en $a$, les deux courbes se confondent quand on zoome : c'est exactement $f(a+h)-f(a)-df_a(h)=o(h)$ (poly, Définition V.3.1, p. 98).
+* **Graphique du bas (le rapport).** En échelle log-log, on trace pour chaque $\rho$ le pire rapport
+$$R(\rho)=\max_{\|h\|=\rho}\frac{\|f(a+h)-f(a)-\ell(h)\|}{\|h\|}$$
+(maximum sur 36 directions). Différentiabilité en $a$ $\iff$ $R(\rho)\to0$ quand $\rho\to0$ (avec $\ell=df_a$) : la courbe plonge, avec pente $1$ si $f$ est assez régulière. Sinon elle reste à plat.
+
+**À faire.** Prenez $\sin x\cos y$ et glissez $a$ : la courbe du bas plonge partout. Passez à $\dfrac{xy}{x^2+y^2}$, au point $a=(0,0)$ : les deux dérivées partielles existent ($\ell=0$) mais $R$ reste égal à $\tfrac12$ ; mettez la direction à $\theta=45^\circ$ pour voir $f(su)=\tfrac12$ constant, très loin du plan $0$ (poly, Remarque V.3.18, p. 102). Pour $\dfrac{x^3}{x^2+y^2}$, $f$ est continue et toutes les dérivées directionnelles existent, mais elles ne dépendent pas linéairement de $u$ : aucun $\ell$ ne convient. Pour $|x|+y^2/2$ et $\sqrt{x^2+y^2}$, le « pli » (le cône) empêche tout plan tangent. Dès que l'on quitte le point singulier (en le faisant glisser), $f$ redevient différentiable et la courbe du bas replonge.
+
+*Remarque.* Pour $|x|$ et le cône, la dérivée partielle n'existe pas en $(0,0)$ ; la valeur utilisée (différence centrée) est $0$ ; ceci n'affaiblit pas la conclusion : aucune application linéaire ne convient, on le voit à la forme en « V » à fort zoom.`,
+  related: ['ch05-differentielle-def', 'ch05-partielles-sans-differentiabilite', 'ch05-differentielles-partielles', 'ch05-derivee-directionnelle-unicite', 'ch05-petit-o-def'],
+  height: 760,
+  mount(container, kit) {
+    const th = () => kit.theme();
+    const FN = {
+      smooth: { lab: 'sin x · cos y', f: (x, y) => Math.sin(x) * Math.cos(y), a0: [0.7, 0.4], vmax: 1, snap: null },
+      abs: { lab: '|x| + y²/2', f: (x, y) => Math.abs(x) + y * y / 2, a0: [0, 0.6], vmax: 2, snap: [0, 0], snapLine: true },
+      xy: { lab: 'xy/(x²+y²)', f: (x, y) => { const r = x * x + y * y; return r === 0 ? 0 : x * y / r; }, a0: [0, 0], vmax: 0.5, snap: [0, 0] },
+      x3: { lab: 'x³/(x²+y²)', f: (x, y) => { const r = x * x + y * y; return r === 0 ? 0 : x * x * x / r; }, a0: [0, 0], vmax: 2, snap: [0, 0] },
+      x2y: { lab: 'x²y/(x⁴+y²)', f: (x, y) => { const r = x * x * x * x + y * y; return r === 0 ? 0 : x * x * y / r; }, a0: [0, 0], vmax: 0.5, snap: [0, 0] },
+      cone: { lab: '√(x²+y²)', f: (x, y) => Math.hypot(x, y), a0: [0, 0], vmax: 2.5, snap: [0, 0] },
+    };
+    const keys = Object.keys(FN);
+    let cur = 'xy';
+    let a = FN[cur].a0.slice();
+
+    const controls = kit.controls(container);
+    const sel = kit.select(controls, { label: '$f=$', options: keys.map(k => [FN[k].lab, k]), value: cur, onChange: (k) => { cur = k; a = FN[k].a0.slice(); draw(); } });
+    const dirS = kit.slider(controls, { label: '$\\theta$ (°)', min: 0, max: 359, step: 1, value: 45, onChange: draw });
+    const zoomS = kit.slider(controls, { label: '$\\log_{10}\\rho$', min: -3, max: 0.3, step: 0.05, value: -0.3, format: v => (+v).toFixed(2), onChange: draw });
+    kit.button(controls, { label: 'revenir au point singulier', onClick: () => { a = FN[cur].a0.slice(); draw(); } });
+    const ro = kit.readout(controls, { label: '' });
+
+    const s1 = kit.canvas(container, { height: 250 });
+    const s2 = kit.canvas(container, { height: 200 });
+    const s3 = kit.canvas(container, { height: 200 });
+
+    const f = (x, y) => FN[cur].f(x, y);
+    function grad() {
+      const e = 1e-5;
+      return [(f(a[0] + e, a[1]) - f(a[0] - e, a[1])) / (2 * e), (f(a[0], a[1] + e) - f(a[0], a[1] - e)) / (2 * e)];
+    }
+    function errAt(g, h1, h2) { return Math.abs(f(a[0] + h1, a[1] + h2) - f(a[0], a[1]) - g[0] * h1 - g[1] * h2); }
+    function Rmax(g, rho) {
+      let m = 0;
+      for (let k = 0; k < 36; k++) { const t = 2 * Math.PI * k / 36 + 0.0173; m = Math.max(m, errAt(g, rho * Math.cos(t), rho * Math.sin(t)) / rho); }
+      return m;
+    }
+    function text(ctx, s, x, y, o = {}) { ctx.save(); ctx.fillStyle = o.color || th().muted; ctx.font = o.font || '11px system-ui, sans-serif'; ctx.textAlign = o.align || 'left'; ctx.textBaseline = o.base || 'top'; ctx.fillText(s, x, y); ctx.restore(); }
+
+    function drawMap() {
+      const { ctx, W, H } = s1; const t = th();
+      const P = kit.plane(ctx, { xmin: -2, xmax: 2, ymin: -1.5, ymax: 1.5, W, H });
+      const step = 3, w = Math.ceil(W / step), h = Math.ceil(H / step);
+      const img = ctx.createImageData(w, h); const d = img.data; let k = 0; const vm = FN[cur].vmax;
+      for (let j = 0; j < h; j++) for (let i = 0; i < w; i++) {
+        const [x, y] = P.toWorld(i * step + step / 2, j * step + step / 2);
+        const v = f(x, y); const u = Math.max(0, Math.min(1, (v / vm + 1) / 2));
+        const band = 0.93 + 0.07 * ((((v * 6 / vm) % 1) + 1) % 1);
+        const c = kit.hsl2rgb(0.62 - 0.62 * u, 0.65, Math.max(0.2, Math.min(0.85, (0.45 + 0.15 * (1 - Math.abs(2 * u - 1))) * band)));
+        d[k++] = c[0]; d[k++] = c[1]; d[k++] = c[2]; d[k++] = 255;
+      }
+      const off = document.createElement('canvas'); off.width = w; off.height = h; off.getContext('2d').putImageData(img, 0, 0);
+      ctx.save(); ctx.imageSmoothingEnabled = true; ctx.drawImage(off, 0, 0, w, h, 0, 0, W, H); ctx.restore();
+      P.grid(1, 'rgba(255,255,255,0.25)'); P.axes({ labels: true });
+      const rho = Math.pow(10, zoomS.value), ang = dirS.value * Math.PI / 180;
+      const u = [Math.cos(ang), Math.sin(ang)];
+      P.curve([[a[0] - 2 * u[0], a[1] - 2 * u[1]], [a[0] + 2 * u[0], a[1] + 2 * u[1]]], { color: t.fg, width: 1, dash: [4, 4] });
+      P.curve([[a[0] - rho * u[0], a[1] - rho * u[1]], [a[0] + rho * u[0], a[1] + rho * u[1]]], { color: t.accent4, width: 3.5 });
+      P.circle(a[0], a[1], rho, { color: t.fg, width: 1 });
+      P.point(a[0], a[1], { r: 6, color: t.accent4, stroke: '#fff', label: 'a' });
+      text(ctx, 'valeur de f : bleu = bas, rouge = haut', 8, 6, { color: '#fff' });
+      return P;
+    }
+    let P1;
+    function drawProfile(g) {
+      const { ctx, W, H } = s2; const t = th();
+      const rho = Math.pow(10, zoomS.value), ang = dirS.value * Math.PI / 180;
+      const u = [Math.cos(ang), Math.sin(ang)]; const f0 = f(a[0], a[1]); const d = g[0] * u[0] + g[1] * u[1];
+      const N = 241; const ys = [], ts = [];
+      let span = 1e-12;
+      for (let i = 0; i < N; i++) { const s = -rho + 2 * rho * i / (N - 1); ts.push(s); const v = f(a[0] + s * u[0], a[1] + s * u[1]) - f0; ys.push(v); span = Math.max(span, Math.abs(v), Math.abs(s * d)); }
+      span *= 1.2;
+      const L = 44, R = 10, T = 22, B = 24; const X = (s) => L + (s + rho) / (2 * rho) * (W - L - R); const Y = (v) => T + (1 - (v + span) / (2 * span)) * (H - T - B);
+      ctx.save(); ctx.strokeStyle = t.grid; ctx.lineWidth = 1; ctx.strokeRect(L, T, W - L - R, H - T - B);
+      ctx.strokeStyle = t.axis; ctx.setLineDash([2, 3]); ctx.beginPath(); ctx.moveTo(L, Y(0)); ctx.lineTo(W - R, Y(0)); ctx.moveTo(X(0), T); ctx.lineTo(X(0), H - B); ctx.stroke(); ctx.setLineDash([]);
+      // tangent
+      ctx.strokeStyle = t.accent2; ctx.lineWidth = 2; ctx.setLineDash([7, 4]); ctx.beginPath(); ctx.moveTo(X(-rho), Y(-rho * d)); ctx.lineTo(X(rho), Y(rho * d)); ctx.stroke(); ctx.setLineDash([]);
+      // curve
+      ctx.strokeStyle = t.accent; ctx.lineWidth = 2.2; ctx.beginPath();
+      for (let i = 0; i < N; i++) { const px = X(ts[i]), py = Y(ys[i]); i ? ctx.lineTo(px, py) : ctx.moveTo(px, py); } ctx.stroke();
+      ctx.restore();
+      text(ctx, 'f(a+su) − f(a)', 8, 4, { color: t.accent }); text(ctx, 'ℓ(su)', 120, 4, { color: t.accent2 });
+      text(ctx, '(trait plein : f ; tirets : approximation linéaire)', 160, 4);
+      text(ctx, '±' + kit.fmt(+span.toPrecision(2)), L - 4, T, { align: 'right' }); text(ctx, '−' + kit.fmt(+span.toPrecision(2)), L - 4, H - B, { align: 'right', base: 'bottom' });
+      text(ctx, '−ρ = −' + kit.fmt(+rho.toPrecision(2)), L, H - B + 4); text(ctx, 's', X(0), H - B + 4, { align: 'center' }); text(ctx, 'ρ', W - R, H - B + 4, { align: 'right' });
+    }
+    function drawRatio(g) {
+      const { ctx, W, H } = s3; const t = th();
+      const L = 44, R = 10, T = 22, B = 26; const x0 = -3, x1 = 0.5, y0 = -7, y1 = 1;
+      const X = (x) => L + (x - x0) / (x1 - x0) * (W - L - R); const Y = (y) => T + (1 - (y - y0) / (y1 - y0)) * (H - T - B);
+      ctx.save(); ctx.strokeStyle = t.grid; ctx.lineWidth = 1; ctx.fillStyle = t.muted; ctx.font = '10px system-ui, sans-serif';
+      for (let x = -3; x <= 0; x++) { ctx.beginPath(); ctx.moveTo(X(x), T); ctx.lineTo(X(x), H - B); ctx.stroke(); ctx.textAlign = 'center'; ctx.textBaseline = 'top'; ctx.fillText('10^' + x, X(x), H - B + 3); }
+      for (let y = -6; y <= 0; y += 2) { ctx.beginPath(); ctx.moveTo(L, Y(y)); ctx.lineTo(W - R, Y(y)); ctx.stroke(); ctx.textAlign = 'right'; ctx.textBaseline = 'middle'; ctx.fillText('10^' + y, L - 3, Y(y)); }
+      ctx.strokeStyle = t.axis; ctx.strokeRect(L, T, W - L - R, H - T - B);
+      // reference slope 1
+      ctx.strokeStyle = t.muted; ctx.setLineDash([2, 4]); ctx.beginPath(); ctx.moveTo(X(-3), Y(-3.5)); ctx.lineTo(X(0), Y(-0.5)); ctx.stroke(); ctx.setLineDash([]);
+      ctx.fillStyle = t.muted; ctx.textAlign = 'left'; ctx.textBaseline = 'bottom'; ctx.fillText('pente 1', X(-2.7), Y(-3.3));
+      const ang = dirS.value * Math.PI / 180, u = [Math.cos(ang), Math.sin(ang)];
+      const pts = [], pts2 = []; const n = 70;
+      for (let i = 0; i <= n; i++) {
+        const lr = x0 + (x1 - x0) * i / n; const rho = Math.pow(10, lr);
+        const r = Rmax(g, rho); pts.push([X(lr), Y(Math.max(y0, Math.min(y1, Math.log10(r + 1e-30))))]);
+        const r2 = errAt(g, rho * u[0], rho * u[1]) / rho; pts2.push([X(lr), Y(Math.max(y0, Math.min(y1, Math.log10(r2 + 1e-30))))]);
+      }
+      ctx.lineWidth = 2.2; ctx.strokeStyle = t.accent3; ctx.setLineDash([5, 3]); ctx.beginPath(); pts2.forEach((p, i) => i ? ctx.lineTo(p[0], p[1]) : ctx.moveTo(p[0], p[1])); ctx.stroke(); ctx.setLineDash([]);
+      ctx.strokeStyle = t.accent; ctx.beginPath(); pts.forEach((p, i) => i ? ctx.lineTo(p[0], p[1]) : ctx.moveTo(p[0], p[1])); ctx.stroke();
+      const lr = zoomS.value; ctx.strokeStyle = t.accent4; ctx.lineWidth = 1.5; ctx.beginPath(); ctx.moveTo(X(lr), T); ctx.lineTo(X(lr), H - B); ctx.stroke();
+      ctx.restore();
+      text(ctx, 'R(ρ) (max sur les directions)', 8, 4, { color: t.accent }); text(ctx, 'direction θ seule', 190, 4, { color: t.accent3 });
+      text(ctx, 'ρ (échelle log)', W - R, H - 12, { align: 'right', base: 'bottom' });
+    }
+    function draw() {
+      try {
+        const g = grad();
+        P1 = drawMap();
+        s2.clear(); s3.clear();
+        drawProfile(g); drawRatio(g);
+        const r1 = Rmax(g, 1e-3), r2 = Rmax(g, 1e-2);
+        const ok = r1 < 0.35 * r2 || r1 < 1e-5;
+        ro.set(`a = (${a[0].toFixed(2)}, ${a[1].toFixed(2)}), ∇f ≈ (${g[0].toFixed(2)}, ${g[1].toFixed(2)}) — R(10⁻³) = ${r1 < 1e-9 ? '≈ 0' : r1.toPrecision(2)} : ` + (ok ? '<b style="color:var(--accent-3)">le rapport tend vers 0 : f différentiable en a</b>' : '<b style="color:var(--accent-2)">le rapport ne tend pas vers 0 : pas de df_a</b>'));
+      } catch (e) { console.error(e); }
+    }
+    function setFromPointer(p) {
+      let [x, y] = P1.toWorld(p.x, p.y);
+      x = Math.max(-1.95, Math.min(1.95, x)); y = Math.max(-1.45, Math.min(1.45, y));
+      const sn = FN[cur].snap;
+      if (sn) { if (Math.hypot(x - sn[0], y - sn[1]) < 0.12) { x = sn[0]; y = sn[1]; } else if (FN[cur].snapLine && Math.abs(x) < 0.06) x = 0; }
+      a = [x, y]; draw();
+    }
+    const off = kit.drag(s1.canvas, { onDown: setFromPointer, onMove: (p, ev, down) => { if (down) setFromPointer(p); } });
+    s1.onResize = draw; s2.onResize = draw; s3.onResize = draw;
+    draw();
+    return () => { off(); s1.destroy(); s2.destroy(); s3.destroy(); };
+  }
+});
+
+} catch (e) { console.error('viz viz-ch05-differentielle-zoom failed to register', e); }
+
+// ---- content/ch05/viz/viz-ch05-jacobienne-grille.js ----
+try {
+FMA.registerViz({
+  id: 'viz-ch05-jacobienne-grille',
+  chapter: 5,
+  title: "Matrice jacobienne : une petite grille devient un parallélogramme",
+  description: String.raw`**Ce que l'on voit.** À gauche (en haut sur un téléphone), le plan des $x=(x_1,x_2)$ : un point $a$ (orange, **à glisser**), un petit carré $a+[-\delta,\delta]^2$ muni d'une grille (verticales bleues, horizontales roses), et une courbe $\alpha$ passant par $a$ (verte) dont le vecteur tangent en $t=0$ est $h=\alpha'(0)=\delta\,(\cos\varphi,\sin\varphi)$. À droite : le plan d'arrivée, **recentré sur $f(a)$ et agrandi** pour que l'image tienne dans la fenêtre. Traits pleins : l'image de la grille par $f:\R^2\to\R^2$ (courbée). Tirets : l'image de la même grille par l'**approximation affine** $x\mapsto f(a)+df_a(x-a)$, c'est-à-dire par la matrice jacobienne
+$$\mathrm{Jac}\text{-matrice}=\begin{pmatrix}\partial_{x_1}f_1(a)&\partial_{x_2}f_1(a)\\ \partial_{x_1}f_2(a)&\partial_{x_2}f_2(a)\end{pmatrix},$$
+dont la colonne $i$ est $\frac{\partial f}{\partial x_i}(a)$ (poly, section V.3.5, p. 103).
+
+**Ce qu'il faut regarder.**
+* **Réduisez $\delta$** : le carré image se confond avec le **parallélogramme** engendré par les colonnes de la jacobienne. C'est la différentiabilité : $f(a+h)=f(a)+df_a(h)+o(h)$ (poly, Définition V.3.1, p. 98). Le nombre « erreur max$/\|h\|$ » affiché tend vers $0$.
+* **Facteur d'aire.** Le rapport (aire de l'image)$/$(aire du carré) tend vers le déterminant jacobien $\mathrm{Jac}(f)(a)=\det\big(df_a\big)$. Son signe donne l'orientation (négatif $\Rightarrow$ le parallélogramme est « retourné »).
+* **Vecteurs tangents (poly, Remarque V.3.13, p. 100).** La flèche orange à gauche est $h=\alpha'(0)$ ; à droite, la flèche orange est $df_a(h)=(f\circ\alpha)'(0)$, tangente à la courbe image $\beta=f\circ\alpha$ (verte). **Changez la courbure $\kappa$ de $\alpha$** sans toucher $\varphi$ : la courbe $\beta$ change mais la flèche $\beta'(0)=df_a(h)$ ne bouge pas, car elle ne dépend que de $h$.
+* **Applications à essayer.** $z^2$ en coordonnées réelles, $(x_1,x_2)\mapsto(x_1^2-x_2^2,2x_1x_2)$ : la jacobienne est une similitude (le parallélogramme est un carré, car $f$ est holomorphe : lien avec le chapitre I). Le « repli » $(x_1,x_2)\mapsto(x_1^2,x_2)$ : le déterminant $2x_1$ s'annule sur l'axe $x_1=0$, où le carré est écrasé sur un segment (ce n'est plus un isomorphisme local : lien avec le théorème d'inversion locale du chapitre VI).`,
+  related: ['ch05-matrice-jacobienne', 'ch05-vecteur-tangent-courbe', 'ch05-differentielle-def', 'ch05-composition-differentielles', 'ch05-differentielles-partielles'],
+  height: 640,
+  mount(container, kit) {
+    const th = () => kit.theme();
+    const FN = {
+      z2: { lab: "z² : (x²−y², 2xy)", f: (x, y) => [x * x - y * y, 2 * x * y], a0: [0.8, 0.6] },
+      pol: { lab: 'polaires : (x cos y, x sin y)', f: (x, y) => [x * Math.cos(y), x * Math.sin(y)], a0: [1.0, 0.8] },
+      expc: { lab: 'exp : eˣ(cos y, sin y)', f: (x, y) => [Math.exp(x) * Math.cos(y), Math.exp(x) * Math.sin(y)], a0: [0.3, 0.8] },
+      fold: { lab: 'repli : (x², y)', f: (x, y) => [x * x, y], a0: [0.6, 0.4] },
+      quad: { lab: 'non conforme : (x+y²/2, y+x²/2)... ', f: (x, y) => [x + 0.5 * y * y + 0.3 * x * y, y + 0.5 * x * x], a0: [0.5, 0.7] },
+      shear: { lab: 'linéaire : (x+y, 0,5·y)', f: (x, y) => [x + y, 0.5 * y], a0: [0.4, 0.4] },
+    };
+    FN.quad.lab = 'non conforme : (x+y²/2+0,3xy, y+x²/2)';
+    FN.shear.lab = 'linéaire : (x+y, y/2)';
+    const keys = Object.keys(FN);
+    let cur = 'z2'; let a = FN[cur].a0.slice();
+
+    const controls = kit.controls(container);
+    kit.select(controls, { label: '$f=$', options: keys.map(k => [FN[k].lab, k]), value: cur, onChange: (k) => { cur = k; a = FN[k].a0.slice(); draw(); } });
+    const dS = kit.slider(controls, { label: '$\\delta$', min: 0.02, max: 1, step: 0.01, value: 0.5, onChange: draw });
+    const phiS = kit.slider(controls, { label: '$\\varphi$ (°)', min: 0, max: 359, step: 1, value: 35, onChange: draw });
+    const kapS = kit.slider(controls, { label: '$\\kappa$', min: -1.5, max: 1.5, step: 0.05, value: 0.8, format: v => (+v).toFixed(2), onChange: draw });
+    const lin = kit.checkbox(controls, { label: 'approx. linéaire (tirets)', checked: true, onChange: draw });
+    const ro1 = kit.readout(controls, { label: '' });
+    const ro2 = kit.readout(controls, { label: '' });
+
+    const sL = kit.canvas(container, { height: 270 });
+    const sR = kit.canvas(container, { height: 270 });
+
+    const f = (x, y) => FN[cur].f(x, y);
+    function jac() {
+      const e = 1e-6; const fx = f(a[0] + e, a[1]), fxm = f(a[0] - e, a[1]), fy = f(a[0], a[1] + e), fym = f(a[0], a[1] - e);
+      return [[(fx[0] - fxm[0]) / (2 * e), (fy[0] - fym[0]) / (2 * e)], [(fx[1] - fxm[1]) / (2 * e), (fy[1] - fym[1]) / (2 * e)]];
+    }
+    const mv = (J, h) => [J[0][0] * h[0] + J[0][1] * h[1], J[1][0] * h[0] + J[1][1] * h[1]];
+    function text(ctx, s, x, y, o = {}) { ctx.save(); ctx.fillStyle = o.color || th().muted; ctx.font = o.font || '11px system-ui, sans-serif'; ctx.textAlign = o.align || 'left'; ctx.textBaseline = o.base || 'top'; ctx.fillText(s, x, y); ctx.restore(); }
+    const NDIV = 4, NS = 32;
+    function lineSamples(i, vertical, d) { // i in 0..NDIV
+      const c = -d + 2 * d * i / NDIV; const pts = [];
+      for (let k = 0; k <= NS; k++) { const s = -d + 2 * d * k / NS; pts.push(vertical ? [c, s] : [s, c]); }
+      return pts;
+    }
+    let PL;
+    function draw() {
+      try {
+        const t = th(); const d = dS.value; const J = jac(); const fa = f(a[0], a[1]);
+        const phi = phiS.value * Math.PI / 180, kap = kapS.value;
+        const u = [Math.cos(phi), Math.sin(phi)], un = [-Math.sin(phi), Math.cos(phi)];
+        const alpha = (s) => [a[0] + s * d * u[0] + s * s * kap * d * un[0], a[1] + s * d * u[1] + s * s * kap * d * un[1]];
+        const curveT = []; for (let k = 0; k <= 40; k++) curveT.push(-1 + 2 * k / 40);
+        // ---- left
+        sL.clear(); { const { ctx, W, H } = sL;
+          PL = kit.plane(ctx, { xmin: -2, xmax: 2, ymin: -1.6, ymax: 1.6, W, H });
+          PL.grid(1); PL.axes({ labels: true });
+          PL.fill([[a[0] - d, a[1] - d], [a[0] + d, a[1] - d], [a[0] + d, a[1] + d], [a[0] - d, a[1] + d]], { color: t.accent, alpha: 0.12 });
+          for (let i = 0; i <= NDIV; i++) {
+            PL.curve(lineSamples(i, true, d).map(p => [a[0] + p[0], a[1] + p[1]]), { color: t.accent, width: 1.5 });
+            PL.curve(lineSamples(i, false, d).map(p => [a[0] + p[0], a[1] + p[1]]), { color: t.accent2, width: 1.5 });
+          }
+          PL.curve(curveT.map(alpha), { color: t.accent3, width: 2.5 });
+          PL.vector(a[0], a[1], d * u[0], d * u[1], { color: t.accent4, width: 3, head: 10 });
+          PL.point(a[0], a[1], { r: 5, color: t.accent4, stroke: '#fff', label: 'a' });
+          text(ctx, 'plan de départ  (flèche = h = α′(0))', 8, 5);
+        }
+        // ---- right
+        const img = (p) => f(a[0] + p[0], a[1] + p[1]);
+        const lg = (p) => { const m = mv(J, p); return [fa[0] + m[0], fa[1] + m[1]]; };
+        let S = 1e-9;
+        const probe = [];
+        for (let i = 0; i <= NDIV; i++) { probe.push(...lineSamples(i, true, d), ...lineSamples(i, false, d)); }
+        probe.forEach(p => { const q = img(p); S = Math.max(S, Math.abs(q[0] - fa[0]), Math.abs(q[1] - fa[1])); });
+        curveT.forEach(s => { const q = f(...alpha(s)); S = Math.max(S, Math.abs(q[0] - fa[0]), Math.abs(q[1] - fa[1])); });
+        S *= 1.18;
+        sR.clear(); { const { ctx, W, H } = sR;
+          const PR = kit.plane(ctx, { xmin: fa[0] - S, xmax: fa[0] + S, ymin: fa[1] - S * 0.82, ymax: fa[1] + S * 0.82, W, H });
+          // frame lines through f(a)
+          const [ox, oy] = PR.toPx(fa[0], fa[1]);
+          ctx.save(); ctx.strokeStyle = t.grid; ctx.setLineDash([3, 4]); ctx.beginPath(); ctx.moveTo(0, oy); ctx.lineTo(W, oy); ctx.moveTo(ox, 0); ctx.lineTo(ox, H); ctx.stroke(); ctx.restore();
+          for (let i = 0; i <= NDIV; i++) {
+            if (lin.value) {
+              PR.curve(lineSamples(i, true, d).map(lg), { color: t.accent, width: 1.3, dash: [5, 4] });
+              PR.curve(lineSamples(i, false, d).map(lg), { color: t.accent2, width: 1.3, dash: [5, 4] });
+            }
+          }
+          for (let i = 0; i <= NDIV; i++) {
+            PR.curve(lineSamples(i, true, d).map(img), { color: t.accent, width: 2 });
+            PR.curve(lineSamples(i, false, d).map(img), { color: t.accent2, width: 2 });
+          }
+          PR.curve(curveT.map(s => f(...alpha(s))), { color: t.accent3, width: 2.5 });
+          const jh = mv(J, [d * u[0], d * u[1]]);
+          PR.vector(fa[0], fa[1], jh[0], jh[1], { color: t.accent4, width: 3, head: 10 });
+          PR.point(fa[0], fa[1], { r: 5, color: t.accent4, stroke: '#fff', label: 'f(a)' });
+          text(ctx, 'plan d\u2019arrivée, recentré sur f(a) (flèche = df_a(h) = β′(0))', 8, 5);
+          text(ctx, 'trait plein : f(grille) ; tirets : f(a)+df_a(x−a)', 8, H - 6, { base: 'bottom' });
+          text(ctx, 'fenêtre : ±' + S.toPrecision(2), W - 8, H - 6, { align: 'right', base: 'bottom' });
+        }
+        // ---- readouts
+        const det = J[0][0] * J[1][1] - J[0][1] * J[1][0];
+        let area = 0; const bd = [];
+        const M = 40;
+        for (let k = 0; k < M; k++) bd.push([-d + 2 * d * k / M, -d]);
+        for (let k = 0; k < M; k++) bd.push([d, -d + 2 * d * k / M]);
+        for (let k = 0; k < M; k++) bd.push([d - 2 * d * k / M, d]);
+        for (let k = 0; k < M; k++) bd.push([-d, d - 2 * d * k / M]);
+        const im = bd.map(img);
+        for (let k = 0; k < im.length; k++) { const p = im[k], q = im[(k + 1) % im.length]; area += (p[0] * q[1] - q[0] * p[1]) / 2; }
+        let emax = 0;
+        bd.forEach(p => { const q = img(p), m = mv(J, p); const n = Math.hypot(p[0], p[1]); if (n > 0) emax = Math.max(emax, Math.hypot(q[0] - fa[0] - m[0], q[1] - fa[1] - m[1]) / n); });
+        const r2 = v => (Math.abs(v) < 5e-4 ? '0' : v.toFixed(3)).replace('-', '−');
+        ro1.set(`matrice jacobienne = [ ${r2(J[0][0])} ${r2(J[0][1])} ; ${r2(J[1][0])} ${r2(J[1][1])} ], déterminant = <b>${r2(det)}</b>`);
+        ro2.set(`aire(image)/aire(carré) = <b>${r2(area / (4 * d * d))}</b> ; erreur max / ‖h‖ = <b>${emax < 1e-4 ? emax.toExponential(1) : emax.toFixed(3)}</b>` + (det < -1e-9 ? ' — orientation renversée' : (Math.abs(det) < 1e-3 ? ' — jacobien nul : carré écrasé' : '')));
+      } catch (e) { console.error(e); }
+    }
+    function setFromPointer(p) {
+      let [x, y] = PL.toWorld(p.x, p.y);
+      x = Math.max(-1.9, Math.min(1.9, x)); y = Math.max(-1.45, Math.min(1.45, y));
+      a = [x, y]; draw();
+    }
+    const off = kit.drag(sL.canvas, { onDown: setFromPointer, onMove: (p, ev, down) => { if (down) setFromPointer(p); } });
+    sL.onResize = draw; sR.onResize = draw;
+    draw();
+    return () => { off(); sL.destroy(); sR.destroy(); };
+  }
+});
+
+} catch (e) { console.error('viz viz-ch05-jacobienne-grille failed to register', e); }
 
 // ---- content/ch07/viz/viz-ch07-flot-groupe.js ----
 try {
