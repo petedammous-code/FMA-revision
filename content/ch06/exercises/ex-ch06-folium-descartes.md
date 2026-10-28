@@ -4,8 +4,8 @@ type: exercise
 chapters: [6]
 title: Le folium de Descartes, graphe local ou non
 source: "Classique (folium de Descartes, exemple standard des fonctions implicites) ; questions et rédaction adaptées"
-difficulty: 1
-time: 15
+difficulty: 2
+time: 20
 tools: [ch06-fonctions-implicites, ch05-differentielles-partielles, ch05-composition-differentielles]
 ---
 ## Énoncé

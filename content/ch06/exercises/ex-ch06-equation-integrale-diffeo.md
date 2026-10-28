@@ -5,7 +5,7 @@ chapters: [6, 5]
 title: Un difféomorphisme global de l'espace des fonctions continues
 source: "Inventé (opérateur intégral non linéaire de type Volterra ; l'idée « une itérée est contractante » est celle de l'Exercice VI.4.1 du poly)"
 difficulty: 3
-time: 45
+time: 40
 tools: [ch06-inversion-globale, ch06-point-fixe-iteree-contractante, ch06-diffeomorphisme-def, ch05-differentielle-def, ch05-taylor-lagrange-1d, ch05-composition-differentielles, ch05-differentielle-lineaire, ch05-lef-banach-norme-algebre, ch05-banach-series-absolument-convergentes]
 ---
 ## Énoncé

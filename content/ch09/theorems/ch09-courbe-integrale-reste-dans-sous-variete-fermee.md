@@ -6,7 +6,7 @@ title: Une courbe intégrale d'un champ tangent à une sous-variété fermée y 
 ref: Proposition IX.8.1
 page: 172
 importance: 3
-depends: [ch09-redressement-local, ch07-cauchy-lipschitz, ch07-existence-flot-local, ch07-unicite-globale, ch09-vecteur-tangent-espace-tangent-def, ch07-localement-lipschitzien-def]
+depends: [ch09-redressement-local, ch07-cauchy-lipschitz, ch07-existence-flot-local, ch07-unicite-globale, ch09-vecteur-tangent-espace-tangent-def, ch07-localement-lipschitzien-def, ch07-champ-vecteurs-courbe-integrale-def, ch07-peano-non-unicite]
 tags: [champ-tangent, courbe-integrale, sous-variete-fermee, cauchy-lipschitz, redressement, invariance]
 ---
 ## Intuition

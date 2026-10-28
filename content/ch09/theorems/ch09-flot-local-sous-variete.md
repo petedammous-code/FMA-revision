@@ -21,7 +21,7 @@ Vocabulaire. Un **champ de vecteurs tangents** $X : I\times S\to\R^N$ est contin
 
 De plus, on a un énoncé d'unicité : soient $t_0\in J$, $x\in U$. Si $\gamma : ]t_0-\epsilon',t_0+\epsilon'[\to\R^N$ avec $\epsilon'\le\epsilon$ vérifie $\gamma'(t)=X(t,\gamma(t))$ et $\gamma(t_0)=x$, alors $\gamma(t)=\alpha_{t_0,x}(t)=F(t_0,t,x)$ pour tout $t\in\,]t_0-\epsilon',t_0+\epsilon'[$.
 
-(Précisions implicites dans le poly : dans l'énoncé d'unicité, $\gamma$ est à valeurs dans $S$, sinon $X(t,\gamma(t))$ n'a pas de sens. On suppose $S$ de classe $C^k$ avec $k\ge2$, et $k\ge p+1$ pour l'assertion de régularité ; « $X$ de classe $C^p$ » s'entend sur la sous-variété $I\times S$ de $\R^{1+N}$, c'est-à-dire que $(t,u)\mapsto X(t,x(u))$ est $C^p$ pour tout paramétrage local $x$.)
+(Précision implicite dans le poly : dans l'énoncé d'unicité, $\gamma$ est à valeurs dans $S$, sinon $X(t,\gamma(t))$ n'a pas de sens. « $X$ de classe $C^p$ » s'entend sur la sous-variété $I\times S$ de $\R^{1+N}$, c'est-à-dire que $(t,u)\mapsto X(t,x(u))$ est $C^p$ pour tout paramétrage local $x$. Le poly ne précise pas la classe $C^k$ de $S$ ; la preuve rédigée ci-dessous suppose $k\ge2$, et $k\ge p+1$ pour l'assertion de régularité — voir H3 : ce sont des hypothèses de **cette preuve**, pas de l'énoncé.)
 
 **Remarque (poly, Remarque IX.8.6, p. 174).** Un ouvert d'une sous-variété étant une sous-variété ([[ch09-ex-ouvert-de-sous-variete]]), il n'y a pas lieu d'énoncer le théorème avec un ouvert de $S$ à la place de $S$.
 

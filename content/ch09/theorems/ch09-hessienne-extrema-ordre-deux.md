@@ -6,7 +6,7 @@ title: "Conditions d'ordre 2 : signe de la hessienne et extrema locaux"
 ref: non numéroté, section IX.7.6, p. 171
 page: 171
 importance: 2
-depends: [ch09-hessienne-def, ch09-point-critique-sous-variete-def, ch09-espace-tangent-image-dx, ch09-sous-variete-def, ch05-lemme-schwarz, ch05-taylor-young]
+depends: [ch09-hessienne-def, ch09-point-critique-sous-variete-def, ch09-espace-tangent-image-dx, ch09-sous-variete-def, ch09-fonction-differentiable-sur-sous-variete-def, ch09-composition-differentielles, ch05-lemme-schwarz, ch05-taylor-young]
 tags: [hessienne, extremum, point-critique, ordre-deux, sous-variete, taylor]
 ---
 ## Intuition
@@ -104,7 +104,7 @@ Si $d^2f_p$ est définie négative, $Q(h)=d^2g_q(h,h)$ l'est aussi et <trou indi
 ## Pièges
 
 * > ⚠️ La hessienne n'a de sens **intrinsèque** qu'en un point critique. Parler du « signe de la hessienne » en un point non critique n'a pas de sens.
-* > ⚠️ Si $f=G|_S$ avec $G$ définie sur un ouvert de $\R^N$, en général $d^2f_p\ne d^2G_p|_{T_pS\times T_pS}$ : il faut ajouter le terme $dG_p(\alpha''(0))$ dû à la courbure de $S$ (Exercice IX.7.39, p. 171 : $d^2f_p(v,v)=(f\circ\alpha)''(0)$ pour une courbe $\alpha$ tracée sur $S$ avec $\alpha(0)=p$, $\alpha'(0)=v$). Les deux coïncident si $dG_p=0$ ou si $S$ est un ouvert d'un sous-espace affine.
+* > ⚠️ Si $f=G|_S$ avec $G$ définie sur un ouvert de $\R^N$, en général $d^2f_p\ne d^2G_p|_{T_pS\times T_pS}$ : il faut ajouter le terme $dG_p(\alpha''(0))$ dû à la courbure de $S$ (Exercice IX.7.39, p. 171 : $d^2f_p(v,v)=(f\circ\alpha)''(0)$ pour une courbe $\alpha$ de classe $C^2$ tracée sur $S$ avec $\alpha(0)=p$, $\alpha'(0)=v$). Les deux coïncident si $dG_p=0$ ou si $S$ est un ouvert d'un sous-espace affine.
 * Positive (ou négative) **non définie** : on ne peut rien conclure ($u^3$, $u^4$, $u_1^2-u_2^4$, $u_1^2+u_2^4$).
 * Les conditions portent sur les directions **tangentes** $v\in T_pS$ seulement, pas sur tout $\R^N$.
 * La condition nécessaire est une inégalité **large** ; la condition suffisante une inégalité **stricte** (définie) et donne un extremum **strict**.

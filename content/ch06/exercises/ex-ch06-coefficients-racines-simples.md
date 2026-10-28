@@ -5,7 +5,7 @@ chapters: [6, 5]
 title: Les racines simples d'un polynôme dépendent régulièrement des coefficients
 source: "Classique (dépendance lisse des racines simples d'un polynôme réel en ses coefficients) ; démarche par inversion globale et progression des questions inventées"
 difficulty: 3
-time: 45
+time: 40
 tools: [ch06-inversion-globale, ch06-diffeomorphisme-def, ch05-differentielles-partielles, ch05-matrice-jacobienne, ch05-composition-differentielles]
 ---
 ## Énoncé
@@ -90,7 +90,7 @@ $$
 
 **6.** Supposons qu'un tel $\rho$ existe. La règle de la chaîne en $c^0$ ($\rho$ différentiable en $c^0$, $\Pi$ différentiable en $\rho(c^0)=x^0$) appliquée à $\Pi\circ\rho=\id$ donne $d\Pi_{x^0}\circ d\rho_{c^0}=\id_{\R^n}$. Donc $d\Pi_{x^0}$ est surjective, donc inversible (endomorphisme de $\R^n$), ce qui contredit la question 3 puisque $x^0$ a deux coordonnées égales.
 
-*Illustration.* $n=2$, $x^0=(0,0)$, $c^0=(0,0)$, $P_{c^0}=T^2$. Pour $c=(-\eps,0)$, $P_c=T^2-\eps$ a pour racines $\pm\sqrt\eps$ si $\eps>0$ : $\eps\mapsto\sqrt\eps$ n'est pas dérivable en $0$ ; et pour $\eps<0$ il n'y a même plus de racine réelle. Les racines d'un polynôme sont continues mais pas différentiables en une racine multiple.
+*Illustration.* $n=2$, $x^0=(0,0)$, $c^0=(0,0)$, $P_{c^0}=T^2$. Pour $c=(-\eps,0)$, $P_c=T^2-\eps$ a pour racines $\pm\sqrt\eps$ si $\eps>0$ : $\eps\mapsto\sqrt\eps$ n'est pas dérivable en $0$ ; et pour $\eps<0$ il n'y a même plus de racine réelle. Les racines (complexes) d'un polynôme dépendent continûment des coefficients, mais pas différentiablement en une racine multiple ; et si l'on exige des racines réelles, elles peuvent même disparaître.
 
 ## Pièges et variantes
 
