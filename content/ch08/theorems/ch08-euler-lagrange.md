@@ -2,7 +2,7 @@
 id: ch08-euler-lagrange
 type: theorem
 chapter: 8
-title: "Équation d'Euler-Lagrange : condition nécessaire de point critique de $\\hat L$ sur $E_{a,b}$"
+title: "Équation d'Euler-Lagrange : condition nécessaire de point critique de $\hat L$ sur $E_{a,b}$"
 ref: "Question 5, p. 144 (non numérotée, section VIII) — Formule (E.L)"
 page: 144
 importance: 3

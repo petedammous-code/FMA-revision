@@ -2,7 +2,7 @@
 id: ch04-joukovski
 type: proposition
 chapter: 4
-title: "Transformation de Joukovski $J(z) = \\tfrac12(z+1/z)$ : écoulement autour d'un disque et profils d'ailes"
+title: "Transformation de Joukovski $J(z) = \tfrac12(z+1/z)$ : écoulement autour d'un disque et profils d'ailes"
 ref: "non numéroté, section IV.4.1, p. 83 (transformation de Joukovski)"
 page: 83
 importance: 2

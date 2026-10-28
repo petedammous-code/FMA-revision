@@ -2,7 +2,7 @@
 id: ch04-harmoniques-radiales
 type: proposition
 chapter: 4
-title: "Fonctions harmoniques invariantes par rotation sur $\\C^\\times$"
+title: "Fonctions harmoniques invariantes par rotation sur $\C^\times$"
 ref: "non numéroté, section IV.4.2, p. 85 (fonctions harmoniques radiales ; Exercice IV.4.2)"
 page: 85
 importance: 2

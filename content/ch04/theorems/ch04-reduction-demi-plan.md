@@ -2,7 +2,7 @@
 id: ch04-reduction-demi-plan
 type: proposition
 chapter: 4
-title: "Méthode : ramener un problème harmonique sur $\\Omega$ simplement connexe au demi-plan $H$ par une application conforme"
+title: "Méthode : ramener un problème harmonique sur $\Omega$ simplement connexe au demi-plan $H$ par une application conforme"
 ref: "non numéroté, section IV.4, p. 82 (réduction au demi-plan par Riemann)"
 page: 82
 importance: 2

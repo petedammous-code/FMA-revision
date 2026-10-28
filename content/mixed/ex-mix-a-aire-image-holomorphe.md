@@ -3,7 +3,7 @@ id: ex-mix-a-aire-image-holomorphe
 type: exercise
 chapters: [1, 6, 5]
 title: Aire de l'image d'un disque par une fonction holomorphe injective
-source: "Classique (formule de l'aire, cf. Stein–Shakarchi, *Complex Analysis*, ch. 8, exercices ; Rudin, *Real and Complex Analysis*, ch. 14), adapté et complété"
+source: "Classique (formule de l'aire des fonctions univalentes, dans l'esprit du théorème de l'aire de Gronwall), adapté et complété"
 difficulty: 3
 time: 50
 tools: [ch01-similitude-conforme, ch01-bijection-holomorphe-reciproque-holomorphe, ch01-application-ouverte, ch06-inversion-globale, ch05-matrice-jacobienne, ch01-serie-entiere-holomorphe]
