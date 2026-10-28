@@ -4,8 +4,8 @@ type: exercise
 chapters: [4, 1, 2]
 title: Lignes de courant au voisinage d'un point d'arrêt
 source: Inventé
-difficulty: 2
-time: 25
+difficulty: 3
+time: 30
 tools: [ch01-def-multiplicite-zero, ch02-logarithme-existence, ch01-inversion-locale-holomorphe, ch04-holomorphe-conserve-angles, ch04-lignes-niveau-orthogonales]
 ---
 ## Énoncé

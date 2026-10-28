@@ -5,8 +5,8 @@ chapters: [4, 5, 1]
 title: Énergie de Dirichlet — principe de Dirichlet et invariance conforme
 source: "Inventé (sur le thème classique du principe de Dirichlet)"
 difficulty: 4
-time: 85
-tools: [ch05-differentielle-def, ch05-differentielle-bilineaire, ch05-differentielle-nulle-constante, ch04-harmonique-def, ch04-holomorphe-implique-harmonique, ch04-maximum-unicite-bord, ch04-harmonique-moyenne-maximum, ch04-composition-harmonique-holomorphe, ch04-harmoniques-radiales, ch01-cauchy-riemann, ch01-similitude-conforme, ch01-automorphismes-disque, ch01-serie-entiere-holomorphe]
+time: 60
+tools: [ch05-differentielle-def, ch05-differentielle-bilineaire, ch05-differentielle-nulle-constante, ch04-harmonique-def, ch04-holomorphe-implique-harmonique, ch04-maximum-unicite-bord, ch04-harmonique-moyenne-maximum, ch04-composition-harmonique-holomorphe, ch04-harmoniques-radiales, ch01-cauchy-riemann, ch01-similitude-conforme, ch01-automorphismes-disque, ch01-serie-entiere-holomorphe, ch01-application-ouverte, ch01-bijection-holomorphe-reciproque-holomorphe]
 ---
 ## Énoncé
 
@@ -122,7 +122,7 @@ E(\Re(f_a))=\pi\sum_{n\ge1}n(1-|a|^2)^2|a|^{2(n-1)}=\pi(1-t)^2\cdot\frac{1}{(1-t
 $$
 Les deux calculs concordent.
 
-**C8.(b)** $F$ est holomorphe injective sur $U$, donc non constante sur chaque composante connexe de $U$ ; par le théorème de l'application ouverte (poly, Théorème I.14.1, p. 33), appliqué sur chaque composante connexe, $V=F(U)$ est ouvert, et $F:U\to V$ est une bijection holomorphe, donc un biholomorphisme (poly, Remarque I.14.3, p. 33). Par C7 avec $u=\Re$ sur $V$ (où $|\nabla u|=1$) : $E_U(\Re(F))=E_V(\Re)=\iint_V1=\mathrm{aire}(F(U))$. (Cohérent avec C8(a) : $f_a(D)=D$ a pour aire $\pi$.)
+**C8.(b)** $F$ est holomorphe injective sur $U$, donc non constante sur chaque composante connexe de $U$ ; par le théorème de l'application ouverte ([[ch01-application-ouverte]], poly, Théorème I.14.1, p. 33), appliqué sur chaque composante connexe (ouverte, connexe, non vide), $V=F(U)$ est ouvert, et $F:U\to V$ est une bijection holomorphe, donc un biholomorphisme : $F'$ ne s'annule pas et $F^{-1}$ est holomorphe ([[ch01-bijection-holomorphe-reciproque-holomorphe]], poly, Remarque I.14.3, p. 33). Par C7 avec $u=\Re$ sur $V$ (où $|\nabla u|=1$) : $E_U(\Re(F))=E_V(\Re)=\iint_V1=\mathrm{aire}(F(U))$. (Cohérent avec C8(a) : $f_a(D)=D$ a pour aire $\pi$.)
 
 **C9.(a)** Sur $\C^*$, $T_\rho=\frac{1}{\ln\rho}\ln|w|$ est harmonique (fonction radiale de la forme $\alpha\ln|w|+\beta$ : [[ch04-harmoniques-radiales]], poly, section IV.4.2, p. 85). En polaires, $\tilde T_\rho(r,\theta)=\frac{\ln r}{\ln\rho}$, donc $|\nabla T_\rho|^2=\frac{1}{(\ln\rho)^2r^2}$ et
 $$

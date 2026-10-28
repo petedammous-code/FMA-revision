@@ -5,7 +5,7 @@ chapter: 2
 title: Un ouvert étoilé est simplement connexe
 ref: Proposition II.1.5
 page: 37
-importance: 3
+importance: 2
 depends: [ch02-homotopie-simplement-connexe, ch02-ouvert-etoile-def]
 tags: [etoile, simplement-connexe, homotopie, contraction]
 ---

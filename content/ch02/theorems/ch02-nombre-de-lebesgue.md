@@ -13,7 +13,7 @@ tags: [compacite, recouvrement, lebesgue, topologie, bolzano-weierstrass]
 
 > 💡 Quand un compact $K$ est recouvert par des ouverts, on dispose d'une **marge uniforme** $\delta>0$ : toute boule de rayon $\delta$ centrée en un point de $K$ tient tout entière dans **un seul** des ouverts du recouvrement. Autrement dit, « localement, on est dans un $U_i$ » devient « à l'échelle $\delta$, on est dans un $U_i$ », avec le **même** $\delta$ partout sur $K$.
 
-Image mentale : les $U_i$ sont des dalles qui se chevauchent et recouvrent une plaque $K$ ; le nombre de Lebesgue est le diamètre d'une pièce de monnaie que l'on peut poser n'importe où sur $K$ sans qu'elle chevauche jamais deux dalles seulement « au bord ». Sans compacité, les dalles peuvent devenir de plus en plus fines et aucune pièce ne convient.
+Image mentale : les $U_i$ sont des dalles qui se chevauchent et recouvrent une plaque $K$ ; le nombre de Lebesgue est le rayon d'une pièce de monnaie que l'on peut poser, centrée en n'importe quel point de $K$, de sorte qu'elle tienne toujours entièrement sur une seule dalle. Sans compacité, les dalles peuvent devenir de plus en plus fines et aucune pièce ne convient.
 
 C'est l'argument de compacité qui permet, dans la preuve du théorème d'invariance par homotopie ([[ch02-invariance-homotopie-integrale]]), de choisir un pas de grillage $1/n$ tel que chaque petit carré soit envoyé dans un disque où $f$ a une primitive.
 

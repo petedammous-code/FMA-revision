@@ -5,7 +5,7 @@ chapters: [4, 1, 2]
 title: Fonctions harmoniques minorées — une inégalité de Harnack et un Liouville harmonique
 source: "Classique (inégalité de type Harnack par les moyennes sur les disques ; théorème de Liouville pour les fonctions harmoniques minorées)"
 difficulty: 3
-time: 45
+time: 40
 tools: [ch04-harmonique-moyenne-maximum, ch04-holomorphe-implique-harmonique, ch04-composition-harmonique-holomorphe, ch02-logarithme-determination-principale-def, ch01-cauchy-riemann]
 ---
 ## Énoncé

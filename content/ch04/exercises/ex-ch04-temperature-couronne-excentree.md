@@ -5,7 +5,7 @@ chapters: [4, 1, 2]
 title: Température dans une couronne excentrée
 source: "Inventé (calcul explicite de la méthode du poly, § IV.4.2)"
 difficulty: 3
-time: 45
+time: 40
 tools: [ch01-automorphismes-disque, ch04-harmoniques-radiales, ch04-composition-harmonique-holomorphe, ch04-maximum-unicite-bord, ch04-holomorphe-implique-harmonique, ch02-formule-residus]
 ---
 ## Énoncé

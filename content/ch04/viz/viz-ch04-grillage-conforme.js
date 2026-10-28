@@ -2,7 +2,7 @@ FMA.registerViz({
   id: 'viz-ch04-grillage-conforme',
   chapter: 4,
   title: 'Transformation conforme : un quadrillage et son image',
-  description: String.raw`**Ce que l'on voit.** À gauche, le *plan des $z$* avec un quadrillage : droites verticales $\Re(z)=c$ (bleu) et horizontales $\Im(z)=c'$ (rose). À droite, le *plan des $w=f(z)$* avec les **images** de ces droites par la fonction holomorphe $f$ choisie. Les images ne sont plus droites, mais elles se coupent encore **à angle droit** partout où $f'\neq 0$.
+  description: String.raw`**Ce que l'on voit.** À gauche, le *plan des $z$* avec un quadrillage : droites verticales $\Re(z)=c$ (bleu) et horizontales $\Im(z)=c'$ (rose). À droite (en dessous sur un téléphone), le *plan des $w=f(z)$* avec les **images** de ces droites par la fonction holomorphe $f$ choisie. Les images ne sont plus droites, mais elles se coupent encore **à angle droit** partout où $f'\neq 0$.
 
 **Pourquoi.** Au voisinage de $z_0$, $f(z_0+h)\approx f(z_0)+f'(z_0)\,h$ : la différentielle de $f$ en $z_0$ est la multiplication par le nombre complexe $f'(z_0)$, c'est-à-dire une **similitude directe** (rotation d'angle $\arg f'(z_0)$ suivie d'une homothétie de rapport $|f'(z_0)|$). Un arc $\gamma$ passant par $z_0$ avec la tangente $\gamma'(0)$ a pour image un arc de tangente $f'(z_0)\gamma'(0)$ : les deux tangentes tournent du **même** angle, donc l'angle (orienté) entre deux arcs est conservé (poly, § IV.1, p. 75 ; [[ch04-holomorphe-conserve-angles|conservation des angles]]).
 

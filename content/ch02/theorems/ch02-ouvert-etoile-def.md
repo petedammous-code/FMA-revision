@@ -29,7 +29,7 @@ En particulier, un ouvert convexe est étoilé (en chacun de ses points).
 
 **Rôle.** Le point $\omega$ doit appartenir à $\Omega$ (pour $z=\omega$ le segment est réduit à $\{\omega\}$). L'hypothèse « ouvert » est le cadre du cours (holomorphie, simple connexité) ; la condition géométrique a un sens pour n'importe quelle partie de $\C$.
 
-**Si on la retire.** Si on autorisait $\omega\notin\Omega$, la couronne $\{1<|z|<2\}$ ne serait toujours pas « étoilée en $0$ » (les segments $[0,z]$ passent par le disque $D(0,1)$), mais $D(0,1)\setminus\{0\}$ le serait, alors qu'il n'est pas simplement connexe ([[ch02-homotopie-simplement-connexe]]) : la proposition « étoilé $\Rightarrow$ simplement connexe » tomberait.
+**Si on la retire.** Si on autorisait un centre $\omega\in\C$ quelconque, la condition $[\omega,z]\subset\Omega$ forcerait de toute façon $\omega\in\Omega$ (prendre $z\in\Omega$ : le segment contient $\omega$). La version affaiblie « il existe $\omega\in\C$ tel que $\,]\omega,z]\subset\Omega$ pour tout $z\in\Omega$ » (segment privé de son extrémité $\omega$) serait, elle, vraiment différente : la couronne $\{1<|z|<2\}$ ne la vérifie toujours pas en $0$ (le segment $]0,z]$ traverse le disque $D(0,1)$), mais le disque épointé $D(0,1)\setminus\{0\}$ la vérifie en $\omega=0$ (pour $z\in D(0,1)\setminus\{0\}$ et $\lambda\in\,]0,1]$, $\lambda z\ne0$ et $|\lambda z|<1$), alors qu'il n'est pas simplement connexe ([[ch02-homotopie-simplement-connexe]], exemple 2) : la proposition « étoilé $\Rightarrow$ simplement connexe » tomberait.
 
 ## Exemples
 
