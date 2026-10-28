@@ -6,7 +6,7 @@ title: Particule chargée dans un champ magnétique uniforme
 source: "Inventé (à partir du Lagrangien classique d'une charge dans un champ magnétique uniforme)"
 difficulty: 2
 time: 30
-tools: [ch08-euler-lagrange, ch08-energie-conservee, ch08-groupe-un-parametre-invariance, ch08-noether, ch08-lhat-c1-differentielle, ch05-differentielles-partielles, ch05-gradient-hilbert, ch05-differentielle-lineaire]
+tools: [ch08-euler-lagrange, ch08-energie-conservee, ch08-groupe-un-parametre-invariance, ch08-noether, ch08-lhat-c1-differentielle, ch05-differentielles-partielles, ch05-gradient-hilbert, ch05-differentielle-lineaire, ch07-unicite-globale]
 ---
 ## Énoncé
 
@@ -102,4 +102,4 @@ Réponse : l'unique point critique existe si et seulement si $B\notin2\pi\Z$.
 * Ne pas supposer $\gamma$ de classe $C^2$ pour appliquer la conservation de l'énergie : ici c'est la question 1 qui le **démontre** à partir de (E.L).
 * Translations : la quantité $z'+iBz=iBc$ (lié au centre $c$ du cercle) est aussi conservée, mais elle ne s'obtient pas par le théorème de Noether **tel qu'énoncé dans le poly**. En effet $L$ n'est pas invariant par les translations $F_s(q)=q+se$ : $L(u,q+se,v)-L(u,q,v)=\frac{sB}{2}\langle Je,v\rangle$, qui n'est pas nul mais est la dérivée en temps de $\frac{sB}{2}\langle Je,\gamma\rangle$ le long d'une courbe. Il faut une version de Noether « à dérivée totale près ».
 * Variante : $L=\frac12\norm{v}^2+\frac B2\langle Jq,v\rangle-U(q)$ avec $U$ radial ($U(q)=f(\norm{q})$) : $H=\frac12\norm{\gamma'}^2+U(\gamma)$ et $Q$ restent conservés (même calcul), mais les trajectoires ne sont plus des cercles.
-* Variante : $\langle Jq,v\rangle=\det(q,v)$, donc $\hat L$ contient $\frac B2\int_0^1\det(\gamma,\gamma')$, qui vaut $B$ fois l'aire algébrique balayée par le segment $[0,\gamma(t)]$ : c'est la fonctionnelle $T$ de la PC (TD de calcul différentiel, ex. 4), qui explique le lien avec le problème isopérimétrique.
+* Variante : $\langle Jq,v\rangle=\det(q,v)$, donc $\hat L$ contient $\frac B2\int_0^1\det(\gamma,\gamma')$, qui vaut $B$ fois l'aire algébrique balayée par le segment $[0,\gamma(t)]$ : c'est la fonctionnelle $T$ de la PC (TD de calcul différentiel, ex. 4), d'où le lien avec le problème isopérimétrique (maximiser l'aire enclose à longueur fixée), dont les solutions sont, elles aussi, des cercles.
