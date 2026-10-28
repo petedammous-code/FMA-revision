@@ -46,7 +46,7 @@ $$
 
 **Rôle.** Permet de remplacer l'instant d'escale absolu $s$ par une durée : la courbe translatée en temps $u\mapsto\alpha(u+t)$ est encore une courbe intégrale ([[ch07-translation-temps-autonome]]), ce qui n'est vrai que si $X$ ne dépend pas de $t$.
 
-**Si on la retire.** Sur $S=\mathbb S^2$, avec $R_\theta$ la rotation d'angle $\theta$ d'axe $e_3$, le champ tangent $X(t,p)=t\,(e_3\wedge p)$ a pour flot $F(t_0,t,p)=R_{(t^2-t_0^2)/2}\,p$ (voir l'exemple 3). Posons $G_t=F(0,t,\cdot)=R_{t^2/2}$. Alors $G_s\circ G_t=R_{(s^2+t^2)/2}$ et $G_{t+s}=R_{(t+s)^2/2}$ : ils diffèrent dès que $st\notin\pi\Z$, par exemple $s=t=1$ (angles $1$ et $2$). Seule la formule de composition à trois arguments reste vraie.
+**Si on la retire.** Sur $S=\mathbb S^2$, avec $R_\theta$ la rotation d'angle $\theta$ d'axe $e_3$, le champ tangent $X(t,p)=t\,(e_3\wedge p)$ a pour flot $F(t_0,t,p)=R_{(t^2-t_0^2)/2}\,p$ (voir l'exemple 3). Posons $G_t=F(0,t,\cdot)=R_{t^2/2}$. Alors $G_s\circ G_t=R_{(s^2+t^2)/2}$ et $G_{t+s}=R_{(t+s)^2/2}$ : ils diffèrent exactement lorsque $R_{st}\ne\id$, c'est-à-dire dès que $st\notin2\pi\Z$, par exemple $s=t=1$ (angles $1$ et $2$). Seule la formule de composition à trois arguments reste vraie.
 
 ### H3 — Les instants sont dans les intervalles de vie
 

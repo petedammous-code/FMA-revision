@@ -11,7 +11,7 @@ tags: [flot, flot-global, compacite, temps-de-vie, lemme-des-bouts, sous-variete
 ---
 ## Intuition
 
-> 💡 **Sur une surface compacte, une particule n'a nulle part où s'enfuir.** Une courbe intégrale d'un champ autonome ne peut s'arrêter en un temps fini que si elle « s'échappe » : elle part à l'infini, ou elle va se coller à un point qui n'appartient pas à l'espace où elle vit (lemme des bouts, [[ch07-lemme-des-bouts]]). Sur une sous-variété compacte $S$ (sphère, tore...), les deux sont impossibles : la trajectoire reste dans le compact $S$, donc elle vit pour tous les temps, passés et futurs.
+> 💡 **Sur une surface compacte, une particule n'a nulle part où s'enfuir.** Une courbe intégrale d'un champ autonome ne peut s'arrêter en un temps fini que si elle « s'échappe » : elle part à l'infini, ou elle s'approche du bord de l'espace où elle vit (elle finit par quitter tout compact : lemme des bouts, [[ch07-lemme-des-bouts]]). Sur une sous-variété compacte $S$ (sphère, tore...), les deux sont impossibles : la trajectoire reste dans le compact $S$, donc elle vit pour tous les temps, passés et futurs.
 
 Le mécanisme est celui du lemme des bouts : en chaque point de $S$, le théorème du flot local ([[ch09-flot-local-sous-variete]]) garantit une durée de vie $\epsilon_z>0$ ; par compacité, une durée $2\epsilon$ **uniforme** convient pour tous les points de $S$ à la fois ; on peut alors toujours « relancer » la solution pour une durée $\epsilon$ de plus.
 
@@ -89,7 +89,7 @@ et l'on trouve explicitement, pour $p=(x,y,z)\in\mathbb S^2$,
 $$
 F_t\cdot p=\frac{\big(x,\ y,\ z\cosh t+\sinh t\big)}{\cosh t+z\sinh t},
 $$
-bien défini pour tout $t\in\R$ car $\cosh t+z\sinh t\ge\cosh t-\abs{\sinh t}=e^{-\abs t}>0$ (puisque $\abs z\le1$). On vérifie que $F_0\cdot p=p$, que $\frac{d}{dt}\big|_{t=0}F_t\cdot p=(-zx,-zy,1-z^2)=X(p)$, et que $F_t\cdot p\in\mathbb S^2$ : $(x^2+y^2)+(z\cosh t+\sinh t)^2-(\cosh t+z\sinh t)^2=(1-z^2)+(z^2-1)(\cosh^2t-\sinh^2t)=0$. (Que $t\mapsto F_t\cdot p$ soit la courbe intégrale pour tout $t$, et pas seulement en $t=0$, résulte de la propriété de groupe $F_{t+h}=F_h\circ F_t$, qu'on vérifie avec les formules d'addition de $\cosh$ et $\sinh$.) Toutes les trajectoires sont globales et montent vers le pôle nord $e_3$.
+bien défini pour tout $t\in\R$ car $\cosh t+z\sinh t\ge\cosh t-\abs{\sinh t}=e^{-\abs t}>0$ (puisque $\abs z\le1$). On vérifie que $F_0\cdot p=p$, que $\frac{d}{dt}\big|_{t=0}F_t\cdot p=(-zx,-zy,1-z^2)=X(p)$, et que $F_t\cdot p\in\mathbb S^2$ : $(x^2+y^2)+(z\cosh t+\sinh t)^2-(\cosh t+z\sinh t)^2=(1-z^2)+(z^2-1)(\cosh^2t-\sinh^2t)=0$. En fait l'équation est vérifiée pour tout $t$ : en notant $\delta(t)=\cosh t+z\sinh t$ et $w(t)=(z\cosh t+\sinh t)/\delta(t)$, on a $\delta'=z\cosh t+\sinh t=w\delta$, donc $\frac{d}{dt}\frac{x}{\delta}=-\frac{x}{\delta}\,w$ (première coordonnée de $X$ au point $F_t\cdot p$), de même pour $y$, et $w'=\frac{\delta^2-(z\cosh t+\sinh t)^2}{\delta^2}=1-w^2$. Toutes les trajectoires sont globales ; les pôles $\pm e_3$ sont fixes et toute autre trajectoire monte du pôle sud vers le pôle nord $e_3$.
 
 À l'inverse, la **même** équation $z'=1-z^2$ posée sur $S=\R$ (non compacte) explose : pour $z(0)=2$, la solution est $z(t)=\coth(t+c)$ avec $\coth c=2$, soit $c=\frac12\ln3$ ($\frac{d}{dt}\coth(t+c)=-\frac1{\sinh^2(t+c)}=1-\coth^2(t+c)$), et $J(2)=\,]-\tfrac12\ln3,+\infty[$ : explosion dans le passé. Sur la sphère, la compacité confine $z$ dans $[-1,1]$, où cela ne peut pas arriver.
 

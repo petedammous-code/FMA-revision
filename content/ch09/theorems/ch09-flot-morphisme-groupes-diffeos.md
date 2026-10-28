@@ -6,7 +6,7 @@ title: $t\mapsto F_t$ est un morphisme de groupes de $\mathbb R$ dans $\mathrm{D
 ref: Corollaire IX.8.10
 page: 175
 importance: 2
-depends: [ch09-flot-complet-compacte, ch09-flot-propriete-groupe, ch09-flot-global-ouvert-regulier, ch09-diffeomorphisme-sous-varietes-def, ch09-remarques-applications-cr, ch09-redressement-local, ch07-restriction-domaine-c1-lipschitz]
+depends: [ch09-flot-complet-compacte, ch09-flot-propriete-groupe, ch09-flot-global-ouvert-regulier, ch09-diffeomorphisme-sous-varietes-def, ch09-remarques-applications-cr, ch09-redressement-local, ch09-fonction-differentiable-sur-sous-variete-def, ch07-restriction-domaine-c1-lipschitz]
 tags: [flot, groupe-a-un-parametre, difféomorphisme, morphisme-de-groupes, compacite, sous-variete, champ-tangent]
 ---
 ## Intuition
@@ -90,7 +90,7 @@ $$
 $$
 et de même pour $x,y$ (le dénominateur se compose en $\cosh(t+s)+z\sinh(t+s)$). En particulier $F_{-t}$ est l'inverse de $F_t$. Les $F_t$ fixent les deux pôles $\pm e_3$, ne conservent pas les distances (pour $t\to+\infty$, $F_t\cdot p\to e_3$ pour tout $p\ne-e_3$), et ce sont pourtant des difféomorphismes $C^\infty$ de la sphère.
 
-**Exemple 3 (flot linéaire sur le tore).** $S=\mathbb S^1\times\mathbb S^1\subset\R^4$, compacte (produit, [[ch09-ex-produit]]), $X(q)=(-q_2,q_1,-\lambda q_4,\lambda q_3)$ avec $\lambda\in\R$, tangent car chaque bloc est orthogonal au point correspondant de $\mathbb S^1$. Alors $F_t=(R_t,R_{\lambda t})$ (rotations planes d'angles $t$ et $\lambda t$). Le noyau du morphisme est $\{t\mid t\in2\pi\Z,\ \lambda t\in2\pi\Z\}$ : si $\lambda\notin\Q$, il est réduit à $\{0\}$ et $t\mapsto F_t$ est **injectif** ; si $\lambda=a/b$ avec $a\in\Z^*$, $b\in\N^*$ premiers entre eux, c'est $2\pi b\Z$.
+**Exemple 3 (flot linéaire sur le tore).** $S=\mathbb S^1\times\mathbb S^1\subset\R^4$, compacte (produit, [[ch09-ex-produit]]), $X(q)=(-q_2,q_1,-\lambda q_4,\lambda q_3)$ avec $\lambda\in\R$, tangent car chaque bloc est orthogonal au point correspondant de $\mathbb S^1$. Alors $F_t=(R_t,R_{\lambda t})$ (rotations planes d'angles $t$ et $\lambda t$). Le noyau du morphisme est $\{t\mid t\in2\pi\Z,\ \lambda t\in2\pi\Z\}$ : si $\lambda\notin\Q$, il est réduit à $\{0\}$ et $t\mapsto F_t$ est **injectif** ; si $\lambda=a/b$ avec $a\in\Z$, $b\in\N^*$ premiers entre eux, c'est $2\pi b\Z$ (car $ak/b\in\Z$ équivaut à $b\mid k$).
 
 ## Pièges
 
