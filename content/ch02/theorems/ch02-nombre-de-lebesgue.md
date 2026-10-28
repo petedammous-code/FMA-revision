@@ -75,5 +75,5 @@ Pour $n\in\N^\times$, soit $F_n$ l'ensemble des $k\in K$ tels qu'aucun $U_i$ ne 
 * > ⚠️ La propriété est « **pour tout** $k$, **il existe** $i$ » : l'indice $i$ dépend du point $k$, seul $\delta$ est uniforme. Il ne s'agit pas de trouver un ouvert contenant toutes les boules.
 * L'hypothèse de compacité est indispensable (H1) : « fermé » ou « borné » seuls ne suffisent pas.
 * Dans la preuve, l'extraction d'une sous-suite ne doit pas faire perdre le lien entre le point $k_n$ et le rayon $1/n$ : on extrait des indices, et le $k_n$ gardé appartient toujours à $F_n$.
-* Le choix de $\eps/3$ (et non $\eps/2$ ou $\eps$) est seulement une commodité pour l'inégalité triangulaire ; toute fraction $<\eps/2$ convient.
+* Le choix de $\eps/3$ (et non $\eps$) est seulement une commodité pour l'inégalité triangulaire : il faut que $\bar B(k_n,r)\subset\bar B(k,\eps)$ dès que $\|k_n-k\|\le r$, ce qui vaut pour tout $r\le\eps/2$ ; avec $r=\eps$ on n'obtiendrait que $\bar B(k_n,\eps)\subset\bar B(k,2\eps)$, qui n'est pas forcément dans $U_i$.
 * Ne pas confondre avec la propriété de Borel–Lebesgue (extraction d'un sous-recouvrement fini) : ici on n'extrait rien, on obtient une échelle uniforme. Les deux sont des conséquences de la compacité.

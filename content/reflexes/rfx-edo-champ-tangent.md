@@ -12,7 +12,7 @@ On a un champ $X$ sur un ouvert $U$ de $\R^N$ (ou sur $\Mat_n(\R)$) et une sous-
 
 ### [x] Une courbe intégrale d'un champ tangent à une sous-variété fermée y reste — [[ch09-courbe-integrale-reste-dans-sous-variete-fermee]]
 **Quand.** $S$ est une sous-variété **fermée** de $\R^N$, $X:I\times U\to\R^N$ est continu et localement lipschitzien en $x$ sur un ouvert $U\supset S$, et $X(t,x)\in T_xS$ **pour $x\in S$** (tangence seulement sur $S$). Alors toute courbe intégrale $\gamma$ avec $\gamma(0)\in S$ reste dans $S$ sur tout son intervalle (poly, Proposition IX.8.1, p. 172). Tester la tangence : si $S=\{F=0\}$ avec $0$ valeur régulière, $X(x)\in T_xS\iff dF_x(X(x))=0$ ([[ch09-espace-tangent-graphe-equation]]) ; pour la sphère, $\langle X(x),x\rangle=0$.
-**Justification.** Le Théorème IX.8.5 donne une courbe intégrale **dans $S$** ; par unicité dans $U$, elle coïncide avec $\gamma$ ; la fermeture de $S$ permet de recommencer jusqu'au bout de l'intervalle.
+**Justification.** Soit $\tau$ le sup des instants jusqu'auxquels $\gamma$ reste dans $S$ ; $S$ fermée donne $\gamma(\tau)\in S$. Dans une carte de redressement ([[ch09-redressement-local]]) où $S$ devient $\R^m\times\{0\}$, le champ lu en carte est tangent à $\R^m\times\{0\}$ ; la solution du système réduit (seconde composante nulle) est une courbe intégrale restant dans $S$, et par unicité (Cauchy–Lipschitz) c'est $\gamma$ : contradiction si $\tau\lt b$.
 **Pièges.** Ne pas oublier « **fermée** » : pour $S$ un arc ouvert de cercle, la courbe peut sortir par l'extrémité manquante. Vérifier la tangence **en tout point de $S$**, pas seulement en un point.
 
 ### [x] Intégrale première : la contrainte est conservée sur tout l'ouvert — [[ch09-ex-champs-tangents-physique]]
