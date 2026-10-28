@@ -11,7 +11,7 @@ tags: [lemme-des-bouts, temps-de-vie, explosion, compacite, solution-globale, au
 ---
 ## Intuition
 
-> 💡 **Une solution ne meurt pas sans raison.** Si la trajectoire d'un champ autonome s'arrête au temps fini $b$, ce n'est pas parce que « le temps manque » : c'est que la particule **s'échappe** — elle part à l'infini, ou elle va se coller au bord de l'ouvert $U$. Tant qu'elle reste dans un compact $K$ de $U$, on peut toujours la relancer pour une durée fixe $\epsilon$, et donc la prolonger indéfiniment.
+> 💡 **Une solution ne meurt pas sans raison.** Si la trajectoire d'un champ autonome s'arrête au temps fini $b$, ce n'est pas parce que « le temps manque » : c'est que la particule **s'échappe** — en dimension finie, elle part à l'infini ou elle va se coller au bord de l'ouvert $U$ (en dimension infinie, « ne rester dans aucun compact » est une condition plus faible). Tant qu'elle reste dans un compact $K$ de $U$, on peut toujours la relancer pour une durée fixe $\epsilon$, et donc la prolonger indéfiniment.
 
 Le cœur de l'argument est l'**uniformité** : en chaque point $y$ de $K$, Cauchy-Lipschitz garantit une durée de vie $\epsilon_y>0$, et par compacité on peut choisir une durée $2\epsilon$ valable **pour tous** les points de $K$ à la fois. Si la solution vivait seulement jusqu'à $b<+\infty$, on la relancerait de son point à l'instant $b-\epsilon$ (qui est dans $K$) pour une durée $2\epsilon$, et elle irait jusqu'à $b+\epsilon$ : contradiction.
 

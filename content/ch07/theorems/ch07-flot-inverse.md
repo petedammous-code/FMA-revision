@@ -2,7 +2,7 @@
 id: ch07-flot-inverse
 type: corollary
 chapter: 7
-title: Inversibilité du flot : $F(t,s,F(s,t,x))=x$
+title: "Inversibilité du flot : $F(t,s,F(s,t,x))=x$"
 ref: Corollaire VII.3.8
 page: 135
 importance: 2

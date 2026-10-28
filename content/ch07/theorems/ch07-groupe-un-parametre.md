@@ -2,7 +2,7 @@
 id: ch07-groupe-un-parametre
 type: proposition
 chapter: 7
-title: Propriété de groupe du flot autonome : $F_s\cdot(F_t\cdot x)=F_{t+s}\cdot x$
+title: "Propriété de groupe du flot autonome : $F_s\cdot(F_t\cdot x)=F_{t+s}\cdot x$"
 ref: Remarque VII.3.6
 page: 135
 importance: 3

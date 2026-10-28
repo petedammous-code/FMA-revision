@@ -3,7 +3,7 @@ id: ch05-lef-banach-norme-algebre
 type: proposition
 chapter: 5
 title: $\mathcal L(E;F)$ est normé, de Banach si $F$ l'est ; norme d'algèbre sur $\mathcal L(E)$
-ref: non numéroté, section V.1.2
+ref: non numéroté, section V.1.2, p. 93
 page: 93
 importance: 2
 depends: [ch05-norme-operateur-def]

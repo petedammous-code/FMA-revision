@@ -104,7 +104,7 @@ Les conditions sont **suffisantes**, pas nécessaires : pour une équation liné
         ctx.save(); ctx.fillStyle = T.muted; ctx.strokeStyle = T.axis; ctx.font = '11px system-ui, sans-serif';
         const yb = Math.min(Htop - 14, Math.max(2, oy + 3));
         ctx.textAlign = 'center'; ctx.textBaseline = 'top';
-        for (let t = Math.ceil(-tm / st_) * st_; t <= tm + 1e-9; t += st_) { if (Math.abs(t) < 1e-9) continue; const [px] = P.toPx(t, 0); ctx.beginPath(); ctx.moveTo(px, oy - 3); ctx.lineTo(px, oy + 3); ctx.stroke(); ctx.fillText(kit.fmt(+t.toFixed(3)), px, yb); }
+        for (let t = Math.ceil(-tm / st_) * st_; t <= tm + 1e-9; t += st_) { if (Math.abs(t) < 1e-9) continue; const [px] = P.toPx(t, 0); if (px < 14 || px > W - 14) continue; ctx.beginPath(); ctx.moveTo(px, oy - 3); ctx.lineTo(px, oy + 3); ctx.stroke(); ctx.fillText(kit.fmt(+t.toFixed(3)), px, yb); }
         ctx.textAlign = 'right'; ctx.textBaseline = 'middle';
         for (let y = Math.ceil(ymin / sy_) * sy_; y <= ymax; y += sy_) { if (Math.abs(y) < 1e-9) continue; const [, py] = P.toPx(0, y); if (py < 16 || py > Htop - 4) continue; ctx.beginPath(); ctx.moveTo(ox - 3, py); ctx.lineTo(ox + 3, py); ctx.stroke(); ctx.fillText(kit.fmt(+y.toFixed(3)), ox - 5, py); }
         ctx.restore();

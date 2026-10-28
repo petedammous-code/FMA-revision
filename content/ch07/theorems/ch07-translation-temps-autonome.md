@@ -6,12 +6,12 @@ title: Invariance par translation en temps (champ autonome)
 ref: Théorème VII.3.5
 page: 135
 importance: 3
-depends: [ch07-unicite-globale, ch07-courbe-integrale-maximale-def, ch07-flot-global-def, ch07-equation-autonome-def]
+depends: [ch07-unicite-globale, ch07-courbe-integrale-maximale-def, ch07-flot-global-def, ch07-equation-autonome-def, ch07-autonome-i-egal-r-remarque]
 tags: [autonome, translation-temps, courbe-integrale-maximale, flot, orbite]
 ---
 ## Intuition
 
-> 💡 Pour un champ **autonome** (la carte des vents est figée, [[ch07-equation-autonome-def]]), l'heure de départ n'a aucune importance : seule compte la durée écoulée. Si la particule partie de $x_0$ à l'instant $0$ passe en $x_1$ à l'instant $t_1$, alors la particule partie de $x_1$ à l'instant $0$ refait **exactement le même trajet**, avec $t_1$ d'avance : elle est en $\alpha(t+t_1)$ à l'instant $t$. Sa durée de vie dans le futur est donc raccourcie de $t_1$ et celle dans le passé allongée de $t_1$ : $J(x_1)=J(x_0)-t_1$.
+> 💡 Pour un champ **autonome** (la carte des vents est figée, [[ch07-equation-autonome-def]]), l'heure de départ n'a aucune importance : seule compte la durée écoulée. Si la particule partie de $x_0$ à l'instant $0$ passe en $x_1$ à l'instant $t_1$, alors la particule partie de $x_1$ à l'instant $0$ refait **exactement le même trajet**, avec $t_1$ d'avance : elle est en $\alpha(t+t_1)$ à l'instant $t$. Sa durée de vie dans le futur est donc raccourcie de $t_1$ et celle dans le passé allongée de $t_1$ (pour $t_1>0$ ; c'est l'inverse si $t_1<0$) : $J(x_1)=J(x_0)-t_1$.
 
 Le mécanisme est élémentaire : si $\alpha'(u)=X(\alpha(u))$, alors $\beta(t)=\alpha(t+t_1)$ vérifie $\beta'(t)=\alpha'(t+t_1)=X(\alpha(t+t_1))=X(\beta(t))$ — ce calcul **échoue** dès que $X$ dépend du temps, car on obtiendrait $X(t+t_1,\beta(t))$ au lieu de $X(t,\beta(t))$. Le reste de la preuve consiste à vérifier que la courbe translatée est bien **maximale**, grâce à l'unicité ([[ch07-unicite-globale]]) et à la définition de $J(x_0)$ comme réunion de tous les intervalles d'existence ([[ch07-courbe-integrale-maximale-def]]).
 
@@ -94,7 +94,7 @@ Or la courbe intégrale maximale de condition initiale $x_1=2$ est $\alpha_2(t)=
 ## Pièges
 
 * > ⚠️ Le théorème est **faux** pour un champ dépendant du temps (H1) : $\alpha'=2t$, $\alpha(0)=0$ donne $\alpha=t^2$ et $t\mapsto(t+1)^2$ n'est pas solution. Utiliser alors [[ch07-composition-flot]].
-* Sens de la translation : $J(x_1)=J(x_0)-t_1$ (et non $+t_1$). Si $J(x_0)=\,]a\,;b[$, alors $J(\alpha(t_1))=\,]a-t_1\,;b-t_1[$ : la borne supérieure **diminue** de $t_1$ (temps déjà consommé) et la borne inférieure aussi.
+* Sens de la translation : $J(x_1)=J(x_0)-t_1$ (et non $+t_1$). Si $J(x_0)=\,]a\,;b[$, alors $J(\alpha(t_1))=\,]a-t_1\,;b-t_1[$ : pour $t_1>0$, la borne supérieure **diminue** de $t_1$ (temps déjà consommé) et la borne inférieure aussi.
 * Ne pas confondre la courbe intégrale (un paramétrage $t\mapsto\alpha(t)$) et l'orbite (son image) : le théorème dit que changer de point de départ **sur une même orbite** ne change que le paramétrage, par translation.
 * « Lipschitzien » dans l'énoncé peut être remplacé par « localement lipschitzien » (H2) ; mais une condition de Lipschitz **au moins locale** est indispensable pour parler de la courbe maximale.
-* En notation non autonome, l'énoncé donne $J_{\tau_0}(x_0)=J(x_0)+\tau_0$ et $\alpha_{\tau_0,x_0}(t)=\alpha_{x_0}(t-\tau_0)$ (même preuve avec $t_1$ remplacé par $-\tau_0$) : c'est ce qui autorise la convention $\tau_0=0$ de [[ch07-flot-global-def]].
+* En notation non autonome, l'énoncé donne $J_{\tau_0}(x_0)=J(x_0)+\tau_0$ et $\alpha_{\tau_0,x_0}(t)=\alpha_{x_0}(t-\tau_0)$ (même argument de translation : $t\mapsto\alpha_{x_0}(t-\tau_0)$ est une courbe intégrale valant $x_0$ en $\tau_0$, et $t\mapsto\alpha_{\tau_0,x_0}(t+\tau_0)$ une courbe intégrale valant $x_0$ en $0$ ; on conclut par unicité et maximalité comme dans la preuve) : c'est ce qui autorise la convention $\tau_0=0$ de [[ch07-flot-global-def]].
