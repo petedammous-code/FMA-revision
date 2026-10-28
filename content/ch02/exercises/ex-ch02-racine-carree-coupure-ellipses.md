@@ -5,7 +5,7 @@ chapters: [2]
 title: Racine carrée sur le plan coupé et intégrales sur un segment
 source: "Inventé (problème original ; la question B1 recoupe l'Exercice II.9.5 du poly, les valeurs finales des intégrales sont classiques)"
 difficulty: 4
-time: 80
+time: 60
 tools: [ch02-indice-def, ch02-indice-entier-localement-constant, ch02-primitive-simplement-connexe, ch01-primitive-locale, ch02-invariance-homotopie-integrale, ch02-indice-cercle, ch02-residu-pole-simple, ch02-singularite-effacable-riemann, ch02-puissance-complexe-def, ch01-longueur-majoration-integrale, ch01-derivee-f-rond-gamma]
 ---
 ## Énoncé

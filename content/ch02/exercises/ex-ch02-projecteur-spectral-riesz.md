@@ -4,7 +4,7 @@ type: exercise
 chapters: [2, 5]
 title: Compter et suivre des valeurs propres par une intégrale de contour
 source: "Inventé (autour du projecteur spectral de Riesz, outil classique de la théorie des perturbations)"
-difficulty: 3
+difficulty: 4
 time: 50
 tools: [ch02-principe-argument-domaine, ch02-indice-cercle, ch02-residu-pole-simple, ch02-formule-residus-pratique, ch05-inversion-c-infini, ch01-holomorphie-sous-integrale, ch01-integrale-primitive]
 ---
