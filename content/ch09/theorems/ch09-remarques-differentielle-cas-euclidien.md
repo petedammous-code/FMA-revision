@@ -30,7 +30,7 @@ $$
 $$
 \varphi(x(q+h))=\varphi(p)+d\varphi_p(dx_q(h))+o(h)
 $$
-(comme fonction de $h$ définie dans un voisinage approprié de $0$ dans $\R^m$, c'est-à-dire pour $q+h$ dans un voisinage de $q$) : c'est l'**unique** application linéaire $L : T_pS_1\to\R^{N_2}$ telle que $\varphi(x(q+h))=\varphi(p)+L(dx_q(h))+o(h)$.
+(comme fonction de $h$ définie dans un voisinage approprié de $0$ dans $\R^m$, c'est-à-dire pour $q+h$ dans un voisinage de $q$ — le poly écrit « voisinage approprié de $q$ », il s'agit bien de $h$ petit) : c'est l'**unique** application linéaire $L : T_pS_1\to\R^{N_2}$ telle que $\varphi(x(q+h))=\varphi(p)+L(dx_q(h))+o(h)$.
 
 ## Hypothèses
 
@@ -97,7 +97,7 @@ On utilise la propriété 1 de la définition : <trou indice="relation entre $d\
 
 ## Pièges
 
-* > ⚠️ **$d\varphi_p=0$ n'équivaut pas à $dF_p=0$.** Le point 2 ne garde que la restriction à $T_pS_1$ : au pôle nord, la hauteur a $dh_p=0$ (point critique sur la sphère) bien que $dF_p\neq0$. C'est le point de départ des multiplicateurs de Lagrange ([[ch09-multiplicateurs-lagrange]]).
+* > ⚠️ **$d\varphi_p=0$ n'équivaut pas à $dF_p=0$.** Le point 2 ne garde que la restriction à $T_pS_1$ : au pôle nord, la hauteur $h=H_{|\mathbb S^2}$ a $dh_p=0$ (point critique sur la sphère) bien que $dH_p\neq0$. C'est le point de départ des multiplicateurs de Lagrange ([[ch09-multiplicateurs-lagrange]]).
 * Deux prolongements différents de $\varphi$ ont des différentielles qui coïncident sur $T_pS_1$ mais pas ailleurs : ne jamais évaluer « $d\varphi_p$ » sur un vecteur non tangent.
 * Dans le point 3, le reste est un $o(h)$ avec $h\in\R^m$ (variable du paramétrage), pas un $o(\vec v)$ dans $\R^{N_1}$ ; et le terme linéaire est $d\varphi_p(dx_q(h))$, pas $d\varphi_p(h)$ (qui n'a pas de sens : $h\notin T_pS_1$ en général).
 * Le point 2 suppose $F$ différentiable sur un **ouvert** contenant $S_1$ (au moins un voisinage de $p$) ; une fonction définie seulement sur $S_1$ n'a pas de « $dF_p$ » au sens du chapitre V.

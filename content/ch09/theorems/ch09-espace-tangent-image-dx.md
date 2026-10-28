@@ -13,7 +13,7 @@ tags: [espace-tangent, parametrage-local, immersion, differentielle, dimension]
 
 > 💡 Un paramétrage local $x : U\to S$ est une « carte de géographe » : il envoie un morceau plat $U\subset\R^m$ sur un morceau de la surface $S$. Une fourmi qui se déplace sur la carte $U$ en ligne droite, $t\mapsto q+t\vec w$, se déplace sur $S$ le long de $t\mapsto x(q+t\vec w)$, avec la vitesse $dx_q(\vec w)$ en $p=x(q)$. La proposition dit que **toutes** les vitesses possibles sur $S$ en $p$ s'obtiennent ainsi : l'espace tangent est l'image de $\R^m$ par l'application linéaire $dx_q$.
 
-Rappels : un **vecteur tangent** à $S$ en $p$ est une vitesse $\alpha'(0)$ d'une courbe $C^1$ tracée sur $S$ avec $\alpha(0)=p$ ([[ch09-vecteur-tangent-espace-tangent-def]]) ; un **paramétrage local** en $p$ est une application $x : U\to S$ ($U$ ouvert de $\R^m$) de classe $C^k$, homéomorphisme sur un voisinage $V\cap S$ de $p$ dans $S$, et **immersion** ($dx_q$ injective) ; son inverse $x^{-1}$ est une **carte** ([[ch09-sous-variete-def]]).
+Rappels : un **vecteur tangent** à $S$ en $p$ est une vitesse $\alpha'(0)$ d'une courbe $C^1$ tracée sur $S$ avec $\alpha(0)=p$ ([[ch09-vecteur-tangent-espace-tangent-def]]) ; un **paramétrage local** en $p$ est une application $x : U\to S$ ($U$ ouvert de $\R^m$) de classe $C^k$, homéomorphisme sur un voisinage $V\cap S$ de $p$ dans $S$, et **immersion** ($dx_u$ injective en tout $u\in U$) ; son inverse $x^{-1}$ est une **carte** ([[ch09-sous-variete-def]]).
 
 Conséquence majeure : l'image d'une application linéaire étant un sous-espace vectoriel, l'espace tangent en est un ; et comme $dx_q$ est injective, sa dimension est exactement $m$.
 
