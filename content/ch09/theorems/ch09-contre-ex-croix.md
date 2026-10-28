@@ -27,7 +27,7 @@ C'est aussi l'ensemble d'équation $xy=0$ : l'exemple type d'un ensemble de nive
 
 **Rôle.** C'est le seul point où la définition échoue : en tout autre point, $S$ coïncide localement avec une droite.
 
-**Si on la retire.** $S\setminus\{(0,0)\}$ est la réunion des quatre demi-axes ouverts ; c'est un ouvert de $S$... et surtout c'est une sous-variété de dimension $1$, $C^\infty$, de $\R^2$ : en un point $(a,0)$, $a\neq0$, le paramétrage $x(t)=(t,0)$ sur $U=\,]a-|a|/2;a+|a|/2[$ avec $V=\{(u,v) : |u-a|<|a|/2\}$ convient (on a bien $V\cap S=U\times\{0\}$ car $u\neq0$ sur $V$) ; idem sur l'axe vertical.
+**Si on la retire.** $S\setminus\{(0,0)\}$, réunion des quatre demi-axes ouverts, est une sous-variété de dimension $1$, $C^\infty$, de $\R^2$ : en un point $(a,0)$, $a\neq0$, le paramétrage $x(t)=(t,0)$ sur $U=\,]a-|a|/2;a+|a|/2[$ avec $V=\{(u,v) : |u-a|<|a|/2\}$ convient (on a bien $V\cap S=U\times\{0\}$ car $u\neq0$ sur $V$) ; idem sur l'axe vertical.
 
 ### H2 — les deux droites se coupent
 
@@ -65,7 +65,7 @@ Supposons un paramétrage $x : U\to V\cap S$ en $(0,0)$, $U\subset\R^m$, $q=x^{-
 
 * **Équation $xy=0$.** Pour $f(x,y)=xy$, $df_{(x,y)}(h,k)=yh+xk$ ; $df_{(0,0)}=0$ n'est pas surjective, donc $0$ est une **valeur critique** et la [[ch09-sous-variete-equation-valeur-reguliere]] ne s'applique pas. Pour $a\neq0$, $f^{-1}(\{a\})$ est une hyperbole : $df_{(x,y)}=0$ seulement en $(0,0)\notin f^{-1}(\{a\})$, donc $a$ est valeur régulière et l'hyperbole est une sous-variété de dimension $1$.
 * **Réunion de deux droites sécantes quelconques** $D_1\cup D_2$ (sécantes en $p_0$) : l'application affine inversible qui envoie $D_1,D_2$ sur les deux axes est un difféomorphisme de $\R^2$ ; par [[ch09-ex-image-diffeomorphisme]], si $D_1\cup D_2$ était une sous-variété, la croix en serait une. Ce n'est donc pas une sous-variété.
-* **Le cône** $\{x^2+y^2=z^2\}\subset\R^3$ : même phénomène (deux nappes qui se touchent en $0$) ; retirer le sommet laisse deux composantes, alors qu'une boule de $\R^2$ privée d'un point est connexe.
+* **Le cône** $C=\{x^2+y^2=z^2\}\subset\R^3$ (poly, Exercice IX.7.12) : même phénomène, deux nappes qui se touchent en $0$. Hors du sommet, $C$ est localement le graphe de $(x,y)\mapsto\pm\sqrt{x^2+y^2}$ (fonction $C^\infty$ sur $\R^2\setminus\{0\}$), donc son espace tangent y est de dimension $2$ ; si $C$ était une sous-variété de dimension $m$, on aurait donc $m=2$ ([[ch09-espace-tangent-image-dx]]). Alors, avec un paramétrage $x$ en $0$ et une boule $B\subset\R^2$ autour de $q=x^{-1}(0)$, $x(B)\setminus\{0\}$ rencontre les deux ouverts disjoints $\{z>0\}$ et $\{z<0\}$ qui recouvrent $C\setminus\{0\}$ (sur $C$, $z=0$ force $x=y=0$) : il n'est pas connexe, alors que $B\setminus\{q\}$ l'est. Contradiction.
 
 ## Pièges
 
