@@ -46,7 +46,7 @@ est holomorphe sur $\C\setminus(-\N)$, méromorphe sur $\C$ avec pour pôles les
 
 **Rôle.** Ils rendent $u_k(z):=(1+\frac zk)e^{-z/k}-1$ de taille $O(R^2/k^2)$ sur $\bar D(0,R)$ ([[ch03-exp-estimation]]), donc $\sum u_k$ normalement convergente sur tout compact : c'est l'hypothèse du Théorème III.5.1.
 
-**Si on la retire.** Le produit $\prod_k(1+\frac zk)$ diverge pour tout $z\notin-\N^\times$... sauf $z=0$ : pour $z=1$, $\prod_{k=1}^n(1+\frac1k)=\prod_{k=1}^n\frac{k+1}{k}=n+1\to+\infty$ ; pour $z=-\frac12$, $\prod_{k=1}^n(1-\frac1{2k})\to0$ sans qu'aucun facteur ne s'annule (car $\sum_k\log(1-\frac1{2k})\le-\sum_k\frac1{2k}=-\infty$). La série $\sum_kz/k$ n'est pas normalement convergente ($\sum|z|/k=+\infty$) : le Théorème III.5.1 ne s'applique pas. C'est exactement le rôle de $n^{-z}$ dans la formule de Gauss, puis de $e^{-z/k}$ et $e^{\gamma z}$ dans celle de Weierstraß.
+**Si on la retire.** Le produit $\prod_k(1+\frac zk)$ ne converge pas vers une limite finie non nulle, sauf trivialement en $z=0$. Par exemple, pour $z=1$, $\prod_{k=1}^n(1+\frac1k)=\prod_{k=1}^n\frac{k+1}{k}=n+1\to+\infty$ ; pour $z=-\frac12$, $\prod_{k=1}^n(1-\frac1{2k})\to0$ sans qu'aucun facteur ne s'annule (car $\sum_k\log(1-\frac1{2k})\le-\sum_k\frac1{2k}=-\infty$). La série $\sum_kz/k$ n'est pas normalement convergente ($\sum|z|/k=+\infty$) : le Théorème III.5.1 ne s'applique pas. Plus généralement, l'étape 3 de la preuve et la formule de Gauss donnent $\prod_{k=1}^n(1+\frac zk)=\frac{n^z}{z\,L_n(z)}\sim\frac{n^z}{z\,\Gamma(z)}$ pour $z\notin-\N$, et $n^z$ n'a pas de limite finie non nulle si $z\ne0$. C'est exactement le rôle de $n^{-z}$ dans la formule de Gauss, puis de $e^{-z/k}$ et $e^{\gamma z}$ dans celle de Weierstraß.
 
 ## Idée de la preuve
 
