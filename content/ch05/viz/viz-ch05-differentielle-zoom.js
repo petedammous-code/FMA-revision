@@ -95,8 +95,7 @@ $$R(\rho)=\max_{\|h\|=\rho}\frac{\|f(a+h)-f(a)-\ell(h)\|}{\|h\|}$$
       ctx.strokeStyle = t.accent; ctx.lineWidth = 2.2; ctx.beginPath();
       for (let i = 0; i < N; i++) { const px = X(ts[i]), py = Y(ys[i]); i ? ctx.lineTo(px, py) : ctx.moveTo(px, py); } ctx.stroke();
       ctx.restore();
-      text(ctx, 'f(a+su) − f(a)', 8, 4, { color: t.accent }); text(ctx, 'ℓ(su)', 120, 4, { color: t.accent2 });
-      text(ctx, '(trait plein : f ; tirets : approximation linéaire)', 160, 4);
+      text(ctx, 'f(a+su) − f(a)', 8, 4, { color: t.accent }); text(ctx, '- - ℓ(su) linéaire', 110, 4, { color: t.accent2 });
       text(ctx, '±' + kit.fmt(+span.toPrecision(2)), L - 4, T, { align: 'right' }); text(ctx, '−' + kit.fmt(+span.toPrecision(2)), L - 4, H - B, { align: 'right', base: 'bottom' });
       text(ctx, '−ρ = −' + kit.fmt(+rho.toPrecision(2)), L, H - B + 4); text(ctx, 's', X(0), H - B + 4, { align: 'center' }); text(ctx, 'ρ', W - R, H - B + 4, { align: 'right' });
     }
@@ -122,8 +121,7 @@ $$R(\rho)=\max_{\|h\|=\rho}\frac{\|f(a+h)-f(a)-\ell(h)\|}{\|h\|}$$
       ctx.strokeStyle = t.accent; ctx.beginPath(); pts.forEach((p, i) => i ? ctx.lineTo(p[0], p[1]) : ctx.moveTo(p[0], p[1])); ctx.stroke();
       const lr = zoomS.value; ctx.strokeStyle = t.accent4; ctx.lineWidth = 1.5; ctx.beginPath(); ctx.moveTo(X(lr), T); ctx.lineTo(X(lr), H - B); ctx.stroke();
       ctx.restore();
-      text(ctx, 'R(ρ) (max sur les directions)', 8, 4, { color: t.accent }); text(ctx, 'direction θ seule', 190, 4, { color: t.accent3 });
-      text(ctx, 'ρ (échelle log)', W - R, H - 12, { align: 'right', base: 'bottom' });
+      text(ctx, 'R(ρ), max sur θ', 8, 4, { color: t.accent }); text(ctx, '- - θ seule', 110, 4, { color: t.accent3 }); text(ctx, 'abscisse : ρ (log)', W - 8, 4, { align: 'right' });
     }
     function draw() {
       try {
