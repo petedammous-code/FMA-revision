@@ -11,9 +11,10 @@ FMA.registerViz({
 * **Sommes $\sum_{k\le n}z^k$ sur $D(0,1)$.** Leurs zéros sont les racines de l'unité (sauf $1$), situées **sur le bord de $\Omega$** donc hors de $\Omega$ : $f=1/(1-z)$ sans zéro, ce qui est cohérent. Si $D$ sort de $\Omega$, l'application du théorème n'est plus permise (l'indicateur le signale).
 * Le théorème de Hurwitz s'énonce **pour un disque $D$ avec $\bar D\subset\Omega$** (poly, Théorème III.2.1, p. 62).`,
   related: ['ch03-hurwitz', 'ch03-hurwitz-contre-exemple', 'ch03-hurwitz-zeros-locaux', 'ch03-weierstrass'],
-  height: 640,
+  height: 560,
   mount(container, kit) {
     const C = kit.complex;
+    try { const d = container.parentNode && container.parentNode.querySelector('.viz-desc'); if (d) d.style.overflowX = 'hidden'; } catch (e) {}
     const th = () => kit.theme();
     const pw = (z, m) => { const q = Math.hypot(z[0], z[1]); if (q === 0) return m === 0 ? [1, 0] : [0, 0]; return C.fromPolar(Math.pow(q, m), m * Math.atan2(z[1], z[0])); };
 

@@ -2,9 +2,7 @@ FMA.registerViz({
   id: 'viz-ch03-convergence-locale-uniforme',
   chapter: 3,
   title: "Convergence localement uniforme : sur tout compact, mais pas sur tout le disque",
-  description: String.raw`**Ce que l'on voit.** On étudie une suite de fonctions $f_n$ qui converge simplement vers une limite $f$ sur un ouvert $\Omega$. À gauche, la **carte de l'erreur** $z\mapsto\log_{10}|f_n(z)-f(z)|$ (bleu foncé = erreur minuscule, jaune/blanc = erreur de l'ordre de $1$ ou plus) ; le cercle pointillé est le bord de $\bar D(0,r)$. À droite, le graphe de
-$$r\longmapsto \sup_{z\in\bar D(0,r)}|f_n(z)-f(z)|$$
-en échelle logarithmique, pour le $n$ choisi (trait épais) et quelques autres valeurs de $n$ (traits fins) ; la droite horizontale est le seuil $\varepsilon$. **Glissez** le curseur $r$ (ou cliquez-glissez sur l'un des deux graphiques).
+  description: String.raw`**Ce que l'on voit.** On étudie une suite de fonctions $f_n$ qui converge simplement vers une limite $f$ sur un ouvert $\Omega$. À gauche, la **carte de l'erreur** $z\mapsto\log_{10}|f_n(z)-f(z)|$ (bleu foncé = erreur minuscule, jaune/blanc = erreur de l'ordre de $1$ ou plus) ; le cercle pointillé est le bord de $\bar D(0,r)$. À droite, le graphe de $r\mapsto\sup_{\bar D(0,r)}|f_n-f|$ en échelle logarithmique, pour le $n$ choisi (trait épais) et quelques autres valeurs de $n$ (traits fins) ; la droite horizontale est le seuil $\varepsilon$. **Glissez** le curseur $r$ (ou cliquez-glissez sur l'un des deux graphiques).
 
 **Ce qu'il faut regarder.**
 * Pour $r<1$ fixé, le $\sup$ sur $\bar D(0,r)$ (un **compact** de $\Omega=D(0,1)$) tend vers $0$ quand $n$ augmente : c'est la convergence **uniforme sur tout compact**, équivalente à la convergence **localement uniforme** (poly, Proposition III.1.2, p. 59).
@@ -12,9 +10,10 @@ en échelle logarithmique, pour le $n$ choisi (trait épais) et quelques autres 
 * L'entier $n_{\min}(r,\varepsilon)$ affiché (plus petit $n$ tel que $\sup_{\bar D(0,r)}|f_n-f|\le\varepsilon$) **explose quand $r\to1$** : aucun $n$ ne convient pour tout $r<1$ à la fois. Le contre-exemple $z^n/n$ converge au contraire uniformément sur $D(0,1)$ (le $\sup$ vaut $1/n$).
 * Dans la famille $\sum_{k\le n}z^k/k!$ sur $\mathbb C$ tout entier, la convergence vers $e^z$ est localement uniforme (et même normale sur tout disque) : essayez $r$ grand, il faut juste un $n$ plus grand.`,
   related: ['ch03-convergence-localement-uniforme', 'ch03-convergence-uniforme-compacts', 'ch03-weierstrass', 'ch03-convergence-normale-definition'],
-  height: 700,
+  height: 440,
   mount(container, kit) {
     const C = kit.complex;
+    try { const d = container.parentNode && container.parentNode.querySelector('.viz-desc'); if (d) d.style.overflowX = 'hidden'; } catch (e) {}
     const th = () => kit.theme();
     const LO = -8, HI = 2;
     const pw = (z, m) => { const r = Math.hypot(z[0], z[1]); if (r === 0) return m === 0 ? [1, 0] : [0, 0]; return C.fromPolar(Math.pow(r, m), m * Math.atan2(z[1], z[0])); };
@@ -140,7 +139,7 @@ en échelle logarithmique, pour le $n$ choisi (trait épais) et quelques autres 
       ctx.save(); ctx.strokeStyle = pal[3]; ctx.lineWidth = 1.6; ctx.setLineDash([5, 4]); ctx.beginPath(); ctx.moveTo(ml, Y(eps)); ctx.lineTo(W - mr, Y(eps)); ctx.stroke();
       ctx.fillStyle = pal[3]; ctx.font = '11px system-ui, sans-serif'; ctx.textAlign = 'right'; ctx.textBaseline = 'bottom'; ctx.setLineDash([]); ctx.fillText('ε', W - mr - 2, Y(eps) - 2); ctx.restore();
       // bord du disque
-      if (F.disk) { ctx.save(); ctx.strokeStyle = t.fg; ctx.globalAlpha = 0.5; ctx.setLineDash([2, 3]); ctx.beginPath(); ctx.moveTo(X(1), mt); ctx.lineTo(X(1), H - mb); ctx.stroke(); ctx.setLineDash([]); ctx.globalAlpha = 1; ctx.fillStyle = t.muted; ctx.font = '10.5px system-ui, sans-serif'; ctx.textAlign = 'right'; ctx.textBaseline = 'top'; ctx.fillText('bord', X(1) - 3, mt + 14); ctx.restore(); }
+      if (F.disk) { ctx.save(); ctx.strokeStyle = t.fg; ctx.globalAlpha = 0.5; ctx.setLineDash([2, 3]); ctx.beginPath(); ctx.moveTo(X(1), mt); ctx.lineTo(X(1), H - mb); ctx.stroke(); ctx.setLineDash([]); ctx.globalAlpha = 1; ctx.fillStyle = t.muted; ctx.font = '10.5px system-ui, sans-serif'; ctx.textAlign = 'right'; ctx.textBaseline = 'bottom'; ctx.fillText('bord', X(1) - 3, H - mb - 4); ctx.restore(); }
       // curseur r
       const v = F.sup(n, r); const lgv = v > 0 ? Math.log10(v) : LO;
       ctx.save(); ctx.strokeStyle = pal[1]; ctx.lineWidth = 1.6; ctx.setLineDash([3, 3]); ctx.beginPath(); ctx.moveTo(X(r), mt); ctx.lineTo(X(r), H - mb); ctx.stroke(); ctx.setLineDash([]);
