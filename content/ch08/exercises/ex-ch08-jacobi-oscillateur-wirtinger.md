@@ -17,13 +17,12 @@ $$
 
 1. Déterminer, selon la valeur de $\omega$, tous les points critiques de la restriction de $\hat L$ à $E_{0,0}$.
 2. Vérifier que $\hat L(\gamma+h)=\hat L(\gamma)+d\hat L_\gamma(h)+\hat L(h)$ pour $\gamma,h\in E$. On suppose $\omega>\pi$ : montrer que la courbe nulle est un point critique de $\hat L|_{E_{0,0}}$ qui n'est ni un minimum local ni un maximum local.
-3. On suppose $0<\omega<\pi$ et l'on pose $\varphi(t)=\cos\big(\omega(t-\tfrac12)\big)$.
-   * (a) Montrer que $\varphi>0$ sur $[0;1]$ et que, pour tout $h\in E$,
-   $$
-   h'^2-\omega^2h^2=\Big(h'-h\,\frac{\varphi'}{\varphi}\Big)^2+\frac{d}{dt}\Big(h^2\,\frac{\varphi'}{\varphi}\Big)\quad\text{sur }[0;1].
-   $$
-   * (b) En déduire que la courbe nulle est l'unique point de $E_{0,0}$ où $\hat L|_{E_{0,0}}$ atteint son minimum.
-4. En déduire l'inégalité de Wirtinger : pour tout $h\in E_{0,0}$, $\displaystyle\int_0^1h'(t)^2\,dt\ \ge\ \pi^2\int_0^1h(t)^2\,dt$, et montrer qu'elle est optimale. Que dire des points critiques trouvés en 1. pour $\omega=\pi$ ?
+3. On suppose $0<\omega<\pi$ et l'on pose $\varphi(t)=\cos\big(\omega(t-\tfrac12)\big)$. Montrer que $\varphi>0$ sur $[0;1]$ et que, pour tout $h\in E$,
+$$
+h'^2-\omega^2h^2=\Big(h'-h\,\frac{\varphi'}{\varphi}\Big)^2+\frac{d}{dt}\Big(h^2\,\frac{\varphi'}{\varphi}\Big)\quad\text{sur }[0;1].
+$$
+4. On suppose toujours $0<\omega<\pi$. En déduire que la courbe nulle est l'unique point de $E_{0,0}$ où $\hat L|_{E_{0,0}}$ atteint son minimum.
+5. En déduire l'inégalité de Wirtinger : pour tout $h\in E_{0,0}$, $\displaystyle\int_0^1h'(t)^2\,dt\ \ge\ \pi^2\int_0^1h(t)^2\,dt$, et montrer qu'elle est optimale. Que dire des points critiques trouvés en 1. pour $\omega=\pi$ ?
 
 ## Indices
 
@@ -34,7 +33,7 @@ $\hat L$ est l'action d'un Lagrangien mécanique « énergie cinétique moins po
 (E.L) s'écrit ici $\gamma''=-\omega^2\gamma$. Ramenée au système d'ordre 1 $(\gamma,\gamma')'=(\gamma',-\omega^2\gamma)$, à champ linéaire donc $C^1$, elle relève de Cauchy–Lipschitz : une solution est déterminée par $(\gamma(0),\gamma'(0))$. Pour 2, tester $\hat L$ sur $h=s\sin(k\pi t)$ et calculer $\hat L(h)$ en fonction de $k$, $s$, $\omega$.
 
 ### Indice 3
-Pour 3(a), développer le carré et dériver $h^2\varphi'/\varphi$ en utilisant $\varphi''=-\omega^2\varphi$. Pour 3(b), intégrer l'identité sur $[0;1]$ : le terme de bord disparaît car $h(0)=h(1)=0$. Pour l'égalité, $h'=h\varphi'/\varphi$ signifie $(h/\varphi)'=0$.
+Pour 3, développer le carré et dériver $h^2\varphi'/\varphi$ en utilisant $\varphi''=-\omega^2\varphi$. Pour 4, intégrer l'identité sur $[0;1]$ : le terme de bord disparaît car $h(0)=h(1)=0$. Pour l'égalité, $h'=h\varphi'/\varphi$ signifie $(h/\varphi)'=0$.
 
 ## Corrigé
 
@@ -75,7 +74,7 @@ Par ailleurs $\norm{h_{k,s}}_E\le |s|(1+k\pi)\to0$ quand $s\to0$. Supposons $\om
 
 La courbe nulle est donc un point critique « col » : (E.L) ne garantit rien de plus qu'un point critique.
 
-**3.(a)** Pour $t\in[0;1]$, $|\omega(t-\tfrac12)|\le\omega/2<\pi/2$, donc $\varphi(t)>0$. Comme $\varphi$ est $C^\infty$ et ne s'annule pas, $\varphi'/\varphi$ est $C^\infty$ sur $[0;1]$, et $h^2\varphi'/\varphi$ est $C^1$ pour $h\in E$. On a $\varphi''=-\omega^2\varphi$, donc
+**3.** Pour $t\in[0;1]$, $|\omega(t-\tfrac12)|\le\omega/2<\pi/2$, donc $\varphi(t)>0$. Comme $\varphi$ est $C^\infty$ et ne s'annule pas, $\varphi'/\varphi$ est $C^\infty$ sur $[0;1]$, et $h^2\varphi'/\varphi$ est $C^1$ pour $h\in E$. On a $\varphi''=-\omega^2\varphi$, donc
 $$
 \Big(\frac{\varphi'}{\varphi}\Big)'=\frac{\varphi''\varphi-\varphi'^2}{\varphi^2}=-\omega^2-\frac{\varphi'^2}{\varphi^2}.
 $$
@@ -88,13 +87,13 @@ $$
 $$
 et la somme vaut $h'^2-\omega^2h^2$.
 
-**3.(b)** Soit $h\in E_{0,0}$. On intègre l'identité de (a) sur $[0;1]$ ; le terme de bord vaut $\big[h^2\varphi'/\varphi\big]_0^1=0$ car $h(0)=h(1)=0$. Donc
+**4.** Soit $h\in E_{0,0}$. On intègre l'identité de 3 sur $[0;1]$ ; le terme de bord vaut $\big[h^2\varphi'/\varphi\big]_0^1=0$ car $h(0)=h(1)=0$. Donc
 $$
 \hat L(h)=\frac12\int_0^1\Big(h'(t)-h(t)\frac{\varphi'(t)}{\varphi(t)}\Big)^2dt\ \ge\ 0=\hat L(0).
 $$
 Si $\hat L(h)=0$, l'intégrande, continu et positif, est nul : $h'\varphi-h\varphi'=0$, c'est-à-dire $(h/\varphi)'=0$ sur $[0;1]$. Donc $h=c\varphi$ pour une constante $c$, et $0=h(0)=c\cos(\omega/2)$ avec $\cos(\omega/2)>0$ impose $c=0$. Ainsi $\hat L(h)>\hat L(0)$ pour tout $h\in E_{0,0}\setminus\{0\}$ : la courbe nulle est l'unique point de minimum (global, strict) de $\hat L|_{E_{0,0}}$.
 
-**4.** Soit $h\in E_{0,0}$. Pour tout $\omega\in\,]0;\pi[$, 3(b) donne $\int_0^1h'^2\ge\omega^2\int_0^1h^2$. En faisant tendre $\omega$ vers $\pi$ (les intégrales ne dépendent pas de $\omega$), on obtient $\int_0^1h'^2\ge\pi^2\int_0^1h^2$. La constante $\pi^2$ est optimale : pour $h(t)=\sin(\pi t)\in E_{0,0}$, $\int_0^1h'^2=\pi^2/2=\pi^2\int_0^1h^2$.
+**5.** Soit $h\in E_{0,0}$. Pour tout $\omega\in\,]0;\pi[$, la question 4 donne $\int_0^1h'^2\ge\omega^2\int_0^1h^2$. En faisant tendre $\omega$ vers $\pi$ (les intégrales ne dépendent pas de $\omega$), on obtient $\int_0^1h'^2\ge\pi^2\int_0^1h^2$. La constante $\pi^2$ est optimale : pour $h(t)=\sin(\pi t)\in E_{0,0}$, $\int_0^1h'^2=\pi^2/2=\pi^2\int_0^1h^2$.
 
 Pour $\omega=\pi$, l'inégalité de Wirtinger dit exactement $\hat L\ge0=\hat L(0)$ sur $E_{0,0}$, et le calcul de 2. donne $\hat L(\beta\sin(\pi t))=0$. Les points critiques trouvés en 1., $\gamma_\beta=\beta\sin(\pi t)$, sont donc **tous** des points de minimum global de $\hat L|_{E_{0,0}}$, et le minimum n'est plus strict.
 
@@ -104,6 +103,6 @@ Bilan : $\omega<\pi$, unique point critique et minimum strict ; $\omega=\pi$, un
 
 * Confondre le **problème aux deux bouts** ($\gamma(0)=a$, $\gamma(1)=b$) et le **problème de Cauchy** ($\gamma(t_0)$, $\gamma'(t_0)$ donnés). Cauchy–Lipschitz donne existence et unicité pour le second ([[ch08-existence-unicite-locale]]), jamais pour le premier : ici, pour $\omega=k\pi$, le problème $\gamma(0)=\gamma(1)=0$ a une infinité de solutions, et le problème $\gamma(0)=0$, $\gamma(1)=1$ n'en a **aucune** (car $\beta\sin(k\pi)=0\neq1$).
 * Croire qu'un point critique est un minimum parce que le Lagrangien est « convexe en $v$ » : $L$ est strictement convexe en $v$ pour tout $\omega$, et pourtant $0$ n'est pas un minimum pour $\omega>\pi$. La convexité en $v$ seule ne suffit pas, il faut contrôler le terme en $q$ ; c'est le rôle de la fonction $\varphi>0$ (solution de (E.L) sans zéro sur $[0;1]$).
-* Dans 3(a), oublier de vérifier que $\varphi$ ne s'annule pas : pour $\omega\ge\pi$ aucune solution de $\varphi''=-\omega^2\varphi$ ne reste strictement positive sur $[0;1]$ (entre deux zéros consécutifs de $\sin(\omega t+\theta)$ il y a un intervalle de longueur $\pi/\omega\le1$), et l'argument tombe, comme il se doit d'après 2.
+* Dans 3, oublier de vérifier que $\varphi$ ne s'annule pas : pour $\omega\ge\pi$ aucune solution de $\varphi''=-\omega^2\varphi$ ne reste strictement positive sur $[0;1]$ (entre deux zéros consécutifs de $\sin(\omega t+\theta)$ il y a un intervalle de longueur $\pi/\omega\le1$), et l'argument tombe, comme il se doit d'après 2.
 * Variante : sur $[0;T]$ au lieu de $[0;1]$, le seuil devient $\omega T=\pi$ : sur un intervalle de temps court, la trajectoire d'un oscillateur minimise l'action ; sur un intervalle long, elle n'est qu'un point critique.
 * Variante : l'égalité dans Wirtinger n'a lieu que pour $h=c\sin(\pi t)$ ; on peut le montrer avec $\varphi=\sin(\pi t)$, mais $\varphi$ s'annule aux bords et il faut alors contrôler $h^2\varphi'/\varphi$ près de $0$ et $1$ (par exemple $h(t)^2/\sin(\pi t)\to0$ car $h(t)=O(t)$).
