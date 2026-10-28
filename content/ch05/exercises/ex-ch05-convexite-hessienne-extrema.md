@@ -16,12 +16,8 @@ Soit $E$ un espace vectoriel normé, $U$ un ouvert **convexe** de $E$ et $f:U\to
 2. Montrer que $f$ est convexe si et seulement si $d^2f_x(h,h)\ge0$ pour tous $x\in U$, $h\in E$.
 3. Soit $a\in U$ tel que $df_a=0$ et qu'il existe $c>0$ avec $d^2f_a(h,h)\ge c\|h\|^2$ pour tout $h\in E$. Montrer que $f$ admet en $a$ un minimum local strict.
 4. On suppose $E$ de dimension finie. Montrer que si $df_a=0$ et $d^2f_a(h,h)>0$ pour tout $h\neq0$, l'hypothèse de la question 3 est satisfaite.
-5. Soit $E=\ell^2$ l'espace des suites réelles $x=(x_n)_{n\ge1}$ telles que $\|x\|^2=\sum_n x_n^2<\infty$ (espace de Hilbert), et
-$$
-f(x)=\sum_{n\ge1}\Big(\frac{x_n^2}{n^2}-x_n^4\Big).
-$$
- a. Montrer que $f$ est bien définie et de classe $C^2$ sur $\ell^2$, puis calculer $df_0$ et $d^2f_0$.
- b. Montrer que $d^2f_0(h,h)>0$ pour tout $h\neq0$, mais que $0$ n'est pas un minimum local de $f$. Qu'est-ce qui, dans la question 4, ne passe pas en dimension infinie ?
+5. Soit $E=\ell^2$ l'espace des suites réelles $x=(x_n)_{n\ge1}$ telles que $\|x\|^2=\sum_n x_n^2<\infty$ (espace de Hilbert), et $f(x)=\sum_{n\ge1}\big(\frac{x_n^2}{n^2}-x_n^4\big)$. Montrer que $f$ est bien définie et de classe $C^2$ sur $\ell^2$, puis calculer $df_0$ et $d^2f_0$.
+6. Avec la fonction $f$ de la question 5, montrer que $d^2f_0(h,h)>0$ pour tout $h\neq0$, mais que $0$ n'est pas un minimum local de $f$. Qu'est-ce qui, dans la question 4, ne passe pas en dimension infinie ?
 
 ## Indices
 
@@ -32,10 +28,10 @@ Pour 1, $g$ est la composée de $t\mapsto x+th$, de $f$, puis (pour $g'$) de $y\
 Pour le sens « $d^2f\ge0$ ⇒ convexe » : Taylor avec reste intégral ($f$ est $C^2$, $\R$ est un Banach, $U$ convexe contient les segments) donne $f(y)\ge f(z)+df_z(y-z)$ ; l'appliquer en $z=(1-s)x+sy$ à $x$ et à $y$, puis combiner. Pour la réciproque : $f(x+th)+f(x-th)-2f(x)\ge0$ par convexité, et Taylor–Young.
 
 ### Indice 3
-Pour 4 : compacité de la sphère unité en dimension finie et continuité de $h\mapsto d^2f_a(h,h)$. Pour 5a : $f=q-Q$ avec $q(x)=b(x,x)$, $b(x,y)=\sum\frac{x_ny_n}{n^2}$, et $Q(x)=m(x,x,x,x)$, $m(x,y,z,w)=\sum x_ny_nz_nw_n$ ; montrer que $b$ et $m$ sont multilinéaires continues ($|x_n|\le\|x\|$).
+Pour 4 : compacité de la sphère unité en dimension finie et continuité de $h\mapsto d^2f_a(h,h)$. Pour 5 : $f=q-Q$ avec $q(x)=b(x,x)$, $b(x,y)=\sum\frac{x_ny_n}{n^2}$, et $Q(x)=m(x,x,x,x)$, $m(x,y,z,w)=\sum x_ny_nz_nw_n$ ; montrer que $b$ et $m$ sont multilinéaires continues ($|x_n|\le\|x\|$).
 
 ### Indice 4
-Pour 5b : regarder $f(te_n)$ où $e_n$ est la suite qui vaut $1$ en position $n$ et $0$ ailleurs, avec $t=2/n$.
+Pour 6 : regarder $f(te_n)$ où $e_n$ est la suite qui vaut $1$ en position $n$ et $0$ ailleurs, avec $t=2/n$.
 
 ## Corrigé
 
@@ -67,7 +63,7 @@ $a$ est un minimum local strict.
 
 **4.** En dimension finie, la sphère unité $S=\{h:\|h\|=1\}$ est compacte (fermée bornée), non vide si $E\neq\{0\}$ (sinon il n'y a rien à montrer), et $\Phi:h\mapsto d^2f_a(h,h)$ est continue ($d^2f_a$ bilinéaire en dimension finie, donc continue). $\Phi$ atteint donc son minimum $c=\Phi(h_0)$ sur $S$, avec $c>0$ puisque $h_0\neq0$. Pour $h\neq0$, par homogénéité, $d^2f_a(h,h)=\|h\|^2\,\Phi(h/\|h\|)\ge c\|h\|^2$, et l'inégalité est triviale pour $h=0$.
 
-**5a.** *Continuité des formes.* Pour $x\in\ell^2$ et tout $n$, $|x_n|\le\|x\|$. D'où, par Cauchy–Schwarz dans $\ell^2$,
+**5.** *Continuité des formes.* Pour $x\in\ell^2$ et tout $n$, $|x_n|\le\|x\|$. D'où, par Cauchy–Schwarz dans $\ell^2$,
 $$
 |b(x,y)|\le\sum_n|x_ny_n|\le\|x\|\,\|y\|,\qquad |m(x,y,z,w)|\le\|x\|\,\|y\|\sum_n|z_nw_n|\le\|x\|\,\|y\|\,\|z\|\,\|w\| .
 $$
@@ -85,7 +81,7 @@ df_0(h)=2b(0,h)-4m(0,0,0,h)=0,\qquad d^2f_0(h,k)=2b(h,k)-12m(0,0,h,k)=2\sum_n\fr
 $$
 (Contrôle en dimension $1$ : pour $x^2-x^4$, les dérivées secondes en $0$ valent $2$ ; pour $x^4$, $12x^2$.)
 
-**5b.** Pour $h\neq0$, un $h_n$ au moins est non nul, donc $d^2f_0(h,h)=2\sum_nh_n^2/n^2>0$. Mais pour $t\in\R$, $f(te_n)=\frac{t^2}{n^2}-t^4$, et pour $t=\frac2n$ :
+**6.** Pour $h\neq0$, un $h_n$ au moins est non nul, donc $d^2f_0(h,h)=2\sum_nh_n^2/n^2>0$. Mais pour $t\in\R$, $f(te_n)=\frac{t^2}{n^2}-t^4$, et pour $t=\frac2n$ :
 $$
 f\Big(\frac2ne_n\Big)=\frac4{n^4}-\frac{16}{n^4}=-\frac{12}{n^4}<0=f(0),\qquad\Big\|\frac2ne_n\Big\|=\frac2n\xrightarrow[n\to\infty]{}0 .
 $$
@@ -95,7 +91,7 @@ Ce qui ne passe pas : la sphère unité de $\ell^2$ **n'est pas compacte**, et l
 
 ## Pièges et variantes
 
-* > ⚠️ En dimension infinie, la condition suffisante de minimum local strict est la **coercivité** $d^2f_a(h,h)\ge c\|h\|^2$, pas la positivité $d^2f_a(h,h)>0$ pour $h\ne0$. Le contre-exemple 5 est d'autant plus troublant que la restriction de $f$ à **chaque droite** passant par $0$ a un minimum local strict en $0$ : $f(th)=t^2\sum\frac{h_n^2}{n^2}-t^4\sum h_n^4$.
+* > ⚠️ En dimension infinie, la condition suffisante de minimum local strict est la **coercivité** $d^2f_a(h,h)\ge c\|h\|^2$, pas la positivité $d^2f_a(h,h)>0$ pour $h\ne0$. Le contre-exemple des questions 5–6 est d'autant plus troublant que la restriction de $f$ à **chaque droite** passant par $0$ a un minimum local strict en $0$ : $f(th)=t^2\sum\frac{h_n^2}{n^2}-t^4\sum h_n^4$.
 * Dans la question 2 (⇒), Taylor avec reste intégral est inutile : une simple dérivée seconde « symétrisée » $f(x+th)+f(x-th)-2f(x)$ et Taylor–Young suffisent ; inversement, pour (⇐) il faut une **égalité** (reste intégral) ou un argument de convexité de $g$ sur un segment, pas un $o(\cdot)$.
 * Ne pas oublier les hypothèses : $U$ **convexe** sert dans (⇐) (segments dans $U$) ; $U$ **ouvert** sert dans (⇒) (les points $x\pm th$ sont dans $U$).
 * La symétrie de $d^2f_a$ (lemme de Schwarz, [[ch05-lemme-schwarz]]) n'est pas utilisée ici, mais elle justifie qu'on ne perd rien à ne regarder que la forme quadratique $h\mapsto d^2f_a(h,h)$ : par polarisation, elle détermine $d^2f_a$.

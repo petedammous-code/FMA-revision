@@ -10,7 +10,7 @@ Sur le morceau $[0,t]$ du lacet, cette intégrale vaut $\frac{\theta(t)-\theta(0
 
 **À faire.**
 * *Cercle* : indice $1$ dedans, $0$ dehors (Exemple II.3.3, p. 41) ; *sens horaire* : $-1$ dedans.
-* *Double boucle* : indice $2$ au centre, $1$ dans la zone intermédiaire (c'est la figure de la p. 41) ; *triple boucle* : $3$ au centre ; *huit* : $+1$ dans un lobe, $-1$ dans l'autre.
+* *Double boucle* : indice $2$ au centre, $1$ dans la zone intermédiaire (version lissée du « lacet d'indice 2 par rapport à l'origine » de la figure p. 41) ; *triple boucle* : $3$ au centre ; *huit* : $+1$ dans un lobe, $-1$ dans l'autre.
 * *À main levée* : dessinez un lacet quelconque (il est refermé par un segment). L'indice ne change qu'en **traversant** $\Gamma$, et de $\pm1$ par traversée.
 * Curseur $s$ : on déforme le lacet par $\gamma_s=(1-s)\gamma+s\,c$ ($c$ = losange), homotopie de lacets entre $\gamma$ et le lacet constant égal à $c$ (poly, Définition II.1.1, p. 35). L'indice en $z_0$ reste constant **tant qu'aucun $\gamma_s$ ne passe par $z_0$** : c'est la Proposition II.3.4 (p. 41), qui demande une homotopie **dans** $\C\setminus\{z_0\}$ ([[ch02-indice-invariance-homotopie]]). Dès que le lacet franchit $z_0$, l'indice saute (et vaut $0$ pour $s$ proche de $1$).
 

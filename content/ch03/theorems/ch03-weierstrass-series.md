@@ -60,7 +60,7 @@ Cas uniforme : on applique Weierstraß aux sommes partielles $S_N=\sum_{n\le N}f
 
 Le point 2 dit exactement que la série $\sum_nf_n'$ converge localement uniformément et que sa somme $g$ vaut $f'$.
 
-**Cas de la convergence localement normale.** Soit $z_0\in\Omega$. Par hypothèse il existe un voisinage $U$ de $z_0$ dans $\Omega$ tel que $\sum_n\norm{f_n}_{\infty,U}<+\infty$. Choisissons $r>0$ tel que $\bar D(z_0,r)\subset U$ (possible car $U$ contient un disque ouvert centré en $z_0$). Soit $z\in D(z_0,r/2)$. La formule (I.7.1) des estimées de Cauchy ([[ch01-estimees-cauchy]]) pour $k=1$, appliquée à $f_n$, donne
+**Cas de la convergence localement normale.** Soit $z_0\in\Omega$. Par hypothèse il existe un voisinage $U$ de $z_0$ dans $\Omega$ tel que $\sum_n\norm{f_n}_{\infty,U}<+\infty$. Choisissons $r>0$ tel que $\bar D(z_0,r)\subset U$ (possible car $U$ contient un disque ouvert centré en $z_0$). Soit $z\in D(z_0,r/2)$. La formule (I.7.1) des estimées de Cauchy ([[ch01-estimees-cauchy]]) pour $k=1$, appliquée à $f_n$ (licite : $\bar D(z_0,r)\subset\Omega$ et $\Omega$ est ouvert, donc $\bar D(z_0,r')\subset\Omega$ pour un $r'>r$ et $r<\rho(z_0)$ ; elle vaut alors pour tout $z\in D(z_0,r)$), donne
 $$
 f_n'(z)=\frac1{2i\pi}\int_{C(z_0,r)}\frac{f_n(\zeta)}{(\zeta-z)^2}\,d\zeta .
 $$
