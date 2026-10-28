@@ -6,7 +6,7 @@ title: La différentielle d'un difféomorphisme est un isomorphisme ; invariance
 ref: Proposition IX.7.25
 page: 165
 importance: 2
-depends: [ch09-composition-differentielles, ch09-diffeomorphisme-sous-varietes-def, ch09-espace-tangent-image-dx, ch09-differentielle-entre-sous-varietes-def]
+depends: [ch09-composition-differentielles, ch09-diffeomorphisme-sous-varietes-def, ch09-espace-tangent-image-dx, ch09-differentielle-entre-sous-varietes-def, ch09-changement-parametrage]
 tags: [sous-variete, diffeomorphisme, differentielle, isomorphisme, dimension]
 ---
 ## Intuition
@@ -51,7 +51,7 @@ Dériver $\varphi^{-1}\circ\varphi=\mathrm{Id}_{S_1}$ et $\varphi\circ\varphi^{-
 
 Le poly dit : « c'est évident par la formule de composition des différentielles ». Détaillons.
 
-*Différentielle de l'identité.* Pour une sous-variété $S$ et $p\in S$, $d(\mathrm{Id}_S)_p=\mathrm{Id}_{T_pS}$ : si $v=\alpha'(0)$ avec $\alpha$ courbe $C^1$ tracée sur $S$, $\alpha(0)=p$, alors $\beta=\mathrm{Id}_S\circ\alpha=\alpha$ et, par la caractérisation 2 de [[ch09-differentielle-entre-sous-varietes-def]], $d(\mathrm{Id}_S)_p(v)=\beta'(0)=v$.
+*Différentielle de l'identité.* Pour une sous-variété $S$ (de classe $C^k$, $k\ge1$) et $p\in S$, $\mathrm{Id}_S$ est différentiable en $p$ : lue dans deux paramétrages $x_1$, $x_2$ de $S$, elle devient $x_2^{-1}\circ\mathrm{Id}_S\circ x_1=x_2^{-1}\circ x_1$, le changement de paramétrage, qui est de classe $C^k$ ([[ch09-changement-parametrage]]). De plus $d(\mathrm{Id}_S)_p=\mathrm{Id}_{T_pS}$ : si $v=\alpha'(0)$ avec $\alpha$ courbe $C^1$ tracée sur $S$, $\alpha(0)=p$, alors $\beta=\mathrm{Id}_S\circ\alpha=\alpha$ et, par la caractérisation 2 de [[ch09-differentielle-entre-sous-varietes-def]], $d(\mathrm{Id}_S)_p(v)=\beta'(0)=v$.
 
 *Composition.* Soit $p\in S_1$ et $q=\varphi(p)$. L'application $\varphi$ est différentiable en $p$ et $\varphi^{-1}$ est différentiable en $q$ (elles sont de classe $C^k$, $k\ge1$). La règle de composition ([[ch09-composition-differentielles]]) appliquée à $\varphi^{-1}\circ\varphi=\mathrm{Id}_{S_1}$ en $p$ donne
 $$

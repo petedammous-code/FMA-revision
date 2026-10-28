@@ -6,7 +6,7 @@ title: Fonction hauteur $h(p)=\langle p-p_0,a\rangle$ et sa différentielle
 ref: Exemple IX.7.20
 page: 164
 importance: 2
-depends: [ch09-remarques-differentielle-cas-euclidien, ch09-differentielle-entre-sous-varietes-def, ch09-fonction-differentiable-sur-sous-variete-def]
+depends: [ch09-remarques-differentielle-cas-euclidien, ch09-differentielle-entre-sous-varietes-def, ch09-fonction-differentiable-sur-sous-variete-def, ch09-vecteur-tangent-espace-tangent-def]
 tags: [sous-variete, fonction-hauteur, differentielle, espace-tangent, point-critique]
 ---
 ## Intuition
@@ -81,5 +81,5 @@ Enfin $dh_p=0$ $\iff$ <trou>$\langle v,a\rangle=0$ pour tout $v\in T_pS$, i.e. $
 
 * > ⚠️ $dh_p$ est définie sur $T_pS$ seulement, pas sur $\R^N$ : « $dh_p=0$ » veut dire $\langle v,a\rangle=0$ pour $v\in T_pS$, ce qui n'impose **pas** $a=0$.
 * Point critique de $h$ $\iff$ $a\perp T_pS$ $\iff$ le plan tangent affine en $p$ est parallèle à $P$ (« horizontal ») ; ne pas écrire $a\in T_pS$.
-* $h$ est une distance **signée** : $h$ est négative sous $P$. La « vraie » distance $|h|$ n'est pas différentiable aux points de $S\cap P$ où $dh_p\ne0$.
+* $h$ est une distance **signée** : $h>0$ du côté de $P$ vers lequel pointe $a$, $h<0$ de l'autre côté. La « vraie » distance $|h|$ n'est pas différentiable aux points de $S\cap P$ où $dh_p\ne0$.
 * La formule de $dh_p$ ne dépend ni de $p$ ni de $p_0$ (forme linéaire $\langle\cdot,a\rangle$), mais son **domaine** $T_pS$ dépend de $p$.

@@ -6,7 +6,7 @@ title: Fonction distance au carré $f(p)=\|p-p_0\|^2$ et sa différentielle
 ref: Exemple IX.7.21
 page: 164
 importance: 2
-depends: [ch09-remarques-differentielle-cas-euclidien, ch09-differentielle-entre-sous-varietes-def, ch09-fonction-differentiable-sur-sous-variete-def]
+depends: [ch09-remarques-differentielle-cas-euclidien, ch09-differentielle-entre-sous-varietes-def, ch09-fonction-differentiable-sur-sous-variete-def, ch09-vecteur-tangent-espace-tangent-def]
 tags: [sous-variete, distance, differentielle, espace-tangent, point-critique, normale]
 ---
 ## Intuition

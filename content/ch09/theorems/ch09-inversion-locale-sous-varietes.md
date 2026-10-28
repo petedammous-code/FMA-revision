@@ -74,7 +74,7 @@ $$
 Or :
 * $d(x_1)_{q_1}:\R^{m_1}\to T_pS_1$ est injective (définition d'un paramétrage) et d'image $T_pS_1$ ([[ch09-espace-tangent-image-dx]]) : c'est un isomorphisme ;
 * $d\varphi_p:T_pS_1\to T_{\varphi(p)}S_2$ est un isomorphisme par hypothèse ;
-* $x_2:U_2\to x_2(U_2)$ est un $C^k$-difféomorphisme d'inverse $x_2^{-1}$, donc $d(x_2^{-1})_{\varphi(p)}:T_{\varphi(p)}S_2\to\R^{m_2}$ est un isomorphisme ([[ch09-differentielle-diffeomorphisme-isomorphisme]]).
+* $x_2:U_2\to x_2(U_2)$ est un $C^k$-difféomorphisme d'inverse $x_2^{-1}$ (homéomorphisme par définition d'un paramétrage, $x_2$ et $x_2^{-1}$ de classe $C^k$ par [[ch09-ex-parametrages-cartes-cr]]), donc $d(x_2^{-1})_{\varphi(p)}:T_{\varphi(p)}S_2\to\R^{m_2}$ est un isomorphisme ([[ch09-differentielle-diffeomorphisme-isomorphisme]]) ; on a utilisé $T_{\varphi(p)}\big(x_2(U_2)\big)=T_{\varphi(p)}S_2$, les deux espaces étant égaux à $d(x_2)_{q_2}(\R^{m_2})$ ([[ch09-espace-tangent-image-dx]]).
 
 Donc $d\psi_{q_1}:\R^{m_1}\to\R^{m_2}$ est un isomorphisme ; en particulier $m_1=m_2=:m$, et, en dimension finie, cet isomorphisme est bicontinu.
 

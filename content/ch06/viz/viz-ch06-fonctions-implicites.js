@@ -29,7 +29,7 @@ Ce rectangle (bleu) est **calculé numériquement** : $V_0=\,]y_0-s,y_0+s[$ est 
         pts: [['point quelconque', 1.5, 1.5], ['point double (0,0)', 0, 0], ['tangente verticale', Math.pow(2, 2 / 3), Math.cbrt(2)], ['tangente horizontale', Math.cbrt(2), Math.pow(2, 2 / 3)]] },
       lemn: { name: 'lemniscate  (x²+y²)² = 2(x²−y²)', c: 0, f: (x, y) => Math.pow(x * x + y * y, 2) - 2 * (x * x - y * y),
         fx: (x, y) => 4 * x * (x * x + y * y - 1), fy: (x, y) => 4 * y * (x * x + y * y + 1),
-        pts: [['point quelconque', 1, Math.sqrt(R * 1 * 1 - 1 + 0) ? 0.6 : 0], ['point double (0,0)', 0, 0], ['tangente verticale (√2,0)', R, 0]] },
+        pts: [['point quelconque', 1, 0.486], ['point double (0,0)', 0, 0], ['tangente verticale (√2,0)', R, 0]] },
     };
     const sel = kit.select(controls, { label: 'courbe', options: Object.keys(CURVES).map(k => [CURVES[k].name, k]), value: 'cercle', onChange: () => { rebuildPts(); setPoint(CURVES[sel.value].pts[0][1], CURVES[sel.value].pts[0][2]); } });
     const ptsel = kit.select(controls, { label: 'aller à', options: [['—', '0']], onChange: v => { const p = CURVES[sel.value].pts[+v]; if (p) setPoint(p[1], p[2]); } });

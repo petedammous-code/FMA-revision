@@ -6,7 +6,7 @@ title: Une sous-variété est localement le graphe d'une fonction au-dessus de s
 ref: Corollaire IX.7.27
 page: 166
 importance: 2
-depends: [ch09-inversion-locale-sous-varietes, ch09-remarques-differentielle-cas-euclidien, ch09-notation-tps, ch09-ex-sous-espace-affine, ch09-espace-tangent-image-dx]
+depends: [ch09-inversion-locale-sous-varietes, ch09-remarques-differentielle-cas-euclidien, ch09-notation-tps, ch09-ex-sous-espace-affine, ch09-espace-tangent-image-dx, ch09-remarques-applications-cr]
 tags: [sous-variete, graphe, plan-tangent, projection-orthogonale, inversion-locale]
 ---
 ## Intuition
@@ -43,7 +43,7 @@ La projection orthogonale $f:S\to P$ a pour différentielle en $p$ l'identité d
 
 Notons $\pi_T$ et $\pi$ les projections orthogonales de $\R^N$ sur $T_pS$ et sur $H=(T_pS)^\perp$ ; on a $\pi_T+\pi=\mathrm{Id}_{\R^N}$ et $\dim H=N-m$ car $\dim T_pS=m$.
 
-*La projection sur $P$.* Soit $F:\R^N\to\R^N$, $F(x)=p+\pi_T(x-p)$ : c'est la projection orthogonale sur $P=p+T_pS$. Elle est affine, donc $C^\infty$, de différentielle $dF_x=\pi_T$ en tout point, et à valeurs dans $P$. Soit $f=F|_S:S\to P$. L'espace affine $P$ est une sous-variété de dimension $m$ de $\R^N$ ([[ch09-ex-sous-espace-affine]]) et $T_pP=T_pS$ (les courbes $t\mapsto p+tv$, $v\in T_pS$, sont tracées dans $P$, et $\dim T_pP=m$). L'application $f$ est de classe $C^k$ de $S$ dans $P$ comme restriction d'une application $C^\infty$ (point 2 de [[ch09-remarques-applications-cr]]), et sa différentielle en $p$ est la restriction de $dF_p=\pi_T$ à $T_pS$ ([[ch09-remarques-differentielle-cas-euclidien]], point 2) :
+*La projection sur $P$.* Soit $F:\R^N\to\R^N$, $F(x)=p+\pi_T(x-p)$ : c'est la projection orthogonale sur $P=p+T_pS$. Elle est affine, donc $C^\infty$, de différentielle $dF_x=\pi_T$ en tout point, et à valeurs dans $P$. Soit $f=F|_S:S\to P$. L'espace affine $P$ est une sous-variété de dimension $m$ de $\R^N$ ([[ch09-ex-sous-espace-affine]]) et $T_pP=T_pS$ (les courbes $t\mapsto p+tv$, $v\in T_pS$, sont tracées dans $P$, et $\dim T_pP=m$). L'application $f$ est de classe $C^k$ de $S$ dans $P$ : pour tout paramétrage $x:U\to S$ (de classe $C^k$), $f\circ x=F\circ x$ est $C^k$ comme composée, donc $f:S\to\R^N$ est $C^k$ (restriction d'une application $C^\infty$ de $\R^N$, Exercice IX.7.19 (4) du poly), ce qui équivaut à $f:S\to P$ de classe $C^k$ (point 2 de [[ch09-remarques-applications-cr]]) ; et sa différentielle en $p$ est la restriction de $dF_p=\pi_T$ à $T_pS$ ([[ch09-remarques-differentielle-cas-euclidien]], point 2) :
 $$
 df_p:T_pS\to T_pP=T_pS,\qquad v\mapsto\pi_T(v)=v .
 $$
