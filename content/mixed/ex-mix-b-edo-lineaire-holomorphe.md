@@ -103,7 +103,7 @@ Donc $(1-x^2)\varphi''=-\lambda^2\cos(\lambda\theta)+\lambda\sin(\lambda\theta)\
 
 Soit $w$ la solution holomorphe de a) avec ces données initiales. Sur $]-1,1[$, $w$ et $\varphi$ sont deux solutions de classe $C^2$ de $(T_\lambda)$, vue comme équation linéaire d'ordre $2$ en la variable réelle $x$ à coefficients continus ; le système associé a un champ localement lipschitzien, donc $w=\varphi$ sur $]-1,1[$ ([[ch07-unicite-globale]]). Pour $\lambda=N\in\N$ : si $N$ est pair, $(a,b)=((-1)^{N/2},0)$ ; si $N$ est impair, $(a,b)=(0,(-1)^{(N-1)/2}N)$. Dans les deux cas seule la chaîne de la parité de $N$ est non nulle et, par c), $w$ est un polynôme $T_N$ de degré $N$. Ainsi $T_N(\cos\theta)=\cos(N\theta)$ pour $\theta\in\,]0,\pi[$ ; les deux membres sont des fonctions continues de $\theta$, paires et $2\pi$-périodiques, l'égalité s'étend à $[0,\pi]$ par continuité puis à $\R$. Exemple $N=3$ : $(a,b)=(0,-3)$, $c_3=\frac{1-9}{6}(-3)=4$, $T_3(x)=4x^3-3x$, et l'on retrouve $\cos3\theta=4\cos^3\theta-3\cos\theta$.
 
-Pour $\lambda\notin\Z$, $\varphi=\cos(\lambda\arccos\cdot)$ est développable en série entière en $0$ mais (par c), puisque $\varphi(0)=\cos(\lambda\pi/2)\neq0$) avec un rayon exactement $1$ : c'est cohérent avec le fait que $\arccos$ n'est pas holomorphe au voisinage de $\pm1$.
+Pour $\lambda\notin\Z$, $\varphi=\cos(\lambda\arccos\cdot)$ est développable en série entière en $0$ mais (par c), puisque $\varphi(0)=\cos(\lambda\pi/2)\neq0$) avec un rayon exactement $1$ : le rayon est limité par les points singuliers $\pm1$ de l'équation (où $1-z^2$ s'annule), bien que $\varphi$ soit parfaitement régulière sur $]-1,1[$.
 
 ## Pièges et variantes
 
