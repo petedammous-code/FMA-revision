@@ -8,9 +8,9 @@ et le plan qu'ils engendrent est l'**espace tangent** $T_pS=dx_q(\mathbb R^2)$ (
 
 **Ce qu'il faut regarder.**
 * **Cochez « courbes par $p$ »** : on trace les images $t\mapsto x(q+tw)$ de huit droites de $U$ passant par $q$, avec leurs vecteurs vitesses $dx_q(w)=w_1x_u+w_2x_v$ en $p$ (Définition IX.7.8, p. 160). Tous sont dans le plan tangent, et ils le remplissent : c'est exactement $T_pS=dx_q(\mathbb R^2)$, un plan (dimension $m=2$) parce que $dx_q$ est **injective** (condition 3 de la Définition IX.2.1, p. 148).
-* **Sphère** : approchez-vous des pôles ($v\to\pm\pi/2$). Le vecteur $x_u$ s'écrase vers $0$, l'aire $\|x_u\times x_v\|$ tend vers $0$ et le plan tangent dégénère : $dx_q$ n'est plus injective, donc $x$ n'est **pas** un paramétrage local aux pôles (il faut y utiliser un autre paramétrage ; un seul ne suffit pas pour toute la sphère). Le domaine $U$ doit être *ouvert* : $]-\pi,\pi[\times]-\pi/2,\pi/2[$.
-* **Cône** $x(u,v)=(v\cos u,v\sin u,v)$ : sur la droite $v=0$ le paramétrage n'est pas une immersion ($x_u=0$). Ce n'est pas un hasard : le cône n'est pas une sous-variété au sommet (Exercice IX.7.12) ; en restreignant à $v>0$ (une seule nappe, sommet exclu) on retrouve un vrai paramétrage.
-* **Graphe** $x(u,v)=(u,v,h(u,v))$ : $x_u=(1,0,h_u)$, $x_v=(0,1,h_v)$ sont toujours indépendants, et le plan tangent est le graphe de $dh_q$ (Proposition IX.7.13 : c'est l'approximation affine de $h$).
+* **Sphère** : approchez-vous des pôles ($v\to\pm\pi/2$). Le vecteur $x_u$ s'écrase vers $0$ ($\|x_u\|=\cos v$), l'aire $\|x_u\times x_v\|$ tend vers $0$ et, au pôle même, $x_u=0$ : $dx_q$ n'est plus injective, l'image $dx_q(\mathbb R^2)$ n'est plus un plan. La sphère, elle, est une sous-variété et possède bien un plan tangent horizontal au pôle : c'est **ce paramétrage** qui est en défaut, pas la surface. Il faut y utiliser un autre paramétrage (un seul ne couvre jamais toute la sphère), et c'est pourquoi le domaine est l'*ouvert* $U=\,]-\pi,\pi[\times]-\pi/2,\pi/2[$, qui exclut les pôles (et le méridien $u=\pm\pi$).
+* **Cône** $x(u,v)=(v\cos u,v\sin u,v)$ : sur la droite $v=0$ le paramétrage n'est pas une immersion ($x_u=(-v\sin u,v\cos u,0)=0$), et il n'y est même pas injectif (toute la droite $v=0$ est écrasée sur le sommet). Ce n'est pas un hasard : le cône $x^2+y^2=z^2$ n'est pas une sous-variété au sommet (Exercice IX.7.12) ; en restreignant à $v>0$ (une seule nappe, sommet exclu) on retrouve un vrai paramétrage local.
+* **Graphe** $x(u,v)=(u,v,h(u,v))$ : $x_u=(1,0,h_u)$, $x_v=(0,1,h_v)$ sont toujours indépendants, et $T_pS$ est le graphe de l'application linéaire $dh_q$ (Proposition IX.7.13) ; le plan tangent affine dessiné est le graphe de l'approximation affine $h(q)+dh_q(\cdot)$ de $h$.
 * **Toutes les surfaces** : le plan tangent (en couleur) est la meilleure approximation affine de $S$ en $p$ ; il est orthogonal à la normale $x_u\times x_v$ (case « normale »).`,
   related: ['ch09-sous-variete-def', 'ch09-espace-tangent-image-dx', 'ch09-base-espace-tangent', 'ch09-vecteur-tangent-espace-tangent-def', 'ch09-espace-tangent-graphe-equation'],
   height: 520,
@@ -116,9 +116,14 @@ et le plan qu'ils engendrent est l'**espace tangent** $T_pS=dx_q(\mathbb R^2)$ (
       ctx.strokeStyle = t.accent3; ctx.beginPath(); ctx.moveTo(px(q[0]), by0); ctx.lineTo(px(q[0]), by1); ctx.stroke();
       // droites par q (courbes par p)
       if (cCurves.value) {
-        const d = 0.2 * Math.min(bx1 - bx0, by0 - by1);
+        const d = 0.2 * Math.min(S.u1 - S.u0, S.v1 - S.v0);
         ctx.strokeStyle = t.accent4; ctx.lineWidth = 1.5;
-        for (let k = 0; k < 8; k++) { const a = k * PI / 8; ctx.beginPath(); ctx.moveTo(px(q[0]) - d * Math.cos(a), py(q[1]) + d * Math.sin(a)); ctx.lineTo(px(q[0]) + d * Math.cos(a), py(q[1]) - d * Math.sin(a)); ctx.stroke(); }
+        for (let k = 0; k < 8; k++) {
+          const a = k * PI / 8, w = [Math.cos(a), Math.sin(a)];
+          ctx.beginPath(); let first = true;
+          for (let i = -20; i <= 20; i++) { const tt = d * i / 20, u = q[0] + tt * w[0], v = q[1] + tt * w[1]; if (!inU(u, v)) { first = true; continue; } if (first) { ctx.moveTo(px(u), py(v)); first = false; } else ctx.lineTo(px(u), py(v)); }
+          ctx.stroke();
+        }
       }
       // axes labels
       ctx.fillStyle = t.muted; ctx.font = '11px system-ui, sans-serif'; ctx.textAlign = 'center'; ctx.textBaseline = 'top';
@@ -130,13 +135,14 @@ et le plan qu'ils engendrent est l'**espace tangent** $T_pS=dx_q(\mathbb R^2)$ (
       ctx.textAlign = 'left'; ctx.textBaseline = 'top'; ctx.fillStyle = t.fg; ctx.font = '12px system-ui, sans-serif';
       ctx.fillText('ouvert U ⊂ ℝ²', bx0 + 6, by1 + 4);
       // point q
-      const degenerate = currentArea() < 0.1;
-      ctx.fillStyle = degenerate ? '#d03030' : t.accent4; ctx.strokeStyle = t.bg; ctx.lineWidth = 2;
+      const A = currentArea();
+      ctx.fillStyle = A < 1e-6 ? '#d03030' : A < 0.1 ? '#b26a00' : t.accent4; ctx.strokeStyle = t.bg; ctx.lineWidth = 2;
       ctx.beginPath(); ctx.arc(px(q[0]), py(q[1]), 7, 0, 2 * PI); ctx.fill(); ctx.stroke();
       ctx.fillStyle = t.fg; ctx.textAlign = 'left'; ctx.textBaseline = 'bottom'; ctx.fillText('q', px(q[0]) + 9, py(q[1]) - 6);
       ctx.restore();
     }
     function currentArea() { const [xu, xv] = partials(q[0], q[1]); return nrm(cross(xu, xv)); }
+    function inU(u, v) { const S = SURF[cur]; return u >= S.u0 - 1e-9 && u <= S.u1 + 1e-9 && v >= S.v0 - 1e-9 && v <= S.v1 + 1e-9; }
 
     // ---------- dessin de S ----------
     function drawS() {
@@ -182,7 +188,9 @@ et le plan qu'ils engendrent est l'**espace tangent** $T_pS=dx_q(\mathbb R^2)$ (
           const a = k * PI / 8, w = [Math.cos(a), Math.sin(a)];
           let prev = null;
           for (let i = -20; i <= 20; i++) {
-            const tt = d * i / 20; const s = P(f(q[0] + tt * w[0], q[1] + tt * w[1]));
+            const tt = d * i / 20, u = q[0] + tt * w[0], v = q[1] + tt * w[1];
+            if (!inU(u, v)) { prev = null; continue; }
+            const s = P(f(u, v));
             if (prev) seg(prev, s, t.accent4, 1.8, 0.95); prev = s;
           }
           const vel = add(mulk(xu, w[0]), mulk(xv, w[1])); const tip = P(add(p, mulk(vel, sz * 0.9)));
@@ -202,8 +210,8 @@ et le plan qu'ils engendrent est l'**espace tangent** $T_pS=dx_q(\mathbb R^2)$ (
         if (L > 1e-6) { n = mulk(n, 0.5 * S.R / L); const tn = P(add(p, n)); ctx.setLineDash([4, 3]); kit.arrow(ctx, sp[0], sp[1], tn[0], tn[1], { color: t.fg, width: 1.6, head: 7 }); ctx.setLineDash([]); ctx.fillStyle = t.fg; ctx.fillText('x_u × x_v', tn[0] + 5, tn[1]); }
       }
       // point p
-      const degenerate = currentArea() < 0.1;
-      ctx.fillStyle = degenerate ? '#d03030' : t.accent4; ctx.strokeStyle = t.bg; ctx.lineWidth = 2;
+      const A = currentArea();
+      ctx.fillStyle = A < 1e-6 ? '#d03030' : A < 0.1 ? '#b26a00' : t.accent4; ctx.strokeStyle = t.bg; ctx.lineWidth = 2;
       ctx.beginPath(); ctx.arc(sp[0], sp[1], 6, 0, 2 * PI); ctx.fill(); ctx.stroke();
       ctx.fillStyle = t.fg; ctx.textBaseline = 'bottom'; ctx.fillText('p = x(q)', sp[0] + 9, sp[1] - 6);
       ctx.fillStyle = t.muted; ctx.textBaseline = 'top'; ctx.textAlign = 'left'; ctx.fillText('S ⊂ ℝ³  (glisser pour tourner)', 8, 6);
@@ -215,9 +223,12 @@ et le plan qu'ils engendrent est l'**espace tangent** $T_pS=dx_q(\mathbb R^2)$ (
       const p = SURF[cur].f(q[0], q[1]);
       const f2 = a => a.map(z => (+z.toFixed(2)).toString()).join(', ');
       ro.set(`q = (${q[0].toFixed(2)}, ${q[1].toFixed(2)}) &nbsp; p = (${f2(p)}) &nbsp; |x<sub>u</sub>×x<sub>v</sub>| = ${A.toFixed(3)}`);
-      if (A < 0.1) {
+      if (A < 1e-6) {
         warn.style.color = '#d03030';
-        warn.textContent = 'Ici dx_q n’est PAS injective (' + (SURF[cur].warn || 'x_u et x_v presque colinéaires') + ') : x n’est pas un paramétrage local en ce point, le « plan tangent » dégénère.';
+        warn.textContent = 'Ici dx_q n’est PAS injective (' + (SURF[cur].warn || 'x_u et x_v colinéaires') + ') : x n’est pas un paramétrage local en ce point, et dx_q(ℝ²) n’est pas un plan.' + (cur === 'sphere' ? ' La sphère a pourtant un plan tangent (horizontal) au pôle : c’est ce paramétrage qui est en défaut, pas la surface.' : cur === 'cone' ? ' Le cône n’est pas une sous-variété au sommet (Exercice IX.7.12).' : '');
+      } else if (A < 0.1) {
+        warn.style.color = '#b26a00';
+        warn.textContent = 'dx_q est encore injective (|x_u×x_v| = ' + A.toFixed(3) + ' > 0) mais presque dégénérée : ' + (cur === 'sphere' ? 'au pôle même (v = ±π/2), x_u = 0.' : cur === 'cone' ? 'sur la droite v = 0, x_u = 0.' : 'x_u et x_v sont presque colinéaires.');
       } else {
         warn.style.color = '';
         warn.textContent = 'dx_q est injective : (x_u, x_v) est une base de T_pS (plan tangent, dimension 2).';
