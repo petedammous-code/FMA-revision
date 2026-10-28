@@ -17,7 +17,7 @@ On a une application $\Phi : U\subset E\to F$ entre espaces vectoriels normés, 
 
 ### [x] Revenir à la définition : deviner $L$, puis majorer le reste — [[ch05-differentielle-def]]
 **Quand.** Une brique n'est pas dans la liste : typiquement un **opérateur de composition** $u\mapsto g\circ u$ ou $u\mapsto\int_0^1g(t,u(t))\,dt$ sur $C^0([0,1])$, ou $(x_i)\mapsto(g(x_i))$ sur $\ell^1$. Méthode en trois temps : (1) calculer la dérivée directionnelle $\frac{d}{ds}\Phi(u+sh)|_{s=0}$ pour **deviner** $L=d\Phi_u$ ([[ch05-derivee-directionnelle-unicite]]) ; (2) vérifier que $L$ est **linéaire continue** ($\|Lh\|\le C\|h\|$) ; (3) montrer $\|\Phi(u+h)-\Phi(u)-Lh\|=o(\|h\|)$.
-**Justification.** C'est la définition V.3.1 (poly, p. 98). Pour l'étape (3), écrire le reste ponctuel avec Taylor en une variable : $g(x+y)-g(x)-g'(x)y=y\int_0^1\big(g'(x+sy)-g'(x)\big)ds$, puis utiliser la **continuité uniforme** de $g'$ sur un compact $[-R,R]$ contenant les valeurs de $u$ et $u+h$ (Heine) : le reste est $\le\omega(\|h\|_\infty)\|h\|_\infty$ avec $\omega(\delta)\to0$.
+**Justification.** C'est la définition même (poly, Définition V.3.1, p. 98). Pour l'étape (3), écrire le reste ponctuel avec Taylor en une variable : $g(x+y)-g(x)-g'(x)y=y\int_0^1\big(g'(x+sy)-g'(x)\big)ds$, puis utiliser la **continuité uniforme** de $g'$ sur un compact $[-R,R]$ contenant les valeurs de $u$ et $u+h$ (Heine) : le reste est $\le\omega(\|h\|_\infty)\|h\|_\infty$ avec $\omega(\delta)\to0$.
 **Pièges.** Le $o(\|h\|)$ doit être **uniforme en $t$** : une majoration ponctuelle « pour chaque $t$ » ne suffit pas. En dimension infinie, la continuité de $L$ n'est pas automatique : l'écrire. Sur $\ell^1$, il faut aussi vérifier que $\Phi$ est **bien définie** (il faut $g(0)=0$ pour que $(g(x_i))\in\ell^1$).
 
 ### [x] Classe $C^k$ par récurrence : exprimer $d\Phi$ avec des briques — [[ch05-classe-ck-def]]
@@ -27,7 +27,7 @@ On a une application $\Phi : U\subset E\to F$ entre espaces vectoriels normés, 
 
 ### [x] Dérivées partielles continues — [[ch05-c1-ssi-partielles-continues]]
 **Quand.** La source est un **produit** $E_1\times\cdots\times E_m$ (en particulier $\R^n$, ou $\R\times C^0$ quand il y a un paramètre $\lambda$) et chaque dérivée partielle est facile à calculer.
-**Justification.** Proposition V.5.1 (poly, p. 106) : $f$ est $C^1$ si et seulement si ses dérivées partielles existent et sont **continues** ; alors $df_a(h_1,\dots,h_m)=\sum_i\frac{\partial f}{\partial x_i}(a)(h_i)$ ([[ch05-differentielles-partielles]]).
+**Justification.** (poly, Proposition V.5.1, p. 106) : $f$ est $C^1$ si et seulement si ses dérivées partielles existent et sont **continues** ; alors $df_a(h_1,\dots,h_m)=\sum_i\frac{\partial f}{\partial x_i}(a)(h_i)$ ([[ch05-differentielles-partielles]]).
 **Pièges.** Il faut la continuité des partielles sur un **voisinage**, pas seulement leur existence au point.
 
 ### [ ] Dérivées directionnelles linéaires en $h$ (« Gâteaux ») suffisent — [[ch05-derivee-directionnelle-unicite]]

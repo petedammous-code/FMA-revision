@@ -6,7 +6,7 @@ title: Représentation de Weierstrass–Enneper des surfaces minimales
 ref: non numéroté, section IV.3, p. 78 (formule de Weierstrass–Enneper)
 page: 78
 importance: 1
-depends: [ch04-harmonique-def, ch01-laplacien-harmonique, ch04-weierstrass-enneper-esquisse, ch02-primitive-simplement-connexe, ch01-integrale-primitive, ch04-holomorphe-implique-harmonique, ch01-zeros-isoles]
+depends: [ch04-harmonique-def, ch01-laplacien-harmonique, ch04-weierstrass-enneper-esquisse, ch02-primitive-simplement-connexe, ch01-integrale-primitive, ch04-holomorphe-implique-harmonique, ch01-zeros-isoles, ch01-holomorphe-ssi-c1-et-dzbar-nul, ch01-formulaire-dz-dzbar]
 tags: [surfaces-minimales, weierstrass-enneper, films-de-savon, harmonique, meromorphe, conforme]
 ---
 ## Intuition
@@ -29,7 +29,7 @@ $$
 $$
 restent holomorphes. Dans les exemples, $f$ et $g$ sont méromorphes sur la sphère de Riemann et $\Omega$ est obtenu en retirant leurs pôles : les points ainsi retirés sont les **bouts** de la surface.
 
-*Précisions.* (i) Réciproquement, pour tout couple $(f,g)$ comme ci-dessus sur un ouvert $\Omega$ simplement connexe, la formule définit $X:\Omega\to\R^3$ de classe $C^\infty$, conforme, dont les coordonnées sont harmoniques, et régulière exactement aux points où $f\neq0$ ; là, la surface est minimale. (ii) Sur $\Omega$ non simplement connexe, $X$ est bien définie si et seulement si la **condition de périodes** $\Re\oint_\gamma\varphi\,dw = 0$ est vérifiée pour tout lacet $\gamma$ de $\Omega$ ([[ch04-condition-periodes]]). (iii) Le seul point admis est géométrique (Remarque IV.3.1, [[ch04-weierstrass-enneper-esquisse]]) : toute surface admet localement un paramétrage conforme $X$, et pour un tel paramétrage $\Delta X = 2|X_u|^2\,H\,N$ ($H$ courbure moyenne, $N$ normale unitaire).
+*Précisions.* (i) Réciproquement, pour tout couple $(f,g)$ comme ci-dessus sur un ouvert $\Omega$ simplement connexe, la formule définit $X:\Omega\to\R^3$ de classe $C^\infty$, conforme, dont les coordonnées sont harmoniques ; $X$ est régulière (immersion) en tout pôle de $g$ et, hors des pôles de $g$, exactement aux points où $f\neq0$ (en un pôle $a$ de $g$ on a $f(a)=0$, mais $|X_u|(a)=|fg^2|(a)\neq0$, voir A4) ; aux points réguliers, la surface est minimale. (ii) Sur $\Omega$ non simplement connexe, $X$ est bien définie si et seulement si la **condition de périodes** $\Re\oint_\gamma\varphi\,dw = 0$ est vérifiée pour tout lacet $\gamma$ de $\Omega$ ([[ch04-condition-periodes]]). (iii) Le seul point admis est géométrique (Remarque IV.3.1, [[ch04-weierstrass-enneper-esquisse]]) : toute surface admet localement un paramétrage conforme $X$, et pour un tel paramétrage $\Delta X = 2|X_u|^2\,H\,N$ ($H$ courbure moyenne, $N$ normale unitaire).
 
 ## Hypothèses
 
@@ -61,7 +61,7 @@ On note $z = u+iv$, $X_u = \partial_uX$, $X_v = \partial_vX$, et l'on travaille 
 
 **Partie A : la formule définit une surface minimale.** Soient $f,g$ comme en H1 et $\varphi = (\varphi_1,\varphi_2,\varphi_3)$, dont les trois composantes sont holomorphes sur $\Omega$.
 
-*A1. $X$ est bien définie et $C^\infty$.* Chaque $\varphi_k$ admet une primitive holomorphe $\Phi_k$ sur $\Omega$ simplement connexe ([[ch02-primitive-simplement-connexe]]), et $\int_{[z_0,z]}\varphi_k\,dw = \Phi_k(z)-\Phi_k(z_0)$ ([[ch01-integrale-primitive]]). Donc $X(z) = \Re\big(\Phi(z)-\Phi(z_0)\big)$, de classe $C^\infty$ ; ses coordonnées $X_k = \Re\Phi_k-\Re\Phi_k(z_0)$ sont harmoniques ([[ch04-holomorphe-implique-harmonique]]).
+*A1. $X$ est bien définie et $C^\infty$.* Chaque $\varphi_k$ admet une primitive holomorphe $\Phi_k$ sur $\Omega$ simplement connexe ([[ch02-primitive-simplement-connexe]]), et $\int_{[z_0,z]}\varphi_k\,dw = \Phi_k(z)-\Phi_k(z_0)$ ([[ch01-integrale-primitive]]), l'intégrale étant prise le long de n'importe quel chemin de $z_0$ à $z$ dans $\Omega$ (le segment $[z_0,z]$ si $\Omega$ est convexe, par exemple un disque ; sur un $\Omega$ simplement connexe non convexe, la notation $\int_{[z_0,z]}$ du poly désigne l'intégrale sur un chemin quelconque de $\Omega$, dont elle ne dépend pas). Donc $X(z) = \Re\big(\Phi(z)-\Phi(z_0)\big)$, de classe $C^\infty$ ; ses coordonnées $X_k = \Re\Phi_k-\Re\Phi_k(z_0)$ sont harmoniques ([[ch04-holomorphe-implique-harmonique]]).
 
 *A2. $2\partial_zX = \varphi$.* Pour chaque $k$, $2\,\partial_z(\Re\Phi_k) = \partial_z\big(\Phi_k+\overline{\Phi_k}\big) = \Phi_k'+0 = \varphi_k$, car $\partial_z\Phi_k = \Phi_k'$ (formule (I.2.7)) et $\partial_z\overline{\Phi_k} = \overline{\partial_{\bar z}\Phi_k} = 0$ ((I.2.9), [[ch01-formulaire-dz-dzbar]]). Comme $2\partial_z = \partial_u-i\partial_v$, on obtient
 $$
@@ -82,7 +82,7 @@ En séparant parties réelle et imaginaire : $|X_u| = |X_v|$ et $\langle X_u,X_v
 $$
 |X_u| = |X_v| = |f|\,(1+|g|^2)
 $$
-(en un pôle de $g$, on lit cette formule comme $|fg^2|\cdot(|g|^{-2}+1)\to|fg^2|(a)\neq0$). Donc $X$ est une immersion exactement aux points où $f\neq0$ (hors pôles de $g$).
+(en un pôle de $g$, on lit cette formule comme $|fg^2|\cdot(|g|^{-2}+1)\to|fg^2|(a)\neq0$). Donc $X$ est une immersion en tout pôle de $g$ et, hors des pôles de $g$, exactement aux points où $f\neq0$.
 
 *A5. Minimalité.* Aux points réguliers, $X$ est un paramétrage conforme régulier à coordonnées harmoniques : $\Delta X = 0$. Le résultat admis $\Delta X = 2|X_u|^2HN$ avec $|X_u|\neq0$ et $N\neq0$ donne $H = 0$ : la surface est minimale.
 

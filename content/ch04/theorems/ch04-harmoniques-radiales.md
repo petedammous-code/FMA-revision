@@ -6,7 +6,7 @@ title: "Fonctions harmoniques invariantes par rotation sur $\\C^\\times$"
 ref: "non numéroté, section IV.4.2, p. 85 (fonctions harmoniques radiales ; Exercice IV.4.2)"
 page: 85
 importance: 2
-depends: [ch04-harmonique-def, ch05-composition-differentielles, ch04-holomorphe-implique-harmonique, ch02-logarithme-determination-principale-def, ch01-integrale-primitive]
+depends: [ch04-harmonique-def, ch05-composition-differentielles, ch05-lemme-schwarz, ch04-holomorphe-implique-harmonique, ch02-logarithme-determination-principale-def, ch01-integrale-primitive]
 tags: [harmonique, radial, laplacien-polaire, logarithme, couronne, chaleur]
 ---
 ## Intuition

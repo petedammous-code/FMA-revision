@@ -76,7 +76,7 @@ Comme $e^{ikx}=\cos(kx)+i\sin(kx)$ et que $x^2+a^2$ est réel, la partie réelle
 
 ## Preuve à trous
 
-On pose <trou indice="pas cos(kz) !">$f(z)=\dfrac{e^{ikz}}{z^2+a^2}$, méromorphe sur $\C$, pôles simples $\pm ia$</trou>, et l'on intègre sur le bord $\Gamma_R$ du demi-disque supérieur, $R>a$. Le seul pôle intérieur est $ia$ et <trou indice="pôle simple : limite de (z−ia)f(z)">$\Res_{ia}(f)=\frac{e^{-ka}}{2ia}$</trou>, donc $\int_{\Gamma_R}f=\frac\pi ae^{-ka}$. Sur $C_R^+$, <trou indice="pourquoi k>0 sert ici">$|e^{ikz}|=e^{-kR\sin\theta}\le1$ et $|z^2+a^2|\ge R^2-a^2$</trou>, d'où $\big|\int_{C_R^+}f\big|\le\frac{\pi R}{R^2-a^2}\to0$. En faisant $R\to+\infty$, $\int_\R\frac{e^{ikx}}{x^2+a^2}dx=\frac\pi ae^{-ka}$, et <trou>on prend la partie réelle</trou>. $\square$
+On pose <trou indice="pas cos(kz) !">$f(z)=\dfrac{e^{ikz}}{z^2+a^2}$, méromorphe sur $\C$, pôles simples $\pm ia$</trou>, et l'on intègre sur le bord $\Gamma_R$ du demi-disque supérieur, $R>a$. Le seul pôle intérieur est $ia$ et <trou indice="pôle simple : limite de (z−ia)f(z)">$\Res_{ia}(f)=\frac{e^{-ka}}{2ia}$</trou>, donc $\int_{\Gamma_R}f=\frac\pi ae^{-ka}$. Sur $C_R^+$, <trou indice="à quoi sert le signe de k ?">$|e^{ikz}|=e^{-kR\sin\theta}\le1$ et $|z^2+a^2|\ge R^2-a^2$</trou>, d'où $\big|\int_{C_R^+}f\big|\le\frac{\pi R}{R^2-a^2}\to0$. En faisant $R\to+\infty$, $\int_\R\frac{e^{ikx}}{x^2+a^2}dx=\frac\pi ae^{-ka}$, et <trou>on prend la partie réelle</trou>. $\square$
 
 ## Exemples
 
