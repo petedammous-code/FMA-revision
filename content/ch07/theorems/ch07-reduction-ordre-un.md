@@ -6,7 +6,7 @@ title: Réduction d'une équation d'ordre $k$ à un système d'ordre 1
 ref: Formule (VII.1.2)
 page: 127
 importance: 2
-depends: [ch05-classe-ck-def, ch05-differentiabilite-composantes]
+depends: [ch05-classe-ck-def, ch05-differentiabilite-composantes, ch05-derivee-variable-reelle]
 tags: [equation-differentielle, ordre-k, systeme, espace-des-phases, reduction]
 ---
 ## Intuition

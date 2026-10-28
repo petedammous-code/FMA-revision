@@ -22,6 +22,8 @@ $$
 \int_\gamma f(z)\,dz=i\,r\int_0^{2\pi}f(z_0+re^{it})\,e^{it}\,dt.
 $$
 
+Notation : on écrit souvent $\int_{C(z_0,r)}f(z)\,dz$ au lieu de $\int_\gamma f(z)\,dz$, en sous-entendant ce paramétrage (sens direct, un tour) : [[ch01-notation-integrale-sur-courbe]].
+
 ## Hypothèses
 
 ### H1 — $f$ continue sur un ouvert contenant le cercle $C(z_0,r)$

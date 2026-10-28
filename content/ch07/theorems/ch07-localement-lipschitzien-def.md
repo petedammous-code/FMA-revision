@@ -42,7 +42,7 @@ On dit que $X$ est **$k$-lipschitzien en la seconde variable** sur une partie $A
 
 **Rôle.** La constante $k$ (et la boîte $J_0\times U_0$) dépendent de $(t_0,x_0)$ : c'est tout ce dont la preuve de [[ch07-cauchy-lipschitz]] a besoin, puisqu'elle ne travaille que sur une petite boîte $[\tau_0-2a';\tau_0+2a']\times\bar B(x_0,2a)$ ([[ch07-restriction-domaine-c1-lipschitz]]). Demander une constante globale sur $I\times U$ exclurait des champs aussi simples que $X(x)=x^2$.
 
-**Si on la retire.** Si l'on exige $k$ global, on obtient une hypothèse plus forte (champ **lipschitzien** en la seconde variable), vraie pour les champs linéaires $X(t,x)=A(t)x$ avec $\|A(t)\|$ bornée, fausse pour $x^2$ ; les conclusions locales du chapitre n'en ont pas besoin, mais une constante globale donne davantage (par exemple l'existence globale via Gronwall, Exercice VII.4.2, p. 137).
+**Si on la retire.** Si l'on exige $k$ global, on obtient une hypothèse plus forte (champ **lipschitzien** en la seconde variable), vraie pour les champs linéaires $X(t,x)=A(t)x$ avec $\|A(t)\|$ bornée, fausse pour $x^2$ ; les conclusions locales du chapitre n'en ont pas besoin, mais une constante globale donne davantage : par exemple, pour un champ $k$-lipschitzien en la seconde variable sur tout son domaine, deux solutions issues de $x_1$ et $x_2$ au même instant $t_0$ vérifient $\|y_1(t)-y_2(t)\|\le\|x_1-x_2\|\,e^{k|t-t_0|}$ (lemme de Gronwall, Exercices VII.4.1 et VII.4.2, p. 137), et, si $U=E$, les solutions sont définies sur tout $I$ : Gronwall interdit l'explosion en temps fini (croissance au plus exponentielle de $\|\alpha(t)\|$ ; résultat classique, hors poly).
 
 ### H3 — Aucune régularité en $t$ au-delà de la continuité
 

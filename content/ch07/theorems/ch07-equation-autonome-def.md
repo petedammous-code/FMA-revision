@@ -6,7 +6,7 @@ title: Équations autonomes (champ indépendant du temps)
 ref: Remarque VII.2.6
 page: 129
 importance: 2
-depends: []
+depends: [ch07-champ-vecteurs-courbe-integrale-def, ch07-localement-lipschitzien-def]
 tags: [autonome, champ-de-vecteurs, independant-du-temps, cauchy-lipschitz, translation-temps]
 ---
 ## Intuition

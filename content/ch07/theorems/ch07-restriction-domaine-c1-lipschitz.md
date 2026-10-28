@@ -6,7 +6,7 @@ title: On peut restreindre $U$ et $I$ ; un champ $C^1$ est localement lipschitzi
 ref: Remarque VII.2.2
 page: 128
 importance: 2
-depends: [ch05-accroissements-finis, ch05-accroissements-finis-borne, ch07-localement-lipschitzien-def, ch07-cauchy-lipschitz]
+depends: [ch05-accroissements-finis, ch05-accroissements-finis-borne, ch05-classe-ck-def, ch07-localement-lipschitzien-def]
 tags: [lipschitz, classe-c1, accroissements-finis, localite, cauchy-lipschitz, critere-pratique]
 ---
 ## Intuition
@@ -21,7 +21,7 @@ Vocabulaire. Un champ de vecteurs $X : I\times U\to E$ est **localement lipschit
 
 **Proposition (poly, Remarque VII.2.2, p. 128).** Soit $X : I\times U\to E$ un champ de vecteurs dépendant du temps sur un ouvert $U$ d'un espace de Banach $E$, $I$ intervalle ouvert de $\R$.
 
-**(a) Localité.** Le domaine $U$ peut être arbitrairement restreint sans changer la conclusion du théorème VII.2.1 : si $U'\subset U$ est un ouvert contenant $x_0$ et $I'\subset I$ un intervalle ouvert contenant $\tau_0$, la conclusion du théorème de Cauchy-Lipschitz en $(\tau_0,x_0)$ pour la restriction $X|_{I'\times U'}$ entraîne celle pour $X$ (quitte à diminuer $\epsilon$). On peut donc, pour démontrer le théorème, supposer que $X$ est $k$-lipschitzien en la seconde variable sur tout $I\times U$, avec une seule constante $k$.
+**(a) Localité.** Le domaine $U$ peut être arbitrairement restreint sans changer la conclusion du théorème VII.2.1 : si $U'\subset U$ est un ouvert contenant $x_0$ et $I'\subset I$ un intervalle ouvert contenant $\tau_0$, la conclusion du théorème de Cauchy-Lipschitz en $(\tau_0,x_0)$ pour la restriction $X|_{I'\times U'}$ entraîne celle pour $X$ (quitte à diminuer $\epsilon$). Ici « unique solution sur $]t_0-\epsilon\,;t_0+\epsilon[$ » est entendu, comme dans la preuve du théorème et dans l'énoncé du Théorème VII.2.12 ([[ch07-existence-flot-local]]), au sens fort : toute courbe intégrale de condition initiale $(t_0,x)$ définie sur un sous-intervalle $]t_0-\epsilon''\,;t_0+\epsilon''[$, $0<\epsilon''\le\epsilon$, coïncide avec la solution sur ce sous-intervalle. On peut donc, pour démontrer le théorème, supposer que $X$ est $k$-lipschitzien en la seconde variable sur tout $I\times U$, avec une seule constante $k$.
 
 **(b) Critère $C^1$.** Si $X$ est de classe $C^1$ sur $I\times U$, alors $X$ est localement lipschitzien en la seconde variable ; en particulier le théorème de Cauchy-Lipschitz s'applique. Précisément : soient $x_1\in U$ et $t_1\in I$. Par continuité de $(t,x)\mapsto dX_{(t,x)}$, il existe un voisinage $]t_1-a\,;t_1+a[\times B(x_1,b)$ de $(t_1,x_1)$ contenu dans $I\times U$ et une constante $k\ge0$ telle que $\|dX_{(t,x)}\|\le k$ pour tout $(t,x)$ dans ce voisinage. Le théorème des accroissements finis implique alors que $X$ est $k$-lipschitzien sur $]t_1-a\,;t_1+a[\times B(x_1,b)$, et en particulier $k$-lipschitzien en la seconde variable.
 
@@ -67,7 +67,7 @@ $X$ est $k$-lipschitzien en la seconde variable sur la boîte $J_0\times U_0=\,]
 
 *Variante (plus faible et plus souvent utile).* Il suffit que $X$ soit continue, différentiable par rapport à $x$, avec $\dfrac{\partial X}{\partial x} : I\times U\to\mathcal L(E;E)$ continue ([[ch05-differentielles-partielles]]) : on applique les accroissements finis à l'application partielle $x\mapsto X(t,x)$ sur la boule convexe $B(x_1,b)$, où $\|\partial X/\partial x\|\le k$ par continuité, pour chaque $t$ fixé dans $]t_1-a\,;t_1+a[$.
 
-**(a) Localité.** Fixons $(\tau_0,x_0)\in I\times U$, un intervalle ouvert $I'\subset I$ contenant $\tau_0$ et un ouvert $U'\subset U$ contenant $x_0$, et notons $X'=X|_{I'\times U'}$. Supposons la conclusion du théorème VII.2.1 acquise pour $X'$ en $(\tau_0,x_0)$ : il existe $\eta',\delta',\epsilon'>0$ tels que pour $x\in B(x_0,\eta')$ et $t_0\in\,]\tau_0-\delta'\,;\tau_0+\delta'[$, le problème $\alpha'=X(t,\alpha)$, $\alpha(t_0)=x$ possède une unique solution **à valeurs dans $U'$** définie sur $]t_0-\epsilon'\,;t_0+\epsilon'[$.
+**(a) Localité.** Fixons $(\tau_0,x_0)\in I\times U$, un intervalle ouvert $I'\subset I$ contenant $\tau_0$ et un ouvert $U'\subset U$ contenant $x_0$, et notons $X'=X|_{I'\times U'}$. Supposons la conclusion du théorème VII.2.1 acquise pour $X'$ en $(\tau_0,x_0)$ : il existe $\eta',\delta',\epsilon'>0$ tels que pour $x\in B(x_0,\eta')$ et $t_0\in\,]\tau_0-\delta'\,;\tau_0+\delta'[$, le problème $\alpha'=X(t,\alpha)$, $\alpha(t_0)=x$ possède une solution $\alpha$ **à valeurs dans $U'$** définie sur $]t_0-\epsilon'\,;t_0+\epsilon'[$, et toute solution à valeurs dans $U'$ définie sur un sous-intervalle $]t_0-\epsilon''\,;t_0+\epsilon''[$ ($0<\epsilon''\le\epsilon'$) coïncide avec $\alpha$ sur ce sous-intervalle (unicité au sens fort : c'est ce que fournit la preuve de [[ch07-cauchy-lipschitz]], « Précision pour l'intervalle ouvert », appliquée à $X'$).
 
 *Préparation.* Comme $U'$ et $I'$ sont ouverts, il existe $r>0$ et $a'>0$ avec $\bar B(x_0,2r)\subset U'$ et $[\tau_0-2a'\,;\tau_0+2a']\subset I'$ ; par continuité de $X$ en $(\tau_0,x_0)$, quitte à diminuer $r$ et $a'$, on a $\|X(t,x)-X(\tau_0,x_0)\|\le1$ sur la boîte $[\tau_0-2a'\,;\tau_0+2a']\times\bar B(x_0,2r)$, donc $\|X\|\le\ell:=1+\|X(\tau_0,x_0)\|$ sur cette boîte. Posons
 $$
@@ -76,7 +76,7 @@ $$
 
 *Existence.* Soient $x\in B(x_0,\eta)$ et $t_0\in\,]\tau_0-\delta\,;\tau_0+\delta[$. La solution $\alpha$ fournie par l'hypothèse pour $X'$ est à valeurs dans $U'\subset U$ et vérifie $\alpha'(t)=X'(t,\alpha(t))=X(t,\alpha(t))$ : sa restriction à $]t_0-\epsilon\,;t_0+\epsilon[$ est une courbe intégrale de $X$ de condition initiale $(t_0,x)$.
 
-*Unicité.* Soit $\beta : ]t_0-\epsilon\,;t_0+\epsilon[\to U$ une courbe intégrale quelconque de $X$ avec $\beta(t_0)=x$. Montrons que $\beta$ reste dans $\bar B(x_0,2r)\subset U'$ : elle sera alors une solution pour $X'$ sur cet intervalle, donc égale à $\alpha$ par l'unicité acquise pour $X'$ (appliquée sur chaque $]t_0-\epsilon''\,;t_0+\epsilon''[$, $\epsilon''<\epsilon$, comme dans la preuve de [[ch07-cauchy-lipschitz]]). Soit
+*Unicité.* Soit $\beta : ]t_0-\epsilon\,;t_0+\epsilon[\to U$ une courbe intégrale quelconque de $X$ avec $\beta(t_0)=x$. Montrons que $\beta$ reste dans $\bar B(x_0,2r)\subset U'$ : elle sera alors une solution pour $X'$ sur $]t_0-\epsilon\,;t_0+\epsilon[$ avec $\epsilon\le\epsilon'$, donc égale à $\alpha$ sur cet intervalle par l'unicité (au sens fort) acquise pour $X'$. Soit
 $$
 J=\big\{t\in\,]t_0-\epsilon\,;t_0+\epsilon[\ :\ \|\beta(s)-x_0\|<2r\text{ pour tout }s\text{ entre }t_0\text{ et }t\big\}.
 $$
@@ -84,7 +84,7 @@ C'est un intervalle contenant $t_0$ (car $\|x-x_0\|<\eta\le r<2r$), ouvert par c
 $$
 \|\beta(t)-x_0\|\le\|x-x_0\|+\ell\,|t-t_0|<\eta+\ell\epsilon\le r+r=2r.
 $$
-Cette majoration par la constante $\eta+\ell\epsilon<2r$ passe à la limite : $J$ est fermé dans $]t_0-\epsilon\,;t_0+\epsilon[$. Par connexité, $J$ est l'intervalle tout entier, et $\beta$ est à valeurs dans $\bar B(x_0,2r)\subset U'$. D'où l'unicité pour $X$, avec les constantes $\eta,\delta,\epsilon$.
+Cette majoration par la constante $\|x-x_0\|+\ell\epsilon<\eta+\ell\epsilon\le2r$ (constante indépendante de $t$, strictement inférieure à $2r$) passe à la limite : $J$ est fermé dans $]t_0-\epsilon\,;t_0+\epsilon[$. Par connexité, $J$ est l'intervalle tout entier, et $\beta$ est à valeurs dans $\bar B(x_0,2r)\subset U'$. D'où l'unicité pour $X$, avec les constantes $\eta,\delta,\epsilon$.
 
 *Conséquence pour la démonstration du théorème.* Par définition du caractère localement lipschitzien, il existe une boîte $]\tau_0-2a'\,;\tau_0+2a'[\times B(x_0,2a)$ sur laquelle $X$ est $k$-lipschitzien en la seconde variable avec **un seul** $k$ ; d'après (a), il suffit de démontrer le théorème pour la restriction de $X$ à cette boîte, c'est-à-dire en supposant $X$ globalement $k$-lipschitzien en la seconde variable. $\square$
 

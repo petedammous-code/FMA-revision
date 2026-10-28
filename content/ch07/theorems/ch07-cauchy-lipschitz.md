@@ -6,7 +6,7 @@ title: Théorème de Cauchy-Lipschitz (existence et unicité locales)
 ref: Théorème VII.2.1
 page: 128
 importance: 3
-depends: [ch07-equation-integrale, ch07-lemme-operateur-integral, ch07-restriction-domaine-c1-lipschitz, ch07-localement-lipschitzien-def, ch05-accroissements-finis-borne]
+depends: [ch07-equation-integrale, ch07-lemme-operateur-integral, ch07-restriction-domaine-c1-lipschitz, ch07-localement-lipschitzien-def, ch06-point-fixe-banach, ch05-accroissements-finis-borne]
 tags: [cauchy-lipschitz, existence, unicite, point-fixe, picard, equation-differentielle]
 ---
 ## Intuition

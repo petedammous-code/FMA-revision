@@ -40,7 +40,7 @@ Rappels : une **courbe intégrale** de $X : I\times U\to E$ de **condition initi
 
 **Rôle.** Les courbes intégrales sont définies sur des intervalles ouverts ([[ch07-champ-vecteurs-courbe-integrale-def]]), donc $J_{\tau_0}(x_0)$ est **ouvert** : une courbe intégrale maximale n'est jamais définie jusqu'à une borne incluse. Contenir $\tau_0$ est nécessaire pour parler de condition initiale et pour que la réunion soit un intervalle (point 1).
 
-**Si on l'oublie.** On pourrait croire que $J_0(1)=\,]-\infty,1]$ pour $\alpha'=\alpha^2$ (exemple 1) : c'est faux, la solution n'existe pas en $t=1$. En général, si une courbe intégrale était définie en $b=\sup J_{\tau_0}(x_0)$, Cauchy-Lipschitz en $(b,\alpha(b))$ la prolongerait au-delà de $b$.
+**Si on l'oublie.** On pourrait croire que $J_0(1)=\,]-\infty,1]$ pour $\alpha'=\alpha^2$ (exemple 1) : c'est faux, la solution n'existe pas en $t=1$. En général, si une courbe intégrale était définie sur un intervalle contenant $b=\sup J_{\tau_0}(x_0)$ (avec $b\in I$), Cauchy-Lipschitz ([[ch07-cauchy-lipschitz]]) en $(b,\alpha(b))$ la prolongerait au-delà de $b$, contredisant la définition de $J_{\tau_0}(x_0)$ comme réunion.
 
 ### H3 — $J_{\tau_0}(x_0)\subset I$
 

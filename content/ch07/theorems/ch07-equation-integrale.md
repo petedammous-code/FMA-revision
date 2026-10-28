@@ -6,7 +6,7 @@ title: Équivalence entre le problème de Cauchy et l'équation intégrale
 ref: Formule (VII.2.2)
 page: 130
 importance: 2
-depends: [ch05-primitive-integrale, ch05-integrale-fonctions-reglees, ch05-accroissements-finis-borne]
+depends: [ch05-primitive-integrale, ch05-integrale-fonctions-reglees, ch05-accroissements-finis-borne, ch05-composition-differentielles, ch07-champ-vecteurs-courbe-integrale-def]
 tags: [equation-integrale, picard, point-fixe, theoreme-fondamental, cauchy-lipschitz]
 ---
 ## Intuition
