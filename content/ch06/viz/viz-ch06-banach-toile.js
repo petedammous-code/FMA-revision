@@ -14,9 +14,9 @@ Ici $a=\sup_X|T'|$ (inégalité des accroissements finis sur l'intervalle $X$) :
 * **Condition suffisante, pas nécessaire** : pour la logistique $T(x)=\mu x(1-x)$ sur $[0,1]$, $a=\mu$ ; pour $1<\mu<3$ la suite converge quand même vers $1-1/\mu$ (le théorème ne s'applique plus sur $X=[0,1]$), mais pour $\mu>3$ on obtient un cycle, puis du chaos.
 * **Newton, c'est un point fixe** : $T(x)=x-f(x)/f'(x)$ a $T'(x^*)=0$ en une racine simple : la contraction y est « infiniment forte » et l'erreur **s'effondre** (convergence quadratique, le nombre de chiffres exacts double). Mais pour $f=x^3-2x+2$ depuis $x_0$ proche de $0$, on tombe dans un cycle $0\leftrightarrow1$ : la convergence n'est que **locale** (poly, Exercice VI.4.2, p. 121).`,
   related: ['ch06-point-fixe-banach', 'ch06-lipschitz-contractante-def', 'ch06-methode-de-newton', 'ch06-point-fixe-iteree-contractante'],
-  height: 560,
+  height: 600,
   mount(container, kit) {
-    const st = kit.canvas(container, { height: 330 });
+    const st = kit.canvas(container, { height: 380 });
     const stE = kit.canvas(container, { height: 150 });
     const controls = kit.controls(container);
     const NMAX = 40;
@@ -32,6 +32,7 @@ Ici $a=\sup_X|T'|$ (inégalité des accroissements finis sur l'intervalle $X$) :
         param: { label: 'μ', min: 0.2, max: 4, step: 0.01, val: 2.8 } },
     };
     const sel = kit.select(controls, { label: '$T$', options: Object.keys(FUNS).map(k => [FUNS[k].name, k]), value: 'affine', onChange: onFun });
+    [sel].forEach(x => { x.el.style.maxWidth = '100%'; x.select.style.maxWidth = '100%'; x.select.style.minWidth = '0'; });
     const par = kit.slider(controls, { label: 's', min: -1.5, max: 1.5, step: 0.01, value: 0.7, onChange: draw });
     const x0s = kit.slider(controls, { label: String.raw`$x_0$`, min: -2.5, max: 2.5, step: 0.005, value: 0.05, onChange: draw });
     const ns = kit.slider(controls, { label: 'n', min: 0, max: NMAX, step: 1, value: 6, onChange: () => { stopPlay(); draw(); } });
@@ -81,7 +82,7 @@ Ici $a=\sup_X|T'|$ (inégalité des accroissements finis sur l'intervalle $X$) :
 
       // ---- toile ----
       st.clear(); ctx.fillStyle = t.bg; ctx.fillRect(0, 0, st.W, st.H);
-      P = kit.plane(ctx, { xmin: w[0], xmax: w[1], ymin: w[2], ymax: w[3], W: st.W, H: st.H });
+      P = kit.plane(ctx, { xmin: w[0], xmax: w[1], ymin: w[2], ymax: w[3], W: st.W, H: st.H, margin: 16 });
       const gstep = (w[1] - w[0]) > 3 ? 1 : 0.25;
       P.grid(gstep); P.axes({ labels: true, step: gstep });
       P.fill([[X[0], P.ymin], [X[1], P.ymin], [X[1], P.ymax], [X[0], P.ymax]], { color: t.accent, alpha: 0.08 });

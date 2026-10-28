@@ -3,7 +3,8 @@ FMA.registerViz({
   chapter: 6,
   title: "Fonctions implicites : une courbe de niveau est localement un graphe",
   description: String.raw`**Ce que l'on voit.** La courbe de niveau $\{f(x,y)=c\}$ d'une fonction $f:\mathbb R^2\to\mathbb R$ (en gris). Le point orange $(x_0,y_0)$ est **à glisser le long de la courbe**. Le théorème des fonctions implicites (poly, Théorème VI.2.1, p. 118) dit : si $\dfrac{\partial f}{\partial y}(x_0,y_0)\neq 0$, il existe un rectangle $U_0\times V_0$ autour de $(x_0,y_0)$ dans lequel
-$$f(x,y)=f(x_0,y_0)\iff y=\varphi(x),\qquad \varphi'(x)=-\frac{\partial_x f(x,\varphi(x))}{\partial_y f(x,\varphi(x))}.$$
+$$f(x,y)=f(x_0,y_0)\iff y=\varphi(x),$$
+$$\varphi'(x)=-\frac{\partial_x f(x,\varphi(x))}{\partial_y f(x,\varphi(x))}.$$
 Ce rectangle (bleu) est **calculé numériquement** : $V_0=\,]y_0-s,y_0+s[$ est fixé par le curseur $s$, et l'on cherche le plus large $U_0$ tel que, pour tout $x\in U_0$, $y\mapsto f(x,y)$ soit strictement monotone sur $V_0$ et change de signe (par rapport à $c$) entre les deux bords : la courbe y est alors exactement le graphe de $\varphi$ (en rouge). La tangente (orange, pointillée) a pour pente $\varphi'(x_0)$, et le gradient $\nabla f$ (violet) lui est orthogonal.
 
 **Ce qu'il faut regarder.**
@@ -13,9 +14,9 @@ Ce rectangle (bleu) est **calculé numériquement** : $V_0=\,]y_0-s,y_0+s[$ est 
 * **Points doubles** ($\nabla f=0$ : lemniscate et folium en $(0,0)$) : les deux dérivées partielles s'annulent, aucun des deux graphes n'existe, la courbe se croise.
 * **$y^3-x=0$ en $(0,0)$** : $\partial_yf=3y^2=0$, mais la courbe est le graphe de $x\mapsto x^{1/3}$ (rectangle en pointillés) : $\varphi$ existe, continue, **mais n'est pas dérivable** en $0$ (pente $+\infty$). Sans $\partial_yf\neq0$, on perd la régularité.`,
   related: ['ch06-fonctions-implicites', 'ch06-inversion-locale', 'ch06-point-fixe-parametre-cp'],
-  height: 520,
+  height: 560,
   mount(container, kit) {
-    const st = kit.canvas(container, { height: 380 });
+    const st = kit.canvas(container, { height: 420 });
     const controls = kit.controls(container);
     const R = Math.SQRT2;
     const CURVES = {
@@ -33,8 +34,9 @@ Ce rectangle (bleu) est **calculé numériquement** : $V_0=\,]y_0-s,y_0+s[$ est 
     };
     const sel = kit.select(controls, { label: 'courbe', options: Object.keys(CURVES).map(k => [CURVES[k].name, k]), value: 'cercle', onChange: () => { rebuildPts(); setPoint(CURVES[sel.value].pts[0][1], CURVES[sel.value].pts[0][2]); } });
     const ptsel = kit.select(controls, { label: 'aller à', options: [['—', '0']], onChange: v => { const p = CURVES[sel.value].pts[+v]; if (p) setPoint(p[1], p[2]); } });
+    [sel, ptsel].forEach(x => { x.el.style.maxWidth = '100%'; x.select.style.maxWidth = '100%'; x.select.style.minWidth = '0'; });
     const row2 = kit.row(controls);
-    const sSlider = kit.slider(row2, { label: String.raw`$s$ (demi-hauteur de $V_0$)`, min: 0.05, max: 1.5, step: 0.01, value: 0.45, onChange: draw });
+    const sSlider = kit.slider(row2, { label: String.raw`$s$ (demi-hauteur de $V_0$)`, min: 0.05, max: 1.5, step: 0.01, value: 0.3, onChange: draw });
     const swap = kit.checkbox(row2, { label: String.raw`résoudre $x$ en fonction de $y$`, checked: false, onChange: draw });
     const ro = kit.readout(controls, { label: '' });
     const msg = kit.note(container, '');
@@ -56,7 +58,9 @@ Ce rectangle (bleu) est **calculé numériquement** : $V_0=\,]y_0-s,y_0+s[$ est 
       }
       return [x, y];
     }
-    function setPoint(x, y) { const q = project(x, y); px = q[0]; py = q[1]; draw(); }
+    function setPoint(x, y) {
+      let q = project(x, y);
+      for (const sp of CURVES[sel.value].pts.slice(1)) if (Math.hypot(q[0] - sp[1], q[1] - sp[2]) < 0.04) q = [sp[1], sp[2]]; px = q[0]; py = q[1]; draw(); }
 
     // marching squares for {F = c}
     function levelSet(F, c, ctx, Pl, cell, color, width) {
@@ -85,7 +89,7 @@ Ce rectangle (bleu) est **calculé numériquement** : $V_0=\,]y_0-s,y_0+s[$ est 
     function drawInner() {
       const t = kit.theme(), ctx = st.ctx, C = CURVES[sel.value];
       st.clear(); ctx.fillStyle = t.bg; ctx.fillRect(0, 0, st.W, st.H);
-      P = kit.plane(ctx, { xmin: -2.4, xmax: 2.4, ymin: -2.1, ymax: 2.1, W: st.W, H: st.H });
+      P = kit.plane(ctx, { xmin: -2.4, xmax: 2.4, ymin: -2, ymax: 2, W: st.W, H: st.H });
       P.grid(1); P.axes({ labels: true, xlabel: 'x', ylabel: 'y' });
       levelSet(C.f, C.c, ctx, P, 4, t.muted, 2.2);
 

@@ -2725,9 +2725,9 @@ Ici $a=\sup_X|T'|$ (inégalité des accroissements finis sur l'intervalle $X$) :
 * **Condition suffisante, pas nécessaire** : pour la logistique $T(x)=\mu x(1-x)$ sur $[0,1]$, $a=\mu$ ; pour $1<\mu<3$ la suite converge quand même vers $1-1/\mu$ (le théorème ne s'applique plus sur $X=[0,1]$), mais pour $\mu>3$ on obtient un cycle, puis du chaos.
 * **Newton, c'est un point fixe** : $T(x)=x-f(x)/f'(x)$ a $T'(x^*)=0$ en une racine simple : la contraction y est « infiniment forte » et l'erreur **s'effondre** (convergence quadratique, le nombre de chiffres exacts double). Mais pour $f=x^3-2x+2$ depuis $x_0$ proche de $0$, on tombe dans un cycle $0\leftrightarrow1$ : la convergence n'est que **locale** (poly, Exercice VI.4.2, p. 121).`,
   related: ['ch06-point-fixe-banach', 'ch06-lipschitz-contractante-def', 'ch06-methode-de-newton', 'ch06-point-fixe-iteree-contractante'],
-  height: 560,
+  height: 600,
   mount(container, kit) {
-    const st = kit.canvas(container, { height: 330 });
+    const st = kit.canvas(container, { height: 380 });
     const stE = kit.canvas(container, { height: 150 });
     const controls = kit.controls(container);
     const NMAX = 40;
@@ -2743,6 +2743,7 @@ Ici $a=\sup_X|T'|$ (inégalité des accroissements finis sur l'intervalle $X$) :
         param: { label: 'μ', min: 0.2, max: 4, step: 0.01, val: 2.8 } },
     };
     const sel = kit.select(controls, { label: '$T$', options: Object.keys(FUNS).map(k => [FUNS[k].name, k]), value: 'affine', onChange: onFun });
+    [sel].forEach(x => { x.el.style.maxWidth = '100%'; x.select.style.maxWidth = '100%'; x.select.style.minWidth = '0'; });
     const par = kit.slider(controls, { label: 's', min: -1.5, max: 1.5, step: 0.01, value: 0.7, onChange: draw });
     const x0s = kit.slider(controls, { label: String.raw`$x_0$`, min: -2.5, max: 2.5, step: 0.005, value: 0.05, onChange: draw });
     const ns = kit.slider(controls, { label: 'n', min: 0, max: NMAX, step: 1, value: 6, onChange: () => { stopPlay(); draw(); } });
@@ -2792,7 +2793,7 @@ Ici $a=\sup_X|T'|$ (inégalité des accroissements finis sur l'intervalle $X$) :
 
       // ---- toile ----
       st.clear(); ctx.fillStyle = t.bg; ctx.fillRect(0, 0, st.W, st.H);
-      P = kit.plane(ctx, { xmin: w[0], xmax: w[1], ymin: w[2], ymax: w[3], W: st.W, H: st.H });
+      P = kit.plane(ctx, { xmin: w[0], xmax: w[1], ymin: w[2], ymax: w[3], W: st.W, H: st.H, margin: 16 });
       const gstep = (w[1] - w[0]) > 3 ? 1 : 0.25;
       P.grid(gstep); P.axes({ labels: true, step: gstep });
       P.fill([[X[0], P.ymin], [X[1], P.ymin], [X[1], P.ymax], [X[0], P.ymax]], { color: t.accent, alpha: 0.08 });
@@ -2859,7 +2860,8 @@ FMA.registerViz({
   chapter: 6,
   title: "Fonctions implicites : une courbe de niveau est localement un graphe",
   description: String.raw`**Ce que l'on voit.** La courbe de niveau $\{f(x,y)=c\}$ d'une fonction $f:\mathbb R^2\to\mathbb R$ (en gris). Le point orange $(x_0,y_0)$ est **à glisser le long de la courbe**. Le théorème des fonctions implicites (poly, Théorème VI.2.1, p. 118) dit : si $\dfrac{\partial f}{\partial y}(x_0,y_0)\neq 0$, il existe un rectangle $U_0\times V_0$ autour de $(x_0,y_0)$ dans lequel
-$$f(x,y)=f(x_0,y_0)\iff y=\varphi(x),\qquad \varphi'(x)=-\frac{\partial_x f(x,\varphi(x))}{\partial_y f(x,\varphi(x))}.$$
+$$f(x,y)=f(x_0,y_0)\iff y=\varphi(x),$$
+$$\varphi'(x)=-\frac{\partial_x f(x,\varphi(x))}{\partial_y f(x,\varphi(x))}.$$
 Ce rectangle (bleu) est **calculé numériquement** : $V_0=\,]y_0-s,y_0+s[$ est fixé par le curseur $s$, et l'on cherche le plus large $U_0$ tel que, pour tout $x\in U_0$, $y\mapsto f(x,y)$ soit strictement monotone sur $V_0$ et change de signe (par rapport à $c$) entre les deux bords : la courbe y est alors exactement le graphe de $\varphi$ (en rouge). La tangente (orange, pointillée) a pour pente $\varphi'(x_0)$, et le gradient $\nabla f$ (violet) lui est orthogonal.
 
 **Ce qu'il faut regarder.**
@@ -2869,9 +2871,9 @@ Ce rectangle (bleu) est **calculé numériquement** : $V_0=\,]y_0-s,y_0+s[$ est 
 * **Points doubles** ($\nabla f=0$ : lemniscate et folium en $(0,0)$) : les deux dérivées partielles s'annulent, aucun des deux graphes n'existe, la courbe se croise.
 * **$y^3-x=0$ en $(0,0)$** : $\partial_yf=3y^2=0$, mais la courbe est le graphe de $x\mapsto x^{1/3}$ (rectangle en pointillés) : $\varphi$ existe, continue, **mais n'est pas dérivable** en $0$ (pente $+\infty$). Sans $\partial_yf\neq0$, on perd la régularité.`,
   related: ['ch06-fonctions-implicites', 'ch06-inversion-locale', 'ch06-point-fixe-parametre-cp'],
-  height: 520,
+  height: 560,
   mount(container, kit) {
-    const st = kit.canvas(container, { height: 380 });
+    const st = kit.canvas(container, { height: 420 });
     const controls = kit.controls(container);
     const R = Math.SQRT2;
     const CURVES = {
@@ -2889,8 +2891,9 @@ Ce rectangle (bleu) est **calculé numériquement** : $V_0=\,]y_0-s,y_0+s[$ est 
     };
     const sel = kit.select(controls, { label: 'courbe', options: Object.keys(CURVES).map(k => [CURVES[k].name, k]), value: 'cercle', onChange: () => { rebuildPts(); setPoint(CURVES[sel.value].pts[0][1], CURVES[sel.value].pts[0][2]); } });
     const ptsel = kit.select(controls, { label: 'aller à', options: [['—', '0']], onChange: v => { const p = CURVES[sel.value].pts[+v]; if (p) setPoint(p[1], p[2]); } });
+    [sel, ptsel].forEach(x => { x.el.style.maxWidth = '100%'; x.select.style.maxWidth = '100%'; x.select.style.minWidth = '0'; });
     const row2 = kit.row(controls);
-    const sSlider = kit.slider(row2, { label: String.raw`$s$ (demi-hauteur de $V_0$)`, min: 0.05, max: 1.5, step: 0.01, value: 0.45, onChange: draw });
+    const sSlider = kit.slider(row2, { label: String.raw`$s$ (demi-hauteur de $V_0$)`, min: 0.05, max: 1.5, step: 0.01, value: 0.3, onChange: draw });
     const swap = kit.checkbox(row2, { label: String.raw`résoudre $x$ en fonction de $y$`, checked: false, onChange: draw });
     const ro = kit.readout(controls, { label: '' });
     const msg = kit.note(container, '');
@@ -2912,7 +2915,9 @@ Ce rectangle (bleu) est **calculé numériquement** : $V_0=\,]y_0-s,y_0+s[$ est 
       }
       return [x, y];
     }
-    function setPoint(x, y) { const q = project(x, y); px = q[0]; py = q[1]; draw(); }
+    function setPoint(x, y) {
+      let q = project(x, y);
+      for (const sp of CURVES[sel.value].pts.slice(1)) if (Math.hypot(q[0] - sp[1], q[1] - sp[2]) < 0.04) q = [sp[1], sp[2]]; px = q[0]; py = q[1]; draw(); }
 
     // marching squares for {F = c}
     function levelSet(F, c, ctx, Pl, cell, color, width) {
@@ -2941,7 +2946,7 @@ Ce rectangle (bleu) est **calculé numériquement** : $V_0=\,]y_0-s,y_0+s[$ est 
     function drawInner() {
       const t = kit.theme(), ctx = st.ctx, C = CURVES[sel.value];
       st.clear(); ctx.fillStyle = t.bg; ctx.fillRect(0, 0, st.W, st.H);
-      P = kit.plane(ctx, { xmin: -2.4, xmax: 2.4, ymin: -2.1, ymax: 2.1, W: st.W, H: st.H });
+      P = kit.plane(ctx, { xmin: -2.4, xmax: 2.4, ymin: -2, ymax: 2, W: st.W, H: st.H });
       P.grid(1); P.axes({ labels: true, xlabel: 'x', ylabel: 'y' });
       levelSet(C.f, C.c, ctx, P, 4, t.muted, 2.2);
 
@@ -3042,7 +3047,7 @@ FMA.registerViz({
 * **Approchez-vous du lieu critique rouge** (là où $\det df=0$, c'est-à-dire $df_a$ non inversible) : l'ellipse tiretée s'aplatit en segment, et l'image du disque se **replie** (pli de $(x,y)\mapsto(x,y^2)$ : les deux moitiés du disque s'envoient sur la même région). Aucune réciproque locale n'existe autour de ces points.
 * **$(x,y)\mapsto(x^3,y)$** : $\det df=3x^2$ s'annule sur l'axe $x=0$, et pourtant $f$ y est injective. Mais sa réciproque $X\mapsto X^{1/3}$ n'est pas dérivable : l'hypothèse « $df_a$ isomorphisme » ne peut pas être remplacée par « $f$ bijective ».`,
   related: ['ch06-inversion-locale', 'ch06-inversion-globale', 'ch06-diffeomorphisme-def'],
-  height: 540,
+  height: 500,
   mount(container, kit) {
     const wrap = document.createElement('div');
     wrap.style.cssText = 'display:flex;flex-wrap:wrap;gap:8px;';
@@ -3066,6 +3071,7 @@ FMA.registerViz({
     };
     let a = FUNS.z2.a0.slice();
     const sel = kit.select(controls, { label: '$f$', options: Object.keys(FUNS).map(k => [FUNS[k].name, k]), value: 'z2', onChange: () => { const F = FUNS[sel.value]; a = F.a0.slice(); rho.value = F.rho0; draw(); } });
+    [sel].forEach(x => { x.el.style.maxWidth = '100%'; x.select.style.maxWidth = '100%'; x.select.style.minWidth = '0'; });
     const rho = kit.slider(controls, { label: String.raw`$\rho$`, min: 0.05, max: 3.5, step: 0.05, value: 0.6, onChange: draw });
     const view = kit.select(controls, { label: "vue de l'arrivée", options: [['zoom sur f(a)', 'zoom'], ['globale', 'glob']], value: 'zoom', onChange: draw });
     const ro = kit.readout(controls, { label: '' });
@@ -3143,7 +3149,7 @@ FMA.registerViz({
       PR.curve(lin, { color: t.accent4, width: 2, dash: [6, 4] });
       PR.curve(bdImg, { color: t.accent, width: 2.5, close: true });
       PR.point(fa[0], fa[1], { r: 5, color: t.accent4, stroke: t.fg, label: 'f(a)' });
-      ctxR.save(); ctxR.fillStyle = t.fg; ctxR.font = '12px system-ui, sans-serif'; ctxR.fillText('arrivée  (tirets : f(a)+df_a(h))', 8, 16); ctxR.restore();
+      ctxR.save(); ctxR.fillStyle = t.fg; ctxR.font = '12px system-ui, sans-serif'; ctxR.fillText('arrivée   (tirets : approx. linéaire)', 8, 16); ctxR.restore();
 
       // --- diagnostic ---
       const cr = Fd.crit; let hitsCrit = false;

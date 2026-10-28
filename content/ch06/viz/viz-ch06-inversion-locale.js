@@ -10,7 +10,7 @@ FMA.registerViz({
 * **Approchez-vous du lieu critique rouge** (là où $\det df=0$, c'est-à-dire $df_a$ non inversible) : l'ellipse tiretée s'aplatit en segment, et l'image du disque se **replie** (pli de $(x,y)\mapsto(x,y^2)$ : les deux moitiés du disque s'envoient sur la même région). Aucune réciproque locale n'existe autour de ces points.
 * **$(x,y)\mapsto(x^3,y)$** : $\det df=3x^2$ s'annule sur l'axe $x=0$, et pourtant $f$ y est injective. Mais sa réciproque $X\mapsto X^{1/3}$ n'est pas dérivable : l'hypothèse « $df_a$ isomorphisme » ne peut pas être remplacée par « $f$ bijective ».`,
   related: ['ch06-inversion-locale', 'ch06-inversion-globale', 'ch06-diffeomorphisme-def'],
-  height: 540,
+  height: 500,
   mount(container, kit) {
     const wrap = document.createElement('div');
     wrap.style.cssText = 'display:flex;flex-wrap:wrap;gap:8px;';
@@ -34,6 +34,7 @@ FMA.registerViz({
     };
     let a = FUNS.z2.a0.slice();
     const sel = kit.select(controls, { label: '$f$', options: Object.keys(FUNS).map(k => [FUNS[k].name, k]), value: 'z2', onChange: () => { const F = FUNS[sel.value]; a = F.a0.slice(); rho.value = F.rho0; draw(); } });
+    [sel].forEach(x => { x.el.style.maxWidth = '100%'; x.select.style.maxWidth = '100%'; x.select.style.minWidth = '0'; });
     const rho = kit.slider(controls, { label: String.raw`$\rho$`, min: 0.05, max: 3.5, step: 0.05, value: 0.6, onChange: draw });
     const view = kit.select(controls, { label: "vue de l'arrivée", options: [['zoom sur f(a)', 'zoom'], ['globale', 'glob']], value: 'zoom', onChange: draw });
     const ro = kit.readout(controls, { label: '' });
@@ -111,7 +112,7 @@ FMA.registerViz({
       PR.curve(lin, { color: t.accent4, width: 2, dash: [6, 4] });
       PR.curve(bdImg, { color: t.accent, width: 2.5, close: true });
       PR.point(fa[0], fa[1], { r: 5, color: t.accent4, stroke: t.fg, label: 'f(a)' });
-      ctxR.save(); ctxR.fillStyle = t.fg; ctxR.font = '12px system-ui, sans-serif'; ctxR.fillText('arrivée  (tirets : f(a)+df_a(h))', 8, 16); ctxR.restore();
+      ctxR.save(); ctxR.fillStyle = t.fg; ctxR.font = '12px system-ui, sans-serif'; ctxR.fillText('arrivée   (tirets : approx. linéaire)', 8, 16); ctxR.restore();
 
       // --- diagnostic ---
       const cr = Fd.crit; let hitsCrit = false;

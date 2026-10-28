@@ -99,7 +99,7 @@ L'ensemble cherché (le **spectre** de $V$) est donc $\{0\}$. De plus $V$ n'a au
 
 > ⚠️ $\norm V=1$ : la série de Neumann « naïve » (hypothèse $\norm{\lambda V}<1$) ne traite que $|\lambda|<1$. C'est la décroissance de $\norm{V^n}$ comme $1/n!$ qui permet tout $\lambda$ — d'où l'intérêt de la version « une itérée contractante » du théorème de Picard.
 
-* Ne pas confondre « $V$ n'a pas de valeur propre » et « $V$ est inversible » : en dimension infinie, $V$ est injectif sans être surjectif. En dimension finie, un endomorphisme sans valeur propre non nulle et injectif serait inversible.
+* Ne pas confondre « $V$ n'a pas de valeur propre » et « $V$ est inversible » : en dimension infinie, $V$ est injectif sans être surjectif. En dimension finie, injectif suffirait pour être inversible, et le spectre serait exactement l'ensemble des valeurs propres ; ici $0$ est dans le spectre sans être valeur propre.
 * En 2 a), écrire $Vf$ comme une primitive demande que $[0,z]$ soit inclus dans le disque de convergence : c'est le cas car $D$ est convexe et contient $0$.
 * Variante : sur l'espace de Banach $\Hol(D)\cap\{f \text{ bornée}\}$ muni de $\sup_D|f|$, la même stratégie fonctionne avec $|V^nf(z)|\le\frac{|z|^n}{n!}\sup_D|f|$ (récurrence et majoration de l'intégrale sur un segment de longueur $|z|\le1$).
 * Variante : $V_\alpha f(z)=\int_{[0,z]}\alpha(w)f(w)\,dw$ avec $\alpha$ holomorphe bornée ; la résolvante devient $f=g+\lambda\int_{[0,z]}\alpha(w)\,e^{\lambda(A(z)-A(w))}g(w)\,dw$ où $A$ est la primitive de $\alpha$ nulle en $0$.
