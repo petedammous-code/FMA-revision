@@ -49,7 +49,7 @@ Les points 1 et 2 sont les cas particuliers $\Omega=D$ de 3(a) et 3(b) ; on dém
 
 **Si on la retire.**
 * Sans continuité au bord : sur $\bar D$, $f(z)=z$ si $|z|<1$ et $f(z)=0$ si $|z|=1$ ; $g=1$. Alors $f$ est holomorphe sur $D$, $fg=0$ sur $\partial D$, mais ni $f$ ni $g$ n'est nulle ($f$ n'est pas continue sur $\bar D$).
-* Sans « borné » : la **preuve** s'effondre, car le principe du maximum sur le bord peut être faux sur un ouvert non borné. Exemple : sur le demi-plan $\Omega=\{\Re(z)>0\}$, $h(z)=e^z$ vérifie $|h(iy)|=1$ sur le bord $i\R$ mais n'est pas bornée sur $\Omega$. Nous ne donnons pas de contre-exemple à la **conclusion** elle-même (dans les cas simples comme le demi-plan, elle reste vraie par un argument de réflexion hors programme) : l'hypothèse est ici une hypothèse **de méthode**.
+* Sans « borné » : la conclusion devient **fausse**. Prenons $\Omega=\C\setminus\{0\}$ : ouvert, connexe, non borné, d'adhérence $\bar\Omega=\C$ et de bord $\partial\Omega=\bar\Omega\setminus\Omega=\{0\}$. Les fonctions $f(z)=z$ et $g=1$ sont continues sur $\bar\Omega=\C$ et holomorphes sur $\Omega$, et $fg=z$ s'annule sur $\partial\Omega=\{0\}$ ; pourtant ni $f$ ni $g$ n'est nulle. (Cas encore plus dégénéré : $\Omega=\C$, de bord vide, avec $f=g=1$ : la condition « $fg=0$ sur $\partial\Omega$ » est vide.) Ce qui casse dans la preuve : le principe du maximum sur le bord est faux sur un ouvert non borné ; par exemple, sur le demi-plan $\{\Re(z)>0\}$, $h(z)=e^z$ vérifie $|h(iy)|=1$ sur le bord $i\R$ mais n'est pas bornée. (Sur certains ouverts non bornés « raisonnables » comme ce demi-plan, la conclusion reste néanmoins vraie, par un argument de réflexion hors programme ; mais elle n'est pas vraie en général.)
 
 ### H4 — (point 3(b)) $fg$ nulle sur **tout** le bord
 
@@ -94,5 +94,5 @@ Pour les points 1 et 2 : on prend $\Omega=D$, qui est ouvert, connexe (convexe),
 
 * > ⚠️ La connexité est **indispensable** pour l'intégrité : sur un ouvert non connexe, les indicatrices de composantes connexes donnent des diviseurs de zéro.
 * « $fg=0$ » signifie $f(z)g(z)=0$ **pour tout** $z$ ; ce n'est pas « $f$ ou $g$ s'annule en chaque point » qu'on conclut, mais la nullité **globale** de l'un des deux facteurs. Ne pas confondre l'énoncé ponctuel (trivial) et l'énoncé fonctionnel.
-* Dans le point 2, il faut la **continuité jusqu'au bord** et le caractère **borné** pour utiliser le principe du maximum ; et la nullité doit porter sur **tout** le bord (voir H3, H4).
+* Dans le point 2, il faut la **continuité jusqu'au bord** et le caractère **borné** pour utiliser le principe du maximum (sans « borné », $f(z)=z$, $g=1$ sur $\Omega=\C\setminus\{0\}$ est un contre-exemple) ; et la nullité doit porter sur **tout** le bord (voir H3, H4).
 * La conclusion du point 2 porte sur $\bar D$ entier, pas seulement sur $D$ : penser à l'argument final de continuité.

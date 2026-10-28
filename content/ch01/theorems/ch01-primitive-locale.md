@@ -19,7 +19,7 @@ Une **primitive** de $f$ sur un ouvert $U$ est une fonction $F\in\Hol(U)$ telle 
 
 **Corollaire (poly, Corollaire I.7.6, p. 22) — Existence locale de primitives.** Toute fonction holomorphe admet localement une primitive. Plus précisément, si $f$ est une fonction holomorphe sur un disque ouvert $D$, il existe $F\in\Hol(D)$ qui est une primitive de $f$, i.e. $F'=f$ sur $D$.
 
-(Ici $D=D(z_0,\rho)$ avec $z_0\in\C$ et $\rho\in\,]0,+\infty]$ ; pour $\rho=+\infty$, $D=\C$.)
+(Ici $D=D(z_0,\rho)$ avec $z_0\in\C$ et $\rho>0$. *Remarque hors poly :* la même preuve s'applique mot pour mot à $D=\C$, i.e. $\rho=+\infty$ : une fonction entière admet une primitive entière.)
 
 ## Hypothèses
 
@@ -27,7 +27,7 @@ Une **primitive** de $f$ sur un ouvert $U$ est une fonction $F\in\Hol(U)$ telle 
 
 **Rôle.** Ce n'est pas la simple analyticité de $f$ qui sert, mais le fait qu'**une seule** série entière (centrée au centre $z_0$ du disque) représente $f$ sur $D$ tout entier : c'est le Corollaire I.7.5 ([[ch01-estimees-cauchy]]), qui utilise que $\rho(z_0)$ calculé pour l'ouvert $D$ vaut le rayon du disque.
 
-**Si on la retire.** Sur un ouvert qui n'est pas un disque, la conclusion peut tomber. $f(z)=1/z$ est holomorphe sur $\C^\times$ (et même sur la couronne $\{1/2<|z|<2\}$) mais n'y a pas de primitive : sinon, par le Théorème I.5.9 ([[ch01-integrale-primitive]]), on aurait $\int_{C(0,1)}\frac{dz}{z}=0$, alors que $\int_{C(0,1)}\frac{dz}{z}=\int_0^{2\pi}\frac{ie^{it}}{e^{it}}\,dt=2i\pi$. (Les ouverts sur lesquels toute fonction holomorphe a une primitive sont les ouverts simplement connexes : Théorème II.9.1, chapitre II.)
+**Si on la retire.** Sur un ouvert qui n'est pas un disque, la conclusion peut tomber. $f(z)=1/z$ est holomorphe sur $\C^\times$ (et même sur la couronne $\{1/2<|z|<2\}$) mais n'y a pas de primitive : sinon, par le Théorème I.5.9 ([[ch01-integrale-primitive]]), on aurait $\int_{C(0,1)}\frac{dz}{z}=0$, alors que $\int_{C(0,1)}\frac{dz}{z}=\int_0^{2\pi}\frac{ie^{it}}{e^{it}}\,dt=2i\pi$. (Sur un ouvert **simplement connexe**, toute fonction holomorphe admet une primitive : Théorème II.9.1, chapitre II ([[ch02-primitive-simplement-connexe]]) ; la couronne et $\C^\times$ ne le sont pas.)
 
 ### H2 — $f$ holomorphe (et pas seulement continue, ou $C^\infty$ au sens réel)
 

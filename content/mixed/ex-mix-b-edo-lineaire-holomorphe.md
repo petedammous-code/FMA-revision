@@ -77,7 +77,7 @@ En faisant $k\to\infty$, $Z(z)=0$ sur $\bar D(0,r)$, pour tout $r<R$ : $Z=0$. Si
 
 **6. a)** Sur $D(0,1)$, $1-z^2\neq0$. Une fonction $w\in\Hol(D(0,1))$ (donc $C^\infty$, de dérivées holomorphes) est solution de $(T_\lambda)$ si et seulement si $Y=(w,w')$ vérifie ([[ch07-reduction-ordre-un]])
 $$
-Y'=A(z)Y,\qquad A(z)=\begin{pmatrix}0&1\\[2pt] \dfrac{-\lambda^2}{1-z^2}&\dfrac{z}{1-z^2}\end{pmatrix},
+Y'=A(z)Y,\qquad A(z)=\begin{pmatrix}0&1\\ \dfrac{-\lambda^2}{1-z^2}&\dfrac{z}{1-z^2}\end{pmatrix},
 $$
 et $A$ est à coefficients holomorphes sur $D(0,1)$. Réciproquement, si $Y=(Y_1,Y_2)$ est une solution holomorphe, $Y_1'=Y_2$ et $w=Y_1$ résout $(T_\lambda)$. Les questions 2 et 3 (avec $R=1$, $Y_0=(a,b)$) donnent l'existence et l'unicité, et 4 a) la convergence de la série de Taylor vers $w$ sur $D(0,1)$.
 

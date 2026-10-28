@@ -35,7 +35,7 @@ Alors $G:[a;b]\to F$ est continue sur $[a;b]$ et de classe $C^1$ sur $]a;b[$, et
 
 **Rôle.** Elle garantit que l'intégrale $\int_{t_0}^tg$ existe dans $F$ ([[ch05-integrale-fonctions-reglees]]) : sans elle, $G$ n'est même pas définie.
 
-**Si on la retire.** Dans $F=c_{00}$ (suites à support fini, norme $\sup$), la fonction continue $f(t)=\sum_n\theta_n(t)e_n$ de [[ch05-integrale-fonctions-reglees]] (bosses de hauteur $\frac1n$ sur $\big[\frac1{n+1};\frac1n\big]$) n'a pas d'intégrale dans $F$ sur $[0;t]$ pour $t>0$ : calculée dans le complété $c_0$, $\int_0^tf$ a une infinité de coordonnées non nulles (toutes celles d'indice $n\ge1/t$). Donc $G(t)=\int_0^tf$ n'existe pas dans $c_{00}$.
+**Si on la retire.** Dans $F=c_{00}$ (suites à support fini, norme $\sup$), la fonction continue $f(t)=\sum_n\theta_n(t)e_n$ de [[ch05-integrale-fonctions-reglees]] (bosses de hauteur $\frac1n$ sur $\big[\frac1{n+1};\frac1n\big]$) n'a pas d'intégrale dans $F$ sur $[0;t]$ pour $t>0$ : calculée dans le complété $c_0$, $\int_0^tf$ a une infinité de coordonnées non nulles (au moins toutes celles d'indice $n\ge1/t$). Donc $G(t)=\int_0^tf$ n'existe pas dans $c_{00}$.
 
 ### H3 — $t_0\in[a;b]$ quelconque
 

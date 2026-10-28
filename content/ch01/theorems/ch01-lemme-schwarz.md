@@ -91,7 +91,7 @@ Comme $f(0)=0$ et que $f$ est développable en série entière sur $D$, on écri
 
 * **$f(z)=z^2$.** $f\in\Hol(D)$, $f(D)\subset D$, $f(0)=0$ : $|z^2|<|z|$ sur $D^\times$, et $f'(0)=0$. Ce n'est pas un automorphisme ($f(\tfrac12)=f(-\tfrac12)$), en accord avec le point 4.
 * **Contrainte sur les valeurs.** Il n'existe pas de $f\in\Hol(D)$ avec $f(D)\subset D$, $f(0)=0$ et $f(\tfrac12)=\tfrac34$, puisque $|f(\tfrac12)|\le\tfrac12$. Et si $f(\tfrac12)=\tfrac i2$, alors $|f(\tfrac12)|=|\tfrac12|$, donc $f$ est une rotation : $e^{i\theta}\cdot\tfrac12=\tfrac i2$ impose $f(z)=iz$.
-* **Version sur un disque quelconque.** Si $F\in\Hol(D(0,R))$, $|F|\le M$ et $F(0)=0$, alors $f(z):=F(Rz)/M$ vérifie les hypothèses, d'où $|F(w)|\le\dfrac{M}{R}|w|$ pour $|w|<R$ et $|F'(0)|\le\dfrac MR$. (Pour $F(0)=0$, c'est mieux que l'estimée de Cauchy à l'ordre $0$, qui ne donnerait que $|F(w)|\le M$.)
+* **Version sur un disque quelconque.** Si $F\in\Hol(D(0,R))$, $|F|\le M$ avec $M>0$, et $F(0)=0$, alors $f(z):=F(Rz)/M$ vérifie les hypothèses, d'où $|F(w)|\le\dfrac{M}{R}|w|$ pour $|w|<R$ et $|F'(0)|\le\dfrac MR$. (Pour $F(0)=0$, c'est mieux que l'estimée de Cauchy à l'ordre $0$, qui ne donnerait que $|F(w)|\le M$.)
 
 ## Pièges
 

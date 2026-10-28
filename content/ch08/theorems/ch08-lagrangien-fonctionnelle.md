@@ -42,7 +42,7 @@ Les **différentielles partielles** de $L$ ([[ch05-differentielles-partielles]])
 
 **Rôle.** La différentiabilité est définie sur un ouvert ([[ch05-differentielle-def]]) : $I\times V\times V$ doit être un ouvert de $\R\times V\times V$ pour parler de « $L$ de classe $C^1$ », y compris aux instants $u=0$ et $u=1$ qui interviennent dans l'intégrale.
 
-**Si on la retire.** C'est une hypothèse de confort : un Lagrangien de classe $C^1$ « jusqu'au bord » sur $[0;1]\times V\times V$ (au sens des dérivées unilatérales en $u$) donnerait les mêmes résultats, car dans tout le chapitre on ne fait jamais varier $u$ hors de $[0;1]$ (les variations portent sur $q$ et $v$). Le poly choisit $I$ ouvert pour rester dans le cadre du chapitre V.
+**Si on la retire.** C'est une hypothèse de confort : un Lagrangien de classe $C^1$ « jusqu'au bord » sur $[0;1]\times V\times V$ (au sens des dérivées unilatérales en $u$) donnerait les mêmes résultats, car dans tout le chapitre on ne fait jamais varier $u$ hors de $[0;1]$ (les variations portent sur $q$ et $v$) ; seule l'inversion locale de la question 13 ([[ch08-legendre-inversion-locale]]) demande un ouvert, et on l'applique en un instant intérieur $t_0\in\,]0;1[$. Le poly choisit $I$ ouvert pour rester dans le cadre du chapitre V (fonctions définies sur un ouvert).
 
 ## Exemples
 

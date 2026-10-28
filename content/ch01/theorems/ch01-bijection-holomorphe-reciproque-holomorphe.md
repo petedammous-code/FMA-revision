@@ -6,7 +6,7 @@ title: Une bijection holomorphe entre ouverts est un biholomorphisme ($f'$ ne s'
 ref: Remarque I.14.3
 page: 33
 importance: 2
-depends: [ch01-inversion-locale-holomorphe, ch06-inversion-locale, ch01-estimees-cauchy, ch01-primitive-locale, ch01-application-ouverte, ch01-def-multiplicite-zero, ch01-def-biholomorphisme, ch01-exp-trigo-hyperboliques]
+depends: [ch01-inversion-locale-holomorphe, ch06-inversion-locale, ch01-estimees-cauchy, ch01-primitive-locale, ch01-application-ouverte, ch01-def-multiplicite-zero, ch01-def-biholomorphisme, ch01-stabilite-operations, ch01-exp-trigo-hyperboliques]
 tags: [biholomorphisme, injectivite, application-ouverte, inversion-locale, racine-n-ieme]
 ---
 ## Intuition
@@ -57,7 +57,7 @@ où la série entière $u$ a un rayon $\ge\rho$ (même rayon que celle de $F$), 
 $$
 v(z):=\exp\Big(\frac1N L\big(u(z)\big)\Big),\qquad h(z):=c\,(z-z_0)\,v(z),
 $$
-où $c\in\C$ est une racine $N$-ième de $a_N$ ($c^N=a_N$, $c\neq0$). Ces fonctions sont holomorphes (composées et produits), $v^N=e^{L(u)}=u$, donc
+où $c\in\C$ est une racine $N$-ième de $a_N$ ($c^N=a_N$, $c\neq0$). Ces fonctions sont holomorphes (composées et produits, [[ch01-stabilite-operations]]), $v^N=e^{L(u)}=u$, donc
 $$
 h(z)^N=a_N(z-z_0)^N\,u(z)=F(z)\qquad(z\in D(z_0,\eps)).
 $$

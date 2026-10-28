@@ -61,7 +61,7 @@ Alors $B$ est **constante**. (poly, chap. VIII, Question 3, p. 144)
 Dans le lemme de du Bois-Reymond, pourquoi la conclusion est-elle « $B$ constante » et non « $B=0$ » ? Que donnerait l'hypothèse pour toutes les $h\in C^1$, sans condition aux bords ?
 ### R
 * Une constante $B\equiv c\neq0$ vérifie l'hypothèse : $\int_0^1\langle c,h'\rangle=\langle c,h(1)-h(0)\rangle=0$ dès que $h(0)=h(1)=0$. On ne peut donc pas espérer mieux que « constante ».
-* Sans la condition $h(0)=h(1)=0$, on peut prendre $h(t)=t\,c$ : $\int_0^1\langle c,c\rangle=\norm c^2=0$, donc $B=0$.
+* Si l'identité valait pour **toutes** les $h\in C^1$ (sans condition aux bords) : le lemme donne déjà $B\equiv c$, puis $h(t)=t\,c$ fournit $\int_0^1\langle c,c\rangle=\norm c^2=0$, donc $B=0$.
 * La continuité de $B$ sert à ce que la fonction test $h(t)=\int_0^t(B(s)-c)\,ds$ soit $C^1$.
 
 ## CARD id=fc-ch08-008 ref=ch08-du-bois-reymond tags=methode
@@ -126,7 +126,7 @@ où $\nabla U$ est le gradient de $U$ ([[ch05-gradient-hilbert]]). En effet $\fr
 ### R
 Soient $K$ un **compact** et $U$ un **ouvert** d'un espace métrique $(X,d)$, avec $K\subset U$. Pour $\eps>0$, soit $K_\eps=\bigcup_{x\in K}B(x,\eps)$. Si $F=X\setminus U\neq\emptyset$, alors $\inf_{(x,y)\in K\times F}d(x,y)>0$ (par l'absurde, en extrayant dans le compact $K$), et donc $K_\eps\subset U$ pour $\eps$ assez petit. (poly, chap. VIII, Question 8, p. 144)
 
-Usage (Q9) : avec $K=\gamma_0([0;1])\subset U_1$ et $K'=\gamma_0'([0;1])\subset U_2$, toute $\gamma$ avec $\norm{\gamma-\gamma_0}_E$ $<$ $\eps$ reste confinée : $E(U_1,U_2)$ et $E_{a,b}(U_1,U_2)$ sont ouverts.
+Usage (Q9) : avec $K=\gamma_0([0;1])\subset U_1$ et $K'=\gamma_0'([0;1])\subset U_2$, toute $\gamma$ avec $\norm{\gamma-\gamma_0}_E<\eps$ reste confinée : $E(U_1,U_2)$ et $E_{a,b}(U_1,U_2)$ sont ouverts.
 
 > ⚠️ Faux si $K$ est seulement fermé : $K=\R\times\{0\}$, $U=\{(x,y):\abs y<e^{-x^2}\}$ dans $\R^2$.
 
