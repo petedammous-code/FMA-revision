@@ -5,7 +5,7 @@ chapters: [3]
 title: Un produit infini « angle triple » pour sin z / z
 source: "Inventé (variante « angle triple » de la formule de Viète)"
 difficulty: 3
-time: 45
+time: 40
 tools: [ch03-produits-infinis, ch03-convergence-normale-definition, ch03-weierstrass-series]
 ---
 ## Énoncé

@@ -6,7 +6,7 @@ title: Une série de Lambert et le nombre de diviseurs
 source: "Classique (séries de Lambert), adapté"
 difficulty: 1
 time: 15
-tools: [ch03-weierstrass-series, ch03-weierstrass, ch03-convergence-normale-definition, ch01-estimees-cauchy]
+tools: [ch03-weierstrass-series, ch03-weierstrass, ch03-convergence-normale-definition, ch01-serie-entiere-derivees-tout-ordre, ch01-estimees-cauchy]
 ---
 ## Énoncé
 
@@ -54,7 +54,7 @@ Calculons $f_n^{(m)}(0)$. Pour $|z|<1$, la série géométrique donne
 $$
 f_n(z)=z^n\sum_{j\ge0}z^{nj}=\sum_{k\ge1}z^{nk}.
 $$
-C'est une série entière de rayon $1$ ; par unicité du développement en série entière ([[ch01-estimees-cauchy]] : ses coefficients sont les $f_n^{(m)}(0)/m!$), on obtient
+C'est une série entière de rayon $1$ ; par unicité du développement en série entière (en dérivant terme à terme, [[ch01-serie-entiere-derivees-tout-ordre]] : les coefficients d'une série entière $\sum a_kz^k$ de rayon $>0$ sont nécessairement les $a_m=f_n^{(m)}(0)/m!$), on obtient
 $$
 \frac{f_n^{(m)}(0)}{m!}=\begin{cases}1 & \text{si } m\ge1 \text{ et } n \text{ divise } m,\\ 0 & \text{sinon.}\end{cases}
 $$

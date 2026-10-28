@@ -5,7 +5,7 @@ chapters: [3, 1]
 title: Normale ou pas ? Quatre familles de fonctions holomorphes
 source: "Classique (exemples standard de familles normales ; cf. Rudin, Real and Complex Analysis, ch. 14), adapté"
 difficulty: 2
-time: 30
+time: 25
 tools: [ch03-montel, ch03-famille-normale, ch03-famille-localement-uniformement-bornee, ch01-lemme-schwarz, ch01-formule-moyenne]
 ---
 ## Énoncé

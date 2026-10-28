@@ -32,7 +32,7 @@ Ici $a=\sup_X|T'|$ (inégalité des accroissements finis sur l'intervalle $X$) :
         param: { label: 'μ', min: 0.2, max: 4, step: 0.01, val: 2.8 } },
     };
     const sel = kit.select(controls, { label: '$T$', options: Object.keys(FUNS).map(k => [FUNS[k].name, k]), value: 'affine', onChange: onFun });
-    [sel].forEach(x => { x.el.style.maxWidth = '100%'; x.select.style.maxWidth = '100%'; x.select.style.minWidth = '0'; });
+    [sel].forEach(x => { x.el.style.flex = '1 1 230px'; x.el.style.minWidth = '0'; x.select.style.flex = '1 1 0'; x.select.style.width = '100%'; x.select.style.minWidth = '0'; });
     const par = kit.slider(controls, { label: 's', min: -1.5, max: 1.5, step: 0.01, value: 0.7, onChange: draw });
     const x0s = kit.slider(controls, { label: String.raw`$x_0$`, min: -2.5, max: 2.5, step: 0.005, value: 0.05, onChange: draw });
     const ns = kit.slider(controls, { label: 'n', min: 0, max: NMAX, step: 1, value: 6, onChange: () => { stopPlay(); draw(); } });

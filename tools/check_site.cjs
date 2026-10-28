@@ -1,5 +1,5 @@
 // Smoke test du site : sert docs/, visite les routes, collecte erreurs JS/KaTeX, captures d'écran.
-// Usage: node tools/check_site.cjs [--routes "#/,#/cours"] [--all] [--shots dir]
+// Usage: node tools/check_site.cjs [--routes "#/,#/cours"] [--all] [--shots dir] [--mobile] [--width 360] [--dark]
 const http = require('http'), fs = require('fs'), path = require('path');
 const { chromium } = require('playwright');
 const ROOT = path.resolve(__dirname, '..', 'docs');
@@ -8,7 +8,7 @@ const MIME = { '.html': 'text/html', '.js': 'application/javascript', '.css': 't
 const server = http.createServer((req, res) => { let p = decodeURIComponent(req.url.split('?')[0]); if (p === '/') p = '/index.html'; const f = path.join(ROOT, p); if (!f.startsWith(ROOT) || !fs.existsSync(f) || fs.statSync(f).isDirectory()) { res.writeHead(404); return res.end('nf'); } res.writeHead(200, { 'Content-Type': MIME[path.extname(f)] || 'application/octet-stream' }); fs.createReadStream(f).pipe(res); });
 (async () => {
   await new Promise(r => server.listen(0, r)); const port = server.address().port; const base = `http://127.0.0.1:${port}/`;
-  const browser = await chromium.launch(); const mobile = args.includes('--mobile'); const page = await browser.newPage({ viewport: mobile ? { width: 390, height: 800 } : { width: 1280, height: 900 }, deviceScaleFactor: 1 });
+  const browser = await chromium.launch(); const mobile = args.includes('--mobile'); const W = Number(opt('--width', mobile ? 390 : 1280)); const page = await browser.newPage({ viewport: { width: W, height: mobile ? 800 : 900 }, deviceScaleFactor: 1 });
   if (args.includes('--dark')) await page.addInitScript(() => { try { localStorage.setItem('fma:theme', JSON.stringify('dark')); } catch (e) {} });
   const problems = []; let currentRoute = '';
   page.on('console', m => { if (m.type() === 'error') problems.push({ route: currentRoute, kind: 'console', text: m.text().slice(0, 300) }); });
@@ -26,7 +26,7 @@ const server = http.createServer((req, res) => { let p = decodeURIComponent(req.
     // open all collapsibles and reveal trous to render everything
     await page.evaluate(() => { document.querySelectorAll('.card.collapsible').forEach(c => c.classList.add('open')); document.querySelectorAll('details').forEach(d => d.open = true); document.querySelectorAll('.viz-slot').forEach(s => { if (!s.firstChild && window.FMA) FMA.mountViz(s.dataset.viz, s); }); });
     await page.waitForTimeout(300);
-    const info = await page.evaluate(() => ({ hscroll: document.documentElement.scrollWidth > window.innerWidth + 2, texErrors: [...document.querySelectorAll('.tex-error, .katex-error')].map(e => e.textContent.slice(0, 120)), missingX: [...document.querySelectorAll('.xref-missing')].map(e => e.dataset.id), vizMissing: [...document.querySelectorAll('.viz-missing')].map(e => e.textContent.slice(0, 120)), rawMath: (document.getElementById('main').innerText.match(/\$[^$\n]{1,60}\$/g) || []).slice(0, 5), rawPlaceholders: (document.getElementById('main').innerHTML.match(/@@[MTVX]\d*/g) || []).slice(0, 5), leftoverTrou: (document.getElementById('main').innerHTML.match(/<\/?trou/g) || []).length, title: document.title, textLen: document.getElementById('main').innerText.length, h1: (document.querySelector('#main h1') || {}).innerText }));
+    const info = await page.evaluate(() => ({ hscroll: document.documentElement.scrollWidth > window.innerWidth + 2, wide: [...document.querySelectorAll('#main *')].filter(e => e.getBoundingClientRect().right > window.innerWidth + 2 && e.getBoundingClientRect().width > 0).slice(0, 6).map(e => e.tagName.toLowerCase() + (typeof e.className === 'string' && e.className ? '.' + e.className.split(' ')[0] : '') + '@' + Math.round(e.getBoundingClientRect().right)), texErrors: [...document.querySelectorAll('.tex-error, .katex-error')].map(e => e.textContent.slice(0, 120)), missingX: [...document.querySelectorAll('.xref-missing')].map(e => e.dataset.id), vizMissing: [...document.querySelectorAll('.viz-missing')].map(e => e.textContent.slice(0, 120)), rawMath: (document.getElementById('main').innerText.match(/\$[^$\n]{1,60}\$/g) || []).slice(0, 5), rawPlaceholders: (document.getElementById('main').innerHTML.match(/@@[MTVX]\d*/g) || []).slice(0, 5), leftoverTrou: (document.getElementById('main').innerHTML.match(/<\/?trou/g) || []).length, title: document.title, textLen: document.getElementById('main').innerText.length, h1: (document.querySelector('#main h1') || {}).innerText }));
     report.push({ route: r, ...info });
     if (shots) await page.screenshot({ path: path.join(shots, r.replace(/[^a-z0-9]+/gi, '_').slice(0, 80) + '.png'), fullPage: false });
   }

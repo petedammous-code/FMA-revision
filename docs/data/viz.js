@@ -2743,7 +2743,7 @@ Ici $a=\sup_X|T'|$ (inégalité des accroissements finis sur l'intervalle $X$) :
         param: { label: 'μ', min: 0.2, max: 4, step: 0.01, val: 2.8 } },
     };
     const sel = kit.select(controls, { label: '$T$', options: Object.keys(FUNS).map(k => [FUNS[k].name, k]), value: 'affine', onChange: onFun });
-    [sel].forEach(x => { x.el.style.maxWidth = '100%'; x.select.style.maxWidth = '100%'; x.select.style.minWidth = '0'; });
+    [sel].forEach(x => { x.el.style.flex = '1 1 230px'; x.el.style.minWidth = '0'; x.select.style.flex = '1 1 0'; x.select.style.width = '100%'; x.select.style.minWidth = '0'; });
     const par = kit.slider(controls, { label: 's', min: -1.5, max: 1.5, step: 0.01, value: 0.7, onChange: draw });
     const x0s = kit.slider(controls, { label: String.raw`$x_0$`, min: -2.5, max: 2.5, step: 0.005, value: 0.05, onChange: draw });
     const ns = kit.slider(controls, { label: 'n', min: 0, max: NMAX, step: 1, value: 6, onChange: () => { stopPlay(); draw(); } });
@@ -2891,7 +2891,7 @@ Ce rectangle (bleu) est **calculé numériquement** : $V_0=\,]y_0-s,y_0+s[$ est 
     };
     const sel = kit.select(controls, { label: 'courbe', options: Object.keys(CURVES).map(k => [CURVES[k].name, k]), value: 'cercle', onChange: () => { rebuildPts(); setPoint(CURVES[sel.value].pts[0][1], CURVES[sel.value].pts[0][2]); } });
     const ptsel = kit.select(controls, { label: 'aller à', options: [['—', '0']], onChange: v => { const p = CURVES[sel.value].pts[+v]; if (p) setPoint(p[1], p[2]); } });
-    [sel, ptsel].forEach(x => { x.el.style.maxWidth = '100%'; x.select.style.maxWidth = '100%'; x.select.style.minWidth = '0'; });
+    [sel, ptsel].forEach(x => { x.el.style.flex = '1 1 230px'; x.el.style.minWidth = '0'; x.select.style.flex = '1 1 0'; x.select.style.width = '100%'; x.select.style.minWidth = '0'; });
     const row2 = kit.row(controls);
     const sSlider = kit.slider(row2, { label: String.raw`$s$ (demi-hauteur de $V_0$)`, min: 0.05, max: 1.5, step: 0.01, value: 0.3, onChange: draw });
     const swap = kit.checkbox(row2, { label: String.raw`résoudre $x$ en fonction de $y$`, checked: false, onChange: draw });
@@ -3071,7 +3071,7 @@ FMA.registerViz({
     };
     let a = FUNS.z2.a0.slice();
     const sel = kit.select(controls, { label: '$f$', options: Object.keys(FUNS).map(k => [FUNS[k].name, k]), value: 'z2', onChange: () => { const F = FUNS[sel.value]; a = F.a0.slice(); rho.value = F.rho0; draw(); } });
-    [sel].forEach(x => { x.el.style.maxWidth = '100%'; x.select.style.maxWidth = '100%'; x.select.style.minWidth = '0'; });
+    [sel].forEach(x => { x.el.style.flex = '1 1 230px'; x.el.style.minWidth = '0'; x.select.style.flex = '1 1 0'; x.select.style.width = '100%'; x.select.style.minWidth = '0'; });
     const rho = kit.slider(controls, { label: String.raw`$\rho$`, min: 0.05, max: 3.5, step: 0.05, value: 0.6, onChange: draw });
     const view = kit.select(controls, { label: "vue de l'arrivée", options: [['zoom sur f(a)', 'zoom'], ['globale', 'glob']], value: 'zoom', onChange: draw });
     const ro = kit.readout(controls, { label: '' });

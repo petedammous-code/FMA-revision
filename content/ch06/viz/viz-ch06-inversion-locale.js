@@ -34,7 +34,7 @@ FMA.registerViz({
     };
     let a = FUNS.z2.a0.slice();
     const sel = kit.select(controls, { label: '$f$', options: Object.keys(FUNS).map(k => [FUNS[k].name, k]), value: 'z2', onChange: () => { const F = FUNS[sel.value]; a = F.a0.slice(); rho.value = F.rho0; draw(); } });
-    [sel].forEach(x => { x.el.style.maxWidth = '100%'; x.select.style.maxWidth = '100%'; x.select.style.minWidth = '0'; });
+    [sel].forEach(x => { x.el.style.flex = '1 1 230px'; x.el.style.minWidth = '0'; x.select.style.flex = '1 1 0'; x.select.style.width = '100%'; x.select.style.minWidth = '0'; });
     const rho = kit.slider(controls, { label: String.raw`$\rho$`, min: 0.05, max: 3.5, step: 0.05, value: 0.6, onChange: draw });
     const view = kit.select(controls, { label: "vue de l'arrivée", options: [['zoom sur f(a)', 'zoom'], ['globale', 'glob']], value: 'zoom', onChange: draw });
     const ro = kit.readout(controls, { label: '' });
