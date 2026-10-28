@@ -129,8 +129,8 @@ $$
 ## Pièges et variantes
 
 * **$\phi\cdot\phi$ n'est pas $|\phi|^2$** : $\phi\cdot\phi=\sum\phi_k^2$ est la forme bilinéaire complexe (sans conjugaison) ; c'est elle qui code la conformité, alors que $|\phi|^2=\sum|\phi_k|^2$ donne la métrique $|X_u|^2=\frac12|\phi|^2$.
-* **Immersion injective ne suffit pas toujours** pour être une sous-variété (poly, Exemple IX.2.15) : ici on utilise l'injectivité sur le disque **fermé** et la compacité pour obtenir un homéomorphisme sur l'image.
-* **Signe de $X_v$** : $\phi=X_u-iX_v$ donne $X_v=-\Im\phi$, pas $+\Im\phi$ ; une erreur de signe change $N$ en $-N$ (et $\sigma(N)$ en $1/\bar z$ si l'on se trompe aussi d'orientation).
+* **Immersion injective ne suffit pas toujours** pour être une sous-variété ([[ch09-contre-ex-folium]]) : ici on utilise l'injectivité sur le disque **fermé** et la compacité pour obtenir un homéomorphisme sur l'image.
+* **Signe de $X_v$** : $\phi=X_u-iX_v$ donne $X_v=-\Im\phi$, pas $+\Im\phi$ ; une erreur de signe change $N$ en $-N$, et l'on trouverait alors $\sigma(-N(z))=-1/\bar z$ au lieu de $g(z)=z$.
 * **Intégration par parties** : le terme de bord s'annule parce que $h=0$ aux **deux** extrémités de chaque corde ; il faut que $Y$ et $X$ coïncident sur tout le cercle.
 * Variante : affiner (b) pour montrer que $X$ est injective sur le disque **ouvert** $D(0,\sqrt3)$ : si $X(z)=X(z')$, $|z|=|z'|=r$ et $x_3=r^2\cos2\theta$ imposent $z'\in\{z,-z,\bar z,-\bar z\}$ ; on élimine $-z$ (il faudrait $\bar z=z^3/3$, donc $r=\sqrt3$), puis $\bar z$ et $-\bar z$ (il faudrait $\sin^2\theta$ ou $\cos^2\theta$ égal à $\frac{3(1+r^2)}{4r^2}\le1$, donc $r\ge\sqrt3$). Avec (c), $\sqrt3$ est le rayon critique.
 * Variante : faire de même avec la caténoïde ($f=1/w^2$, $g=w$ sur $\C^*$) : vérifier la condition de périodes ([[ch04-condition-periodes]]) et montrer que la surface obtenue est la surface de révolution $\sqrt{x_1^2+x_2^2}=\cosh x_3$ à une similitude près.

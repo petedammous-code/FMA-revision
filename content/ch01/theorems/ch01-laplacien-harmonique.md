@@ -6,7 +6,7 @@ title: "Laplacien $\Delta=4\,\partial^2/\partial z\partial\bar z$ ; parties rée
 ref: Remarque I.2.8
 page: 9
 importance: 2
-depends: [ch01-operateurs-dz-dzbar, ch01-cauchy-riemann, ch01-holomorphe-ssi-c1-et-dzbar-nul, ch01-holomorphe-analytique]
+depends: [ch01-operateurs-dz-dzbar, ch01-cauchy-riemann, ch01-holomorphe-ssi-c1-et-dzbar-nul, ch01-holomorphe-analytique, ch05-lemme-schwarz]
 tags: [laplacien, harmonique, schwarz, partie-reelle, dz-dzbar]
 ---
 ## Intuition

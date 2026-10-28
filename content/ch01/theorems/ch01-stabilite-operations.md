@@ -6,7 +6,7 @@ title: Stabilité de l'holomorphie par combinaisons linéaires, produits, invers
 ref: Proposition I.3.1
 page: 10
 importance: 2
-depends: [ch01-formulaire-dz-dzbar, ch01-chaine-dz-dzbar, ch01-holomorphe-ssi-c1-et-dzbar-nul]
+depends: [ch01-formulaire-dz-dzbar, ch01-chaine-dz-dzbar, ch01-holomorphe-ssi-c1-et-dzbar-nul, ch05-composition-differentielles]
 tags: [holomorphe, stabilite, produit, inverse, composition, algebre]
 ---
 ## Intuition

@@ -2,7 +2,7 @@
 id: ch03-log-estimation
 type: lemma
 chapter: 3
-title: "Estimation |Log(1+ω)| ≤ C|ω| près de 0"
+title: Estimation $|\mathrm{Log}(1+\omega)|\le C|\omega|$ près de $0$
 ref: non numéroté, section III.5, p. 68
 page: 68
 importance: 1
