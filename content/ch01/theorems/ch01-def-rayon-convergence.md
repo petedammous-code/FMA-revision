@@ -32,7 +32,7 @@ Le disque $D(0,R)$ est le **disque ouvert de convergence** de la série. Pour un
 **Pourquoi ces trois descriptions coïncident.** Notons $R_1$ le premier sup (convergence normale), $R_2$ le second (suite bornée), $L = \limsup|a_n|^{1/n}$.
 
 * $R_1\le R_2$ : si $\sum|a_n|\rho^n<+\infty$, son terme général tend vers $0$, donc est borné.
-* $R_2\le R_1$ : si $|a_n|\rho^n\le M$ pour tout $n$ et $0\le\rho'<\rho$, alors $|a_n|\rho'^n\le M(\rho'/\rho)^n$, terme général d'une série géométrique convergente ; donc tout $\rho'<R_2$ vérifie $\rho'\le R_1$.
+* $R_2\le R_1$ : si $|a_n|\rho^n\le M$ pour tout $n$ et $0\le\rho'<\rho$, alors $|a_n|\rho'^n\le M(\rho'/\rho)^n$, terme général d'une série géométrique convergente, donc $\rho'\le R_1$. Or, si $\rho'<R_2$, la définition du sup fournit un $\rho\in\,]\rho',R_2]$ tel que $(|a_n|\rho^n)$ soit bornée ; donc tout $\rho'<R_2$ vérifie $\rho'\le R_1$, d'où $R_2\le R_1$.
 * $R_2 = 1/L$ : si $\rho>0$ et $\rho L<1$, choisissons $\rho'>\rho$ avec $\rho' L<1$ ; comme $\sup_{n\ge N}|a_n|^{1/n}\to L < 1/\rho'$, il existe $N$ tel que $|a_n|^{1/n}<1/\rho'$ pour $n\ge N$, d'où $|a_n|\rho^n<(\rho/\rho')^n\le1$ : la suite est bornée et $\rho\le R_2$. Si $\rho L>1$, choisissons $\rho'<\rho$ avec $\rho' L>1$ ; alors $|a_n|^{1/n}>1/\rho'$ pour une infinité de $n$ (sinon le $\limsup$ serait $\le 1/\rho'$), d'où $|a_n|\rho^n>(\rho/\rho')^n$ pour ces $n$ : la suite n'est pas bornée, et $\rho\ge R_2$ (l'ensemble des $\rho$ « bornés » est un intervalle contenant $0$). Donc $R_2 = 1/L$.
 
 **Conséquence.** Pour $|z|<R$, la série converge absolument (prendre $|z|<\rho<R$) ; pour $|z|>R$, la suite $(a_nz^n)$ n'est pas bornée, donc la série diverge grossièrement.

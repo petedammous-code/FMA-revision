@@ -6,7 +6,7 @@ title: Symétrie de la différentielle d'ordre $p$
 ref: Théorème V.5.5
 page: 108
 importance: 2
-depends: [ch05-lemme-schwarz, ch05-differentielle-seconde-def, ch05-classe-ck-def, ch05-derivee-directionnelle-unicite]
+depends: [ch05-lemme-schwarz, ch05-differentielle-seconde-def, ch05-classe-ck-def, ch05-derivee-directionnelle-unicite, ch05-isometrie-bilineaire-curryfication]
 tags: [schwarz, differentielle-ordre-superieur, symetrie, multilineaire]
 ---
 ## Intuition
