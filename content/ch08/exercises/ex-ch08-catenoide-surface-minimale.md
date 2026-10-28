@@ -5,7 +5,7 @@ chapters: [8, 7, 5]
 title: Surface de révolution d'aire critique — la caténoïde et son seuil d'existence
 source: "Classique (surface minimale de révolution, Euler 1744 ; cf. Gelfand–Fomin, *Calculus of Variations*, ch. 1) — questions et rédaction inventées"
 difficulty: 3
-time: 45
+time: 40
 tools: [ch08-courbes-confinees-ouverts, ch08-ouverture-courbes-confinees, ch08-lhat-c1-differentielle, ch08-euler-lagrange, ch08-energie-conservee, ch07-reduction-ordre-un, ch07-restriction-domaine-c1-lipschitz, ch07-cauchy-lipschitz, ch07-unicite-globale]
 ---
 ## Énoncé

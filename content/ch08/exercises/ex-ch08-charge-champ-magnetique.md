@@ -5,7 +5,7 @@ chapters: [8, 7, 5]
 title: Particule chargée dans un champ magnétique uniforme
 source: "Inventé (à partir du Lagrangien classique d'une charge dans un champ magnétique uniforme)"
 difficulty: 2
-time: 30
+time: 25
 tools: [ch08-euler-lagrange, ch08-energie-conservee, ch08-groupe-un-parametre-invariance, ch08-noether, ch08-lhat-c1-differentielle, ch05-differentielles-partielles, ch05-gradient-hilbert, ch05-differentielle-lineaire, ch07-unicite-globale]
 ---
 ## Énoncé

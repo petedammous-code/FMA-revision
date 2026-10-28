@@ -35,6 +35,7 @@ et l'identité infinitésimale d'invariance ([[ch08-invariance-infinitesimale]])
     const roQ = kit.readout(controls, { label: '$Q$' });
     const roH = kit.readout(controls, { label: '$H$' });
     const note = document.createElement('div'); note.className = 'viz-note'; container.appendChild(note);
+    const fx = (v, d) => (Math.abs(v) < 0.5 * Math.pow(10, -d) ? 0 : v).toFixed(d);
     [roQ, roH].forEach(r => { r.el.style.maxWidth = '100%'; r.el.style.flexWrap = 'wrap'; const v = r.el.querySelector('.viz-readout-val'); if (v) { v.style.minWidth = '0'; v.style.overflowWrap = 'anywhere'; } });
 
     function grad(x, y) { const e = sE.value; if (selU.value === 'kepler') { const r = Math.hypot(x, y), r3 = r * r * r; return [x / r3 + e * x, y / r3]; } return [x + e * x, y]; }
@@ -118,8 +119,8 @@ et l'identité infinitésimale d'invariance ([[ch08-invariance-infinitesimale]])
         const Q0 = Qs[0], H0 = Hs[0]; let dQ = 0, dH = 0; for (let i = 0; i < Qs.length; i++) { dQ = Math.max(dQ, Math.abs(Qs[i] - Q0)); dH = Math.max(dH, Math.abs(Hs[i] - H0)); }
         let intD = 0; for (let i = 1; i < pts.length; i++) { const a = pts[i - 1].s, b = pts[i].s; intD += (pts[i].t - pts[i - 1].t) * 0.5 * eps * (a[0] * a[1] + b[0] * b[1]); }
         const Qc = Qof(cur), Hc = Hof(cur);
-        roQ.set(`Q(t) = ⟨γ′, X(γ)⟩ = ${Qc.toFixed(4)} ; écart max ${dQ.toExponential(1)} ; Q(T) − Q(0) = ${(Qs[Qs.length - 1] - Q0).toFixed(4)} = ∫ε x y dt = ${intD.toFixed(4)}`);
-        roH.set(`H(t) = ${Hc.toFixed(4)} ; écart max ${dH.toExponential(1)}`);
+        roQ.set(`Q(t) = ⟨γ′, X(γ)⟩ = ${fx(Qc, 4)} ; écart max ${dQ.toExponential(1)} ; Q(T) − Q(0) = ${fx((Qs[Qs.length - 1] - Q0), 4)} = ∫ε x y dt = ${fx(intD, 4)}`);
+        roH.set(`H(t) = ${fx(Hc, 4)} ; écart max ${dH.toExponential(1)}`);
         let msg = Math.abs(eps) < 1e-9 ? 'ε = 0 : L est invariant par les rotations F_s, donc Q est constant (Noether) ; la courbe tournée F_s∘γ est encore une solution (vert et violet confondus).' : 'ε ≠ 0 : la symétrie est cassée, Q′ = ε x y ≠ 0 et Q varie ; H reste constant (L autonome) ; F_s∘γ n’est plus une solution (vert ≠ violet).';
         if (sol.status === 'collision') msg += ` Collision avec l’origine en t ≈ ${sol.Tend.toFixed(2)} : la courbe sort de l’ouvert V∖{0} où U est défini.`;
         if (sol.status === 'fuite') msg += ` La trajectoire s’échappe à l’infini (énergie positive), calcul arrêté en t ≈ ${sol.Tend.toFixed(2)}.`;
