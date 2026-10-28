@@ -32,7 +32,7 @@ On a $f:U\to F$ différentiable sur un ouvert $U$ d'un espace vectoriel normé $
 
 ### [ ] Égalité des accroissements finis « $f(b)-f(a)=df_c(b-a)$ » — [[ch05-derivee-variable-reelle]]
 **Pourquoi ce n'est pas l'outil ici.** Fausse dès que $F\ne\R$ : $f(t)=(\cos t,\sin t)$ vérifie $f(2\pi)-f(0)=0$ alors que $f'(t)\ne0$ pour tout $t$. Écrire « il existe $c$ tel que » est une faute sanctionnée.
-**Quand il le serait.** Pour $f$ **à valeurs réelles** : appliquer Rolle à $\varphi(t)=f(a+t(b-a))$ (ou à chaque composante, mais avec des $c$ différents).
+**Quand il le serait.** Pour $f$ **à valeurs réelles** : appliquer le théorème des accroissements finis réel (Rolle) à $\varphi(t)=f(a+t(b-a))$ (ou à chaque composante, mais avec des $c$ différents d'une composante à l'autre).
 
 ### [ ] Point fixe de Banach — [[ch06-point-fixe-banach]]
 **Pourquoi ce n'est pas l'outil ici.** Il **consomme** une estimation de Lipschitz $<1$, il ne la produit pas.

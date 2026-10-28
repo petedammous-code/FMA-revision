@@ -33,7 +33,7 @@ Mots-clés : *admet une primitive holomorphe*, *détermination holomorphe du log
 **Pièges.** Pour l'**existence** sur un ouvert non simplement connexe, la réciproque (« toutes les intégrales de lacets sont nulles $\Rightarrow$ primitive ») est vraie sur un ouvert connexe mais doit être **redémontrée** (construction $F(z)=\int_{z_0}^zf$ le long d'un chemin, indépendance par rapport au chemin) ; souvent plus simple : l'option précédente.
 
 ### [ ] Primitive locale — [[ch01-primitive-locale]]
-**Pourquoi ce n'est pas l'outil ici.** Elle donne une primitive sur **chaque disque** contenu dans $\Omega$, mais ces primitives locales ne se recollent pas forcément : $1/z$ a une primitive sur tout disque de $\C^\times$ et aucune sur $\C^\times$ ($\int_{C(0,1)}dz/z=2i\pi\ne0$). De même $\exp$ admet des logarithmes locaux partout sur $\C^\times$ ([[ch01-exp-image-c-etoile-log-local]]) sans logarithme global.
+**Pourquoi ce n'est pas l'outil ici.** Elle donne une primitive sur **chaque disque** contenu dans $\Omega$, mais ces primitives locales ne se recollent pas forcément : $1/z$ a une primitive sur tout disque de $\C^\times$ et aucune sur $\C^\times$ ($\int_{C(0,1)}dz/z=2i\pi\ne0$). De même $z\mapsto z$ admet un logarithme sur tout disque de $\C^\times$ (inverse local de $\exp$, [[ch01-exp-image-c-etoile-log-local]]) mais aucun logarithme holomorphe sur $\C^\times$ tout entier.
 **Quand il le serait.** Pour une question locale (« au voisinage de $z_0$ »), ou comme étape de Morera / Goursat.
 
 ## Démarche

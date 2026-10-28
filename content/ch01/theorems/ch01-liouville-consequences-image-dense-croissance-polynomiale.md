@@ -20,7 +20,7 @@ Rappel : une partie $A\subset\C$ est **dense** si tout disque ouvert $D(w,\eps)$
 
 ## Énoncé
 
-**Proposition (poly, Exercice I.10.3, questions 4 et 5, p. 26).**
+**Proposition (poly, Exercice I.10.3, questions 4 et 5, p. 26–27).**
 
 1. Soit $h$ une fonction non constante, holomorphe sur $\C$. Alors $h(\C)$, l'image de $\C$ par $h$, est dense dans $\C$.
 2. Soit $f$ une fonction holomorphe qui est définie sur $\C$. On suppose qu'il existe deux réels $a,b>0$ et un entier $m\in\N$ tels que

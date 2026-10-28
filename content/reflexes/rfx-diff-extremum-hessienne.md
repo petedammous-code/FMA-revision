@@ -32,7 +32,7 @@ On a $f:U\to\R$ de classe $C^2$ sur un **ouvert** $U$ d'un espace vectoriel norm
 
 ### [ ] Multiplicateurs de Lagrange — [[ch09-multiplicateurs-lagrange]]
 **Pourquoi ce n'est pas l'outil ici.** Pour un extremum **libre** sur un ouvert, il n'y a pas de contrainte : la condition est $df_a=0$, sans multiplicateur.
-**Quand il le serait.** Extremum **lié** : $f$ restreinte à $S=\{F=0\}$ avec $0$ valeur régulière de $F$ (sphère, bord d'un domaine fermé). On écrit $dg_p=\sum_iw_i\,d(F_i)_p$.
+**Quand il le serait.** Extremum **lié** : $f$ restreinte à $S=\{F=0\}$ avec $0$ valeur régulière de $F$ (sphère, bord d'un domaine fermé). On écrit $df_p=\sum_iw_i\,d(F_i)_p$ avec $f$ définie sur un ouvert contenant $S$ (notée $g$ dans la Proposition IX.7.35).
 
 ### [ ] Lemme de Morse — [[ch06-lemme-de-morse]]
 **Pourquoi ce n'est pas l'outil ici.** La nature d'un point critique **non dégénéré** se lit déjà sur la signature via Taylor–Young ; Morse (un changement de variables $C^\infty$ qui met $f$ sous forme $\sum_{i\le r}h_i^2-\sum_{i>r}h_i^2$) est bien plus fort que nécessaire et ne dit **rien** dans le cas dégénéré.

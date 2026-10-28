@@ -36,12 +36,12 @@ Mots-clés : *on pose $z=e^{i\theta}$*, *détermination du logarithme sur $\C\se
 **Pièges.** Écrire explicitement la détermination (« argument dans $]0,2\pi[$ ») et **calculer les résidus avec elle** : $\mathrm{Log}(-1)=i\pi$, $\mathrm{Log}(i)=i\pi/2$, mais $\mathrm{Log}(-i)=3i\pi/2$ et non $-i\pi/2$.
 
 ### [ ] Détermination principale du logarithme — [[ch02-logarithme-determination-principale-def]]
-**Pourquoi ce n'est pas l'outil ici.** Sa coupure est $\R_-$. Pour un trou de serrure autour de $\R_+$, la détermination principale est continue à travers $\R_+$ : les deux bords donnent les mêmes valeurs et tout se simplifie en $0=0$. Il faut une coupure **portée par** la demi-droite d'intégration.
+**Pourquoi ce n'est pas l'outil ici.** Sa coupure est $\R_-$, qui est **à l'intérieur** du trou de serrure autour de $\R_+$ : la fonction n'est pas holomorphe sur un ouvert contenant le contour et son intérieur, la formule des résidus ne s'applique pas. De plus elle est continue à travers $\R_+$ : les deux bords donneraient les mêmes valeurs et l'intégrale cherchée disparaîtrait. Il faut une coupure **portée par** la demi-droite d'intégration (argument dans $]0,2\pi[$).
 **Quand il le serait.** Pour définir $\mathrm{Log}(h(z))$ quand $h$ prend ses valeurs dans $\C\setminus\R_-$ (par exemple $\Re h>0$), ou pour un trou de serrure autour de $\R_-$ (après le changement de variable $x\mapsto-x$).
 
 ### [ ] Demi-disque supérieur — [[ch02-exemple-integrale-fourier]]
-**Pourquoi ce n'est pas l'outil ici.** Pour une $R$ non paire, le demi-disque donne $\int_{\R}R$, pas $\int_0^{+\infty}R$ ; avec $x^{\alpha}$, l'intégrande n'est même pas méromorphe au voisinage de $0$ (point de branchement).
-**Quand il le serait.** Si l'intégrande est **pair** : $\int_0^{+\infty}=\frac12\int_{\R}$ (voir [[rfx-res-integrale-reelle-demi-cercle]]). Et pour $\int_0^{+\infty}R(x)\ln x\,dx$ avec $R$ paire : demi-disque indenté en $0$ et détermination d'argument dans $]-\pi/2,3\pi/2[$, car sur $\R_-$ on a $\mathrm{Log}\,z=\ln|x|+i\pi$.
+**Pourquoi ce n'est pas l'outil ici.** Pour une $R$ non paire, le demi-disque donne $\int_{\R}R$, pas $\int_0^{+\infty}R$ ; avec $x^{\alpha}$, l'intégrande n'est même pas méromorphe au voisinage de $0$ (point de branchement) : il faut de toute façon une détermination du logarithme et un contour qui évite $0$.
+**Quand il le serait.** Si l'intégrande est **pair** : $\int_0^{+\infty}=\frac12\int_{\R}$ (voir [[rfx-res-integrale-reelle-demi-cercle]]). Et pour $\int_0^{+\infty}R(x)\ln x\,dx$ ou $\int_0^{+\infty}x^{\alpha-1}R(x)\,dx$ avec $R$ paire : demi-disque indenté en $0$ et détermination d'argument dans $]-\pi/2,3\pi/2[$, car sur $\R_-$ on a $\mathrm{Log}\,z=\ln|x|+i\pi$.
 
 ## Démarche
 

@@ -27,11 +27,11 @@ On a $f:U\to F$ de classe $C^2$ (ou plus) sur un ouvert d'un evn, et on a besoin
 
 ### [x] Lemme de Morse (forme normale au voisinage d'un point critique non dégénéré) — [[ch06-lemme-de-morse]]
 **Quand.** $f:U\subset\R^m\to\R$ de classe $C^\infty$, $df_a=0$, $d^2f_a$ non dégénérée de signature $(r,s)$ : il existe un $C^\infty$-difféomorphisme $\psi$ d'un voisinage de $0$ sur un voisinage de $a$, $\psi(0)=a$, avec $f(\psi(h))=f(a)+\sum_{i\le r}h_i^2-\sum_{i>r}h_i^2$ (poly, Exercice VI.3.4, p. 120 ; version sur une sous-variété : [[ch09-lemme-morse-sous-variete]]). Conséquences : points critiques non dégénérés **isolés** ; en dimension $2$ au col ($r=s=1$), $\{f=f(a)\}$ est localement la réunion de **deux courbes $C^\infty$ transverses** ; au minimum ($s=0$), les lignes de niveau voisines sont des « cercles déformés ».
-**Justification.** Reste intégral ($f={}^txB(x)x$), racine carrée lisse $\eta(S)$ de $S$ pour la congruence près de $I_{r,s}$ par inversion locale, puis $\varphi(x)=\eta(B(x))\,x$ a $d\varphi_0=\mathrm{Id}$ et l'on prend $\psi=\varphi^{-1}$.
+**Justification.** Translation et changement linéaire (Sylvester) pour avoir $a=0$, $f(0)=0$ et $\frac12\mathrm{Hess}_0f=I_{r,s}$ ; reste intégral ($f={}^txB(x)x$, $B(0)=I_{r,s}$), racine carrée lisse $\eta(S)$ de $S$ pour la congruence près de $I_{r,s}$ par inversion locale, puis $\varphi(x)=\eta(B(x))\,x$ a $d\varphi_0=\mathrm{Id}$ et l'on prend $\psi=\varphi^{-1}$.
 **Pièges.** Exige la **non-dégénérescence** ; la signature est celle de $d^2f_a$ (compter les valeurs propres positives/négatives de la hessienne).
 
 ### [ ] Inégalité des accroissements finis (ordre 1) — [[ch05-accroissements-finis]]
-**Pourquoi ce n'est pas l'outil ici.** Elle ne voit que $df$ : elle donne $\|f(a+h)-f(a)\|\le\sup\|df\|\,\|h\|$, un $O(\|h\|)$, et ne capte pas la partie quadratique dont on a besoin (signe, équivalent, factorisation).
+**Pourquoi ce n'est pas l'outil ici.** Elle ne voit que $df$ : elle donne $\|f(a+h)-f(a)\|\le\sup\|df\|\,\|h\|$, un $O(\|h\|)$, et ne capte pas le **terme quadratique** $\frac12d^2f_a(h,h)$ dont on a besoin (signe, équivalent, développement limité, factorisation, Morse). Seule la simple majoration du reste d'ordre $1$ lui est accessible (voir ci-dessous).
 **Quand il le serait.** Appliquée à $g=f-df_a$ (variante centrée) elle redonne une estimation d'ordre $2$ si $df$ est **lipschitzienne** : $\|f(a+h)-f(a)-df_a(h)\|\le M\|h\|^2$ (constante moins bonne que Taylor–Lagrange, mais hypothèse plus faible que $C^2$).
 
 ## Démarche

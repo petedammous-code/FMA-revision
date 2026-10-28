@@ -43,7 +43,7 @@ pour tout $n\ge0$ (et tout $0<r<\rho(z_0)$).
 
 **Rôle.** Elle donne la formule de Cauchy et l'analyticité ([[ch01-cauchy-formule-disque]], [[ch01-holomorphe-analytique]]) sur lesquelles tout repose.
 
-**Si on la retire.** Pour une fonction seulement $C^\infty$ au sens réel, les dérivées complexes n'existent pas et l'analogue réel des estimées est faux : $g_N(x)=\sin(Nx)$ vérifie $\sup_\R|g_N|=1$ mais $g_N'(0)=N$, non majorable indépendamment de $N$. Et pour $f(\omega)=\bar\omega$, la formule (I.7.1) avec $n=0$ donne $0\neq\bar z$ (voir H1 de [[ch01-cauchy-formule-disque]]).
+**Si on la retire.** Pour une fonction seulement $C^\infty$ au sens réel, les dérivées complexes n'existent pas et l'analogue réel des estimées est faux : $g_N(x)=\sin(Nx)$ vérifie $\sup_\R|g_N|=1$ mais $g_N'(0)=N$, non majorable indépendamment de $N$. Et pour $f(\omega)=\bar\omega$ ($z_0=0$, $r=1$, $z\in D(0,1)\setminus\{0\}$), le membre de droite de (I.7.1) avec $n=0$ vaut $0\neq\bar z=f(z)$ : sur $C(0,1)$, $\bar\omega=1/\omega$ et $\frac{1}{\omega(\omega-z)}=\frac1z\bigl(\frac1{\omega-z}-\frac1\omega\bigr)$, d'intégrale $\frac1z(2i\pi-2i\pi)=0$ (voir H1 de [[ch01-cauchy-formule-disque]]).
 
 ### H2 — $0<r<\rho(z_0)$, i.e. $\bar D(z_0,r)\subset\Omega$
 

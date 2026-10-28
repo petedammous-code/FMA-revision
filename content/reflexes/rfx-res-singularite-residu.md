@@ -20,7 +20,7 @@ Mots-clés : *se prolonge holomorphiquement*, *pôle d'ordre*, *partie principal
 ### [x] Critères par le module : Riemann et classification — [[ch02-classification-singularites]]
 **Quand.** $f$ n'est pas un quotient de fonctions holomorphes en $z_0$ (composition avec $1/(z-z_0)$, fonction donnée abstraitement par une majoration ou une propriété de son image).
 **Justification.** $f$ bornée près de $z_0$ $\Leftrightarrow$ effaçable ([[ch02-singularite-effacable-riemann]]) ; $|f(z)|\to+\infty$ $\Leftrightarrow$ pôle ; sinon singularité **essentielle**, et alors l'image de tout $D(z_0,\eps)\setminus\{z_0\}$ est dense (Casorati–Weierstraß) (poly, Exercice II.7.4, p. 50).
-**Pièges.** Pour prouver qu'une singularité est essentielle, exhiber **deux suites** $z_n\to z_0$ le long desquelles $f$ a des comportements incompatibles (une limite finie et une limite infinie, ou deux limites finies distinctes) : cela exclut à la fois « bornée » et « $|f|\to\infty$ ». « $f$ non bornée » ne prouve **pas** que $z_0$ est un pôle.
+**Pièges.** Pour prouver qu'une singularité est essentielle, exhiber **deux suites** $z_n\to z_0$ le long desquelles $f$ a des comportements incompatibles (une limite finie et une limite infinie, ou deux limites finies distinctes) : cela exclut « $|f|\to\infty$ » (pôle) et « effaçable » (qui donnerait une limite unique en $z_0$), donc aussi « bornée » par Riemann. « $f$ non bornée » ne prouve **pas** que $z_0$ est un pôle.
 
 ### [x] Développement de Laurent — [[ch02-laurent-developpement]]
 **Quand.** On veut la partie principale, ou le résidu en un pôle **multiple**, ou le résidu en une singularité **essentielle**, et $f$ se construit à partir de DSE connus ($e^u$, $\sin u$, $\frac1{1-u}$) par produits et compositions.

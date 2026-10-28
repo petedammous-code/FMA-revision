@@ -6,7 +6,7 @@ title: "Holomorphie d'une intégrale à paramètre (domination locale) et dériv
 ref: Théorème I.9.1
 page: 24
 importance: 3
-depends: [ch01-cauchy-formule-disque, ch01-holomorphe-analytique, ch01-estimees-cauchy, ch01-integrale-sur-cercle]
+depends: [ch01-cauchy-formule-disque, ch01-holomorphe-analytique, ch01-serie-entiere-holomorphe, ch01-estimees-cauchy, ch01-integrale-sur-cercle]
 tags: [integrale-parametre, domination, fubini, convergence-dominee, derivation-sous-integrale]
 ---
 ## Intuition

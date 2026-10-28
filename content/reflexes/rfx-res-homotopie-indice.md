@@ -23,7 +23,7 @@ Mots-clés : *homotope dans $\Omega$*, *lacet homotope à un lacet constant*, *i
 **Pièges.** Justifier qu'un point est dans la composante non bornée (par exemple $|z|>\max|\gamma|$, ou un chemin vers l'infini qui évite $\Gamma$). Deux points « du même côté » sur un dessin ne sont pas forcément dans la même composante pour une courbe qui se recoupe.
 
 ### [x] Homotopie explicite, affine ou « chien en laisse » — [[ch02-indice-invariance-homotopie]]
-**Quand.** $\gamma$ est proche d'un lacet simple $\gamma_0$ (typiquement $t\mapsto z_0+re^{int}$) au sens où $|\gamma(t)-\gamma_0(t)|<|\gamma_0(t)-z_0|$ pour **tout** $t$. Alors $H(s,t)=(1-s)\gamma_0(t)+s\gamma(t)$ ne passe jamais par $z_0$ et $\Ind_{z_0}(\gamma)=\Ind_{z_0}(\gamma_0)$. Variante radiale : $H(s,t)=z_0+\frac{\gamma(t)-z_0}{(1-s)+s|\gamma(t)-z_0|}$ ramène $\gamma$ sur le cercle unité centré en $z_0$.
+**Quand.** $\gamma$ est proche d'un lacet $\gamma_0$ dont on connaît l'indice (typiquement $t\mapsto z_0+re^{int}$, d'indice $n$ en $z_0$) au sens où $|\gamma(t)-\gamma_0(t)|<|\gamma_0(t)-z_0|$ pour **tout** $t$. Alors $H(s,t)=(1-s)\gamma_0(t)+s\gamma(t)$ ne passe jamais par $z_0$ et $\Ind_{z_0}(\gamma)=\Ind_{z_0}(\gamma_0)$. Variante radiale : $H(s,t)=z_0+\frac{\gamma(t)-z_0}{(1-s)+s|\gamma(t)-z_0|}$ ramène $\gamma$ sur le cercle unité centré en $z_0$.
 **Justification.** $|H(s,t)-z_0|\ge|\gamma_0(t)-z_0|-s|\gamma(t)-\gamma_0(t)|>0$ ; $H$ est continue, et $H(s,0)=H(s,1)$ pour tout $s$ : c'est une homotopie de lacets dans $\C\setminus\{z_0\}$ (poly, Proposition II.3.4, p. 41).
 **Pièges.** Écrire $H$, vérifier les trois points (continuité, lacet pour chaque $s$, évitement de $z_0$ ou du complémentaire de $\Omega$). Dans un ouvert **convexe**, l'homotopie affine entre deux lacets quelconques convient toujours ; dans un étoilé, contracter vers le centre.
 
@@ -33,7 +33,7 @@ Mots-clés : *homotope dans $\Omega$*, *lacet homotope à un lacet constant*, *i
 **Pièges.** Aucun pôle **sur** $\gamma$. Pour $\Ind_0(f\circ\gamma)$ (lacet image), utiliser $\Ind_0(f\circ\gamma)=\frac1{2i\pi}\int_\gamma\frac{f'}{f}$, puis le principe de l'argument ([[ch02-principe-argument]]).
 
 ### [ ] Théorème de Jordan — [[ch02-jordan-remarque]]
-**Pourquoi ce n'est pas l'outil ici.** Il est **admis** dans le poly, ne concerne que les lacets **simples**, et ne donne ni le signe ni la valeur de l'indice d'un lacet concret. Le poly lui-même dit que l'indice $1$ d'un bord de domaine « est très facile à justifier en déformant $\gamma$ en un cercle » : c'est cette homotopie que le correcteur attend.
+**Pourquoi ce n'est pas l'outil ici.** Il est **admis** dans le poly, ne concerne que les lacets **simples**, et ne donne ni le signe ni la valeur de l'indice d'un lacet concret. Le poly lui-même dit que l'indice $1$ d'un bord de domaine est « très facile à justifier en utilisant l'invariance par homotopie de l'indice et en déformant continûment $\gamma$ en un cercle » (poly, § II.6, p. 48) : c'est cette homotopie que le correcteur attend.
 **Quand il le serait.** Pour savoir qu'un lacet simple sépare le plan en exactement deux composantes, quand l'énoncé autorise à l'utiliser.
 
 ## Démarche
