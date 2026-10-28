@@ -32,7 +32,7 @@ est continue.
 
 Les espaces $\mathcal L(E;F)$, $\mathcal L(E;\mathcal L(E;F))$, $\mathcal L(E;\mathcal L(E;\mathcal L(E;F)))$, etc., sont des espaces vectoriels normés. Ainsi les questions de continuité et de différentiabilité successive de $f$, $df$, $d(df)$, etc., rentrent bien dans le cadre de l'étude.
 
-**Notation.** On note $d^2f=d(df)$, puis $d^kf=d(d^{k-1}f)$ : si $f$ est $C^k$, $d^kf$ est définie et continue sur $U$, à valeurs dans $\mathcal L(E;\mathcal L(E;\cdots\mathcal L(E;F)\cdots))$ ($k$ fois $\mathcal L(E;\cdot)$). Par récurrence immédiate sur la définition, **$f$ est $C^k$ ($k\ge1$) si et seulement si $f$ est différentiable et $df$ est $C^{k-1}$** (pour $k=1$ : « $df$ est $C^0$ » = « $df$ continue »).
+**Notation.** On note $d^2f=d(df)$, puis $d^kf=d(d^{k-1}f)$ : si $f$ est $C^k$, $d^kf$ est définie et continue sur $U$, à valeurs dans $\mathcal L(E;\mathcal L(E;\cdots\mathcal L(E;F)\cdots))$ ($k$ fois $\mathcal L(E;\cdot)$). Directement d'après la définition, **$f$ est $C^k$ ($k\ge1$) si et seulement si $f$ est différentiable sur $U$ et $df$ est $C^{k-1}$** (pour $k=1$ : « $df$ est $C^0$ » = « $df$ continue » ; pour $k\ge2$ c'est la définition même). En itérant : si $f$ est $C^k$, alors $d^jf$ est $C^{k-j}$ pour $0\le j\le k$.
 
 ## Hypothèses
 
@@ -42,7 +42,7 @@ Les espaces $\mathcal L(E;F)$, $\mathcal L(E;\mathcal L(E;F))$, $\mathcal L(E;\m
 
 ### H2 — les espaces itérés sont normés par la norme d'opérateur
 
-**Rôle.** La continuité de $df$ et la différentiabilité de $df$ dépendent du choix de la norme sur $\mathcal L(E;F)$ quand $E$ est de dimension infinie. Le poly utilise toujours la norme d'opérateur. En dimension finie, toutes les normes sur $\mathcal L(E;F)$ sont équivalentes et la question ne se pose pas.
+**Rôle.** La continuité de $df$ et la différentiabilité de $df$ dépendent a priori du choix de la norme sur $\mathcal L(E;F)$ (à équivalence près, [[ch05-differentielle-normes-equivalentes]]) quand $E$ ou $F$ est de dimension infinie. Le poly utilise toujours la norme d'opérateur. Si $E$ et $F$ sont de dimension finie, $\mathcal L(E;F)$ l'est aussi, toutes ses normes sont équivalentes et la question ne se pose pas.
 
 ## Exemples
 

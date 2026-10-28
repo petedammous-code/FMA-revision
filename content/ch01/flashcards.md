@@ -214,7 +214,7 @@ Preuve : inversion locale réelle (la jacobienne est une similitude de rapport $
 ### Q
 Inversion locale holomorphe : que se passe-t-il si $f'(z_0)=0$ ? La conclusion est-elle globale ?
 ### R
-* Si $f'(z_0)=0$ : $f(z)=z^2$ en $z_0=0$ n'est injective sur **aucun** voisinage de $0$ ($z$ et $-z$ ont même image) ; près d'un zéro d'ordre $N\ge2$ de $f'-$ plus précisément quand $f(z)-f(z_0)$ a un zéro d'ordre $N\ge2$ $-$ $f$ se comporte comme $z\mapsto z^N$ et n'est jamais localement injective (Remarque I.14.3).
+* Si $f'(z_0)=0$ : $f(z)=z^2$ en $z_0=0$ n'est injective sur **aucun** voisinage de $0$ ($z$ et $-z$ ont même image). Plus généralement, si $f'(z_0)=0$ et $f$ non constante, $f(z)-f(z_0)$ a en $z_0$ un zéro d'ordre $N\ge2$, $f$ se comporte comme $z\mapsto z^N$ et n'est injective sur aucun voisinage de $z_0$ (Remarque I.14.3).
 * Seulement **locale** : $\exp$ vérifie $\exp'=\exp\neq0$ partout mais n'est pas injective sur $\C$ ($e^{z+2i\pi}=e^z$).
 
 ## CARD id=fc-ch01-027 ref=ch01-exp-image-c-etoile-log-local tags=enonce
@@ -660,7 +660,7 @@ $$z\mapsto e^{i\theta}\,\frac{z-a}{1-\bar az},\qquad a\in D,\ \theta\in\R.$$
 ### Q
 Pourquoi faut-il $a\in D$ et $|\lambda|=1$ ? Une surjection holomorphe de $D$ sur $D$ est-elle un automorphisme ?
 ### R
-* $|a|>1$ : $f_a$ a un pôle en $1/\bar a\in D$, donc n'est pas holomorphe sur $D$ ; $|a|=1$ : $f_a(z)=\frac{z-a}{1-\bar az}=-a\cdot\frac{z-a}{az\cdot\bar a\cdot a^{-1}\ldots}$ dégénère, en fait $1-\bar az=-\bar a(z-a)$ et $f_a\equiv-1/\bar a$ est constante.
+* $|a|>1$ : $f_a$ a un pôle en $1/\bar a\in D$, donc n'est pas holomorphe sur $D$. $|a|=1$ : $1/\bar a=a$, donc $1-\bar az=-\bar a(z-a)$ et $f_a\equiv-1/\bar a=-a$ est constante (hors de $z=a$).
 * $|\lambda|\neq1$ : $\lambda f_a(D)=D(0,|\lambda|)\neq D$.
 * $z\mapsto z^2$ envoie $D$ **sur** $D$ mais n'est pas injective : ce n'est pas un automorphisme (et ce n'est pas de la forme $\lambda f_a$).
 

@@ -6,7 +6,7 @@ title: "$|f|$ et $\bar f$ ne sont (essentiellement) jamais holomorphes"
 ref: Remarque I.3.6
 page: 13
 importance: 2
-depends: [ch01-cauchy-riemann, ch01-formulaire-dz-dzbar, ch01-holomorphe-ssi-c1-et-dzbar-nul, ch01-def-holomorphe]
+depends: [ch01-cauchy-riemann, ch01-formulaire-dz-dzbar, ch01-holomorphe-ssi-c1-et-dzbar-nul, ch01-def-holomorphe, ch01-stabilite-operations]
 tags: [conjugaison, module, rigidite, cauchy-riemann, connexite]
 ---
 ## Intuition

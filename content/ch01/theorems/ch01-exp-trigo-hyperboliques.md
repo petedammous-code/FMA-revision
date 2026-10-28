@@ -67,7 +67,7 @@ $$
 $$
 e^{z_1}e^{z_2}=\sum_{n\ge0}\sum_{k=0}^n\frac{z_1^k}{k!}\frac{z_2^{n-k}}{(n-k)!}=\sum_{n\ge0}\frac1{n!}\sum_{k=0}^n\binom nk z_1^kz_2^{n-k}=\sum_{n\ge0}\frac{(z_1+z_2)^n}{n!}=e^{z_1+z_2}.
 $$
-*Variante :* à $c\in\C$ fixé, $g(z)=e^ze^{c-z}$ vérifie $g'(z)=e^ze^{c-z}-e^ze^{c-z}=0$ (étape 1 et règle de la chaîne), donc $g$ est constante sur le connexe $\C$, égale à $g(0)=e^c$.
+*Variante :* à $c\in\C$ fixé, $g(z)=e^ze^{c-z}$ vérifie $g'(z)=e^ze^{c-z}-e^ze^{c-z}=0$ (étape 1 et règle de la chaîne), donc $g$ est constante sur le connexe $\C$ (différentielle nulle sur un ouvert connexe, [[ch05-differentielle-nulle-constante]]), égale à $g(0)=e^c$.
 
 En particulier $e^ze^{-z}=e^0=1$ : $\exp$ ne s'annule pas sur $\C$.
 
@@ -87,7 +87,7 @@ Enfin $-i\tan(iz)=\frac{-i\sin(iz)}{\cos(iz)}=\frac{\sinh z}{\cosh z}=\tanh z$.
 
 **Étape 4 : zéros, donc domaines.** *Lemme : $e^w=1\iff w\in2i\pi\Z$.* Écrivons $w=x+iy$, $x,y\in\R$. Par l'étape 2, $e^w=e^xe^{iy}$. Pour $y$ réel, $\cos y$ et $\sin y$ (définis ci-dessus) sont réels et coïncident avec les fonctions réelles usuelles (mêmes séries), et $e^{iy}=\cos y+i\sin y$ (somme des définitions). Donc $|e^w|=e^x|e^{iy}|=e^x\sqrt{\cos^2y+\sin^2y}=e^x$. Si $e^w=1$ : $e^x=1$, donc $x=0$, puis $\cos y=1$ et $\sin y=0$, donc $y\in2\pi\Z$. Réciproquement $e^{2ik\pi}=\cos(2k\pi)+i\sin(2k\pi)=1$.
 
-Alors $\cos z=0\iff e^{iz}=-e^{-iz}\iff e^{2iz}=-1=e^{i\pi}\iff e^{2iz-i\pi}=1\iff 2iz-i\pi\in2i\pi\Z\iff z\in\frac\pi2+\pi\Z$. De même, $\cosh z=\cos(iz)=0\iff z\in i\frac\pi2+i\pi\Z$. Ces ensembles sont fermés (discrets), leurs complémentaires sont des ouverts, et ce sont les domaines annoncés. $\square$
+Alors $\cos z=0\iff e^{iz}=-e^{-iz}\iff e^{2iz}=-1=e^{i\pi}\iff e^{2iz-i\pi}=1\iff 2iz-i\pi\in2i\pi\Z\iff z\in\frac\pi2+\pi\Z$. De même, $\cosh z=\cos(iz)=0\iff z\in i\frac\pi2+i\pi\Z$. Ces ensembles sont fermés (ils n'ont aucun point d'accumulation : deux points distincts sont à distance $\ge\pi$), leurs complémentaires sont donc des ouverts, et ce sont les domaines annoncés. $\square$
 
 ## Preuve à trous
 

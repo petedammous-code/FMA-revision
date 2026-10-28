@@ -29,7 +29,7 @@ Un biholomorphisme d'un ouvert $\Omega$ de $\C$ sur lui-même est appelé un **a
 
 ### H1 — $\Omega_1$ et $\Omega_2$ sont des **ouverts**
 
-L'holomorphie de $h$ et de $h^{-1}$ n'a de sens que sur des ouverts ($\C$-dérivabilité en un point = limite d'un taux d'accroissement pour $\omega\to0$ dans toutes les directions). Si $h$ est holomorphe sur $\Omega_1$ et injective, son image $h(\Omega_1)$ est d'ailleurs automatiquement ouverte lorsque $h$ n'est constante sur aucune composante connexe (théorème de l'application ouverte, [[ch01-application-ouverte]]).
+L'holomorphie de $h$ et de $h^{-1}$ n'a de sens que sur des ouverts ($\C$-dérivabilité en un point = limite d'un taux d'accroissement pour $\omega\to0$ dans toutes les directions). Si $h$ est holomorphe sur $\Omega_1$ et injective, son image $h(\Omega_1)$ est d'ailleurs automatiquement ouverte : $h$, injective, n'est constante sur aucune composante connexe de $\Omega_1$ (ce sont des ouverts non vides, donc infinis), et le théorème de l'application ouverte ([[ch01-application-ouverte]]) s'applique.
 
 ### H2 — $h$ est **surjective** sur $\Omega_2$
 
