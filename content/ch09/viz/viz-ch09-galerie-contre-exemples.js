@@ -114,7 +114,9 @@ FMA.registerViz({
       for (let i = 0; i < n; i++) {
         if (!inside[i]) continue; const s = f[i];
         if (i + 1 < n && inside[i + 1] && f[i + 1].poly === s.poly) uni(i, i + 1);
-        const kx = Math.round(s.x * 1e6) + 0, ky = Math.round(s.y * 1e6) + 0, ks = kx + ',' + ky;
+        // points confondus (point double de la boucle, centre de la croix, fermeture du cercle) : clé à 1e-9 près,
+        // assez fine pour ne pas confondre les deux branches du rebroussement près de (0,0) (distantes de ~1e-7)
+        const kx = Math.round(s.x * 1e9) + 0, ky = Math.round(s.y * 1e9) + 0, ks = kx + ',' + ky;
         if (seen.has(ks)) uni(i, seen.get(ks)); else seen.set(ks, i);
       }
       for (const [a, b] of data.glue) if (inside[a] && inside[b]) uni(a, b);
@@ -231,8 +233,8 @@ FMA.registerViz({
       else if (k === 1) { msg = '1 composante ≠ 2 : impossible en dimension 1 (un intervalle ouvert privé d’un point en a 2). Compatible a priori avec m ≥ 2, mais alors S devrait aussi « ressembler » à ℝ^m aux points voisins : glissez p, le compte y vaut 2.'; col = '#d03030'; }
       else { msg = k + ' composante' + (k > 1 ? 's' : '') + ' ≠ 2 : impossible en dimension 1 (un intervalle ouvert privé d’un point en a 2) ; en dimension ≥ 2 il en faudrait 1, en dimension 0 aucune.'; col = '#d03030'; }
       if (key === 'cercle' && k !== 2) { msg = k + ' composante' + (k > 1 ? 's' : '') + ' : ρ est trop grand, le disque contient le cercle entier. Le test ne vaut que pour ρ assez petit (réduisez ρ : on retrouve 2).'; col = '#b26a00'; }
-      if (key === 'cusp' && Math.abs(p.t) < 1e-12) { msg = '2 composantes (test réussi) mais x′(0) = (0,0) : dx_0 n’est pas injective, la condition 3 échoue pour ce paramétrage (et pour tout autre, Exercice IX.2.13).'; col = '#d03030'; }
-      else if (key === 'cusp' && Math.hypot(p.vx, p.vy) < 0.15) { msg = '2 composantes ; |x′(t)| → 0 à l’approche de (0,0). En p ≠ (0,0), x′(t) ≠ 0 et S est bien une sous-variété près de p ; c’est en (0,0) seulement que la condition 3 échoue.'; col = '#b26a00'; }
+      if (key === 'cusp' && Math.abs(p.t) < 1e-12 && k === 2) { msg = '2 composantes (test réussi) mais x′(0) = (0,0) : dx_0 n’est pas injective, la condition 3 échoue pour ce paramétrage (et pour tout autre, Exercice IX.2.13).'; col = '#d03030'; }
+      else if (key === 'cusp' && Math.hypot(p.vx, p.vy) < 0.15 && k === 2) { msg = '2 composantes ; |x′(t)| → 0 à l’approche de (0,0). En p ≠ (0,0), x′(t) ≠ 0 et S est bien une sous-variété près de p ; c’est en (0,0) seulement que la condition 3 échoue.'; col = '#b26a00'; }
       verdict.textContent = msg; verdict.style.color = col;
     }
 

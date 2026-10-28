@@ -4110,7 +4110,9 @@ FMA.registerViz({
       for (let i = 0; i < n; i++) {
         if (!inside[i]) continue; const s = f[i];
         if (i + 1 < n && inside[i + 1] && f[i + 1].poly === s.poly) uni(i, i + 1);
-        const kx = Math.round(s.x * 1e6) + 0, ky = Math.round(s.y * 1e6) + 0, ks = kx + ',' + ky;
+        // points confondus (point double de la boucle, centre de la croix, fermeture du cercle) : clé à 1e-9 près,
+        // assez fine pour ne pas confondre les deux branches du rebroussement près de (0,0) (distantes de ~1e-7)
+        const kx = Math.round(s.x * 1e9) + 0, ky = Math.round(s.y * 1e9) + 0, ks = kx + ',' + ky;
         if (seen.has(ks)) uni(i, seen.get(ks)); else seen.set(ks, i);
       }
       for (const [a, b] of data.glue) if (inside[a] && inside[b]) uni(a, b);
@@ -4227,8 +4229,8 @@ FMA.registerViz({
       else if (k === 1) { msg = '1 composante ≠ 2 : impossible en dimension 1 (un intervalle ouvert privé d’un point en a 2). Compatible a priori avec m ≥ 2, mais alors S devrait aussi « ressembler » à ℝ^m aux points voisins : glissez p, le compte y vaut 2.'; col = '#d03030'; }
       else { msg = k + ' composante' + (k > 1 ? 's' : '') + ' ≠ 2 : impossible en dimension 1 (un intervalle ouvert privé d’un point en a 2) ; en dimension ≥ 2 il en faudrait 1, en dimension 0 aucune.'; col = '#d03030'; }
       if (key === 'cercle' && k !== 2) { msg = k + ' composante' + (k > 1 ? 's' : '') + ' : ρ est trop grand, le disque contient le cercle entier. Le test ne vaut que pour ρ assez petit (réduisez ρ : on retrouve 2).'; col = '#b26a00'; }
-      if (key === 'cusp' && Math.abs(p.t) < 1e-12) { msg = '2 composantes (test réussi) mais x′(0) = (0,0) : dx_0 n’est pas injective, la condition 3 échoue pour ce paramétrage (et pour tout autre, Exercice IX.2.13).'; col = '#d03030'; }
-      else if (key === 'cusp' && Math.hypot(p.vx, p.vy) < 0.15) { msg = '2 composantes ; |x′(t)| → 0 à l’approche de (0,0). En p ≠ (0,0), x′(t) ≠ 0 et S est bien une sous-variété près de p ; c’est en (0,0) seulement que la condition 3 échoue.'; col = '#b26a00'; }
+      if (key === 'cusp' && Math.abs(p.t) < 1e-12 && k === 2) { msg = '2 composantes (test réussi) mais x′(0) = (0,0) : dx_0 n’est pas injective, la condition 3 échoue pour ce paramétrage (et pour tout autre, Exercice IX.2.13).'; col = '#d03030'; }
+      else if (key === 'cusp' && Math.hypot(p.vx, p.vy) < 0.15 && k === 2) { msg = '2 composantes ; |x′(t)| → 0 à l’approche de (0,0). En p ≠ (0,0), x′(t) ≠ 0 et S est bien une sous-variété près de p ; c’est en (0,0) seulement que la condition 3 échoue.'; col = '#b26a00'; }
       verdict.textContent = msg; verdict.style.color = col;
     }
 
@@ -4556,7 +4558,7 @@ et le plan qu'ils engendrent est l'**espace tangent** $T_pS=dx_q(\mathbb R^2)$ (
     function syncSliders() {
       const S = SURF[cur];
       su.input.min = S.u0; su.input.max = S.u1; sv.input.min = S.v0; sv.input.max = S.v1;
-      su.input.step = (S.u1 - S.u0) / 200 * (1 - 1e-6); sv.input.step = (S.v1 - S.v0) / 200 * (1 - 1e-6);
+      su.input.step = (S.u1 - S.u0) / 200; sv.input.step = (S.v1 - S.v0) / 200;
       su.value = q[0]; sv.value = q[1];
     }
     syncSliders();
@@ -4630,7 +4632,7 @@ et le plan qu'ils engendrent est l'**espace tangent** $T_pS=dx_q(\mathbb R^2)$ (
       ctx.fillText('ouvert U ⊂ ℝ²', bx0 + 6, by1 + 4);
       // point q
       const A = currentArea();
-      ctx.fillStyle = A < 1e-6 ? '#d03030' : A < 0.1 ? '#b26a00' : t.accent4; ctx.strokeStyle = t.bg; ctx.lineWidth = 2;
+      ctx.fillStyle = A < 1e-5 ? '#d03030' : A < 0.1 ? '#b26a00' : t.accent4; ctx.strokeStyle = t.bg; ctx.lineWidth = 2;
       ctx.beginPath(); ctx.arc(px(q[0]), py(q[1]), 7, 0, 2 * PI); ctx.fill(); ctx.stroke();
       ctx.fillStyle = t.fg; ctx.textAlign = 'left'; ctx.textBaseline = 'bottom'; ctx.fillText('q', px(q[0]) + 9, py(q[1]) - 6);
       ctx.restore();
@@ -4705,9 +4707,9 @@ et le plan qu'ils engendrent est l'**espace tangent** $T_pS=dx_q(\mathbb R^2)$ (
       }
       // point p
       const A = currentArea();
-      ctx.fillStyle = A < 1e-6 ? '#d03030' : A < 0.1 ? '#b26a00' : t.accent4; ctx.strokeStyle = t.bg; ctx.lineWidth = 2;
+      ctx.fillStyle = A < 1e-5 ? '#d03030' : A < 0.1 ? '#b26a00' : t.accent4; ctx.strokeStyle = t.bg; ctx.lineWidth = 2;
       ctx.beginPath(); ctx.arc(sp[0], sp[1], 6, 0, 2 * PI); ctx.fill(); ctx.stroke();
-      ctx.fillStyle = t.fg; ctx.textBaseline = 'bottom'; ctx.fillText('p = x(q)', sp[0] + 9, sp[1] - 6);
+      ctx.fillStyle = t.fg; ctx.textBaseline = 'top'; ctx.textAlign = 'right'; ctx.fillText('p = x(q)', sp[0] - 9, sp[1] + 6); ctx.textAlign = 'left';
       ctx.fillStyle = t.muted; ctx.textBaseline = 'top'; ctx.textAlign = 'left'; ctx.fillText('S ⊂ ℝ³  (glisser pour tourner)', 8, 6);
     }
 
@@ -4717,7 +4719,7 @@ et le plan qu'ils engendrent est l'**espace tangent** $T_pS=dx_q(\mathbb R^2)$ (
       const p = SURF[cur].f(q[0], q[1]);
       const f2 = a => a.map(z => (+z.toFixed(2)).toString()).join(', ');
       ro.set(`q = (${q[0].toFixed(2)}, ${q[1].toFixed(2)}) &nbsp; p = (${f2(p)}) &nbsp; |x<sub>u</sub>×x<sub>v</sub>| = ${A.toFixed(3)}`);
-      if (A < 1e-6) {
+      if (A < 1e-5) {
         warn.style.color = '#d03030';
         warn.textContent = 'Ici dx_q n’est PAS injective (' + (SURF[cur].warn || 'x_u et x_v colinéaires') + ') : x n’est pas un paramétrage local en ce point, et dx_q(ℝ²) n’est pas un plan.' + (cur === 'sphere' ? ' La sphère a pourtant un plan tangent (horizontal) au pôle : c’est ce paramétrage qui est en défaut, pas la surface.' : cur === 'cone' ? ' Le cône n’est pas une sous-variété au sommet (Exercice IX.7.12).' : '');
       } else if (A < 0.1) {

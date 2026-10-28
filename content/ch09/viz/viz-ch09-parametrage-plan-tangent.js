@@ -65,7 +65,7 @@ et le plan qu'ils engendrent est l'**espace tangent** $T_pS=dx_q(\mathbb R^2)$ (
     function syncSliders() {
       const S = SURF[cur];
       su.input.min = S.u0; su.input.max = S.u1; sv.input.min = S.v0; sv.input.max = S.v1;
-      su.input.step = (S.u1 - S.u0) / 200 * (1 - 1e-6); sv.input.step = (S.v1 - S.v0) / 200 * (1 - 1e-6);
+      su.input.step = (S.u1 - S.u0) / 200; sv.input.step = (S.v1 - S.v0) / 200;
       su.value = q[0]; sv.value = q[1];
     }
     syncSliders();
@@ -139,7 +139,7 @@ et le plan qu'ils engendrent est l'**espace tangent** $T_pS=dx_q(\mathbb R^2)$ (
       ctx.fillText('ouvert U ⊂ ℝ²', bx0 + 6, by1 + 4);
       // point q
       const A = currentArea();
-      ctx.fillStyle = A < 1e-6 ? '#d03030' : A < 0.1 ? '#b26a00' : t.accent4; ctx.strokeStyle = t.bg; ctx.lineWidth = 2;
+      ctx.fillStyle = A < 1e-5 ? '#d03030' : A < 0.1 ? '#b26a00' : t.accent4; ctx.strokeStyle = t.bg; ctx.lineWidth = 2;
       ctx.beginPath(); ctx.arc(px(q[0]), py(q[1]), 7, 0, 2 * PI); ctx.fill(); ctx.stroke();
       ctx.fillStyle = t.fg; ctx.textAlign = 'left'; ctx.textBaseline = 'bottom'; ctx.fillText('q', px(q[0]) + 9, py(q[1]) - 6);
       ctx.restore();
@@ -214,9 +214,9 @@ et le plan qu'ils engendrent est l'**espace tangent** $T_pS=dx_q(\mathbb R^2)$ (
       }
       // point p
       const A = currentArea();
-      ctx.fillStyle = A < 1e-6 ? '#d03030' : A < 0.1 ? '#b26a00' : t.accent4; ctx.strokeStyle = t.bg; ctx.lineWidth = 2;
+      ctx.fillStyle = A < 1e-5 ? '#d03030' : A < 0.1 ? '#b26a00' : t.accent4; ctx.strokeStyle = t.bg; ctx.lineWidth = 2;
       ctx.beginPath(); ctx.arc(sp[0], sp[1], 6, 0, 2 * PI); ctx.fill(); ctx.stroke();
-      ctx.fillStyle = t.fg; ctx.textBaseline = 'bottom'; ctx.fillText('p = x(q)', sp[0] + 9, sp[1] - 6);
+      ctx.fillStyle = t.fg; ctx.textBaseline = 'top'; ctx.textAlign = 'right'; ctx.fillText('p = x(q)', sp[0] - 9, sp[1] + 6); ctx.textAlign = 'left';
       ctx.fillStyle = t.muted; ctx.textBaseline = 'top'; ctx.textAlign = 'left'; ctx.fillText('S ⊂ ℝ³  (glisser pour tourner)', 8, 6);
     }
 
@@ -226,7 +226,7 @@ et le plan qu'ils engendrent est l'**espace tangent** $T_pS=dx_q(\mathbb R^2)$ (
       const p = SURF[cur].f(q[0], q[1]);
       const f2 = a => a.map(z => (+z.toFixed(2)).toString()).join(', ');
       ro.set(`q = (${q[0].toFixed(2)}, ${q[1].toFixed(2)}) &nbsp; p = (${f2(p)}) &nbsp; |x<sub>u</sub>×x<sub>v</sub>| = ${A.toFixed(3)}`);
-      if (A < 1e-6) {
+      if (A < 1e-5) {
         warn.style.color = '#d03030';
         warn.textContent = 'Ici dx_q n’est PAS injective (' + (SURF[cur].warn || 'x_u et x_v colinéaires') + ') : x n’est pas un paramétrage local en ce point, et dx_q(ℝ²) n’est pas un plan.' + (cur === 'sphere' ? ' La sphère a pourtant un plan tangent (horizontal) au pôle : c’est ce paramétrage qui est en défaut, pas la surface.' : cur === 'cone' ? ' Le cône n’est pas une sous-variété au sommet (Exercice IX.7.12).' : '');
       } else if (A < 0.1) {

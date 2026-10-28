@@ -38,3 +38,27 @@ node tools/build.mjs            # compile et vérifie le format (erreurs → cod
 node tools/build.mjs --check content/ch01/theorems   # vérifie seulement un dossier
 node tools/check_site.cjs --all  # test de rendu de toutes les pages (Playwright)
 ```
+
+## Contenu et méthode de fabrication
+
+| Chapitre | Fiches | Exercices | Flashcards | Visualisations |
+|---|---|---|---|---|
+| I. Fonctions holomorphes | 62 | 10 | 91 | 2 |
+| II. Formule des résidus | 42 | 10 | 70 | 3 |
+| III. Suites, séries et produits | 25 | 10 | 63 | 3 |
+| IV. Applications | 16 | 10 | 56 | 3 |
+| V. Calcul différentiel dans les evn | 47 | 10 | 69 | 3 |
+| VI. Inversion locale, fonctions implicites | 19 | 10 | 66 | 3 |
+| VII. Équations différentielles | 23 | 10 | 60 | 3 |
+| VIII. Calcul des variations | 20 | 4 | 27 | 2 |
+| IX. Sous-variétés | 64 | 10 | 109 | 3 |
+
+Plus 40 fiches **Réflexes** (situation → outil) et 16 problèmes **mixtes** croisant holomorphie et calcul différentiel
+(dans le mode Problème inconnu).
+
+Chaque unité (lot de fiches, lot d'exercices, jeu de flashcards, visualisations) a été rédigée par un agent, puis
+relue par un **autre** agent, indépendant, qui a comparé chaque énoncé au texte du poly (numéros et pages),
+refait les preuves étape par étape, recalculé les contre-exemples et, pour les exercices, résolu l'énoncé seul
+avant de confronter sa solution au corrigé (vérifications numériques en sympy/mpmath). Les corrections ont été faites
+en place ; les points où une fiche complète ou corrige le poly sont signalés dans la fiche elle-même.
+Les annales n'ont servi qu'à calibrer difficulté et durée (`content/map/calibration.md`) : aucun sujet n'est repris.
