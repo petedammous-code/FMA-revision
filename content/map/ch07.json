@@ -70,7 +70,7 @@
         "$I$ intervalle ouvert non vide",
         "$X$ continue",
         "$J\\subset I$ intervalle ouvert",
-        "$\\alpha$ de classe $C^p$ ($p\\ge1$)"
+        "$\\alpha$ de classe $C^p$ (le poly ne précise pas $p$ ; implicitement $p\\ge1$ pour que $\\alpha'$ existe)"
       ],
       "depends_on": [],
       "used_by_hint": "Vocabulaire de tout le chapitre : une solution de (VII.1.2) est une courbe intégrale de $X$.",
@@ -108,7 +108,7 @@
       "ref": "non numéroté, section VII.2, p. 128",
       "title": "Champ localement lipschitzien en la seconde variable",
       "page": 128,
-      "statement": "Soit $X : I\\times U\\to E$ un champ de vecteurs. L'hypothèse **localement lipschitzien en la seconde variable** signifie que quel que soit $t_0\\in I$, quel que soit $x_0\\in U$, il existe un voisinage $J_0$ de $t_0$ dans $I$, un voisinage $U_0$ de $x_0$ dans $U$ et une constante $k\\ge0$ tels que quels que soient $t\\in J_0$ et $x_1,x_2\\in U_0$,\n$$\\|X(t,x_1)-X(t,x_2)\\|_E \\le k\\,\\|x_1-x_2\\|_E.$$\n(La constante $k$ est donc uniforme en $t\\in J_0$.)",
+      "statement": "Soit $X : I\\times U\\to E$ un champ de vecteurs. L'hypothèse **localement lipschitzien en la seconde variable** signifie que quel que soit $t_0\\in I$, quel que soit $x_0\\in U$, il existe un voisinage $J_0$ de $t_0$ dans $I$, un voisinage $U_0$ de $x_0$ dans $U$ (le poly écrit « de $x$ », coquille) et une constante $k\\ge0$ tels que quels que soient $t\\in J_0$ et $x_1,x_2\\in U_0$,\n$$\\|X(t,x_1)-X(t,x_2)\\|_E \\le k\\,\\|x_1-x_2\\|_E.$$\n(La constante $k$ est donc uniforme en $t\\in J_0$.)",
       "hypotheses": [
         "uniformité locale en $t$ de la constante $k$",
         "pas d'hypothèse de régularité en $t$ au-delà de la continuité de $X$"
@@ -136,6 +136,7 @@
         "$X$ localement lipschitzienne en la seconde variable"
       ],
       "depends_on": [
+        "Formule (VII.2.2)",
         "Lemme VII.2.7",
         "Théorème VI.1.1",
         "Remarque VII.2.2"
@@ -306,7 +307,7 @@
         "Exercice V.6.6",
         "Théorème VII.2.1"
       ],
-      "used_by_hint": "Reformulé en Théorème VII.2.12 (flot local) ; la régularité $C^p$ du flot global (Théorème VII.3.9 b.) en découle. La condition initiale $x$ et l'instant initial $t_0$ sont traités comme des paramètres.",
+      "used_by_hint": "Reformulé en Théorème VII.2.12 (flot local) ; la régularité $C^p$ du flot global (Théorème VII.3.9 b.) en découle. La condition initiale $x$ et l'instant initial $t_0$ sont traités comme des paramètres. (Le Théorème VII.2.1 figure dans depends_on car la preuve renvoie à « la démonstration précédente » pour le choix uniforme des constantes $a',k,\\ell$ et parce que l'unicité parmi toutes les solutions, et non seulement parmi les points fixes à valeurs dans $\\bar B(x_0,2\\eta)$, repose sur l'argument de connexité de VII.2.1.)",
       "importance": 3,
       "proof_in_poly": "full",
       "proof_length": "long",
@@ -403,7 +404,7 @@
       "ref": "Remarque VII.2.13",
       "title": "Cas sans paramètre $\\lambda$",
       "page": 133,
-      "statement": "Souvent on étudie des équations différentielles où le champ de vecteurs est sans dépendance en un paramètre $\\lambda$. On reformule facilement les résultats précédents (Théorèmes VII.2.8, VII.2.12, Définition VII.2.9) sans cette dépendance : un flot local en $(\\tau_0,x_0)$ est alors la donnée de $J$, $\\epsilon$, $U'$ et $F : \\mathcal E(J,\\epsilon)\\times U'\\to U$, $(t_0,t,x)\\mapsto\\alpha_{t_0,x}(t)$.",
+      "statement": "Souvent nous voulons étudier des équations différentielles où le champ de vecteurs est sans dépendance en un paramètre $\\lambda$. On reformule facilement les résultats précédents sans cette dépendance.\n\n(Glose, hors poly : un flot local en $(\\tau_0,x_0)$ est alors la donnée de $J$, $\\epsilon$, $U'$ et $F : \\mathcal E(J,\\epsilon)\\times U'\\to U$, $(t_0,t,x)\\mapsto\\alpha_{t_0,x}(t)$ ; c'est le cadre adopté dans toute la section VII.3.)",
       "hypotheses": [],
       "depends_on": [
         "Théorème VII.2.12"
@@ -507,15 +508,15 @@
       "statement": "Soit $U$ un ouvert d'un espace de Banach $E$. Soit $X : U\\to E$ un champ de vecteurs qui ne dépend pas du temps et lipschitzien. Soient $x_0\\in U$ et $\\alpha$ la courbe intégrale maximale de condition initiale $x_0$ définie sur l'intervalle $J(x_0)$. Soit $t_1\\in J(x_0)$. Alors la courbe intégrale\n$$\\beta : J(x_0)-t_1\\to U,\\qquad t\\mapsto\\beta(t)=\\alpha(t+t_1)$$\nest la courbe intégrale maximale de $X$ de condition initiale $x_1=\\alpha(t_1)$ (c'est-à-dire $J(\\alpha(t_1))=J(x_0)-t_1$ et $\\alpha_{x_1}(t)=\\alpha_{x_0}(t+t_1)$).",
       "hypotheses": [
         "$X$ autonome (ne dépend pas de $t$) : c'est ce qui rend $t\\mapsto\\alpha(t+t_1)$ encore courbe intégrale",
-        "$X$ lipschitzien (le poly écrit « lipschitzien » ; localement lipschitzien suffit pour l'unicité utilisée)",
+        "$X$ lipschitzien (le poly écrit « lipschitzien » ; localement lipschitzien suffit, la preuve n'utilisant que l'unicité VII.3.1 et la maximalité VII.3.3)",
         "$t_1\\in J(x_0)$"
       ],
       "depends_on": [
         "Proposition VII.3.1",
         "Définition VII.3.3"
       ],
-      "used_by_hint": "Remarque VII.3.6 (propriété de groupe (VII.3.1)) ; preuve du lemme des bouts VII.3.10 ($t\\mapsto\\beta(t+b-\\epsilon)$ est une courbe intégrale) ; exercice VII.4.5 (homogénéité $\\phi(\\lambda t,a)=\\phi(t,\\lambda a)$).",
-      "importance": 2,
+      "used_by_hint": "Remarque VII.3.6 (propriété de groupe (VII.3.1)) ; preuve du lemme des bouts VII.3.10 ($t\\mapsto\\beta(t+b-\\epsilon)$ est une courbe intégrale) ; exercice VII.4.5 (homogénéité $\\phi(\\lambda t,a)=\\phi(t,\\lambda a)$). Preuve (absente du poly) : $\\beta$ est une courbe intégrale car $X$ est autonome, de condition initiale $(0,x_1)$, donc $J(x_0)-t_1\\subset J(x_1)$ ; réciproquement $t\\mapsto\\alpha_{x_1}(t-t_1)$ est une courbe intégrale valant $x_1=\\alpha(t_1)$ en $t_1$, donc coïncide avec $\\alpha$ (Proposition VII.3.1) et se recolle à elle : $J(x_1)+t_1\\subset J(x_0)$ par maximalité.",
+      "importance": 3,
       "proof_in_poly": "none",
       "proof_length": "short",
       "counterexample_hints": [
@@ -555,11 +556,13 @@
       "page": 135,
       "statement": "Soit $X : I\\times U\\to E$ un champ de vecteurs dépendant du temps, localement lipschitzien en la seconde variable, de flot global $F$. Soit $(t_0,x)\\in I\\times U$. Supposons que $s$ et $s+t$ soient dans $J_{t_0}(x)$. On a alors\n$$F(t_0,s+t,x)=F\\big(s,s+t,F(t_0,s,x)\\big).$$",
       "hypotheses": [
+        "$X : I\\times U\\to E$ localement lipschitzien en la seconde variable, $F$ son flot global (Définition VII.3.4)",
         "$s\\in J_{t_0}(x)$ et $s+t\\in J_{t_0}(x)$",
-        "$X$ localement lipschitzien en la seconde variable (unicité)"
+        "le membre de droite est bien défini : $u\\mapsto F(t_0,u,x)$ est une courbe intégrale passant par $(s,F(t_0,s,x))$, donc $J_{t_0}(x)\\subset J_s(F(t_0,s,x))$ par maximalité (Définition VII.3.3)"
       ],
       "depends_on": [
-        "Proposition VII.3.1"
+        "Proposition VII.3.1",
+        "Définition VII.3.3"
       ],
       "used_by_hint": "Corollaire VII.3.8 ; étape clé de la preuve de VII.3.9 (A fermé) : $F(t_0,t+s,x)=F(t,t+s,F(t_0,t,x))$ pour $|s|<2\\epsilon_1$.",
       "importance": 2,
@@ -648,7 +651,8 @@
       "depends_on": [
         "Théorème VII.2.12",
         "Proposition VII.3.1",
-        "Définition VII.3.3"
+        "Définition VII.3.3",
+        "Théorème VII.3.5"
       ],
       "used_by_hint": "Outil standard pour prouver qu'une solution est globale : trouver une quantité conservée ou une estimation a priori qui confine la trajectoire dans un compact (exercices VII.4.6 : $\\alpha(t)$ orthogonale donc bornée ; VII.4.13 (5) : lignes de niveau de l'énergie compactes ; VII.4.3 (iv)). En dimension infinie, « borné » n'implique pas « dans un compact » : il faut alors une autre borne (Gronwall, VII.4.2).",
       "importance": 3,
@@ -891,6 +895,21 @@
     {
       "symbol": "$\\partial_t u$, $\\partial_x$, $\\partial_{xx}u$",
       "meaning": "dérivées partielles (équations de transport et de Korteweg-de-Vries, exercices VII.4.12-13)",
+      "page": 141
+    },
+    {
+      "symbol": "$\\mathcal Y(A,B)=(BA,0)$",
+      "meaning": "champ de vecteurs autonome sur $M_n(K)\\times M_n(K)$ dont le flot contient $t\\mapsto\\exp(tA)$ ; sert à montrer que $\\exp$ est $C^\\infty$ (exercice VII.4.3 (3))",
+      "page": 138
+    },
+    {
+      "symbol": "$F_t(x)=F(t,x)$, $g_x(t)=\\det(d(F_t)_x)$",
+      "meaning": "difféomorphismes du flot d'un champ autonome défini sur $\\mathbb R\\times U$ et jacobien ; $g_x\\equiv1$ ssi $\\mathrm{Tr}\\,dX_x=0$ (exercice VII.4.8)",
+      "page": 140
+    },
+    {
+      "symbol": "$E(t)=\\tfrac12(Q')^2-\\tfrac12Q^2+\\tfrac1{p+1}Q^{p+1}$",
+      "meaning": "énergie mécanique conservée du système $Q''-Q+Q^p=0$ ; $E(x,y)=\\tfrac12y^2-f(x)$ dans le plan de phase $(Q,Q')$ (exercice VII.4.13)",
       "page": 141
     }
   ],

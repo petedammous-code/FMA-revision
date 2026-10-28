@@ -7,7 +7,7 @@ const nns = argv.filter(a => /^\d\d$/.test(a));
 const map = JSON.parse(fs.readFileSync(path.join(ROOT, 'content/map/map.json'), 'utf8'));
 const FICHE_KINDS = new Set(['definition', 'lemma', 'proposition', 'theorem', 'corollary']);
 const units = [], info = { chapterIds: {}, otherIds: [], ideas: {}, results: {} };
-for (const c of map.chapters) { info.chapterIds[c.nn] = map.results.filter(r => r.chapter === c.num).map(r => r.id); }
+for (const c of map.chapters) if (nns.includes(c.nn)) info.chapterIds[c.nn] = map.results.filter(r => r.chapter === c.num).map(r => r.id);
 info.otherIds = map.results.filter(r => (r.importance || 0) >= 3).map(r => r.id);
 for (const nn of nns) {
   const c = map.chapters.find(x => x.nn === nn); if (!c) { console.error('chapitre absent de map.json : ' + nn); continue; }

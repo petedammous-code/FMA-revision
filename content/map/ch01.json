@@ -1,0 +1,2116 @@
+{
+  "chapter": {
+    "num": 1,
+    "nn": "01",
+    "roman": "I",
+    "title": "Fonctions holomorphes",
+    "printed_pages": [
+      5,
+      34
+    ],
+    "summary": "Le chapitre I introduit les fonctions holomorphes, d'abord comme fonctions $\\C$-dérivables à dérivée continue (Définition I.1.1), puis par les conditions de Cauchy réelles, qui expriment que la différentielle réelle $df_z$ est $\\C$-linéaire, c'est-à-dire $\\partial f/\\partial\\bar z = 0$ (Lemme I.2.1, Proposition I.2.3, Corollaire I.2.4). On construit ensuite des exemples (polynômes, fractions rationnelles, séries entières, exponentielle) et l'on montre que l'inversion locale réelle se transporte au cadre holomorphe (Proposition I.4.4, logarithme local). Après la définition de l'intégrale le long d'un chemin et l'inégalité $|\\int_\\gamma f|\\le \\sup|f|\\,L(\\gamma)$, le cœur du chapitre est la formule intégrale de Cauchy sur un disque (Théorème I.6.1), démontrée par rétraction du cercle sur le point. Elle entraîne aussitôt : holomorphe $\\Leftrightarrow$ analytique (Théorème I.7.4), les estimées de Cauchy et la formule $f^{(n)}(z)=\\frac{n!}{2i\\pi}\\int_{C}\\frac{f(\\omega)}{(\\omega-z)^{n+1}}d\\omega$ (Corollaire I.7.5), l'existence locale de primitives, l'holomorphie des intégrales à paramètre (Théorème I.9.1, fonction $\\Gamma$), Liouville et d'Alembert–Gauss, le principe des zéros isolés et le prolongement analytique (Théorème I.11.1, Corollaire I.11.6), le principe du maximum (Théorème I.12.1, Corollaire I.12.2), le lemme de Schwarz et les automorphismes du disque (Lemme I.13.1, Proposition I.13.3), et le théorème de l'application ouverte (Théorème I.14.1). Les cinq résultats centraux sont : la caractérisation par Cauchy–Riemann, la formule de Cauchy, l'équivalence holomorphe/analytique avec les estimées de Cauchy, le principe des zéros isolés/prolongement analytique et le principe du maximum.",
+    "sections": [
+      {
+        "num": "I.1",
+        "title": "Définition des fonctions holomorphes",
+        "page": 5
+      },
+      {
+        "num": "I.2",
+        "title": "Conditions de Cauchy réelles. $\\C$-dérivabilité",
+        "page": 6
+      },
+      {
+        "num": "I.3",
+        "title": "Premières constructions de fonctions holomorphes",
+        "page": 10
+      },
+      {
+        "num": "I.4",
+        "title": "Biholomorphismes",
+        "page": 13
+      },
+      {
+        "num": "I.5",
+        "title": "Intégration le long d'un chemin",
+        "page": 15
+      },
+      {
+        "num": "I.6",
+        "title": "La formule intégrale de Cauchy",
+        "page": 18
+      },
+      {
+        "num": "I.7",
+        "title": "Fonctions holomorphes vs fonctions analytiques",
+        "page": 20
+      },
+      {
+        "num": "I.8",
+        "title": "Théorèmes de Morera et de Goursat",
+        "page": 23
+      },
+      {
+        "num": "I.9",
+        "title": "Fonctions holomorphes définies par une intégrale",
+        "page": 24
+      },
+      {
+        "num": "I.10",
+        "title": "Théorème de Liouville et conséquences",
+        "page": 26
+      },
+      {
+        "num": "I.11",
+        "title": "Principe des zéros isolés. Prolongement analytique",
+        "page": 27
+      },
+      {
+        "num": "I.12",
+        "title": "Propriété de la moyenne et principe du maximum",
+        "page": 29
+      },
+      {
+        "num": "I.13",
+        "title": "Le lemme de Schwarz et les automorphismes du disque unité",
+        "page": 32
+      },
+      {
+        "num": "I.14",
+        "title": "Théorème de l'application ouverte",
+        "page": 33
+      }
+    ]
+  },
+  "results": [
+    {
+      "id": "ch01-def-c-derivable",
+      "kind": "definition",
+      "ref": "non numéroté, section I.1, p. 5",
+      "title": "Dérivée au sens complexe ($\\C$-dérivabilité) en un point",
+      "page": 5,
+      "statement": "Soit $\\Omega$ un ouvert non vide de $\\C$ et $f:\\Omega\\to\\C$ une fonction continue. On dit que $f$ est **$\\C$-dérivable** (ou **dérivable au sens complexe**) en un point $z\\in\\Omega$ si\n$$\\lim_{\\omega\\to 0}\\frac{f(z+\\omega)-f(z)}{\\omega}$$\nexiste (dans $\\C$). Si tel est le cas, on note $f'(z)$ cette limite, la **dérivée au sens complexe** de $f$ au point $z$.",
+      "hypotheses": [
+        "$\\Omega$ ouvert non vide de $\\C$",
+        "$f$ continue sur $\\Omega$",
+        "la limite du taux d'accroissement existe dans $\\C$ lorsque $\\omega\\to 0$ dans $\\C$ (toutes directions)"
+      ],
+      "depends_on": [],
+      "used_by_hint": "Définition I.1.1 ; Proposition I.2.3 (équivalence avec la $\\C$-linéarité de $df_z$).",
+      "importance": 2,
+      "proof_in_poly": "none",
+      "proof_length": "short",
+      "counterexample_hints": [
+        "$z\\mapsto \\bar z$ : le taux d'accroissement $\\bar\\omega/\\omega$ vaut $1$ sur l'axe réel et $-1$ sur l'axe imaginaire : pas de limite (Exemple I.2.7)."
+      ],
+      "viz_hint": "Taux d'accroissement $\\frac{f(z+\\omega)-f(z)}{\\omega}$ lorsque $\\omega$ parcourt un petit cercle : il est constant pour $f$ holomorphe, il tourne pour $\\bar z$."
+    },
+    {
+      "id": "ch01-def-holomorphe",
+      "kind": "definition",
+      "ref": "Définition I.1.1",
+      "title": "Fonction holomorphe, espace $\\Hol(\\Omega)$",
+      "page": 5,
+      "statement": "Soit $\\Omega$ un ouvert de $\\C$. On dit qu'une fonction continue $f:\\Omega\\to\\C$ est **holomorphe** si elle est $\\C$-dérivable en tout point de $\\Omega$ et si $z\\mapsto f'(z)$ est continue sur $\\Omega$. On note $\\Hol(\\Omega)$ l'espace vectoriel (sur $\\C$) des fonctions holomorphes sur $\\Omega$.",
+      "hypotheses": [
+        "$\\Omega$ ouvert de $\\C$",
+        "$f$ continue",
+        "$f$ $\\C$-dérivable en tout point de $\\Omega$",
+        "$z\\mapsto f'(z)$ continue sur $\\Omega$ (hypothèse de confort, superflue d'après Goursat, Exercice I.8.2)"
+      ],
+      "depends_on": [
+        "non numéroté, section I.1, p. 5"
+      ],
+      "used_by_hint": "Toute la suite ; la continuité de $f'$ sert dans les premières preuves (Remarque I.2.6, Lemme I.5.10, Théorème I.6.1).",
+      "importance": 3,
+      "proof_in_poly": "none",
+      "proof_length": "short",
+      "counterexample_hints": [
+        "$z\\mapsto |z|^2$ est $\\C$-dérivable en $0$ seulement : $\\C$-dérivable en un point isolé n'est pas holomorphe sur un ouvert (Exemple I.2.7).",
+        "$z\\mapsto\\bar z$ est $C^\\infty$ au sens réel mais $\\C$-dérivable nulle part."
+      ],
+      "viz_hint": "Image d'une petite grille par $f$ : pour $f$ holomorphe la grille locale est une similitude (rotation + homothétie), pas pour $\\bar z$."
+    },
+    {
+      "id": "ch01-def-differentiable-r2",
+      "kind": "definition",
+      "ref": "non numéroté, section I.2, p. 6",
+      "title": "Différentiabilité réelle, différentielle $df_{(x,y)}$, matrice jacobienne, classe $C^1$ (formules (I.2.1)–(I.2.3))",
+      "page": 6,
+      "statement": "On identifie $\\C$ à $\\R^2$ par $z\\mapsto (x,y)$, $x=\\Re(z)$, $y=\\Im(z)$, et l'on écrit $f(z)=P(z)+iQ(z)$ avec $P=\\Re(f)$, $Q=\\Im(f)$, soit $f(x,y)=(P(x,y),Q(x,y))$. La fonction $f$ est dite **différentiable** en $(x,y)\\in\\Omega$ s'il existe une application linéaire $df_{(x,y)}:\\R^2\\to\\R^2$ telle que\n$$\\text{(I.2.1)}\\qquad \\lVert f(x+h,y+k)-f(x,y)-df_{(x,y)}(h,k)\\rVert = o(\\lVert (h,k)\\rVert).$$\nCette application est unique ; on l'appelle la **différentielle** de $f$ en $(x,y)$. Dans la base canonique de $\\R^2$ elle a pour matrice\n$$\\text{(I.2.2)}\\qquad \\begin{pmatrix}\\frac{\\partial P}{\\partial x}(x,y) & \\frac{\\partial P}{\\partial y}(x,y)\\\\ \\frac{\\partial Q}{\\partial x}(x,y) & \\frac{\\partial Q}{\\partial y}(x,y)\\end{pmatrix}.$$\n$f$ est de **classe $C^1$** si elle est différentiable en tout point de $\\Omega$ et si $\\frac{\\partial P}{\\partial x},\\frac{\\partial P}{\\partial y},\\frac{\\partial Q}{\\partial x},\\frac{\\partial Q}{\\partial y}$ sont continues sur $\\Omega$. En écrivant $z=x+iy$, $\\omega=s+it$, (I.2.1) se réécrit\n$$\\text{(I.2.3)}\\qquad |f(z+\\omega)-f(z)-df_z(\\omega)| = o(|\\omega|),$$\net l'on voit $df_z$ comme une application $\\R$-linéaire de $\\C$ dans $\\C$.",
+      "hypotheses": [
+        "$\\Omega$ ouvert (pour que $(x+h,y+k)\\in\\Omega$ si $(h,k)$ petit)",
+        "norme euclidienne, mais toute norme équivalente convient"
+      ],
+      "depends_on": [],
+      "used_by_hint": "Lemme I.2.1, Proposition I.2.3 ; c'est la définition du chapitre V en dimension 2.",
+      "importance": 2,
+      "proof_in_poly": "none",
+      "proof_length": "short",
+      "counterexample_hints": [
+        "Existence des dérivées partielles n'implique pas différentiabilité : $f(x,y)=xy/(x^2+y^2)$ prolongée par $0$ en $0$."
+      ],
+      "viz_hint": "Différentielle = meilleure approximation linéaire : zoom sur le graphe/l'image d'une grille autour d'un point."
+    },
+    {
+      "id": "ch01-decomposition-r-lineaire",
+      "kind": "lemma",
+      "ref": "Lemme I.2.1",
+      "title": "Décomposition $L(\\omega)=a\\omega+b\\bar\\omega$ d'une application $\\R$-linéaire de $\\C$",
+      "page": 6,
+      "statement": "Toute application $\\R$-linéaire $L:\\C\\to\\C$ s'écrit de manière unique\n$$L(\\omega)=a\\,\\omega+b\\,\\bar\\omega,\\qquad (\\omega\\in\\C),$$\navec $a,b\\in\\C$ donnés par\n$$a=\\tfrac12\\bigl(L(1)-i\\,L(i)\\bigr),\\qquad b=\\tfrac12\\bigl(L(1)+i\\,L(i)\\bigr).$$\nDe plus, $L$ est $\\C$-linéaire si et seulement si $b=0$, et elle est alors la multiplication par $a$.",
+      "hypotheses": [
+        "$L$ $\\R$-linéaire de $\\C$ dans $\\C$"
+      ],
+      "depends_on": [],
+      "used_by_hint": "Remarque I.2.2 (définition de $\\partial/\\partial z$, $\\partial/\\partial\\bar z$), Proposition I.2.3, Corollaire I.2.4, Lemme I.2.9 (unicité de la décomposition).",
+      "importance": 2,
+      "proof_in_poly": "full",
+      "proof_length": "short",
+      "counterexample_hints": [
+        "La conjugaison $L(\\omega)=\\bar\\omega$ a $a=0$, $b=1$ : $\\R$-linéaire, non $\\C$-linéaire."
+      ],
+      "viz_hint": "Image du cercle unité par $\\omega\\mapsto a\\omega+b\\bar\\omega$ : un cercle si $b=0$, une ellipse (ou un segment) sinon."
+    },
+    {
+      "id": "ch01-operateurs-dz-dzbar",
+      "kind": "remark",
+      "ref": "Remarque I.2.2",
+      "title": "Opérateurs $\\partial/\\partial z$, $\\partial/\\partial\\bar z$ et formule (I.2.4) : $df_z(\\omega)=\\frac{\\partial f}{\\partial z}(z)\\,\\omega+\\frac{\\partial f}{\\partial\\bar z}(z)\\,\\bar\\omega$",
+      "page": 7,
+      "statement": "On introduit les opérateurs différentiels\n$$\\frac{\\partial}{\\partial z}:=\\frac12\\Bigl(\\frac{\\partial}{\\partial x}-i\\frac{\\partial}{\\partial y}\\Bigr)\\qquad\\text{et}\\qquad \\frac{\\partial}{\\partial \\bar z}:=\\frac12\\Bigl(\\frac{\\partial}{\\partial x}+i\\frac{\\partial}{\\partial y}\\Bigr).$$\nSi $f$ est différentiable en $z$, en appliquant le Lemme I.2.1 à $L=df_z$ (avec $df_z(1)=\\frac{\\partial f}{\\partial x}(z)$, $df_z(i)=\\frac{\\partial f}{\\partial y}(z)$), les coefficients sont $a=\\frac{\\partial f}{\\partial z}(z)$, $b=\\frac{\\partial f}{\\partial\\bar z}(z)$, c'est-à-dire\n$$\\text{(I.2.4)}\\qquad df_z(\\omega)=\\frac{\\partial f}{\\partial z}(z)\\,\\omega+\\frac{\\partial f}{\\partial \\bar z}(z)\\,\\bar\\omega,\\qquad(\\omega\\in\\C).$$",
+      "hypotheses": [
+        "$f$ différentiable au point $z$ (au sens réel)"
+      ],
+      "depends_on": [
+        "Lemme I.2.1",
+        "non numéroté, section I.2, p. 6"
+      ],
+      "used_by_hint": "Corollaire I.2.4, Lemme I.2.9, Lemme I.5.10, formulaire (I.2.9)–(I.2.12).",
+      "importance": 2,
+      "proof_in_poly": "full",
+      "proof_length": "short",
+      "counterexample_hints": [],
+      "viz_hint": ""
+    },
+    {
+      "id": "ch01-c-derivable-ssi-df-c-lineaire",
+      "kind": "proposition",
+      "ref": "Proposition I.2.3",
+      "title": "$\\C$-dérivabilité $\\Leftrightarrow$ différentiabilité avec $df_z$ $\\C$-linéaire",
+      "page": 7,
+      "statement": "Avec les notations ci-dessus, les conditions suivantes sont équivalentes :\n(i) $f$ est différentiable au point $z$ et $df_z$ est $\\C$-linéaire ;\n(ii) $f$ est $\\C$-dérivable en $z$.\nLorsqu'elles sont réalisées, $df_z$ est la multiplication par $f'(z)$.",
+      "hypotheses": [
+        "$f:\\Omega\\to\\C$ définie sur un ouvert, $z\\in\\Omega$",
+        "(i) différentiable en $z$ et $df_z$ $\\C$-linéaire ; (ii) $\\C$-dérivable en $z$"
+      ],
+      "depends_on": [
+        "Lemme I.2.1",
+        "non numéroté, section I.2, p. 6",
+        "non numéroté, section I.1, p. 5"
+      ],
+      "used_by_hint": "Corollaire I.2.4 ; Proposition I.4.4 (réciproque holomorphe) ; Remarque I.14.3.",
+      "importance": 2,
+      "proof_in_poly": "full",
+      "proof_length": "short",
+      "counterexample_hints": [
+        "$f(z)=\\bar z$ : différentiable partout, $df_z=$ conjugaison, non $\\C$-linéaire, donc non $\\C$-dérivable."
+      ],
+      "viz_hint": "Comparer $df_z$ (similitude directe) et une application $\\R$-linéaire générale sur une petite grille."
+    },
+    {
+      "id": "ch01-cauchy-riemann",
+      "kind": "corollary",
+      "ref": "Corollaire I.2.4",
+      "title": "Conditions de Cauchy réelles (Cauchy–Riemann) : $\\partial f/\\partial\\bar z=0$",
+      "page": 8,
+      "statement": "Soit $f$ différentiable au point $z$. Alors $f$ est $\\C$-dérivable en $z$ si et seulement si\n$$\\text{(I.2.5)}\\qquad \\frac{\\partial f}{\\partial \\bar z}(z)=0,$$\nc'est-à-dire, en écrivant $f=P+iQ$, si et seulement si\n$$\\text{(I.2.6)}\\qquad \\frac{\\partial P}{\\partial x}(z)=\\frac{\\partial Q}{\\partial y}(z)\\quad\\text{et}\\quad \\frac{\\partial P}{\\partial y}(z)=-\\frac{\\partial Q}{\\partial x}(z).$$\nOn appelle ces dernières relations les **conditions de Cauchy réelles**. Lorsqu'elles sont satisfaites, on a\n$$\\text{(I.2.7)}\\qquad f'(z)=\\frac{\\partial f}{\\partial z}(z).$$",
+      "hypotheses": [
+        "$f$ différentiable (au sens réel) au point $z$ — indispensable : les équations seules ne suffisent pas"
+      ],
+      "depends_on": [
+        "Lemme I.2.1",
+        "Remarque I.2.2",
+        "Proposition I.2.3"
+      ],
+      "used_by_hint": "Remarque I.2.5, Remarque I.2.6, Exemple I.2.7, Remarque I.2.8, Remarque I.9.3, Exercice I.2.10 ; test d'holomorphie dans tous les exercices.",
+      "importance": 3,
+      "proof_in_poly": "full",
+      "proof_length": "short",
+      "counterexample_hints": [
+        "Sans différentiabilité : $f(z)=\\exp(-z^{-4})$ prolongée par $0$ en $0$ vérifie Cauchy–Riemann en $0$ (dérivées partielles nulles) mais n'est pas continue en $0$ (le long de $z=re^{i\\pi/4}$, $f\\to\\infty$).",
+        "Cauchy–Riemann en un seul point ($|z|^2$ en $0$) ne donne pas l'holomorphie."
+      ],
+      "viz_hint": "Champ des gradients de $P$ et $Q$ : Cauchy–Riemann dit que $\\nabla Q$ est $\\nabla P$ tourné de $+\\pi/2$ ; lignes de niveau de $P$ et $Q$ orthogonales."
+    },
+    {
+      "id": "ch01-similitude-conforme",
+      "kind": "remark",
+      "ref": "Remarque I.2.5",
+      "title": "Jacobienne d'une fonction holomorphe = similitude directe ; conformité en tout point où $f'(z)\\neq0$",
+      "page": 8,
+      "statement": "Une application $\\C$-linéaire de $\\C$ dans $\\C$ est la multiplication par un nombre complexe $\\lambda=\\alpha+i\\beta$. Vue comme application de $\\R^2$ dans $\\R^2$, c'est une similitude directe, éventuellement nulle, de matrice dans la base canonique\n$$\\text{(I.2.8)}\\qquad \\begin{pmatrix}\\alpha&-\\beta\\\\ \\beta&\\alpha\\end{pmatrix}.$$\nLes conditions de Cauchy (I.2.6) expriment exactement que la matrice jacobienne (I.2.2) de $f$ au point $z$ est de cette forme, avec $\\alpha=\\frac{\\partial P}{\\partial x}(z)$ et $\\beta=\\frac{\\partial Q}{\\partial x}(z)$. Lorsque $\\lambda\\neq0$, une telle similitude est la composée de l'homothétie de rapport $|\\lambda|$ et de la rotation d'angle $\\arg\\lambda$ : elle multiplie les longueurs par $|\\lambda|$ et conserve les angles orientés. Ainsi, en tout point $z$ où $f'(z)\\neq0$, une fonction holomorphe conserve les angles orientés — on dit qu'elle est **conforme** en $z$ — et son déterminant jacobien y vaut $\\alpha^2+\\beta^2=|f'(z)|^2>0$, de sorte qu'elle préserve l'orientation.",
+      "hypotheses": [
+        "$f$ holomorphe (ou seulement $\\C$-dérivable en $z$)",
+        "$f'(z)\\neq 0$ pour la conformité"
+      ],
+      "depends_on": [
+        "Corollaire I.2.4",
+        "non numéroté, section I.2, p. 6"
+      ],
+      "used_by_hint": "Proposition I.4.4 (jacobienne inversible ssi $f'(z_0)\\neq0$) ; paragraphe IV.1 (transformations conformes).",
+      "importance": 2,
+      "proof_in_poly": "full",
+      "proof_length": "short",
+      "counterexample_hints": [
+        "$z\\mapsto\\bar z$ conserve les angles mais renverse l'orientation (similitude indirecte) : non holomorphe.",
+        "En un point où $f'(z_0)=0$ ($z\\mapsto z^2$ en $0$) les angles sont doublés : pas conforme."
+      ],
+      "viz_hint": "Image par $f$ d'un quadrillage ou de deux courbes sécantes : angles conservés là où $f'\\neq0$, doublés en un zéro de $f'$."
+    },
+    {
+      "id": "ch01-holomorphe-ssi-c1-et-dzbar-nul",
+      "kind": "remark",
+      "ref": "Remarque I.2.6",
+      "title": "Holomorphe $\\Leftrightarrow$ de classe $C^1$ (réel) et $\\partial f/\\partial\\bar z=0$ partout",
+      "page": 8,
+      "statement": "L'application $z=x+iy\\mapsto f'(z)$ est continue si et seulement si $f$ est $C^1$ comme fonction des deux variables réelles $x$ et $y$. Ainsi, $f$ est holomorphe sur $\\Omega$ si et seulement si $f$ est de classe $C^1$ sur $\\Omega$ et $\\frac{\\partial f}{\\partial\\bar z}=0$ en tout point de $\\Omega$.",
+      "hypotheses": [
+        "$f:\\Omega\\to\\C$, $\\Omega$ ouvert"
+      ],
+      "depends_on": [
+        "Corollaire I.2.4",
+        "Définition I.1.1"
+      ],
+      "used_by_hint": "Proposition I.3.1 ; Remarque I.9.3 ; c'est la définition pratique utilisée pour tester l'holomorphie.",
+      "importance": 2,
+      "proof_in_poly": "sketch",
+      "proof_length": "short",
+      "counterexample_hints": [],
+      "viz_hint": ""
+    },
+    {
+      "id": "ch01-formulaire-dz-dzbar",
+      "kind": "formula",
+      "ref": "Formules (I.2.9)–(I.2.12)",
+      "title": "Règles de calcul pour $\\partial/\\partial z$ et $\\partial/\\partial\\bar z$ (conjugaison, linéarité, produit, inverse)",
+      "page": 8,
+      "statement": "Pour des fonctions de classe $C^1$ au sens réel (pas nécessairement holomorphes) :\n$$\\text{(I.2.9)}\\qquad \\overline{\\frac{\\partial f}{\\partial z}}=\\frac{\\partial\\bar f}{\\partial\\bar z}\\qquad\\text{et}\\qquad \\overline{\\frac{\\partial f}{\\partial\\bar z}}=\\frac{\\partial\\bar f}{\\partial z},$$\npourvu que $f$ ait des dérivées partielles d'ordre 1 au point considéré ; en particulier la décomposition (I.2.4) de $\\bar f$ s'obtient en conjuguant celle de $f$.\n$$\\text{(I.2.10)}\\qquad (\\forall\\lambda,\\mu\\in\\C)\\quad \\frac{\\partial(\\lambda f+\\mu g)}{\\partial z}=\\lambda\\frac{\\partial f}{\\partial z}+\\mu\\frac{\\partial g}{\\partial z},\\qquad \\frac{\\partial(fg)}{\\partial z}=\\frac{\\partial f}{\\partial z}g+f\\frac{\\partial g}{\\partial z},$$\n$$\\text{(I.2.11)}\\qquad (\\forall\\lambda,\\mu\\in\\C)\\quad \\frac{\\partial(\\lambda f+\\mu g)}{\\partial \\bar z}=\\lambda\\frac{\\partial f}{\\partial \\bar z}+\\mu\\frac{\\partial g}{\\partial \\bar z},\\qquad \\frac{\\partial(fg)}{\\partial \\bar z}=\\frac{\\partial f}{\\partial \\bar z}g+f\\frac{\\partial g}{\\partial \\bar z},$$\n$$\\text{(I.2.12)}\\qquad \\frac{\\partial(1/f)}{\\partial z}=-\\frac{\\partial f/\\partial z}{f^2},\\qquad \\frac{\\partial(1/f)}{\\partial \\bar z}=-\\frac{\\partial f/\\partial \\bar z}{f^2}\\quad(\\text{où } f\\neq0).$$",
+      "hypotheses": [
+        "fonctions de classe $C^1$ (réel) ; $f\\neq0$ pour (I.2.12)"
+      ],
+      "depends_on": [
+        "Remarque I.2.2"
+      ],
+      "used_by_hint": "Exemple I.2.7, Proposition I.3.1, Formules (I.3.1)–(I.3.4).",
+      "importance": 2,
+      "proof_in_poly": "sketch",
+      "proof_length": "short",
+      "counterexample_hints": [],
+      "viz_hint": ""
+    },
+    {
+      "id": "ch01-exemple-zbar-rez-module",
+      "kind": "example",
+      "ref": "Exemple I.2.7",
+      "title": "$\\bar z$ et $\\Re z$ ne sont $\\C$-dérivables nulle part ; $|z|^2$ l'est en $0$ seulement",
+      "page": 9,
+      "statement": "On a\n$$\\frac{\\partial\\bar z}{\\partial\\bar z}=1,\\qquad \\frac{\\partial(z\\bar z)}{\\partial\\bar z}=z,\\qquad \\frac{\\partial}{\\partial\\bar z}\\Re z=\\frac{\\partial}{\\partial\\bar z}\\frac{z+\\bar z}{2}=\\frac12.$$\nLes fonctions $z\\mapsto\\bar z$ et $z\\mapsto\\Re z$ ne sont donc $\\C$-dérivables en aucun point. En revanche $z\\mapsto|z|^2=z\\bar z$ est $\\C$-dérivable en $0$, et en aucun autre point : elle n'est donc holomorphe sur aucun ouvert non vide. La $\\C$-dérivabilité en un point isolé est une propriété bien plus faible que l'holomorphie sur un ouvert.",
+      "hypotheses": [],
+      "depends_on": [
+        "Corollaire I.2.4",
+        "Formules (I.2.9)–(I.2.12)"
+      ],
+      "used_by_hint": "Contre-exemples de référence pour toutes les fiches (Remarque I.3.6).",
+      "importance": 2,
+      "proof_in_poly": "full",
+      "proof_length": "short",
+      "counterexample_hints": [],
+      "viz_hint": "Domain coloring de $\\bar z$ vs $z$ : les couleurs tournent dans le mauvais sens."
+    },
+    {
+      "id": "ch01-laplacien-harmonique",
+      "kind": "remark",
+      "ref": "Remarque I.2.8",
+      "title": "Laplacien $\\Delta=4\\,\\partial^2/\\partial z\\partial\\bar z$ ; parties réelle et imaginaire d'une fonction holomorphe sont harmoniques",
+      "page": 9,
+      "statement": "Le **laplacien** d'une fonction $u$ de classe $C^2$ sur un ouvert $\\Omega$ de $\\R^2$, à valeurs réelles ou complexes, est $\\Delta u:=\\frac{\\partial^2u}{\\partial x^2}+\\frac{\\partial^2u}{\\partial y^2}$, et $u$ est dite **harmonique** sur $\\Omega$ lorsque $\\Delta u=0$ en tout point de $\\Omega$. Si $f$ est de classe $C^2$ comme fonction des deux variables réelles, le théorème de Schwarz donne\n$$4\\frac{\\partial^2 f}{\\partial z\\,\\partial\\bar z}=\\Bigl(\\frac{\\partial}{\\partial x}-i\\frac{\\partial}{\\partial y}\\Bigr)\\Bigl(\\frac{\\partial}{\\partial x}+i\\frac{\\partial}{\\partial y}\\Bigr)f=\\frac{\\partial^2f}{\\partial x^2}+\\frac{\\partial^2f}{\\partial y^2}=\\Delta f,$$\nautrement dit $\\Delta=4\\frac{\\partial^2}{\\partial z\\partial\\bar z}$. En particulier, si $f=P+iQ$ est holomorphe et de classe $C^2$, la condition $\\frac{\\partial f}{\\partial\\bar z}=0$ entraîne $\\Delta f=0$, c'est-à-dire $\\Delta P=\\Delta Q=0$ : les parties réelle et imaginaire d'une fonction holomorphe sont harmoniques. (L'hypothèse $C^2$ est superflue d'après le Théorème I.7.4.)",
+      "hypotheses": [
+        "$f$ de classe $C^2$ au sens réel (automatique pour $f$ holomorphe par le Théorème I.7.4)",
+        "théorème de Schwarz (symétrie des dérivées secondes)"
+      ],
+      "depends_on": [
+        "Remarque I.2.2",
+        "Corollaire I.2.4"
+      ],
+      "used_by_hint": "Paragraphe IV.2 (fonctions harmoniques) ; Exercice I.2.10 (retrouver $f$ à partir de $\\Re f$).",
+      "importance": 2,
+      "proof_in_poly": "full",
+      "proof_length": "short",
+      "counterexample_hints": [
+        "La réciproque locale (harmonique $\\Rightarrow$ partie réelle d'une holomorphe) est vraie sur un disque mais fausse globalement : $\\log|z|$ sur $\\C^\\times$ n'est la partie réelle d'aucune fonction holomorphe sur $\\C^\\times$."
+      ],
+      "viz_hint": "Lignes de niveau de $P=\\Re f$ et $Q=\\Im f$ (orthogonales) ; surface $z\\mapsto\\Re f(z)$ sans max local intérieur."
+    },
+    {
+      "id": "ch01-chaine-dz-dzbar",
+      "kind": "lemma",
+      "ref": "Lemme I.2.9",
+      "title": "Règle de la chaîne pour $\\partial/\\partial z$ et $\\partial/\\partial\\bar z$",
+      "page": 10,
+      "statement": "Soient $g:\\Omega\\to\\Omega'$ et $f:\\Omega'\\to\\C$ deux fonctions de classe $C^1$ comme fonctions de deux variables réelles. On a\n$$\\frac{\\partial(f\\circ g)}{\\partial z}(z)=\\Bigl(\\frac{\\partial f}{\\partial z}\\circ g\\Bigr)(z)\\times\\frac{\\partial g}{\\partial z}(z)+\\Bigl(\\frac{\\partial f}{\\partial\\bar z}\\circ g\\Bigr)(z)\\times\\frac{\\partial\\bar g}{\\partial z}(z),$$\net\n$$\\frac{\\partial(f\\circ g)}{\\partial \\bar z}(z)=\\Bigl(\\frac{\\partial f}{\\partial z}\\circ g\\Bigr)(z)\\times\\frac{\\partial g}{\\partial \\bar z}(z)+\\Bigl(\\frac{\\partial f}{\\partial\\bar z}\\circ g\\Bigr)(z)\\times\\frac{\\partial\\bar g}{\\partial \\bar z}(z).$$",
+      "hypotheses": [
+        "$g:\\Omega\\to\\Omega'$ et $f:\\Omega'\\to\\C$ de classe $C^1$ (réel) ; pas d'holomorphie supposée"
+      ],
+      "depends_on": [
+        "Remarque I.2.2",
+        "Lemme I.2.1"
+      ],
+      "used_by_hint": "Proposition I.3.1 (composée d'holomorphes), Formule (I.3.4), Lemme I.5.10.",
+      "importance": 2,
+      "proof_in_poly": "full",
+      "proof_length": "short",
+      "counterexample_hints": [],
+      "viz_hint": ""
+    },
+    {
+      "id": "ch01-stabilite-operations",
+      "kind": "proposition",
+      "ref": "Proposition I.3.1",
+      "title": "Stabilité de l'holomorphie par combinaisons linéaires, produits, inverse et composition",
+      "page": 10,
+      "statement": "Les combinaisons linéaires et produits de fonctions holomorphes définies sur un même ouvert sont des fonctions holomorphes sur cet ouvert. Si $f$ est holomorphe, alors $1/f$ est holomorphe sur l'ouvert où $f$ ne s'annule pas. Enfin, si $f\\in\\Hol(\\Omega)$, $g\\in\\Hol(\\Omega')$ et si $g(\\Omega')\\subset\\Omega$, alors $f\\circ g\\in\\Hol(\\Omega')$.",
+      "hypotheses": [
+        "fonctions holomorphes sur un même ouvert",
+        "$f\\neq 0$ sur l'ouvert considéré pour $1/f$",
+        "$g(\\Omega')\\subset\\Omega$ pour la composée"
+      ],
+      "depends_on": [
+        "Formules (I.2.9)–(I.2.12)",
+        "Lemme I.2.9",
+        "Remarque I.2.6"
+      ],
+      "used_by_hint": "Partout : $\\omega\\mapsto (f(\\omega)-f(z))/(\\omega-z)$ dans le Théorème I.6.1, $g_n=1/(f-\\alpha_n)$ dans l'Exercice I.14.2, $1/P$ dans d'Alembert–Gauss.",
+      "importance": 2,
+      "proof_in_poly": "sketch",
+      "proof_length": "short",
+      "counterexample_hints": [
+        "$\\bar f$ et $|f|$ ne sont pas holomorphes (Remarque I.3.6) : la conjugaison casse la stabilité."
+      ],
+      "viz_hint": ""
+    },
+    {
+      "id": "ch01-formules-derivation",
+      "kind": "formula",
+      "ref": "Formules (I.3.1)–(I.3.4)",
+      "title": "Dérivées complexes d'une somme, d'un produit, d'un quotient, d'une composée",
+      "page": 11,
+      "statement": "Pour $f,g$ holomorphes (et $g\\neq0$ pour le quotient, $g$ à valeurs dans le domaine de $f$ pour la composée) :\n$$\\text{(I.3.1)}\\ (f+g)'(z)=f'(z)+g'(z),\\qquad \\text{(I.3.2)}\\ (fg)'(z)=f'(z)g(z)+f(z)g'(z),$$\n$$\\text{(I.3.3)}\\ \\Bigl(\\frac fg\\Bigr)'(z)=\\frac{f'(z)g(z)-f(z)g'(z)}{g(z)^2},\\qquad \\text{(I.3.4)}\\ (f\\circ g)'(z)=f'(g(z))\\,g'(z).$$\nDe plus, pour tout $n\\in\\N\\setminus\\{0\\}$, la dérivée complexe de $z\\mapsto z^n$ est $z\\mapsto nz^{n-1}$.",
+      "hypotheses": [
+        "$f,g$ holomorphes ; $g\\neq0$ pour (I.3.3)"
+      ],
+      "depends_on": [
+        "Formules (I.2.9)–(I.2.12)",
+        "Lemme I.2.9",
+        "Corollaire I.2.4"
+      ],
+      "used_by_hint": "Exemple I.3.2, Proposition I.4.4 ($(f^{-1})'=1/(f'\\circ f^{-1})$), tout calcul de dérivée.",
+      "importance": 2,
+      "proof_in_poly": "sketch",
+      "proof_length": "short",
+      "counterexample_hints": [],
+      "viz_hint": ""
+    },
+    {
+      "id": "ch01-polynomes-fractions-rationnelles",
+      "kind": "example",
+      "ref": "Exemple I.3.2",
+      "title": "Polynômes et fractions rationnelles sont holomorphes",
+      "page": 11,
+      "statement": "Tout polynôme $P\\in\\C[X]$ définit une fonction $z\\mapsto P(z)$ holomorphe sur $\\C$ dont la dérivée complexe est $z\\mapsto P'(z)$ ($P'$ dérivée du polynôme). Pour tous $P,Q\\in\\C[X]$, les fractions rationnelles $z\\mapsto P(z)/Q(z)$ sont holomorphes en dehors de l'ensemble des zéros de $Q$, de dérivée complexe\n$$z\\mapsto\\frac{P'(z)Q(z)-P(z)Q'(z)}{Q(z)^2}.$$",
+      "hypotheses": [
+        "$Q(z)\\neq0$"
+      ],
+      "depends_on": [
+        "Proposition I.3.1",
+        "Formules (I.3.1)–(I.3.4)"
+      ],
+      "used_by_hint": "Chapitre II (fonctions méromorphes, résidus de fractions rationnelles).",
+      "importance": 1,
+      "proof_in_poly": "sketch",
+      "proof_length": "short",
+      "counterexample_hints": [],
+      "viz_hint": ""
+    },
+    {
+      "id": "ch01-def-rayon-convergence",
+      "kind": "definition",
+      "ref": "non numéroté, section I.3, p. 11",
+      "title": "Rayon de convergence d'une série entière ; formule de Cauchy–Hadamard",
+      "page": 11,
+      "statement": "Le **rayon de convergence** $R\\in[0,+\\infty]$ d'une série entière $\\sum_{n\\ge0}a_nz^n$ est le sup des $\\rho\\ge0$ tels que la série est normalement convergente sur le disque fermé de rayon $\\rho$. C'est aussi le sup des $\\rho\\ge0$ tels que la suite $(|a_n|\\rho^n)_{n\\ge0}$ est bornée. Un théorème de Cauchy et Hadamard donne aussi la formule $R^{-1}=\\limsup_{n\\to+\\infty}|a_n|^{1/n}$. Le disque $D(0,R)$ est le **disque ouvert de convergence**.",
+      "hypotheses": [],
+      "depends_on": [],
+      "used_by_hint": "Proposition I.3.3, Corollaire I.3.4, Définition I.7.1, Corollaire I.7.5.",
+      "importance": 2,
+      "proof_in_poly": "none",
+      "proof_length": "short",
+      "counterexample_hints": [
+        "Sur le cercle $|z|=R$ tout peut arriver : $\\sum z^n$ diverge partout, $\\sum z^n/n^2$ converge partout, $\\sum z^n/n$ converge sauf en $z=1$."
+      ],
+      "viz_hint": "Sommes partielles d'une série entière sur des cercles de rayon croissant : convergence à l'intérieur du disque, explosion à l'extérieur."
+    },
+    {
+      "id": "ch01-serie-entiere-holomorphe",
+      "kind": "proposition",
+      "ref": "Proposition I.3.3",
+      "title": "Une série entière est holomorphe sur son disque de convergence, de dérivée la série dérivée",
+      "page": 11,
+      "statement": "Une série entière $f(z):=\\sum_{n\\ge0}a_nz^n$, à coefficients complexes, de rayon de convergence $R>0$ définit une fonction holomorphe sur son disque ouvert de convergence et la dérivée complexe de $f$ est donnée par\n$$f'(z)=\\sum_{n\\ge1}n\\,a_n z^{n-1}.$$\n(La série dérivée a le même rayon de convergence $R$.)",
+      "hypotheses": [
+        "rayon de convergence $R>0$",
+        "$z\\in D(0,R)$ (disque **ouvert**)"
+      ],
+      "depends_on": [
+        "non numéroté, section I.3, p. 11"
+      ],
+      "used_by_hint": "Corollaire I.3.4, Exemple I.3.5, Théorème I.7.4 (sens analytique $\\Rightarrow$ holomorphe), Corollaire I.7.6 (primitive terme à terme).",
+      "importance": 2,
+      "proof_in_poly": "full",
+      "proof_length": "medium",
+      "counterexample_hints": [
+        "Rien n'est affirmé sur le cercle de convergence : $\\sum z^n/n^2$ converge sur $\\bar D(0,1)$ mais n'est pas dérivable en $z=1$ (la série dérivée $\\sum z^{n-1}/n$ diverge en $1$)."
+      ],
+      "viz_hint": "Domain coloring des sommes partielles $S_N$ vs la somme : accord dans le disque, divergence hors du disque."
+    },
+    {
+      "id": "ch01-serie-entiere-derivees-tout-ordre",
+      "kind": "corollary",
+      "ref": "Corollaire I.3.4",
+      "title": "Une série entière admet des dérivées complexes de tout ordre, $f^{(k)}(z)=\\sum_{n\\ge k}n(n-1)\\cdots(n-k+1)a_nz^{n-k}$",
+      "page": 12,
+      "statement": "Une série entière $f(z):=\\sum_{n\\ge0}a_nz^n$, à coefficients complexes, de rayon de convergence $R>0$, admet des dérivées au sens complexe de tout ordre, données par des séries entières de même rayon de convergence $R$ par les formules\n$$f^{(k)}(z)=\\sum_{n\\ge k}n(n-1)\\dots(n-k+1)\\,a_n\\,z^{n-k}.$$\nEn particulier $a_k=f^{(k)}(0)/k!$.",
+      "hypotheses": [
+        "rayon de convergence $R>0$",
+        "$z\\in D(0,R)$"
+      ],
+      "depends_on": [
+        "Proposition I.3.3"
+      ],
+      "used_by_hint": "Corollaire I.7.5 ($a_n=f^{(n)}(z_0)/n!$), Théorème I.11.1 (multiplicité d'un zéro), Exercice I.10.3.",
+      "importance": 2,
+      "proof_in_poly": "sketch",
+      "proof_length": "short",
+      "counterexample_hints": [],
+      "viz_hint": ""
+    },
+    {
+      "id": "ch01-exp-trigo-hyperboliques",
+      "kind": "example",
+      "ref": "Exemple I.3.5",
+      "title": "Exponentielle, fonctions trigonométriques et hyperboliques complexes",
+      "page": 12,
+      "statement": "La fonction exponentielle $z\\mapsto e^z:=\\sum_{n\\ge0}\\frac{z^n}{n!}$ (rayon de convergence infini) est holomorphe sur $\\C$, de dérivée complexe $z\\mapsto e^z$, et $e^{z_1+z_2}=e^{z_1}e^{z_2}$ pour tous $z_1,z_2\\in\\C$. Les fonctions\n$$\\cos z:=\\frac{e^{iz}+e^{-iz}}{2},\\quad \\sin z:=\\frac{e^{iz}-e^{-iz}}{2i},\\quad \\tan z:=\\frac{\\sin z}{\\cos z},$$\n$$\\cosh z:=\\frac{e^z+e^{-z}}{2}=\\cos(iz),\\quad \\sinh z:=\\frac{e^z-e^{-z}}{2}=-i\\sin(iz),\\quad \\tanh z:=\\frac{\\sinh z}{\\cosh z}=-i\\tan(iz)$$\nsont holomorphes sur leurs domaines de définition respectifs ($\\tan$ sur $\\C\\setminus(\\frac\\pi2+\\pi\\Z)$, $\\tanh$ sur $\\C\\setminus(i\\frac\\pi2+i\\pi\\Z)$).",
+      "hypotheses": [],
+      "depends_on": [
+        "Proposition I.3.3",
+        "Proposition I.3.1"
+      ],
+      "used_by_hint": "Corollaire I.4.5 (exp biholomorphisme local), Remarque I.11.5 ($\\sin(\\pi z)$), Exercice I.7.7, chapitre II (pôles de $\\tan$).",
+      "importance": 2,
+      "proof_in_poly": "sketch",
+      "proof_length": "short",
+      "counterexample_hints": [
+        "$\\sin$ et $\\cos$ ne sont **pas** bornées sur $\\C$ : $\\sin(iy)=i\\sinh y$ (cohérent avec Liouville).",
+        "$e^z$ n'est pas injective ($e^{z+2i\\pi}=e^z$) : pas de logarithme global holomorphe sur $\\C^\\times$."
+      ],
+      "viz_hint": "Domain coloring de $\\exp$ (périodicité verticale, image $\\C^\\times$) et de $\\sin$ (zéros réels, croissance en $|y|$)."
+    },
+    {
+      "id": "ch01-module-conjugue-non-holomorphes",
+      "kind": "remark",
+      "ref": "Remarque I.3.6",
+      "title": "$|f|$ et $\\bar f$ ne sont (essentiellement) jamais holomorphes",
+      "page": 13,
+      "statement": "Si $f$ est une fonction holomorphe, alors $z\\mapsto|f(z)|$ (module de $f$) ou $z\\mapsto\\overline{f(z)}$ (fonction complexe conjuguée) ne sont essentiellement jamais holomorphes (sauf si la fonction $f$ est constante sur chaque composante connexe de son domaine).",
+      "hypotheses": [
+        "$f$ holomorphe non constante sur une composante connexe"
+      ],
+      "depends_on": [],
+      "used_by_hint": "Exercice I.2.10 (1) : holomorphe à valeurs réelles sur un connexe $\\Rightarrow$ constante.",
+      "importance": 2,
+      "proof_in_poly": "none",
+      "proof_length": "short",
+      "counterexample_hints": [
+        "Preuve rapide : $\\bar f$ holomorphe $\\Rightarrow$ $f+\\bar f=2\\Re f$ holomorphe à valeurs réelles $\\Rightarrow$ constante sur chaque composante connexe (Cauchy–Riemann : $\\nabla P=0$)."
+      ],
+      "viz_hint": ""
+    },
+    {
+      "id": "ch01-def-biholomorphisme",
+      "kind": "definition",
+      "ref": "Définition I.4.1",
+      "title": "Biholomorphisme, automorphisme holomorphe",
+      "page": 13,
+      "statement": "Une fonction holomorphe $h:\\Omega_1\\to\\Omega_2$, où $\\Omega_1$ et $\\Omega_2$ sont deux ouverts de $\\C$, est un **biholomorphisme** si $h$ est une bijection de $\\Omega_1$ sur $\\Omega_2$ dont la réciproque $h^{-1}$ est holomorphe sur $\\Omega_2$. Un biholomorphisme d'un ouvert $\\Omega$ de $\\C$ sur lui-même est appelé un **automorphisme (holomorphe)** de $\\Omega$.",
+      "hypotheses": [
+        "$h$ holomorphe",
+        "$h$ bijective de $\\Omega_1$ sur $\\Omega_2$",
+        "$h^{-1}$ holomorphe (automatique d'après la Remarque I.14.3)"
+      ],
+      "depends_on": [
+        "Définition I.1.1"
+      ],
+      "used_by_hint": "Remarque I.4.2, Proposition I.4.4, Lemme I.13.1 (3), Proposition I.13.3, Remarque I.14.3, Théorème III.4.1 (Riemann).",
+      "importance": 2,
+      "proof_in_poly": "none",
+      "proof_length": "short",
+      "counterexample_hints": [
+        "$z\\mapsto z^2$ de $\\C$ sur $\\C$ n'est pas bijective ; sa restriction à $\\{\\Re z>0\\}$ est un biholomorphisme sur $\\C\\setminus\\R_-$."
+      ],
+      "viz_hint": "Image d'une grille de $\\Omega_1$ par $h$ ; comparer $D\\to H$ (Exemple I.4.3)."
+    },
+    {
+      "id": "ch01-groupe-automorphismes",
+      "kind": "remark",
+      "ref": "Remarque I.4.2",
+      "title": "$\\mathrm{Aut}_{hol}(\\Omega)$ est un groupe pour la composition",
+      "page": 13,
+      "statement": "L'ensemble $\\mathrm{Aut}_{hol}(\\Omega)$ des automorphismes d'un ouvert $\\Omega$ forme un groupe pour la composition des fonctions. Déterminer $\\mathrm{Aut}_{hol}(\\Omega)$ est un problème important : $\\Omega=\\C$ (Exercice II.7.5), $\\Omega=D(0,1)$ (Proposition I.13.3).",
+      "hypotheses": [],
+      "depends_on": [
+        "Définition I.4.1"
+      ],
+      "used_by_hint": "Exercice I.13.4, Proposition I.13.3.",
+      "importance": 1,
+      "proof_in_poly": "sketch",
+      "proof_length": "short",
+      "counterexample_hints": [],
+      "viz_hint": ""
+    },
+    {
+      "id": "ch01-cayley-disque-demi-plan",
+      "kind": "example",
+      "ref": "Exemple I.4.3",
+      "title": "Transformation de Cayley : $z\\mapsto i\\frac{1-z}{1+z}$ est un biholomorphisme de $D$ sur $H$",
+      "page": 13,
+      "statement": "Soit $D=D(0,1)$ le disque unité et $H=\\{z\\in\\C\\mid \\Im(z)>0\\}$ le demi-plan de Poincaré. Alors $z\\mapsto i\\,\\dfrac{1-z}{1+z}$ est un biholomorphisme de $D$ sur $H$.",
+      "hypotheses": [],
+      "depends_on": [],
+      "used_by_hint": "Transport des automorphismes du disque au demi-plan ; paragraphe IV.1 (transformations conformes), Théorème III.4.1.",
+      "importance": 2,
+      "proof_in_poly": "none",
+      "proof_length": "short",
+      "counterexample_hints": [],
+      "viz_hint": "Application conforme interactive : image des cercles concentriques et rayons de $D$ dans $H$ ; réciproque $w\\mapsto\\frac{i-w}{i+w}$."
+    },
+    {
+      "id": "ch01-inversion-locale-holomorphe",
+      "kind": "proposition",
+      "ref": "Proposition I.4.4",
+      "title": "Inversion locale holomorphe : $f'(z_0)\\neq0$ $\\Rightarrow$ $f$ est un biholomorphisme local en $z_0$",
+      "page": 14,
+      "statement": "Soit $f\\in\\Hol(\\Omega)$ et $z_0\\in\\Omega$ tel que $f'(z_0)\\neq0$. Alors il existe un ouvert $\\Omega_1\\subset\\Omega$ contenant $z_0$ tel que :\n(i) le sous-ensemble $\\Omega_2:=f(\\Omega_1)$ est un ouvert de $\\C$ ;\n(ii) la restriction de $f$ à $\\Omega_1$ est une application biholomorphe de $\\Omega_1$ sur $\\Omega_2$.\nDe plus $(f^{-1})'=\\dfrac{1}{f'\\circ f^{-1}}$ sur $\\Omega_2$.",
+      "hypotheses": [
+        "$f$ holomorphe sur $\\Omega$ (donc $C^1$ au sens réel)",
+        "$f'(z_0)\\neq0$ (jacobienne inversible : $\\det=|f'(z_0)|^2$)"
+      ],
+      "depends_on": [
+        "Théorème VI.3.2",
+        "Remarque I.2.5",
+        "Proposition I.2.3"
+      ],
+      "used_by_hint": "Corollaire I.4.5 (logarithme local), Remarque I.14.3 (bijection holomorphe $\\Rightarrow$ biholomorphisme), chapitre IV.",
+      "importance": 3,
+      "proof_in_poly": "full",
+      "proof_length": "short",
+      "counterexample_hints": [
+        "$f(z)=z^2$ en $z_0=0$ : $f'(0)=0$ et $f$ n'est injective sur aucun voisinage de $0$ (pas de racine carrée holomorphe locale en $0$).",
+        "Local seulement : $\\exp$ a $f'\\neq0$ partout mais n'est pas injective sur $\\C$."
+      ],
+      "viz_hint": "Zoom sur $f$ près de $z_0$ : une petite grille est envoyée sur une grille presque similaire ; le pinceau réciproque $f^{-1}$ ; en un zéro de $f'$ la grille se replie."
+    },
+    {
+      "id": "ch01-exp-image-c-etoile-log-local",
+      "kind": "corollary",
+      "ref": "Corollaire I.4.5",
+      "title": "L'exponentielle est un biholomorphisme local d'image $\\C^\\times$ ; logarithme complexe local",
+      "page": 14,
+      "statement": "L'exponentielle complexe $z\\mapsto e^z$ est un biholomorphisme local, dont l'image est $\\C^\\times:=\\C\\setminus\\{0\\}$. En particulier, pour tout point $z_0\\in\\C^\\times$, on peut définir localement (par exemple sur un disque $D(z_0,r)$ assez petit contenu dans $\\C^\\times$) un « logarithme complexe » $z\\mapsto\\mathrm{Log}(z)$ (dépendant du choix d'un antécédent de $z_0$ par $\\exp$) holomorphe.",
+      "hypotheses": [
+        "$(e^z)'=e^z\\neq0$ partout",
+        "$\\C^\\times$ connexe (argument ouvert–fermé)",
+        "$e^{z_1+z_2}=e^{z_1}e^{z_2}$ (image = sous-groupe)"
+      ],
+      "depends_on": [
+        "Proposition I.4.4",
+        "Théorème VI.3.2",
+        "Exemple I.3.5"
+      ],
+      "used_by_hint": "Remarque I.14.3 (racine $N$-ième locale), Proposition II.9.3 (logarithme global sur un ouvert simplement connexe).",
+      "importance": 2,
+      "proof_in_poly": "full",
+      "proof_length": "medium",
+      "counterexample_hints": [
+        "Pas de logarithme holomorphe global sur $\\C^\\times$ : il faudrait $\\int_{C(0,1)}dz/z=0$, or cette intégrale vaut $2i\\pi$ (Théorème I.5.9 contraposé + Théorème I.6.1 étape 1).",
+        "Le logarithme dépend du choix de l'antécédent : les branches diffèrent de $2ik\\pi$."
+      ],
+      "viz_hint": "Domain coloring de $\\exp$ : bandes horizontales de hauteur $2\\pi$ envoyées bijectivement sur $\\C^\\times$ fendu ; choix de branche de Log."
+    },
+    {
+      "id": "ch01-sens-de-local",
+      "kind": "remark",
+      "ref": "Remarque I.4.6",
+      "title": "Signification de l'adjectif « local »",
+      "page": 15,
+      "statement": "Une propriété est dite **locale** sur un espace topologique $X$ si, pour tout point $x$ de $X$, il existe un voisinage de $x$ sur lequel la propriété est valide (elle peut être en défaut sur $X$ entier). Par exemple, une fonction numérique continue sur un espace topologique est localement bornée (mais pas forcément bornée).",
+      "hypotheses": [],
+      "depends_on": [],
+      "used_by_hint": "Vocabulaire pour Proposition I.4.4, Corollaire I.4.5, Corollaire I.7.6, Théorème I.9.1 (« l'holomorphie est une propriété locale »).",
+      "importance": 1,
+      "proof_in_poly": "none",
+      "proof_length": "short",
+      "counterexample_hints": [
+        "$\\exp$ est localement injective, pas injective ; $1/z$ est localement bornée sur $\\C^\\times$, pas bornée."
+      ],
+      "viz_hint": ""
+    },
+    {
+      "id": "ch01-def-chemin-lacet",
+      "kind": "definition",
+      "ref": "Définition I.5.1",
+      "title": "Chemin (orienté), lacet, chemin opposé $\\gamma^{opp}$",
+      "page": 15,
+      "statement": "Soit $\\Omega$ un ouvert non vide de $\\C$. Un **chemin** $\\gamma$ (orienté) de $\\Omega$ est une application continue de classe $C^1$ par morceaux $\\gamma:[a,b]\\to\\Omega$, où $a<b$. Si de plus $\\gamma(a)=\\gamma(b)$, on dira que $\\gamma$ est un **lacet**. Le **chemin opposé** $\\gamma^{opp}:[a,b]\\to\\Omega$ est défini par $\\gamma^{opp}(t):=\\gamma(a+b-t)$.\n(Remarque I.5.2 : « $C^1$ par morceaux » suppose que la dérivée admet des limites à gauche et à droite en tout point de discontinuité ; en particulier $\\gamma'$ reste bornée.)",
+      "hypotheses": [
+        "$\\gamma$ continue sur $[a,b]$, $C^1$ par morceaux avec dérivée admettant des limites à gauche et à droite (donc bornée)"
+      ],
+      "depends_on": [],
+      "used_by_hint": "Définition I.5.4, Propositions I.5.6–I.5.7, Théorème I.5.9 ; chapitre II (homotopie de lacets, indice).",
+      "importance": 2,
+      "proof_in_poly": "none",
+      "proof_length": "short",
+      "counterexample_hints": [
+        "Un chemin seulement continu (courbe de Peano, rectifiable ou non) n'a pas de $\\gamma'$ : l'intégrale $\\int_\\gamma f\\,dz$ de la Définition I.5.4 n'a pas de sens."
+      ],
+      "viz_hint": "Tracé d'un chemin $C^1$ par morceaux avec son vecteur vitesse $\\gamma'(t)$ ; lacet vs chemin ouvert ; chemin opposé."
+    },
+    {
+      "id": "ch01-cercle-sens-direct",
+      "kind": "example",
+      "ref": "Exemple I.5.3",
+      "title": "Le lacet $\\gamma(t)=z_0+re^{it}$, $t\\in[0,2\\pi]$ : cercle $C(z_0,r)$ parcouru dans le sens direct",
+      "page": 15,
+      "statement": "Le lacet $\\gamma(t)=z_0+re^{it}$, pour $t\\in[0,2\\pi]$, est le cercle de centre $z_0\\in\\C$ et de rayon $r>0$, parcouru dans le sens direct (trigonométrique).",
+      "hypotheses": [],
+      "depends_on": [
+        "Définition I.5.1"
+      ],
+      "used_by_hint": "Exemple I.5.5, Théorème I.6.1 (toutes les intégrales sur $C(z_0,r)$ du chapitre).",
+      "importance": 2,
+      "proof_in_poly": "none",
+      "proof_length": "short",
+      "counterexample_hints": [],
+      "viz_hint": ""
+    },
+    {
+      "id": "ch01-def-chemins-composables",
+      "kind": "definition",
+      "ref": "non numéroté, section I.5, p. 15",
+      "title": "Chemins composables, chemin composé $\\gamma_1\\vee\\gamma_2$",
+      "page": 15,
+      "statement": "Deux chemins $\\gamma_1:[a_1,b_1]\\to\\Omega$ et $\\gamma_2:[a_2,b_2]\\to\\Omega$ sont **composables** si $\\gamma_1(b_1)=\\gamma_2(a_2)$. On définit alors le **chemin composé** $\\gamma_1\\vee\\gamma_2:[a_1,b_1+b_2-a_2]\\to\\Omega$ par\n$$\\gamma_1\\vee\\gamma_2(t):=\\begin{cases}\\gamma_1(t)&\\text{si } t\\in[a_1,b_1]\\\\ \\gamma_2(t+a_2-b_1)&\\text{si } t\\in[b_1,b_1+b_2-a_2].\\end{cases}$$",
+      "hypotheses": [
+        "$\\gamma_1(b_1)=\\gamma_2(a_2)$"
+      ],
+      "depends_on": [
+        "Définition I.5.1"
+      ],
+      "used_by_hint": "Proposition I.5.6 (iii) ; décomposition d'un lacet en morceaux (Théorème I.5.9, Exercice I.8.1).",
+      "importance": 1,
+      "proof_in_poly": "none",
+      "proof_length": "short",
+      "counterexample_hints": [],
+      "viz_hint": ""
+    },
+    {
+      "id": "ch01-def-integrale-chemin",
+      "kind": "definition",
+      "ref": "Définition I.5.4",
+      "title": "Intégrale d'une fonction continue le long d'un chemin : $\\int_\\gamma f(z)\\,dz$",
+      "page": 16,
+      "statement": "Si $f:\\Omega\\to\\C$ est une fonction continue et si $\\gamma:[a,b]\\to\\Omega$ est un chemin, on définit l'**intégrale de $f$ le long du chemin $\\gamma$** par la formule\n$$\\int_\\gamma f(z)\\,dz:=\\int_a^b f(\\gamma(t))\\,\\gamma'(t)\\,dt.$$\nBien que $\\gamma'$ ne soit pas nécessairement continue, elle reste bornée (Remarque I.5.2) et l'intégrale est bien définie.",
+      "hypotheses": [
+        "$f$ continue sur $\\Omega$ (pas besoin d'holomorphie)",
+        "$\\gamma$ chemin $C^1$ par morceaux à valeurs dans $\\Omega$"
+      ],
+      "depends_on": [
+        "Définition I.5.1"
+      ],
+      "used_by_hint": "Tout le reste du chapitre et le chapitre II (formule des résidus).",
+      "importance": 2,
+      "proof_in_poly": "none",
+      "proof_length": "short",
+      "counterexample_hints": [
+        "$\\int_{C(0,1)}\\bar z\\,dz=2i\\pi\\neq0$ : pour $f$ non holomorphe l'intégrale sur un lacet n'a aucune raison d'être nulle.",
+        "$\\int_{C(0,1)}dz/z=2i\\pi$ : holomorphe sur $\\C^\\times$ mais le lacet entoure la singularité."
+      ],
+      "viz_hint": "Sommes de Riemann $\\sum f(\\gamma(t_k))(\\gamma(t_{k+1})-\\gamma(t_k))$ représentées comme des vecteurs mis bout à bout dans le plan ; cas $f=1/z$ sur le cercle."
+    },
+    {
+      "id": "ch01-integrale-sur-cercle",
+      "kind": "example",
+      "ref": "Exemple I.5.5",
+      "title": "Intégrale sur le cercle : $\\int_\\gamma f(z)\\,dz=ir\\int_0^{2\\pi}f(z_0+re^{it})e^{it}\\,dt$",
+      "page": 16,
+      "statement": "Si $\\gamma$ est le lacet décrivant le cercle de centre $z_0$ et de rayon $r>0$ de l'Exemple I.5.3 et si $f$ est définie et continue sur un ouvert contenant ce cercle, alors\n$$\\int_\\gamma f(z)\\,dz=i\\,r\\int_0^{2\\pi}f(z_0+re^{it})\\,e^{it}\\,dt.$$",
+      "hypotheses": [
+        "$f$ continue au voisinage de $C(z_0,r)$"
+      ],
+      "depends_on": [
+        "Définition I.5.4",
+        "Exemple I.5.3"
+      ],
+      "used_by_hint": "Théorème I.6.1, Corollaire I.6.2, Théorème I.7.4, Corollaire I.7.5 : toutes les formules de Cauchy se paramètrent ainsi.",
+      "importance": 2,
+      "proof_in_poly": "full",
+      "proof_length": "short",
+      "counterexample_hints": [],
+      "viz_hint": ""
+    },
+    {
+      "id": "ch01-integrale-reparametrage-oppose-concatenation",
+      "kind": "proposition",
+      "ref": "Proposition I.5.6",
+      "title": "Invariance par reparamétrage croissant, changement de signe par chemin opposé, additivité par concaténation",
+      "page": 16,
+      "statement": "Soit $f$ une fonction continue définie sur $\\Omega$. Alors :\n(i) si $\\gamma:[a,b]\\to\\Omega$ est un chemin et si $\\varphi:[\\tilde a,\\tilde b]\\to[a,b]$ est un $C^1$-difféomorphisme croissant, $\\int_\\gamma f(z)\\,dz=\\int_{\\tilde\\gamma}f(z)\\,dz$, où $\\tilde\\gamma:=\\gamma\\circ\\varphi$ ;\n(ii) si $\\gamma:[a,b]\\to\\Omega$ est un chemin, alors $\\int_\\gamma f(z)\\,dz=-\\int_{\\gamma^{opp}}f(z)\\,dz$ ;\n(iii) si $\\gamma_1:[a_1,b_1]\\to\\Omega$ et $\\gamma_2:[a_2,b_2]\\to\\Omega$ sont deux chemins composables alors $\\int_{\\gamma_1\\vee\\gamma_2}f(z)\\,dz=\\int_{\\gamma_1}f(z)\\,dz+\\int_{\\gamma_2}f(z)\\,dz$.",
+      "hypotheses": [
+        "$f$ continue",
+        "$\\varphi$ difféomorphisme $C^1$ **croissant** (le sens de parcours est conservé)",
+        "chemins composables pour (iii)"
+      ],
+      "depends_on": [
+        "Définition I.5.4",
+        "non numéroté, section I.5, p. 15"
+      ],
+      "used_by_hint": "Remarque I.5.8 (notation $\\int_\\Gamma$ pour un cercle), Théorème I.5.9 (cas $C^1$ par morceaux), chapitre II.",
+      "importance": 2,
+      "proof_in_poly": "exercise",
+      "proof_length": "short",
+      "counterexample_hints": [
+        "Un reparamétrage **décroissant** change le signe (c'est (ii))."
+      ],
+      "viz_hint": ""
+    },
+    {
+      "id": "ch01-longueur-majoration-integrale",
+      "kind": "proposition",
+      "ref": "Proposition I.5.7",
+      "title": "Longueur $L(\\gamma)$ et majoration fondamentale $|\\int_\\gamma f\\,dz|\\le\\sup_\\gamma|f|\\cdot L(\\gamma)$",
+      "page": 16,
+      "statement": "Soit $\\gamma:[a,b]\\to\\Omega$ un chemin. On appelle **longueur** de $\\gamma$ le nombre\n$$L(\\gamma):=\\int_a^b|\\gamma'(t)|\\,dt,$$\nqui est fini car $\\gamma'$ est bornée (Remarque I.5.2). Alors, pour toute fonction continue $f$ sur $\\Omega$, on a\n$$\\text{(I.5.1)}\\qquad \\Bigl|\\int_\\gamma f(z)\\,dz\\Bigr|\\le\\Bigl(\\sup_{t\\in[a,b]}|f(\\gamma(t))|\\Bigr)\\,L(\\gamma).$$\nLa longueur $L(\\gamma)$ ne dépend pas du paramétrage choisi.",
+      "hypotheses": [
+        "$f$ continue sur $\\Omega$",
+        "$\\gamma$ chemin ($\\gamma'$ bornée)"
+      ],
+      "depends_on": [
+        "Définition I.5.4"
+      ],
+      "used_by_hint": "Estimées de Cauchy (Corollaire I.7.5), lemmes de Jordan et passages à la limite du chapitre II, Exercice I.14.2.",
+      "importance": 3,
+      "proof_in_poly": "full",
+      "proof_length": "short",
+      "counterexample_hints": [
+        "L'inégalité peut être stricte même pour $f$ constante non nulle sur un lacet ($\\int_\\gamma 1\\,dz=0$) : le module d'une intégrale n'est pas l'intégrale du module."
+      ],
+      "viz_hint": ""
+    },
+    {
+      "id": "ch01-notation-integrale-sur-courbe",
+      "kind": "remark",
+      "ref": "Remarque I.5.8",
+      "title": "Abus de notation $\\int_\\Gamma f(z)\\,dz$ pour $\\Gamma=C(z_0,r)$ orienté dans le sens trigonométrique",
+      "page": 17,
+      "statement": "La propriété (i) de la Proposition I.5.6 dit que la valeur de l'intégrale ne dépend pas du paramétrage du chemin, mais seulement du sens de parcours. Ceci explique l'abus de notation : pour $\\Gamma=C(z_0,r)$ le cercle de centre $z_0$ et de rayon $r$, on écrit $\\int_\\Gamma f(z)\\,dz$ plutôt que $\\int_\\gamma f(z)\\,dz$, en sous-entendant un paramétrage $\\gamma$ du cercle parcouru dans le sens trigonométrique.",
+      "hypotheses": [],
+      "depends_on": [
+        "Proposition I.5.6"
+      ],
+      "used_by_hint": "Notation utilisée dans le Théorème I.6.1 et toute la suite.",
+      "importance": 1,
+      "proof_in_poly": "none",
+      "proof_length": "short",
+      "counterexample_hints": [],
+      "viz_hint": ""
+    },
+    {
+      "id": "ch01-integrale-primitive",
+      "kind": "theorem",
+      "ref": "Théorème I.5.9",
+      "title": "Si $f$ admet une primitive holomorphe $F$, $\\int_\\gamma f\\,dz=F(\\gamma(b))-F(\\gamma(a))$ ; nulle sur tout lacet",
+      "page": 17,
+      "statement": "Soit $f:\\Omega\\to\\C$ continue et $\\gamma:[a,b]\\to\\Omega$ un chemin de $\\Omega$. On suppose que $f$ admet une primitive holomorphe $F$ sur $\\Omega$, c'est-à-dire que $F\\in\\Hol(\\Omega)$ et que $f=F'$. Alors\n$$\\int_\\gamma f(z)\\,dz=F(\\gamma(b))-F(\\gamma(a)).$$\nEn particulier, si $\\gamma$ est un lacet, on a $\\int_\\gamma f(z)\\,dz=0$.",
+      "hypotheses": [
+        "$f$ continue",
+        "$F\\in\\Hol(\\Omega)$ avec $F'=f$ sur **tout** $\\Omega$ (pas seulement localement)",
+        "$\\gamma$ chemin de $\\Omega$"
+      ],
+      "depends_on": [
+        "Lemme I.5.10",
+        "Définition I.5.4",
+        "Proposition I.5.6"
+      ],
+      "used_by_hint": "Exercice I.8.1 (Morera, sens direct), chapitre II (Théorème II.9.1 : réciproque sur un ouvert simplement connexe), calcul explicite d'intégrales.",
+      "importance": 3,
+      "proof_in_poly": "full",
+      "proof_length": "short",
+      "counterexample_hints": [
+        "$f(z)=1/z$ sur $\\C^\\times$ : $\\int_{C(0,1)}dz/z=2i\\pi\\neq0$, donc $1/z$ n'a pas de primitive holomorphe sur $\\C^\\times$ (bien qu'elle en ait localement, Corollaire I.7.6).",
+        "$f(z)=\\bar z$ est continue, $\\int_{C(0,1)}\\bar z\\,dz=2i\\pi$ : pas de primitive holomorphe."
+      ],
+      "viz_hint": "Deux chemins de mêmes extrémités dans $\\C^\\times$ contournant $0$ de part et d'autre : même intégrale pour $z^2$, intégrales différant de $2i\\pi$ pour $1/z$."
+    },
+    {
+      "id": "ch01-derivee-f-rond-gamma",
+      "kind": "lemma",
+      "ref": "Lemme I.5.10",
+      "title": "Dérivée de $f\\circ\\gamma$ : $\\frac{d(f\\circ\\gamma)}{dt}=\\frac{\\partial f}{\\partial z}(\\gamma)\\gamma'+\\frac{\\partial f}{\\partial\\bar z}(\\gamma)\\bar\\gamma'$ ; cas holomorphe $f'(\\gamma(t))\\gamma'(t)$",
+      "page": 17,
+      "statement": "Soit $f:\\Omega\\to\\C$ une fonction de classe $C^1$ et $\\gamma$ un chemin de classe $C^1$ de $\\Omega$. Alors\n$$\\frac{d(f\\circ\\gamma)}{dt}(t)=\\frac{\\partial f}{\\partial z}(\\gamma(t))\\,\\gamma'(t)+\\frac{\\partial f}{\\partial\\bar z}(\\gamma(t))\\,\\overline{\\gamma'(t)}.$$\nEn particulier, si $f$ est holomorphe, on a $\\dfrac{d(f\\circ\\gamma)}{dt}(t)=f'(\\gamma(t))\\,\\gamma'(t)$.",
+      "hypotheses": [
+        "$f$ de classe $C^1$ (réel)",
+        "$\\gamma$ de classe $C^1$ (pas seulement par morceaux)"
+      ],
+      "depends_on": [
+        "Lemme I.2.9",
+        "Remarque I.2.2",
+        "Corollaire I.2.4"
+      ],
+      "used_by_hint": "Théorème I.5.9 ; calcul de $\\partial F/\\partial t$ et $\\partial G/\\partial\\theta$ dans la preuve du Théorème I.6.1.",
+      "importance": 2,
+      "proof_in_poly": "exercise",
+      "proof_length": "short",
+      "counterexample_hints": [],
+      "viz_hint": ""
+    },
+    {
+      "id": "ch01-cauchy-formule-disque",
+      "kind": "theorem",
+      "ref": "Théorème I.6.1",
+      "title": "Formule intégrale de Cauchy sur un disque",
+      "page": 18,
+      "statement": "Soit $z_0\\in\\Omega$ et $r>0$. On suppose que $\\bar D(z_0,r)\\subset\\Omega$ et l'on note $\\Gamma:=C(z_0,r)$ le bord de ce disque (orienté positivement, i.e. parcouru dans le sens trigonométrique). Soit $f\\in\\Hol(\\Omega)$. Alors,\n$$f(z)=\\frac{1}{2i\\pi}\\int_\\Gamma\\frac{f(\\omega)}{\\omega-z}\\,d\\omega,$$\npour tout $z\\in D(z_0,r)$.",
+      "hypotheses": [
+        "$\\Omega$ ouvert, $f\\in\\Hol(\\Omega)$ (sur un voisinage du disque **fermé**)",
+        "$\\bar D(z_0,r)\\subset\\Omega$",
+        "$\\Gamma=C(z_0,r)$ orienté dans le sens trigonométrique",
+        "$z$ dans le disque **ouvert** $D(z_0,r)$"
+      ],
+      "depends_on": [
+        "Exemple I.5.5",
+        "Proposition I.3.1",
+        "Lemme I.5.10",
+        "Définition I.5.4"
+      ],
+      "used_by_hint": "Corollaire I.6.2, Théorème I.7.4, Corollaire I.7.5, Théorème I.9.1 ; généralisée au chapitre II (homotopie, résidus).",
+      "importance": 3,
+      "proof_in_poly": "full",
+      "proof_length": "long",
+      "counterexample_hints": [
+        "$f(\\omega)=\\bar\\omega$ (non holomorphe) : sur $C(0,1)$, $\\bar\\omega=1/\\omega$ et $\\frac{1}{\\omega(\\omega-z)}=\\frac1z\\bigl(\\frac1{\\omega-z}-\\frac1\\omega\\bigr)$, donc $\\frac1{2i\\pi}\\int_{C(0,1)}\\frac{\\bar\\omega}{\\omega-z}d\\omega=0\\neq\\bar z$ pour $z\\in D(0,1)^\\times$ : sans holomorphie la formule est fausse.",
+        "$f(\\omega)=1/\\omega$ sur $\\Omega=\\C^\\times$ avec $\\bar D(0,1)\\not\\subset\\Omega$ : le même calcul donne $0\\neq 1/z$ : l'hypothèse $\\bar D(z_0,r)\\subset\\Omega$ est essentielle.",
+        "Pour $|z-z_0|>r$ l'intégrale vaut $0$ (Théorème I.5.9 : $\\omega\\mapsto f(\\omega)/(\\omega-z)$ a localement des primitives, cf. chapitre II), pas $f(z)$."
+      ],
+      "viz_hint": "Rétraction du cercle $\\Gamma_t=C(tz,1-t)$ sur le point $z$ (animation en $t$) avec la valeur constante de $I(t)$ ; et vérification numérique de $\\frac1{2i\\pi}\\int_\\Gamma f(\\omega)/(\\omega-z)\\,d\\omega=f(z)$ quand $z$ bouge dans le disque (et $0$ dehors)."
+    },
+    {
+      "id": "ch01-formule-moyenne",
+      "kind": "corollary",
+      "ref": "Corollaire I.6.2",
+      "title": "Formule de la moyenne : $f(z_0)=\\frac1{2\\pi}\\int_0^{2\\pi}f(z_0+re^{i\\theta})\\,d\\theta$ et $|f(z_0)|\\le\\sup_{C(z_0,r)}|f|$",
+      "page": 19,
+      "statement": "Sous les hypothèses du Théorème I.6.1 ($f\\in\\Hol(\\Omega)$, $\\bar D(z_0,r)\\subset\\Omega$), on a\n$$\\text{(I.6.2)}\\qquad f(z_0)=\\frac{1}{2\\pi}\\int_0^{2\\pi}f\\bigl(z_0+re^{i\\theta}\\bigr)\\,d\\theta.$$\nAutrement dit, la valeur d'une fonction holomorphe au centre d'un disque est la moyenne de ses valeurs sur le bord de ce disque. En particulier $|f(z_0)|\\le\\sup_{C(z_0,r)}|f|$.",
+      "hypotheses": [
+        "$f\\in\\Hol(\\Omega)$",
+        "$\\bar D(z_0,r)\\subset\\Omega$"
+      ],
+      "depends_on": [
+        "Théorème I.6.1",
+        "Exemple I.5.5"
+      ],
+      "used_by_hint": "Paragraphe I.12 (rappelée en (I.12.1)) : seconde preuve du principe du maximum ; Exercice I.7.8 (moyenne sur le disque) ; fonctions harmoniques (IV.2).",
+      "importance": 3,
+      "proof_in_poly": "full",
+      "proof_length": "short",
+      "counterexample_hints": [
+        "$f(z)=|z|^2$ : moyenne sur $C(0,r)$ égale à $r^2\\neq f(0)=0$.",
+        "$f(z)=1/z$ sur $C(0,r)$ : moyenne nulle, mais $f$ n'est pas définie en $0$ ($\\bar D\\not\\subset\\Omega$)."
+      ],
+      "viz_hint": "Pour $f$ holomorphe, tracer $\\theta\\mapsto f(z_0+re^{i\\theta})$ dans le plan et son barycentre : il tombe exactement sur $f(z_0)$ quel que soit $r$ ; comparer avec $|z|^2$."
+    },
+    {
+      "id": "ch01-def-analytique",
+      "kind": "definition",
+      "ref": "Définition I.7.1",
+      "title": "Fonction analytique sur $\\Omega$",
+      "page": 20,
+      "statement": "Une fonction $f$ est **analytique** sur $\\Omega$ si, pour tout $z_0\\in\\Omega$, la fonction $f$ admet un développement en série entière de la forme\n$$f(z)=\\sum_{n\\ge0}a_n(z-z_0)^n,$$\nqui est convergente dans un voisinage de $z_0$ (le rayon de convergence de la série est strictement positif).",
+      "hypotheses": [
+        "développement en **tout** point $z_0\\in\\Omega$",
+        "rayon de convergence $>0$ (il dépend a priori de $z_0$)"
+      ],
+      "depends_on": [
+        "non numéroté, section I.3, p. 11"
+      ],
+      "used_by_hint": "Théorème I.7.4, Corollaire I.7.5, Théorème I.11.1.",
+      "importance": 2,
+      "proof_in_poly": "none",
+      "proof_length": "short",
+      "counterexample_hints": [
+        "En variable réelle, $x\\mapsto e^{-1/x^2}$ (prolongée par $0$) est $C^\\infty$ mais pas analytique en $0$ : en complexe c'est impossible (Théorème I.7.4)."
+      ],
+      "viz_hint": ""
+    },
+    {
+      "id": "ch01-serie-entiere-analytique-sur-disque",
+      "kind": "remark",
+      "ref": "Remarque I.7.2",
+      "title": "Une série entière de rayon $\\rho$ est analytique sur $D(z_0,\\rho)$ (rayon $\\ge\\rho-|\\omega-z_0|$ en $\\omega$)",
+      "page": 20,
+      "statement": "Supposons que la série entière $f(z)=\\sum_{n\\ge0}a_n(z-z_0)^n$ ait un rayon de convergence $\\rho>0$. Alors $f$ est analytique sur $D(z_0,\\rho)$ : en tout point $\\omega\\in D(z_0,\\rho)$, $f(z)$ est développable en série entière avec un rayon de convergence au moins égal à $\\rho-|\\omega-z_0|$. (Démonstration : Exercice I.7.3.)",
+      "hypotheses": [
+        "$\\rho>0$",
+        "$\\omega\\in D(z_0,\\rho)$"
+      ],
+      "depends_on": [
+        "non numéroté, section I.3, p. 11"
+      ],
+      "used_by_hint": "Donne directement « série entière $\\Rightarrow$ analytique » sans Cauchy ; Corollaire I.7.5 affine la minoration du rayon.",
+      "importance": 1,
+      "proof_in_poly": "exercise",
+      "proof_length": "medium",
+      "counterexample_hints": [
+        "Le rayon en $\\omega$ peut être strictement plus grand que $\\rho-|\\omega-z_0|$ : $1/(1-z)$ en $\\omega=-1/2$ a rayon $3/2>1/2$."
+      ],
+      "viz_hint": "Disques de convergence imbriqués : $D(\\omega,\\rho-|\\omega-z_0|)\\subset D(z_0,\\rho)$."
+    },
+    {
+      "id": "ch01-holomorphe-analytique",
+      "kind": "theorem",
+      "ref": "Théorème I.7.4",
+      "title": "Holomorphe $\\Leftrightarrow$ analytique ; les fonctions holomorphes sont $C^\\infty$",
+      "page": 20,
+      "statement": "Une fonction est holomorphe sur $\\Omega$ si et seulement si elle est analytique sur $\\Omega$.\nEn particulier, les fonctions holomorphes sont de classe $C^\\infty$, alors que leur définition ne leur demandait a priori que d'être de classe $C^1$.",
+      "hypotheses": [
+        "$\\Omega$ ouvert de $\\C$",
+        "$f$ holomorphe sur $\\Omega$ (sens direct) / analytique sur $\\Omega$ (sens réciproque)"
+      ],
+      "depends_on": [
+        "Proposition I.3.3",
+        "Théorème I.6.1",
+        "Exemple I.5.5",
+        "Définition I.7.1"
+      ],
+      "used_by_hint": "Corollaire I.7.5, Théorème I.9.1, Théorème I.11.1, Théorème I.12.1, Remarque I.2.8 ($C^2$ superflu), Exercice I.8.1.",
+      "importance": 3,
+      "proof_in_poly": "full",
+      "proof_length": "medium",
+      "counterexample_hints": [
+        "Faux en variable réelle : $e^{-1/x^2}$ est $C^\\infty$ non analytique ; $x|x|$ est $C^1$ non $C^2$. C'est la rigidité propre au complexe.",
+        "L'hypothèse « $f'$ continue » de la Définition I.1.1 est utilisée dans la preuve de Cauchy (Lemme I.5.10) ; Goursat (Exercice I.8.2) montre qu'on peut s'en passer."
+      ],
+      "viz_hint": "Pour $f$ holomorphe et $z_0$ fixé, superposer domain coloring de $f$ et des sommes partielles de Taylor en $z_0$ : accord jusqu'au plus grand disque contenu dans $\\Omega$."
+    },
+    {
+      "id": "ch01-estimees-cauchy",
+      "kind": "corollary",
+      "ref": "Corollaire I.7.5",
+      "title": "Estimées de Cauchy ; formule (I.7.1) $f^{(n)}(z)=\\frac{n!}{2i\\pi}\\int_{C(z_0,r)}\\frac{f(\\omega)}{(\\omega-z)^{n+1}}d\\omega$ ; rayon $\\ge\\rho(z_0)$",
+      "page": 22,
+      "statement": "Supposons $f$ holomorphe sur l'ouvert $\\Omega$. Soit $z_0\\in\\Omega$. Alors $f$ admet un développement en série entière au voisinage de $z_0$ dont le rayon de convergence est au moins\n$$\\rho(z_0)=\\sup\\{r>0\\mid \\bar D(z_0,r)\\subset\\Omega\\},$$\net pour tout $z\\in D(z_0,\\rho(z_0))$\n$$f(z)=\\sum_{n\\ge0}\\frac{f^{(n)}(z_0)}{n!}(z-z_0)^n.$$\nPour tout $0<r<\\rho(z_0)$ et pour tout $z\\in D(z_0,r)$, on a\n$$\\text{(I.7.1)}\\qquad \\frac{f^{(n)}(z)}{n!}=\\frac{1}{2i\\pi}\\int_{C(z_0,r)}\\frac{f(\\omega)}{(\\omega-z)^{n+1}}\\,d\\omega.$$\nDe plus, on a les **estimées de Cauchy**\n$$\\frac{|f^{(n)}(z_0)|}{n!}\\le\\frac{\\sup_{C(z_0,r)}|f|}{r^n},\\qquad\\text{pour tout } n\\ge0.$$",
+      "hypotheses": [
+        "$f\\in\\Hol(\\Omega)$",
+        "$0<r<\\rho(z_0)$, i.e. $\\bar D(z_0,r)\\subset\\Omega$",
+        "$z\\in D(z_0,r)$ pour (I.7.1)"
+      ],
+      "depends_on": [
+        "Théorème I.7.4",
+        "Théorème I.6.1",
+        "Corollaire I.3.4",
+        "Proposition I.5.7"
+      ],
+      "used_by_hint": "Corollaire I.7.6, Théorème I.9.1 (dérivées sous l'intégrale), Théorème I.10.1 (Liouville), Exercice I.10.3, Théorème I.11.1, Lemme I.13.1, Remarque I.14.3.",
+      "importance": 3,
+      "proof_in_poly": "sketch",
+      "proof_length": "medium",
+      "counterexample_hints": [
+        "Le rayon est **au moins** $\\rho(z_0)$, il peut être plus grand : $f=1/(1+z^2)$ sur $\\Omega=\\C\\setminus\\{\\pm i\\}$ a en $z_0=0$ un rayon exactement $1=\\rho(0)$, mais $f=\\exp$ restreinte à $D(0,1)$ a $\\rho(0)=1$ et rayon $+\\infty$.",
+        "En variable réelle il n'y a pas de telle estimée : $\\sin(nx)$ est bornée par $1$ avec dérivée $n$-ième d'ordre $n^n$ ; en complexe $\\sin(nz)$ n'est pas bornée sur un disque."
+      ],
+      "viz_hint": "Le disque $D(z_0,\\rho(z_0))$ maximal inscrit dans $\\Omega$ qui se déplace avec $z_0$ ; les coefficients $|a_n|r^n$ bornés par $\\sup_{C}|f|$."
+    },
+    {
+      "id": "ch01-primitive-locale",
+      "kind": "corollary",
+      "ref": "Corollaire I.7.6",
+      "title": "Existence locale de primitives (primitive sur tout disque ouvert)",
+      "page": 22,
+      "statement": "Toute fonction holomorphe admet localement une primitive. Plus précisément, si $f$ est une fonction holomorphe sur un disque ouvert $D$, il existe $F\\in\\Hol(D)$ qui est une primitive de $f$, i.e. $F'=f$ sur $D$.",
+      "hypotheses": [
+        "$f$ holomorphe sur un **disque** ouvert $D$ (ce n'est pas la simple analyticité qui sert : une seule série entière représente $f$ sur $D$ tout entier)"
+      ],
+      "depends_on": [
+        "Corollaire I.7.5",
+        "Proposition I.3.3"
+      ],
+      "used_by_hint": "Exercice I.8.1 (Morera), Remarque I.14.3 (logarithme sur $D(1,1/2)$), Théorème II.9.1 (primitive globale sur un ouvert simplement connexe), Corollaire I.4.5.",
+      "importance": 2,
+      "proof_in_poly": "full",
+      "proof_length": "short",
+      "counterexample_hints": [
+        "Pas de primitive globale en général : $1/z$ sur $\\C^\\times$ ($\\int_{C(0,1)}dz/z=2i\\pi\\neq0$, contredirait le Théorème I.5.9)."
+      ],
+      "viz_hint": "Sur $\\C^\\times$ : recoller les primitives locales de $1/z$ le long d'un lacet autour de $0$ fait apparaître le saut $2i\\pi$ (surface de Riemann du log)."
+    },
+    {
+      "id": "ch01-morera",
+      "kind": "theorem",
+      "ref": "Exercice I.8.1",
+      "title": "Théorème de Morera (1886) : caractérisation de l'holomorphie par les intégrales sur les triangles",
+      "page": 23,
+      "statement": "Soit $f$ une fonction continue sur un ouvert $\\Omega$. On suppose que\n$$\\text{(I.8.1)}\\qquad \\int_{[a,b]}f(z)\\,dz+\\int_{[b,c]}f(z)\\,dz+\\int_{[c,a]}f(z)\\,dz=0,$$\npour tous $a,b,c\\in\\Omega$ tels que le triangle plein de sommets $a,b,c$ est inclus dans $\\Omega$. Alors $f$ est holomorphe sur $\\Omega$ : pour $D(z_0,r)\\subset\\Omega$, la fonction $F(z)=\\int_{[z_0,z]}f(\\zeta)\\,d\\zeta$ est $\\C$-dérivable sur $D(z_0,r)$ avec $F'=f$, donc $F$ est holomorphe et $f=F'$ aussi. Inversement, si $f$ est holomorphe sur $\\Omega$ alors (I.8.1) est vérifié pour tous $a,b,c\\in\\Omega$ tels que le triangle plein de sommets $a,b,c$ est inclus dans $\\Omega$.",
+      "hypotheses": [
+        "$f$ **continue** sur $\\Omega$",
+        "(I.8.1) pour tous les triangles pleins inclus dans $\\Omega$ (il suffit en fait de ceux contenus dans un disque $D(z_0,r)\\subset\\Omega$)"
+      ],
+      "depends_on": [
+        "Définition I.1.1",
+        "Théorème I.7.4",
+        "Corollaire I.7.6",
+        "Théorème I.5.9"
+      ],
+      "used_by_hint": "Exercice I.8.2 (Goursat) ; chapitre III (limite localement uniforme de fonctions holomorphes : Théorème de Weierstrass) ; principe de réflexion de Schwarz.",
+      "importance": 2,
+      "proof_in_poly": "exercise",
+      "proof_length": "medium",
+      "counterexample_hints": [
+        "Sans continuité : $f=\\mathbf 1_{\\{0\\}}$ vérifie (I.8.1) (intégrales de chemins insensibles à un point) sans être holomorphe.",
+        "Il faut tous les petits triangles, pas seulement les cercles centrés : la propriété de la moyenne sur les cercles caractérise les fonctions harmoniques, pas les holomorphes ($\\bar z$ vérifie la formule de la moyenne)."
+      ],
+      "viz_hint": "Un petit triangle dans $\\Omega$ et $F(z)=\\int_{[z_0,z]}f$ : montrer que $F(z+h)-F(z)=\\int_{[z,z+h]}f\\approx f(z)h$ grâce à la nullité sur le triangle $z_0,z,z+h$."
+    },
+    {
+      "id": "ch01-goursat",
+      "kind": "theorem",
+      "ref": "Exercice I.8.2",
+      "title": "Théorème de Goursat (1900) : $\\C$-dérivable en tout point $\\Rightarrow$ holomorphe",
+      "page": 23,
+      "statement": "Si $f:\\Omega\\to\\C$ est une fonction continue admettant une dérivée au sens complexe $f'(z)$ en tout point $z\\in\\Omega$, alors $f$ est holomorphe (i.e. $f'$ est automatiquement continue). La preuve consiste à établir (I.8.1) pour tout triangle plein $T\\subset\\Omega$ par subdivision en quatre triangles homothétiques et passage à la limite, puis à appliquer le théorème de Morera.",
+      "hypotheses": [
+        "$f$ continue sur $\\Omega$",
+        "$f$ $\\C$-dérivable en **tout** point de $\\Omega$ (pas d'hypothèse sur $f'$)"
+      ],
+      "depends_on": [
+        "Exercice I.8.1"
+      ],
+      "used_by_hint": "Justifie que l'hypothèse « $f'$ continue » de la Définition I.1.1 est superflue ; utilisé pour les applications fines (singularités effaçables, Théorème de Riemann au chapitre II).",
+      "importance": 2,
+      "proof_in_poly": "exercise",
+      "proof_length": "medium",
+      "counterexample_hints": [
+        "La $\\C$-dérivabilité en un seul point ne suffit pas : $|z|^2$ est $\\C$-dérivable en $0$ seulement et n'est holomorphe sur aucun ouvert ; il faut la $\\C$-dérivabilité en tout point de l'ouvert.",
+        "La version réelle est fausse : $x^2\\sin(1/x)$ est dérivable partout avec dérivée discontinue en $0$."
+      ],
+      "viz_hint": "Subdivision dyadique d'un triangle en 4, puis 16, ... : la contribution $|\\int_{\\partial T_n}f|\\ge 4^{-n}|\\int_{\\partial T}f|$ contre la majoration $o(4^{-n})$ via le DL de $f$ au point limite."
+    },
+    {
+      "id": "ch01-holomorphie-sous-integrale",
+      "kind": "theorem",
+      "ref": "Théorème I.9.1",
+      "title": "Holomorphie d'une intégrale à paramètre (domination locale) et dérivation sous le signe $\\int$",
+      "page": 24,
+      "statement": "Soit $\\Omega$ un ouvert de $\\C$, $X$ un sous-ensemble mesurable de $\\R^N$ (muni de la mesure de Lebesgue $dx$) et $F$ une fonction définie sur $\\Omega\\times X$. On suppose que :\n(i) $F$ est mesurable sur $\\Omega\\times X$ et, pour tout $x\\in X$, $z\\mapsto F(z,x)$ est holomorphe sur $\\Omega$ ;\n(ii) pour tout $z_0\\in\\Omega$, il existe $r_0>0$ tel que le disque $D(z_0,r_0)$ soit inclus dans $\\Omega$, et une fonction $g_{z_0}$ intégrable sur $X$ (au sens de Lebesgue) avec, pour tout $z\\in D(z_0,r_0)$ et tout $x\\in X$, $|F(z,x)|\\le g_{z_0}(x)$.\nAlors la fonction $f$ définie par\n$$\\text{(I.9.1)}\\qquad f(z)=\\int_X F(z,x)\\,dx$$\nest bien définie et holomorphe sur $\\Omega$. De plus, pour tout $k\\in\\N$,\n$$f^{(k)}(z)=\\int_X\\frac{\\partial^kF}{\\partial z^k}(z,x)\\,dx.$$",
+      "hypotheses": [
+        "$F$ mesurable sur $\\Omega\\times X$",
+        "$z\\mapsto F(z,x)$ holomorphe pour tout $x$",
+        "domination **locale** : $|F(z,x)|\\le g_{z_0}(x)$ pour $z$ dans un disque autour de chaque $z_0$, avec $g_{z_0}\\in L^1(X)$ (indépendante de $z$)"
+      ],
+      "depends_on": [
+        "Théorème I.6.1",
+        "Théorème I.7.4",
+        "Corollaire I.7.5"
+      ],
+      "used_by_hint": "Exemple I.9.2 ($\\Gamma$), Corollaire I.9.4, Exercice I.9.5 (transformée de Fourier/Laplace), Proposition I.11.8 ; outil standard des contrôles (fonctions définies par des intégrales).",
+      "importance": 3,
+      "proof_in_poly": "full",
+      "proof_length": "medium",
+      "counterexample_hints": [
+        "Sans domination : $F(z,x)=e^{-x z}$ sur $X=\\R_+$ définit $f(z)=1/z$ seulement sur $\\{\\Re z>0\\}$ ; la domination échoue dès que $\\Re z\\le 0$.",
+        "La domination doit être locale en $z$ mais **uniforme** sur le disque : une majoration dépendant de $z$ ne suffit pas pour le TCD."
+      ],
+      "viz_hint": "La fonction $\\Gamma$ : tracer $t\\mapsto|t^{z-1}e^{-t}|$ pour $z$ dans une bande $\\alpha\\le\\Re z\\le\\beta$ et la dominante $g_{\\alpha,\\beta}$."
+    },
+    {
+      "id": "ch01-fonction-gamma",
+      "kind": "example",
+      "ref": "Exemple I.9.2",
+      "title": "La fonction $\\Gamma$ d'Euler est holomorphe sur $\\{\\Re z>0\\}$, $\\Gamma(z+1)=z\\Gamma(z)$, $\\Gamma(n+1)=n!$",
+      "page": 25,
+      "statement": "Pour $z\\in\\C$ tel que $\\Re(z)>0$, posons\n$$\\Gamma(z)=\\int_0^{+\\infty}t^{z-1}e^{-t}\\,dt,\\qquad\\text{où } t^{z-1}:=e^{(z-1)\\ln t}\\ (t>0).$$\nAvec $X=]0,+\\infty[$, $F(z,t)=t^{z-1}e^{-t}$ : $z\\mapsto F(z,t)$ est holomorphe sur $\\{\\Re z>0\\}$, $|t^{z-1}|=t^{\\Re(z)-1}$, de sorte que pour $0<\\alpha\\le\\Re(z)\\le\\beta$, $|F(z,t)|\\le g_{\\alpha,\\beta}(t):=(t^{\\alpha-1}+t^{\\beta-1})e^{-t}$, intégrable sur $]0,+\\infty[$ car $\\alpha>0$. Le Théorème I.9.1 s'applique : $\\Gamma$ est holomorphe sur $\\{\\Re z>0\\}$ avec\n$$\\Gamma^{(k)}(z)=\\int_0^{+\\infty}(\\ln t)^k\\,t^{z-1}e^{-t}\\,dt.$$\nUne intégration par parties donne $\\Gamma(z+1)=z\\,\\Gamma(z)$, et $\\Gamma(1)=1$, d'où $\\Gamma(n+1)=n!$ pour tout $n\\in\\N$. L'équation fonctionnelle $\\Gamma(z)=\\Gamma(z+1)/z$ permettra de prolonger $\\Gamma$ en une fonction méromorphe sur $\\C$, de pôles les entiers $\\le 0$.",
+      "hypotheses": [
+        "$\\Re z>0$ (intégrabilité en $0$)"
+      ],
+      "depends_on": [
+        "Théorème I.9.1"
+      ],
+      "used_by_hint": "Section III.5 (prolongement méromorphe, produit de Weierstrass) ; exemple-type de « vérifier les hypothèses du Théorème I.9.1 sur des bandes ».",
+      "importance": 2,
+      "proof_in_poly": "full",
+      "proof_length": "short",
+      "counterexample_hints": [
+        "Il n'existe pas de dominante valable sur tout le demi-plan ($t^{\\beta-1}$ avec $\\beta\\to\\infty$) : d'où la nécessité d'une domination seulement locale."
+      ],
+      "viz_hint": "Domain coloring de $\\Gamma$ sur $\\{\\Re z>0\\}$ puis prolongée : pôles en $0,-1,-2,\\dots$ ; graphe réel de $\\Gamma$ passant par les $n!$."
+    },
+    {
+      "id": "ch01-variantes-holomorphie-integrale",
+      "kind": "remark",
+      "ref": "Remarque I.9.3",
+      "title": "Variantes : intégrale d'une série entière à paramètre ; via dérivation réelle sous $\\int$ et Cauchy–Riemann",
+      "page": 25,
+      "statement": "(a) Si $F(z,x)=\\sum_{n\\in\\N}a_n(x)(z-z_0)^n$ avec rayon $\\ge R>0$ pour tout $x$, les $a_n$ intégrables et $\\sum A_nz^n$ ($A_n=\\int_X|a_n(x)|dx$) de rayon $\\ge R$, alors par interversion $\\sum$–$\\int$ (Fubini), $f(z)=\\sum_{n\\in\\N}\\bigl(\\int_Xa_n(x)dx\\bigr)(z-z_0)^n$ sur $D(z_0,R)$.\n(b) On peut aussi voir $F$ comme fonction de $(u,v,x)$ avec $z=u+iv$, montrer par les théorèmes de Lebesgue de continuité et de dérivation sous $\\int$ que $f$ est $C^1$ en $(u,v)$ avec $\\frac{\\partial f}{\\partial u}=\\int_X\\frac{\\partial F}{\\partial u}dx$, $\\frac{\\partial f}{\\partial v}=\\int_X\\frac{\\partial F}{\\partial v}dx$, puis vérifier les équations de Cauchy–Riemann ; alors $f'(z)=\\frac{\\partial f}{\\partial z}(z)=\\int_X\\frac{\\partial F}{\\partial z}(z,x)\\,dx$.",
+      "hypotheses": [
+        "hypothèses de Fubini / de dérivation sous l'intégrale (domination des dérivées partielles)"
+      ],
+      "depends_on": [
+        "Remarque I.2.6",
+        "Corollaire I.2.4"
+      ],
+      "used_by_hint": "Méthode alternative dans les exercices quand la dominante de $F$ est pénible mais celle de $\\partial F/\\partial z$ facile.",
+      "importance": 1,
+      "proof_in_poly": "sketch",
+      "proof_length": "short",
+      "counterexample_hints": [],
+      "viz_hint": ""
+    },
+    {
+      "id": "ch01-integrale-chemin-parametre",
+      "kind": "corollary",
+      "ref": "Corollaire I.9.4",
+      "title": "$f(z)=\\int_\\gamma F(z,u)\\,du$ est holomorphe si $F$ est continue et holomorphe en $z$",
+      "page": 26,
+      "statement": "Soient $\\Omega$ et $U$ deux ouverts de $\\C$ et soit $(z,u)\\mapsto F(z,u)$ une fonction continue sur $\\Omega\\times U$, holomorphe en $z$ pour tout $u\\in U$. Alors pour tout chemin $\\gamma$ dans $U$, la formule\n$$f(z)=\\int_\\gamma F(z,u)\\,du$$\ndéfinit une fonction holomorphe sur $\\Omega$.",
+      "hypotheses": [
+        "$F$ continue sur $\\Omega\\times U$ (conjointement)",
+        "$z\\mapsto F(z,u)$ holomorphe pour tout $u$",
+        "$\\gamma$ chemin ($C^1$ par morceaux, image compacte)"
+      ],
+      "depends_on": [
+        "Théorème I.9.1",
+        "Définition I.5.4",
+        "Définition I.5.1"
+      ],
+      "used_by_hint": "Chapitre II (intégrales de Cauchy $\\int_\\gamma\\frac{f(\\omega)}{\\omega-z}d\\omega$ comme fonctions holomorphes de $z$, indice d'un lacet), noyau de Bergman (IV).",
+      "importance": 2,
+      "proof_in_poly": "full",
+      "proof_length": "short",
+      "counterexample_hints": [
+        "Si $\\gamma$ est remplacé par un chemin non compact (demi-droite), la domination tombe en défaut : il faut une hypothèse de décroissance (cf. Exercice I.9.5)."
+      ],
+      "viz_hint": ""
+    },
+    {
+      "id": "ch01-liouville",
+      "kind": "theorem",
+      "ref": "Théorème I.10.1",
+      "title": "Théorème de Liouville",
+      "page": 26,
+      "statement": "Soit $f\\in\\Hol(\\C)$ une fonction bornée sur $\\C$. Alors $f$ est constante.",
+      "hypotheses": [
+        "$f$ holomorphe sur $\\C$ **tout entier** (entière)",
+        "$f$ bornée sur $\\C$"
+      ],
+      "depends_on": [
+        "Corollaire I.7.5",
+        "Théorème I.7.4"
+      ],
+      "used_by_hint": "Corollaire I.10.2 (d'Alembert–Gauss), Exercice I.10.3 (image dense, croissance polynomiale), Exercice II.7.5 (automorphismes de $\\C$), chapitre III ($\\wp$ de Weierstrass).",
+      "importance": 3,
+      "proof_in_poly": "exercise",
+      "proof_length": "short",
+      "counterexample_hints": [
+        "Sans « sur $\\C$ » : $z\\mapsto z$ est bornée holomorphe sur $D(0,1)$ ; $1/z$ bornée sur $\\{|z|>1\\}$.",
+        "Sans « bornée » : $z$, $e^z$ ; $e^z$ est bornée sur tout demi-plan $\\Re z\\le a$ mais pas sur $\\C$.",
+        "Réel : $\\sin$ est bornée non constante sur $\\R$."
+      ],
+      "viz_hint": "Estimée $|f'(z_0)|\\le M/R$ : disque de rayon $R$ qui grandit autour de $z_0$ pendant que la borne reste $M$."
+    },
+    {
+      "id": "ch01-dalembert-gauss",
+      "kind": "corollary",
+      "ref": "Corollaire I.10.2",
+      "title": "Théorème de d'Alembert–Gauss : $\\C$ est algébriquement clos",
+      "page": 26,
+      "statement": "Tout polynôme non constant à coefficients complexes possède une racine dans $\\C$. En d'autres termes, le corps $\\C$ est algébriquement clos.",
+      "hypotheses": [
+        "$P\\in\\C[X]$ non constant"
+      ],
+      "depends_on": [
+        "Théorème I.10.1",
+        "Proposition I.3.1"
+      ],
+      "used_by_hint": "Factorisation des polynômes ; chapitre II (Rouché redonne le résultat avec le compte des racines).",
+      "importance": 2,
+      "proof_in_poly": "exercise",
+      "proof_length": "short",
+      "counterexample_hints": [
+        "Faux sur $\\R$ : $X^2+1$.",
+        "Faux pour les fonctions entières : $e^z$ n'a pas de zéro (Liouville ne s'applique pas à $1/e^z=e^{-z}$, non bornée)."
+      ],
+      "viz_hint": "Image du cercle $C(0,R)$ par $P$ : pour $R$ grand elle entoure $0$ $d$ fois (lien avec l'indice, chapitre II)."
+    },
+    {
+      "id": "ch01-zeros-isoles",
+      "kind": "theorem",
+      "ref": "Théorème I.11.1",
+      "title": "Principe des zéros isolés",
+      "page": 27,
+      "statement": "Soit $\\Omega$ un ouvert connexe et $f$ une fonction holomorphe sur $\\Omega$ non identiquement nulle. Alors, les zéros de $f$ sont isolés. C'est-à-dire que, si $f(z_0)=0$, il existe $\\epsilon>0$ tel que, pour tout $z\\in\\Omega\\cap(D(z_0,\\epsilon)\\setminus\\{z_0\\})$, $f(z)\\neq0$.",
+      "hypotheses": [
+        "$\\Omega$ ouvert **connexe**",
+        "$f$ holomorphe sur $\\Omega$",
+        "$f$ non identiquement nulle sur $\\Omega$"
+      ],
+      "depends_on": [
+        "Corollaire I.7.5",
+        "Théorème I.7.4",
+        "Corollaire I.3.4"
+      ],
+      "used_by_hint": "Définition I.11.2, Corollaire I.11.6, Proposition I.11.8, Théorème I.12.1, Exercice I.12.3 (intégrité de $\\Hol(\\Omega)$), Exercice I.14.2 ; chapitre II (zéros/pôles des méromorphes, principe de l'argument).",
+      "importance": 3,
+      "proof_in_poly": "full",
+      "proof_length": "medium",
+      "counterexample_hints": [
+        "Sans connexité : $f=0$ sur un disque et $f=1$ sur un autre disque disjoint ; les zéros ne sont pas isolés et $f\\not\\equiv0$ (Remarque I.11.3).",
+        "Réel : $x\\mapsto e^{-1/x^2}\\mathbf 1_{x>0}$ est $C^\\infty$ sur $\\R$, nulle sur $\\R_-$ et non identiquement nulle : en variable réelle les zéros d'une fonction $C^\\infty$ ne sont pas isolés.",
+        "Les zéros peuvent s'accumuler au **bord** de $\\Omega$ : $\\sin(1/z)$ sur $\\C^\\times$ ou $\\sin(\\pi/(1-z))$ sur $D(0,1)$."
+      ],
+      "viz_hint": "Domain coloring de $f$ près d'un zéro de multiplicité $m$ : les couleurs tournent $m$ fois ; zéros de $\\sin(1/z)$ s'accumulant en $0\\notin\\Omega$."
+    },
+    {
+      "id": "ch01-def-multiplicite-zero",
+      "kind": "definition",
+      "ref": "Définition I.11.2",
+      "title": "Multiplicité (ordre) d'un zéro ; zéro simple ; factorisation $f(z)=(z-z_0)^mh(z)$",
+      "page": 27,
+      "statement": "Soient $\\Omega$ un ouvert connexe, $f$ une fonction holomorphe sur $\\Omega$ non identiquement nulle, et $z_0$ un zéro de $f$. L'entier\n$$m(z_0):=\\min\\{n\\ge0 : f^{(n)}(z_0)\\neq0\\}$$\nest bien défini (preuve du Théorème I.11.1), et $m(z_0)\\ge1$ puisque $f(z_0)=0$. On l'appelle la **multiplicité** (ou l'**ordre**) du zéro $z_0$. De manière équivalente, $m(z_0)$ est l'unique entier $m\\ge1$ tel que l'on puisse écrire\n$$f(z)=(z-z_0)^m\\,h(z)$$\nau voisinage de $z_0$, avec $h$ holomorphe et $h(z_0)\\neq0$. Un zéro de multiplicité $1$ est dit **simple**.",
+      "hypotheses": [
+        "$\\Omega$ connexe, $f\\not\\equiv0$ (sinon toutes les dérivées peuvent s'annuler)"
+      ],
+      "depends_on": [
+        "Théorème I.11.1",
+        "Corollaire I.7.5"
+      ],
+      "used_by_hint": "Chapitre II : multiplicité d'un pôle, résidu de $f'/f$, principe de l'argument, Rouché ; Remarque I.14.3 ($N\\ge2$).",
+      "importance": 2,
+      "proof_in_poly": "sketch",
+      "proof_length": "short",
+      "counterexample_hints": [
+        "Zéro simple $\\Leftrightarrow$ $f'(z_0)\\neq0$ ; $z^2$ en $0$ : $m=2$, $f'(0)=0$."
+      ],
+      "viz_hint": ""
+    },
+    {
+      "id": "ch01-zeros-isoles-sans-connexite",
+      "kind": "remark",
+      "ref": "Remarque I.11.3",
+      "title": "Sans connexité : zéros non isolés $\\Rightarrow$ $f$ nulle sur une composante connexe",
+      "page": 28,
+      "statement": "La connexité n'entre en jeu que pour avoir un joli énoncé. Dans le cas général, la preuve permet de conclure que si les zéros ne sont pas isolés, la fonction holomorphe est nulle sur une des composantes connexes (nécessairement ouverte) de $\\Omega$.",
+      "hypotheses": [],
+      "depends_on": [
+        "Théorème I.11.1"
+      ],
+      "used_by_hint": "Remarque I.3.6 (constante sur chaque composante connexe).",
+      "importance": 1,
+      "proof_in_poly": "sketch",
+      "proof_length": "short",
+      "counterexample_hints": [],
+      "viz_hint": ""
+    },
+    {
+      "id": "ch01-ensemble-zeros-discret-ferme",
+      "kind": "remark",
+      "ref": "Remarque I.11.4",
+      "title": "$Z(f,\\Omega)$ est discret et fermé dans $\\Omega$, donc localement fini",
+      "page": 28,
+      "statement": "L'ensemble des zéros d'une fonction holomorphe $f$ (non identiquement nulle sur un connexe) sur $\\Omega$, noté désormais $Z(f,\\Omega)$, est discret et fermé (dans $\\Omega$). Il est donc localement fini (voir Proposition II.4.1).",
+      "hypotheses": [
+        "$\\Omega$ connexe, $f\\not\\equiv 0$"
+      ],
+      "depends_on": [
+        "Théorème I.11.1"
+      ],
+      "used_by_hint": "Proposition II.4.1, formule des résidus (ensemble des pôles localement fini).",
+      "importance": 2,
+      "proof_in_poly": "sketch",
+      "proof_length": "short",
+      "counterexample_hints": [
+        "Fermé **dans $\\Omega$** seulement : les zéros de $\\sin(\\pi/(1-z))$ dans $D(0,1)$ s'accumulent en $1$."
+      ],
+      "viz_hint": ""
+    },
+    {
+      "id": "ch01-isole-ne-signifie-pas-fini",
+      "kind": "remark",
+      "ref": "Remarque I.11.5",
+      "title": "« Isolé » ne signifie pas « en nombre fini » : $\\sin(\\pi z)$",
+      "page": 28,
+      "statement": "Une fonction holomorphe non identiquement nulle peut très bien avoir une infinité de zéros isolés, par exemple $z\\mapsto\\sin(\\pi z)$ sur $\\C$, dont les zéros sont exactement les entiers relatifs. C'est la propriété, plus faible que la finitude, d'être localement finie qui est garantie par le principe des zéros isolés (voir aussi la Remarque II.5.2 pour la formule des résidus).",
+      "hypotheses": [],
+      "depends_on": [
+        "Théorème I.11.1",
+        "Exemple I.3.5"
+      ],
+      "used_by_hint": "Remarque II.5.2 ; produits infinis (chapitre III).",
+      "importance": 2,
+      "proof_in_poly": "none",
+      "proof_length": "short",
+      "counterexample_hints": [],
+      "viz_hint": ""
+    },
+    {
+      "id": "ch01-prolongement-analytique",
+      "kind": "corollary",
+      "ref": "Corollaire I.11.6",
+      "title": "Principe du prolongement analytique (unicité)",
+      "page": 28,
+      "statement": "Deux fonctions holomorphes $f$ et $g$ sur un ouvert connexe $\\Omega$ qui coïncident sur une partie $X$ de $\\Omega$ ayant un point d'accumulation dans $\\Omega$, coïncident partout.\n(Un point d'accumulation de $X$ est un point $a$ tel que tout voisinage de $a$ rencontre $X\\setminus\\{a\\}$.)",
+      "hypotheses": [
+        "$\\Omega$ **connexe**",
+        "$f,g$ holomorphes sur $\\Omega$",
+        "$X\\subset\\Omega$ a un point d'accumulation **dans $\\Omega$** (pas seulement dans $\\bar\\Omega$)"
+      ],
+      "depends_on": [
+        "Théorème I.11.1"
+      ],
+      "used_by_hint": "Exemple I.11.7, Théorème I.12.1 (constante près de $z_0$ $\\Rightarrow$ constante sur $\\Omega$), Exercice I.12.3, identités trigonométriques prolongées de $\\R$ à $\\C$, prolongement de $\\Gamma$ (III.5).",
+      "importance": 3,
+      "proof_in_poly": "full",
+      "proof_length": "short",
+      "counterexample_hints": [
+        "Point d'accumulation au bord : $\\sin(\\pi/(1-z))$ et $0$ coïncident sur $X=\\{1-1/n\\}$ qui s'accumule en $1\\notin D(0,1)$, sans être égales.",
+        "$X$ infini sans point d'accumulation dans $\\Omega$ : $\\sin(\\pi z)$ et $0$ coïncident sur $\\Z$.",
+        "Sans connexité : $f=0$ et $g=\\mathbf 1$ sur une seconde composante."
+      ],
+      "viz_hint": "Deux fonctions coïncidant sur un petit arc : leurs domain colorings coïncident partout sur le connexe."
+    },
+    {
+      "id": "ch01-exemple-prolongement-serie-geometrique",
+      "kind": "example",
+      "ref": "Exemple I.11.7",
+      "title": "$\\sum_{n\\ge0}z^n$ sur $D(0,1)$ se prolonge analytiquement en $1/(1-z)$ sur $\\C\\setminus\\{1\\}$",
+      "page": 28,
+      "statement": "La fonction holomorphe définie sur $D(0,1)$ par la série $f(z):=\\sum_{n\\ge0}z^n$ admet un prolongement analytique à $\\C\\setminus\\{1\\}$ : la fonction $g(z):=\\frac1{1-z}$ est analytique sur $\\C\\setminus\\{1\\}$ et coïncide avec $f$ sur le disque unité ouvert.",
+      "hypotheses": [],
+      "depends_on": [
+        "Corollaire I.11.6",
+        "Proposition I.3.3"
+      ],
+      "used_by_hint": "Modèle du prolongement analytique ; section III.5 ($\\Gamma$).",
+      "importance": 1,
+      "proof_in_poly": "full",
+      "proof_length": "short",
+      "counterexample_hints": [
+        "Toute série entière ne se prolonge pas : $\\sum z^{2^n}$ a le cercle unité comme frontière naturelle."
+      ],
+      "viz_hint": "Domain coloring de $\\sum_{n\\le N}z^n$ (bon dans $D(0,1)$, chaotique dehors) vs $1/(1-z)$."
+    },
+    {
+      "id": "ch01-densite-polynomes-l2-gaussien",
+      "kind": "proposition",
+      "ref": "Proposition I.11.8",
+      "title": "Densité des polynômes dans $L^2(\\R,e^{-x^2}dx)$ et dans $L^2(]0,+\\infty[,e^{-x}dx)$",
+      "page": 28,
+      "statement": "Les fonctions polynômes sont denses dans $L^2(\\R,e^{-x^2}dx)$. Elles sont aussi denses dans $L^2(]0,+\\infty[,e^{-x}dx)$.",
+      "hypotheses": [
+        "poids gaussien $e^{-x^2}$ (ou exponentiel $e^{-x}$ sur $]0,+\\infty[$) : assure que $F(z)=\\int f(x)e^{zx}e^{-x^2}dx$ est entière",
+        "injectivité de la transformée de Fourier sur $L^1$"
+      ],
+      "depends_on": [
+        "Théorème I.9.1",
+        "Corollaire I.7.5",
+        "Théorème I.11.1"
+      ],
+      "used_by_hint": "Polynômes d'Hermite et de Laguerre (bases hilbertiennes) ; modèle d'« argument d'analyticité » pour un problème de densité.",
+      "importance": 2,
+      "proof_in_poly": "sketch",
+      "proof_length": "medium",
+      "counterexample_hints": [
+        "Avec un poids décroissant trop lentement (par exemple $e^{-|x|^{1/2}}$) la transformée $F$ n'est plus entière et la densité peut tomber en défaut (problème des moments de Stieltjes)."
+      ],
+      "viz_hint": ""
+    },
+    {
+      "id": "ch01-def-point-accumulation",
+      "kind": "definition",
+      "ref": "non numéroté (note 2), section I.11, p. 28",
+      "title": "Point d'accumulation d'une partie $X$",
+      "page": 28,
+      "statement": "Un **point d'accumulation** de $X$ est un point $a$ tel que tout voisinage de $a$ intersecte $X\\setminus\\{a\\}$. (Un point de $X$ qui n'est pas d'accumulation est **isolé** dans $X$.)",
+      "hypotheses": [],
+      "depends_on": [],
+      "used_by_hint": "Théorème I.11.1 (zéro isolé), Corollaire I.11.6.",
+      "importance": 1,
+      "proof_in_poly": "none",
+      "proof_length": "short",
+      "counterexample_hints": [
+        "$X=\\{1/n\\}$ : point d'accumulation $0\\notin X$ ; $X=\\Z$ : aucun point d'accumulation dans $\\C$."
+      ],
+      "viz_hint": ""
+    },
+    {
+      "id": "ch01-principe-maximum",
+      "kind": "theorem",
+      "ref": "Théorème I.12.1",
+      "title": "Principe du maximum",
+      "page": 29,
+      "statement": "Soit $f$ une fonction holomorphe sur un ouvert connexe $\\Omega$. On suppose que la fonction $z\\mapsto|f(z)|$ admet un maximum local en $z_0\\in\\Omega$. Alors $f$ est constante sur $\\Omega$.",
+      "hypotheses": [
+        "$\\Omega$ ouvert **connexe**",
+        "$f$ holomorphe sur $\\Omega$",
+        "$|f|$ admet un maximum **local** en un point **intérieur** $z_0\\in\\Omega$"
+      ],
+      "depends_on": [
+        "Corollaire I.11.6",
+        "Corollaire I.7.5",
+        "Corollaire I.6.2"
+      ],
+      "used_by_hint": "Corollaire I.12.2, Lemme I.13.1 (Schwarz), Exercice I.12.4, Exercice I.12.5 (trois cercles), Exercice I.14.2 (application ouverte) ; fonctions harmoniques (IV.2).",
+      "importance": 3,
+      "proof_in_poly": "full",
+      "proof_length": "medium",
+      "counterexample_hints": [
+        "Pas de principe du **minimum** sans hypothèse : $f(z)=z$ a un minimum de $|f|$ en $0$ ; il vaut pour $|f|$ si $f$ ne s'annule pas (appliquer à $1/f$).",
+        "Sans connexité : $f=1$ sur un disque, $f=2$ sur un autre : max local non global sans que $f$ soit constante sur $\\Omega$.",
+        "Réel : $1-x^2$ a un maximum intérieur sans être constante."
+      ],
+      "viz_hint": "Surface $|f|$ au-dessus du disque (paysage analytique) : aucun sommet intérieur, seulement des cols ; comparer avec une fonction réelle quelconque."
+    },
+    {
+      "id": "ch01-maximum-sur-le-bord",
+      "kind": "corollary",
+      "ref": "Corollaire I.12.2",
+      "title": "Sur un connexe borné : $\\sup_{\\bar\\Omega}|f|=\\sup_{\\partial\\Omega}|f|$ pour $f$ continue sur $\\bar\\Omega$, holomorphe sur $\\Omega$",
+      "page": 31,
+      "statement": "Soit $\\Omega$ un ouvert connexe non vide de $\\C$ dont l'adhérence $\\bar\\Omega$ est bornée, donc compacte. Soit $f:\\bar\\Omega\\to\\C$ continue et holomorphe sur $\\Omega$. On a alors $\\sup_{\\bar\\Omega}|f|<+\\infty$ par compacité de $\\bar\\Omega$ (et ce sup est atteint), et le principe du maximum implique que ce sup est atteint sur le bord du domaine $\\partial\\Omega=\\bar\\Omega\\setminus\\Omega$ :\n$$\\sup_{\\bar\\Omega}|f|=\\sup_{\\partial\\Omega}|f|.$$",
+      "hypotheses": [
+        "$\\Omega$ connexe non vide, $\\bar\\Omega$ **bornée** (compacte)",
+        "$f$ continue sur $\\bar\\Omega$",
+        "$f$ holomorphe sur $\\Omega$"
+      ],
+      "depends_on": [
+        "Théorème I.12.1"
+      ],
+      "used_by_hint": "Lemme I.13.1, Exercice I.12.3 (2), Exercice I.12.4–I.12.5, Exercice I.14.2 ; Rouché (II).",
+      "importance": 3,
+      "proof_in_poly": "full",
+      "proof_length": "short",
+      "counterexample_hints": [
+        "Non borné : $f(z)=e^{-iz}$ sur le demi-plan $\\Omega=\\{\\Im z>0\\}$ : $|f|=e^{\\Im z}$ vaut $1$ sur le bord $\\R$ et est non bornée (théorème de Phragmén–Lindelöf nécessaire).",
+        "Sans continuité jusqu'au bord l'énoncé n'a pas de sens ; sans connexité, appliquer composante par composante."
+      ],
+      "viz_hint": "Paysage analytique $|f|$ sur $\\bar D$ : le maximum est toujours sur le cercle ; curseur pour déplacer les zéros de $f$."
+    },
+    {
+      "id": "ch01-lemme-schwarz",
+      "kind": "lemma",
+      "ref": "Lemme I.13.1",
+      "title": "Lemme de Schwarz",
+      "page": 32,
+      "statement": "On note $D=D(0,1)$ et $D^\\times=D\\setminus\\{0\\}$. Soit $f\\in\\Hol(D)$ telle que $f(D)\\subset\\bar D(0,1)$ et telle que $f(0)=0$. Alors\n1. $|f(z)|\\le|z|$ pour tout $z\\in D$ et $|f'(0)|\\le1$.\n2. S'il existe $z\\in D^\\times$ tel que $|f(z)|=|z|$ ou que $|f'(0)|=1$ alors $f$ est une rotation, c'est-à-dire qu'il existe $\\theta\\in\\R$ tel que $f(z)=e^{i\\theta}z$ pour tout $z\\in D$.\n3. Si $f$ est un automorphisme de $D$ (Définition I.4.1) alors $f$ est une rotation.\n4. Si $f$ n'est pas un automorphisme de $D$, alors $|f(z)|<|z|$ pour tout $z\\in D\\setminus\\{0\\}$.",
+      "hypotheses": [
+        "$f$ holomorphe sur le disque unité $D$",
+        "$f(D)\\subset\\bar D(0,1)$ (en fait $f(D)\\subset D$ par le principe du maximum si $f$ non constante)",
+        "$f(0)=0$ (normalisation : sinon composer par un automorphisme $f_a$)"
+      ],
+      "depends_on": [
+        "Corollaire I.7.5",
+        "Théorème I.12.1",
+        "Corollaire I.12.2",
+        "Définition I.4.1"
+      ],
+      "used_by_hint": "Proposition I.13.3 (automorphismes de $D$), Exercice I.13.2, Théorème III.4.1 (représentation conforme de Riemann), Pick, distance hyperbolique (Exercice I.13.4).",
+      "importance": 3,
+      "proof_in_poly": "exercise",
+      "proof_length": "medium",
+      "counterexample_hints": [
+        "Sans $f(0)=0$ : $f\\equiv 1/2$ vérifie $|f(z)|\\le1$ mais $|f(z)|>|z|$ près de $0$.",
+        "Sans $f(D)\\subset\\bar D$ : $f(z)=2z$.",
+        "Sur $\\C$ au lieu de $D$ : $f(z)=z^2$ a $f(0)=0$, mais $|f(z)|>|z|$ pour $|z|>1$ (il n'y a pas de borne)."
+      ],
+      "viz_hint": "Image de $D$ par $f$ avec $f(0)=0$, $|f|\\le 1$ : les cercles $|z|=r$ sont envoyés dans $|w|\\le r$ ; le cas d'égalité est une rotation."
+    },
+    {
+      "id": "ch01-automorphismes-disque",
+      "kind": "proposition",
+      "ref": "Proposition I.13.3",
+      "title": "Automorphismes holomorphes du disque unité : $z\\mapsto\\lambda\\frac{z-a}{1-\\bar az}$, $a\\in D$, $|\\lambda|=1$",
+      "page": 32,
+      "statement": "Pour $a\\in D$ et $z\\in D$ on note $f_a(z)=\\dfrac{z-a}{1-\\bar a z}$. Les automorphismes holomorphes du disque unité sont exactement les fonctions de la forme $\\lambda\\cdot f_a$, avec $a\\in D$ et $|\\lambda|=1$ (Exercice I.13.2 : $f_a(D)\\subset D$, $f_a$ est une bijection holomorphe de $D$ sur $D$, et tout automorphisme est de la forme $e^{i\\theta}f_a$ par le point 3 du lemme de Schwarz).",
+      "hypotheses": [
+        "$a\\in D$ (pour que $1-\\bar az\\neq0$ sur $\\bar D$ et $f_a(D)\\subset D$)",
+        "$|\\lambda|=1$"
+      ],
+      "depends_on": [
+        "Lemme I.13.1",
+        "Définition I.4.1"
+      ],
+      "used_by_hint": "Remarque I.4.2 ; Exercice I.13.4 (loi de groupe, transitivité, distance hyperbolique) ; Théorème III.4.1 (unicité dans Riemann) ; les contrôles rappellent souvent cet énoncé.",
+      "importance": 2,
+      "proof_in_poly": "exercise",
+      "proof_length": "medium",
+      "counterexample_hints": [
+        "$|a|\\ge1$ : $f_a$ n'envoie plus $D$ dans $D$ (pôle en $1/\\bar a\\in\\bar D$).",
+        "Comparer $\\mathrm{Aut}_{hol}(\\C)=\\{az+b\\}$ (Exercice II.7.5) : la géométrie du domaine fixe le groupe."
+      ],
+      "viz_hint": "Application conforme interactive $f_{a,\\theta}$ : déplacer $a$ dans $D$ et voir l'image d'une grille polaire ; géodésiques hyperboliques (arcs orthogonaux au cercle)."
+    },
+    {
+      "id": "ch01-application-ouverte",
+      "kind": "theorem",
+      "ref": "Théorème I.14.1",
+      "title": "Théorème de l'application ouverte",
+      "page": 33,
+      "statement": "Soit $\\Omega$ un ouvert connexe non vide de $\\C$ et $f:\\Omega\\to\\C$ une application holomorphe non constante. Alors l'image $f(\\Omega)$ est un ouvert de $\\C$.",
+      "hypotheses": [
+        "$\\Omega$ ouvert **connexe** non vide",
+        "$f$ holomorphe",
+        "$f$ **non constante** (sur $\\Omega$ connexe ; sans connexité : non constante sur chaque composante)"
+      ],
+      "depends_on": [
+        "Théorème I.11.1",
+        "Proposition I.3.1",
+        "Corollaire I.12.2"
+      ],
+      "used_by_hint": "Remarque I.14.3 (bijection holomorphe $\\Rightarrow$ biholomorphisme), redonne le principe du maximum, chapitre III (Hurwitz, Riemann), ouverture de $f(U)$ pour tout ouvert $U\\subset\\Omega$.",
+      "importance": 3,
+      "proof_in_poly": "exercise",
+      "proof_length": "medium",
+      "counterexample_hints": [
+        "Réel : $x\\mapsto x^2$ envoie $]-1,1[$ sur $[0,1[$, non ouvert.",
+        "Non holomorphe : $z\\mapsto|z|^2$ envoie $\\C$ sur $\\R_+$ ; $z\\mapsto\\Re z$ envoie $\\C$ sur $\\R$ (d'intérieur vide dans $\\C$).",
+        "Constante : image réduite à un point."
+      ],
+      "viz_hint": "Image par $f$ d'un petit disque autour de $z_0$ : elle contient un disque $D(f(z_0),\\epsilon)$ (animation du cercle $C(z_0,r)$ et de son image qui « entoure » $f(z_0)$)."
+    },
+    {
+      "id": "ch01-bijection-holomorphe-reciproque-holomorphe",
+      "kind": "remark",
+      "ref": "Remarque I.14.3",
+      "title": "Une bijection holomorphe entre ouverts est un biholomorphisme ($f'$ ne s'annule pas)",
+      "page": 33,
+      "statement": "Si $f:\\Omega_1\\to\\Omega_2$ est une bijection holomorphe entre deux ouverts de $\\C$, alors $f^{-1}$ est automatiquement holomorphe. En effet, par la Proposition I.4.4 (inversion locale), il suffit de montrer que $f'$ ne s'annule pas. Si $f'(z_0)=0$ (et, quitte à translater, $f(z_0)=0$), alors $f(z)=a_N(z-z_0)^N\\bigl(1+\\sum_{n\\ge1}\\frac{a_{N+n}}{a_N}(z-z_0)^n\\bigr)$ avec $a_N\\neq0$, $N\\ge2$ ; le facteur entre parenthèses prend ses valeurs dans $D(1,1/2)$ sur $D(z_0,\\epsilon)$, y admet un logarithme (primitive de $1/z$ sur $D(1,1/2)$, Corollaire I.7.6) donc une racine $N$-ième ; ainsi $f=h^N$ sur $D(z_0,\\epsilon)$ avec $h$ holomorphe. Par le théorème de l'application ouverte, $h(D(z_0,\\epsilon))$ contient un disque $D(0,\\eta)$, et $f$ ne peut être injective car $z\\mapsto z^N$, $N\\ge2$, n'est injective sur aucun disque centré en $0$.",
+      "hypotheses": [
+        "$f$ holomorphe et **bijective** de $\\Omega_1$ sur $\\Omega_2$ (l'injectivité suffit pour $f'\\neq0$)"
+      ],
+      "depends_on": [
+        "Proposition I.4.4",
+        "Théorème VI.3.2",
+        "Corollaire I.7.5",
+        "Corollaire I.7.6",
+        "Théorème I.14.1"
+      ],
+      "used_by_hint": "Simplifie la Définition I.4.1 (il suffit de vérifier la bijectivité) ; Théorème III.4.1 (Riemann) ; Exercice I.13.2 (2).",
+      "importance": 2,
+      "proof_in_poly": "full",
+      "proof_length": "medium",
+      "counterexample_hints": [
+        "Réel : $x\\mapsto x^3$ est une bijection $C^\\infty$ de $\\R$ dont la réciproque n'est pas dérivable en $0$ : encore une rigidité propre au complexe.",
+        "Injective holomorphe $\\Rightarrow f'\\neq0$, mais $f'\\neq0$ $\\not\\Rightarrow$ injective ($\\exp$)."
+      ],
+      "viz_hint": "Près d'un zéro de $f'$ d'ordre $N-1$, $f$ ressemble à $z\\mapsto z^N$ : une petite grille est enroulée $N$ fois (non injective)."
+    }
+  ],
+  "notations": [
+    {
+      "symbol": "$D(z_0,r)$",
+      "meaning": "disque ouvert $\\{z\\in\\C,\\ |z-z_0|<r\\}$ de centre $z_0$ et de rayon $r$",
+      "page": 5
+    },
+    {
+      "symbol": "$\\bar D(z_0,r)$",
+      "meaning": "disque fermé $\\{z\\in\\C,\\ |z-z_0|\\le r\\}$",
+      "page": 5
+    },
+    {
+      "symbol": "$D(z_0,r)^\\times$",
+      "meaning": "disque ouvert privé de son centre : $D(z_0,r)\\setminus\\{z_0\\}$",
+      "page": 5
+    },
+    {
+      "symbol": "$C(z_0,r)$",
+      "meaning": "cercle $\\{z\\in\\C,\\ |z-z_0|=r\\}$ de centre $z_0$ et de rayon $r$",
+      "page": 5
+    },
+    {
+      "symbol": "$\\Re(z)$, $\\Im(z)$",
+      "meaning": "parties réelle et imaginaire de $z$ (le poly écrit $\\Re e(z)$, $\\Im m(z)$)",
+      "page": 5
+    },
+    {
+      "symbol": "$f'(z)$",
+      "meaning": "dérivée au sens complexe de $f$ en $z$ : $\\lim_{\\omega\\to0}\\frac{f(z+\\omega)-f(z)}{\\omega}$",
+      "page": 5
+    },
+    {
+      "symbol": "$\\Hol(\\Omega)$",
+      "meaning": "espace vectoriel complexe des fonctions holomorphes sur l'ouvert $\\Omega$",
+      "page": 5
+    },
+    {
+      "symbol": "$\\Omega$",
+      "meaning": "ouvert (non vide) de $\\C$, domaine de définition des fonctions considérées",
+      "page": 5
+    },
+    {
+      "symbol": "$z=x+iy$, $\\omega=s+it$",
+      "meaning": "identification $\\C\\simeq\\R^2$ : $x=\\Re z$, $y=\\Im z$",
+      "page": 6
+    },
+    {
+      "symbol": "$P$, $Q$",
+      "meaning": "parties réelle et imaginaire de $f$ : $f=P+iQ$, $f(x,y)=(P(x,y),Q(x,y))$",
+      "page": 6
+    },
+    {
+      "symbol": "$df_{(x,y)}$, $df_z$",
+      "meaning": "différentielle (réelle) de $f$ au point $(x,y)=z$, application $\\R$-linéaire $\\R^2\\to\\R^2$ vue comme $\\C\\to\\C$",
+      "page": 6
+    },
+    {
+      "symbol": "$\\frac{\\partial P}{\\partial x},\\frac{\\partial P}{\\partial y},\\dots$",
+      "meaning": "dérivées partielles ; la matrice jacobienne (I.2.2) représente $df_{(x,y)}$ dans la base canonique",
+      "page": 6
+    },
+    {
+      "symbol": "$o(|\\omega|)$",
+      "meaning": "reste négligeable devant $|\\omega|$ quand $\\omega\\to0$ (développement limité (I.2.3))",
+      "page": 6
+    },
+    {
+      "symbol": "$\\frac{\\partial}{\\partial z}$, $\\frac{\\partial}{\\partial\\bar z}$",
+      "meaning": "$\\frac12\\bigl(\\frac{\\partial}{\\partial x}-i\\frac{\\partial}{\\partial y}\\bigr)$ et $\\frac12\\bigl(\\frac{\\partial}{\\partial x}+i\\frac{\\partial}{\\partial y}\\bigr)$ : coordonnées de $df_z$ dans la base $(\\omega,\\bar\\omega)$",
+      "page": 7
+    },
+    {
+      "symbol": "$\\bar f$",
+      "meaning": "fonction complexe conjuguée $z\\mapsto\\overline{f(z)}$",
+      "page": 8
+    },
+    {
+      "symbol": "$\\Delta u$",
+      "meaning": "laplacien $\\frac{\\partial^2u}{\\partial x^2}+\\frac{\\partial^2u}{\\partial y^2}=4\\frac{\\partial^2u}{\\partial z\\partial\\bar z}$ ; $u$ harmonique si $\\Delta u=0$",
+      "page": 9
+    },
+    {
+      "symbol": "$\\C[X]$",
+      "meaning": "anneau des polynômes à coefficients complexes ; $P'$ polynôme dérivé",
+      "page": 11
+    },
+    {
+      "symbol": "$R\\in[0,+\\infty]$",
+      "meaning": "rayon de convergence de la série entière $\\sum a_nz^n$ ; $R^{-1}=\\limsup|a_n|^{1/n}$ (Cauchy–Hadamard)",
+      "page": 11
+    },
+    {
+      "symbol": "$f^{(k)}$",
+      "meaning": "dérivée complexe $k$-ième de $f$",
+      "page": 12
+    },
+    {
+      "symbol": "$e^z$, $\\cos z$, $\\sin z$, $\\tan z$, $\\cosh z$, $\\sinh z$, $\\tanh z$",
+      "meaning": "exponentielle $\\sum z^n/n!$ et fonctions trigonométriques/hyperboliques complexes définies à partir d'elle",
+      "page": 12
+    },
+    {
+      "symbol": "$h^{-1}$",
+      "meaning": "réciproque d'un biholomorphisme $h:\\Omega_1\\to\\Omega_2$",
+      "page": 13
+    },
+    {
+      "symbol": "$\\mathrm{Aut}_{hol}(\\Omega)$",
+      "meaning": "groupe des automorphismes holomorphes de l'ouvert $\\Omega$ (pour la composition)",
+      "page": 13
+    },
+    {
+      "symbol": "$D$",
+      "meaning": "disque unité $D(0,1)$ ; $\\bar D$ son adhérence ; $D^\\times=D\\setminus\\{0\\}$ (section I.13)",
+      "page": 13
+    },
+    {
+      "symbol": "$H$",
+      "meaning": "demi-plan de Poincaré $\\{z\\in\\C\\mid\\Im(z)>0\\}$",
+      "page": 13
+    },
+    {
+      "symbol": "$\\C^\\times$",
+      "meaning": "$\\C\\setminus\\{0\\}$, image de $\\exp$",
+      "page": 14
+    },
+    {
+      "symbol": "$\\mathrm{Log}(z)$",
+      "meaning": "logarithme complexe local (holomorphe sur un petit disque de $\\C^\\times$, dépend du choix d'un antécédent par $\\exp$)",
+      "page": 14
+    },
+    {
+      "symbol": "$\\gamma:[a,b]\\to\\Omega$",
+      "meaning": "chemin (continu, $C^1$ par morceaux) ; lacet si $\\gamma(a)=\\gamma(b)$",
+      "page": 15
+    },
+    {
+      "symbol": "$\\gamma^{opp}$",
+      "meaning": "chemin opposé $t\\mapsto\\gamma(a+b-t)$",
+      "page": 15
+    },
+    {
+      "symbol": "$\\gamma_1\\vee\\gamma_2$",
+      "meaning": "chemin composé (concaténation) de deux chemins composables ($\\gamma_1(b_1)=\\gamma_2(a_2)$)",
+      "page": 15
+    },
+    {
+      "symbol": "$\\int_\\gamma f(z)\\,dz$",
+      "meaning": "intégrale de $f$ le long de $\\gamma$ : $\\int_a^bf(\\gamma(t))\\gamma'(t)\\,dt$",
+      "page": 16
+    },
+    {
+      "symbol": "$L(\\gamma)$",
+      "meaning": "longueur du chemin $\\int_a^b|\\gamma'(t)|\\,dt$",
+      "page": 16
+    },
+    {
+      "symbol": "$\\int_\\Gamma f(z)\\,dz$, $\\Gamma=C(z_0,r)$",
+      "meaning": "intégrale sur le cercle paramétré dans le sens trigonométrique ($\\omega=z_0+re^{i\\theta}$, $d\\omega=ire^{i\\theta}d\\theta$)",
+      "page": 17
+    },
+    {
+      "symbol": "$F$ primitive holomorphe de $f$",
+      "meaning": "$F\\in\\Hol(\\Omega)$ avec $F'=f$",
+      "page": 17
+    },
+    {
+      "symbol": "$\\Gamma_t=C(tz,1-t)$",
+      "meaning": "famille de cercles rétractant $C(0,1)$ sur le point $z$ (preuve de la formule de Cauchy)",
+      "page": 18
+    },
+    {
+      "symbol": "$\\rho(z_0)$",
+      "meaning": "$\\sup\\{r>0\\mid\\bar D(z_0,r)\\subset\\Omega\\}$ : rayon du plus grand disque centré en $z_0$ contenu dans $\\Omega$",
+      "page": 22
+    },
+    {
+      "symbol": "$\\int_{[a,b]}f(z)\\,dz$",
+      "meaning": "intégrale sur le segment orienté de $a$ vers $b$ (chemin $t\\mapsto a+t(b-a)$)",
+      "page": 23
+    },
+    {
+      "symbol": "$X\\subset\\R^N$, $dx$",
+      "meaning": "ensemble mesurable et mesure de Lebesgue (intégrales à paramètre, section I.9)",
+      "page": 24
+    },
+    {
+      "symbol": "$g_{z_0}$",
+      "meaning": "fonction intégrable dominant $|F(z,x)|$ pour $z\\in D(z_0,r_0)$ (hypothèse (ii) du Théorème I.9.1)",
+      "page": 24
+    },
+    {
+      "symbol": "$\\Gamma(z)$",
+      "meaning": "fonction Gamma d'Euler $\\int_0^{+\\infty}t^{z-1}e^{-t}dt$, $\\Re z>0$, avec $t^{z-1}:=e^{(z-1)\\ln t}$",
+      "page": 25
+    },
+    {
+      "symbol": "$\\hat f(z)$",
+      "meaning": "$\\int_\\R e^{-izt}f(t)\\,dt$ (transformée de Fourier complexe, Exercice I.9.5) ; $H^-=\\{\\Im z<0\\}$",
+      "page": 26
+    },
+    {
+      "symbol": "$m(z_0)$",
+      "meaning": "multiplicité (ordre) du zéro $z_0$ : $\\min\\{n\\ge0: f^{(n)}(z_0)\\neq0\\}$",
+      "page": 27
+    },
+    {
+      "symbol": "$Z(f,\\Omega)$",
+      "meaning": "ensemble des zéros de $f$ dans $\\Omega$ (discret et fermé dans $\\Omega$)",
+      "page": 28
+    },
+    {
+      "symbol": "$L^2(\\R,e^{-x^2}dx)$",
+      "meaning": "espace de Hilbert des fonctions de carré intégrable pour le poids gaussien",
+      "page": 28
+    },
+    {
+      "symbol": "$c_n$",
+      "meaning": "coefficients de Fourier $\\frac1{2\\pi}\\int_0^{2\\pi}f(z_0+re^{i\\theta})e^{-in\\theta}d\\theta$ de $\\theta\\mapsto f(z_0+re^{i\\theta})$ (preuve du principe du maximum)",
+      "page": 30
+    },
+    {
+      "symbol": "$\\partial\\Omega$",
+      "meaning": "bord $\\bar\\Omega\\setminus\\Omega$ d'un ouvert $\\Omega$",
+      "page": 31
+    },
+    {
+      "symbol": "$M(r)$",
+      "meaning": "$\\sup_{|z|=r}|f(z)|$ (Exercices I.12.4, I.12.5)",
+      "page": 31
+    },
+    {
+      "symbol": "$f_a$, $f_{a,\\theta}$",
+      "meaning": "$f_a(z)=\\frac{z-a}{1-\\bar az}$, $f_{a,\\theta}=e^{i\\theta}f_a$ : automorphismes du disque unité",
+      "page": 32
+    },
+    {
+      "symbol": "$l_{hyp}(\\gamma)$, $d_{hyp}(z_1,z_2)$",
+      "meaning": "longueur hyperbolique $\\int_0^1\\frac{|\\gamma'(t)|}{1-|\\gamma(t)|^2}dt$ et distance hyperbolique sur $D$ (Exercice I.13.4)",
+      "page": 33
+    }
+  ],
+  "poly_exercises": [
+    {
+      "ref": "Exercice I.2.10",
+      "page": 10,
+      "topic": "Cauchy–Riemann : fonctions à valeurs réelles, reconstruction à partir de la partie réelle",
+      "statement_short": "1. Une fonction holomorphe à valeurs réelles sur un ouvert connexe est constante. 2. Trouver les fonctions holomorphes $f,g,h$ sur $\\C$ de parties réelles $2xy$, $e^x\\cos y$, $\\sin(x+y)\\cosh(x-y)$.",
+      "chapters_involved": [
+        1
+      ]
+    },
+    {
+      "ref": "Exercice I.7.3",
+      "page": 20,
+      "topic": "Une série entière est analytique sur son disque de convergence",
+      "statement_short": "Démontrer la Remarque I.7.2 : si $\\sum a_n(z-z_0)^n$ a un rayon $\\rho>0$, alors en tout $\\omega\\in D(z_0,\\rho)$ la fonction est développable en série entière de rayon $\\ge\\rho-|\\omega-z_0|$ (réarrangement d'une série double).",
+      "chapters_involved": [
+        1
+      ]
+    },
+    {
+      "ref": "Exercice I.7.7",
+      "page": 23,
+      "topic": "Prolongement holomorphe et rayon de convergence",
+      "statement_short": "$f=(e^z-1)/z$, $g=\\sin(\\pi z)/(z^2-1)$, $h=\\tan z$. 1. $f$ et $g$ se prolongent en fonctions entières ; $h$ ne se prolonge pas au-delà de $\\C\\setminus(\\frac\\pi2+\\pi\\Z)$. 2. Rayons de convergence des séries de Taylor en $0$ ($+\\infty$, $+\\infty$, $\\pi/2$).",
+      "chapters_involved": [
+        1
+      ]
+    },
+    {
+      "ref": "Exercice I.7.8",
+      "page": 23,
+      "topic": "Formule de la moyenne sur le disque ; Liouville par la moyenne",
+      "statement_short": "1. $f(z_0)=\\frac1{\\pi r^2}\\int_{D(0,r)}f(z_0+x+iy)\\,dx\\,dy$ si $\\bar D(z_0,r)\\subset\\Omega$. 2. En déduire qu'une fonction entière bornée est constante.",
+      "chapters_involved": [
+        1
+      ]
+    },
+    {
+      "ref": "Exercice I.8.1",
+      "page": 23,
+      "topic": "Théorème de Morera",
+      "statement_short": "$f$ continue avec intégrale nulle sur le bord de tout triangle plein inclus dans $\\Omega$ : $F(z)=\\int_{[z_0,z]}f$ est $\\C$-dérivable de dérivée $f$, donc $f$ est holomorphe ; réciproque pour $f$ holomorphe.",
+      "chapters_involved": [
+        1
+      ]
+    },
+    {
+      "ref": "Exercice I.8.2",
+      "page": 23,
+      "topic": "Théorème de Goursat",
+      "statement_short": "Une fonction continue $\\C$-dérivable en tout point d'un ouvert est holomorphe (la continuité de $f'$ est automatique), via Morera et une subdivision de triangles.",
+      "chapters_involved": [
+        1
+      ]
+    },
+    {
+      "ref": "Exercice I.9.5",
+      "page": 26,
+      "topic": "Holomorphie d'une transformée de Fourier/Laplace",
+      "statement_short": "$f$ mesurable bornée à support dans $\\R_+$, $\\hat f(z)=\\int_\\R e^{-izt}f(t)dt$. 1. $\\hat f$ est holomorphe sur $H^-=\\{\\Im z<0\\}$. 2. Si $f$ est à support compact, $\\hat f$ est entière.",
+      "chapters_involved": [
+        1
+      ]
+    },
+    {
+      "ref": "Exercice I.10.3",
+      "page": 26,
+      "topic": "Liouville, d'Alembert–Gauss, image dense, croissance polynomiale",
+      "statement_short": "$f$ entière bornée : 1. $f^{(k)}(0)=0$ pour $k\\ge1$ ; 2. $f$ constante ; 3. tout polynôme non constant a un zéro ; 4. l'image d'une entière non constante est dense ; 5. si $|f(z)|\\le a+b|z|^m$ alors $f$ est un polynôme de degré $\\le m$.",
+      "chapters_involved": [
+        1
+      ]
+    },
+    {
+      "ref": "Exercice I.12.3",
+      "page": 31,
+      "topic": "Intégrité de $\\Hol(\\Omega)$ ; produit nul sur le bord",
+      "statement_short": "1. Si $fg=0$ sur $D$ alors $f=0$ ou $g=0$. 2. $f,g$ continues sur $\\bar D$ holomorphes sur $D$ avec $fg=0$ sur le cercle : $f$ ou $g$ est nulle sur $\\bar D$. 3. Généraliser à un ouvert connexe borné.",
+      "chapters_involved": [
+        1
+      ]
+    },
+    {
+      "ref": "Exercice I.12.4",
+      "page": 31,
+      "topic": "Principe du maximum appliqué à $P(z)/z^d$",
+      "statement_short": "$P$ polynôme de degré $d\\ge1$, $M(r)=\\sup_{|z|=r}|P|$ : montrer $M(R)/R^d\\le M(r)/r^d$ pour $0<r\\le R$.",
+      "chapters_involved": [
+        1
+      ]
+    },
+    {
+      "ref": "Exercice I.12.5",
+      "page": 31,
+      "topic": "Théorème des trois cercles d'Hadamard",
+      "statement_short": "$f$ holomorphe au voisinage de la couronne $r\\le|z|\\le R$, $M(\\rho)=\\sup_{|z|=\\rho}|f|$. 1. $\\rho^pM(\\rho)^q\\le\\max(r^pM(r)^q,R^pM(R)^q)$ (max sur $z^pf^q$). 2. Idem avec $\\alpha\\in\\R$. 3. $\\log M$ est convexe en $\\log\\rho$ : $M(r^tR^{1-t})\\le M(r)^tM(R)^{1-t}$.",
+      "chapters_involved": [
+        1
+      ]
+    },
+    {
+      "ref": "Exercice I.13.2",
+      "page": 32,
+      "topic": "Automorphismes du disque unité",
+      "statement_short": "$f_a(z)=\\frac{z-a}{1-\\bar az}$, $a\\in D$. 1. $f_a(D)\\subset D$. 2. $f_a$ est une bijection holomorphe de $D$ sur $D$. 3. Par le lemme de Schwarz, tout automorphisme de $D$ est de la forme $e^{i\\theta}f_a$.",
+      "chapters_involved": [
+        1
+      ]
+    },
+    {
+      "ref": "Exercice I.13.4",
+      "page": 32,
+      "topic": "Groupe $\\mathrm{Aut}_{hol}(D)$, transitivité, distance hyperbolique",
+      "statement_short": "1. Calculer $f_{a,\\theta}\\circ f_{b,\\omega}$ (loi de groupe). 2. L'action sur $D$ est transitive ; stabilisateur de $0$ = rotations. 3. L'action préserve la distance hyperbolique $d_{hyp}$ définie par $l_{hyp}(\\gamma)=\\int_0^1\\frac{|\\gamma'|}{1-|\\gamma|^2}dt$.",
+      "chapters_involved": [
+        1
+      ]
+    },
+    {
+      "ref": "Exercice I.14.2",
+      "page": 33,
+      "topic": "Preuve du théorème de l'application ouverte",
+      "statement_short": "Par l'absurde : $\\alpha_n\\notin f(\\Omega)$, $\\alpha_n\\to f(z_0)$. 1. Choisir $r$ avec $f(z)\\neq f(z_0)$ sur $\\bar D(z_0,r)\\setminus\\{z_0\\}$ (zéros isolés). 2. $g_n=1/(f-\\alpha_n)$ holomorphe ; principe du maximum donne $z_n\\in C(z_0,r)$ minimisant $|f-\\alpha_n|$. 3. $|f-f(z_0)|\\ge\\epsilon$ sur le cercle ; contradiction.",
+      "chapters_involved": [
+        1
+      ]
+    }
+  ],
+  "pitfalls": [
+    "Confondre $\\C$-dérivable **en un point** et holomorphe **sur un ouvert** : $|z|^2$ est $\\C$-dérivable en $0$ seulement (Exemple I.2.7). Toutes les conséquences spectaculaires (analyticité, Cauchy, zéros isolés) exigent l'holomorphie sur un ouvert.",
+    "Les conditions de Cauchy–Riemann (I.2.6) ne caractérisent la $\\C$-dérivabilité que **pour une fonction différentiable au sens réel** ; vérifier la classe $C^1$ (Remarque I.2.6) avant d'invoquer $\\partial f/\\partial\\bar z=0$.",
+    "Ne jamais traiter $\\bar z$, $|f|$, $\\Re f$, $\\bar f$ comme holomorphes : $\\partial\\bar z/\\partial\\bar z=1$ (Exemple I.2.7, Remarque I.3.6). Une fonction holomorphe à valeurs réelles sur un connexe est constante (Exercice I.2.10).",
+    "La formule de Cauchy (Théorème I.6.1) exige $\\bar D(z_0,r)\\subset\\Omega$ (disque **fermé**) et $z$ dans le disque **ouvert** ; pour $z$ hors du disque fermé l'intégrale vaut $0$. Oublier le facteur $\\frac1{2i\\pi}$ ou l'orientation trigonométrique du cercle.",
+    "Dans les estimées de Cauchy, le rayon est **au moins** $\\rho(z_0)$ (distance au bord), pas exactement : la série de Taylor peut converger au-delà de $\\Omega$.",
+    "Primitive **locale** (Corollaire I.7.6, sur un disque) n'est pas primitive **globale** : $1/z$ sur $\\C^\\times$ ; $\\int_{C(0,1)}dz/z=2i\\pi\\neq0$. Le Théorème I.5.9 demande une primitive sur un ouvert contenant tout le chemin.",
+    "Le logarithme complexe n'existe que **localement** (ou sur un ouvert simplement connexe, chapitre II) : $\\exp$ n'est pas injective ($2i\\pi$-périodique) ; les branches de $\\mathrm{Log}$ diffèrent de $2ik\\pi$.",
+    "Liouville : « bornée » doit valoir sur **tout** $\\C$ ; $e^z$ est bornée sur un demi-plan gauche, $z$ sur un disque, sans être constantes.",
+    "Zéros isolés et prolongement analytique demandent $\\Omega$ **connexe** et un point d'accumulation **dans $\\Omega$** (pas au bord) : $\\sin(\\pi/(1-z))$ sur $D(0,1)$ ; « isolé » ne veut pas dire « fini » ($\\sin\\pi z$).",
+    "Principe du maximum : ouvert **connexe**, maximum **local** en un point **intérieur** ; sur $\\bar\\Omega$ il faut $\\Omega$ **borné** et $f$ continue jusqu'au bord (Corollaire I.12.2). Il n'y a pas de principe du minimum sauf si $f$ ne s'annule pas (appliquer à $1/f$).",
+    "Lemme de Schwarz : les hypothèses de normalisation $f(0)=0$ et $f(D)\\subset\\bar D$ sont indispensables ; pour un point base $a\\neq0$, composer avec les automorphismes $f_a$.",
+    "L'holomorphie sous l'intégrale (Théorème I.9.1) demande une dominante **intégrable, indépendante de $z$ sur un disque** autour de chaque point (domination locale) : pour $\\Gamma$ on travaille sur des bandes $\\alpha\\le\\Re z\\le\\beta$, jamais sur tout le demi-plan.",
+    "Dans la Définition I.1.1 la continuité de $f'$ est une hypothèse de confort (Goursat) ; en revanche la continuité de $f$ elle-même n'est pas négociable dans Morera.",
+    "Confondre « bijection holomorphe » et « biholomorphisme » est sans danger en complexe (Remarque I.14.3), contrairement au cas réel ($x^3$) : mais il faut le justifier par $f'\\neq0$ + inversion locale.",
+    "L'inversion locale (Proposition I.4.4) est **locale** : $f'\\neq0$ partout n'entraîne pas l'injectivité globale ($\\exp$, $z^2$ sur $\\C^\\times$)."
+  ],
+  "viz_opportunities": [
+    {
+      "title": "Différentielle complexe = similitude directe",
+      "shows": "Image d'une petite grille autour de $z$ par $f$ (zoom) : pour $f$ holomorphe c'est une rotation-homothétie de rapport $|f'(z)|$ et d'angle $\\arg f'(z)$ (angles conservés) ; pour $\\bar z$ ou $|z|^2$ la grille est renversée ou aplatie. Fait voir Cauchy–Riemann géométriquement.",
+      "results": [
+        "Lemme I.2.1",
+        "Proposition I.2.3",
+        "Corollaire I.2.4",
+        "Remarque I.2.5"
+      ]
+    },
+    {
+      "title": "Domain coloring d'une fonction holomorphe",
+      "shows": "Teinte = argument, luminosité = module, pour $z^n$, $\\exp$, $\\sin$, $1/(1-z)$, $\\bar z$ : zéros (tour complet des couleurs, $m$ fois pour un zéro d'ordre $m$), périodicité de $\\exp$, mauvais sens de rotation pour $\\bar z$, sommes partielles de séries entières divergeant hors du disque.",
+      "results": [
+        "Exemple I.2.7",
+        "Exemple I.3.5",
+        "Proposition I.3.3",
+        "Théorème I.11.1",
+        "Définition I.11.2",
+        "Exemple I.11.7"
+      ]
+    },
+    {
+      "title": "Rétraction du cercle et formule de Cauchy",
+      "shows": "Animation du cercle $\\Gamma_t=C(tz,1-t)$ qui se rétracte sur $z$ pendant que la valeur de $I(t)=\\int_{\\Gamma_t}\\frac{f(\\omega)-f(z)}{\\omega-z}d\\omega$ reste nulle ; et calcul numérique de $\\frac1{2i\\pi}\\int_\\Gamma\\frac{f(\\omega)}{\\omega-z}d\\omega$ quand $z$ se déplace : égal à $f(z)$ dans le disque, $0$ dehors.",
+      "results": [
+        "Théorème I.6.1",
+        "Corollaire I.6.2",
+        "Théorème I.5.9"
+      ]
+    },
+    {
+      "title": "Intégrale le long d'un chemin et dépendance au chemin",
+      "shows": "Sommes de Riemann vectorielles $\\sum f(\\gamma(t_k))\\Delta\\gamma_k$ pour $f=z^2$ (indépendant du chemin, nulle sur un lacet) et $f=1/z$ (saut de $2i\\pi$ autour de $0$) : pourquoi $1/z$ n'a pas de primitive sur $\\C^\\times$ et le log n'est que local.",
+      "results": [
+        "Définition I.5.4",
+        "Théorème I.5.9",
+        "Corollaire I.7.6",
+        "Corollaire I.4.5"
+      ]
+    },
+    {
+      "title": "Formule de la moyenne et principe du maximum (paysage analytique)",
+      "shows": "Surface $|f(z)|$ au-dessus d'un disque : pas de sommet intérieur, maximum sur le bord ; barycentre de $f(C(z_0,r))$ égal à $f(z_0)$ pour tout $r$ ; comparaison avec une fonction réelle lisse quelconque.",
+      "results": [
+        "Corollaire I.6.2",
+        "Théorème I.12.1",
+        "Corollaire I.12.2"
+      ]
+    },
+    {
+      "title": "Inversion locale holomorphe et racine $N$-ième",
+      "shows": "Près d'un point où $f'(z_0)\\neq0$, $f$ est un biholomorphisme local (grille $\\to$ grille déformée, réciproque tracée) ; près d'un zéro de $f'$, $f\\sim(z-z_0)^N$ enroule $N$ fois : non injective, angles multipliés par $N$.",
+      "results": [
+        "Proposition I.4.4",
+        "Remarque I.14.3",
+        "Théorème I.14.1"
+      ]
+    },
+    {
+      "title": "Applications conformes du disque : Cayley et automorphismes $f_{a,\\theta}$",
+      "shows": "Image des cercles concentriques et rayons de $D$ par $i\\frac{1-z}{1+z}$ (vers $H$) et par $f_{a,\\theta}$ quand on déplace $a$ ; le lemme de Schwarz comme contraction : $f(C(0,r))\\subset\\bar D(0,r)$.",
+      "results": [
+        "Exemple I.4.3",
+        "Lemme I.13.1",
+        "Proposition I.13.3"
+      ]
+    },
+    {
+      "title": "Disque de convergence de Taylor et distance au bord",
+      "shows": "Pour $f$ fixée ($1/(1+z^2)$, $\\mathrm{Log}$, $\\tan$) et $z_0$ mobile : le disque $D(z_0,\\rho(z_0))$ inscrit dans $\\Omega$ et le vrai disque de convergence (atteint la singularité la plus proche).",
+      "results": [
+        "Corollaire I.7.5",
+        "Théorème I.7.4",
+        "Remarque I.7.2"
+      ]
+    }
+  ],
+  "proof_techniques": [
+    "Décomposition $L(\\omega)=a\\omega+b\\bar\\omega$ d'une application $\\R$-linéaire et identification des coefficients de $\\omega$ et $\\bar\\omega$ (unicité) : définit $\\partial/\\partial z$, $\\partial/\\partial\\bar z$, donne Cauchy–Riemann et la règle de la chaîne.",
+    "Paramétrage du cercle $\\omega=z_0+re^{i\\theta}$, $d\\omega=ire^{i\\theta}d\\theta$, puis développement en série géométrique de $\\frac1{\\omega-z}=\\frac1{re^{i\\theta}}\\sum\\bigl(\\frac{z-z_0}{re^{i\\theta}}\\bigr)^n$ et interversion $\\sum$/$\\int$ par convergence normale (formule de Cauchy, analyticité, coefficients $a_nr^n=\\frac1{2\\pi}\\int f e^{-in\\theta}$).",
+    "Rétraction continue d'un cercle sur un point (homotopie) et dérivation sous le signe intégrale d'une fonction $I(t)$ dont la dérivée est l'intégrale sur une période d'une dérivée $\\partial G/\\partial\\theta$, donc nulle : $I$ constante.",
+    "Transfert réel $\\to$ complexe : appliquer un théorème de calcul différentiel réel (inversion locale, dérivation sous l'intégrale, Fubini, convergence dominée) puis vérifier que la structure complexe est préservée (jacobienne = similitude, Cauchy–Riemann).",
+    "Argument ouvert–fermé sur un connexe : l'ensemble des points où une propriété locale a lieu est ouvert et fermé, donc tout (image de $\\exp$ = $\\C^\\times$, zéros isolés via $U=\\{f^{(n)}=0\\ \\forall n\\}$, principe du maximum via prolongement analytique).",
+    "Factorisation locale $f(z)=(z-z_0)^Nh(z)$, $h(z_0)\\neq0$, lue sur la série de Taylor : zéros isolés, multiplicité, principe du maximum (choix de la direction $\\beta$ qui fait croître $|f|$), racine $N$-ième locale et non-injectivité.",
+    "Estimées de Cauchy puis passage à la limite $r\\to+\\infty$ (Liouville, croissance polynomiale $\\Rightarrow$ polynôme) ou $r\\to\\rho(z_0)$ (minoration du rayon de convergence).",
+    "Fonction auxiliaire bien choisie : $1/P$ (d'Alembert–Gauss), $1/(f-\\alpha_n)$ (application ouverte), $f(z)/z$ (Schwarz), $z^pf^q$ (trois cercles), $f\\circ f_a$ (normalisation $f(0)=0$), $e^{f}$ pour borner $\\Re f$.",
+    "Principe du maximum sur un disque fermé puis passage à la limite sur le rayon ($r\\to1$ dans Schwarz) ; min de $|f-\\alpha|$ atteint sur le bord en appliquant le maximum à $1/(f-\\alpha)$.",
+    "Compacité : borner $|F|$ sur $\\bar D(z_0,r_0)\\times\\gamma([a,b])$ pour obtenir une dominante constante ; $\\epsilon=\\min_{C(z_0,r)}|f-f(z_0)|>0$ par continuité sur un compact (application ouverte).",
+    "Égalité de Parseval / coefficients de Fourier de $\\theta\\mapsto f(z_0+re^{i\\theta})$ pour exploiter la formule de la moyenne (seconde preuve du principe du maximum).",
+    "Interversion $\\sum$/$\\int$ (Fubini) et théorème de convergence dominée avec domination locale en $z$ (fonctions définies par une intégrale, $\\Gamma$, densité des polynômes)."
+  ]
+}

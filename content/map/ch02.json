@@ -1,0 +1,1702 @@
+{
+  "chapter": {
+    "num": 2,
+    "nn": "02",
+    "roman": "II",
+    "title": "Formule des résidus",
+    "printed_pages": [
+      35,
+      58
+    ],
+    "summary": "Le chapitre II étend le théorème de Cauchy du disque à des ouverts quelconques via la notion de déformation continue de lacets (homotopie), puis en déduit la formule des résidus et ses applications. Le fil logique est le suivant : (1) on définit l'homotopie de lacets et les ouverts simplement connexes (étoilé implique simplement connexe) ; (2) on démontre, par un argument de « grillage » compact utilisant l'existence locale de primitives, que l'intégrale d'une fonction holomorphe sur un lacet est invariante par homotopie (Théorème II.2.1), d'où la nullité de l'intégrale sur tout lacet d'un ouvert simplement connexe (Corollaire II.2.2) ; (3) on introduit l'indice d'un lacet en un point, entier localement constant et invariant par homotopie, qui compte le nombre de tours ; (4) on définit pôles, fonctions méromorphes, développement de Laurent et résidu, avec le théorème de Riemann sur les singularités effaçables et la formule résidu = intégrale sur un petit cercle ; (5) on démontre la formule des résidus (Théorème II.5.1) en soustrayant les parties polaires, puis on l'applique au calcul d'intégrales réelles (contour demi-disque, contour en trou de serrure) ; (6) on en tire le principe de l'argument (dérivée logarithmique) et le théorème de Rouché, qui compare zéros et pôles de deux fonctions proches sur un bord et redonne d'Alembert-Gauss ; (7) on construit des primitives globales sur les ouverts simplement connexes, donc le logarithme complexe, sa détermination principale et les puissances complexes. Les cinq résultats centraux sont : l'invariance par homotopie (II.2.1/II.2.2), les propriétés de l'indice (II.3.2), le développement de Laurent et le résidu (II.4.6, II.4.11), la formule des résidus (II.5.1 et sa forme pratique (II.6.1)), le principe de l'argument et Rouché (II.8.1, II.8.4), et l'existence de primitives/logarithme sur un simplement connexe (II.9.1, II.9.3).",
+    "sections": [
+      {
+        "num": "II.1",
+        "title": "Homotopie - Ouverts simplement connexes",
+        "page": 35
+      },
+      {
+        "num": "II.2",
+        "title": "Invariance par homotopie de l'intégrale sur un lacet d'une fonction holomorphe",
+        "page": 37
+      },
+      {
+        "num": "II.3",
+        "title": "Indice d'un lacet",
+        "page": 40
+      },
+      {
+        "num": "II.4",
+        "title": "Fonctions méromorphes, résidus",
+        "page": 42
+      },
+      {
+        "num": "II.5",
+        "title": "La formule des résidus",
+        "page": 47
+      },
+      {
+        "num": "II.6",
+        "title": "Formule des résidus et le calcul d'intégrales",
+        "page": 48
+      },
+      {
+        "num": "II.7",
+        "title": "Exercices",
+        "page": 50
+      },
+      {
+        "num": "II.8",
+        "title": "Le théorème de Rouché",
+        "page": 52
+      },
+      {
+        "num": "II.9",
+        "title": "Existence de primitives - Logarithme Complexe",
+        "page": 55
+      }
+    ]
+  },
+  "results": [
+    {
+      "id": "ch02-homotopie-simplement-connexe",
+      "kind": "definition",
+      "ref": "Définition II.1.1",
+      "title": "Homotopie, homotopie de chemins / de lacets, ouvert simplement connexe",
+      "page": 35,
+      "statement": "Soient $\\Omega$ un ouvert non vide de $\\mathbb C$ et $\\gamma_0, \\gamma_1 : [0,1] \\to \\Omega$ des applications continues. Une **homotopie** entre $\\gamma_0$ et $\\gamma_1$ dans $\\Omega$ est une application $\\gamma \\in C([0,1]^2 ; \\Omega)$ telle que $\\gamma(0,t) = \\gamma_0(t)$ et $\\gamma(1,t) = \\gamma_1(t)$ pour tout $t \\in [0,1]$. On dit que $\\gamma_0$ et $\\gamma_1$ sont **homotopes**. Si $\\gamma_0$ et $\\gamma_1$ sont des chemins, on dit que $\\gamma$ est une **homotopie de chemins**. Si l'on demande de plus $\\gamma(s,0) = \\gamma(s,1)$ pour tout $s \\in [0,1]$ (en particulier $\\gamma_0$ et $\\gamma_1$ sont des lacets), on dit que $\\gamma$ est une **homotopie de lacets** : le point base $\\gamma(s,0)$ a le droit de se déplacer avec $s$, c'est pourquoi on parle aussi d'**homotopie libre de lacets**. C'est cette seconde notion qu'utilise le théorème d'invariance (II.2.1). On dit que $\\Omega$ est **simplement connexe** s'il est connexe et si tout lacet $\\gamma$ de $\\Omega$ est homotope à un lacet constant. (Précision du poly, p. 36 : on n'exige pas que $t \\mapsto \\gamma(s,t)$ soit un chemin, c'est-à-dire $C^1$ par morceaux, pour $s \\in ]0,1[$ ; mais pour les lacets on exige $\\gamma(s,0) = \\gamma(s,1)$.)",
+      "hypotheses": [
+        "$\\Omega$ ouvert non vide de $\\mathbb C$",
+        "$\\gamma_0,\\gamma_1$ continues à valeurs dans $\\Omega$",
+        "homotopie de lacets : $\\gamma(s,0)=\\gamma(s,1)$ pour tout $s$",
+        "simplement connexe = connexe + tout lacet homotope à un lacet constant"
+      ],
+      "depends_on": [
+        "Définition I.5.1"
+      ],
+      "used_by_hint": "Toute la suite du chapitre : II.2.1, II.2.2, II.3.4, II.5.1, II.8.1, II.9.1, II.9.3 ; chapitre IV (transformations conformes, Riemann).",
+      "importance": 3,
+      "proof_in_poly": "none",
+      "proof_length": "short",
+      "counterexample_hints": [
+        "$\\mathbb C \\setminus \\{0\\}$ est connexe mais non simplement connexe : le cercle unité n'est pas homotope à un lacet constant (indice 1 autour de 0, invariant par homotopie).",
+        "Un ouvert non connexe (deux disques disjoints) n'est pas simplement connexe par définition, même si chaque composante l'est."
+      ],
+      "viz_hint": "Slider $s \\in [0,1]$ déformant continûment $\\gamma_0$ en $\\gamma_1$ ; comparer une homotopie dans $\\mathbb C$ et l'obstruction dans $\\mathbb C\\setminus\\{0\\}$."
+    },
+    {
+      "id": "ch02-homotopie-relation-equivalence",
+      "kind": "lemma",
+      "ref": "Lemme II.1.3",
+      "title": "L'homotopie de lacets est une relation d'équivalence",
+      "page": 36,
+      "statement": "La relation « il existe une homotopie de lacets entre $\\gamma_0$ et $\\gamma_1$ » est une relation d'équivalence sur l'ensemble des lacets de $\\Omega$.",
+      "hypotheses": [
+        "$\\Omega$ ouvert non vide",
+        "lacets de $\\Omega$ (chemins fermés $C^1$ par morceaux)"
+      ],
+      "depends_on": [
+        "Définition II.1.1"
+      ],
+      "used_by_hint": "Permet de parler de classes d'homotopie (Remarque II.1.4, groupe fondamental).",
+      "importance": 1,
+      "proof_in_poly": "full",
+      "proof_length": "short",
+      "counterexample_hints": [],
+      "viz_hint": ""
+    },
+    {
+      "id": "ch02-groupe-fondamental-remarque",
+      "kind": "remark",
+      "ref": "Remarque II.1.4",
+      "title": "Groupe fondamental de Poincaré $\\pi_1(\\Omega)$",
+      "page": 36,
+      "statement": "Soit $z_0 \\in \\Omega$ un point d'un ouvert connexe. L'ensemble $\\pi_1(\\Omega)$ des classes d'équivalence d'homotopie de lacets de point de base $z_0$ est muni, par composition des lacets, d'une structure de groupe : le **groupe fondamental** de Poincaré de $\\Omega$. L'ouvert connexe $\\Omega$ est simplement connexe si et seulement si ce groupe est réduit à l'élément neutre. En particulier $\\pi_1(\\mathbb C)$ est trivial ; $\\pi_1(\\mathbb C\\setminus\\{0\\}) \\simeq (\\mathbb Z,+)$ et (plus difficile) $\\pi_1(\\mathbb C\\setminus\\{-1,+1\\})$ est isomorphe au groupe libre à deux générateurs.",
+      "hypotheses": [
+        "$\\Omega$ ouvert connexe",
+        "point base $z_0$ fixé"
+      ],
+      "depends_on": [
+        "Lemme II.1.3"
+      ],
+      "used_by_hint": "Culture : interprétation de « simplement connexe » ; exemples $\\mathbb C\\setminus\\{0\\}$, $\\mathbb C\\setminus\\{\\pm 1\\}$.",
+      "importance": 1,
+      "proof_in_poly": "none",
+      "proof_length": "short",
+      "counterexample_hints": [],
+      "viz_hint": ""
+    },
+    {
+      "id": "ch02-ouvert-etoile-def",
+      "kind": "definition",
+      "ref": "non numéroté, section II.1, p. 36",
+      "title": "Ouvert étoilé",
+      "page": 36,
+      "statement": "Un ouvert $\\Omega$ est dit **étoilé** s'il existe $\\omega \\in \\Omega$ tel que pour tout $z \\in \\Omega$ le segment $[\\omega, z]$ est contenu dans $\\Omega$. On dit alors que $\\Omega$ est **étoilé en $\\omega$**. En particulier, un ouvert convexe est étoilé.",
+      "hypotheses": [
+        "$\\Omega$ ouvert"
+      ],
+      "depends_on": [],
+      "used_by_hint": "Proposition II.1.5 ; exemples pratiques d'ouverts simplement connexes : disques, demi-plans, $\\mathbb C\\setminus\\mathbb R_-$ (étoilé en 1), $D(1,1)$ dans la preuve de Rouché.",
+      "importance": 2,
+      "proof_in_poly": "none",
+      "proof_length": "short",
+      "counterexample_hints": [
+        "Une couronne $\\{1<|z|<2\\}$ n'est étoilée en aucun point.",
+        "Un domaine en forme de fer à cheval (ou de croissant épais) est simplement connexe mais n'est pas étoilé : la réciproque de II.1.5 est fausse."
+      ],
+      "viz_hint": ""
+    },
+    {
+      "id": "ch02-etoile-simplement-connexe",
+      "kind": "proposition",
+      "ref": "Proposition II.1.5",
+      "title": "Un ouvert étoilé est simplement connexe",
+      "page": 37,
+      "statement": "Un ouvert étoilé est simplement connexe.",
+      "hypotheses": [
+        "$\\Omega$ ouvert étoilé en un point $\\omega$"
+      ],
+      "depends_on": [
+        "Définition II.1.1"
+      ],
+      "used_by_hint": "Fournit les exemples usuels d'ouverts simplement connexes (disques, demi-plans, plan coupé $\\mathbb C\\setminus\\mathbb R_-$) ; utilisé dans la preuve de Rouché (II.8.4) avec $D(1,1)$ et pour la détermination principale du logarithme (II.9.3).",
+      "importance": 2,
+      "proof_in_poly": "full",
+      "proof_length": "short",
+      "counterexample_hints": [
+        "Réciproque fausse : un ouvert simplement connexe n'est pas forcément étoilé (domaine en fer à cheval)."
+      ],
+      "viz_hint": "Animation de l'homotopie $\\gamma(s,t) = s\\,\\omega + (1-s)\\gamma_0(t)$ qui rétracte le lacet sur le centre $\\omega$."
+    },
+    {
+      "id": "ch02-invariance-homotopie-integrale",
+      "kind": "theorem",
+      "ref": "Théorème II.2.1",
+      "title": "Invariance par homotopie de l'intégrale d'une fonction holomorphe sur un lacet",
+      "page": 37,
+      "statement": "Soient $\\Omega$ un ouvert de $\\mathbb C$, $\\gamma$ une homotopie de lacets entre $\\gamma_0$ et $\\gamma_1$ dans $\\Omega$, et $f \\in \\mathrm{Hol}(\\Omega)$. Alors $$\\int_{\\gamma_0} f(z)\\,dz = \\int_{\\gamma_1} f(z)\\,dz.$$",
+      "hypotheses": [
+        "$\\Omega$ ouvert de $\\mathbb C$",
+        "$\\gamma_0,\\gamma_1$ lacets de $\\Omega$",
+        "$\\gamma$ homotopie **de lacets** ($\\gamma(s,0)=\\gamma(s,1)$) à valeurs dans $\\Omega$, seulement continue",
+        "$f$ holomorphe sur tout $\\Omega$"
+      ],
+      "depends_on": [
+        "Corollaire I.7.6",
+        "Proposition II.2.4",
+        "Théorème I.5.9",
+        "Proposition I.5.6"
+      ],
+      "used_by_hint": "Corollaire II.2.2, Proposition II.3.4 (indice), Théorème II.9.1 (primitives), Remarque II.5.3.",
+      "importance": 3,
+      "proof_in_poly": "full",
+      "proof_length": "long",
+      "counterexample_hints": [
+        "Si $f$ a une singularité dans la zone balayée par l'homotopie ($f(z)=1/z$, $\\gamma_0$ cercle unité, $\\gamma_1$ lacet constant, homotopie dans $\\mathbb C$ mais $f \\notin \\mathrm{Hol}(\\mathbb C)$) : $\\int_{\\gamma_0} = 2i\\pi \\ne 0$.",
+        "Si l'homotopie est seulement une homotopie de chemins (extrémités libres, pas de condition $\\gamma(s,0)=\\gamma(s,1)$) la conclusion tombe : deux chemins d'extrémités différentes dans $\\mathbb C$ pour $f = 1$."
+      ],
+      "viz_hint": "Grillage du carré $K=[0,1]^2$ en $n^2$ petits carrés et image par $\\gamma$ : chaque petit quadrilatère vit dans un disque où $f$ a une primitive ; les côtés intérieurs s'annulent deux à deux ; slider $n$."
+    },
+    {
+      "id": "ch02-cauchy-simplement-connexe",
+      "kind": "corollary",
+      "ref": "Corollaire II.2.2",
+      "title": "Théorème de Cauchy sur un ouvert simplement connexe",
+      "page": 39,
+      "statement": "On suppose $\\Omega$ simplement connexe. Alors, pour tout lacet $\\gamma$ de $\\Omega$ et pour toute fonction holomorphe $f \\in \\mathrm{Hol}(\\Omega)$, on a $$\\int_\\gamma f(z)\\,dz = 0.$$",
+      "hypotheses": [
+        "$\\Omega$ simplement connexe",
+        "$\\gamma$ lacet de $\\Omega$",
+        "$f \\in \\mathrm{Hol}(\\Omega)$"
+      ],
+      "depends_on": [
+        "Théorème II.2.1",
+        "Définition II.1.1"
+      ],
+      "used_by_hint": "Formule des résidus (II.5.1, preuve), Remarque II.5.2, Rouché (II.8.4), indice nul hors de $\\Omega$.",
+      "importance": 3,
+      "proof_in_poly": "full",
+      "proof_length": "short",
+      "counterexample_hints": [
+        "$\\Omega = \\mathbb C\\setminus\\{0\\}$, $f(z)=1/z$, $\\gamma$ cercle unité : $\\int_\\gamma f = 2i\\pi$. L'hypothèse « simplement connexe » est essentielle.",
+        "Une fonction seulement méromorphe (un pôle dans $\\Omega$) : $\\int_{C(0,1)} dz/z = 2i\\pi$ avec $\\Omega=\\mathbb C$."
+      ],
+      "viz_hint": "Comparer $\\int_\\gamma dz/z$ pour un lacet évitant 0 dans $\\mathbb C\\setminus\\{0\\}$ selon qu'il entoure ou non l'origine."
+    },
+    {
+      "id": "ch02-lien-green-riemann",
+      "kind": "remark",
+      "ref": "Remarque II.2.3",
+      "title": "Lien avec la formule de Green-Riemann",
+      "page": 39,
+      "statement": "Si $f \\in C^1(\\Omega;\\mathbb C)$, $f = P + iQ$ avec $P,Q$ réelles, et si $\\Gamma$ est le bord orienté positivement d'un domaine compact $U \\subset \\Omega$, alors $\\int_\\Gamma f(z)\\,dz = \\int_\\Gamma (P\\,dx - Q\\,dy) + i\\int_\\Gamma (Q\\,dx + P\\,dy)$ et la formule de Green-Riemann donne $$\\int_\\Gamma f(z)\\,dz = -\\int_U\\Big(\\frac{\\partial Q}{\\partial x} + \\frac{\\partial P}{\\partial y}\\Big)dx\\,dy + i\\int_U\\Big(\\frac{\\partial P}{\\partial x} - \\frac{\\partial Q}{\\partial y}\\Big)dx\\,dy.$$ Si $f$ est holomorphe, les conditions de Cauchy réelles annulent les deux membres de droite : on retrouve $\\int_\\Gamma f(z)\\,dz = 0$ lorsque $\\Gamma$ est le bord d'un domaine $U$ sur lequel $f$ est holomorphe.",
+      "hypotheses": [
+        "$f$ de classe $C^1$",
+        "$\\Gamma$ bord orienté positivement d'un domaine compact $U\\subset\\Omega$",
+        "formule de Green-Riemann admise"
+      ],
+      "depends_on": [
+        "Formule (I.2.6)"
+      ],
+      "used_by_hint": "Intuition « physicienne » du théorème de Cauchy ; lien avec le chapitre IV (fonctions harmoniques).",
+      "importance": 1,
+      "proof_in_poly": "sketch",
+      "proof_length": "short",
+      "counterexample_hints": [],
+      "viz_hint": ""
+    },
+    {
+      "id": "ch02-nombre-de-lebesgue",
+      "kind": "proposition",
+      "ref": "Proposition II.2.4",
+      "title": "Nombre de Lebesgue d'un recouvrement ouvert d'un compact",
+      "page": 40,
+      "statement": "Soit $K$ un compact de $\\mathbb R^N$, et soit $K \\subset \\bigcup_{i\\in I} U_i$ un recouvrement de $K$ par des ouverts $U_i$. Alors il existe $\\delta > 0$ ayant la propriété suivante : pour tout $k \\in K$, il existe $i \\in I$ tel que $\\bar B(k,\\delta) \\subset U_i$. Un tel $\\delta$ est appelé un **nombre de Lebesgue** du recouvrement $\\bigcup_{i\\in I} U_i$ (définition non numérotée, p. 40).",
+      "hypotheses": [
+        "$K$ compact de $\\mathbb R^N$",
+        "les $U_i$ ouverts recouvrant $K$"
+      ],
+      "depends_on": [],
+      "used_by_hint": "Preuve du Théorème II.2.1 (choix du pas $1/n$ du grillage) ; argument de compacité réutilisable (ch. V-VII).",
+      "importance": 1,
+      "proof_in_poly": "full",
+      "proof_length": "medium",
+      "counterexample_hints": [
+        "Sans compacité : $K = ]0,1[$ recouvert par les $U_n = ]1/n, 1[$ ; aucun $\\delta>0$ uniforme ne convient."
+      ],
+      "viz_hint": ""
+    },
+    {
+      "id": "ch02-indice-def",
+      "kind": "definition",
+      "ref": "Définition II.3.1",
+      "title": "Indice d'un lacet en un point",
+      "page": 40,
+      "statement": "Soit $\\gamma : [0,1] \\to \\mathbb C$ un lacet dans $\\mathbb C$ dont on note $\\Gamma$ l'image et soit $z_0 \\notin \\Gamma$. L'**indice** de $\\gamma$ en $z_0$ est défini par $$\\mathrm{Ind}_{z_0}(\\gamma) := \\frac{1}{2i\\pi}\\int_\\gamma \\frac{dz}{z - z_0} = \\frac{1}{2i\\pi}\\int_0^1 \\frac{\\gamma'(t)}{\\gamma(t) - z_0}\\,dt.$$ On vérifie que $\\mathrm{Ind}_{z_0}(\\gamma^{\\mathrm{opp}}) = -\\mathrm{Ind}_{z_0}(\\gamma)$ (voir la Définition I.5.1 pour $\\gamma^{\\mathrm{opp}}$).",
+      "hypotheses": [
+        "$\\gamma$ lacet ($C^1$ par morceaux, $\\gamma(0)=\\gamma(1)$)",
+        "$z_0 \\notin \\Gamma = \\gamma([0,1])$"
+      ],
+      "depends_on": [
+        "Définition I.5.1"
+      ],
+      "used_by_hint": "Formule des résidus (II.5.1), principe de l'argument (II.8.1), Rouché (II.8.4) ; chapitre IV.",
+      "importance": 3,
+      "proof_in_poly": "none",
+      "proof_length": "short",
+      "counterexample_hints": [
+        "Si $z_0 \\in \\Gamma$ l'intégrale n'est pas définie (intégrande non bornée)."
+      ],
+      "viz_hint": "Déplacer $z_0$ à la souris et voir l'indice (couleur par composante connexe de $\\mathbb C\\setminus\\Gamma$) ; afficher la variation de l'argument de $\\gamma(t)-z_0$."
+    },
+    {
+      "id": "ch02-indice-entier-localement-constant",
+      "kind": "proposition",
+      "ref": "Proposition II.3.2",
+      "title": "L'indice est un entier, constant sur les composantes connexes de $\\mathbb C\\setminus\\Gamma$, nul sur la composante non bornée",
+      "page": 40,
+      "statement": "Soit $\\gamma : [0,1] \\to \\mathbb C$ un lacet dans $\\mathbb C$ dont on note $\\Gamma$ l'image. Alors pour tout $z \\in \\mathbb C\\setminus\\Gamma$, $\\mathrm{Ind}_z(\\gamma)$ est dans $\\mathbb Z$. La fonction $z \\mapsto \\mathrm{Ind}_z(\\gamma)$ est constante sur les composantes connexes de $\\mathbb C\\setminus\\Gamma$. Elle est nulle sur l'unique composante connexe non bornée.",
+      "hypotheses": [
+        "$\\gamma$ lacet $C^1$ par morceaux",
+        "$z \\notin \\Gamma$"
+      ],
+      "depends_on": [
+        "Définition II.3.1"
+      ],
+      "used_by_hint": "Remarque II.5.2 (support fini de la somme des résidus), méthode pratique (II.6.1), calcul d'indices par connexité.",
+      "importance": 3,
+      "proof_in_poly": "full",
+      "proof_length": "medium",
+      "counterexample_hints": [
+        "Pour un chemin non fermé, $\\frac{1}{2i\\pi}\\int_\\gamma \\frac{dz}{z-z_0}$ n'est pas entier en général (segment $[1,i]$ et $z_0=0$ : valeur $\\frac{1}{2i\\pi}\\cdot\\frac{i\\pi}{2} = 1/4$)."
+      ],
+      "viz_hint": "Lacet d'indice 2 autour de l'origine (figure p. 41) ; coloration des composantes connexes de $\\mathbb C\\setminus\\Gamma$ par la valeur de l'indice."
+    },
+    {
+      "id": "ch02-indice-cercle",
+      "kind": "example",
+      "ref": "Exemple II.3.3",
+      "title": "Indice d'un cercle : 1 à l'intérieur, 0 à l'extérieur",
+      "page": 41,
+      "statement": "Soit $D$ un disque (ouvert) de $\\mathbb C$ et $C = \\partial D$ le bord de ce disque, parcouru dans le sens trigonométrique. La formule intégrale de Cauchy pour $f \\equiv 1$ donne $\\mathrm{Ind}_{z_0}(C) = 1$ pour tout $z_0 \\in D$. Si $z_0 \\in \\mathbb C\\setminus\\bar D$, en notant $a$ le centre et $r$ le rayon de $D$, le développement en série géométrique de $\\theta \\mapsto \\dfrac{1}{1 + \\frac{re^{i\\theta}}{a - z_0}}$ donne $\\mathrm{Ind}_{z_0}(C) = 0$.",
+      "hypotheses": [
+        "$C$ cercle parcouru dans le sens direct",
+        "$z_0 \\notin C$"
+      ],
+      "depends_on": [
+        "Théorème I.6.1",
+        "Définition II.3.1"
+      ],
+      "used_by_hint": "Point de départ de tous les calculs d'indice : on déforme un lacet en un cercle (Proposition II.3.4) ; méthode (II.6.1).",
+      "importance": 2,
+      "proof_in_poly": "sketch",
+      "proof_length": "short",
+      "counterexample_hints": [
+        "Cercle parcouru dans le sens horaire : indice $-1$ à l'intérieur."
+      ],
+      "viz_hint": ""
+    },
+    {
+      "id": "ch02-indice-invariance-homotopie",
+      "kind": "proposition",
+      "ref": "Proposition II.3.4",
+      "title": "Invariance de l'indice par homotopie de lacets dans $\\mathbb C\\setminus\\{z_0\\}$",
+      "page": 41,
+      "statement": "L'indice est invariant par homotopie de lacets. Plus précisément, s'il existe une homotopie (de lacets) dans $\\mathbb C\\setminus\\{z_0\\}$ entre deux lacets $\\gamma_0$ et $\\gamma_1$, alors $\\mathrm{Ind}_{z_0}(\\gamma_0) = \\mathrm{Ind}_{z_0}(\\gamma_1)$.",
+      "hypotheses": [
+        "homotopie de lacets",
+        "à valeurs dans $\\mathbb C\\setminus\\{z_0\\}$ : aucun lacet intermédiaire $\\gamma_s$ ne passe par $z_0$"
+      ],
+      "depends_on": [
+        "Théorème II.2.1",
+        "Définition II.3.1"
+      ],
+      "used_by_hint": "Justification pratique de « indice = 1 » pour les contours usuels (section II.6) ; Remarque II.8.3.",
+      "importance": 2,
+      "proof_in_poly": "full",
+      "proof_length": "short",
+      "counterexample_hints": [
+        "Si l'homotopie traverse $z_0$ : le cercle unité et un lacet constant sont homotopes dans $\\mathbb C$, mais d'indices $1$ et $0$ en $0$."
+      ],
+      "viz_hint": "Déformer continûment un contour (demi-disque, rectangle, trou de serrure) en un cercle sans traverser $z_0$ : l'indice reste affiché constant."
+    },
+    {
+      "id": "ch02-jordan-remarque",
+      "kind": "remark",
+      "ref": "Remarque II.3.5",
+      "title": "Théorème de Jordan et indice d'un lacet simple (admis)",
+      "page": 41,
+      "statement": "Soit $\\gamma : [0,1] \\to \\mathbb C$ continue avec $\\gamma(0)=\\gamma(1)$, **simple** (si $\\gamma(x)=\\gamma(y)$ alors $x=y$ ou $\\{x,y\\}=\\{0,1\\}$). Le théorème de Jordan (admis) affirme que $\\mathbb C\\setminus\\Gamma$ possède exactement deux composantes connexes, l'une bornée (l'intérieur de la courbe) et l'autre non bornée (l'extérieur). Si $\\gamma$ est de plus un lacet, son indice est constant sur chaque composante connexe, vaut $0$ sur la composante non bornée et vaut $-1$ ou $1$ sur la composante bornée selon l'orientation du lacet (résultat admis également).",
+      "hypotheses": [
+        "courbe fermée continue et simple",
+        "pour l'indice : lacet $C^1$ par morceaux"
+      ],
+      "depends_on": [
+        "Proposition II.3.2"
+      ],
+      "used_by_hint": "Méthode (II.6.1), Corollaire II.8.2, Remarque II.8.3 : en pratique, justifier l'indice $=1$ sur un disque ou par homotopie.",
+      "importance": 1,
+      "proof_in_poly": "none",
+      "proof_length": "long",
+      "counterexample_hints": [
+        "Un lacet non simple (figure en huit) a trois composantes connexes dans son complémentaire, d'indices $1$, $-1$ et $0$."
+      ],
+      "viz_hint": ""
+    },
+    {
+      "id": "ch02-discret-accumulation-localement-fini-def",
+      "kind": "definition",
+      "ref": "non numéroté, section II.4, p. 42",
+      "title": "Ensemble discret, point d'accumulation, partie localement finie",
+      "page": 42,
+      "statement": "Soit $P$ une partie de $\\mathbb C$ et $\\Omega$ un ouvert de $\\mathbb C$. (a) $P$ est **discret** si tous ses points sont isolés : pour tout $a \\in P$, il existe un voisinage ouvert de $a$ (que l'on peut choisir de la forme $D(a,r)$, $r>0$) dont l'intersection avec $P$ est réduite à $\\{a\\}$. (b) Un **point d'accumulation** de $P$ est un point $a \\in \\mathbb C$ limite d'une suite d'éléments de $P\\setminus\\{a\\}$ ; de manière équivalente, tout voisinage de $a$ rencontre $P\\setminus\\{a\\}$. (c) Une partie $P$ de $\\Omega$ est **localement finie dans $\\Omega$** si pour tout $a \\in \\Omega$ il existe un voisinage de $a$ dont l'intersection avec $P$ est finie ; de manière équivalente, $P \\cap K$ est fini pour tout compact $K$ de $\\Omega$ (équivalence justifiée dans le poly par locale compacité de $\\mathbb C$ et extraction d'un sous-recouvrement fini).",
+      "hypotheses": [
+        "$\\Omega$ ouvert de $\\mathbb C$"
+      ],
+      "depends_on": [],
+      "used_by_hint": "Définition des fonctions méromorphes (II.4.2) ; finitude des pôles dans un compact (II.5.1, II.5.2, (II.6.1)).",
+      "importance": 2,
+      "proof_in_poly": "sketch",
+      "proof_length": "short",
+      "counterexample_hints": [
+        "$P = \\{1/n : n \\ge 1\\}$ est discret dans $\\mathbb C$ mais n'est pas localement fini dans $\\mathbb C$ ($0$ est un point d'accumulation) ; il est localement fini dans $\\Omega = \\mathbb C\\setminus\\{0\\}$."
+      ],
+      "viz_hint": ""
+    },
+    {
+      "id": "ch02-localement-fini-caracterisations",
+      "kind": "proposition",
+      "ref": "Proposition II.4.1",
+      "title": "Caractérisations des parties localement finies",
+      "page": 42,
+      "statement": "Soit $\\Omega$ un ouvert de $\\mathbb C$ et $P$ une partie de $\\Omega$. Les conditions suivantes sont équivalentes : (1) $P$ est discret et fermé dans $\\Omega$ ; (2) $P$ est localement fini dans $\\Omega$ ; (3) $P$ n'a pas de point d'accumulation dans $\\Omega$.",
+      "hypotheses": [
+        "$\\Omega$ ouvert",
+        "$P \\subset \\Omega$",
+        "« fermé » et « point d'accumulation » s'entendent **dans $\\Omega$**"
+      ],
+      "depends_on": [],
+      "used_by_hint": "Vérifier qu'un ensemble de pôles est localement fini ; preuve de II.4.5 / II.4.8 (zéros isolés $\\Rightarrow$ localement finis via I.11.1).",
+      "importance": 2,
+      "proof_in_poly": "full",
+      "proof_length": "medium",
+      "counterexample_hints": [
+        "« Discret » seul ne suffit pas : $\\{1/n\\}$ dans $\\mathbb C$ (Remarque II.4.4).",
+        "Un point d'accumulation **hors de $\\Omega$** est autorisé : $\\{1/n\\}$ est localement fini dans $\\mathbb C\\setminus\\{0\\}$ ; les zéros de $\\sin(1/z)$ s'accumulent en $0 \\notin \\mathbb C^\\times$."
+      ],
+      "viz_hint": ""
+    },
+    {
+      "id": "ch02-pole-meromorphe-def",
+      "kind": "definition",
+      "ref": "Définition II.4.2",
+      "title": "Pôle, multiplicité, fonction méromorphe, $\\mathcal M(\\Omega)$, $\\mathcal Z(f,\\Omega)$, $\\mathcal P(f,\\Omega)$",
+      "page": 43,
+      "statement": "Soit $f : \\Omega\\setminus\\{z_0\\} \\to \\mathbb C$ une fonction holomorphe. On dit que $z_0$ est un **pôle** de $f$ si : (i) $f$ ne se prolonge pas en une fonction holomorphe en $z_0$ ; (ii) il existe un entier $m \\in \\mathbb N\\setminus\\{0\\}$ tel que $(z-z_0)^m f$ est bornée au voisinage de $z_0$. Le plus petit entier $m$ vérifiant (ii) est appelé la **multiplicité** (ou l'**ordre**) du pôle $z_0$, et noté $m(z_0)$. De manière équivalente, $m(z_0)$ est l'unique entier $m \\ge 1$ tel que l'on puisse écrire $f(z) = (z-z_0)^{-m} h(z)$ sur un voisinage épointé de $z_0$, avec $h$ holomorphe en $z_0$ et $h(z_0) \\ne 0$. Un pôle de multiplicité $1$ est dit **simple**. Une fonction $f$ est **méromorphe** sur $\\Omega$ si $f$ est holomorphe en dehors d'une partie $P$ localement finie de $\\Omega$ et si les points de $P$ vérifient la condition (ii) ci-dessus, de sorte que ce sont soit des points où la fonction se prolonge en une fonction holomorphe, soit des pôles de $f$. On note $\\mathcal M(\\Omega)$ l'espace des fonctions méromorphes sur $\\Omega$. Si $f \\in \\mathcal M(\\Omega)$, on note $\\mathcal Z(f,\\Omega)$ l'ensemble de ses zéros dans $\\Omega$ et $\\mathcal P(f,\\Omega)$ l'ensemble de ses pôles dans $\\Omega$. Lorsque ces ensembles sont finis, on note $$Z(f,\\Omega) := \\sum_{s\\in\\mathcal Z(f,\\Omega)} m(s) \\quad\\text{et}\\quad P(f,\\Omega) := \\sum_{s\\in\\mathcal P(f,\\Omega)} m(s)$$ le nombre de zéros et le nombre de pôles de $f$ dans $\\Omega$, comptés avec leur multiplicité. Les mêmes notations sont employées en remplaçant $\\Omega$ par n'importe quel ouvert sur lequel $f$ est méromorphe.",
+      "hypotheses": [
+        "$f$ holomorphe sur $\\Omega\\setminus P$ avec $P$ **localement finie** dans $\\Omega$",
+        "en chaque point de $P$ : $(z-z_0)^m f$ bornée pour un $m\\ge 1$ (exclut les singularités essentielles)"
+      ],
+      "depends_on": [],
+      "used_by_hint": "Tout le reste du chapitre (II.4.5 à II.8.4) ; chapitre III (séries de fonctions méromorphes, produits), chapitre IV.",
+      "importance": 3,
+      "proof_in_poly": "none",
+      "proof_length": "short",
+      "counterexample_hints": [
+        "$\\sin(1/z)$ n'est pas méromorphe en $0$ : aucun $z^m\\sin(1/z)$ n'est borné (singularité essentielle, Exercice II.7.1).",
+        "$1/\\sin(1/z)$ n'est pas méromorphe sur $\\mathbb C$ : ses pôles $1/(k\\pi)$ s'accumulent en $0$ (ensemble non localement fini) ; elle l'est sur $\\mathbb C^\\times$.",
+        "$(1-\\cos z)/z^2$ : le point $0$ est dans $P$ mais n'est pas un pôle (fausse singularité, Remarque II.4.3)."
+      ],
+      "viz_hint": "Domain coloring : un pôle d'ordre $m$ apparaît comme un point où les couleurs tournent $m$ fois dans le sens inverse d'un zéro d'ordre $m$."
+    },
+    {
+      "id": "ch02-fausses-singularites-remarque",
+      "kind": "remark",
+      "ref": "Remarque II.4.3",
+      "title": "$\\mathcal P(f,\\Omega)$ est inclus dans $P$, pas nécessairement égal (fausses singularités)",
+      "page": 43,
+      "statement": "L'ensemble $\\mathcal P(f,\\Omega)$ des pôles est inclus, mais pas nécessairement égal, à la partie localement finie $P$ de la définition II.4.2 : il est commode de pouvoir inclure dans $P$ de « fausses singularités », c'est-à-dire des points au voisinage desquels la fonction reste bornée (et se prolonge donc holomorphiquement, Corollaire II.4.7). Les fonctions holomorphes sont évidemment méromorphes.",
+      "hypotheses": [
+        "$f \\in \\mathcal M(\\Omega)$"
+      ],
+      "depends_on": [
+        "Définition II.4.2"
+      ],
+      "used_by_hint": "Souplesse des preuves (II.4.8 : $P_1 = P \\cup \\mathcal Z(f,\\Omega)$) ; Corollaire II.4.7.",
+      "importance": 1,
+      "proof_in_poly": "none",
+      "proof_length": "short",
+      "counterexample_hints": [],
+      "viz_hint": ""
+    },
+    {
+      "id": "ch02-localement-fini-vs-isole-remarque",
+      "kind": "remark",
+      "ref": "Remarque II.4.4",
+      "title": "Localement fini est plus fort qu'isolé ; stabilité par union ; sommes et produits de méromorphes",
+      "page": 43,
+      "statement": "La propriété pour la partie $P$ de $\\Omega$ d'être localement finie est plus forte que d'être constituée de points isolés (il faut rajouter fermé) : $\\{1/n,\\ n\\in\\mathbb N\\setminus\\{0\\}\\}$ a le point limite $0$ dans $\\mathbb C$ mais est constitué de points isolés. L'union de deux parties $P_1$, $P_2$ localement finies est encore localement finie ; ainsi une combinaison linéaire de fonctions méromorphes sur $\\Omega$ est encore méromorphe, de même qu'un produit de deux fonctions méromorphes sur $\\Omega$.",
+      "hypotheses": [
+        "$P_1,P_2$ localement finies dans $\\Omega$"
+      ],
+      "depends_on": [
+        "Définition II.4.2",
+        "Proposition II.4.1"
+      ],
+      "used_by_hint": "Preuve des Propositions II.4.5 et II.4.8.",
+      "importance": 1,
+      "proof_in_poly": "sketch",
+      "proof_length": "short",
+      "counterexample_hints": [],
+      "viz_hint": ""
+    },
+    {
+      "id": "ch02-meromorphes-operations",
+      "kind": "proposition",
+      "ref": "Proposition II.4.5",
+      "title": "Stabilité de $\\mathcal M(\\Omega)$ par combinaisons linéaires et produits ; inverse d'une fonction holomorphe",
+      "page": 43,
+      "statement": "Si $f,g$ sont deux fonctions méromorphes sur $\\Omega$ et si $\\alpha,\\beta\\in\\mathbb C$, alors les fonctions $\\alpha f + \\beta g$ et $fg$ sont elles aussi méromorphes sur $\\Omega$. Soit $f$ une fonction holomorphe non identiquement nulle sur un ouvert **connexe** $\\Omega$ de $\\mathbb C$. Alors $g := 1/f$ est méromorphe sur $\\Omega$.",
+      "hypotheses": [
+        "$f,g \\in \\mathcal M(\\Omega)$",
+        "pour l'inverse : $\\Omega$ connexe et $f$ holomorphe non identiquement nulle"
+      ],
+      "depends_on": [
+        "Remarque II.4.4",
+        "Théorème I.11.1",
+        "Théorème I.7.4",
+        "Définition II.4.2"
+      ],
+      "used_by_hint": "Proposition II.4.8 ($\\mathcal M(\\Omega)$ corps), principe de l'argument ($g'/g$ méromorphe), Rouché ($h=f/g$).",
+      "importance": 2,
+      "proof_in_poly": "full",
+      "proof_length": "medium",
+      "counterexample_hints": [
+        "Sans connexité : $f$ nulle sur une composante de $\\Omega$ et égale à $1$ sur l'autre est holomorphe non identiquement nulle, mais $1/f$ n'est pas définie sur la première composante.",
+        "Si $f$ est seulement continue, ses zéros peuvent ne pas être isolés."
+      ],
+      "viz_hint": ""
+    },
+    {
+      "id": "ch02-laurent-developpement",
+      "kind": "proposition",
+      "ref": "Proposition II.4.6",
+      "title": "Développement de Laurent d'une fonction méromorphe au voisinage d'un point",
+      "page": 44,
+      "statement": "Soit $f$ une fonction méromorphe sur $\\Omega$ et $z_0\\in\\Omega$. Alors il existe $m\\in\\mathbb N$ et $r>0$ tels que $$f(z) = \\sum_{n\\ge -m} a_n (z-z_0)^n$$ sur $D(z_0,r)^\\times$. On dit que $f$ admet un **développement de Laurent** dans un voisinage de $z_0$. Ce développement est unique et l'on a convergence normale de la série sur la couronne $$C_{\\varepsilon,\\bar\\varepsilon} := \\{z\\in\\Omega : \\varepsilon < |z-z_0| < \\bar\\varepsilon\\},$$ pour tout $0<\\varepsilon<\\bar\\varepsilon<r$. Enfin, $f$ admet un pôle en $z_0$ si et seulement s'il existe $n\\le -1$ tel que $a_n\\ne 0$, et la multiplicité de ce pôle est alors $-\\min\\{n\\,;\\,a_n\\ne 0\\}$.",
+      "hypotheses": [
+        "$f \\in \\mathcal M(\\Omega)$",
+        "$z_0 \\in \\Omega$ (pôle, fausse singularité ou point régulier)",
+        "$r$ assez petit pour que $D(z_0,r)^\\times$ ne contienne aucun point de $P$"
+      ],
+      "depends_on": [
+        "Corollaire I.7.5",
+        "Définition II.4.2"
+      ],
+      "used_by_hint": "Définition du résidu (II.4.9), II.4.7, II.4.8, II.4.10, II.4.11, II.4.12, formule des résidus (II.5.1), principe de l'argument (II.8.1).",
+      "importance": 3,
+      "proof_in_poly": "full",
+      "proof_length": "long",
+      "counterexample_hints": [
+        "Pour une singularité essentielle ($e^{1/z}$) il y a une infinité de puissances négatives : la série de Laurent existe (Exercice II.7.4) mais ce n'est pas une somme finie en puissances négatives.",
+        "Le développement n'est valable que sur un **petit disque épointé** : $\\frac{1}{z(z-1)}$ a sur $0<|z|<1$ le développement $-\\frac1z - 1 - z - \\dots$ et sur $|z|>1$ un développement différent ($\\sum_{n\\ge 2} z^{-n}$)."
+      ],
+      "viz_hint": "Sommes partielles de la série de Laurent autour d'un pôle, comparées à $f$ (domain coloring), avec curseur sur le nombre de termes et le rayon de la couronne."
+    },
+    {
+      "id": "ch02-singularite-effacable-riemann",
+      "kind": "corollary",
+      "ref": "Corollaire II.4.7",
+      "title": "Singularité effaçable (théorème de Riemann)",
+      "page": 45,
+      "statement": "Avec les notations ci-dessus ($f$ méromorphe sur $\\Omega$, $P$ la partie localement finie de la Définition II.4.2), soit $z_0\\in P$ et supposons que la fonction $f$ reste bornée au voisinage de $z_0$ (par exemple si $f$ se prolonge par continuité en $z_0$). Alors $f$ se prolonge en une fonction holomorphe en $z_0$. (Portée : si $f$ est holomorphe sur $\\Omega\\setminus\\{z_0\\}$ et bornée près de $z_0$, la condition (ii) de II.4.2 est satisfaite avec $m=1$, donc $f$ est méromorphe avec $P=\\{z_0\\}$ et le corollaire s'applique : c'est bien le théorème de Riemann général.)",
+      "hypotheses": [
+        "$f$ holomorphe sur un voisinage épointé de $z_0$",
+        "$f$ bornée au voisinage de $z_0$"
+      ],
+      "depends_on": [
+        "Proposition II.4.6"
+      ],
+      "used_by_hint": "Preuve de II.4.8 ; Exercice II.7.4 (5) ; prolongement de $\\frac{f(z)-f(\\zeta)}{z-\\zeta}$ ; principe de réflexion de Schwarz (II.7.9).",
+      "importance": 3,
+      "proof_in_poly": "full",
+      "proof_length": "short",
+      "counterexample_hints": [
+        "Non borné : $1/z$ (pôle) ou $e^{1/z}$ (essentielle) ne se prolongent pas.",
+        "En analyse réelle, l'analogue est faux : $x\\mapsto |x|$ est bornée et $C^\\infty$ sur $\\mathbb R^\\times$ mais ne se prolonge pas en fonction dérivable."
+      ],
+      "viz_hint": ""
+    },
+    {
+      "id": "ch02-meromorphes-corps",
+      "kind": "proposition",
+      "ref": "Proposition II.4.8",
+      "title": "$\\mathcal M(\\Omega)$ est un corps si $\\Omega$ est connexe",
+      "page": 45,
+      "statement": "Si $\\Omega$ est connexe, l'ensemble $\\mathcal M(\\Omega)$ est un corps (une extension de dimension infinie de $\\mathbb C$).",
+      "hypotheses": [
+        "$\\Omega$ ouvert **connexe**"
+      ],
+      "depends_on": [
+        "Proposition II.4.5",
+        "Corollaire II.4.7",
+        "Proposition II.4.6",
+        "Remarque II.4.4"
+      ],
+      "used_by_hint": "Principe de l'argument (II.8.1 : $g'/g\\in\\mathcal M(\\Omega)$), Rouché (II.8.4 : $h=f/g$).",
+      "importance": 2,
+      "proof_in_poly": "full",
+      "proof_length": "medium",
+      "counterexample_hints": [
+        "$\\Omega$ non connexe : $f = \\mathbf 1_{\\Omega_1}$ (vaut $1$ sur une composante, $0$ sur l'autre) est méromorphe, non nulle, non inversible : $\\mathcal M(\\Omega)$ n'est pas un corps (il a des diviseurs de zéro)."
+      ],
+      "viz_hint": ""
+    },
+    {
+      "id": "ch02-residu-def",
+      "kind": "definition",
+      "ref": "Définition II.4.9",
+      "title": "Résidu d'une fonction méromorphe en un point",
+      "page": 45,
+      "statement": "Avec les notations précédentes ($f$ méromorphe sur $\\Omega$, $z_0\\in\\Omega$, $f(z) = \\sum_{n\\ge -m} a_n (z-z_0)^n$ son développement de Laurent au voisinage de $z_0$), on définit $\\mathrm{res}_{z_0}(f)$, le **résidu** de $f$ en $z_0$, par la formule $$\\mathrm{res}_{z_0}(f) := a_{-1}.$$",
+      "hypotheses": [
+        "$f \\in \\mathcal M(\\Omega)$, $z_0\\in\\Omega$",
+        "unicité du développement de Laurent (II.4.6) pour que $a_{-1}$ soit bien défini"
+      ],
+      "depends_on": [
+        "Proposition II.4.6"
+      ],
+      "used_by_hint": "Formule des résidus (II.5.1), calcul d'intégrales (II.6), principe de l'argument.",
+      "importance": 3,
+      "proof_in_poly": "none",
+      "proof_length": "short",
+      "counterexample_hints": [
+        "Le résidu peut être nul en un pôle : $\\mathrm{res}_0(1/z^2) = 0$.",
+        "Le résidu dépend du développement sur un **petit** disque épointé, pas sur une grande couronne."
+      ],
+      "viz_hint": ""
+    },
+    {
+      "id": "ch02-residu-forme-lineaire",
+      "kind": "corollary",
+      "ref": "Corollaire II.4.10",
+      "title": "Le résidu est une forme linéaire",
+      "page": 45,
+      "statement": "L'application $f\\mapsto \\mathrm{res}_{z_0}(f)$ est une forme linéaire sur l'espace $\\mathcal M(\\Omega)$ des fonctions méromorphes sur $\\Omega$, à valeurs dans $\\mathbb C$.",
+      "hypotheses": [
+        "$z_0\\in\\Omega$ fixé"
+      ],
+      "depends_on": [
+        "Proposition II.4.6",
+        "Proposition II.4.5"
+      ],
+      "used_by_hint": "Calcul de résidus par décomposition (fractions partielles, séparation partie polaire / partie régulière).",
+      "importance": 1,
+      "proof_in_poly": "none",
+      "proof_length": "short",
+      "counterexample_hints": [
+        "Le résidu n'est **pas** multiplicatif : $\\mathrm{res}_0(\\frac1z\\cdot\\frac1z) = 0 \\ne \\mathrm{res}_0(\\frac1z)^2 = 1$."
+      ],
+      "viz_hint": ""
+    },
+    {
+      "id": "ch02-residu-integrale-cercle",
+      "kind": "proposition",
+      "ref": "Proposition II.4.11",
+      "title": "Le résidu comme intégrale sur un petit cercle",
+      "page": 46,
+      "statement": "Soit $z_0\\in\\Omega$ un pôle de la fonction méromorphe $f$. Alors, pour tout $r>0$ assez petit, on a $$\\mathrm{res}_{z_0}(f) = \\frac{1}{2i\\pi}\\int_{C(z_0,r)} f(z)\\,dz,$$ où $C(z_0,r)$ désigne le cercle de centre $z_0$ et de rayon $r$, que l'on suppose parcouru dans le sens trigonométrique.",
+      "hypotheses": [
+        "$f\\in\\mathcal M(\\Omega)$, $z_0$ pôle (l'énoncé reste vrai en un point régulier, les deux membres étant nuls)",
+        "$r$ assez petit : $\\bar D(z_0,r)\\setminus\\{z_0\\}$ sans singularité, convergence normale de la série de Laurent sur $C(z_0,r)$"
+      ],
+      "depends_on": [
+        "Proposition II.4.6",
+        "Définition II.4.9"
+      ],
+      "used_by_hint": "Clé de la formule des résidus ; calcul $\\int_{C(z_0,r)} (z-z_0)^n dz = 2i\\pi\\,\\delta_{n,-1}$ réutilisé partout (Exercice II.7.6).",
+      "importance": 3,
+      "proof_in_poly": "full",
+      "proof_length": "medium",
+      "counterexample_hints": [
+        "Si $r$ est trop grand et que le cercle englobe un autre pôle, l'intégrale donne la somme des deux résidus.",
+        "Orientation horaire : signe opposé."
+      ],
+      "viz_hint": "Cercle de rayon variable autour d'un pôle ; afficher $\\frac{1}{2i\\pi}\\int_{C(z_0,r)} f$ numériquement : constant tant qu'aucun autre pôle n'est traversé."
+    },
+    {
+      "id": "ch02-residu-pole-simple",
+      "kind": "remark",
+      "ref": "Remarque II.4.12",
+      "title": "Résidu d'un produit $fg$ en un pôle simple de $g$",
+      "page": 46,
+      "statement": "Soit $z_0\\in\\Omega$. Si $f$ est une fonction holomorphe au voisinage de $z_0$ et si $g$ est une fonction méromorphe admettant un **pôle simple** en $z_0$, alors $$\\mathrm{res}_{z_0}(fg) = f(z_0)\\,\\mathrm{res}_{z_0}(g).$$ (Preuve : $g(z) = \\frac{a_{-1}}{z-z_0} + h(z)$ avec $h$ holomorphe en $z_0$, $f(z) = f(z_0) + (z-z_0)\\tilde f(z)$ avec $\\tilde f$ holomorphe ; le produit vaut $\\frac{f(z_0)a_{-1}}{z-z_0}$ plus une fonction holomorphe en $z_0$.) Cas particulier d'usage constant : si $z_0$ est un pôle simple de $F$, $\\mathrm{res}_{z_0}(F) = \\lim_{z\\to z_0}(z-z_0)F(z)$ ; si $F = f/q$ avec $q$ holomorphe ayant un zéro simple en $z_0$ et $f$ holomorphe, $\\mathrm{res}_{z_0}(F) = f(z_0)/q'(z_0)$.",
+      "hypotheses": [
+        "$f$ holomorphe au voisinage de $z_0$",
+        "$g$ méromorphe avec pôle **simple** en $z_0$"
+      ],
+      "depends_on": [
+        "Proposition II.4.6",
+        "Corollaire I.7.5"
+      ],
+      "used_by_hint": "Tous les calculs de résidus en pôles simples (Exemples II.6.1, II.9.7, Exercices II.7.3, II.7.6-II.7.8).",
+      "importance": 2,
+      "proof_in_poly": "full",
+      "proof_length": "short",
+      "counterexample_hints": [
+        "Pôle double de $g$ : $\\mathrm{res}_{z_0}(fg) = f(z_0)a_{-1} + f'(z_0)a_{-2}$ ; par exemple $\\mathrm{res}_0(e^z/z^2) = 1 \\ne e^0\\cdot\\mathrm{res}_0(1/z^2) = 0$."
+      ],
+      "viz_hint": ""
+    },
+    {
+      "id": "ch02-formule-residus",
+      "kind": "theorem",
+      "ref": "Théorème II.5.1",
+      "title": "Formule des résidus (Cauchy, 1826)",
+      "page": 47,
+      "statement": "On suppose que $\\Omega$ est un ouvert simplement connexe. Soit $f$ une fonction méromorphe sur $\\Omega$. Soit $\\gamma$ un lacet inclus dans $\\Omega\\setminus\\mathcal P(f,\\Omega)$. Alors $$\\frac{1}{2i\\pi}\\int_\\gamma f(z)\\,dz = \\sum_{s\\in\\mathcal P(f,\\Omega)} \\mathrm{res}_s(f)\\,\\mathrm{Ind}_s(\\gamma),$$ la somme étant à support fini (Remarque II.5.2).",
+      "hypotheses": [
+        "$\\Omega$ simplement connexe (ou seulement : $\\gamma$ homotope à un lacet constant dans $\\Omega$, Remarque II.5.3)",
+        "$f\\in\\mathcal M(\\Omega)$",
+        "$\\gamma$ lacet de $\\Omega$ ne passant par aucun pôle de $f$"
+      ],
+      "depends_on": [
+        "Corollaire II.2.2",
+        "Théorème II.2.1",
+        "Proposition II.4.6",
+        "Théorème I.5.9",
+        "Définition II.3.1",
+        "Définition II.4.9",
+        "Définition II.4.2"
+      ],
+      "used_by_hint": "Méthode (II.6.1) et tous les calculs d'intégrales ; principe de l'argument (II.8.1) ; Rouché ; chapitre III (sommation de séries), chapitre IV.",
+      "importance": 3,
+      "proof_in_poly": "full",
+      "proof_length": "long",
+      "counterexample_hints": [
+        "$\\Omega = \\mathbb C\\setminus\\{0\\}$ (non simplement connexe), $f(z)=1/z$ holomorphe sur $\\Omega$ sans pôle dans $\\Omega$, $\\gamma=C(0,1)$ : la formule donnerait $0$ alors que $\\int_\\gamma f = 2i\\pi$. Les « trous » de $\\Omega$ se comportent comme des singularités cachées.",
+        "Si $\\gamma$ passe par un pôle, l'intégrale n'est pas définie.",
+        "Singularité essentielle sur le lacet constant ? Non : si $f$ n'est pas méromorphe ($e^{1/z}$) la formule ne s'applique pas telle quelle, mais le résidu $a_{-1}$ de la série de Laurent (Exercice II.7.4) donne encore $\\int_{C(0,r)} e^{1/z}dz = 2i\\pi$."
+      ],
+      "viz_hint": "Lacet déformable autour de plusieurs pôles ; afficher les indices $\\mathrm{Ind}_s(\\gamma)$ et la somme pondérée des résidus comparée à l'intégrale calculée numériquement."
+    },
+    {
+      "id": "ch02-support-fini-remarque",
+      "kind": "remark",
+      "ref": "Remarque II.5.2",
+      "title": "Les pôles d'indice non nul sont en nombre fini",
+      "page": 47,
+      "statement": "Sous les hypothèses du Théorème II.5.1, l'ensemble des pôles $s\\in\\mathcal P(f,\\Omega)$ tels que $\\mathrm{Ind}_s(\\gamma)\\ne 0$ est fini. En effet, notons $\\Gamma$ l'image de $\\gamma$ et $V = \\{z\\notin\\Gamma\\,;\\,\\mathrm{Ind}_z(\\gamma)\\ne 0\\}$. Comme $\\Gamma$ est compact, $V$ est borné (l'indice est nul sur la composante connexe non bornée de $\\mathbb C\\setminus\\Gamma$) ; comme $\\gamma$ est homotope à un lacet constant dans $\\Omega$, l'indice est aussi nul en tout point de $\\mathbb C\\setminus\\Omega$, de sorte que $V\\subset\\Omega$. Le bord de $V$ étant contenu dans $\\Gamma$, l'adhérence $\\bar V\\subset V\\cup\\Gamma$ est un compact de $\\Omega$, qui ne contient qu'un nombre fini de pôles. La somme du membre de droite est donc à support fini.",
+      "hypotheses": [
+        "$\\Omega$ simplement connexe (ou $\\gamma$ homotope à un lacet constant dans $\\Omega$)",
+        "$\\mathcal P(f,\\Omega)$ localement fini"
+      ],
+      "depends_on": [
+        "Proposition II.3.2",
+        "Corollaire II.2.2",
+        "Définition II.4.2"
+      ],
+      "used_by_hint": "Donne un sens à la somme de II.5.1 et de II.8.1.",
+      "importance": 2,
+      "proof_in_poly": "full",
+      "proof_length": "short",
+      "counterexample_hints": [
+        "Sans l'hypothèse d'homotopie à un lacet constant, un pôle pourrait « s'approcher » du bord de $\\Omega$ à l'intérieur de $\\gamma$ : $\\Omega=\\mathbb C\\setminus\\{0\\}$, $f = 1/\\sin(1/z)$, $\\gamma = C(0,1)$ entoure une infinité de pôles."
+      ],
+      "viz_hint": ""
+    },
+    {
+      "id": "ch02-residus-hypothese-homotope-remarque",
+      "kind": "remark",
+      "ref": "Remarque II.5.3",
+      "title": "Affaiblissement de l'hypothèse « simplement connexe »",
+      "page": 48,
+      "statement": "La démonstration du Théorème II.5.1 montre que l'hypothèse « $\\Omega$ simplement connexe » peut être remplacée par « le lacet $\\gamma$ est homotope à un lacet constant dans $\\Omega$ ».",
+      "hypotheses": [
+        "$\\gamma$ homotope à un lacet constant dans $\\Omega$"
+      ],
+      "depends_on": [
+        "Théorème II.5.1"
+      ],
+      "used_by_hint": "Permet d'appliquer la formule des résidus dans une couronne ou un ouvert non simplement connexe dès que $\\gamma$ ne « voit » pas les trous ; justifie II.8.2 et II.8.4 énoncés sur un ouvert $\\Omega$ quelconque.",
+      "importance": 2,
+      "proof_in_poly": "sketch",
+      "proof_length": "short",
+      "counterexample_hints": [
+        "Dans $\\Omega=\\{1<|z|<3\\}$, $\\gamma=C(0,2)$ n'est pas homotope à un lacet constant : $\\int_\\gamma dz/z = 2i\\pi$ malgré l'absence de pôle dans $\\Omega$."
+      ],
+      "viz_hint": ""
+    },
+    {
+      "id": "ch02-formule-residus-pratique",
+      "kind": "formula",
+      "ref": "Formule (II.6.1)",
+      "title": "Formule des résidus pour le bord d'un domaine (forme pratique)",
+      "page": 48,
+      "statement": "**Méthode donnée sans preuve dans le poly (à justifier au cas par cas).** Soit $U$ un ouvert connexe borné de $\\mathbb C$ dont le bord est l'image d'un lacet **simple** $\\gamma$ de classe $C^1$ par morceaux (disque, demi-disque, secteur angulaire d'un disque, triangle, polygone...). Le lacet $\\gamma$ étant simple, il tourne une seule fois autour de chaque point de $U$ ; on le suppose orienté dans le sens direct, c'est-à-dire l'intérieur à gauche : $\\gamma(t) + i\\varepsilon\\gamma'(t)\\in U$ pour tout $\\varepsilon>0$ assez petit. Alors l'indice des points de $U$ relativement à $\\gamma$ vaut $1$ (en pratique : invariance par homotopie de l'indice en déformant $\\gamma$ en un cercle). Soit $\\Omega$ un ouvert simplement connexe contenant $\\bar U$ et $f$ méromorphe sur $\\Omega$ sans pôle sur $\\gamma$. L'ensemble $S$ des pôles de $f$ contenus dans $U$ est fini et $$\\int_\\gamma f(z)\\,dz = 2i\\pi\\sum_{s\\in S}\\mathrm{res}_s(f). \\tag{II.6.1}$$",
+      "hypotheses": [
+        "$U$ ouvert connexe borné, bord = lacet simple $C^1$ par morceaux orienté positivement",
+        "$\\Omega\\supset\\bar U$ simplement connexe",
+        "$f\\in\\mathcal M(\\Omega)$ sans pôle sur $\\gamma$",
+        "$S$ = pôles dans $U$, fini"
+      ],
+      "depends_on": [
+        "Théorème II.5.1",
+        "Proposition II.3.4",
+        "Exemple II.3.3",
+        "Remarque II.3.5"
+      ],
+      "used_by_hint": "Exemples II.6.1, II.9.7 ; Exercices II.7.6-II.7.8 ; Corollaire II.8.2 ; chapitre IV.",
+      "importance": 3,
+      "proof_in_poly": "sketch",
+      "proof_length": "medium",
+      "counterexample_hints": [
+        "Lacet parcouru dans le sens horaire : signe $-$.",
+        "Pôle sur le bord : la formule n'a pas de sens (utiliser une indentation / valeur principale).",
+        "Oublier un pôle dans $U$ (par ex. $z^4+1=0$ : deux racines dans le demi-plan supérieur, pas une)."
+      ],
+      "viz_hint": "Contours usuels (demi-disque, secteur, rectangle, trou de serrure) avec curseurs $R$, $\\varepsilon$ ; les pôles s'allument lorsqu'ils entrent dans $U$."
+    },
+    {
+      "id": "ch02-exemple-integrale-fourier",
+      "kind": "example",
+      "ref": "Exemple II.6.1",
+      "title": "Calcul d'une intégrale de Fourier : $\\int_{-\\infty}^{+\\infty}\\frac{\\cos(kx)}{x^2+a^2}dx = \\frac{\\pi}{a}e^{-ka}$",
+      "page": 48,
+      "statement": "Pour $k>0$ et $a>0$, $$I = \\int_{-\\infty}^{+\\infty}\\frac{\\cos(kx)}{x^2+a^2}\\,dx = \\frac{\\pi}{a}e^{-ka}.$$ Méthode du poly : $f(z) = \\dfrac{e^{ikz}}{z^2+a^2}$ est méromorphe sur $\\mathbb C$ avec deux pôles simples $ia$ et $-ia$. On intègre sur le lacet $\\Gamma_R$ formé du segment $[-R,R]$ et du demi-cercle supérieur $C_R^+$ de rayon $R$ parcouru dans le sens trigonométrique. Pour $R>a$, le seul pôle intérieur est $ia$ et $\\mathrm{res}_{ia}(f) = \\lim_{z\\to ia}(z-ia)\\frac{e^{ikz}}{(z-ia)(z+ia)} = \\frac{e^{-ka}}{2ia}$, d'où $\\int_{\\Gamma_R} f = 2i\\pi\\,\\mathrm{res}_{ia}(f) = \\frac{\\pi}{a}e^{-ka}$. Sur $C_R^+$, $z = Re^{i\\theta}$, $\\theta\\in[0,\\pi]$, $|e^{ikz}| = e^{-kR\\sin\\theta}\\le 1$ donc $\\Big|\\int_{C_R^+}\\frac{e^{ikz}}{z^2+a^2}dz\\Big| \\le \\pi R\\cdot\\frac{1}{R^2-a^2} \\to 0$. En passant à la limite, $\\int_{-\\infty}^{+\\infty}\\frac{e^{ikx}}{x^2+a^2}dx = \\frac{\\pi}{a}e^{-ka}$ et l'on conclut en prenant la partie réelle.",
+      "hypotheses": [
+        "$k>0$ (sinon fermer par le demi-plan inférieur, ou utiliser la parité en $k$)",
+        "$a>0$"
+      ],
+      "depends_on": [
+        "Formule (II.6.1)",
+        "Remarque II.4.12",
+        "Proposition I.5.7"
+      ],
+      "used_by_hint": "Modèle de tous les calculs de transformées de Fourier de fractions rationnelles ; Exercices II.7.7, II.7.8.",
+      "importance": 2,
+      "proof_in_poly": "full",
+      "proof_length": "medium",
+      "counterexample_hints": [
+        "On ne peut pas intégrer directement $\\cos(kz)/(z^2+a^2)$ : $|\\cos(kz)|$ explose comme $e^{kR\\sin\\theta}$ sur $C_R^+$.",
+        "Pour $k<0$, $|e^{ikz}|$ n'est pas borné dans le demi-plan supérieur : il faut fermer par le bas (et l'orientation change de signe)."
+      ],
+      "viz_hint": "Contour $\\Gamma_R$ avec $R$ variable, pôles $\\pm ia$, module de $f$ sur le demi-cercle tendant vers $0$."
+    },
+    {
+      "id": "ch02-principe-argument",
+      "kind": "lemma",
+      "ref": "Lemme II.8.1",
+      "title": "Principe de l'argument (Cauchy, 1826)",
+      "page": 53,
+      "statement": "Soit $\\Omega$ un ouvert simplement connexe, soit $g$ une fonction méromorphe sur $\\Omega$, non identiquement nulle, et soit $\\gamma$ un lacet dans $\\Omega$ dont l'image ne contient ni pôle ni zéro de $g$. Alors $$\\frac{1}{2i\\pi}\\int_\\gamma\\frac{g'(z)}{g(z)}\\,dz = \\sum_{s\\in\\mathcal Z(g,\\Omega)}\\mathrm{Ind}_s(\\gamma)\\,m(s) - \\sum_{s\\in\\mathcal P(g,\\Omega)}\\mathrm{Ind}_s(\\gamma)\\,m(s),$$ où $m(s)$ désigne la multiplicité de $s$ comme zéro ou pôle de $g$. Comme pour la formule des résidus, les deux sommes sont à support fini (Remarque II.5.2).",
+      "hypotheses": [
+        "$\\Omega$ simplement connexe",
+        "$g\\in\\mathcal M(\\Omega)$ non identiquement nulle",
+        "$\\gamma$ lacet de $\\Omega$ évitant zéros et pôles de $g$"
+      ],
+      "depends_on": [
+        "Théorème II.5.1",
+        "Proposition II.4.6",
+        "Proposition II.4.8",
+        "Remarque II.5.2"
+      ],
+      "used_by_hint": "Corollaire II.8.2, Théorème de Rouché (II.8.4) ; chapitre IV (application ouverte, biholomorphismes) ; comptage de zéros.",
+      "importance": 3,
+      "proof_in_poly": "full",
+      "proof_length": "medium",
+      "counterexample_hints": [
+        "Un zéro ou un pôle sur $\\gamma$ rend l'intégrale divergente.",
+        "Oublier la multiplicité : $g(z)=z^2$, $\\gamma = C(0,1)$ : l'intégrale vaut $2$, pas $1$."
+      ],
+      "viz_hint": "Tracer $g(\\gamma(t))$ : le nombre de tours de l'image autour de $0$ égale $Z - P$ ; curseur déplaçant un zéro ou un pôle à travers $\\gamma$."
+    },
+    {
+      "id": "ch02-principe-argument-domaine",
+      "kind": "corollary",
+      "ref": "Corollaire II.8.2",
+      "title": "Principe de l'argument pour le bord d'un domaine : $Z(g,U)-P(g,U)$",
+      "page": 53,
+      "statement": "Soit $g$ une fonction méromorphe sur un ouvert $\\Omega$ et soit $U$ un ouvert tel que $\\bar U\\subset\\Omega$. On suppose que le bord $\\Gamma$ de $U$ est un lacet orienté positivement qui ne contient pas de pôles ni de zéros de $g$. Alors $$\\frac{1}{2i\\pi}\\int_\\Gamma\\frac{g'(z)}{g(z)}\\,dz = Z(g,U) - P(g,U),$$ où $Z(g,U)$ et $P(g,U)$ sont respectivement le nombre de zéros et de pôles de $g$ dans $U$ (les zéros et pôles étant comptés avec multiplicité). [Le poly utilise ici sans démonstration que l'indice de $\\Gamma$ par rapport à tout point de $U$ est $1$ et le théorème de Jordan, Remarque II.8.3.]",
+      "hypotheses": [
+        "$g\\in\\mathcal M(\\Omega)$",
+        "$\\bar U\\subset\\Omega$, $\\partial U=\\Gamma$ lacet (simple) orienté positivement",
+        "ni zéro ni pôle de $g$ sur $\\Gamma$",
+        "fait admis : $\\mathrm{Ind}_z(\\Gamma)=1$ pour $z\\in U$"
+      ],
+      "depends_on": [
+        "Lemme II.8.1",
+        "Remarque II.8.3",
+        "Remarque II.5.3"
+      ],
+      "used_by_hint": "Théorème de Rouché (II.8.4) ; localisation des zéros (Exercices II.8.5, II.8.6).",
+      "importance": 3,
+      "proof_in_poly": "none",
+      "proof_length": "short",
+      "counterexample_hints": [
+        "Si $g$ est holomorphe sur $U$, l'intégrale compte exactement les zéros : $g(z) = z^n$ sur le disque unité donne $n$.",
+        "Orientation négative : signe opposé."
+      ],
+      "viz_hint": ""
+    },
+    {
+      "id": "ch02-rouche-faits-admis-remarque",
+      "kind": "remark",
+      "ref": "Remarque II.8.3",
+      "title": "Faits admis : indice égal à 1 et théorème de Jordan",
+      "page": 53,
+      "statement": "Dans le Corollaire II.8.2 on utilise le fait non démontré que l'indice de $\\Gamma$ par rapport à tout point de $U$ est $1$. Le théorème de Jordan (si $\\gamma$ est un lacet simple d'image $\\Gamma$, $\\mathbb C\\setminus\\Gamma$ est un ouvert ayant deux composantes connexes, l'une non bornée, cf. Remarque II.3.5) n'est pas démontré non plus. En pratique, on n'utilisera ces résultats que dans des cas où ils sont facilement établis, par exemple sur un disque.",
+      "hypotheses": [],
+      "depends_on": [
+        "Remarque II.3.5",
+        "Exemple II.3.3",
+        "Proposition II.3.4"
+      ],
+      "used_by_hint": "Rappel méthodologique : en examen, justifier l'indice par homotopie vers un cercle ou se placer sur un disque.",
+      "importance": 1,
+      "proof_in_poly": "none",
+      "proof_length": "short",
+      "counterexample_hints": [],
+      "viz_hint": ""
+    },
+    {
+      "id": "ch02-rouche",
+      "kind": "theorem",
+      "ref": "Théorème II.8.4",
+      "title": "Théorème de Rouché (1862)",
+      "page": 54,
+      "statement": "Soient $f$ et $g$ deux fonctions méromorphes sur un ouvert $\\Omega$ de $\\mathbb C$, et $U$ un ouvert tel que $\\bar U\\subset\\Omega$. On suppose que le bord $\\Gamma$ de $U$ est un lacet orienté positivement, ne contenant ni pôle ni zéro des fonctions $f$ et $g$, et que $$|f(z)-g(z)| < |g(z)| \\quad\\text{pour tout } z\\in\\Gamma.$$ Alors $$Z(f,U)-P(f,U) = Z(g,U)-P(g,U),$$ où $Z(f,U)$ et $P(f,U)$ (respectivement $Z(g,U)$ et $P(g,U)$) sont le nombre de zéros et de pôles de $f$ (respectivement de $g$) dans $U$, comptés avec multiplicité.",
+      "hypotheses": [
+        "$f,g\\in\\mathcal M(\\Omega)$",
+        "$\\bar U\\subset\\Omega$, $\\Gamma=\\partial U$ lacet orienté positivement",
+        "ni zéro ni pôle de $f$, $g$ sur $\\Gamma$",
+        "inégalité **stricte** $|f-g|<|g|$ **en tout point** de $\\Gamma$"
+      ],
+      "depends_on": [
+        "Corollaire II.8.2",
+        "Corollaire II.2.2",
+        "Proposition II.1.5",
+        "Proposition II.4.8",
+        "Définition II.3.1"
+      ],
+      "used_by_hint": "Théorème de d'Alembert-Gauss (p. 54), localisation de racines (Exercices II.8.5, II.8.6), chapitre IV (application ouverte, Hurwitz au ch. III).",
+      "importance": 3,
+      "proof_in_poly": "full",
+      "proof_length": "medium",
+      "counterexample_hints": [
+        "Inégalité large insuffisante : $f(z)=z$, $g(z)=1$ sur $C(0,1)$ : $|f-g|\\le 2$ n'est pas $<|g|=1$ ; en fait $|z-1|<1$ échoue en $z=-1$, et $Z(f,D)=1\\ne 0=Z(g,D)$.",
+        "Fonctions méromorphes : Rouché compare $Z-P$, pas $Z$ seul ($f = 1/z$, $g = 1/z + \\varepsilon$ sur $C(0,1)$ pour $\\varepsilon$ petit : $Z-P = -1$ pour les deux, mais $Z(g,D)=1$, $Z(f,D)=0$).",
+        "Il faut l'inégalité sur **tout** le bord : $f(z)=z^2 - 1/4$ et $g(z)=z^2$ sur $C(0,1)$ marchent ; sur $C(0,1/2)$ non ($|f-g| = 1/4 = |g|$ en tout point)."
+      ],
+      "viz_hint": "« Le chien et son maître » : tracer $g(\\Gamma)$ et $f(\\Gamma)$ ; la laisse $|f-g|$ plus courte que la distance du maître à l'origine force le même nombre de tours autour de $0$."
+    },
+    {
+      "id": "ch02-dalembert-gauss-rouche",
+      "kind": "example",
+      "ref": "non numéroté, section II.8, p. 54",
+      "title": "Théorème fondamental de l'algèbre via Rouché",
+      "page": 54,
+      "statement": "Si $P\\in\\mathbb C[X]$ est un polynôme de degré $n\\ge 1$ de coefficient dominant $a_n$, on pose $f(z) := P(z)$ et $g(z) := a_n z^n$. Si $R>0$ est choisi assez grand, $|f(z)-g(z)|<|g(z)|$ sur $C(0,R)$. Le théorème de Rouché assure que $f$ et $g$ ont le même nombre de zéros (comptés avec multiplicité) dans $D(0,R)$ : donc $P$ a exactement $n$ zéros dans $D(0,R)$.",
+      "hypotheses": [
+        "$\\deg P = n\\ge 1$",
+        "$R$ assez grand pour que $|P(z)-a_nz^n| < |a_n|R^n$ sur $|z|=R$"
+      ],
+      "depends_on": [
+        "Théorème II.8.4"
+      ],
+      "used_by_hint": "Deuxième preuve de d'Alembert-Gauss (la première : Corollaire I.10.2 via Liouville) ; donne de plus la localisation des racines dans $D(0,R)$.",
+      "importance": 2,
+      "proof_in_poly": "full",
+      "proof_length": "short",
+      "counterexample_hints": [],
+      "viz_hint": ""
+    },
+    {
+      "id": "ch02-primitive-simplement-connexe",
+      "kind": "theorem",
+      "ref": "Théorème II.9.1",
+      "title": "Existence de primitives holomorphes sur un ouvert simplement connexe",
+      "page": 55,
+      "statement": "Toute fonction $f$ qui est holomorphe sur un ouvert $\\Omega$ simplement connexe admet sur cet ouvert une primitive holomorphe, unique à une constante additive près (deux primitives diffèrent d'une fonction de dérivée nulle sur l'ouvert connexe $\\Omega$, donc d'une constante).",
+      "hypotheses": [
+        "$\\Omega$ simplement connexe (connexe pour l'unicité, homotopie des lacets pour l'existence)",
+        "$f\\in\\mathrm{Hol}(\\Omega)$"
+      ],
+      "depends_on": [
+        "Théorème II.2.1",
+        "Proposition I.5.6",
+        "Définition II.1.1"
+      ],
+      "used_by_hint": "Logarithme complexe (II.9.2, II.9.3), puissances complexes, racines ; chapitre IV (fonctions harmoniques : $u$ harmonique sur un simplement connexe est la partie réelle d'une holomorphe).",
+      "importance": 3,
+      "proof_in_poly": "full",
+      "proof_length": "medium",
+      "counterexample_hints": [
+        "$f(z)=1/z$ sur $\\mathbb C\\setminus\\{0\\}$ n'a pas de primitive (sinon $\\int_{C(0,1)}dz/z = 0$, or il vaut $2i\\pi$).",
+        "Réciproque : si toute $f\\in\\mathrm{Hol}(\\Omega)$ a une primitive, alors $\\int_\\gamma dz/(z-a) = 0$ pour $a\\notin\\Omega$ : $\\Omega$ n'a « pas de trou » (en fait simplement connexe, résultat non démontré dans le poly)."
+      ],
+      "viz_hint": "Construction de $F(\\omega) = \\int_{\\gamma_\\omega} f$ : deux chemins différents de $z_0$ à $\\omega$ donnent la même valeur (lacet homotope à un point) ; échec dans $\\mathbb C\\setminus\\{0\\}$ pour $f = 1/z$ (valeurs différant de $2i\\pi$)."
+    },
+    {
+      "id": "ch02-logarithme-def",
+      "kind": "definition",
+      "ref": "Définition II.9.2",
+      "title": "Logarithme d'une fonction holomorphe ne s'annulant pas",
+      "page": 56,
+      "statement": "Soit $h\\in\\mathrm{Hol}(\\Omega)$ ne s'annulant pas. On appelle **logarithme** de $h$, et l'on note $\\mathrm{Log}(h)$, toute primitive holomorphe — lorsqu'elle existe — de la fonction $h'/h$ qui vérifie de plus $e^{\\mathrm{Log}(h)} = h$. (Complément du poly, p. 56 : sur un ouvert connexe, cette normalisation est toujours réalisable : si $F$ est une primitive de $h'/h$, la fonction $h\\,e^{-F}$ a une dérivée nulle, donc est une constante $C\\ne 0$, et il suffit de remplacer $F$ par $F+c$ où $e^c = C$. Un logarithme complexe sur un ouvert connexe est donc bien défini à l'addition d'un multiple entier de $2i\\pi$ près.)",
+      "hypotheses": [
+        "$h$ holomorphe **ne s'annulant pas** sur $\\Omega$",
+        "existence d'une primitive de $h'/h$ (garantie si $\\Omega$ simplement connexe)"
+      ],
+      "depends_on": [
+        "Théorème II.9.1"
+      ],
+      "used_by_hint": "Proposition II.9.3, détermination principale, puissances $h^\\alpha$, Exercices II.9.4-II.9.6, Exemple II.9.7 ; chapitre III (produits infinis), chapitre IV.",
+      "importance": 2,
+      "proof_in_poly": "sketch",
+      "proof_length": "short",
+      "counterexample_hints": [
+        "$h(z)=z$ sur $\\mathbb C\\setminus\\{0\\}$ n'a pas de logarithme holomorphe (sinon $1/z$ aurait une primitive).",
+        "Si $h$ s'annule, $h'/h$ a un pôle : pas de logarithme au voisinage du zéro."
+      ],
+      "viz_hint": ""
+    },
+    {
+      "id": "ch02-logarithme-existence",
+      "kind": "proposition",
+      "ref": "Proposition II.9.3",
+      "title": "Existence d'un logarithme sur un ouvert simplement connexe",
+      "page": 56,
+      "statement": "Si $\\Omega$ est un ouvert simplement connexe et si $h\\in\\mathrm{Hol}(\\Omega)$ ne s'annule pas, alors la fonction $h$ admet un logarithme complexe.",
+      "hypotheses": [
+        "$\\Omega$ simplement connexe",
+        "$h$ holomorphe sans zéro sur $\\Omega$"
+      ],
+      "depends_on": [
+        "Théorème II.9.1",
+        "Définition II.9.2"
+      ],
+      "used_by_hint": "Détermination principale de $\\mathrm{Log}$ sur $\\mathbb C\\setminus\\mathbb R_-$, détermination sur $\\mathbb C\\setminus\\mathbb R_+$ (Exemple II.9.7), racines $n$-ièmes holomorphes (Exercice II.9.5), chapitre IV (Riemann, conforme).",
+      "importance": 3,
+      "proof_in_poly": "sketch",
+      "proof_length": "short",
+      "counterexample_hints": [
+        "$\\Omega = \\mathbb C\\setminus\\{0\\}$, $h(z)=z$ : pas de logarithme global.",
+        "Mais sur un ouvert non simplement connexe un logarithme peut exister pour certaines $h$ : $h(z) = z^2$ sur la couronne $\\{1<|z|<2\\}$ ? Non ($\\int h'/h = 4i\\pi\\ne 0$) ; en revanche $h(z) = e^{z}$ en a un sur tout ouvert ($\\mathrm{Log}\\,h = z$)."
+      ],
+      "viz_hint": ""
+    },
+    {
+      "id": "ch02-logarithme-determination-principale-def",
+      "kind": "definition",
+      "ref": "non numéroté, section II.9, p. 56",
+      "title": "Détermination principale du logarithme complexe",
+      "page": 56,
+      "statement": "Sur l'ouvert $\\Omega = \\mathbb C\\setminus\\mathbb R_-$, obtenu en pratiquant la **coupure** $\\mathbb R_-$, on définit $z\\mapsto\\mathrm{Log}(z)$ comme la primitive de $z\\mapsto 1/z$ s'annulant en $z=1$ ; cette fonction coïncide avec le logarithme usuel (noté $\\log$) sur $\\mathbb R_+^\\times$. On l'appelle la **détermination principale** du logarithme complexe. Propriétés (Exercice II.9.4) : (i) $\\exp(\\mathrm{Log}(z)) = z$ pour tout $z\\in\\mathbb C\\setminus\\mathbb R_-$ et $\\mathrm{Log}(\\exp z) = z$ pour tout $z$ tel que $-\\pi<\\Im(z)<\\pi$ ; (ii) $\\mathrm{Log}(z) = \\log(r) + i\\,\\mathrm{Arg}(z)$ pour $z = re^{i\\theta}\\in\\mathbb C\\setminus\\mathbb R_-$, avec $\\mathrm{Arg}(z)=\\theta\\in]-\\pi,\\pi[$ ; (iii) $\\mathrm{Log}(z_1)+\\mathrm{Log}(z_2) = \\mathrm{Log}(z_1z_2) \\bmod 2i\\pi$ pour $z_1,z_2,z_1z_2\\in\\mathbb C\\setminus\\mathbb R_-$.",
+      "hypotheses": [
+        "$z\\in\\mathbb C\\setminus\\mathbb R_-$ (plan coupé, étoilé en $1$ donc simplement connexe)"
+      ],
+      "depends_on": [
+        "Proposition II.9.3",
+        "Proposition II.1.5"
+      ],
+      "used_by_hint": "Puissances $z^\\alpha$, racine carrée principale, Exercices II.9.4-II.9.6 ; chapitre IV (transformations conformes).",
+      "importance": 3,
+      "proof_in_poly": "exercise",
+      "proof_length": "short",
+      "counterexample_hints": [
+        "$\\mathrm{Log}$ ne se prolonge pas continûment à $\\mathbb R_-$ : limites $\\log|x| \\pm i\\pi$ de part et d'autre de la coupure.",
+        "$\\mathrm{Log}(z_1z_2)\\ne\\mathrm{Log}(z_1)+\\mathrm{Log}(z_2)$ en général : $z_1=z_2=e^{2i\\pi/3}$ donne $\\mathrm{Log}(z_1z_2) = -2i\\pi/3 \\ne 4i\\pi/3$.",
+        "$\\mathrm{Log}(e^z) \\ne z$ si $|\\Im z|\\ge\\pi$ : $\\mathrm{Log}(e^{2i\\pi}) = 0$."
+      ],
+      "viz_hint": "Domain coloring de $\\mathrm{Log}$ sur $\\mathbb C\\setminus\\mathbb R_-$ (saut de $2i\\pi$ à travers la coupure) ; surface hélicoïdale de $\\Im\\,\\mathrm{Log}$ (surface de Riemann) ; comparaison avec la détermination de coupure $\\mathbb R_+$."
+    },
+    {
+      "id": "ch02-puissance-complexe-def",
+      "kind": "definition",
+      "ref": "non numéroté, section II.9, p. 56",
+      "title": "Puissances complexes $h^\\alpha$, $z^\\alpha$ et racine carrée principale",
+      "page": 56,
+      "statement": "Soit $h$ une fonction holomorphe et $\\mathrm{Log}(h)$ un logarithme de $h$. Pour tout $\\alpha\\in\\mathbb C$, on définit $$h^\\alpha(z) := e^{\\alpha\\,\\mathrm{Log}(h(z))}.$$ Dans le cas de la détermination principale du logarithme, ceci définit la détermination principale de la racine carrée $z\\mapsto\\sqrt z$ sur $\\mathbb C\\setminus\\mathbb R_-$, qui prolonge la racine usuelle définie sur $\\mathbb R_+^\\times$ ; comme le logarithme, la racine carrée ne se prolonge pas en une fonction holomorphe sur tout le plan complexe (exercice). Dans le cas $h(z)=z$, on définit pour tout $\\alpha\\in\\mathbb C$ la fonction $$z^\\alpha := e^{\\alpha\\,\\mathrm{Log}(z)}$$ sur $\\mathbb C\\setminus\\mathbb R_-$ : $z\\mapsto z^\\alpha$ est holomorphe sur $\\mathbb C\\setminus\\mathbb R_-$ et $\\alpha\\mapsto z^\\alpha$ est holomorphe sur $\\mathbb C$.",
+      "hypotheses": [
+        "choix d'un logarithme de $h$ (donc $h$ sans zéro, domaine où $\\mathrm{Log}\\,h$ existe)",
+        "la fonction $h^\\alpha$ **dépend de la détermination choisie**"
+      ],
+      "depends_on": [
+        "Définition II.9.2",
+        "Proposition II.9.3"
+      ],
+      "used_by_hint": "Exemple II.9.7 ($z^{\\alpha-1}$ avec coupure $\\mathbb R_+$), Exercices II.9.5, II.9.6, II.7.7.",
+      "importance": 2,
+      "proof_in_poly": "sketch",
+      "proof_length": "short",
+      "counterexample_hints": [
+        "$(z_1z_2)^\\alpha\\ne z_1^\\alpha z_2^\\alpha$ en général ($\\alpha=1/2$, $z_1=z_2=-1+i\\varepsilon$).",
+        "$(z^\\alpha)^\\beta \\ne z^{\\alpha\\beta}$ en général ($\\alpha = 2$, $\\beta=1/2$, $z=i$ : $(i^2)^{1/2} = \\sqrt{-1}$ non défini sur la coupure)."
+      ],
+      "viz_hint": "Domain coloring de $z^\\alpha$ avec curseur $\\alpha$ réel puis complexe ; visualiser le saut à travers la coupure et la continuité pour $\\alpha\\in\\mathbb Z$."
+    },
+    {
+      "id": "ch02-exemple-trou-de-serrure",
+      "kind": "example",
+      "ref": "Exemple II.9.7",
+      "title": "Intégrale avec coupure (contour en trou de serrure) : $\\int_0^{+\\infty}\\frac{x^{\\alpha-1}}{1+x}dx = \\frac{\\pi}{\\sin(\\alpha\\pi)}$",
+      "page": 57,
+      "statement": "Pour $0<\\alpha<1$, $$J = \\int_0^{+\\infty}\\frac{x^{\\alpha-1}}{1+x}\\,dx = \\frac{\\pi}{\\sin(\\alpha\\pi)}.$$ Méthode du poly : $f(z) = \\dfrac{z^{\\alpha-1}}{1+z}$ où $z^{\\alpha-1} = e^{(\\alpha-1)\\mathrm{Log}(z)}$ pour la détermination du logarithme sur $\\mathbb C\\setminus\\mathbb R_+$ d'argument dans $]0,2\\pi[$ (donc $\\mathrm{Log}(-1) = i\\pi$ ; existence garantie par la Proposition II.9.3, $\\mathbb C\\setminus\\mathbb R_+$ étant simplement connexe ; ce n'est **pas** la détermination principale). $f$ est méromorphe sur $\\mathbb C\\setminus\\mathbb R_+$ avec un unique pôle simple en $z=-1=e^{i\\pi}$, de résidu $\\mathrm{res}_{-1}(f) = \\lim_{z\\to-1}(z+1)f(z) = e^{(\\alpha-1)i\\pi} = -e^{i\\alpha\\pi}$. On intègre sur le contour $\\Gamma_{\\varepsilon,R}$ en trou de serrure : segment $\\gamma_+$ de $\\varepsilon$ à $R$ juste au-dessus de l'axe réel ($z = xe^{i0}$), grand cercle $C_R$ dans le sens trigonométrique, segment $\\gamma_-$ de $R$ à $\\varepsilon$ juste en dessous ($z = xe^{2i\\pi}$), petit cercle $C_\\varepsilon$ dans le sens horaire. La formule des résidus donne $\\int_{\\Gamma_{\\varepsilon,R}} f = 2i\\pi(-e^{i\\alpha\\pi})$. Sur $C_R$, $|f|\\sim R^{\\alpha-2}$ et l'intégrale est majorée par $2\\pi R^{\\alpha-1}\\to 0$ ($\\alpha<1$) ; sur $C_\\varepsilon$, $|f|\\sim\\varepsilon^{\\alpha-1}$ et l'intégrale est majorée par $2\\pi\\varepsilon^\\alpha\\to 0$ ($\\alpha>0$) ; sur $\\gamma_+$, $z^{\\alpha-1} = x^{\\alpha-1}$ et l'intégrale tend vers $J$ ; sur $\\gamma_-$, $z^{\\alpha-1} = x^{\\alpha-1}e^{2i\\pi\\alpha}$ et l'intégrale (de $R$ à $\\varepsilon$) tend vers $-e^{2i\\pi\\alpha}J$. D'où $J - e^{2i\\pi\\alpha}J = -2i\\pi e^{i\\alpha\\pi}$ et $$J = \\frac{-2i\\pi e^{i\\alpha\\pi}}{1-e^{2i\\alpha\\pi}} = \\frac{2i\\pi}{e^{i\\alpha\\pi}-e^{-i\\alpha\\pi}} = \\frac{\\pi}{\\sin(\\alpha\\pi)}.$$",
+      "hypotheses": [
+        "$0<\\alpha<1$ (convergence en $0$ et en $+\\infty$ ; les deux arcs tendent vers $0$)",
+        "détermination du logarithme adaptée à la coupure $\\mathbb R_+$"
+      ],
+      "depends_on": [
+        "Théorème II.5.1",
+        "Formule (II.6.1)",
+        "Proposition II.9.3",
+        "Remarque II.4.12",
+        "Proposition I.5.7"
+      ],
+      "used_by_hint": "Modèle pour les intégrales de $x^{\\alpha}R(x)$ et $\\log(x)R(x)$ ; Exercice II.7.7 (secteur angulaire) ; fonction Gamma et formule des compléments (ch. III).",
+      "importance": 2,
+      "proof_in_poly": "full",
+      "proof_length": "medium",
+      "counterexample_hints": [
+        "Utiliser la détermination principale (coupure $\\mathbb R_-$) ferait passer la coupure par le pôle $-1$ et détruirait l'argument.",
+        "Oublier le facteur $e^{2i\\pi\\alpha}$ sur $\\gamma_-$ donne $J - J = $ résidu, absurde : c'est précisément le saut à travers la coupure qui fait fonctionner la méthode."
+      ],
+      "viz_hint": "Contour en trou de serrure avec $\\varepsilon$, $R$ variables ; coloration du plan par l'argument dans $]0,2\\pi[$ montrant le saut sur $\\mathbb R_+$."
+    },
+    {
+      "id": "ch02-laurent-couronne-cauchy",
+      "kind": "proposition",
+      "ref": "Exercice II.7.4, questions 1) à 4), p. 50",
+      "title": "Développement de Laurent dans un disque épointé par la formule de Cauchy",
+      "page": 50,
+      "statement": "Soit $f : D(0,1)\\setminus\\{0\\}\\to\\mathbb C$ holomorphe. 1) Pour $g$ holomorphe sur $D(0,1)\\setminus\\{0\\}$, $r\\mapsto\\frac{1}{2i\\pi}\\int_{\\partial D(0,r)} g(z)\\,dz$ ne dépend pas de $r\\in]0,1[$. 2) Pour $z\\in D(0,1)\\setminus\\{0\\}$, $g(\\zeta) := \\frac{f(z)-f(\\zeta)}{z-\\zeta}$ se prolonge en une fonction holomorphe sur $D(0,1)\\setminus\\{0\\}$. 3) Pour $0<s<|z|<r<1$, $$f(z) = \\frac{1}{2i\\pi}\\int_{\\partial D(0,r)}\\frac{f(\\zeta)}{\\zeta-z}\\,d\\zeta - \\frac{1}{2i\\pi}\\int_{\\partial D(0,s)}\\frac{f(\\zeta)}{\\zeta-z}\\,d\\zeta.$$ 4) $f$ admet dans $D(0,1)\\setminus\\{0\\}$ un développement en série de Laurent $f(z) = \\sum_{n\\in\\mathbb Z} a_n z^n$ avec $$a_n = \\frac{1}{2i\\pi}\\int_{\\partial D(0,r)}\\frac{f(z)}{z^{n+1}}\\,dz,$$ quantité indépendante de $r\\in]0,1[$.",
+      "hypotheses": [
+        "$f$ holomorphe sur le disque épointé (aucune hypothèse de méromorphie)"
+      ],
+      "depends_on": [
+        "Théorème II.2.1",
+        "Corollaire II.4.7",
+        "Théorème I.6.1"
+      ],
+      "used_by_hint": "Généralise II.4.6 aux singularités essentielles ; questions 5)-8) (classification des singularités) ; chapitre III (séries de Laurent, résidu à l'infini).",
+      "importance": 2,
+      "proof_in_poly": "exercise",
+      "proof_length": "medium",
+      "counterexample_hints": [],
+      "viz_hint": "Les deux cercles $\\partial D(0,r)$ et $\\partial D(0,s)$ encadrant $z$ : homotopie entre eux dans $D(0,1)\\setminus\\{0\\}$."
+    },
+    {
+      "id": "ch02-classification-singularites",
+      "kind": "theorem",
+      "ref": "Exercice II.7.4, questions 5) à 8), p. 50-51",
+      "title": "Classification des singularités isolées ; singularité essentielle ; théorème de Casorati-Weierstrass",
+      "page": 50,
+      "statement": "Soit $f : D(0,1)\\setminus\\{0\\}\\to\\mathbb C$ holomorphe. 5) $f$ possède un prolongement holomorphe dans $D(0,1)$ si et seulement si $|f(z)|$ reste borné quand $|z|\\to 0$. 6) $f$ est méromorphe, non holomorphe, dans $D(0,1)$ (c'est-à-dire $0$ est un pôle) si et seulement si $|f(z)|\\to+\\infty$ quand $|z|\\to 0$. 7) Si $D(a,r)$ n'intersecte pas $f(D(0,\\epsilon)\\setminus\\{0\\})$, alors $g := \\frac{1}{f-a}$ se prolonge holomorphiquement en $0$. 8) Si $f$ n'est pas méromorphe en $0$ — on dit que $f$ admet une **singularité essentielle** en $0$ — alors pour tout $\\epsilon>0$ l'image de $D(0,\\epsilon)\\setminus\\{0\\}$ par $f$ est dense dans $\\mathbb C$ (Casorati-Weierstrass). Remarque du poly : le théorème (difficile) de Picard affirme que cette image est $\\mathbb C$ tout entier ou $\\mathbb C$ privé d'un seul point.",
+      "hypotheses": [
+        "$f$ holomorphe sur un disque épointé"
+      ],
+      "depends_on": [
+        "Corollaire II.4.7",
+        "Proposition II.4.6",
+        "Définition II.4.2"
+      ],
+      "used_by_hint": "Trichotomie effaçable / pôle / essentielle ; Exercice II.7.5 (automorphismes de $\\mathbb C$) ; Exercice II.7.2.",
+      "importance": 2,
+      "proof_in_poly": "exercise",
+      "proof_length": "medium",
+      "counterexample_hints": [
+        "$e^{1/z}$ : singularité essentielle en $0$ ; $e^{1/x}\\to 0$ quand $x\\to 0^-$ et $\\to+\\infty$ quand $x\\to 0^+$, image dense (en fait $\\mathbb C^\\times$).",
+        "$\\sin(1/z)$ : essentielle, l'image de tout voisinage épointé est $\\mathbb C$."
+      ],
+      "viz_hint": "Domain coloring de $e^{1/z}$ près de $0$ : toutes les couleurs s'accumulent (image dense), contrairement à un pôle où les couleurs tournent régulièrement."
+    },
+    {
+      "id": "ch02-automorphismes-de-c",
+      "kind": "proposition",
+      "ref": "Exercice II.7.5, p. 51",
+      "title": "Automorphismes holomorphes de $\\mathbb C$",
+      "page": 51,
+      "statement": "Soit $f : \\mathbb C\\to\\mathbb C$ un automorphisme de $\\mathbb C$ (bijection holomorphe de réciproque holomorphe) avec $f(0)=0$. Alors $g(z) := f(1/z)$ est méromorphe en $0$ (via Casorati-Weierstrass : l'image par $f$ d'un voisinage de $\\infty$ évite $f(D(0,1))$ qui est ouvert, donc n'est pas dense) et $f$ est de la forme $z\\mapsto az$ avec $a\\in\\mathbb C^\\times$. Forme générale d'un automorphisme de $\\mathbb C$ : $z\\mapsto az+b$, $a\\in\\mathbb C^\\times$, $b\\in\\mathbb C$.",
+      "hypotheses": [
+        "$f$ bijective holomorphe $\\mathbb C\\to\\mathbb C$ de réciproque holomorphe"
+      ],
+      "depends_on": [
+        "Exercice II.7.4, question 8)",
+        "Exercice II.7.2"
+      ],
+      "used_by_hint": "Chapitre IV (automorphismes du disque et du demi-plan, transformations conformes).",
+      "importance": 2,
+      "proof_in_poly": "exercise",
+      "proof_length": "medium",
+      "counterexample_hints": [
+        "$\\exp$ est holomorphe non polynomiale : $e^{1/z}$ a une singularité essentielle en $0$, et $\\exp$ n'est pas injective.",
+        "Un polynôme de degré $\\ge 2$ n'est pas injectif (d'Alembert-Gauss)."
+      ],
+      "viz_hint": ""
+    },
+    {
+      "id": "ch02-schwarz-reflexion",
+      "kind": "theorem",
+      "ref": "Exercice II.7.9, p. 51",
+      "title": "Principe de réflexion de Schwarz",
+      "page": 51,
+      "statement": "Soit $D$ le disque unité, $D^+ = \\{z\\in D : \\Im(z)\\ge 0\\}$ et $D^- = \\{z\\in D : \\Im(z)\\le 0\\}$. 1) Si $f : D\\to\\mathbb C$ est continue sur $D$ et holomorphe sur $D\\setminus]-1,1[$, alors $f$ est holomorphe sur $D$. 2) Si $f : D^+\\to\\mathbb C$ est continue sur $D^+$, holomorphe sur $D^+\\setminus]-1,1[$ et réelle sur $]-1,1[$, la fonction $F$ définie par $F(z) = f(z)$ si $z\\in D^+$ et $F(z) = \\overline{f(\\bar z)}$ si $z\\in D^-$ est holomorphe sur $D$. 3) Généralisation : (1) à un ouvert $\\Omega$ rencontrant $\\mathbb R$ quelconque, (2) à un ouvert $\\Omega$ rencontrant $\\mathbb R$ et stable par conjugaison complexe.",
+      "hypotheses": [
+        "continuité jusqu'au segment réel",
+        "holomorphie hors du segment",
+        "pour (2) : valeurs réelles sur $]-1,1[$"
+      ],
+      "depends_on": [
+        "Théorème I.6.1",
+        "Théorème I.5.9"
+      ],
+      "used_by_hint": "Prolongement de fonctions holomorphes à travers un segment réel ; chapitre IV (transformations conformes, fonctions harmoniques).",
+      "importance": 2,
+      "proof_in_poly": "exercise",
+      "proof_length": "medium",
+      "counterexample_hints": [
+        "Sans la réalité de $f$ sur $]-1,1[$, le recollement $F$ n'est pas continu : $f(z) = i$ donne $F = i$ en haut et $-i$ en bas."
+      ],
+      "viz_hint": "Réflexion $z\\mapsto\\bar z$ et $w\\mapsto\\bar w$ : image d'un quadrillage du demi-disque et de son symétrique."
+    }
+  ],
+  "notations": [
+    {
+      "symbol": "$\\gamma \\in C([0,1]^2;\\Omega)$, $\\gamma(s,t)$",
+      "meaning": "homotopie entre $\\gamma_0 = \\gamma(0,\\cdot)$ et $\\gamma_1 = \\gamma(1,\\cdot)$ ; $s$ = paramètre de déformation, $t$ = paramètre du lacet",
+      "page": 35
+    },
+    {
+      "symbol": "homotopie de lacets / homotopie libre de lacets",
+      "meaning": "homotopie vérifiant de plus $\\gamma(s,0)=\\gamma(s,1)$ pour tout $s$ (le point base peut bouger)",
+      "page": 35
+    },
+    {
+      "symbol": "$\\Omega$ simplement connexe",
+      "meaning": "$\\Omega$ connexe et tout lacet de $\\Omega$ homotope à un lacet constant",
+      "page": 35
+    },
+    {
+      "symbol": "$\\pi_1(\\Omega)$",
+      "meaning": "groupe fondamental de Poincaré : classes d'homotopie de lacets de point base $z_0$",
+      "page": 36
+    },
+    {
+      "symbol": "$[\\omega, z]$ ; $\\Omega$ étoilé en $\\omega$",
+      "meaning": "segment de $\\omega$ à $z$ ; $\\Omega$ est étoilé en $\\omega$ si $[\\omega,z]\\subset\\Omega$ pour tout $z\\in\\Omega$",
+      "page": 36
+    },
+    {
+      "symbol": "$\\mathrm{Hol}(\\Omega)$",
+      "meaning": "espace des fonctions holomorphes sur $\\Omega$ (rappel du chapitre I)",
+      "page": 37
+    },
+    {
+      "symbol": "$K = [0,1]^2$, $K^{(n)}_{i,j} = [\\frac in,\\frac{i+1}n]\\times[\\frac jn,\\frac{j+1}n]$, $C = \\partial K$, $C^{(n)}_{i,j} = \\partial K^{(n)}_{i,j}$",
+      "meaning": "carré paramètre de l'homotopie, grillage en $n^2$ petits carrés et leurs bords orientés (preuve de II.2.1)",
+      "page": 37
+    },
+    {
+      "symbol": "$\\gamma^{\\mathrm{opp}}$, $\\gamma_1\\vee\\gamma_2$",
+      "meaning": "chemin opposé et composé de deux chemins composables (rappel : Définition I.5.1, p. 15)",
+      "page": 37
+    },
+    {
+      "symbol": "$\\Gamma = \\gamma(C) = \\gamma_0^{\\mathrm{opp}}\\vee v\\vee\\gamma_1\\vee v^{\\mathrm{opp}}$, $v(s) = \\gamma(s,0)=\\gamma(s,1)$, $\\Gamma_{i,j}$",
+      "meaning": "image du bord du carré par l'homotopie, chemin du point base, quadrilatères (affines par morceaux) du grillage",
+      "page": 37
+    },
+    {
+      "symbol": "$\\bar B(k,\\delta)$",
+      "meaning": "boule fermée de centre $k$ et de rayon $\\delta$ dans $\\mathbb R^N$",
+      "page": 40
+    },
+    {
+      "symbol": "nombre de Lebesgue $\\delta$",
+      "meaning": "$\\delta>0$ tel que toute boule $\\bar B(k,\\delta)$, $k\\in K$, soit contenue dans un ouvert du recouvrement",
+      "page": 40
+    },
+    {
+      "symbol": "$\\Gamma$",
+      "meaning": "image $\\gamma([0,1])$ d'un lacet $\\gamma$ (compact de $\\mathbb C$)",
+      "page": 40
+    },
+    {
+      "symbol": "$\\mathrm{Ind}_{z_0}(\\gamma)$",
+      "meaning": "indice du lacet $\\gamma$ en $z_0\\notin\\Gamma$ : $\\frac{1}{2i\\pi}\\int_\\gamma\\frac{dz}{z-z_0}$ (le poly écrit $\\mathrm{Ind}_{z_0}(\\gamma)$, point en indice, lacet entre parenthèses)",
+      "page": 40
+    },
+    {
+      "symbol": "$D$, $C = \\partial D$",
+      "meaning": "disque ouvert et son cercle bord parcouru dans le sens trigonométrique",
+      "page": 41
+    },
+    {
+      "symbol": "courbe simple",
+      "meaning": "$\\gamma(x)=\\gamma(y)\\Rightarrow x=y$ ou $\\{x,y\\}=\\{0,1\\}$",
+      "page": 41
+    },
+    {
+      "symbol": "$D(a,r)$",
+      "meaning": "disque ouvert de centre $a$ et de rayon $r$ (rappel)",
+      "page": 42
+    },
+    {
+      "symbol": "$P$ discret / localement fini dans $\\Omega$ ; point d'accumulation",
+      "meaning": "voir la définition non numérotée p. 42 et la Proposition II.4.1",
+      "page": 42
+    },
+    {
+      "symbol": "$m(z_0)$",
+      "meaning": "multiplicité (ordre) du pôle $z_0$ ; dans II.8.1, multiplicité de $z_0$ comme zéro ou pôle",
+      "page": 43
+    },
+    {
+      "symbol": "$\\mathcal M(\\Omega)$",
+      "meaning": "espace (corps si $\\Omega$ connexe) des fonctions méromorphes sur $\\Omega$",
+      "page": 43
+    },
+    {
+      "symbol": "$\\mathcal Z(f,\\Omega)$, $\\mathcal P(f,\\Omega)$",
+      "meaning": "ensemble des zéros, ensemble des pôles de $f\\in\\mathcal M(\\Omega)$ dans $\\Omega$",
+      "page": 43
+    },
+    {
+      "symbol": "$Z(f,\\Omega) = \\sum_{s\\in\\mathcal Z(f,\\Omega)} m(s)$, $P(f,\\Omega) = \\sum_{s\\in\\mathcal P(f,\\Omega)} m(s)$",
+      "meaning": "nombre de zéros, nombre de pôles de $f$ dans $\\Omega$ comptés avec multiplicité (lorsque ces ensembles sont finis) ; aussi $Z(g,U)$, $P(g,U)$ pour un ouvert $U$",
+      "page": 43
+    },
+    {
+      "symbol": "$D(z_0,r)^\\times$, $D^\\times := D(z_0,r)\\setminus\\{z_0\\}$",
+      "meaning": "disque épointé (privé de son centre)",
+      "page": 44
+    },
+    {
+      "symbol": "$C_{\\varepsilon,\\bar\\varepsilon} := \\{z\\in\\Omega : \\varepsilon<|z-z_0|<\\bar\\varepsilon\\}$",
+      "meaning": "couronne centrée en $z_0$",
+      "page": 44
+    },
+    {
+      "symbol": "$\\sum_{n\\ge -m} a_n(z-z_0)^n$",
+      "meaning": "développement de Laurent de $f$ au voisinage de $z_0$",
+      "page": 44
+    },
+    {
+      "symbol": "$\\mathrm{res}_{z_0}(f)$",
+      "meaning": "résidu de $f$ en $z_0$ : coefficient $a_{-1}$ du développement de Laurent (le poly écrit « res » en minuscules ; le site utilise la macro $\\Res$)",
+      "page": 45
+    },
+    {
+      "symbol": "$C(z_0,r)$",
+      "meaning": "cercle de centre $z_0$ et de rayon $r$ parcouru dans le sens trigonométrique",
+      "page": 46
+    },
+    {
+      "symbol": "$Q_s(z) = \\sum_{-N\\le n\\le -1} a_n(z-s)^n$",
+      "meaning": "partie polaire (singulière) du développement de Laurent de $f$ au pôle $s$ (preuve de II.5.1)",
+      "page": 47
+    },
+    {
+      "symbol": "$S$",
+      "meaning": "ensemble fini des pôles de $f$ (dans $\\Omega$ réduit, p. 47 ; dans $U$, p. 48)",
+      "page": 47
+    },
+    {
+      "symbol": "$V = \\{z\\notin\\Gamma : \\mathrm{Ind}_z(\\gamma)\\ne 0\\}$",
+      "meaning": "« intérieur » algébrique du lacet (Remarque II.5.2)",
+      "page": 47
+    },
+    {
+      "symbol": "$\\gamma(t)+i\\varepsilon\\gamma'(t)\\in U$",
+      "meaning": "critère d'orientation directe (l'intérieur est à gauche)",
+      "page": 48
+    },
+    {
+      "symbol": "$\\Gamma_R$, $C_R^+$",
+      "meaning": "lacet formé de $[-R,R]$ et du demi-cercle supérieur de rayon $R$ (sens trigonométrique)",
+      "page": 48
+    },
+    {
+      "symbol": "$\\Re e(z)$, $\\Im m(z)$",
+      "meaning": "parties réelle et imaginaire (le poly écrit ℜe, ℑm ; sur le site $\\Re(z)$, $\\Im(z)$)",
+      "page": 49
+    },
+    {
+      "symbol": "$\\partial D(0,r)$",
+      "meaning": "cercle bord du disque $D(0,r)$ (Exercice II.7.4)",
+      "page": 50
+    },
+    {
+      "symbol": "singularité essentielle",
+      "meaning": "point où $f$ est holomorphe sur un voisinage épointé mais n'est pas méromorphe",
+      "page": 51
+    },
+    {
+      "symbol": "$\\mathbb C^\\times$, $\\mathbb N^\\times$",
+      "meaning": "$\\mathbb C\\setminus\\{0\\}$, $\\mathbb N\\setminus\\{0\\}$",
+      "page": 51
+    },
+    {
+      "symbol": "$D^+ = \\{z\\in D : \\Im(z)\\ge 0\\}$, $D^-$",
+      "meaning": "demi-disques supérieur et inférieur fermés du disque unité (Exercice II.7.9)",
+      "page": 51
+    },
+    {
+      "symbol": "$\\Lambda = \\mathbb Z\\omega_1\\oplus\\mathbb Z\\omega_2$, $\\wp$, $E_k(\\Lambda) = \\sum_{\\lambda\\in\\Lambda\\setminus\\{0\\}}\\lambda^{-k}$",
+      "meaning": "réseau, fonction $\\wp$ de Weierstrass, séries d'Eisenstein (Exercice II.7.10)",
+      "page": 52
+    },
+    {
+      "symbol": "$\\frac{g'}{g}$",
+      "meaning": "dérivée logarithmique de $g$ (principe de l'argument)",
+      "page": 53
+    },
+    {
+      "symbol": "$\\mathbb D$ ou $D := \\{z : |z|<1\\}$, $\\bar D$, $C := \\partial D$",
+      "meaning": "disque unité ouvert, son adhérence, le cercle unité (Exercice II.8.5)",
+      "page": 54
+    },
+    {
+      "symbol": "$F(\\omega) := \\int_{\\gamma_\\omega} f(z)\\,dz$, $\\gamma_{[\\omega,\\omega+h]}(t) = \\omega+th$",
+      "meaning": "primitive construite par intégration le long d'un chemin de $z_0$ à $\\omega$ ; segment paramétré",
+      "page": 55
+    },
+    {
+      "symbol": "$\\mathrm{Log}(h)$",
+      "meaning": "un logarithme de la fonction holomorphe $h$ sans zéro : primitive de $h'/h$ avec $e^{\\mathrm{Log}(h)} = h$",
+      "page": 56
+    },
+    {
+      "symbol": "$\\mathrm{Log}(z)$, $\\log$",
+      "meaning": "détermination principale du logarithme sur $\\mathbb C\\setminus\\mathbb R_-$ (primitive de $1/z$ nulle en $1$) ; logarithme réel usuel sur $\\mathbb R_+^\\times$",
+      "page": 56
+    },
+    {
+      "symbol": "$\\mathbb R_-$, $\\mathbb R_+^\\times$, coupure",
+      "meaning": "demi-droite réelle négative (fermée) retirée du plan ; réels strictement positifs",
+      "page": 56
+    },
+    {
+      "symbol": "$\\mathrm{Arg}(z)\\in]-\\pi,\\pi[$",
+      "meaning": "argument principal (Exercice II.9.4)",
+      "page": 56
+    },
+    {
+      "symbol": "$h^\\alpha := e^{\\alpha\\mathrm{Log}(h)}$, $z^\\alpha := e^{\\alpha\\mathrm{Log}(z)}$, $\\sqrt z$",
+      "meaning": "puissances complexes et racine carrée (détermination principale) sur $\\mathbb C\\setminus\\mathbb R_-$",
+      "page": 56
+    },
+    {
+      "symbol": "$f_\\alpha$",
+      "meaning": "prolongement holomorphe de $x\\mapsto x^\\alpha$ à $\\mathbb C\\setminus]-\\infty,0]$ (Exercice II.9.6)",
+      "page": 57
+    },
+    {
+      "symbol": "$\\Gamma_{\\varepsilon,R}$, $\\gamma_+$, $\\gamma_-$, $C_R$, $C_\\varepsilon$",
+      "meaning": "contour en trou de serrure : segments au-dessus/au-dessous de $\\mathbb R_+$, grand cercle direct, petit cercle horaire",
+      "page": 57
+    }
+  ],
+  "poly_exercises": [
+    {
+      "ref": "Exercice II.7.1",
+      "page": 50,
+      "topic": "Reconnaître une fonction méromorphe, trouver ses pôles",
+      "statement_short": "Déterminer si $z^2/(z^4+1)$, $(1-\\cos z)/z^2$, $\\sin(1/z)$, $1/\\cosh z$ sont méromorphes sur $\\mathbb C$ et déterminer leurs pôles éventuels.",
+      "chapters_involved": [
+        2
+      ]
+    },
+    {
+      "ref": "Exercice II.7.2",
+      "page": 50,
+      "topic": "Comportement à l'infini et polynômes",
+      "statement_short": "Soit $f$ entière. Montrer que $z\\mapsto f(1/z)$ est méromorphe en $0$ si et seulement si $f$ est polynomiale.",
+      "chapters_involved": [
+        1,
+        2
+      ]
+    },
+    {
+      "ref": "Exercice II.7.3",
+      "page": 50,
+      "topic": "Calcul de pôles et de résidus",
+      "statement_short": "Pôles et résidus de $z^2/((z-2)(z^2+1))$, $\\cot z$, $\\sin z/(z+2)^2$.",
+      "chapters_involved": [
+        2
+      ]
+    },
+    {
+      "ref": "Exercice II.7.4",
+      "page": 50,
+      "topic": "Série de Laurent par Cauchy ; classification des singularités isolées ; Casorati-Weierstrass",
+      "statement_short": "Pour $f$ holomorphe sur $D(0,1)\\setminus\\{0\\}$ : indépendance en $r$ de $\\int_{\\partial D(0,r)}$, formule de Cauchy à deux cercles, développement $\\sum_{n\\in\\mathbb Z}a_nz^n$ avec $a_n = \\frac{1}{2i\\pi}\\int f/z^{n+1}$ ; effaçable ssi bornée, pôle ssi $|f|\\to\\infty$, singularité essentielle ssi image de tout voisinage épointé dense (Picard cité en remarque).",
+      "chapters_involved": [
+        1,
+        2
+      ]
+    },
+    {
+      "ref": "Exercice II.7.5",
+      "page": 51,
+      "topic": "Automorphismes de $\\mathbb C$",
+      "statement_short": "Un automorphisme holomorphe de $\\mathbb C$ fixant $0$ est $z\\mapsto az$ (via Casorati-Weierstrass appliqué à $f(1/z)$) ; forme générale $az+b$.",
+      "chapters_involved": [
+        1,
+        2
+      ]
+    },
+    {
+      "ref": "Exercice II.7.6",
+      "page": 51,
+      "topic": "Intégrale trigonométrique par le cercle unité",
+      "statement_short": "Calculer $\\int_\\Gamma (z+1/z)^n\\,dz/z$ sur le cercle unité et en déduire $\\int_0^{2\\pi}(\\cos x)^n dx$.",
+      "chapters_involved": [
+        2
+      ]
+    },
+    {
+      "ref": "Exercice II.7.7",
+      "page": 51,
+      "topic": "Intégrale rationnelle sur $]0,+\\infty[$ par un secteur angulaire",
+      "statement_short": "Pour $m\\ge n+2$, calculer $I_{n,m} = \\int_0^{+\\infty}\\frac{x^n}{1+x^m}dx$ (secteur d'angle $2\\pi/m$).",
+      "chapters_involved": [
+        2
+      ]
+    },
+    {
+      "ref": "Exercice II.7.8",
+      "page": 51,
+      "topic": "Intégrale trigonométrique par un lacet elliptique",
+      "statement_short": "Pour $a,b>0$, calculer $\\int_0^{2\\pi}\\frac{dt}{a^2\\cos^2t+b^2\\sin^2t}$ en intégrant sur l'ellipse $t\\mapsto a\\cos t+ib\\sin t$.",
+      "chapters_involved": [
+        2
+      ]
+    },
+    {
+      "ref": "Exercice II.7.9",
+      "page": 51,
+      "topic": "Principe de réflexion de Schwarz",
+      "statement_short": "Une fonction continue sur $D$, holomorphe hors de $]-1,1[$, est holomorphe sur $D$ ; prolongement par $\\overline{f(\\bar z)}$ d'une fonction réelle sur le segment ; généralisation aux ouverts stables par conjugaison.",
+      "chapters_involved": [
+        1,
+        2
+      ]
+    },
+    {
+      "ref": "Exercice II.7.10",
+      "page": 52,
+      "topic": "Fonction $\\wp$ de Weierstrass",
+      "statement_short": "Une fonction entière $\\Lambda$-périodique est constante ; $\\wp(z) = \\frac1{z^2}+\\sum_{\\lambda\\ne 0}\\big(\\frac{1}{(z+\\lambda)^2}-\\frac1{\\lambda^2}\\big)$ est méromorphe, paire, $\\Lambda$-périodique, pôles doubles sur $\\Lambda$ ; développement de Laurent en $0$ via $E_k(\\Lambda)$ ; équation $\\wp'^2 = 4\\wp^3-60E_4\\wp-140E_6$.",
+      "chapters_involved": [
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "ref": "Exercice II.8.5",
+      "page": 54,
+      "topic": "Applications du théorème de Rouché",
+      "statement_short": "Si $|f|<1$ sur le cercle unité alors $f(D)\\subset D$ et $f$ a un unique point fixe dans $D$ ; nombre de racines de $z^7-2z^5+6z^3-z-1$ dans $D$ ; nombre de racines de $z^4-6z+3$ dans $1<|z|<2$.",
+      "chapters_involved": [
+        1,
+        2
+      ]
+    },
+    {
+      "ref": "Exercice II.8.6",
+      "page": 55,
+      "topic": "Zéros de $\\tan z = z$ par Rouché",
+      "statement_short": "Montrer $|\\sin z|<|z\\cos z|$ sur le carré $\\max(|x|,|y|) = n\\pi$ et en déduire que toutes les solutions de $\\tan z = z$ sont réelles.",
+      "chapters_involved": [
+        2
+      ]
+    },
+    {
+      "ref": "Exercice II.9.4",
+      "page": 56,
+      "topic": "Propriétés de la détermination principale du logarithme",
+      "statement_short": "$\\exp\\circ\\mathrm{Log} = \\mathrm{id}$ sur $\\mathbb C\\setminus\\mathbb R_-$, $\\mathrm{Log}\\circ\\exp = \\mathrm{id}$ sur la bande $|\\Im z|<\\pi$ ; $\\mathrm{Log}(z) = \\log r+i\\mathrm{Arg}(z)$ ; additivité modulo $2i\\pi$.",
+      "chapters_involved": [
+        2
+      ]
+    },
+    {
+      "ref": "Exercice II.9.5",
+      "page": 56,
+      "topic": "Racine carrée holomorphe de $z(z-1)$",
+      "statement_short": "Sur $\\Omega = \\mathbb C\\setminus[0,1]$, montrer qu'il existe deux fonctions holomorphes de carré $z(z-1)$ (bien que $\\Omega$ ne soit pas simplement connexe).",
+      "chapters_involved": [
+        2
+      ]
+    },
+    {
+      "ref": "Exercice II.9.6",
+      "page": 57,
+      "topic": "Puissance complexe $x^\\alpha$ et son prolongement",
+      "statement_short": "$x\\mapsto x^\\alpha$ se prolonge de manière unique en $f_\\alpha$ holomorphe sur $\\mathbb C\\setminus]-\\infty,0]$ ; série entière en $1$ et dérivée ; pour quels $\\alpha$ prolongement à $\\mathbb C^*$, à $\\mathbb C$.",
+      "chapters_involved": [
+        1,
+        2
+      ]
+    }
+  ],
+  "pitfalls": [
+    "Simplement connexe exige d'abord connexe ; et l'homotopie utilisée dans tout le chapitre est l'homotopie **libre de lacets** ($\\gamma(s,0)=\\gamma(s,1)$), pas l'homotopie de chemins à extrémités fixes ni une homotopie quelconque d'applications.",
+    "Dans la Définition II.1.1 les lacets intermédiaires $\\gamma(s,\\cdot)$ ne sont que continus : c'est pourquoi la preuve de II.2.1 remplace les chemins par des chemins affines par morceaux ; ne pas supposer l'homotopie $C^1$.",
+    "Étoilé $\\Rightarrow$ simplement connexe, mais la réciproque est fausse ; et « sans trou » (simplement connexe) n'est pas « borné » : $\\mathbb C$, un demi-plan, $\\mathbb C\\setminus\\mathbb R_-$ sont simplement connexes.",
+    "L'hypothèse « $\\Omega$ simplement connexe » (ou « $\\gamma$ homotope à un lacet constant dans $\\Omega$ ») est essentielle dans II.2.2, II.5.1, II.8.1, II.9.1, II.9.3 : contre-exemple universel $f(z)=1/z$ sur $\\mathbb C\\setminus\\{0\\}$ avec le cercle unité. Les trous de $\\Omega$ agissent comme des singularités invisibles.",
+    "L'indice n'est défini que pour $z_0\\notin\\Gamma$ ; il dépend de l'orientation (signe) ; l'invariance par homotopie exige que **aucun** lacet intermédiaire ne passe par $z_0$.",
+    "« L'indice vaut 1 à l'intérieur » n'est pas automatique : c'est admis via Jordan (Remarques II.3.5, II.8.3). En examen, le justifier par homotopie vers un cercle (II.3.4) ou se placer sur un disque (Exemple II.3.3).",
+    "Discret $\\ne$ localement fini : $\\{1/n\\}$ est discret dans $\\mathbb C$ mais pas localement fini (point d'accumulation $0$). Une fonction méromorphe sur $\\Omega$ ne peut pas avoir de pôles s'accumulant **dans** $\\Omega$ ($1/\\sin(1/z)$ n'est pas méromorphe sur $\\mathbb C$, mais l'est sur $\\mathbb C^\\times$).",
+    "Pôle $\\ne$ singularité isolée quelconque : $\\sin(1/z)$, $e^{1/z}$ ont une singularité essentielle (aucun $z^m f$ borné) et ne sont pas méromorphes ; la formule des résidus du poly ne s'applique pas à elles (mais le coefficient $a_{-1}$ de Laurent donne encore l'intégrale sur un petit cercle, Exercice II.7.4).",
+    "Fausse singularité : $(1-\\cos z)/z^2$, $\\sin z/z$ se prolongent holomorphiquement ; ne pas compter de résidu en un point où la fonction est bornée (résidu nul).",
+    "Le développement de Laurent de II.4.6 vit sur un **petit** disque épointé ; sur une couronne plus grande les coefficients changent et $a_{-1}$ n'est plus le résidu (ex. $1/(z(z-1))$ sur $|z|>1$).",
+    "Résidu en un pôle simple : $\\lim (z-z_0)f(z)$ ou $f(z_0)/q'(z_0)$ pour $F = f/q$. La Remarque II.4.12 exige un pôle **simple** de $g$ ; pour un pôle d'ordre $m$ utiliser $\\frac{1}{(m-1)!}\\lim \\frac{d^{m-1}}{dz^{m-1}}[(z-z_0)^m f]$ ou le développement de Laurent. Le résidu peut être nul en un pôle ($1/z^2$). Le résidu est linéaire mais pas multiplicatif.",
+    "Formule des résidus : $\\gamma$ ne doit passer par aucun pôle ; chaque pôle est pondéré par son indice (0 pour les pôles extérieurs, $\\pm1$ ou plus pour les autres) ; penser au facteur $2i\\pi$ et au signe lié à l'orientation.",
+    "Calcul d'intégrales réelles : choisir la fonction complexe auxiliaire ($e^{ikz}$ et non $\\cos(kz)$, qui explose sur le demi-cercle) ; fermer dans le demi-plan où l'exponentielle est bornée ($k>0$ : en haut) ; majorer les arcs avec $|\\int|\\le L\\sup|f|$ (Proposition I.5.7) ; vérifier que **tous** les pôles intérieurs sont comptés (ex. $z^4+1$ : deux pôles dans le demi-plan supérieur).",
+    "Contour en trou de serrure : la détermination du logarithme doit avoir sa coupure sur $\\mathbb R_+$ (argument dans $]0,2\\pi[$), pas la détermination principale ; les deux segments ne se compensent pas, c'est le facteur $e^{2i\\pi\\alpha}$ qui donne le résultat.",
+    "Rouché : inégalité **stricte** $|f-g|<|g|$ **en tout point** du bord ; le théorème compare $Z-P$ (pas $Z$ seul si les fonctions ont des pôles) ; l'hypothèse implique qu'aucune des deux ne s'annule sur $\\Gamma$ ; les zéros sont comptés avec multiplicité. Choisir $g$ = le terme dominant sur le contour, qui peut changer d'un cercle à l'autre (couronne : Exercice II.8.5 3).",
+    "Principe de l'argument : $\\frac{1}{2i\\pi}\\int g'/g$ compte zéros **moins** pôles, avec multiplicités ; sans zéro ni pôle sur le lacet ; $\\Omega$ simplement connexe (ou lacet homotope à un point) pour II.8.1.",
+    "$\\mathcal M(\\Omega)$ n'est un corps que si $\\Omega$ est **connexe** ; l'inverse d'une holomorphe non identiquement nulle n'est méromorphe que sur un connexe (zéros isolés).",
+    "Logarithme complexe : $\\mathrm{Log}(z_1z_2) = \\mathrm{Log} z_1+\\mathrm{Log} z_2$ seulement modulo $2i\\pi$ ; $\\mathrm{Log}(e^z) = z$ seulement pour $|\\Im z|<\\pi$ ; $\\mathrm{Log}$ n'existe pas sur $\\mathbb C^\\times$ ; une fonction sans zéro sur un ouvert non simplement connexe peut ne pas avoir de logarithme ($z$ sur une couronne) — mais peut en avoir ($e^z$) : l'obstruction est $\\int_\\gamma h'/h\\ne 0$.",
+    "Puissances $z^\\alpha$ : dépendent de la détermination ; $(zw)^\\alpha\\ne z^\\alpha w^\\alpha$ et $(z^\\alpha)^\\beta\\ne z^{\\alpha\\beta}$ en général ; $\\sqrt{\\cdot}$ principale ne se prolonge pas à $\\mathbb C$.",
+    "Les énoncés II.8.2 et II.8.4 sont donnés sur un ouvert $\\Omega$ quelconque avec $\\bar U\\subset\\Omega$ : ils reposent implicitement sur la Remarque II.5.3 (le bord $\\Gamma$ est homotope à un point dans un voisinage simplement connexe de $\\bar U$, par Jordan) — en pratique, $U$ est un disque ou un domaine simple."
+  ],
+  "viz_opportunities": [
+    {
+      "title": "Homotopie de lacets et grillage de la preuve",
+      "shows": "Un curseur $s\\in[0,1]$ déforme $\\gamma_0$ en $\\gamma_1$ ; on voit l'image du carré $K$ grillagé en $n^2$ petits quadrilatères, chacun dans un disque où $f$ a une primitive, et l'intégrale $\\int_{\\gamma_s} f$ affichée constante. Dans $\\mathbb C\\setminus\\{0\\}$ avec $f=1/z$, impossible de contracter sans traverser $0$ : l'intégrale saute de $2i\\pi$.",
+      "results": [
+        "Définition II.1.1",
+        "Théorème II.2.1",
+        "Corollaire II.2.2"
+      ]
+    },
+    {
+      "title": "Indice d'un lacet : compter les tours",
+      "shows": "On déplace $z_0$ à la souris ; les composantes connexes de $\\mathbb C\\setminus\\Gamma$ sont colorées par la valeur entière de l'indice ; une animation montre $\\arg(\\gamma(t)-z_0)$ s'enrouler $\\mathrm{Ind}_{z_0}(\\gamma)$ fois. Lacets proposés : cercle, huit, spirale double (indice 2, figure p. 41).",
+      "results": [
+        "Définition II.3.1",
+        "Proposition II.3.2",
+        "Exemple II.3.3",
+        "Proposition II.3.4"
+      ]
+    },
+    {
+      "title": "Domain coloring des fonctions méromorphes : zéros, pôles, singularités essentielles",
+      "shows": "Teinte = argument, luminosité = module. Un zéro d'ordre $m$ fait tourner les couleurs $m$ fois dans le sens direct, un pôle d'ordre $m$ dans le sens inverse (point blanc) ; $e^{1/z}$ montre toutes les couleurs accumulées en $0$ (Casorati-Weierstrass). Choix de fonctions : $z^2/(z^4+1)$, $\\cot z$, $(1-\\cos z)/z^2$, $\\sin(1/z)$.",
+      "results": [
+        "Définition II.4.2",
+        "Corollaire II.4.7",
+        "Exercice II.7.4, questions 5) à 8), p. 50-51"
+      ]
+    },
+    {
+      "title": "Série de Laurent et résidu comme intégrale sur un petit cercle",
+      "shows": "Sommes partielles de $\\sum a_n(z-z_0)^n$ sur une couronne (curseur nombre de termes, rayon) comparées à $f$ ; cercle $C(z_0,r)$ de rayon variable avec la valeur numérique de $\\frac{1}{2i\\pi}\\int_{C(z_0,r)}f$, constante tant qu'aucun autre pôle n'est traversé puis sautant du résidu suivant.",
+      "results": [
+        "Proposition II.4.6",
+        "Définition II.4.9",
+        "Proposition II.4.11"
+      ]
+    },
+    {
+      "title": "Formule des résidus et contours de calcul d'intégrales",
+      "shows": "Contours paramétrés (demi-disque $\\Gamma_R$, secteur angulaire, rectangle, trou de serrure $\\Gamma_{\\varepsilon,R}$) avec curseurs $R$, $\\varepsilon$ ; les pôles s'allument quand ils entrent dans le domaine ; le module de $f$ sur les arcs est tracé pour voir la majoration $\\to 0$ ; comparaison entre la somme $2i\\pi\\sum\\mathrm{res}$ et l'intégrale numérique.",
+      "results": [
+        "Théorème II.5.1",
+        "Formule (II.6.1)",
+        "Exemple II.6.1",
+        "Exemple II.9.7"
+      ]
+    },
+    {
+      "title": "Principe de l'argument et Rouché : le chien et son maître",
+      "shows": "On trace $g(\\Gamma)$ et $f(\\Gamma)$ dans le plan image ; le nombre de tours autour de $0$ égale $Z-P$ ; la « laisse » $|f-g|$ plus courte que $|g|$ (distance du maître à l'origine) empêche le chien de faire un tour de plus. Curseur déplaçant un zéro de $f$ à travers $\\Gamma$ pour voir l'inégalité se briser.",
+      "results": [
+        "Lemme II.8.1",
+        "Corollaire II.8.2",
+        "Théorème II.8.4"
+      ]
+    },
+    {
+      "title": "Logarithme complexe : coupure, déterminations, surface de Riemann",
+      "shows": "Domain coloring de $\\mathrm{Log}$ sur $\\mathbb C\\setminus\\mathbb R_-$ avec saut de $2i\\pi$ à travers la coupure ; bascule vers la détermination de coupure $\\mathbb R_+$ (argument dans $]0,2\\pi[$) utilisée dans l'exemple du trou de serrure ; surface hélicoïdale de $\\Im\\,\\mathrm{Log}$ ; domain coloring de $z^\\alpha$ avec curseur $\\alpha$.",
+      "results": [
+        "Définition II.9.2",
+        "Proposition II.9.3",
+        "non numéroté, section II.9, p. 56",
+        "Exemple II.9.7"
+      ]
+    },
+    {
+      "title": "Construction d'une primitive par intégration le long d'un chemin",
+      "shows": "Deux chemins de $z_0$ à $\\omega$ dans un ouvert simplement connexe donnent la même valeur de $F(\\omega)$ ; dans $\\mathbb C\\setminus\\{0\\}$ avec $f=1/z$, deux chemins passant de part et d'autre de $0$ donnent des valeurs différant de $2i\\pi$ : la primitive n'est pas bien définie.",
+      "results": [
+        "Théorème II.9.1",
+        "Théorème II.2.1"
+      ]
+    }
+  ],
+  "proof_techniques": [
+    "Grillage par compacité : recouvrir l'image compacte d'une homotopie par des disques où $f$ a une primitive locale (Corollaire I.7.6), choisir un nombre de Lebesgue et un pas $1/n$ par continuité uniforme (Heine), sommer les intégrales nulles sur les petits lacets ; les côtés intérieurs s'annulent deux à deux.",
+    "Remplacer un chemin seulement continu par un chemin affine par morceaux (polygonal) inscrit, pour pouvoir intégrer tout en restant dans des disques convexes.",
+    "Déformation continue (homotopie) d'un lacet : rétraction d'un lacet sur un point dans un ouvert étoilé ($\\gamma(s,t) = s\\omega+(1-s)\\gamma_0(t)$) ; déformation d'un contour quelconque en un cercle pour calculer un indice.",
+    "Fonction continue à valeurs entières sur un connexe $\\Rightarrow$ constante (indice localement constant) ; astuce $t\\mapsto\\exp\\big(\\int_0^t\\frac{\\gamma'}{\\gamma-z_0}\\big)$ pour montrer que l'indice est entier.",
+    "Argument « ouvert et fermé » dans un connexe (ensemble des points reliables à $z_0$ par un chemin) pour construire une primitive globale $F(\\omega) = \\int_{\\gamma_\\omega} f$, puis indépendance du chemin par homotopie ($\\gamma'_\\omega\\vee\\gamma_\\omega^{\\mathrm{opp}}$ est un lacet).",
+    "Réduction à un nombre fini de pôles par compacité : recouvrir l'image compacte de l'homotopie par un nombre fini de disques, les pôles extérieurs ayant un indice nul.",
+    "Soustraction des parties polaires : $f-\\sum_s Q_s$ est holomorphe sur $\\Omega$, donc d'intégrale nulle (II.2.2) ; puis $(z-s)^n$ a une primitive pour $n\\ne -1$ et seul $a_{-1}\\int\\frac{dz}{z-s} = 2i\\pi a_{-1}\\mathrm{Ind}_s(\\gamma)$ survit.",
+    "Intégration terme à terme d'une série normalement convergente sur un cercle et calcul $\\int_{C(z_0,r)}(z-z_0)^n dz = 2i\\pi\\,\\delta_{n,-1}$ par le paramétrage $z = z_0+re^{i\\theta}$.",
+    "Estimées de Cauchy pour « effacer » une singularité : si $g$ est holomorphe bornée sur $D^\\times$, $|g'(z)|\\le 2M/|z-z_0|$ donc $h = (z-z_0)^2 g$ est $C^1$ avec $h'(z_0)=0$, d'où $h$ holomorphe sur $D$ et développable en série entière.",
+    "Factorisation locale $g(z) = (z-z_0)^N g_1(z)$ avec $g_1(z_0)\\ne 0$ ($N\\in\\mathbb Z$ : zéro si $N>0$, pôle si $N<0$) et dérivée logarithmique $g'/g = \\frac{N}{z-z_0}+g_1'/g_1$ : le résidu de $g'/g$ est l'ordre $N$.",
+    "Rouché : poser $h = f/g$, remarquer que $h(\\Gamma)\\subset D(1,1)$ (convexe donc simplement connexe, ne contenant pas $0$) pour que l'indice de $0$ par rapport à $h(\\Gamma)$ soit nul, puis changement de variable $\\int_{h(\\Gamma)}\\frac{dz}{z} = \\int_\\Gamma\\frac{h'}{h}$ et $h'/h = f'/f - g'/g$.",
+    "Choix du terme dominant $g$ sur un contour et vérification de $|f-g|<|g|$ par inégalité triangulaire (d'Alembert-Gauss, localisation de racines).",
+    "Calcul d'intégrales réelles : fonction auxiliaire complexe adaptée ($e^{ikz}$, $z^{\\alpha-1}$ avec une détermination du logarithme choisie selon la coupure), contour fermé (demi-disque, secteur, trou de serrure), majoration ML des arcs (Proposition I.5.7, $|e^{ikz}|\\le 1$ pour $\\Im z\\ge 0$, $k>0$), passage à la limite $R\\to\\infty$, $\\varepsilon\\to 0$, puis partie réelle ou résolution d'une équation en $J$ (facteur de saut $e^{2i\\pi\\alpha}$).",
+    "Normalisation d'un logarithme : si $F' = h'/h$ alors $(he^{-F})' = 0$ ; ajuster la constante pour avoir $e^F = h$ ; unicité modulo $2i\\pi\\mathbb Z$ par connexité.",
+    "Caractérisation des ensembles localement finis par compacité (toute partie infinie d'un compact a un point d'accumulation) pour garantir la finitude des pôles dans un compact."
+  ]
+}
