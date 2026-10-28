@@ -13,7 +13,7 @@ FMA.registerViz({
 
 Idée de la preuve du lemme des bouts : sur le compact $K$, le flot local existe pendant un temps $2\epsilon$ **uniforme** (recouvrement fini) ; si $b<+\infty$, on repart du point $\alpha(b-\epsilon)\in K$ et on prolonge au-delà de $b$, contradiction.`,
   related: ['ch07-lemme-des-bouts', 'ch07-courbe-integrale-maximale-def', 'ch07-peano-non-unicite', 'ch07-cauchy-lipschitz', 'ch07-unicite-globale', 'ch07-flot-global-def'],
-  height: 540,
+  height: 500,
   mount(container, kit) {
     const st = kit.canvas(container, { height: 380 });
     const controls = kit.controls(container);

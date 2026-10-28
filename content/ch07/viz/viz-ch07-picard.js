@@ -79,7 +79,7 @@ Les conditions sont **suffisantes**, pas nécessaires : pour une équation liné
       // ---------- top panel ----------
       const Htop = Math.round(H * 0.66);
       const ymin = x0 - 2.7 * a, ymax = x0 + 2.7 * a;
-      const tm = Math.max(0.4, 0.4 * Math.ceil(1.3 * b / 0.4 - 1e-9));
+      const tm = [0.2, 0.25, 0.4, 0.5, 0.8, 1, 1.2, 1.6, 2].find(v => v >= 1.5 * b - 1e-9) || 2.4;
       const P = kit.plane(ctx, { xmin: -tm, xmax: tm, ymin, ymax, W, H: Htop, keepAspect: false });
       ctx.save(); ctx.beginPath(); ctx.rect(0, 0, W, Htop); ctx.clip();
       // box
@@ -97,7 +97,18 @@ Les conditions sont **suffisantes**, pas nécessaires : pour une équation liné
       ctx.strokeStyle = T.accent4; ctx.globalAlpha = 0.8; ctx.lineWidth = 1; ctx.setLineDash([4, 3]);
       for (const s of [1, -1]) { ctx.beginPath(); let [px, py] = P.toPx(-b, x0 + s * ell * b); ctx.moveTo(px, py); [px, py] = P.toPx(0, x0); ctx.lineTo(px, py); [px, py] = P.toPx(b, x0 + s * ell * b); ctx.lineTo(px, py); ctx.stroke(); }
       ctx.restore();
-      P.axes({ labels: true, step: tm / 4, xlabel: 't', ylabel: 'x' });
+      P.axes({ labels: false, xlabel: 't', ylabel: 'x' });
+      { // ticks: separate steps for t and x
+        const nice = r => { const p = Math.pow(10, Math.floor(Math.log10(r))); const m = r / p; return (m < 1.5 ? 1 : m < 3.5 ? 2 : m < 7.5 ? 5 : 10) * p; };
+        const st_ = nice(tm / 2.5), sy_ = nice((ymax - ymin) / 6); const [ox, oy] = P.toPx(0, 0);
+        ctx.save(); ctx.fillStyle = T.muted; ctx.strokeStyle = T.axis; ctx.font = '11px system-ui, sans-serif';
+        const yb = Math.min(Htop - 14, Math.max(2, oy + 3));
+        ctx.textAlign = 'center'; ctx.textBaseline = 'top';
+        for (let t = Math.ceil(-tm / st_) * st_; t <= tm + 1e-9; t += st_) { if (Math.abs(t) < 1e-9) continue; const [px] = P.toPx(t, 0); ctx.beginPath(); ctx.moveTo(px, oy - 3); ctx.lineTo(px, oy + 3); ctx.stroke(); ctx.fillText(kit.fmt(+t.toFixed(3)), px, yb); }
+        ctx.textAlign = 'right'; ctx.textBaseline = 'middle';
+        for (let y = Math.ceil(ymin / sy_) * sy_; y <= ymax; y += sy_) { if (Math.abs(y) < 1e-9) continue; const [, py] = P.toPx(0, y); if (py < 16 || py > Htop - 4) continue; ctx.beginPath(); ctx.moveTo(ox - 3, py); ctx.lineTo(ox + 3, py); ctx.stroke(); ctx.fillText(kit.fmt(+y.toFixed(3)), ox - 5, py); }
+        ctx.restore();
+      }
       // exact solution
       const ex = []; for (let i = 0; i <= 300; i++) { const t = -tm + 2 * tm * i / 300; const v = eq.exact(t, x0); ex.push([t, isFinite(v) && Math.abs(v - x0) < 50 * a ? v : NaN]); }
       P.curve(ex, { color: T.accent3, width: 2, dash: [6, 4] });
@@ -120,7 +131,7 @@ Les conditions sont **suffisantes**, pas nécessaires : pour une équation liné
       ctx.save(); ctx.strokeStyle = T.grid; ctx.beginPath(); ctx.moveTo(0, Htop + 0.5); ctx.lineTo(W, Htop + 0.5); ctx.stroke(); ctx.restore();
 
       // ---------- bottom panel: log10 of sup-norm differences ----------
-      const top = Htop + 22, bot = H - 18, left = 34, right = W - 8;
+      const top = Htop + (W < 460 ? 36 : 26), bot = H - 18, left = 34, right = W - 8;
       const L = v => Math.log10(Math.max(v, 1e-14));
       const d0 = diffs[0] || 1e-14;
       const lmax = Math.ceil(Math.max(L(Math.max(...diffs.slice(0, Math.max(1, n)))), L(d0)) + 0.01), lmin = Math.min(lmax - 2, Math.max(-12, Math.floor(Math.min(...diffs.slice(0, Math.max(1, n)).map(L), L(d0) - Math.max(1, n) * Math.log10(2)))));

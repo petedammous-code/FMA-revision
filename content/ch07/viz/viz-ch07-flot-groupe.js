@@ -1,7 +1,7 @@
 FMA.registerViz({
   id: 'viz-ch07-flot-groupe',
   chapter: 7,
-  title: 'Flot d\'un champ plan : composer les temps',
+  title: 'Flot d’un champ plan : composer les temps',
   description: String.raw`Un petit carré quadrillé $A$ de conditions initiales (gris, **déplaçable à la souris ou au doigt**) est transporté par le flot du champ $X$ choisi. Notation du poly : $F(t_0,t,x)$ est la position à l'instant $t$ de la courbe intégrale maximale valant $x$ à l'instant $t_0$ ([[ch07-flot-global-def]]) ; dans le cas autonome on note $F_t\cdot x=F(0,t,x)$.
 
 **Quoi regarder.**
