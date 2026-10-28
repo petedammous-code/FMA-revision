@@ -10,8 +10,8 @@ et, sur un ouvert connexe, n'a **aucun maximum local** sauf si elle est constant
 
 **À faire.**
 * Avec une fonction harmonique ($x^2-y^2$, $\Re(z^3)$, $e^x\cos y$), déplacez le cercle et changez $r$ : « valeur au centre » et « moyenne » coïncident toujours. Dans la bande du bas, l'aire rouge (au-dessus de $h(z_0)$) compense exactement l'aire bleue. Le trait épais traverse **toujours** le cercle : il y a du rouge et du bleu sur tout cercle, donc $z_0$ n'est jamais un maximum local. Le maximum sur le disque fermé (triangle ▲) est toujours **sur le bord** : c'est ce qui donne l'unicité des problèmes de Dirichlet (poly, Remarque IV.2.6, p. 77 ; [[ch04-maximum-unicite-bord|fiche]]).
-* Avec $-(x^2+y^2)$ (non harmonique, $\Delta = -4$) placez $z_0$ en $0$ : tout est bleu autour, la moyenne est **strictement plus petite** que la valeur au centre et le maximum est **intérieur**. Avec $x^2+y^2$ ($\Delta = 4$) c'est l'inverse.
-* Avec $\log|z|$ ou $\Re(1/z)$, harmoniques sur $\C^\times = \C\setminus\{0\}$ seulement : tant que le disque fermé évite $0$, l'égalité tient ; dès qu'il contient $0$ (cercle en tirets), l'hypothèse $\bar D(z_0,r)\subset\Omega$ tombe et l'égalité est fausse (pour $\log|z|$ la moyenne vaut alors $\log r$).
+* Avec $-(x^2+y^2)$ (non harmonique, $\Delta = -4$) placez $z_0$ en $0$ : tout est bleu autour, la moyenne est **strictement plus petite** que la valeur au centre et le maximum est **intérieur**. Avec $x^2+y^2$ ($\Delta = 4$) c'est l'inverse : la moyenne vaut $|z_0|^2+r^2 > h(z_0)$ et, en $z_0=0$, c'est le **minimum** qui est intérieur (pour $h$ harmonique, le principe du maximum appliqué à $-h$ interdit aussi un minimum local).
+* Avec $\log|z|$ ou $\Re(1/z)$, harmoniques sur $\C^\times = \C\setminus\{0\}$ seulement : tant que le disque fermé évite $0$, l'égalité tient ; dès que $0$ est dans le disque (cercle en tirets), l'hypothèse $\bar D(z_0,r)\subset\Omega$ tombe et l'égalité est fausse : pour $\log|z|$ la moyenne vaut alors $\log r$ (et non $\log|z_0|$), pour $\Re(1/z)$ elle vaut $0$ (théorème des résidus).
 * Le bouton anime $r$ : l'égalité vaut pour **tous** les rayons, pas seulement pour $r$ petit.`,
   related: ['ch04-harmonique-moyenne-maximum', 'ch04-harmonique-def', 'ch04-maximum-unicite-bord', 'ch04-holomorphe-implique-harmonique', 'ch04-harmonique-reelle-partie-reelle'],
   height: 520,
@@ -21,13 +21,14 @@ et, sur un ouvert connexe, n'a **aucun maximum local** sauf si elle est constant
     const controls = kit.controls(container);
     const L = { x: -2.1, X: 2.1, y: -2.1, Y: 2.1 };
     const FN = {
-      x2y2: { name: 'x² − y² = Re(z²)  (harmonique)', h: (x, y) => x * x - y * y, z0: [0.4, 0.3], r: 1 },
-      cube: { name: 'x³ − 3xy² = Re(z³)  (harmonique)', h: (x, y) => x * x * x - 3 * x * y * y, z0: [0, 0], r: 1 },
-      expc: { name: 'eˣ cos y = Re(eᶻ)  (harmonique)', h: (x, y) => Math.exp(x) * Math.cos(y), z0: [0, 0.5], r: 1.2 },
-      log: { name: 'log|z|  (harmonique sur ℂ∖{0})', h: (x, y) => 0.5 * Math.log(x * x + y * y), z0: [1, 0.4], r: 0.6, sing: true },
-      rinv: { name: 'Re(1/z)  (harmonique sur ℂ∖{0})', h: (x, y) => x / (x * x + y * y), z0: [1, 0.5], r: 0.6, sing: true },
-      bump: { name: '−(x² + y²)  (NON harmonique)', h: (x, y) => -(x * x + y * y), z0: [0, 0], r: 1, nonh: true },
-      bowl: { name: 'x² + y²  (NON harmonique)', h: (x, y) => x * x + y * y, z0: [0.3, 0.2], r: 1, nonh: true },
+      // lap : laplacien exact (Δh = h_xx + h_yy), affiché dans la lecture « Δh(z₀) »
+      x2y2: { name: 'x² − y² = Re(z²)  (harmonique)', h: (x, y) => x * x - y * y, lap: 0, z0: [0.4, 0.3], r: 1 },
+      cube: { name: 'x³ − 3xy² = Re(z³)  (harmonique)', h: (x, y) => x * x * x - 3 * x * y * y, lap: 0, z0: [0, 0], r: 1 },
+      expc: { name: 'eˣ cos y = Re(eᶻ)  (harmonique)', h: (x, y) => Math.exp(x) * Math.cos(y), lap: 0, z0: [0, 0.5], r: 1.2 },
+      log: { name: 'log|z|  (harmonique sur ℂ∖{0})', h: (x, y) => 0.5 * Math.log(x * x + y * y), lap: 0, z0: [1, 0.4], r: 0.6, sing: true },
+      rinv: { name: 'Re(1/z)  (harmonique sur ℂ∖{0})', h: (x, y) => x / (x * x + y * y), lap: 0, z0: [1, 0.5], r: 0.6, sing: true },
+      bump: { name: '−(x² + y²)  (NON harmonique)', h: (x, y) => -(x * x + y * y), lap: -4, z0: [0, 0], r: 1, nonh: true },
+      bowl: { name: 'x² + y²  (NON harmonique)', h: (x, y) => x * x + y * y, lap: 4, z0: [0.3, 0.2], r: 1, nonh: true },
     };
     const sel = kit.select(controls, { label: '$h=$', options: Object.keys(FN).map(k => [FN[k].name, k]), value: 'x2y2', onChange: () => { const F = FN[sel.value]; z0 = F.z0.slice(); sR.value = F.r; computeGrid(); draw(); } });
     sel.select.style.maxWidth = '240px';
@@ -98,15 +99,20 @@ et, sur un ouvert connexe, n'a **aucun maximum local** sauf si elle est constant
       let s = 0; const ring = new Float64Array(N + 1);
       for (let k = 0; k <= N; k++) { const t = 2 * Math.PI * k / N; ring[k] = h(z0[0] + r * Math.cos(t), z0[1] + r * Math.sin(t)); if (k < N) s += ring[k]; }
       const mean = s / N;
-      let best = -Infinity, bx = 0, by = 0, onB = false, worst = Infinity, wx = 0, wy = 0;
-      for (let i = 0; i <= 30; i++) { const rr = r * i / 30; const na = i === 0 ? 1 : 96;
+      // max / min sur le disque fermé : on échantillonne l'intérieur (29 cercles × 96 angles + le centre), puis le bord
+      // finement (les 720 valeurs de `ring`) ; le bord ne « gagne » que s'il fait au moins aussi bien que l'intérieur.
+      let best = -Infinity, bx = 0, by = 0, onB = false, worst = Infinity, wx = 0, wy = 0, onBmin = false;
+      for (let i = 0; i < 30; i++) { const rr = r * i / 30; const na = i === 0 ? 1 : 96;
         for (let k = 0; k < na; k++) { const t = 2 * Math.PI * k / na, x = z0[0] + rr * Math.cos(t), y = z0[1] + rr * Math.sin(t), v = h(x, y);
           if (!isFinite(v)) continue;
-          if (v > best + 1e-12) { best = v; bx = x; by = y; onB = i === 30; }
+          if (v > best + 1e-12) { best = v; bx = x; by = y; }
           if (v < worst - 1e-12) { worst = v; wx = x; wy = y; } } }
-      const e = 1e-3, lap = (h(z0[0] + e, z0[1]) + h(z0[0] - e, z0[1]) + h(z0[0], z0[1] + e) + h(z0[0], z0[1] - e) - 4 * h0) / (e * e);
+      for (let k = 0; k < N; k++) { const v = ring[k]; if (!isFinite(v)) continue; const t = 2 * Math.PI * k / N;
+        if (v >= best - 1e-12) { best = v; bx = z0[0] + r * Math.cos(t); by = z0[1] + r * Math.sin(t); onB = true; }
+        if (v <= worst + 1e-12) { worst = v; wx = z0[0] + r * Math.cos(t); wy = z0[1] + r * Math.sin(t); onBmin = true; } }
+      const lap = (F.sing && !(Math.hypot(z0[0], z0[1]) > 0)) ? NaN : F.lap;
       const broken = !!F.sing && Math.hypot(z0[0], z0[1]) <= r + 1e-9;
-      return { h0, mean, ring, best, bx, by, onB, worst, wx, wy, lap, broken };
+      return { h0, mean, ring, best, bx, by, onB, worst, wx, wy, onBmin, lap, broken };
     }
 
     // ---------- dessin ----------
@@ -158,7 +164,7 @@ et, sur un ouvert connexe, n'a **aucun maximum local** sauf si elle est constant
       roC.set(fmt(S.h0));
       roM.set(fmt(S.mean) + ` &nbsp;(écart ${fmt(S.mean - S.h0)})` + (S.broken ? ' — hypothèse violée : 0 ∈ D̄(z₀,r)' : ''));
       roX.set(`${fmt(S.best)} atteint ${S.onB ? 'sur le bord' : '<b>à l’intérieur</b>'}`);
-      roL.set(Math.abs(S.lap) < 1e-3 ? '0 (harmonique)' : S.lap.toFixed(2) + (F.nonh ? ' (non harmonique)' : ''));
+      roL.set(!isFinite(S.lap) ? 'non défini (0 ∉ Ω)' : S.lap === 0 ? '0 (harmonique)' : S.lap.toFixed(0) + ' (non harmonique)');
     }
     function drawStrip(S, t) {
       const ctx = st2.ctx, W = st2.W, H = st2.H, ring = S.ring, N = ring.length - 1;

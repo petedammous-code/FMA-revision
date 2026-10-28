@@ -182,6 +182,8 @@ FMA.registerViz({
       if (dirs[0] && dirs[1] && C.abs(dirs[0]) > 0 && C.abs(dirs[1]) > 0) {
         dirs.forEach((dv, k) => { const n = C.abs(dv); kit.arrow(ctx, qx, qy, qx + 30 * dv[0] / n, qy - 30 * dv[1] / n, { color: cols[k], width: 1.5, head: 7 }); });
         measured = C.arg(C.div(dirs[1], dirs[0]));
+        // en un point critique l'angle image vaut 2θ ∈ ]0°, 340°] : on l'affiche dans [0°, 360°[ plutôt que dans ]−180°, 180°]
+        const dv0 = safe(F.df, z0); if (dv0 && C.abs(dv0) < 1e-9 && measured < 0) measured += 2 * Math.PI;
         wedge(ctx, qx, qy, C.arg(dirs[0]), measured, 16, t.fg, (measured * DEG).toFixed(1) + '°');
       }
       PW.point(w0[0], w0[1], { r: 6, color: t.accent4, stroke: t.fg });
