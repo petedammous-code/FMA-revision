@@ -262,6 +262,7 @@ est le potentiel complexe ; pour $c=0$, $R=1$, c'est exactement celui de l'Exerc
     const cbS = kit.checkbox(controls, { label: 'couleur = vitesse', checked: true, onChange: drawAll });
     const roG = kit.readout(controls, { label: 'bord de fuite $w=1$' });
     const roL = kit.readout(controls, { label: "bord d'attaque" });
+    const roC = kit.readout(controls, { label: 'circulation $\\Gamma$' });
     const V0 = 1, CELL = 3, ZW = [-2.6, 2.6, -2, 2], WW = [-2.2, 2.2, -1.7, 1.7];
     let c = [0, 0], PZ = null, PW = null;
 
@@ -374,7 +375,7 @@ est le potentiel complexe ; pour $c=0$, $R=1$, c'est exactement celui de l'Exerc
       const ctx = stZ.ctx;
       PZ.circle(c[0], c[1], M.R, { color: t.fg, width: 2, fill: t.muted });
       marker(ctx, PZ, [1, 0], t, "J'=0"); marker(ctx, PZ, [-1, 0], t, "J'=0");
-      M.stag.forEach(z => { if (isFinite(z[0]) && Math.abs(C.abs(C.sub(z, c)) - M.R) < 1e-6 * (1 + M.R)) diamond(ctx, PZ, z, t); else if (isFinite(z[0]) && M.outside(z)) diamond(ctx, PZ, z, t); });
+      M.stag.forEach(z => { if (isFinite(z[0]) && !(C.abs(C.sub(z, c)) < M.R * (1 - 1e-6))) diamond(ctx, PZ, z, t); });
       const [cx, cy] = PZ.toPx(c[0], c[1]);
       ctx.save(); ctx.strokeStyle = t.accent4; ctx.lineWidth = 2.5; ctx.beginPath(); ctx.moveTo(cx - 6, cy); ctx.lineTo(cx + 6, cy); ctx.moveTo(cx, cy - 6); ctx.lineTo(cx, cy + 6); ctx.stroke();
       ctx.fillStyle = t.accent4; ctx.font = '600 12px system-ui, sans-serif'; ctx.textAlign = 'left'; ctx.textBaseline = 'bottom'; ctx.fillText('c', cx + 6, cy - 4); ctx.restore();
@@ -398,7 +399,7 @@ est le potentiel complexe ; pour $c=0$, $R=1$, c'est exactement celui de l'Exerc
       roG.set(te === '∞' ? `|v| = ∞ &nbsp;(F'(1) ≠ 0, J'(1) = 0)` : `|v| = ${te} fini (F'(1) = 0)`);
       const onCircle = Math.abs(Math.hypot(-1 - c[0], -c[1]) - M.R) < 1e-6;
       roL.set(onCircle ? (vEdge([-1, 0]) === '∞' ? '|v| = ∞ en w = −1' : `|v| = ${vEdge([-1, 0])} fini en w = −1`) : 'arrondi : −1 est dans le cercle');
-      roL.el.title = 'Γ = ' + M.Gam.toFixed(3);
+      roC.set(M.Gam === 0 ? '0' : M.Gam.toFixed(3));
     }
 
     // ---------- interaction : glisser le centre c ----------
