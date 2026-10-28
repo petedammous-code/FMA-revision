@@ -52,6 +52,9 @@ hr { border: 0; border-top: 1px solid var(--border); margin: 1.5em 0; }
 .sidebar .done::after { content: " ✓"; color: var(--accent-3); }
 .main { padding: 22px clamp(16px, 4vw, 48px) 60px; max-width: 980px; width: 100%; min-width: 0; box-sizing: border-box; }
 .katex-display { overflow-x: auto; overflow-y: hidden; padding: 2px 0 4px; }
+.katex { position: relative; } /* le MathML caché (position:absolute) reste alors dans son conteneur défilant */
+code { overflow-wrap: anywhere; }
+select { max-width: 100%; }
 .katex-display > .katex { white-space: normal; }
 .katex-display > .katex > .katex-html { white-space: nowrap; }
 .main table { display: block; max-width: 100%; overflow-x: auto; }

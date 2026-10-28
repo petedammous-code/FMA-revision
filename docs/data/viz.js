@@ -4000,7 +4000,7 @@ FMA.registerViz({
   title: "Galerie de contre-exemples : pourquoi ce n'est pas une sous-variété",
   description: String.raw`**Ce que l'on voit.** Six ensembles $S\subset\mathbb R^2$ (le premier est un témoin positif). À gauche : l'ensemble entier, le point $p\in S$ (à **glisser** le long de $S$, ou à faire défiler avec le curseur) et le disque $D(p,\rho)$. À droite : un **zoom** sur $S\cap D(p,\rho)$ **privé du point $p$**, chaque composante connexe étant coloriée d'une couleur différente.
 
-**Le test.** Si $S$ est une sous-variété de dimension $m$, la condition 2 de la Définition IX.2.1 (poly, p. 148) dit que $S$ est, près de $p$, homéomorphe à un ouvert connexe $W$ de $\mathbb R^m$. Or un intervalle ouvert privé d'un point a **2** composantes connexes ($m=1$), et un ouvert connexe de $\mathbb R^m$, $m\ge2$, privé d'un point reste **connexe**. Si, pour $\rho$ assez petit, on trouve un nombre de composantes différent de $2$ en dimension $1$, la condition 2 échoue (Exemples IX.2.11, IX.2.12, p. 150).
+**Le test.** Si $S$ est une sous-variété de dimension $m$, la condition 2 de la Définition IX.2.1 (poly, p. 148) donne un homéomorphisme $x : U\to V\cap S$ avec $U$ ouvert de $\mathbb R^m$ et $V$ voisinage de $p$. Pour $\rho$ petit, $D(p,\rho)\subset V$, et $S\cap D(p,\rho)=x(O)$ avec $O$ ouvert de $U$ contenant $q=x^{-1}(p)$. Dans toute la galerie, pour $\rho$ assez petit, chaque morceau de $S\cap D(p,\rho)$ passe par $p$ ou s'y accumule : $S\cap D(p,\rho)$ est **connexe**, donc $O$ aussi, et $S\cap D(p,\rho)\setminus\{p\}$ est homéomorphe à $O\setminus\{q\}$. Or un intervalle ouvert privé d'un point a **2** composantes connexes ($m=1$), un ouvert connexe de $\mathbb R^m$, $m\ge2$, privé d'un point reste **connexe** (1 composante), et pour $m=0$ un ouvert est discret (0 composante). Un compte différent de $2$ exclut donc $m=1$ (Exemples IX.2.11, IX.2.12, p. 150) ; chaque fiche dit ensuite comment exclure $m\ne1$.
 
 **Ce qu'il faut regarder.**
 * **Cercle** : partout $2$ composantes (pour $\rho$ petit ; trop grand, le disque « voit » le cercle entier et le compte change : le test est local).
@@ -4030,30 +4030,30 @@ FMA.registerViz({
       },
       demi: {
         name: 'demi-droite fermée [0 ; +∞[ ⊂ ℝ', view: [-1.2, 3.4, -1.6, 1.6], t0: 0, special: 'demi', hasT: true,
-        polys: () => [polyline(range(0, 3, 200), t => t, () => 0, () => 1, () => 0)],
-        info: String.raw`**Exemple IX.2.11.** $S=[0;+\infty[\ \subset\mathbb R$ (dessinée sur l'axe horizontal). En $p=0$ : **1** seule composante, alors qu'un intervalle ouvert privé d'un point en a 2 ; donc $m\ne1$. Pour $m=0$ un ouvert est discret, ce qui est faux près de $0$. Pour $m\ge2$ on prend un point $b>0$ voisin : $[0;a[\setminus\{b\}$ a 2 composantes (faites glisser $p$ : le compte vaut $2$), alors qu'un ouvert connexe de $\mathbb R^m$ privé d'un point reste connexe. Aucune dimension ne convient : le « bord » est interdit.`,
+        polys: () => [polyline(range(0, 6, 200), t => t, () => 0, () => 1, () => 0)],
+        info: String.raw`**Exemple IX.2.11.** $S=[0;+\infty[\ \subset\mathbb R$ (dessinée sur l'axe horizontal, tronquée à droite par la fenêtre). En $p=0$ : **1** seule composante, alors qu'un intervalle ouvert privé d'un point en a 2 ; donc $m\ne1$. Pour $m=0$ un ouvert est discret, ce qui est faux près de $0$. Pour $m\ge2$ on prend un point $b>0$ voisin : $[0;a[\setminus\{b\}$ a 2 composantes (faites glisser $p$ : le compte vaut $2$), alors qu'un ouvert connexe de $\mathbb R^m$ privé d'un point reste connexe. Aucune dimension ne convient : le « bord » est interdit.`,
       },
       croix: {
         name: 'croix  xy = 0', view: [-2.2, 2.2, -1.7, 1.7], t0: null, special: 'croix', hasT: false,
-        polys: () => [polyline(range(-2, 2, 200), t => t, () => 0), polyline(range(-2, 2, 200), () => 0, t => t)],
+        polys: () => [polyline(range(-3, 3, 200), t => t, () => 0), polyline(range(-3, 3, 200), () => 0, t => t)],
         info: String.raw`**Exemple IX.2.12.** $S=\{xy=0\}$ est $f^{-1}(0)$ pour $f(x,y)=xy$, et $0$ est valeur critique ($df_{(0,0)}=0$). Tout voisinage de l'origine dans $S$ est encore une croix : **4** composantes une fois l'origine retirée, alors qu'un ouvert connexe de $\mathbb R^m$ privé d'un point en a au plus 2. En tout autre point de la croix, $S$ est une droite : le compte vaut $2$.`,
       },
       cusp: {
         name: 'rebroussement  t ↦ (t², t³)', view: [-0.7, 1.7, -1.7, 1.7], t0: 0, special: 'cusp', hasT: true,
-        polys: () => [polyline(range(-1.2, 1.2, 300), t => t * t, t => t * t * t, t => 2 * t, t => 3 * t * t)],
+        polys: () => [polyline(range(-1.5, 1.5, 300), t => t * t, t => t * t * t, t => 2 * t, t => 3 * t * t)],
         info: String.raw`**Exercice IX.2.13.** $x(t)=(t^2,t^3)$ est un homéomorphisme $C^\infty$ de $\mathbb R$ sur $S=\{y^2=x^3\}$ : le test des composantes est réussi ($2$ branches en $(0,0)$). Mais $x'(t)=(2t,3t^2)$ s'annule en $t=0$ : $dx_0$ n'est pas injective, la condition 3 échoue, et aucun autre paramétrage local en $(0,0)$ n'est une immersion. Regardez la flèche vitesse se réduire à rien quand $p\to(0,0)$.`,
       },
       boucle: {
         name: 'boucle  t ↦ (t³−4t, t²−4)', view: [-5.2, 5.2, -4.7, 2.5], t0: 2, special: 'boucle', hasT: true,
-        polys: () => [polyline(range(-2.5, 2.5, 400), t => t * t * t - 4 * t, t => t * t - 4, t => 3 * t * t - 4, t => 2 * t)],
+        polys: () => [polyline(range(-2.8, 2.8, 400), t => t * t * t - 4 * t, t => t * t - 4, t => 3 * t * t - 4, t => 2 * t)],
         info: String.raw`**Exemple IX.2.14.** $x(t)=(t^3-4t,\,t^2-4)$ est une immersion en tout point ($x'(t)=(3t^2-4,\,2t)$ ne s'annule jamais) mais $x(2)=x(-2)=(0,0)$ : **point double**, avec **4** composantes une fois $(0,0)$ retiré. Le paramétrage global n'est pas un homéomorphisme sur son image ; l'image n'est pas une sous-variété (même si chaque *morceau* $x(]t_0-\varepsilon,t_0+\varepsilon[)$ en est une).`,
       },
       folium: {
-        name: 'folium de Descartes  t ↦ (3t, 3t²)/(1+t³)', view: [-3.2, 3.2, -2.4, 3.2], t0: 0, special: 'folium', hasT: true,
+        name: 'folium de Descartes  t ↦ (3t, 3t²)/(1+t³)', view: [-3.2, 3.2, -2.4, 3.2], t0: 0, special: 'folium', hasT: true, reachOk: s => s.t <= 300,
         polys: () => {
           const fx = t => 3 * t / (1 + t * t * t), fy = t => 3 * t * t / (1 + t * t * t);
           const dx = t => 3 * (1 - 2 * t * t * t) / Math.pow(1 + t * t * t, 2), dy = t => (6 * t - 3 * t * t * t * t) / Math.pow(1 + t * t * t, 2);
-          const ts = range(-0.9, 1, 400).concat(geom(1, 1e4, 900));
+          const ts = range(-0.95, 1, 400).concat(geom(1, 1e4, 900));
           return [polyline(ts, fx, fy, dx, dy)];
         },
         info: String.raw`**Exemple IX.2.15.** $x(t)=\bigl(\frac{3t}{1+t^3},\frac{3t^2}{1+t^3}\bigr)$, $t\in]-1;+\infty[$, est une immersion **injective**. Pourtant, près de $(0,0)=x(0)$, l'ensemble a **3** branches (venant de $t<0$, de $t>0$ et de $t\to+\infty$ qui s'accumule sur l'origine). Condition 2 en défaut : $x$ n'est pas un homéomorphisme sur son image, $x(t)\to(0,0)$ quand $t\to+\infty$ sans que $t\to0$. Cliquez **Parcourir**.`,
@@ -4072,9 +4072,17 @@ FMA.registerViz({
       const S = SETS[key];
       const polys = S.polys();
       const flat = []; polys.forEach((pl, a) => pl.forEach((s, b) => { s.poly = a; s.k = b; s.i = flat.length; flat.push(s); }));
-      data = { polys, flat, pts: polys.map(pl => pl.map(s => [s.x, s.y])) };
+      // indices atteignables par p : échantillons dans la fenêtre (marge 8 %), jamais les extrémités tronquées (hors fenêtre)
+      const v = S.view, mx = 0.08 * (v[1] - v[0]), my = 0.08 * (v[3] - v[2]);
+      let reach = flat.filter(s => s.x >= v[0] + mx && s.x <= v[1] - mx && s.y >= v[2] + my && s.y <= v[3] - my && (!S.reachOk || S.reachOk(s))).map(s => s.i);
+      if (!reach.length) reach = flat.map(s => s.i);
+      const rpos = new Map(); reach.forEach((idx, r) => rpos.set(idx, r));
+      data = { polys, flat, pts: polys.map(pl => pl.map(s => [s.x, s.y])), reach, rpos };
       pi = specialIndex();
     }
+    // position (fraction dans [0,1]) <-> indice atteignable
+    function fracToIdx(f) { const r = data.reach; return r[Math.max(0, Math.min(r.length - 1, Math.round(f * (r.length - 1))))]; }
+    function idxToFrac() { const r = data.reach; if (data.rpos.has(pi)) return data.rpos.get(pi) / (r.length - 1); let best = 0, bd = Infinity; r.forEach((idx, k) => { const d = Math.abs(idx - pi); if (d < bd) { bd = d; best = k; } }); return best / (r.length - 1); }
     function specialIndex() {
       const S = SETS[key]; const f = data.flat;
       if (key === 'croix') return f.findIndex(s => Math.abs(s.x) < 1e-12 && Math.abs(s.y) < 1e-12);
@@ -4120,7 +4128,7 @@ FMA.registerViz({
     fitSel(sel);
     const row = kit.row(controls);
     const rhoS = kit.slider(row, { label: '$\\rho$', min: 0.05, max: 2, step: 0.01, value: 0.35, onChange: draw });
-    const posS = kit.slider(row, { label: 'position de $p$', min: 0, max: 1, step: 0.001, value: 0, format: v => (+v).toFixed(2), onChange: v => { stop(); pi = Math.round(v * (data.flat.length - 1)); draw(); } });
+    const posS = kit.slider(row, { label: 'position de $p$', min: 0, max: 1, step: 0.001, value: 0, format: v => (+v).toFixed(2), onChange: v => { stop(); pi = fracToIdx(v); draw(); } });
     const row2 = kit.row(controls);
     kit.button(row2, { label: 'p = point singulier', onClick: () => { stop(); pi = specialIndex(); syncPos(); draw(); } });
     const playBtn = kit.button(row2, { label: 'Parcourir', primary: true, onClick: () => { if (playing) stop(); else start(); } });
@@ -4129,12 +4137,12 @@ FMA.registerViz({
     const infoEl = document.createElement('div'); infoEl.className = 'viz-note'; container.appendChild(infoEl);
 
     function setInfo() { infoEl.innerHTML = ''; kit.md(infoEl, SETS[key].info); }
-    function syncPos() { posS.value = pi / (data.flat.length - 1); }
+    function syncPos() { posS.value = idxToFrac(); }
     function stop() { if (playing) { playing.stop(); playing = null; } playBtn.textContent = 'Parcourir'; }
     function start() {
-      let f = pi / (data.flat.length - 1); if (f > 0.97) f = 0;
+      let f = idxToFrac(); if (f > 0.97) f = 0;
       playBtn.textContent = 'Pause';
-      playing = kit.animate(dt => { f += dt / 9; if (f >= 1) f = 0; pi = Math.round(f * (data.flat.length - 1)); syncPos(); draw(); });
+      playing = kit.animate(dt => { f += dt / 9; if (f >= 1) f = 0; pi = fracToIdx(f); syncPos(); draw(); });
     }
 
     // ---------------- dessin ----------------
@@ -4162,7 +4170,7 @@ FMA.registerViz({
       ctx.restore();
       ctx.fillStyle = t.muted; ctx.font = '12px system-ui, sans-serif'; ctx.textAlign = 'left'; ctx.textBaseline = 'top';
       ctx.fillText('S  (glisser p le long de S)', 8, 6);
-      if (isFinite(p.vx)) { ctx.fillStyle = t.accent2; ctx.fillText('flèche : vitesse x′(t)', 8, 22); }
+      if (isFinite(p.vx)) { ctx.fillStyle = t.accent2; ctx.fillText('flèche : vitesse x′(t) (longueur plafonnée)', 8, 22); }
     }
     function rho() { return rhoS.value; }
 
@@ -4211,8 +4219,11 @@ FMA.registerViz({
       ro.set(r);
       let msg, col;
       if (k === 2) { msg = '2 composantes : compatible avec une sous-variété de dimension 1 en ce point.'; col = ''; }
+      else if (k === 1) { msg = '1 composante ≠ 2 : impossible en dimension 1 (un intervalle ouvert privé d’un point en a 2). Compatible a priori avec m ≥ 2, mais alors S devrait aussi « ressembler » à ℝ^m aux points voisins : glissez p, le compte y vaut 2.'; col = '#d03030'; }
       else { msg = k + ' composante' + (k > 1 ? 's' : '') + ' ≠ 2 : impossible en dimension 1 (un intervalle ouvert privé d’un point en a 2) ; en dimension ≥ 2 il en faudrait 1, en dimension 0 aucune.'; col = '#d03030'; }
-      if (key === 'cusp' && Math.hypot(p.vx, p.vy) < 0.15) { msg = '2 composantes (test réussi) mais |x′(t)| ≈ 0 : dx_t non injective, la condition 3 échoue.'; col = '#d03030'; }
+      if (key === 'cercle' && k !== 2) { msg = k + ' composante' + (k > 1 ? 's' : '') + ' : ρ est trop grand, le disque contient le cercle entier. Le test ne vaut que pour ρ assez petit (réduisez ρ : on retrouve 2).'; col = '#b26a00'; }
+      if (key === 'cusp' && Math.abs(p.t) < 1e-12) { msg = '2 composantes (test réussi) mais x′(0) = (0,0) : dx_0 n’est pas injective, la condition 3 échoue pour ce paramétrage (et pour tout autre, Exercice IX.2.13).'; col = '#d03030'; }
+      else if (key === 'cusp' && Math.hypot(p.vx, p.vy) < 0.15) { msg = '2 composantes ; |x′(t)| → 0 à l’approche de (0,0). En p ≠ (0,0), x′(t) ≠ 0 et S est bien une sous-variété près de p ; c’est en (0,0) seulement que la condition 3 échoue.'; col = '#b26a00'; }
       verdict.textContent = msg; verdict.style.color = col;
     }
 
@@ -4222,7 +4233,7 @@ FMA.registerViz({
     function nearest(pos) {
       if (!L) return;
       let best = pi, bd = Infinity; const f = data.flat;
-      for (let i = 0; i < f.length; i += 1) { const [x, y] = L.toPx(f[i].x, f[i].y); const d = (x - pos.x) * (x - pos.x) + (y - pos.y) * (y - pos.y); if (d < bd) { bd = d; best = i; } }
+      for (const i of data.reach) { const [x, y] = L.toPx(f[i].x, f[i].y); const d = (x - pos.x) * (x - pos.x) + (y - pos.y) * (y - pos.y); if (d < bd) { bd = d; best = i; } }
       pi = best; syncPos(); draw();
     }
     const off = kit.drag(stL.canvas, { onDown: p => { stop(); nearest(p); }, onMove: (p, ev, down) => { if (down) nearest(p); } });
@@ -4250,7 +4261,7 @@ Pourquoi : $T_pS=\ker dF_p$ (Proposition IX.7.13), et $df_p=dg_p{}_{|T_pS}$ est 
 **Ce qu'il faut regarder.**
 * Le déterminant $\det(\nabla g,\nabla F)$ s'annule exactement aux points marqués (cercles) sur le graphe : ce sont les points où la dérivée de $g$ le long de $S$ s'annule. En un extremum local de $f$, c'est nécessaire (Théorème IX.7.31).
 * La condition est **nécessaire, pas suffisante** : avec $g=x^3$ sur l'ellipse, les points $(0,\pm1)$ vérifient la condition (même $\nabla g=0$) mais ne sont pas des extrema : le graphe y a un point d'inflexion.
-* **Hypothèse « $0$ valeur régulière »** : avec le rebroussement $F=y^2-x^3$ et $g=x$, le minimum de $g$ sur $S$ est en $(0,0)$, mais $\nabla F(0,0)=0$ et $\nabla g=(1,0)$ n'est pas proportionnel à $\nabla F$ : le théorème ne s'applique pas, on rate le minimum. La lemniscate a la même difficulté à son point double.
+* **Hypothèse « $0$ valeur régulière »** : avec le rebroussement $F=y^2-x^3$ et $g=x$, le minimum de $g$ sur $S$ est en $(0,0)$, mais $\nabla F(0,0)=0$ alors que $\nabla g(0,0)=(1,0)\neq0$ : aucun $w$ ne vérifie $\nabla g=w\,\nabla F$. Le point $(0,0)$ est critique pour $F$, donc $0=F(0,0)$ n'est pas valeur régulière : la Proposition IX.7.35 ne s'applique pas, et la recherche des seuls points « $\nabla g\parallel\nabla F$ » rate le minimum. (D'ailleurs $S$ n'est pas une sous-variété en $(0,0)$, Exercice IX.2.13.) La lemniscate a la même difficulté à son point double $(0,0)$, où $\nabla F=0$.
 * Le multiplicateur $w$ lu à l'écran est le rapport $\nabla g=w\,\nabla F$ aux points de Lagrange.`,
   related: ['ch09-multiplicateurs-lagrange', 'ch09-extremum-local-differentielle-nulle', 'ch09-espace-tangent-graphe-equation', 'ch09-point-critique-sous-variete-def'],
   height: 640,
@@ -4291,7 +4302,7 @@ Pourquoi : $T_pS=\ker dF_p$ (Proposition IX.7.13), et $df_p=dg_p{}_{|T_pS}$ est 
     const fitSel = x => { x.el.style.flex = '1 1 100%'; x.el.style.minWidth = '0'; x.el.style.maxWidth = '100%'; x.select.style.flex = '1 1 0'; x.select.style.width = '100%'; x.select.style.minWidth = '0'; };
     fitSel(selC); selC.el.style.flex = '1 1 230px'; fitSel(selG); selG.el.style.flex = '1 1 200px';
     const row = kit.row(controls);
-    const tS = kit.slider(row, { label: 'position $t$', min: 0, max: 2 * PI, step: 0.005, value: tcur, onChange: v => { stop(); tcur = v; draw(); } });
+    const tS = kit.slider(row, { label: 'position $t$', min: 0, max: 2 * PI, step: 0.005, value: tcur, onChange: v => { stop(); setT(v); } });
     const cLev = kit.checkbox(row, { label: 'lignes de niveau', checked: true, onChange: draw });
     const row2 = kit.row(controls);
     const btnL = kit.button(row2, { label: 'aller à un point de Lagrange', onClick: () => { stop(); gotoLagrange(); } });
@@ -4422,7 +4433,7 @@ Pourquoi : $T_pS=\ker dF_p$ (Proposition IX.7.13), et $df_p=dg_p{}_{|T_pS}$ est 
       let r = `p = (${px.toFixed(2)}, ${py.toFixed(2)}) &nbsp; ∇F = (${gF[0].toFixed(2)}, ${gF[1].toFixed(2)}) &nbsp; ∇g = (${gg[0].toFixed(2)}, ${gg[1].toFixed(2)}) &nbsp; det(∇g,∇F) = ${(Math.abs(det) < 5e-4 ? 0 : det).toFixed(3)}`;
       let m = '', col = '';
       if (nF < 1e-6) {
-        m = '∇F(p) = 0 : 0 n\u2019est pas valeur régulière de F en p. Le théorème des multiplicateurs ne s\u2019applique pas ici (et S n\u2019est pas une sous-variété en p).';
+        m = '∇F(p) = 0 : p est un point critique de F, donc 0 = F(p) n\u2019est pas une valeur régulière de F. La Proposition IX.7.35 ne s\u2019applique pas (ici, S n\u2019est d\u2019ailleurs pas une sous-variété en p).';
         col = '#d03030';
       } else if (Math.abs(det) < 0.02 * Math.max(1e-9, Math.hypot(gg[0], gg[1]) * nF) + 1e-9) {
         const w = (gg[0] * gF[0] + gg[1] * gF[1]) / (nF * nF);
@@ -4433,14 +4444,14 @@ Pourquoi : $T_pS=\ker dF_p$ (Proposition IX.7.13), et $df_p=dg_p{}_{|T_pS}$ est 
       } else {
         m = 'Gradients non colinéaires : la ligne de niveau coupe S transversalement, g|S varie en p (ni extremum ni point critique).';
       }
-      if (ck === 'cusp' && gk === 'x' && tcur !== 0 && Math.abs(tcur) < 0.1) m += ' Le minimum de g sur S est en (0,0), où ∇F = 0.';
+      if (ck === 'cusp' && gk === 'x' && tcur !== 0 && Math.abs(tcur) < 0.1) m += ' Le minimum de g sur S est en (0,0), où ∇F = 0 : le bouton « aller à un point de Lagrange » y mène (aucun point de Lagrange ailleurs).';
       ro.set(r); msg.textContent = m; msg.style.color = col;
     }
 
     function draw() { try { drawMain(); drawGraph(); updateText(); } catch (e) { console.error(e); } }
 
     // ------------ interactions ------------
-    function setT(tt) { tcur = tclamp(tt); tS.value = tcur; draw(); }
+    function setT(tt) { tcur = tclamp(tt); const sg = (sing || []).find(u => Math.abs(u - tcur) < 0.012); if (sg !== undefined) tcur = tclamp(sg); tS.value = tcur; draw(); }
     function gotoLagrange() {
       if (!lag.length) { if (ck === 'cusp') { setT(0); } return; }
       let best = null; const cs = lag.slice().sort((a, b) => a - b);
@@ -4483,9 +4494,9 @@ et le plan qu'ils engendrent est l'**espace tangent** $T_pS=dx_q(\mathbb R^2)$ (
 
 **Ce qu'il faut regarder.**
 * **Cochez « courbes par $p$ »** : on trace les images $t\mapsto x(q+tw)$ de huit droites de $U$ passant par $q$, avec leurs vecteurs vitesses $dx_q(w)=w_1x_u+w_2x_v$ en $p$ (Définition IX.7.8, p. 160). Tous sont dans le plan tangent, et ils le remplissent : c'est exactement $T_pS=dx_q(\mathbb R^2)$, un plan (dimension $m=2$) parce que $dx_q$ est **injective** (condition 3 de la Définition IX.2.1, p. 148).
-* **Sphère** : approchez-vous des pôles ($v\to\pm\pi/2$). Le vecteur $x_u$ s'écrase vers $0$, l'aire $\|x_u\times x_v\|$ tend vers $0$ et le plan tangent dégénère : $dx_q$ n'est plus injective, donc $x$ n'est **pas** un paramétrage local aux pôles (il faut y utiliser un autre paramétrage ; un seul ne suffit pas pour toute la sphère). Le domaine $U$ doit être *ouvert* : $]-\pi,\pi[\times]-\pi/2,\pi/2[$.
-* **Cône** $x(u,v)=(v\cos u,v\sin u,v)$ : sur la droite $v=0$ le paramétrage n'est pas une immersion ($x_u=0$). Ce n'est pas un hasard : le cône n'est pas une sous-variété au sommet (Exercice IX.7.12) ; en restreignant à $v>0$ (une seule nappe, sommet exclu) on retrouve un vrai paramétrage.
-* **Graphe** $x(u,v)=(u,v,h(u,v))$ : $x_u=(1,0,h_u)$, $x_v=(0,1,h_v)$ sont toujours indépendants, et le plan tangent est le graphe de $dh_q$ (Proposition IX.7.13 : c'est l'approximation affine de $h$).
+* **Sphère** : approchez-vous des pôles ($v\to\pm\pi/2$). Le vecteur $x_u$ s'écrase vers $0$ ($\|x_u\|=\cos v$), l'aire $\|x_u\times x_v\|$ tend vers $0$ et, au pôle même, $x_u=0$ : $dx_q$ n'est plus injective, l'image $dx_q(\mathbb R^2)$ n'est plus un plan. La sphère, elle, est une sous-variété et possède bien un plan tangent horizontal au pôle : c'est **ce paramétrage** qui est en défaut, pas la surface. Il faut y utiliser un autre paramétrage (un seul ne couvre jamais toute la sphère), et c'est pourquoi le domaine est l'*ouvert* $U=\,]-\pi,\pi[\times]-\pi/2,\pi/2[$, qui exclut les pôles (et le méridien $u=\pm\pi$).
+* **Cône** $x(u,v)=(v\cos u,v\sin u,v)$ : sur la droite $v=0$ le paramétrage n'est pas une immersion ($x_u=(-v\sin u,v\cos u,0)=0$), et il n'y est même pas injectif (toute la droite $v=0$ est écrasée sur le sommet). Ce n'est pas un hasard : le cône $x^2+y^2=z^2$ n'est pas une sous-variété au sommet (Exercice IX.7.12) ; en restreignant à $v>0$ (une seule nappe, sommet exclu) on retrouve un vrai paramétrage local.
+* **Graphe** $x(u,v)=(u,v,h(u,v))$ : $x_u=(1,0,h_u)$, $x_v=(0,1,h_v)$ sont toujours indépendants, et $T_pS$ est le graphe de l'application linéaire $dh_q$ (Proposition IX.7.13) ; le plan tangent affine dessiné est le graphe de l'approximation affine $h(q)+dh_q(\cdot)$ de $h$.
 * **Toutes les surfaces** : le plan tangent (en couleur) est la meilleure approximation affine de $S$ en $p$ ; il est orthogonal à la normale $x_u\times x_v$ (case « normale »).`,
   related: ['ch09-sous-variete-def', 'ch09-espace-tangent-image-dx', 'ch09-base-espace-tangent', 'ch09-vecteur-tangent-espace-tangent-def', 'ch09-espace-tangent-graphe-equation'],
   height: 520,
@@ -4591,9 +4602,14 @@ et le plan qu'ils engendrent est l'**espace tangent** $T_pS=dx_q(\mathbb R^2)$ (
       ctx.strokeStyle = t.accent3; ctx.beginPath(); ctx.moveTo(px(q[0]), by0); ctx.lineTo(px(q[0]), by1); ctx.stroke();
       // droites par q (courbes par p)
       if (cCurves.value) {
-        const d = 0.2 * Math.min(bx1 - bx0, by0 - by1);
+        const d = 0.2 * Math.min(S.u1 - S.u0, S.v1 - S.v0);
         ctx.strokeStyle = t.accent4; ctx.lineWidth = 1.5;
-        for (let k = 0; k < 8; k++) { const a = k * PI / 8; ctx.beginPath(); ctx.moveTo(px(q[0]) - d * Math.cos(a), py(q[1]) + d * Math.sin(a)); ctx.lineTo(px(q[0]) + d * Math.cos(a), py(q[1]) - d * Math.sin(a)); ctx.stroke(); }
+        for (let k = 0; k < 8; k++) {
+          const a = k * PI / 8, w = [Math.cos(a), Math.sin(a)];
+          ctx.beginPath(); let first = true;
+          for (let i = -20; i <= 20; i++) { const tt = d * i / 20, u = q[0] + tt * w[0], v = q[1] + tt * w[1]; if (!inU(u, v)) { first = true; continue; } if (first) { ctx.moveTo(px(u), py(v)); first = false; } else ctx.lineTo(px(u), py(v)); }
+          ctx.stroke();
+        }
       }
       // axes labels
       ctx.fillStyle = t.muted; ctx.font = '11px system-ui, sans-serif'; ctx.textAlign = 'center'; ctx.textBaseline = 'top';
@@ -4605,13 +4621,14 @@ et le plan qu'ils engendrent est l'**espace tangent** $T_pS=dx_q(\mathbb R^2)$ (
       ctx.textAlign = 'left'; ctx.textBaseline = 'top'; ctx.fillStyle = t.fg; ctx.font = '12px system-ui, sans-serif';
       ctx.fillText('ouvert U ⊂ ℝ²', bx0 + 6, by1 + 4);
       // point q
-      const degenerate = currentArea() < 0.1;
-      ctx.fillStyle = degenerate ? '#d03030' : t.accent4; ctx.strokeStyle = t.bg; ctx.lineWidth = 2;
+      const A = currentArea();
+      ctx.fillStyle = A < 1e-6 ? '#d03030' : A < 0.1 ? '#b26a00' : t.accent4; ctx.strokeStyle = t.bg; ctx.lineWidth = 2;
       ctx.beginPath(); ctx.arc(px(q[0]), py(q[1]), 7, 0, 2 * PI); ctx.fill(); ctx.stroke();
       ctx.fillStyle = t.fg; ctx.textAlign = 'left'; ctx.textBaseline = 'bottom'; ctx.fillText('q', px(q[0]) + 9, py(q[1]) - 6);
       ctx.restore();
     }
     function currentArea() { const [xu, xv] = partials(q[0], q[1]); return nrm(cross(xu, xv)); }
+    function inU(u, v) { const S = SURF[cur]; return u >= S.u0 - 1e-9 && u <= S.u1 + 1e-9 && v >= S.v0 - 1e-9 && v <= S.v1 + 1e-9; }
 
     // ---------- dessin de S ----------
     function drawS() {
@@ -4657,7 +4674,9 @@ et le plan qu'ils engendrent est l'**espace tangent** $T_pS=dx_q(\mathbb R^2)$ (
           const a = k * PI / 8, w = [Math.cos(a), Math.sin(a)];
           let prev = null;
           for (let i = -20; i <= 20; i++) {
-            const tt = d * i / 20; const s = P(f(q[0] + tt * w[0], q[1] + tt * w[1]));
+            const tt = d * i / 20, u = q[0] + tt * w[0], v = q[1] + tt * w[1];
+            if (!inU(u, v)) { prev = null; continue; }
+            const s = P(f(u, v));
             if (prev) seg(prev, s, t.accent4, 1.8, 0.95); prev = s;
           }
           const vel = add(mulk(xu, w[0]), mulk(xv, w[1])); const tip = P(add(p, mulk(vel, sz * 0.9)));
@@ -4677,8 +4696,8 @@ et le plan qu'ils engendrent est l'**espace tangent** $T_pS=dx_q(\mathbb R^2)$ (
         if (L > 1e-6) { n = mulk(n, 0.5 * S.R / L); const tn = P(add(p, n)); ctx.setLineDash([4, 3]); kit.arrow(ctx, sp[0], sp[1], tn[0], tn[1], { color: t.fg, width: 1.6, head: 7 }); ctx.setLineDash([]); ctx.fillStyle = t.fg; ctx.fillText('x_u × x_v', tn[0] + 5, tn[1]); }
       }
       // point p
-      const degenerate = currentArea() < 0.1;
-      ctx.fillStyle = degenerate ? '#d03030' : t.accent4; ctx.strokeStyle = t.bg; ctx.lineWidth = 2;
+      const A = currentArea();
+      ctx.fillStyle = A < 1e-6 ? '#d03030' : A < 0.1 ? '#b26a00' : t.accent4; ctx.strokeStyle = t.bg; ctx.lineWidth = 2;
       ctx.beginPath(); ctx.arc(sp[0], sp[1], 6, 0, 2 * PI); ctx.fill(); ctx.stroke();
       ctx.fillStyle = t.fg; ctx.textBaseline = 'bottom'; ctx.fillText('p = x(q)', sp[0] + 9, sp[1] - 6);
       ctx.fillStyle = t.muted; ctx.textBaseline = 'top'; ctx.textAlign = 'left'; ctx.fillText('S ⊂ ℝ³  (glisser pour tourner)', 8, 6);
@@ -4690,9 +4709,12 @@ et le plan qu'ils engendrent est l'**espace tangent** $T_pS=dx_q(\mathbb R^2)$ (
       const p = SURF[cur].f(q[0], q[1]);
       const f2 = a => a.map(z => (+z.toFixed(2)).toString()).join(', ');
       ro.set(`q = (${q[0].toFixed(2)}, ${q[1].toFixed(2)}) &nbsp; p = (${f2(p)}) &nbsp; |x<sub>u</sub>×x<sub>v</sub>| = ${A.toFixed(3)}`);
-      if (A < 0.1) {
+      if (A < 1e-6) {
         warn.style.color = '#d03030';
-        warn.textContent = 'Ici dx_q n’est PAS injective (' + (SURF[cur].warn || 'x_u et x_v presque colinéaires') + ') : x n’est pas un paramétrage local en ce point, le « plan tangent » dégénère.';
+        warn.textContent = 'Ici dx_q n’est PAS injective (' + (SURF[cur].warn || 'x_u et x_v colinéaires') + ') : x n’est pas un paramétrage local en ce point, et dx_q(ℝ²) n’est pas un plan.' + (cur === 'sphere' ? ' La sphère a pourtant un plan tangent (horizontal) au pôle : c’est ce paramétrage qui est en défaut, pas la surface.' : cur === 'cone' ? ' Le cône n’est pas une sous-variété au sommet (Exercice IX.7.12).' : '');
+      } else if (A < 0.1) {
+        warn.style.color = '#b26a00';
+        warn.textContent = 'dx_q est encore injective (|x_u×x_v| = ' + A.toFixed(3) + ' > 0) mais presque dégénérée : ' + (cur === 'sphere' ? 'au pôle même (v = ±π/2), x_u = 0.' : cur === 'cone' ? 'sur la droite v = 0, x_u = 0.' : 'x_u et x_v sont presque colinéaires.');
       } else {
         warn.style.color = '';
         warn.textContent = 'dx_q est injective : (x_u, x_v) est une base de T_pS (plan tangent, dimension 2).';
