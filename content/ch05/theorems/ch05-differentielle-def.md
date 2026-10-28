@@ -46,7 +46,7 @@ $$
 
 ### H2 — $df_a$ linéaire **et continue**
 
-**Rôle.** La continuité de $df_a$ entraîne la continuité de $f$ en $a$ ([[ch05-differentiable-implique-continue]]). En dimension finie elle est automatique ; en dimension infinie, sans elle, une forme linéaire non continue $\varphi$ vérifierait (V.3.1) avec $df_a=\varphi$ (reste nul) tout en étant discontinue partout.
+**Rôle.** La continuité de $df_a$ entraîne la continuité de $f$ en $a$ ([[ch05-differentiable-implique-continue]]). En dimension finie elle est automatique ; en dimension infinie, sans elle, une forme linéaire non continue $\varphi$ (prise comme fonction $f=\varphi$) vérifierait (V.3.1) avec $df_a=\varphi$ (reste identiquement nul) tout en étant discontinue partout ; exemple explicite dans [[ch05-differentiable-implique-continue]].
 
 ### H3 — Les normes de $E$ et $F$
 

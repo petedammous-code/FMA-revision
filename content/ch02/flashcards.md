@@ -14,10 +14,10 @@ On n'exige pas que les $t\mapsto\gamma(s,t)$ intermédiaires soient $C^1$ par mo
 ### Q
 Donner un ouvert connexe **non** simplement connexe, et un ouvert dont chaque composante est simplement connexe mais qui ne l'est pas. Comment prouve-t-on la non-simple-connexité ?
 ### R
-* $\C^\times=\C\setminus\{0\}$ (ou une couronne $\{1<|z|<2\}$) : le cercle unité n'y est pas homotope à un lacet constant. Preuve : sinon, par invariance par homotopie, $\int_{C(0,1)}\frac{dz}{z}=0$, or cette intégrale vaut $2i\pi$ ($1/z$ est holomorphe sur $\C^\times$).
+* $\C^\times=\C\setminus\{0\}$ : le cercle unité $C(0,1)$ n'y est pas homotope à un lacet constant. Preuve : sinon, par invariance par homotopie (Théorème II.2.1 appliqué à $f(z)=1/z$, holomorphe sur $\C^\times$), $\int_{C(0,1)}\frac{dz}{z}$ serait égale à l'intégrale sur un lacet constant, c'est-à-dire $0$ ; or elle vaut $2i\pi$. Même argument pour la couronne $\{1<|z|<2\}$ avec le cercle $C(0,3/2)$ (attention : le cercle unité n'est **pas** contenu dans cette couronne).
 * Deux disques disjoints : chaque composante est un disque, mais l'ouvert n'est pas **connexe**, donc pas simplement connexe par définition.
 
-## CARD id=fc-ch02-003 ref=ch02-ouvert-etoile-def tags=definition
+## CARD id=fc-ch02-003 ref=ch02-ouvert-etoile-def tags=definition,enonce
 ### Q
 Définir un ouvert **étoilé**. Donner des exemples et un contre-exemple.
 ### R
@@ -74,7 +74,7 @@ Corollaire II.2.2 : que se passe-t-il si $\Omega$ n'est pas simplement connexe, 
 * $\Omega=\C^\times$, $f(z)=1/z\in\Hol(\Omega)$, $\gamma=C(0,1)$ : $\int_\gamma f=2i\pi\neq0$. Le « trou » $0$ de $\Omega$ agit comme une singularité cachée.
 * $\Omega=\C$ (simplement connexe) mais $f=1/z$ seulement méromorphe : même calcul, $2i\pi$. Il faut alors la formule des résidus.
 
-## CARD id=fc-ch02-010 ref=ch02-indice-def tags=definition,formule
+## CARD id=fc-ch02-010 ref=ch02-indice-def tags=definition,enonce,formule
 ### Q
 Définir l'indice $\Ind_{z_0}(\gamma)$ d'un lacet $\gamma$ en un point $z_0$ (avec les conditions).
 ### R
@@ -114,7 +114,7 @@ S'il existe une homotopie (de lacets) **dans $\C\setminus\{z_0\}$** entre deux l
 
 Condition cruciale : **aucun** lacet intermédiaire $\gamma_s$ ne passe par $z_0$. Sinon : $C(0,1)$ et un lacet constant sont homotopes dans $\C$ mais d'indices $1$ et $0$ en $0$.
 
-## CARD id=fc-ch02-015 ref=ch02-discret-accumulation-localement-fini-def tags=definition
+## CARD id=fc-ch02-015 ref=ch02-discret-accumulation-localement-fini-def tags=definition,enonce
 ### Q
 Définir : partie **discrète**, **point d'accumulation**, partie **localement finie** dans un ouvert $\Omega$.
 ### R
@@ -196,7 +196,7 @@ Si $\Omega$ est **connexe**, $\mathcal M(\Omega)$ est un corps (extension de dim
 
 Si $\Omega=\Omega_1\sqcup\Omega_2$ n'est pas connexe, $f=\mathbf 1_{\Omega_1}$ est méromorphe non nulle mais non inversible ($f\cdot\mathbf 1_{\Omega_2}=0$ : diviseurs de zéro).
 
-## CARD id=fc-ch02-025 ref=ch02-residu-def tags=definition
+## CARD id=fc-ch02-025 ref=ch02-residu-def tags=definition,enonce
 ### Q
 Définir le résidu $\Res_{z_0}(f)$ d'une fonction méromorphe en $z_0$.
 ### R
@@ -392,7 +392,7 @@ $f(z)=1/z$ sur $\C^\times$ n'a pas de primitive holomorphe : sinon $\int_{C(0,1)
 
 La connexité sert à l'unicité à constante près (sur deux composantes, deux constantes différentes) et à relier tout point à $z_0$ par un chemin.
 
-## CARD id=fc-ch02-050 ref=ch02-logarithme-def tags=definition
+## CARD id=fc-ch02-050 ref=ch02-logarithme-def tags=definition,enonce
 ### Q
 Définir un **logarithme** d'une fonction holomorphe $h$. Est-il unique ?
 ### R
@@ -414,7 +414,7 @@ Logarithme : contre-exemples si $\Omega$ n'est pas simplement connexe ou si $h$ 
 * Si $h$ s'annule, $h'/h$ a un pôle (de résidu la multiplicité) : pas de logarithme au voisinage du zéro.
 * Non : $h=e^z$ a le logarithme $z$ sur n'importe quel ouvert. L'obstruction est $\int_\gamma h'/h\neq0$ pour un lacet $\gamma$.
 
-## CARD id=fc-ch02-053 ref=ch02-logarithme-determination-principale-def tags=definition,formule
+## CARD id=fc-ch02-053 ref=ch02-logarithme-determination-principale-def tags=definition,enonce,formule
 ### Q
 Définir la **détermination principale** du logarithme ; formule explicite et propriétés.
 ### R
@@ -422,7 +422,7 @@ Sur $\C\setminus\R_-$ (coupure $\R_-$ ; ouvert étoilé en $1$), $\mathrm{Log}$ 
 
 Propriétés (Exercice II.9.4, p. 56) :
 $$\mathrm{Log}(z)=\log r+i\,\mathrm{Arg}(z)\quad(z=re^{i\theta},\ \mathrm{Arg}(z)=\theta\in\,]-\pi,\pi[),$$
-$\exp(\mathrm{Log}\,z)=z$ sur $\C\setminus\R_-$ ; $\mathrm{Log}(\exp z)=z$ si $-\pi<\Im(z)<\pi$ ; $\mathrm{Log}(z_1)+\mathrm{Log}(z_2)=\mathrm{Log}(z_1z_2)\bmod 2i\pi$.
+$\exp(\mathrm{Log}\,z)=z$ sur $\C\setminus\R_-$ ; $\mathrm{Log}(\exp z)=z$ si $-\pi<\Im(z)<\pi$ ; $\mathrm{Log}(z_1)+\mathrm{Log}(z_2)=\mathrm{Log}(z_1z_2)\bmod 2i\pi$ pour $z_1,z_2\in\C\setminus\R_-$ tels que $z_1z_2\in\C\setminus\R_-$.
 
 ## CARD id=fc-ch02-054 ref=ch02-logarithme-determination-principale-def tags=contre-exemple
 ### Q
@@ -433,7 +433,7 @@ Tous faux en général.
 * $\mathrm{Log}(e^{2i\pi})=\mathrm{Log}(1)=0\neq2i\pi$.
 * En $x<0$, limites $\log|x|+i\pi$ (par le haut) et $\log|x|-i\pi$ (par le bas) : saut de $2i\pi$.
 
-## CARD id=fc-ch02-055 ref=ch02-puissance-complexe-def tags=definition
+## CARD id=fc-ch02-055 ref=ch02-puissance-complexe-def tags=definition,enonce
 ### Q
 Définir $h^\alpha$ et $z^\alpha$ ($\alpha\in\C$). Propriétés d'holomorphie.
 ### R
@@ -446,7 +446,7 @@ Si $\mathrm{Log}(h)$ est un logarithme de $h$ : $h^\alpha(z):=e^{\alpha\,\mathrm
 Résultat et schéma de calcul de $\displaystyle\int_0^{+\infty}\frac{x^{\alpha-1}}{1+x}dx$, $0<\alpha<1$ (Exemple II.9.7).
 ### R
 $$\int_0^{+\infty}\frac{x^{\alpha-1}}{1+x}dx=\frac{\pi}{\sin(\alpha\pi)}.$$
-$f(z)=\frac{z^{\alpha-1}}{1+z}$ avec $z^{\alpha-1}=e^{(\alpha-1)\mathrm{Log}z}$ pour la détermination de **coupure $\R_+$**, argument dans $]0,2\pi[$ (pas la principale !). Pôle simple $-1=e^{i\pi}$, $\Res_{-1}(f)=e^{(\alpha-1)i\pi}=-e^{i\alpha\pi}$. Contour en trou de serrure : $C_R$ ($\le2\pi R^{\alpha-1}\to0$ car $\alpha<1$), $C_\eps$ ($\le2\pi\eps^\alpha\to0$ car $\alpha>0$), $\gamma_+\to J$, $\gamma_-\to-e^{2i\pi\alpha}J$. D'où $J(1-e^{2i\pi\alpha})=-2i\pi e^{i\alpha\pi}$. (poly, Exemple II.9.7, p. 57)
+$f(z)=\frac{z^{\alpha-1}}{1+z}$ avec $z^{\alpha-1}=e^{(\alpha-1)\mathrm{Log}z}$ pour la détermination de **coupure $\R_+$**, argument dans $]0,2\pi[$ (pas la principale !). Pôle simple $-1=e^{i\pi}$, $\Res_{-1}(f)=e^{(\alpha-1)i\pi}=-e^{i\alpha\pi}$. Contour en trou de serrure $\Gamma_{\eps,R}=\gamma_+\vee C_R\vee\gamma_-\vee C_\eps$ : $\gamma_+$ de $\eps$ à $R$ au-dessus de l'axe ($z=xe^{i0}$), $C_R$ sens direct ($\le2\pi R^{\alpha-1}\to0$ car $\alpha<1$), $\gamma_-$ de $R$ à $\eps$ en dessous ($z=xe^{2i\pi}$), $C_\eps$ sens **horaire** ($\le2\pi\eps^\alpha\to0$ car $\alpha>0$) ; $\int_{\gamma_+}\to J$, $\int_{\gamma_-}\to-e^{2i\pi\alpha}J$. D'où $J(1-e^{2i\pi\alpha})=-2i\pi e^{i\alpha\pi}$. (poly, Exemple II.9.7, p. 57)
 
 ## CARD id=fc-ch02-057 ref=ch02-laurent-couronne-cauchy tags=enonce,formule
 ### Q

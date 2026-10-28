@@ -15,7 +15,7 @@ tags: [multilineaire, bilineaire, continuite, borne]
 
 Une application $f:E_1\times\cdots\times E_n\to F$ est **multilinéaire** (bilinéaire si $n=2$) si elle est linéaire en chaque variable quand on fixe les autres. Exemples : le produit $(x,y)\mapsto xy$ sur $\R\times\R$, un produit scalaire, le déterminant, le produit de matrices $(A,B)\mapsto AB$.
 
-Attention, une application multilinéaire n'est **pas** linéaire sur le produit : $(x,y)\mapsto xy$ n'est pas bornée sur $\R^2$ tout entier, seulement sur $[-1,1]^2$.
+Attention, une application multilinéaire n'est **pas** linéaire sur le produit : pour $f(x,y)=xy$, $f(2x,2y)=4f(x,y)\neq2f(x,y)$. Elle n'est pas non plus lipschitzienne sur $\R^2$ tout entier (seulement bornée sur $[-1,1]^2$, et localement lipschitzienne).
 
 ## Énoncé
 
@@ -102,7 +102,7 @@ $$
 
 * **Produit réel.** $f(x,y)=xy$ sur $\R\times\R$ : $|f|\le1$ sur $[-1,1]^2$, donc $f$ est continue et $|f(x,y)|\le|x|\,|y|$. Le majorant de l'étape 3 en $a=(a_1,a_2)$ est $(|a_1|+1)(|a_2|+1)$ : il croît avec $a$, et $f$ n'est pas uniformément continue sur $\R^2$ ($f(n+\frac1n,n)-f(n,n)=1$ alors que l'écart des points tend vers $0$).
 * **Produit de matrices.** $(A,B)\mapsto AB$ sur $\mathrm M_n(\R)\times\mathrm M_n(\R)$ muni d'une norme d'opérateur : $\|AB\|\le\|A\|\,\|B\|\le1$ sur le produit des boules unités ([[ch05-lef-banach-norme-algebre]]), donc l'application est bilinéaire continue.
-* **Une bilinéaire non continue.** Sur $E=\R[X]$ muni de $\|P\|=\sup_{[0,1]}|P|$, $f(P,Q)=P'(1)\,Q(1)$ est bilinéaire, mais $f(X^m,1)=m$ avec $\|X^m\|=\|1\|=1$ : (c) est fausse, donc $f$ n'est continue nulle part (ni en $0$).
+* **Une bilinéaire non continue.** Sur $E=\R[X]$ muni de $\|P\|=\sup_{[0,1]}|P|$, $f(P,Q)=P'(1)\,Q(1)$ est bilinéaire, mais $f(X^m,1)=m$ avec $\|X^m\|=\|1\|=1$ : (c) est fausse, donc $f$ n'est pas continue en $0$ (ni, d'après la proposition, en tout point). Elle n'est même continue **nulle part** : pour une bilinéaire, l'identité $2f(h,k)=\big[f(a+h,b+k)-f(a,b)\big]+\big[f(a-h,b-k)-f(a,b)\big]$ montre que la continuité en un point $(a,b)$ entraîne la continuité en $0$.
 
 ## Pièges
 

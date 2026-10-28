@@ -33,7 +33,7 @@ Autrement dit : pour tout $z_0\in\Omega$, il existe des coefficients $(a_n)_{n\g
 
 **Rôle.** En chaque point $z_0\in\Omega$, on a de la place autour de $z_0$ pour qu'un disque $D(z_0,\eps)\subset\Omega$ porte l'égalité entre $f$ et la série.
 
-**Si on la retire.** Sur un ensemble non ouvert (par exemple un segment), la notion « développable en série entière au voisinage de $z_0$ » ne parle que des valeurs de $f$ sur cet ensemble, et l'équivalence avec l'holomorphie (qui demande un ouvert) n'a plus de sens.
+**Si on la retire.** Sur un ensemble $A$ non ouvert (par exemple un segment de $\R$), un point $z_0\in A$ n'a en général aucun disque $D(z_0,\eps)$ contenu dans $A$ : l'égalité « $f(z)=\sum a_n(z-z_0)^n$ au voisinage de $z_0$ » ne peut porter que sur les points de $A$ (pour un intervalle de $\R$, on obtient la notion de fonction *analytique réelle*), et l'équivalence avec l'holomorphie ([[ch01-holomorphe-analytique]]), qui demande un ouvert de $\C$, n'a plus de sens.
 
 ### H2 — un développement en **chaque** point, de rayon $>0$ dépendant du point
 
@@ -61,6 +61,6 @@ de rayon exactement $|1-z_0|$ (Cauchy–Hadamard : $|a_n|^{1/n}=|1-z_0|^{-(n+1)/
 ## Pièges
 
 * > ⚠️ « Analytique sur $\Omega$ » ne veut **pas** dire « somme d'une seule série entière sur $\Omega$ ». C'est une série par point. Le fait qu'une fonction holomorphe sur un **disque** soit représentée par une seule série sur tout le disque est un théorème ([[ch01-estimees-cauchy]]), pas la définition.
-* Le rayon de convergence de la série en $z_0$ peut dépasser la taille de $\Omega$ autour de $z_0$, mais l'égalité avec $f$ n'est garantie qu'au voisinage de $z_0$.
+* Le rayon de convergence de la série en $z_0$ peut dépasser la distance de $z_0$ au bord de $\Omega$, mais l'égalité $f(z)=\sum a_n(z-z_0)^n$ n'est garantie que sur le plus grand disque $D(z_0,\rho(z_0))$ contenu dans $\Omega$ ([[ch01-estimees-cauchy]]), pas en tout point de $\Omega$ où la série converge. Exemple : $\Omega=\C\setminus\R_-$, $f=\mathrm{Log}$ (logarithme principal, $\Im\,\mathrm{Log}\in\,]-\pi,\pi[$), $z_0=-1+i$. Ici $\rho(z_0)=1$ mais la série de Taylor $\mathrm{Log}(z_0)+\sum_{n\ge1}\frac{(-1)^{n-1}}{n\,z_0^{\,n}}(z-z_0)^n$ a pour rayon $|z_0|=\sqrt2$ ; au point $z=-1-\tfrac{3}{10}i\in\Omega$ (avec $|z-z_0|=1{,}3<\sqrt2$), sa somme vaut $\mathrm{Log}(z)+2i\pi\neq f(z)$ (calcul numérique : la série vaut $\approx 0{,}043+3{,}433i$ et $\mathrm{Log}(z)\approx 0{,}043-2{,}850i$).
 * Une série entière de rayon $\rho>0$ est analytique sur tout son disque ouvert de convergence $D(z_0,\rho)$, mais le vérifier demande de **recentrer** la série en chaque point (Remarque I.7.2, [[ch01-serie-entiere-analytique-sur-disque]]).
 * En variable réelle, $C^\infty$ n'implique pas analytique ($e^{-1/x^2}$) ; en variable complexe, holomorphe ($C^1$ au sens complexe) implique analytique.

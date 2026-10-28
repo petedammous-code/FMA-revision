@@ -6,7 +6,7 @@ title: "Fonctions d'une variable réelle : $f'(a)=df_a(1)$"
 ref: Exemple V.3.4
 page: 98
 importance: 2
-depends: [ch05-lef-banach-norme-algebre, ch05-differentielle-def, ch05-derivee-directionnelle-unicite]
+depends: [ch05-norme-operateur-def, ch05-lef-banach-norme-algebre, ch05-differentielle-def, ch05-derivee-directionnelle-unicite]
 tags: [variable-reelle, derivee, vecteur-tangent, courbe]
 ---
 ## Intuition

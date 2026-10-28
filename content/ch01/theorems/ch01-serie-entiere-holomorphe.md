@@ -63,7 +63,7 @@ $$
 terme général d'une série convergente (car $0\le\rho/\rho'<1$). En particulier la suite $(n|a_n|\rho^{n-1})_n$ est bornée, donc $R'\ge\rho$ ; ceci pour tout $\rho<R$, d'où $R'\ge R$.
 * $R'\le R$. Pour $n\ge1$ et $\rho\ge 0$, $|a_n|\rho^n\le\rho\cdot n|a_n|\rho^{n-1}$. Si $(n|a_n|\rho^{n-1})_n$ est bornée, $(|a_n|\rho^n)_n$ l'est aussi, donc $R\ge R'$.
 
-En appliquant l'étape 1 deux fois, la série $\sum_{n\ge2}n(n-1)a_nz^{n-2}$ a aussi le rayon $R$, donc la série $\sum_{n\ge2}|a_n|\frac{n(n-1)}{2}\rho_0^{n-2}$ converge pour tout $0\le\rho_0<R$ (convergence absolue strictement à l'intérieur du disque, par la majoration géométrique ci-dessus).
+En appliquant l'étape 1 deux fois, la série $\sum_{n\ge2}n(n-1)a_nz^{n-2}$ a aussi le rayon $R$, donc la série $\sum_{n\ge2}|a_n|\frac{n(n-1)}{2}\rho_0^{n-2}$ converge pour tout $0\le\rho_0<R$ : en effet, si $\rho_0<\rho'<R$, la suite $\big(\tfrac{n(n-1)}{2}|a_n|\rho'^{\,n-2}\big)_n$ est bornée par un $M'$, donc $\tfrac{n(n-1)}{2}|a_n|\rho_0^{n-2}\le M'(\rho_0/\rho')^{n-2}$, terme général d'une série géométrique convergente (une série entière converge absolument en tout point strictement intérieur à son disque de convergence).
 
 **Étape 2 : $\C$-dérivabilité.** Soit $z\in D(0,R)$ et fixons $\rho_0$ avec $|z|<\rho_0<R$. Soit $\omega\ne0$ assez petit pour que $z+\omega\in D(0,\rho_0)$. Les trois séries $f(z+\omega)$, $f(z)$ et $\sum n a_nz^{n-1}$ convergent, et l'identité $(z+\omega)^n-z^n=\omega\sum_{k=1}^n(z+\omega)^{n-k}z^{k-1}$ donne
 $$
@@ -105,7 +105,7 @@ Avec $\rho=\max(|z|,|z+\omega|)$, la somme intérieure est majorée en module pa
 
 * **Série géométrique.** $f(z)=\sum_{n\ge0}z^n=\frac1{1-z}$ sur $D(0,1)$ ($R=1$). La proposition donne $f'(z)=\sum_{n\ge1}nz^{n-1}$, et la règle du quotient ([[ch01-formules-derivation]]) donne $f'(z)=\frac{1}{(1-z)^2}$ : d'où $\sum_{n\ge1}nz^{n-1}=\frac1{(1-z)^2}$ pour $|z|<1$. Par exemple en $z=\frac12$ : $\sum_{n\ge1}n2^{1-n}=4$.
 * **Exponentielle.** $e^z=\sum_{n\ge0}\frac{z^n}{n!}$, $R=+\infty$ (la suite $\rho^n/n!$ est bornée pour tout $\rho$). Série dérivée : $\sum_{n\ge1}\frac{nz^{n-1}}{n!}=\sum_{m\ge0}\frac{z^m}{m!}=e^z$. Donc $\exp\in\Hol(\C)$ et $\exp'=\exp$ ([[ch01-exp-trigo-hyperboliques]]).
-* **Un logarithme sur le disque.** $L(z)=\sum_{n\ge1}\frac{z^n}{n}$ a pour rayon $1$ et $L'(z)=\sum_{n\ge1}z^{n-1}=\frac1{1-z}$ sur $D(0,1)$. Posons $g(z)=(1-z)e^{L(z)}$ ; alors $g'(z)=-e^{L(z)}+(1-z)L'(z)e^{L(z)}=0$, donc $g$ est constante sur le disque (connexe), égale à $g(0)=1$ : $e^{L(z)}=\frac1{1-z}$. Ainsi $-L(z)$ est un logarithme holomorphe de $1-z$ sur $D(0,1)$ (comparer avec [[ch01-exp-image-c-etoile-log-local]]).
+* **Un logarithme sur le disque.** $L(z)=\sum_{n\ge1}\frac{z^n}{n}$ a pour rayon $1$ et $L'(z)=\sum_{n\ge1}z^{n-1}=\frac1{1-z}$ sur $D(0,1)$. Posons $g(z)=(1-z)e^{L(z)}$ ; alors $g'(z)=-e^{L(z)}+(1-z)L'(z)e^{L(z)}=0$, donc $g$ est constante sur le disque (ouvert connexe : $g'=0$ entraîne $dg=0$ par [[ch01-c-derivable-ssi-df-c-lineaire]], et une fonction de différentielle nulle sur un ouvert connexe est constante), égale à $g(0)=1$ : $e^{L(z)}=\frac1{1-z}$. Ainsi $-L(z)$ est un logarithme holomorphe de $1-z$ sur $D(0,1)$ (comparer avec [[ch01-exp-image-c-etoile-log-local]]).
 
 ## Pièges
 

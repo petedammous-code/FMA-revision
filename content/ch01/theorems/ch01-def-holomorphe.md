@@ -27,7 +27,7 @@ Le poly ajoute (p. 5) : l'hypothèse de continuité de $z\mapsto f'(z)$ est en f
 
 ### H1 — $\Omega$ est un ouvert
 
-**Rôle.** La $\C$-dérivabilité en $z$ demande de faire tendre $\omega$ vers $0$ dans toutes les directions, donc que $f$ soit définie sur un disque $D(z,r)$ : c'est garanti en tout point d'un ouvert. Par convention, « $f$ est holomorphe **en un point** $z_0$ » signifie « $f$ est holomorphe sur un ouvert contenant $z_0$ ».
+**Rôle.** La $\C$-dérivabilité en $z$ demande de faire tendre $\omega$ vers $0$ dans toutes les directions, donc que $f$ soit définie sur un disque $D(z,r)$ : c'est garanti en tout point d'un ouvert. Convention courante (que le poly ne formalise pas) : « $f$ est holomorphe **au voisinage d'un point** $z_0$ » signifie « $f$ est holomorphe sur un ouvert contenant $z_0$ » ; cela ne doit pas être confondu avec la seule $\C$-dérivabilité en $z_0$.
 
 ### H2 — $\C$-dérivable en **tout** point de $\Omega$
 

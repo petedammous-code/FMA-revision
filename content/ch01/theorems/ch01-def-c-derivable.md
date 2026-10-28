@@ -27,10 +27,11 @@ $$
 $$
 existe (dans $\C$). Si tel est le cas, on note $f'(z)$ cette limite, la **dérivée au sens complexe** de $f$ au point $z$.
 
-Précision : la limite est prise pour $\omega\in\C\setminus\{0\}$ avec $z+\omega\in\Omega$, et $\omega\to0$ **dans $\C$** ; autrement dit, $f$ est $\C$-dérivable en $z$, de dérivée $\ell=f'(z)$, si et seulement si
+Précision : la limite est prise pour $\omega\in\C\setminus\{0\}$ avec $z+\omega\in\Omega$ (ce qui est automatique pour $|\omega|$ assez petit, car $\Omega$ est ouvert), et $\omega\to0$ **dans $\C$** ; autrement dit, $f$ est $\C$-dérivable en $z$, de dérivée $\ell=f'(z)$, si et seulement si
 $$
-\forall\eps>0,\ \exists\delta>0,\ \forall\omega\in\C,\quad 0<|\omega|<\delta\ \Longrightarrow\ \left|\frac{f(z+\omega)-f(z)}{\omega}-\ell\right|\le\eps .
+\forall\eps>0,\ \exists\delta>0,\ \forall\omega\in\C,\quad 0<|\omega|<\delta\ \Longrightarrow\ \left|\frac{f(z+\omega)-f(z)}{\omega}-\ell\right|\le\eps
 $$
+(on prend $\delta$ assez petit pour que $D(z,\delta)\subset\Omega$).
 
 ## Hypothèses
 

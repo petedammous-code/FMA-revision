@@ -58,7 +58,7 @@ $$
 $$
 \frac{f(z+\tau)-f(z)}{\tau}-df_z(1)\xrightarrow[\tau\to0]{}0 .
 $$
-Le quotient de gauche est le taux d'accroissement de $(x,y)\mapsto f(x,y)$ dans la direction $x$ ; sa limite est par définition $\frac{\partial f}{\partial x}(z)=\frac{\partial P}{\partial x}(z)+i\frac{\partial Q}{\partial x}(z)$. Donc $df_z(1)=\frac{\partial f}{\partial x}(z)$.
+Le quotient de gauche est le taux d'accroissement de $(x,y)\mapsto f(x,y)$ dans la direction $x$ ; il admet donc une limite, ce qui signifie que la dérivée partielle $\frac{\partial f}{\partial x}(z)=\frac{\partial P}{\partial x}(z)+i\frac{\partial Q}{\partial x}(z)$ existe (parties réelle et imaginaire séparément) et vaut cette limite. Donc $df_z(1)=\frac{\partial f}{\partial x}(z)$.
 
 *Calcul de $df_z(i)$.* De même avec $\omega=i\tau$, $\tau\in\R^*$ : $df_z(i\tau)=\tau\,df_z(i)$ et $\frac{f(z+i\tau)-f(z)}{\tau}\to df_z(i)$ ; le membre de gauche est le taux d'accroissement dans la direction $y$, donc $df_z(i)=\frac{\partial f}{\partial y}(z)$.
 

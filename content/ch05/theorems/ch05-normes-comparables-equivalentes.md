@@ -6,7 +6,7 @@ title: Deux normes complètes comparables sont équivalentes
 ref: Corollaire V.2.4
 page: 97
 importance: 1
-depends: [ch05-isomorphisme-banach]
+depends: [ch05-isomorphisme-banach, ch05-norme-operateur-def]
 tags: [banach, normes-equivalentes, isomorphisme, completude]
 ---
 ## Intuition

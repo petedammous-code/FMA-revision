@@ -6,7 +6,7 @@ title: Théorème du graphe fermé
 ref: Théorème V.2.5
 page: 97
 importance: 2
-depends: [ch05-normes-comparables-equivalentes]
+depends: [ch05-normes-comparables-equivalentes, ch05-norme-operateur-def]
 tags: [banach, graphe-ferme, continuite, application-lineaire]
 ---
 ## Intuition

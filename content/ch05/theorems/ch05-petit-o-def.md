@@ -41,7 +41,7 @@ $$
 
 ### H2 — La norme de $E$ (et celle de $F$)
 
-**Rôle.** La définition dépend a priori des normes. Mais si $\|\cdot\|'_E$ est équivalente à $\|\cdot\|_E$ ($a\|x\|_E\le\|x\|'_E\le b\|x\|_E$), alors $f(x)=o(x)$ pour l'une si et seulement si pour l'autre (remplacer $\eps$ par $\eps/a$ et $\delta$ par un rayon adapté). En dimension finie toutes les normes sont équivalentes : la notion ne dépend pas de la norme. Voir [[ch05-differentielle-normes-equivalentes]].
+**Rôle.** La définition dépend a priori des normes. Mais si $\|\cdot\|'_E$ est équivalente à $\|\cdot\|_E$ ($a\|x\|_E\le\|x\|'_E\le b\|x\|_E$), alors $f(x)=o(x)$ pour l'une si et seulement si pour l'autre : si $|f(x)|<\eps\|x\|_E$ pour $\|x\|_E<\delta$, alors $|f(x)|<\frac{\eps}{a}\|x\|'_E$ pour $\|x\|'_E<a\delta$ (car $\|x\|'_E<a\delta\Rightarrow\|x\|_E<\delta$ et $\|x\|_E\le\frac1a\|x\|'_E$) ; l'autre sens est symétrique avec $b$. En dimension finie toutes les normes sont équivalentes : la notion ne dépend pas de la norme. Voir [[ch05-differentielle-normes-equivalentes]].
 
 ## Exemples
 

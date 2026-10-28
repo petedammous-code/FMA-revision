@@ -46,7 +46,7 @@ Comme dans le cas des applications linéaires, **si $F$ est un espace de Banach*
 
 ### H3 — norme sup sur le produit des boules **fermées**
 
-**Rôle.** Convention du poly. Prendre les boules ouvertes ou les sphères unités donne la même valeur (même argument d'homogénéité que pour les applications linéaires), et l'on a aussi $\|f\|=\sup_{x_i\ne0}\dfrac{\|f(x_1,\dots,x_n)\|}{\|x_1\|\cdots\|x_n\|}$.
+**Rôle.** Convention du poly. Prendre les boules ouvertes ou (lorsque les $E_i$ sont non nuls) les sphères unités donne la même valeur (même argument d'homogénéité que pour les applications linéaires), et l'on a aussi, si les $E_i$ sont non nuls, $\|f\|=\sup_{x_i\ne0}\dfrac{\|f(x_1,\dots,x_n)\|}{\|x_1\|\cdots\|x_n\|}$.
 
 ## Exemples
 
