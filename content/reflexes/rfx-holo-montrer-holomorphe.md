@@ -36,7 +36,7 @@ On a une fonction $f$ définie sur un ouvert $\Omega$ par une **formule explicit
 
 ### [ ] Théorème de Montel — [[ch03-montel]]
 **Pourquoi ce n'est pas l'outil ici.** Montel donne l'existence d'une **sous-suite** convergente d'une famille bornée ; il ne dit pas que **la** limite simple d'une suite donnée est holomorphe, ni même que la suite converge. Si $f_n\to f$ simplement et $(f_n)$ localement uniformément bornée, Montel plus l'unicité de la limite simple montrent que $f_n\to f$ localement uniformément, puis Weierstraß conclut : c'est un détour qu'il faut savoir rédiger, pas un outil direct.
-**Quand il le serait.** Pour les problèmes d'extraction et d'existence d'extrémaux (voir [[rfx-holo-suites-familles]]).
+**Quand il le serait.** Quand $f$ est donnée comme limite **simple** d'une suite localement uniformément bornée (détour ci-dessus, qu'il faut alors rédiger) ; et pour les problèmes d'extraction et d'existence d'extrémaux (voir [[rfx-holo-suites-familles]]).
 
 ## Démarche
 
@@ -57,7 +57,7 @@ On a une fonction $f$ définie sur un ouvert $\Omega$ par une **formule explicit
 * Oublier la mesurabilité/continuité en $(z,x)$ et l'holomorphie en $z$ **pour $x$ fixé** (les deux hypothèses (i)).
 * Vouloir une convergence normale sur **tout $\Omega$** : elle est en général fausse (série géométrique sur $D(0,1)$) ; la convergence localement normale suffit et c'est elle qu'il faut rédiger.
 * Dériver sous le signe somme ou intégrale sans avoir d'abord établi l'holomorphie (ou une domination des dérivées) : avec Weierstraß et I.9.1, la dérivation est **gratuite** une fois l'holomorphie acquise — le dire.
-* Cauchy réelles sans $C^1$ : la fonction $\C$-dérivable partout est bien holomorphe, mais c'est Goursat qu'il faut citer.
+* Cauchy réelles sur les seules **dérivées partielles**, sans différentiabilité : insuffisant ($f(z)=e^{-1/z^4}$, $f(0)=0$, vérifie Cauchy réelles en tout point mais n'est pas continue en $0$ : $f(re^{i\pi/4})=e^{1/r^4}$). Si l'on sait $f$ $\C$-dérivable en tout point (sans $C^1$), c'est Goursat [[ch01-goursat]] qu'il faut citer.
 * Confondre « holomorphe sur $\Omega$ » et « holomorphe au voisinage de chaque point de $\Omega$ » : c'est la même chose, et c'est pourquoi toutes les vérifications sont **locales**.
 
 ## Mini-exemple
