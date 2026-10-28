@@ -8,12 +8,12 @@ FMA.registerViz({
   title: 'Transformation conforme : un quadrillage et son image',
   description: String.raw`**Ce que l'on voit.** À gauche, le *plan des $z$* avec un quadrillage : droites verticales $\Re(z)=c$ (bleu) et horizontales $\Im(z)=c'$ (rose). À droite, le *plan des $w=f(z)$* avec les **images** de ces droites par la fonction holomorphe $f$ choisie. Les images ne sont plus droites, mais elles se coupent encore **à angle droit** partout où $f'\neq 0$.
 
-**Pourquoi.** Au voisinage de $z_0$, $f(z_0+h)\approx f(z_0)+f'(z_0)\,h$ : la différentielle de $f$ en $z_0$ est la multiplication par le nombre complexe $f'(z_0)$, c'est-à-dire une **similitude directe** (rotation d'angle $\arg f'(z_0)$ suivie d'une homothétie de rapport $|f'(z_0)|$). Un arc $\gamma$ passant par $z_0$ avec la tangente $\gamma'(0)$ a pour image un arc de tangente $f'(z_0)\gamma'(0)$ : les deux tangentes tournent du **même** angle, donc l'angle (orienté) entre deux arcs est conservé (poly, § IV.1, p. 75 ; [[ch04-holomorphe-conserve-angles]]).
+**Pourquoi.** Au voisinage de $z_0$, $f(z_0+h)\approx f(z_0)+f'(z_0)\,h$ : la différentielle de $f$ en $z_0$ est la multiplication par le nombre complexe $f'(z_0)$, c'est-à-dire une **similitude directe** (rotation d'angle $\arg f'(z_0)$ suivie d'une homothétie de rapport $|f'(z_0)|$). Un arc $\gamma$ passant par $z_0$ avec la tangente $\gamma'(0)$ a pour image un arc de tangente $f'(z_0)\gamma'(0)$ : les deux tangentes tournent du **même** angle, donc l'angle (orienté) entre deux arcs est conservé (poly, § IV.1, p. 75 ; [[ch04-holomorphe-conserve-angles|conservation des angles]]).
 
 **À faire.**
 * **Glissez le point orange $z_0$.** Deux demi-arcs en partent (orange et violet) avec un angle $\theta$ réglable ; à droite on lit l'angle entre leurs images, **mesuré** numériquement : il vaut $\theta$, avec le même sens de rotation.
-* **Approchez un point critique** (cercle creux, $f'=0$) : $z^2$ en $0$, Joukovski $\tfrac12(z+1/z)$ en $\pm1$. Le point s'y aimante, et l'angle image devient $2\theta$ : là $f(z)\approx f(z_0)+\tfrac12 f''(z_0)(z-z_0)^2$, les angles sont doublés et la conformité tombe. Ces points sont isolés dès que $f$ n'est pas localement constante (poly, Remarque IV.1.1, p. 75).
-* **Cochez « lignes de niveau ».** À gauche s'affichent alors les courbes $\Re f = c$ (bleu) et $\Im f = c'$ (rose), qui sont les **préimages** des droites du plan des $w$ : elles sont orthogonales là où $f'\neq0$ ([[ch04-lignes-niveau-orthogonales]]). Avec $\operatorname{argtanh}$ on obtient les deux familles de cercles orthogonaux du poly (Exemple IV.1.2, p. 76 : équipotentielles et lignes de champ de deux fils).
+* **Approchez un point critique** (cercle creux, $f'=0$) : $z^2$ en $0$, Joukovski $\tfrac12(z+1/z)$ en $\pm1$ (quadrillage du demi-plan supérieur, où cette fonction est injective). Le point s'y aimante, et l'angle image devient $2\theta$ : là $f(z)\approx f(z_0)+\tfrac12 f''(z_0)(z-z_0)^2$, les angles sont doublés et la conformité tombe. Ces points sont isolés dès que $f$ n'est pas localement constante (poly, Remarque IV.1.1, p. 75).
+* **Cochez « lignes de niveau ».** À gauche s'affichent alors les courbes $\Re f = c$ (bleu) et $\Im f = c'$ (rose), qui sont les **préimages** des droites du plan des $w$ : elles sont orthogonales là où $f'\neq0$ ([[ch04-lignes-niveau-orthogonales|orthogonalité des lignes de niveau]]). Avec $\operatorname{argtanh}$ on obtient les deux familles de cercles orthogonaux du poly (Exemple IV.1.2, p. 76 : équipotentielles et lignes de champ de deux fils).
 
 > ⚠️ Avec $\exp$ ou $1/z$ on voit que la conformité est **locale** : les angles sont conservés mais les longueurs sont multipliées par $|f'(z_0)|$, qui varie d'un point à l'autre (les carrés du quadrillage deviennent des « carrés courbes » de tailles différentes).`,
   related: ['ch04-holomorphe-conserve-angles', 'ch04-transformation-conforme-def', 'ch04-lignes-niveau-orthogonales', 'ch04-zeros-derivee-isoles', 'ch04-exemple-argtanh', 'ch04-joukovski'],
@@ -40,9 +40,9 @@ FMA.registerViz({
       inv: { name: '1/z', f: z => C.inv(z), df: z => C.scale(C.inv(C.mul(z, z)), -1),
         g: [-2, 2, -2, 2, 0.25], zwin: [-2.1, 2.1, -2.1, 2.1], wwin: [-2.6, 2.6, -2.6, 2.6], wstep: 0.4, crit: [], z0: [0.9, 0.6] },
       jouk: { name: 'Joukovski ½(z + 1/z)', f: z => C.scale(C.add(z, C.inv(z)), 0.5), df: z => C.scale(C.sub(one, C.inv(C.mul(z, z))), 0.5),
-        g: [-2, 2, -2, 2, 0.25], zwin: [-2.1, 2.1, -2.1, 2.1], wwin: [-2.3, 2.3, -2.3, 2.3], wstep: 0.25, crit: [[1, 0], [-1, 0]], z0: [1.25, 0.5] },
+        g: [-2, 2, 0, 2, 0.25], zwin: [-2.1, 2.1, -0.9, 2.1], wwin: [-2.3, 2.3, -2.3, 2.3], wstep: 0.25, crit: [[1, 0], [-1, 0]], z0: [1.25, 0.5] },
       atanh: { name: 'argtanh z = ½ log((1+z)/(1−z))', f: z => C.scale(C.log(C.div(C.add(one, z), C.sub(one, z))), 0.5), df: z => C.inv(C.sub(one, C.mul(z, z))),
-        g: [-2, 2, -2, 2, 0.25], zwin: [-2.1, 2.1, -2.1, 2.1], wwin: [-2.2, 2.2, -2.2, 2.2], wstep: 0.2, crit: [], z0: [0.4, 0.7] },
+        g: [-1.875, 1.875, -1.875, 1.875, 0.25], zwin: [-2.1, 2.1, -2.1, 2.1], wwin: [-2.2, 2.2, -2.2, 2.2], wstep: 0.2, crit: [], z0: [0.4, 0.7] },
     };
     const sel = kit.select(controls, { label: '$f(z)=$', options: Object.keys(FNS).map(k => [FNS[k].name, k]), value: 'sq', onChange: () => { z0 = FNS[sel.value].z0.slice(); drawAll(); } });
     const lvl = kit.checkbox(controls, { label: 'lignes de niveau de $\\Re f$, $\\Im f$', checked: false, onChange: drawAll });
@@ -142,7 +142,7 @@ FMA.registerViz({
       kit.arrow(ctx, px, py, px + Lpx * u2[0], py - Lpx * u2[1], { color: t.accent5, width: 2.5, head: 9 });
       wedge(ctx, px, py, C.arg(u1), sTheta.value / DEG, 20, t.fg, sTheta.value.toFixed(0) + '°');
       PZ.point(z0[0], z0[1], { r: 6, color: t.accent4, stroke: t.fg });
-      PZ.text(z0[0], z0[1], 'z₀', { dx: -8, dy: -8, align: 'right', font: '600 12px system-ui, sans-serif' });
+      { const b = C.add(u1, u2), n = C.abs(b) || 1; PZ.text(z0[0], z0[1], 'z₀', { dx: -16 * b[0] / n, dy: 16 * b[1] / n, align: 'center', baseline: 'middle', font: '600 12px system-ui, sans-serif' }); }
       label(ctx, 'plan des z', t);
     }
     function drawW() {
@@ -188,7 +188,8 @@ FMA.registerViz({
         wedge(ctx, qx, qy, C.arg(dirs[0]), measured, 16, t.fg, (measured * DEG).toFixed(1) + '°');
       }
       PW.point(w0[0], w0[1], { r: 6, color: t.accent4, stroke: t.fg });
-      PW.text(w0[0], w0[1], 'f(z₀)', { dx: -8, dy: -8, align: 'right', font: '600 12px system-ui, sans-serif' });
+      { let b = [-1, -1]; if (dirs[0] && dirs[1] && C.abs(dirs[0]) > 0 && C.abs(dirs[1]) > 0) b = C.add(C.scale(dirs[0], 1 / C.abs(dirs[0])), C.scale(dirs[1], 1 / C.abs(dirs[1]))); const n = C.abs(b) || 1;
+        PW.text(w0[0], w0[1], 'f(z₀)', { dx: -24 * b[0] / n, dy: 24 * b[1] / n, align: 'center', baseline: 'middle', font: '600 12px system-ui, sans-serif' }); }
       label(ctx, 'plan des w = f(z)', t);
       return measured;
     }
@@ -238,7 +239,7 @@ FMA.registerViz({
 $$F(z)=V_0\Big((z-c)\,e^{-i\alpha}+\frac{R^2e^{i\alpha}}{z-c}\Big)$$
 est le potentiel complexe ; pour $c=0$, $R=1$, c'est exactement celui de l'Exercice IV.4.1 (poly, p. 84). À droite, le *plan des $w=J(z)=\tfrac12(z+1/z)$* : les **images** de ces lignes par la transformation de Joukovski, qui sont les lignes de courant autour du profil $J(\text{cercle})$. Le fond colore la vitesse $|v|$ rapportée à la vitesse à l'infini (bleu : plus lent, rouge : plus rapide). Les losanges blancs sont les **points d'arrêt** ($v=0$).
 
-**Le lien avec le cours.** $J$ est un biholomorphisme de l'extérieur du cercle sur l'extérieur du profil (pour $c=0$ : de $\{|z|>1\}$ sur $\C\setminus[-1,1]$, et $J(e^{i\theta})=\cos\theta$). Le potentiel des vitesses autour du profil est $\Phi = \Re G$ avec $G = F\circ J^{-1}$ : composée d'une fonction harmonique et d'une fonction holomorphe, il est harmonique ([[ch04-composition-harmonique-holomorphe]]), et comme $J$ conserve les angles là où $J'\neq0$, le bord (une ligne de courant) reste une ligne de courant ([[ch04-joukovski]]). Pour $\alpha=0$ et $c=0$ : $F = 2V_0\,J(z)$, donc le potentiel autour du disque est $\lambda\,\Re J(z)$.
+**Le lien avec le cours.** $J$ est un biholomorphisme de l'extérieur du cercle sur l'extérieur du profil (pour $c=0$ : de $\{|z|>1\}$ sur $\C\setminus[-1,1]$, et $J(e^{i\theta})=\cos\theta$). Le potentiel des vitesses autour du profil est $\Phi = \Re G$ avec $G = F\circ J^{-1}$ : composée d'une fonction harmonique et d'une fonction holomorphe, il est harmonique ([[ch04-composition-harmonique-holomorphe|harmonique ∘ holomorphe]]), et comme $J$ conserve les angles là où $J'\neq0$, le bord (une ligne de courant) reste une ligne de courant ([[ch04-joukovski|transformation de Joukovski]]). Pour $\alpha=0$ et $c=0$ : $F = 2V_0\,J(z)$, donc le potentiel autour du disque est $\lambda\,\Re J(z)$.
 
 **À faire.**
 * **Plaque plane** ($c=0$), $\alpha\neq0$ : la vitesse $v=\overline{G'(w)}$ avec $G'(w)=F'(z)/J'(z)$ **explose** aux deux bouts $w=\pm1$ de la plaque, car $J'(\pm1)=0$ alors que $F'(\pm1)\neq0$ (question 5 de l'exercice). Mettez $\alpha=0$ : $F'(\pm1)=0$ et tout redevient fini.
@@ -428,12 +429,12 @@ FMA.registerViz({
   title: 'Fonctions harmoniques : moyenne sur un cercle et principe du maximum',
   description: String.raw`**Ce que l'on voit.** La carte colore chaque point $z$ selon la valeur de $h(z)$ **comparée à $h(z_0)$** : rouge si $h(z) > h(z_0)$, bleu si $h(z) < h(z_0)$ (fines lignes : lignes de niveau de $h$ ; trait épais : la ligne de niveau $h = h(z_0)$ qui passe par le centre). Le cercle $C(z_0,r)$ se déplace à la souris (ou au doigt) ; son rayon se règle au curseur. La bande du bas trace $\theta\mapsto h(z_0+re^{i\theta})$ sur $[0,2\pi]$, avec en pointillé la valeur au centre $h(z_0)$ et en orange la moyenne sur le cercle.
 
-**Le théorème.** Une fonction $h$ harmonique réelle ($C^2$ et $\Delta h = \partial_x^2 h+\partial_y^2 h = 0$, [[ch04-harmonique-def]]) vérifie, pour tout disque fermé $\bar D(z_0,r)\subset\Omega$,
+**Le théorème.** Une fonction $h$ harmonique réelle ($C^2$ et $\Delta h = \partial_x^2 h+\partial_y^2 h = 0$, [[ch04-harmonique-def|définition]]) vérifie, pour tout disque fermé $\bar D(z_0,r)\subset\Omega$,
 $$h(z_0)=\frac1{2\pi}\int_0^{2\pi}h\big(z_0+re^{i\theta}\big)\,d\theta ,$$
-et, sur un ouvert connexe, n'a **aucun maximum local** sauf si elle est constante (poly, Corollaire IV.2.5, p. 77 ; [[ch04-harmonique-moyenne-maximum]]).
+et, sur un ouvert connexe, n'a **aucun maximum local** sauf si elle est constante (poly, Corollaire IV.2.5, p. 77 ; [[ch04-harmonique-moyenne-maximum|fiche]]).
 
 **À faire.**
-* Avec une fonction harmonique ($x^2-y^2$, $\Re(z^3)$, $e^x\cos y$), déplacez le cercle et changez $r$ : « valeur au centre » et « moyenne » coïncident toujours. Dans la bande du bas, l'aire rouge (au-dessus de $h(z_0)$) compense exactement l'aire bleue. Le trait épais traverse **toujours** le cercle : il y a du rouge et du bleu sur tout cercle, donc $z_0$ n'est jamais un maximum local. Le maximum sur le disque fermé (triangle ▲) est toujours **sur le bord** : c'est ce qui donne l'unicité des problèmes de Dirichlet (poly, Remarque IV.2.6, p. 77 ; [[ch04-maximum-unicite-bord]]).
+* Avec une fonction harmonique ($x^2-y^2$, $\Re(z^3)$, $e^x\cos y$), déplacez le cercle et changez $r$ : « valeur au centre » et « moyenne » coïncident toujours. Dans la bande du bas, l'aire rouge (au-dessus de $h(z_0)$) compense exactement l'aire bleue. Le trait épais traverse **toujours** le cercle : il y a du rouge et du bleu sur tout cercle, donc $z_0$ n'est jamais un maximum local. Le maximum sur le disque fermé (triangle ▲) est toujours **sur le bord** : c'est ce qui donne l'unicité des problèmes de Dirichlet (poly, Remarque IV.2.6, p. 77 ; [[ch04-maximum-unicite-bord|fiche]]).
 * Avec $-(x^2+y^2)$ (non harmonique, $\Delta = -4$) placez $z_0$ en $0$ : tout est bleu autour, la moyenne est **strictement plus petite** que la valeur au centre et le maximum est **intérieur**. Avec $x^2+y^2$ ($\Delta = 4$) c'est l'inverse.
 * Avec $\log|z|$ ou $\Re(1/z)$, harmoniques sur $\C^\times = \C\setminus\{0\}$ seulement : tant que le disque fermé évite $0$, l'égalité tient ; dès qu'il contient $0$ (cercle en tirets), l'hypothèse $\bar D(z_0,r)\subset\Omega$ tombe et l'égalité est fausse (pour $\log|z|$ la moyenne vaut alors $\log r$).
 * Le bouton anime $r$ : l'égalité vaut pour **tous** les rayons, pas seulement pour $r$ petit.`,
