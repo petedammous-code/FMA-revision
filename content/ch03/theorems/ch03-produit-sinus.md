@@ -6,7 +6,7 @@ title: Produit d'Euler (1735) du sinus — Formule (III.6.3)
 ref: Exemple III.6.3
 page: 70
 importance: 2
-depends: [ch03-produits-infinis, ch03-cotangente, ch03-convergence-normale-definition, ch01-zeros-isoles]
+depends: [ch03-produits-infinis, ch03-cotangente, ch03-convergence-normale-definition]
 tags: [produit-infini, sinus, euler, derivee-logarithmique, cotangente, wallis]
 ---
 ## Intuition

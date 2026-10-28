@@ -6,7 +6,7 @@ title: Formule de Gauss et produit de Weierstrass de $\Gamma$
 ref: Exemple III.6.4 (formules finales, p. 71-72)
 page: 72
 importance: 2
-depends: [ch03-produits-infinis, ch03-exp-estimation, ch03-gamma-definition-prolongement, ch01-fonction-gamma, ch01-prolongement-analytique, ch03-convergence-normale-definition]
+depends: [ch03-produits-infinis, ch03-exp-estimation, ch03-gamma-definition-prolongement, ch01-fonction-gamma, ch01-prolongement-analytique, ch03-convergence-normale-definition, ch02-pole-meromorphe-def]
 tags: [gamma, produit-infini, weierstrass, gauss, constante-euler, facteurs-de-convergence]
 ---
 ## Intuition

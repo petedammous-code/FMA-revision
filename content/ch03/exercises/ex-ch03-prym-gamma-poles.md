@@ -37,7 +37,7 @@ Q4 : $P+E$ est méromorphe sur $\C$ et coïncide avec $\Gamma$ sur le demi-plan 
 
 ## Corrigé
 
-**1.** Notons $u_n(z)=\frac{(-1)^n}{n!\,(z+n)}$, holomorphe sur l'ouvert $\Omega=\C\setminus(-\N)$ (le point $-\N$ est fermé et discret, donc $\Omega$ est ouvert).
+**1.** Notons $u_n(z)=\frac{(-1)^n}{n!\,(z+n)}$, holomorphe sur l'ouvert $\Omega=\C\setminus(-\N)$ (l'ensemble $-\N$ est fermé dans $\C$, donc $\Omega$ est ouvert).
 
 *Convergence normale sur les compacts de $\Omega$.* Soit $K\subset\Omega$ compact, et $R>0$ tel que $K\subset\bar D(0,R)$. Pour $n\ge R+1$ et $z\in K$ : $|z+n|\ge n-|z|\ge n-R\ge1$, donc $\|u_n\|_{\infty,K}\le\frac1{n!}$. Pour les indices $n<R+1$, en nombre fini, $u_n$ est continue sur le compact $K$ (qui ne contient pas $-n$), donc bornée. Ainsi $\sum_n\|u_n\|_{\infty,K}<\infty$ ([[ch03-convergence-normale-definition]]). Tout point de $\Omega$ ayant un voisinage compact dans $\Omega$, la série converge localement normalement sur $\Omega$ et, par le théorème de Weierstrass pour les séries ([[ch03-weierstrass-series]], poly, Théorème III.1.5, p. 61), **$P$ est holomorphe sur $\Omega$**.
 
@@ -81,7 +81,7 @@ On lit même davantage : $\Gamma-\sum_{n\ge0}\frac{(-1)^n}{n!(z+n)}$ est **enti�
 $$
 zP(z)=\sum_{n\ge0}\frac{(-1)^n}{n!}-\sum_{n\ge1}\frac{(-1)^n\,n}{n!\,(z+n)}=e^{-1}+\sum_{n\ge1}\frac{(-1)^{n-1}}{(n-1)!\,(z+n)}=e^{-1}+\sum_{k\ge0}\frac{(-1)^k}{k!\,(z+1+k)},
 $$
-avec $k=n-1$. La dernière série est $P(z+1)$ (bien défini : $z+1\notin-\N$ car $z\notin-\N$... sauf si $z+1=0$, cas exclu puisque alors $z=-1\in-\N$). Donc $P(z+1)=zP(z)-e^{-1}$.
+avec $k=n-1$. La dernière série est $P(z+1)$, bien défini car $z+1\in-\N$ entraînerait $z\in\{-1,-2,\dots\}\subset-\N$. Donc $P(z+1)=zP(z)-e^{-1}$.
 
 *Pour $E$.* Intégration par parties sur $[1,A]$ puis $A\to+\infty$ : $\int_1^A e^{-t}t^{z}dt=\bigl[-e^{-t}t^z\bigr]_1^A+z\int_1^Ae^{-t}t^{z-1}dt$, et $|e^{-A}A^z|=e^{-A}A^{\Re z}\to0$. Donc $E(z+1)=e^{-1}+zE(z)$ pour tout $z\in\C$.
 
@@ -96,8 +96,8 @@ ce qui concorde avec la question 4. (Vérification numérique : $P(z)+E(z)$ et $
 ## Pièges et variantes
 
 * Q1 : la série ne converge **pas** normalement sur $\Omega$ tout entier (près de $-n$, le terme $u_n$ explose) ; il faut travailler sur les compacts de $\Omega$, puis traiter chaque pôle en **isolant** le terme singulier.
-* Q2 : un majorant de la forme $e^{-t}t^{\Re z-1}$ **dépend de $z$** ; le Théorème I.9.1 exige un majorant valable sur tout un disque $D(z_0,r_0)$. Sur $[1,+\infty[$ c'est la croissance de $s\mapsto t^s$ qui le fournit (sur $]0,1]$ elle serait décroissante, et c'est pourquoi $\int_0^1$ n'est pas entière).
+* Q2 : un majorant de la forme $e^{-t}t^{\Re z-1}$ **dépend de $z$** ; le Théorème I.9.1 exige un majorant valable sur tout un disque $D(z_0,r_0)$. Sur $[1,+\infty[$ c'est la croissance de $s\mapsto t^s$ qui le fournit ; sur $]0,1]$, au contraire, $t^{\Re z-1}$ n'est plus intégrable en $0$ dès que $\Re z\le0$ : c'est la partie $\int_0^1$, c'est-à-dire $P$, qui porte les pôles.
 * Q3 : l'interversion $\sum\leftrightarrow\int$ doit être justifiée (convergence absolue ou dominée).
 * Q4 : le prolongement analytique demande la **connexité** de $\C\setminus(-\N)$.
 * Variante : en $z=1$, $P(1)=\sum_{n\ge0}\frac{(-1)^n}{(n+1)!}=1-e^{-1}=\int_0^1e^{-t}dt$.
-* Variante : la même méthode montre que $\Gamma(z)\,\Gamma(1-z)\sin(\pi z)$ est entière ; en la comparant à $\pi$ (poly, Exercice III.7.7) on retrouve la formule des compléments.
+* Variante : d'après la question 4, $\Gamma(z)\,\Gamma(1-z)$ a des pôles simples exactement aux entiers, donc $\Gamma(z)\,\Gamma(1-z)\sin(\pi z)$ se prolonge en une fonction entière ; en la comparant à $\pi$ (poly, Exercice III.7.7) on retrouve la formule des compléments.

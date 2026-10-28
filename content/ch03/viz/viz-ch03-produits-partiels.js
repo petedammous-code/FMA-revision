@@ -128,7 +128,7 @@ Comparez, pour $z_0$ fixé, la courbe du haut à son asymptote et la somme du ba
         ctx.fillStyle = pal[3]; ctx.beginPath(); ctx.arc(X(N), Y(pn.data[N]), 4.5, 0, 2 * Math.PI); ctx.fill(); ctx.restore();
       }
       ctx.save(); ctx.fillStyle = t.muted; ctx.font = '10.5px system-ui, sans-serif'; ctx.textAlign = 'center'; ctx.textBaseline = 'top';
-      [0, 50, 100, 150].forEach(k => ctx.fillText(String(k), X(k), H - 20)); ctx.fillText('k = 200', X(200) - 14, H - 20); ctx.textAlign = 'right'; ctx.fillStyle = t.fg; ctx.fillText('k', W - mr, H - 20); ctx.restore();
+      [0, 50, 100, 150].forEach(k => ctx.fillText(String(k), X(k), H - 20)); ctx.fillText('k = 200', X(200) - 14, H - 20); ctx.restore();
       return se;
     }
 
