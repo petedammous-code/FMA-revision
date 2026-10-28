@@ -14,7 +14,7 @@ Comparez, pour $z_0$ fixé, la courbe du haut à son asymptote et la somme du ba
   height: 460,
   mount(container, kit) {
     const C = kit.complex;
-    try { const d = container.parentNode && container.parentNode.querySelector('.viz-desc'); if (d) d.style.overflowX = 'hidden'; } catch (e) {}
+    try { const d = container.parentNode && container.parentNode.querySelector('.viz-desc'); if (d) { d.style.overflowX = 'hidden'; d.style.position = 'relative'; } } catch (e) {}
     const th = () => kit.theme();
     const GAMMA_E = 0.5772156649015329;
     const NMAX = 200;
@@ -63,7 +63,7 @@ Comparez, pour $z_0$ fixé, la courbe du haut à son asymptote et la somme du ba
     kit.colorLegend(container);
 
     const selP = kit.select(controls, { label: 'produit :', options: Object.keys(FAM).map(k => [FAM[k].lab, k]), value: fam, onChange: v => { fam = v; stopA(); z0 = FAM[v].z0.slice(); cache = null; draw(); } });
-    selP.select.style.maxWidth = '100%'; selP.el.style.maxWidth = '100%';
+    selP.el.style.cssText += ';min-width:0;max-width:100%'; selP.select.style.cssText += ';min-width:0;max-width:100%';
     const nS = kit.slider(controls, { label: '$N$', min: 0, max: NMAX, step: 1, value: N, onChange: v => { N = v; cache = null; draw(); } });
     const cbL = kit.checkbox(controls, { label: 'afficher la limite', checked: false, onChange: v => { showLim = v; cache = null; draw(); } });
     const playB = kit.button(controls, { label: '▶ ajouter des facteurs', primary: true, onClick: () => { if (anim) stopA(); else startA(); } });

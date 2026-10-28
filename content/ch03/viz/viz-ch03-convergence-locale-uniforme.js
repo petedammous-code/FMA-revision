@@ -13,7 +13,7 @@ FMA.registerViz({
   height: 440,
   mount(container, kit) {
     const C = kit.complex;
-    try { const d = container.parentNode && container.parentNode.querySelector('.viz-desc'); if (d) d.style.overflowX = 'hidden'; } catch (e) {}
+    try { const d = container.parentNode && container.parentNode.querySelector('.viz-desc'); if (d) { d.style.overflowX = 'hidden'; d.style.position = 'relative'; } } catch (e) {}
     const th = () => kit.theme();
     const LO = -8, HI = 2;
     const pw = (z, m) => { const r = Math.hypot(z[0], z[1]); if (r === 0) return m === 0 ? [1, 0] : [0, 0]; return C.fromPolar(Math.pow(r, m), m * Math.atan2(z[1], z[0])); };
@@ -45,6 +45,7 @@ FMA.registerViz({
     const sR = kit.canvas(cellR, { height: 300 });
 
     const sel = kit.select(controls, { label: '$f_n$ :', options: Object.keys(FAM).map(k => [FAM[k].lab, k]), value: fam, onChange: v => { fam = v; const F = FAM[v]; stop(); n = Math.min(F.n0, F.nmax); nS.input.max = F.nmax; nS.value = n; rS.input.max = F.rmax; r = (v === 'exp') ? 3 : 0.8; rS.value = r; heat = null; draw(); } });
+    sel.el.style.cssText += ';min-width:0;max-width:100%'; sel.select.style.cssText += ';min-width:0;max-width:100%';
     const nS = kit.slider(controls, { label: '$n$', min: 1, max: 80, step: 1, value: n, onChange: v => { n = v; heat = null; draw(); } });
     const rS = kit.slider(controls, { label: '$r$', min: 0, max: 1, step: 0.005, value: r, onChange: v => { r = v; draw(); } });
     const eS = kit.slider(controls, { label: '$\\log_{10}\\varepsilon$', min: -6, max: -1, step: 0.1, value: eps, format: v => (+v).toFixed(1), onChange: v => { eps = v; draw(); } });

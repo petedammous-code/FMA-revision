@@ -14,7 +14,7 @@ FMA.registerViz({
   height: 560,
   mount(container, kit) {
     const C = kit.complex;
-    try { const d = container.parentNode && container.parentNode.querySelector('.viz-desc'); if (d) d.style.overflowX = 'hidden'; } catch (e) {}
+    try { const d = container.parentNode && container.parentNode.querySelector('.viz-desc'); if (d) { d.style.overflowX = 'hidden'; d.style.position = 'relative'; } } catch (e) {}
     const th = () => kit.theme();
     const pw = (z, m) => { const q = Math.hypot(z[0], z[1]); if (q === 0) return m === 0 ? [1, 0] : [0, 0]; return C.fromPolar(Math.pow(q, m), m * Math.atan2(z[1], z[0])); };
 
@@ -71,6 +71,7 @@ FMA.registerViz({
     const st = kit.canvas(container, { height: 400 });
     const controls = kit.controls(container);
     const selF = kit.select(controls, { label: '$f_n$ :', options: Object.keys(FAM).map(k => [FAM[k].lab, k]), value: fam, onChange: v => { fam = v; stopA(); const F = FAM[v]; n = F.n0; nS.input.max = F.nmax; nS.value = n; rho = F.rho0; rhoS.input.max = F.rhoMax; rhoS.value = rho; cen = F.c0.slice(); draw(); } });
+    selF.el.style.cssText += ';min-width:0;max-width:100%'; selF.select.style.cssText += ';min-width:0;max-width:100%';
     const nS = kit.slider(controls, { label: '$n$', min: 1, max: FAM.deg2.nmax, step: 1, value: n, onChange: v => { n = v; draw(); } });
     const rhoS = kit.slider(controls, { label: '$\\rho$', min: 0.05, max: FAM.deg2.rhoMax, step: 0.05, value: rho, onChange: v => { rho = v; draw(); } });
     const cbT = kit.checkbox(controls, { label: 'trajectoires', checked: true, onChange: v => { showTraj = v; draw(); } });
