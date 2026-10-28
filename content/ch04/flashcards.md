@@ -286,7 +286,7 @@ envoie $D$ sur $H$ ($0\mapsto i$ ; pour $z=e^{i\theta}$, $\frac{1-e^{i\theta}}{1
 ### Q
 Écoulement plan d'un fluide parfait, incompressible, irrotationnel : pourquoi le potentiel des vitesses est-il harmonique et quelle condition au bord ?
 ### R
-$\mathrm{rot}\,\vec v=0$ donne $\vec v=\nabla\Phi$ (sur $\Omega$ simplement connexe) ; $\mathrm{div}\,\vec v=0$ donne $\mathrm{div}(\nabla\Phi)=\Delta\Phi=0$ : $\Phi$ est **harmonique**. Bord étanche : composante normale de $\vec v$ nulle, i.e. **dérivée normale de $\Phi$ nulle** au bord (Neumann). Sur $H$ avec vitesse bornée ($|\nabla\Phi_0|\in L^\infty(\bar H)$) : $v_y=\partial_y\Phi_0$ est harmonique, bornée, nulle sur $\R$, donc nulle, et $\Phi_0(z)=\lambda\,\Re(z)$ (écoulement uniforme). (poly, § IV.4.1, p. 82)
+$\mathrm{rot}\,\vec v=0$ donne $\vec v=\nabla\Phi$ (sur $\Omega$ simplement connexe) ; $\mathrm{div}\,\vec v=0$ donne $\mathrm{div}(\nabla\Phi)=\Delta\Phi=0$ : $\Phi$ est **harmonique**. Bord étanche : composante normale de $\vec v$ nulle, i.e. **dérivée normale de $\Phi$ nulle** au bord (Neumann). Sur $H$ avec vitesse bornée ($|\nabla\Phi_0|\in L^\infty(\bar H)$) : $v_y=\partial_y\Phi_0$ est harmonique, bornée, nulle sur $\R$, donc nulle ; $\Phi_0$ ne dépend alors que de $x$ et $\partial_x^2\Phi_0=0$, d'où $\Phi_0(z)=\lambda\,\Re(z)$, $\lambda\in\R$ (à une constante additive près, sans effet sur $\vec v=(\lambda,0)$ : écoulement uniforme). (poly, § IV.4.1, p. 82)
 
 ## CARD id=fc-ch04-038 ref=ch04-ecoulement-potentiel tags=contre-exemple
 ### Q
@@ -326,7 +326,7 @@ Potentiel des vitesses de l'écoulement uniforme (direction $x$) autour du disqu
 ### R
 Le modèle est l'écoulement uniforme $\Phi_0(w)=\lambda\,\Re(w)$ sur $\C\setminus[-1,1]$ (la plaque horizontale $[-1,1]$ est une ligne de courant). Avec $J:\{|z|>1\}\to\C\setminus[-1,1]$ :
 $$\Phi(z)=\Phi_0\big(J(z)\big)=\frac\lambda2\,\Re\Big(z+\frac1z\Big)=\frac\lambda2\Big(r+\frac1r\Big)\cos\theta\qquad(|z|>1).$$
-Le cercle unité est une ligne de courant ($\partial_r\Phi=0$ en $r=1$).
+Le cercle unité est une ligne de courant ($\partial_r\Phi=\frac\lambda2(1-\frac1{r^2})\cos\theta=0$ en $r=1$) et la vitesse tend vers $(\lambda/2,0)$ à l'infini (prendre $\lambda\,\Re(z+1/z)$ si l'on veut une vitesse $\lambda$ à l'infini).
 
 > ⚠️ Le poly imprime « $\Phi(z)=\lambda\,\Re(f^{-1}(z))$ » (p. 84) : coquille, la règle du chapitre est $\Phi=\Phi_0\circ f$ avec $f$ allant du domaine physique vers le domaine modèle.
 
@@ -359,7 +359,7 @@ Pour $u=u(r)$ : $\Delta u=\dfrac1r\big(r\,u'\big)'=0\iff r\,u'=\alpha\iff u=\alp
 ### Q
 Température stationnaire dans une couronne centrée en $0$ de rayons $R^-<R^+$, valant $T^-$ sur le cercle intérieur et $T^+$ sur le cercle extérieur ?
 ### R
-Régime permanent : $T$ harmonique ; unique par le principe du maximum (différence de deux solutions harmonique nulle au bord). Avec les fonctions radiales $\alpha\log|z|+\beta$ :
+Régime permanent : $T$ harmonique ; unique par le principe du maximum (la différence de deux solutions, harmoniques sur la couronne ouverte et continues sur la couronne fermée, qui est compacte, est nulle au bord donc nulle, cf. [[ch04-maximum-unicite-bord]]). Avec les fonctions radiales $\alpha\log|z|+\beta$ :
 $$T_{\text{centrée}}(z)=\frac{T^+-T^-}{\ln R^+-\ln R^-}\,\ln|z|+\frac{T^-\ln R^+-T^+\ln R^-}{\ln R^+-\ln R^-}.$$
 (Vérification : $|z|=R^\pm$ donne $T^\pm$.) (poly, § IV.4.2, p. 85-86)
 
