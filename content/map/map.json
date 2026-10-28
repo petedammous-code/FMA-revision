@@ -10457,7 +10457,7 @@
    "proof_in_poly": "none",
    "proof_length": "short",
    "counterexample_hints": [
-    "$\\alpha'^2 = 4\\alpha$, $\\alpha(0)=0$ : $\\partial f/\\partial v = 2v$ s'annule en $v_0=0$ et l'unicité tombe ($\\alpha_1=0$, $\\alpha_2=\\mathrm{signe}(t)t^2$)."
+    "$\\alpha'^2 = 4\\alpha$, $\\alpha(0)=0$ : $\\partial f/\\partial v = 2v$ s'annule en $v_0=0$ et l'unicité tombe ($\\alpha_1=0$, $\\alpha_2=t^2$ ; noter que $\\mathrm{signe}(t)t^2$, solution de $\\alpha'=2|\\alpha|^{1/2}$, n'est pas solution de $\\alpha'^2=4\\alpha$ pour $t<0$)."
    ],
    "chapter": 7,
    "order": 2,

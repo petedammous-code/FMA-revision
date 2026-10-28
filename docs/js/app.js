@@ -150,7 +150,7 @@
     const v = C.viz.find(x => x.id === id); const slot = h('div', { class: 'viz-slot', 'data-viz': id });
     setPage(v ? v.title : 'Visualisation', v ? h('div', { class: 'meta' }, h('a', { href: '#/cours/ch' + chapterOf(v.chapter).nn }, chTitle(v.chapter))) : null, h('h1', {}, v ? v.title : id), slot);
     FMA.mountViz(id, slot, { standalone: true });
-    const def = FMA.vizRegistry[id]; if (def && def.related && def.related.length) main.append(h('div', { class: 'card' }, h('h2', {}, 'Résultats liés'), h('ul', { class: 'list' }, ...def.related.map(d => h('li', {}, h('a', { href: '#/fiche/' + d }, (C.theorems[d] || resultById[d] || { title: d }).title))))));
+    const def = FMA.vizRegistry[id]; if (def && def.related && def.related.length) main.append(h('div', { class: 'card' }, h('h2', {}, 'Résultats liés'), h('ul', { class: 'list' }, ...def.related.map(d => h('li', {}, h('a', { href: '#/fiche/' + d, html: R((C.theorems[d] || resultById[d] || { title: d }).title, { inline: true }) }))))));
   }
 
   // ---------- Réflexes ----------
