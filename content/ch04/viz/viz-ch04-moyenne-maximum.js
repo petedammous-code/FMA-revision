@@ -191,7 +191,7 @@ et, sur un ouvert connexe, n'a **aucun maximum local** sauf si elle est constant
       ctx.save(); ctx.setLineDash([5, 4]); ctx.strokeStyle = t.fg; ctx.lineWidth = 1.3; ctx.beginPath(); ctx.moveTo(left, y0); ctx.lineTo(right, y0); ctx.stroke(); ctx.restore();
       const ym = Y(S.mean); ctx.strokeStyle = t.accent4; ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(left, ym); ctx.lineTo(right, ym); ctx.stroke();
       ctx.font = '600 11px system-ui, sans-serif'; ctx.textAlign = 'left'; ctx.textBaseline = 'top'; ctx.fillStyle = t.fg;
-      ctx.fillText('h(z₀ + r·e^(iθ)) en fonction de θ', left + 4, 2);
+      ctx.fillText(W < 520 ? 'h(z₀ + r·e^(iθ))' : 'h(z₀ + r·e^(iθ)) en fonction de θ', left + 4, 2); // titre court sur écran étroit (évite le chevauchement avec la légende)
       ctx.textAlign = 'right'; ctx.fillStyle = t.accent4; ctx.fillText('— moyenne', right, 2);
       ctx.fillStyle = t.fg; ctx.fillText('- - h(z₀)    ', right - ctx.measureText('— moyenne').width - 6, 2);
     }

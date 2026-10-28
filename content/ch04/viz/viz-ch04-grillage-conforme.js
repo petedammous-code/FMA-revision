@@ -131,7 +131,7 @@ FMA.registerViz({
       for (const [x, y] of F.crit) {
         const [px, py] = PZ.toPx(x, y);
         ctx.save(); ctx.strokeStyle = t.fg; ctx.lineWidth = 1.5; ctx.fillStyle = t.bg; ctx.beginPath(); ctx.arc(px, py, 6, 0, 2 * Math.PI); ctx.fill(); ctx.stroke();
-        ctx.fillStyle = t.fg; ctx.font = '11px system-ui, sans-serif'; ctx.textAlign = 'left'; ctx.textBaseline = 'top'; ctx.fillText("f'=0", px + 7, py + 4); ctx.restore();
+        ctx.fillStyle = t.fg; ctx.font = '11px system-ui, sans-serif'; ctx.textAlign = 'left'; ctx.textBaseline = 'bottom'; ctx.fillText("f'=0", px + 7, py - 5); ctx.restore(); // au-dessus de l'axe, pour ne pas chevaucher les graduations
       }
       // arcs issus de z0
       const [u1, u2] = arcsDirs(); const [px, py] = PZ.toPx(z0[0], z0[1]); const Lpx = 46;
