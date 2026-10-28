@@ -100,5 +100,5 @@ On pose <trou indice="quelle fonction auxiliaire ?">$h=f/g$, méromorphe, holomo
 * > ⚠️ Vérifier l'inégalité **stricte** en **tout** point du bord, avec une majoration explicite ($|z|=R$ fixé, inégalité triangulaire). « $f-g$ est petit » ne suffit pas.
 * > ⚠️ Rouché compare $Z-P$. Pour des fonctions **holomorphes** sur un voisinage de $\bar U$, $P=0$ et l'on obtient $Z(f,U)=Z(g,U)$, la forme la plus utilisée.
 * Choisir $g$ = le terme **dominant sur le bord considéré** : $z^4$ sur un grand cercle, $-5z$ sur le cercle unité dans le premier exemple. Le bon $g$ change avec le contour.
-* L'inégalité est souvent écrite sous la forme symétrique $|f-g|<|g|$ ; ne pas la remplacer par $|f-g|<|f|$ sans le dire (c'est aussi vrai par symétrie des rôles, mais il faut alors comparer à $f$, pas à $g$).
+* Les rôles de $f$ et $g$ sont symétriques dans la conclusion : l'hypothèse $|f-g|<|f|$ sur $\Gamma$ donne la même conclusion (échanger $f$ et $g$). Mais ce sont deux hypothèses différentes : préciser laquelle on vérifie. (Variante hors poly : $|f-g|<|f|+|g|$ sur $\Gamma$ suffit encore, car alors $h(\Gamma)$ évite la demi-droite $]-\infty,0]$, et $\C\setminus\R_-$ est étoilé.)
 * Pour un ouvert $U$ qui n'est pas « bord d'un lacet » (couronne), appliquer Rouché sur deux disques et soustraire, comme dans le premier exemple.
