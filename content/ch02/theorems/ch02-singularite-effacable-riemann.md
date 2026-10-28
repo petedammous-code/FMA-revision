@@ -6,7 +6,7 @@ title: Singularité effaçable (théorème de Riemann)
 ref: Corollaire II.4.7
 page: 45
 importance: 3
-depends: [ch02-laurent-developpement, ch02-pole-meromorphe-def]
+depends: [ch02-laurent-developpement, ch02-pole-meromorphe-def, ch01-serie-entiere-holomorphe]
 tags: [riemann, singularite effacable, prolongement, laurent, pole, borne]
 ---
 ## Intuition

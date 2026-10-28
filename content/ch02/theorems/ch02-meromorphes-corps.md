@@ -6,7 +6,7 @@ title: $\mathcal M(\Omega)$ est un corps si $\Omega$ est connexe
 ref: Proposition II.4.8
 page: 45
 importance: 2
-depends: [ch02-meromorphes-operations, ch02-singularite-effacable-riemann, ch02-laurent-developpement, ch02-localement-fini-vs-isole-remarque, ch01-zeros-isoles, ch02-localement-fini-caracterisations, ch02-pole-meromorphe-def]
+depends: [ch02-meromorphes-operations, ch02-singularite-effacable-riemann, ch02-laurent-developpement, ch02-localement-fini-vs-isole-remarque, ch01-zeros-isoles, ch02-localement-fini-caracterisations, ch02-pole-meromorphe-def, ch01-stabilite-operations]
 tags: [meromorphe, corps, inverse, connexe, zeros isoles, laurent]
 ---
 ## Intuition

@@ -31,7 +31,7 @@ En effet, on a alors $f(a+h,b+k)-f(a,b)-df_{(a,b)}(h,k)=f(h,k)$, et $\|f(h,k)\|_
 
 **Rôle.** C'est elle qui donne le développement **exact** $f(a+h,b+k)=f(a,b)+f(a,k)+f(h,b)+f(h,k)$, et qui rend $(h,k)\mapsto f(a,k)+f(h,b)$ linéaire.
 
-**Si on la retire.** La formule n'a plus de sens. Exemple : $f(x,y)=xy+x$ sur $\R\times\R$ (affine, mais pas linéaire, en $x$ à $y$ fixé : $f(0,y)=0$ mais $f(x,y)\neq x f(1,y)$ pour $x=2$, $y=0$ : $f(2,0)=2$ et $2f(1,0)=2$… prenons plutôt la non-linéarité en $y$ : $f(1,0)=1\neq 0$, alors qu'une application linéaire en $y$ s'annule en $y=0$). La « formule » donnerait $f(a,k)+f(h,b)=ak+a+hb+h$, qui contient la constante $a$ et n'est donc pas linéaire en $(h,k)$ ; la vraie différentielle (polynôme) est $df_{(a,b)}(h,k)=(b+1)h+ak$.
+**Si on la retire.** La formule n'a plus de sens. Exemple : $f(x,y)=xy+x=x(y+1)$ sur $\R\times\R$ est linéaire en $x$ à $y$ fixé, mais **pas** linéaire en $y$ à $x$ fixé ($f(1,0)=1\neq0$, alors qu'une application linéaire en $y$ s'annule en $y=0$). La « formule » donnerait $f(a,k)+f(h,b)=ak+a+hb+h$, qui contient la constante $a$ et n'est donc pas linéaire en $(h,k)$ dès que $a\neq0$ ; la vraie différentielle est $df_{(a,b)}(h,k)=(b+1)h+ak$ (car $f(a+h,b+k)-f(a,b)=(b+1)h+ak+hk$).
 
 ### H2 — $f$ est continue
 
@@ -73,11 +73,7 @@ Soit $\eps>0$ ; si $\|f\|=0$ tout est nul, sinon pour $\|(h,k)\|_E<\delta:=\eps/
 
 Fixons $(a,b)$ et posons $L(h,k)=f(a,k)+f(h,b)$. $L$ est linéaire, et continue car <trou indice="utiliser la norme de f dans L(E1,E2;F)">$\|L(h,k)\|\le\|f\|(\|a\|\,\|k\|+\|h\|\,\|b\|)\le\|f\|\max(\|a\|,\|b\|)\,\|(h,k)\|_E$</trou>.
 
-Par bilinéarité, <trou indice="développer en deux temps, d'abord la première variable">$f(a+h,b+k)=f(a,b)+f(a,k)+f(h,b)+f(h,k)$</trou>, donc le reste vaut $f(h,k)$. Or
-$$
-\|f(h,k)\|_F\le\|f\|\,\|h\|\,\|k\|\le <trou indice="chaque facteur est majoré par la norme produit">\|f\|\,\|(h,k)\|_E^2</trou>,
-$$
-et une quantité majorée par $C\|(h,k)\|^2$ est un $o((h,k))$. Donc $df_{(a,b)}=L$. $\square$
+Par bilinéarité, <trou indice="développer en deux temps, d'abord la première variable">$f(a+h,b+k)=f(a,b)+f(a,k)+f(h,b)+f(h,k)$</trou>, donc le reste vaut $f(h,k)$. Or $\|f(h,k)\|_F\le\|f\|\,\|h\|\,\|k\|\le$ <trou indice="chaque facteur est majoré par la norme produit">$\|f\|\,\|(h,k)\|_E^2$, car $\|h\|\le\|(h,k)\|_E$ et $\|k\|\le\|(h,k)\|_E$</trou>, et une quantité majorée par $C\|(h,k)\|^2$ est un $o((h,k))$. Donc $df_{(a,b)}=L$. $\square$
 
 ## Exemples
 
