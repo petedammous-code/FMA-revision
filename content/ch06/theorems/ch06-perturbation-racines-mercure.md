@@ -6,7 +6,7 @@ title: Perturbation des racines d'un polynôme et intégrale elliptique (périh�
 ref: Exercice VI.4.3
 page: 122
 importance: 2
-depends: [ch06-fonctions-implicites, ch05-taylor-reste-integral, ch05-taylor-lagrange]
+depends: [ch06-fonctions-implicites, ch05-taylor-lagrange]
 tags: [fonctions implicites, racines simples, perturbation, développement limité, intégrale elliptique, Mercure, relativité]
 ---
 ## Intuition

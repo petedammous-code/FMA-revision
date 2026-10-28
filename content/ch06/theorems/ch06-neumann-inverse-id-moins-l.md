@@ -6,7 +6,7 @@ title: Inversibilité de $\mathrm{Id}-L$ pour $\|L\|<1$ (série de Neumann) et r
 ref: Exercice VI.1.5
 page: 118
 importance: 2
-depends: [ch05-inversion-c-infini, ch05-serie-neumann, ch05-lef-banach-norme-algebre, ch05-banach-series-absolument-convergentes, ch05-lineaire-c-infini]
+depends: [ch05-inversion-c-infini, ch05-serie-neumann, ch05-lef-banach-norme-algebre, ch05-banach-series-absolument-convergentes, ch05-lineaire-c-infini, ch05-composition-differentielles]
 tags: [neumann, inverse, operateur, banach, serie-geometrique, c-infini]
 ---
 ## Intuition

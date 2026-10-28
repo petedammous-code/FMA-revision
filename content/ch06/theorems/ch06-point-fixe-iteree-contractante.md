@@ -35,7 +35,7 @@ Aucune hypothèse de continuité n'est faite sur $T$ elle-même.
 
 **Si on la retire.**
 * Rapport $1$ : $T(x)=x+1$ sur $\R$ est une isométrie, aucune itérée n'est contractante, pas de point fixe.
-* Distances seulement **diminuées** : sur $X=[1,+\infty[$ (complet), $T(x)=x+\frac1x$ vérifie $|T(x)-T(y)|=|x-y|\,\big(1-\frac1{xy}\big)\lt|x-y|$ pour $x\ne y$, mais $T(x)=x$ est impossible : pas de point fixe. Le rapport $1-\frac1{xy}$ tend vers $1$, aucune itérée n'est contractante.
+* Distances seulement **diminuées** : sur $X=[1,+\infty[$ (complet), $T(x)=x+\frac1x$ vérifie $|T(x)-T(y)|=|x-y|\,\big(1-\frac1{xy}\big)\lt|x-y|$ pour $x\ne y$, mais $T(x)=x$ est impossible : pas de point fixe. Le rapport $1-\frac1{xy}$ tend vers $1$ quand $x,y\to+\infty$, et **aucune** itérée $T^n$ n'est contractante : sinon, $X$ étant complet, la proposition elle-même donnerait un point fixe à $T$.
 
 ## Idée de la preuve
 

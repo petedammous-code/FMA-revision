@@ -60,7 +60,7 @@ On normalise ($a=0$, $f(0)=0$, hessienne $2I_{r,s}$), puis Taylor avec reste int
 
 ## Preuve
 
-**Question 1 : réduction.** Soit $H=\mathrm{Hess}_af$ la matrice de $d^2f_a$, symétrique ([[ch05-lemme-schwarz]]) inversible de signature $(r,s)$. Par la loi d'inertie de Sylvester, il existe $P_0\in\GL(m,\R)$ avec ${}^tP_0HP_0=I_{r,s}$ ; avec $P=\sqrt2\,P_0$ on a ${}^tPHP=2I_{r,s}$. Posons, sur l'ouvert $\tilde U=P^{-1}(U-a)$ qui contient $0$,
+**Question 1 : réduction.** Soit $H=\mathrm{Hess}_af$ la matrice de $d^2f_a$, symétrique ([[ch05-lemme-schwarz]]) inversible de signature $(r,s)$. Par réduction de Gauss (ou diagonalisation en base orthonormée puis normalisation des valeurs propres), il existe $P_0\in\GL(m,\R)$ avec ${}^tP_0HP_0=I_{r,s}$, le couple $(r,s)$ étant bien celui de la signature par la loi d'inertie de Sylvester ; avec $P=\sqrt2\,P_0$ on a ${}^tPHP=2I_{r,s}$. Posons, sur l'ouvert $\tilde U=P^{-1}(U-a)$ qui contient $0$,
 $$
 \tilde f(x)=f(a+Px)-f(a).
 $$
@@ -132,4 +132,4 @@ Avec la réduction de la question 1, c'est la conclusion. $\square$
 * > ⚠️ Ce n'est pas la formule de Taylor : Taylor donne $f(a+h)=f(a)+\frac12d^2f_a(h,h)+o(\norm{h}^2)$ ; Morse supprime **exactement** le reste, au prix d'un changement de variables non linéaire $\psi$ (tangent, à un linéaire près, à l'identité).
 * Le changement de variables $\psi$ est seulement **local** et n'est pas unique (on peut composer par toute isométrie de la forme $I_{r,s}$).
 * Ne pas oublier le facteur $2$ : la hessienne normalisée est $2I_{r,s}$, et $f(x)=\frac12\,{}^tx\,\mathrm{Hess}\,x+\dots$ ; avec cette normalisation, $B(0)=I_{r,s}$.
-* Dans la question 3, on applique l'inversion locale à $g$ **restreinte à $\mathcal E$** : $g$ elle-même va de $\mathrm M_m(\R)$ (dimension $m^2$) dans $\Sym_m$ (dimension $\frac{m(m+1)}2$), sa différentielle n'est pas injective.
+* Dans la question 3, on applique l'inversion locale à $g$ **restreinte à $\mathcal E$** : $g$ elle-même va de $\mathrm M_m(\R)$ (dimension $m^2$) dans $\Sym_m$ (dimension $\frac{m(m+1)}2$), sa différentielle $dg_{I_m}$ n'est pas injective dès que $m\ge2$ (son noyau est l'image de $\mathrm{ASym}_m$ par $X\mapsto I_{r,s}X$).

@@ -6,7 +6,7 @@ title: Point fixe de Banach à paramètre II (régularité $C^p$)
 ref: Théorème VI.1.4
 page: 117
 importance: 3
-depends: [ch06-point-fixe-parametre-continu, ch05-accroissements-finis, ch06-neumann-inverse-id-moins-l, ch05-differentielle-bilineaire, ch05-composition-differentielles, ch06-differentiable-sur-partie-def, ch05-differentielles-partielles, ch05-classe-ck-def, ch05-differentiabilite-composantes]
+depends: [ch06-point-fixe-parametre-continu, ch06-point-fixe-banach, ch05-accroissements-finis, ch06-neumann-inverse-id-moins-l, ch05-differentielle-bilineaire, ch05-composition-differentielles, ch05-inversion-c-infini, ch06-differentiable-sur-partie-def, ch05-differentielles-partielles, ch05-projections-injections-canoniques, ch05-classe-ck-def, ch05-differentiabilite-composantes]
 tags: [point-fixe, parametre, regularite, classe-cp, contractante, differentielle]
 ---
 ## Intuition
@@ -123,7 +123,7 @@ Comme $(\id_F-A)^{-1}\circ B\in\mathcal L(E;F)$, $\varphi$ est différentiable e
 $$
 d\varphi_\mu=c\big(\Psi(A(\mu)),B(\mu)\big),\qquad\Psi(L)=(\id_F-L)^{-1},\qquad c(P,Q)=P\circ Q.
 $$
-Ici $\Psi$ est $C^\infty$ sur la boule ouverte $B_{\mathcal L(F)}(0,1)$, qui contient tous les $A(\mu)$ puisque $\|A(\mu)\|\le a<1$ ([[ch06-neumann-inverse-id-moins-l]]), et $c:\mathcal L(F)\times\mathcal L(E;F)\to\mathcal L(E;F)$ est bilinéaire continue ($\|P\circ Q\|\le\|P\|\,\|Q\|$), donc $C^\infty$ ([[ch05-differentielle-bilineaire]]). Montrons par récurrence que $\varphi$ est $C^k$ pour tout entier $k$ avec $0\le k\le p$. Pour $k=0$ : étape 0. Supposons $\varphi$ de classe $C^{k-1}$, avec $1\le k\le p$. Alors $\mu\mapsto(\mu,\varphi(\mu))$ est $C^{k-1}$ (composante par composante, [[ch05-differentiabilite-composantes]]) à valeurs dans $\Lambda\times X\subset W$ ; $\frac{\partial G}{\partial x}=dG\circ\iota_2$ et $\frac{\partial G}{\partial\lambda}=dG\circ\iota_1$ sont $C^{p-1}$ sur $W$, donc $C^{k-1}$ puisque $k-1\le p-1$. Par composition (règle de la chaîne [[ch05-composition-differentielles]] et lemme « composée de $C^{k-1}$ est $C^{k-1}$ », étape 5 de [[ch05-inversion-c-infini]]), $\mu\mapsto A(\mu)$, $\mu\mapsto B(\mu)$, puis $\mu\mapsto\Psi(A(\mu))$ et $\mu\mapsto d\varphi_\mu=c(\Psi(A(\mu)),B(\mu))$ sont $C^{k-1}$. Comme $\varphi$ est différentiable de différentielle $C^{k-1}$, $\varphi$ est $C^k$ ([[ch05-classe-ck-def]]). Si $p=+\infty$, ceci vaut pour tout $k$, et $\varphi$ est $C^\infty$. $\square$
+Ici $\Psi$ est $C^\infty$ sur la boule ouverte $B_{\mathcal L(F)}(0,1)$, qui contient tous les $A(\mu)$ puisque $\|A(\mu)\|\le a<1$ ([[ch06-neumann-inverse-id-moins-l]]), et $c:\mathcal L(F)\times\mathcal L(E;F)\to\mathcal L(E;F)$ est bilinéaire continue ($\|P\circ Q\|\le\|P\|\,\|Q\|$), donc $C^\infty$ ([[ch05-differentielle-bilineaire]]). Montrons par récurrence que $\varphi$ est $C^k$ pour tout entier $k$ avec $0\le k\le p$. Pour $k=0$ : étape 0. Supposons $\varphi$ de classe $C^{k-1}$, avec $1\le k\le p$. Alors $\mu\mapsto(\mu,\varphi(\mu))$ est $C^{k-1}$ (composante par composante, [[ch05-differentiabilite-composantes]]) à valeurs dans $\Lambda\times X\subset W$ ; $\frac{\partial G}{\partial x} : w\mapsto dG_w\circ\iota_2$ et $\frac{\partial G}{\partial\lambda} : w\mapsto dG_w\circ\iota_1$ (composées de $dG : W\to\mathcal L(E\times F;F)$, qui est $C^{p-1}$, avec les applications linéaires continues $L\mapsto L\circ\iota_2$, $L\mapsto L\circ\iota_1$, [[ch05-projections-injections-canoniques]]) sont $C^{p-1}$ sur $W$, donc $C^{k-1}$ puisque $k-1\le p-1$. Par composition (règle de la chaîne [[ch05-composition-differentielles]] et lemme « composée de $C^{k-1}$ est $C^{k-1}$ », étape 5 de [[ch05-inversion-c-infini]]), $\mu\mapsto A(\mu)$, $\mu\mapsto B(\mu)$, puis $\mu\mapsto\Psi(A(\mu))$ et $\mu\mapsto d\varphi_\mu=c(\Psi(A(\mu)),B(\mu))$ sont $C^{k-1}$. Comme $\varphi$ est différentiable de différentielle $C^{k-1}$, $\varphi$ est $C^k$ ([[ch05-classe-ck-def]]). Si $p=+\infty$, ceci vaut pour tout $k$, et $\varphi$ est $C^\infty$. $\square$
 
 ## Preuve à trous
 
@@ -137,7 +137,7 @@ Soit $G$ un prolongement $C^p$ de $g$ à un ouvert $W\supset\Lambda\times X$. Fi
 $$
 \gamma(h)=\big[g(\lambda+h,\varphi(\lambda+h))-g(\lambda+h,\varphi(\lambda))\big]+\big[g(\lambda+h,\varphi(\lambda))-g(\lambda,\varphi(\lambda))\big],
 $$
-d'où $\|\gamma(h)\|\le a\|\gamma(h)\|+C\|h\|$ et <trou>$\|\gamma(h)\|\le\frac{C}{1-a}\|h\|$, c'est-à-dire $\gamma(h)=O(\|h\|)$</trou>.
+d'où, avec $C$ un majorant de $\|\frac{\partial g}{\partial\lambda}(\cdot,\varphi(\lambda))\|$ sur une boule $\bar B(\lambda,\rho)\subset\Lambda$ (accroissements finis en $\lambda$), $\|\gamma(h)\|\le a\|\gamma(h)\|+C\|h\|$ et <trou>$\|\gamma(h)\|\le\frac{C}{1-a}\|h\|$, c'est-à-dire $\gamma(h)=O(\|h\|)$</trou>.
 
 *Étape 3.* La différentiabilité de $G$ en $(\lambda,\varphi(\lambda))$ appliquée à l'accroissement $(h,\gamma(h))$ donne $\gamma(h)=A\gamma(h)+Bh+o(\|h\|+\|\gamma(h)\|)$, et le reste est un $o(\|h\|)$ grâce à l'étape 2. Donc <trou indice="on compose par l'inverse obtenu à l'étape 1">$\varphi(\lambda+h)-\varphi(\lambda)=(\id_F-A)^{-1}B\,h+o(\|h\|)$</trou>.
 

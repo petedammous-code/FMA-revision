@@ -6,7 +6,7 @@ title: Théorème d'inversion locale
 ref: Théorème VI.3.2
 page: 120
 importance: 3
-depends: [ch06-fonctions-implicites, ch06-diffeomorphisme-def]
+depends: [ch06-fonctions-implicites, ch06-diffeomorphisme-def, ch05-composition-differentielles]
 tags: [inversion locale, difféomorphisme, différentielle inversible, fonctions implicites, Banach]
 ---
 ## Intuition
