@@ -99,7 +99,7 @@ où <trou indice="quel facteur s'annule dans chaque terme ?">le premier terme es
 
 ## Pièges
 
-* > ⚠️ $\Hol(\Omega)$ n'est **pas** stable par conjugaison, partie réelle, module, $\max$ : $\bar z$, $\Re z$, $|z|$ ne sont holomorphes sur aucun ouvert ([[ch01-exemple-zbar-rez-module]], [[ch01-module-conjugue-non-holomorphes]]).
+* > ⚠️ $\Hol(\Omega)$ n'est **pas** stable par conjugaison, partie réelle, module : $\bar z$, $\Re z$, $|z|$ ne sont holomorphes sur aucun ouvert ([[ch01-exemple-zbar-rez-module]], [[ch01-module-conjugue-non-holomorphes]]).
 * $1/f$ n'est holomorphe que sur $\{f\neq0\}$ ; ne pas oublier de **retirer les zéros** de $f$ du domaine (ex. : $\tan$).
 * Pour la composée, vérifier $g(\Omega')\subset\Omega$ ; sinon restreindre à l'ouvert $g^{-1}(\Omega)$.
 * La réciproque d'une bijection holomorphe est holomorphe, mais ce n'est **pas** dans cette proposition : c'est un résultat plus fin ([[ch01-bijection-holomorphe-reciproque-holomorphe]]).
