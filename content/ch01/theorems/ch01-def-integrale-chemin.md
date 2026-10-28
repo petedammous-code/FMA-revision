@@ -36,13 +36,13 @@ la valeur (arbitraire) de $\gamma'$ aux points $t_k$ ne changeant rien.
 
 **Rôle.** Elle rend $f\circ\gamma$ continue sur le compact $[a,b]$, donc bornée, et l'intégrande continu par morceaux. Aucune holomorphie n'est demandée : on intègre aussi bien $\bar z$ ou $|z|$ que $z^2$. (Seules comptent en fait les valeurs de $f$ sur l'image de $\gamma$.)
 
-**Si on la retire.** Si $f$ « explose » sur l'image du chemin, l'intégrale peut ne plus exister. Exemple : $f(z)=\frac{1}{z-1}$, continue sur $\C\setminus\{1\}$, et le cercle unité $\gamma(t)=e^{it}$, qui passe par $1$ : l'intégrande $\frac{ie^{it}}{e^{it}-1}$ a pour module $\frac{1}{|e^{it}-1|}=\frac{1}{2|\sin(t/2)|}\sim\frac1{|t|}$ en $0$, non intégrable. Ici $\gamma$ n'est d'ailleurs pas un chemin de l'ouvert $\C\setminus\{1\}$.
+**Si on la retire.** L'intégrande $t\mapsto f(\gamma(t))\gamma'(t)$ peut ne plus être intégrable. Exemple avec $f$ définie sur tout $\C$ mais discontinue : $f=\mathbf 1_{\Q+i\Q}$ (vaut $1$ aux points à coordonnées rationnelles, $0$ ailleurs) et le segment $\gamma(t)=t$, $t\in[0,1]$ : alors $f(\gamma(t))\gamma'(t)=\mathbf 1_{\Q}(t)$, fonction de Dirichlet, qui n'est pas intégrable au sens de Riemann (ses sommes de Riemann valent $0$ ou $1$ selon le choix des points). Autre exemple, où $f$ « explose » sur l'image du chemin : $f(z)=\frac{1}{z-1}$, continue sur $\C\setminus\{1\}$, et le cercle unité $\gamma(t)=e^{it}$, qui passe par $1$ : l'intégrande $\frac{ie^{it}}{e^{it}-1}$ a pour module $\frac{1}{|e^{it}-1|}=\frac{1}{2|\sin(t/2)|}\sim\frac1{|t|}$ en $0$, non intégrable (ici $\gamma$ n'est d'ailleurs pas un chemin de l'ouvert $\C\setminus\{1\}$ : l'hypothèse « image de $\gamma$ dans $\Omega$ » est violée).
 
 ### H2 — $\gamma$ est un chemin de $\Omega$ ($C^1$ par morceaux, image dans $\Omega$)
 
 **Rôle.** L'image dans $\Omega$ rend $f(\gamma(t))$ défini ; le caractère $C^1$ par morceaux (avec $\gamma'$ bornée) rend $\gamma'(t)$ défini et intégrable.
 
-**Si on la retire.** Pour une courbe seulement continue (courbe de Peano, ou $t\mapsto t+it\sin(1/t)$ sur $[0,1]$, de longueur infinie), il n'y a pas de vitesse utilisable : la formule n'a plus de sens telle quelle (voir [[ch01-def-chemin-lacet]]).
+**Si on la retire.** Pour une courbe seulement continue, la formule n'a plus de sens telle quelle. Courbe de Peano (continue, surjective de $[0,1]$ sur un carré) : $\gamma'$ n'existe pas. Courbe $\gamma(t)=t+it\sin(1/t)$ sur $[0,1]$ (prolongée par $0$ en $0$) : $\gamma'$ existe sur $]0,1]$ mais n'y est pas bornée, car $\Im\gamma'(t)=\sin(1/t)-\frac{\cos(1/t)}{t}$, et $\int_0^1|\gamma'(t)|\,dt\ge\int_0^1\frac{|\cos(1/t)|}{t}\,dt-1=\int_1^{+\infty}\frac{|\cos u|}{u}\,du-1=+\infty$ (longueur infinie) : la convention de la [[ch01-chemin-c1-par-morceaux-derivee-bornee|Remarque I.5.2]] ($\gamma'$ bornée) est perdue, et avec elle la majoration $|\int_\gamma f\,dz|\le\sup|f|\,L(\gamma)$ de [[ch01-longueur-majoration-integrale]] (voir aussi [[ch01-def-chemin-lacet]]).
 
 ## Exemples
 
