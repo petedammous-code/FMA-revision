@@ -30,7 +30,7 @@ Mots-clés : *jacobien*, *difféomorphisme de classe $C^\infty$*, *conserve les 
 ### [x] Conservation des angles, lignes de niveau orthogonales — [[ch04-lignes-niveau-orthogonales]]
 **Quand.** Questions géométriques : angle entre deux courbes images, image d'un quadrillage, orthogonalité des familles $\{P=c\}$ et $\{Q=c'\}$ (« équipotentielles et lignes de champ »).
 **Justification.** Un vecteur tangent $\gamma'(0)$ est envoyé sur $f'(z_0)\gamma'(0)$ : rotation d'angle $\arg f'(z_0)$ et homothétie de rapport $|f'(z_0)|$ ([[ch04-holomorphe-conserve-angles]]). En coordonnées : $\nabla Q=(Q_x,Q_y)=(-P_y,P_x)$ est $\nabla P$ tourné de $\pi/2$, et $|\nabla P|=|\nabla Q|=|f'|$.
-**Pièges.** Aux points où $f'(z_0)=0$, les angles sont **multipliés** par l'ordre $N$ du zéro de $f-f(z_0)$ : pour $z^2$ en $0$, les lignes $\{x^2-y^2=0\}$ et $\{2xy=0\}$ se coupent à $45°$, pas à $90°$.
+**Pièges.** Aux points où $f'(z_0)=0$, les angles entre courbes images sont **multipliés** par l'ordre $N$ du zéro de $f-f(z_0)$, donc les préimages de deux droites orthogonales se coupent à $\pi/(2N)$ : pour $z^2$ en $0$, les lignes $\{x^2-y^2=0\}$ et $\{2xy=0\}$ se coupent à $45°$, pas à $90°$.
 
 ### [ ] Inversion globale avec seulement « jacobien partout non nul » — [[ch06-inversion-globale]]
 **Pourquoi ce n'est pas l'outil ici.** Un jacobien $|f'|^2>0$ partout ne donne **pas** l'injectivité : $\exp$ a pour jacobien $e^{2x}>0$ et n'est pas injective ($2i\pi$-périodique). Le Corollaire VI.3.3 (poly, p. 120) exige l'injectivité en hypothèse.

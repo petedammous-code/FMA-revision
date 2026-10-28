@@ -25,7 +25,7 @@ Le réflexe central : **si l'intégrande se prolonge holomorphiquement en le par
 ### [x] Plusieurs paramètres : dérivées partielles continues ⇒ $C^1$ — [[ch05-c1-ssi-partielles-continues]]
 **Quand.** $\lambda=(\lambda_1,\dots,\lambda_n)$, ou paramètre dans un produit d'espaces normés. On calcule chaque $\partial_i\Phi$ sous l'intégrale (option précédente), on montre que ces dérivées partielles sont **continues** en $\lambda$, et la Proposition V.5.1 (poly, p. 106) donne $\Phi\in C^1$ avec $d\Phi_\lambda=\sum_i\partial_i\Phi(\lambda)\,d\lambda_i$.
 **Justification.** C'est la seule façon propre de passer des dérivées partielles à la différentielle. Pour une fonctionnelle sur un espace de courbes, même schéma : calculer la dérivée directionnelle, puis montrer la continuité de $\gamma\mapsto d\hat L_\gamma$ ([[ch08-lhat-c1-differentielle]]).
-**Pièges.** L'existence des dérivées partielles seule ne donne même pas la continuité ([[ch05-partielles-sans-differentiabilite]]).
+**Pièges.** L'existence des dérivées partielles seule ne donne pas la différentiabilité ([[ch05-partielles-sans-differentiabilite]]), ni même la continuité : $\frac{xy}{x^2+y^2}$ prolongée par $0$ a des dérivées partielles en $(0,0)$ mais vaut $\frac12$ sur la diagonale.
 
 ### [x] Séries : convergence localement normale (et Weierstraß gratuit en complexe) — [[ch03-weierstrass-series]]
 **Quand.** $\Phi=\sum f_n$. En **complexe**, $f_n$ holomorphes : la convergence localement normale de $\sum f_n$ suffit, et $\Phi'=\sum f_n'$ sans rien vérifier de plus (Théorème III.1.5, poly, p. 61). En **réel** : il faut la convergence localement uniforme de $\sum f_n'$ et la convergence en un point.

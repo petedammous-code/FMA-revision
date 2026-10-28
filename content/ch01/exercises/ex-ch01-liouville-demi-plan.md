@@ -43,7 +43,7 @@ $$
 $$
 (Vérification directe que $\varphi^{-1}(H)\subset D$ : $|w-i|^2=|w|^2+1-2\Im w$ et $|w+i|^2=|w|^2+1+2\Im w$, donc $|w-i|<|w+i|$ dès que $\Im w>0$.)
 
-Posons $g=\frac{i-f}{i+f}$. Comme $\Im f(z)>0$, on a $f(z)\neq-i$ pour tout $z$ : le dénominateur ne s'annule pas et $g$ est entière (quotient de fonctions entières à dénominateur sans zéro, [[ch01-stabilite-operations]]). De plus $g(z)=\varphi^{-1}(f(z))\in D$, donc $|g|\le1$. Par Liouville, $g$ est constante égale à un $c\in D$, et $f=\varphi\circ g$ est constante égale à $\varphi(c)$. **$f$ est constante.**
+Posons $g=\frac{i-f}{i+f}$. Comme $\Im f(z)>0$, on a $f(z)\neq-i$ pour tout $z$ : le dénominateur ne s'annule pas et $g$ est entière (quotient de fonctions entières à dénominateur sans zéro, [[ch01-stabilite-operations]]). De plus $g(z)=\varphi^{-1}(f(z))\in D$, donc $|g(z)|<1$ pour tout $z$ : $g$ est bornée. Par Liouville, $g$ est constante égale à un $c\in D$, et $f=\varphi\circ g$ est constante égale à $\varphi(c)$. **$f$ est constante.**
 
 *Variante plus rapide :* $|e^{if}|=e^{-\Im f}\le1$, et on conclut comme en 1.
 

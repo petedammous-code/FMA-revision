@@ -17,7 +17,7 @@ On veut : existence et unicité, trajectoires explicites, intervalle maximal, qu
 
 ### [x] Cauchy–Lipschitz dans $\C\simeq\R^2$ — [[ch07-cauchy-lipschitz]]
 **Quand.** $z'=f(t,z)$ avec $f$ holomorphe en $z$ (et continue en $(t,z)$, $C^1$ en $z$) : $f$ est $C^1$ au sens réel, donc localement lipschitzienne ([[ch07-restriction-domaine-c1-lipschitz]]) ; $\C$ est un espace de Banach réel de dimension $2$.
-**Justification.** Théorème VII.2.1 (poly, p. 128), puis unicité globale [[ch07-unicite-globale]] et lemme des bouts [[ch07-lemme-des-bouts]] pour l'intervalle maximal. Les équilibres sont les zéros de $f$ ; par unicité, une trajectoire issue d'un point où $f\ne0$ n'atteint jamais un zéro de $f$. Linéarisation en un équilibre $z^*$ : $dX_{z^*}$ est la multiplication par $f'(z^*)=a+ib$, de valeurs propres $a\pm ib$ (foyer attractif si $a<0$, répulsif si $a>0$, rotation si $a=0$ pour la partie linéaire).
+**Justification.** Théorème VII.2.1 (poly, p. 128), puis unicité globale [[ch07-unicite-globale]] et lemme des bouts [[ch07-lemme-des-bouts]] pour l'intervalle maximal. Les équilibres sont les zéros de $f$ ; par unicité, une trajectoire issue d'un point où $f\ne0$ n'atteint jamais un zéro de $f$. Linéarisation en un équilibre $z^*$ : $dX_{z^*}$ est la multiplication par $f'(z^*)=a+ib$, de matrice $\begin{pmatrix}a&-b\\ b&a\end{pmatrix}$ et de valeurs propres $a\pm ib$ : pour la partie linéaire, foyer (si $b\ne0$) ou nœud étoilé (si $b=0$), attractif si $a<0$, répulsif si $a>0$ ; centre si $a=0\ne b$ ; si $f'(z^*)=0$, la linéarisation ne dit rien.
 **Pièges.** Le temps $t$ est **réel** : le Cauchy–Lipschitz du poly ne traite pas une équation en variable complexe $z$. Écrire le champ réel $(P,Q)$ si l'énoncé le demande ; pour un champ donné en $(x,y)$, tester Cauchy réelles avant de parler de $f$.
 
 ### [x] Redresser le champ par une primitive de $1/f$ — [[ch01-derivee-f-rond-gamma]]
@@ -26,7 +26,7 @@ On veut : existence et unicité, trajectoires explicites, intervalle maximal, qu
 **Pièges.** $G$ peut n'exister que localement (pour $f(z)=z$, $G=\mathrm{Log}$) : une formule obtenue ainsi doit être **vérifiée** comme solution sur tout l'intervalle, puis l'unicité conclut. L'intervalle maximal se lit sur la formule explicite (dénominateur qui s'annule, module qui explose).
 
 ### [x] Dépendance holomorphe en un paramètre : argument $\partial/\partial\bar\lambda$ — [[ch07-cauchy-lipschitz-parametres]]
-**Quand.** $X(\lambda,t,x)$ holomorphe en $(\lambda,x)\in\C\times\C^n$ ; on veut $\lambda\mapsto\alpha_\lambda(t)$ (ou $x_0\mapsto F(t,t_0,x_0)$) holomorphe.
+**Quand.** $X(\lambda,t,x)$ holomorphe en $(\lambda,x)\in\C\times\C^n$ et de classe $C^\infty$ en $(\lambda,t,x)$ au sens réel (c'est le cas d'un champ autonome holomorphe) ; on veut $\lambda\mapsto\alpha_\lambda(t)$ (ou $x_0\mapsto F(t,t_0,x_0)$) holomorphe.
 **Justification.** VII.2.8 (poly, p. 131) donne $\alpha$ de classe $C^p$ en $(\lambda,t)$ pour tout $p$, au sens réel. Posons $y=\partial\alpha/\partial\bar\lambda$. Par le lemme de Schwarz [[ch05-lemme-schwarz]], $\partial_t$ et $\partial_{\bar\lambda}$ commutent ; par la règle de la chaîne [[ch01-chaine-dz-dzbar]] et l'holomorphie de $X$ (les termes en $\partial X/\partial\bar\lambda$, $\partial X/\partial\bar x_j$ sont nuls),
 $$y'(t)=\frac{\partial X}{\partial x}(\lambda,t,\alpha_\lambda(t))\,y(t),\qquad y(t_0)=0 ;$$
 par unicité pour cette équation linéaire, $y\equiv0$ : $\alpha_\lambda(t)$ est holomorphe en $\lambda$.

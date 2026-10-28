@@ -22,8 +22,8 @@ On note $F(t,x)$ (ou $F(\lambda,t_0,t,x)$) la valeur au temps $t$ de la solution
 
 ### [x] Équation aux variations (dériver l'EDO) — [[ch07-flot-local-equation]]
 **Quand.** On veut **calculer** $R(t)=\frac{\partial F}{\partial x}(t,x_0)\in\mathcal L(E)$ ou $S(t)=\frac{\partial F}{\partial\lambda}(\lambda_0,t,x_0)$. On dérive $\frac{\partial F}{\partial t}(t,x)=X(t,F(t,x))$ et $F(t_0,x)=x$ ([[ch07-flot-local-equation]]) par rapport à $x$ ou $\lambda$ :
-$$R'(t)=dX_{\alpha(t)}\circ R(t),\quad R(t_0)=\id,\qquad S'(t)=\frac{\partial X}{\partial x}(\lambda_0,t,\alpha(t))\,S(t)+\frac{\partial X}{\partial\lambda}(\lambda_0,t,\alpha(t)),\quad S(t_0)=0,$$
-où $\alpha=F(\cdot,x_0)$. Ce sont des **EDO linéaires** le long de la solution de référence. En un équilibre $x^*$ d'un champ autonome : $R(t)=e^{t\,dX_{x^*}}$.
+$$R'(t)=\frac{\partial X}{\partial x}(t,\alpha(t))\circ R(t),\quad R(t_0)=\id,\qquad S'(t)=\frac{\partial X}{\partial x}(\lambda_0,t,\alpha(t))\,S(t)+\frac{\partial X}{\partial\lambda}(\lambda_0,t,\alpha(t)),\quad S(t_0)=0,$$
+où $\alpha=F(\cdot,x_0)$ (pour un champ autonome, $\frac{\partial X}{\partial x}(t,\alpha(t))=dX_{\alpha(t)}$). Ce sont des **EDO linéaires** le long de la solution de référence. En un équilibre $x^*$ d'un champ autonome : $R(t)=e^{t\,dX_{x^*}}$.
 **Justification.** Si $X$ est $C^2$, $F$ est $C^2$ et le lemme de Schwarz ([[ch05-lemme-schwarz]]) permet d'échanger $\partial_t$ et $\partial_x$. Si $X$ est seulement $C^1$, dériver plutôt la forme intégrale $F(t,x)=x+\int_{t_0}^tX(s,F(s,x))\,ds$ sous le signe intégrale (intégrande $C^1$ en $x$, continu en $(s,x)$).
 **Pièges.** Ne pas oublier le terme source $\frac{\partial X}{\partial\lambda}$ dans l'équation de $S$, ni les conditions initiales ($\id$ pour $R$, $0$ pour $S$ car $F(\lambda,t_0,t_0,x)=x$ ne dépend pas de $\lambda$).
 
