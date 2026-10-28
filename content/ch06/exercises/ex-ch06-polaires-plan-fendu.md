@@ -4,8 +4,8 @@ type: exercise
 chapters: [6]
 title: Coordonnées polaires, difféomorphisme local et global
 source: "Classique (coordonnées polaires, exemple standard d'inversion locale ou globale) ; questions 3 et 4 rédigées pour ce site"
-difficulty: 1
-time: 15
+difficulty: 2
+time: 20
 tools: [ch06-inversion-locale, ch06-inversion-globale, ch06-diffeomorphisme-def, ch05-matrice-jacobienne, ch05-composition-differentielles]
 ---
 ## Énoncé

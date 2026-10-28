@@ -4,8 +4,8 @@ type: exercise
 chapters: [6, 5]
 title: Quand a-t-on x^y = y^x ? Deux branches qui se croisent
 source: "Classique (équation $x^y=y^x$, Euler et Goldbach) ; traitement par fonctions implicites et factorisation inventé pour ce site"
-difficulty: 2
-time: 30
+difficulty: 3
+time: 35
 tools: [ch06-fonctions-implicites, ch05-theoreme-fondamental, ch05-differentielles-partielles]
 ---
 ## Énoncé
