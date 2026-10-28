@@ -5,7 +5,7 @@ chapters: [2, 6, 1, 5]
 title: Une racine qui dépend holomorphiquement d'un paramètre complexe
 source: "Inventé (perturbation d'une racine simple, version complexe ; comparer avec l'Exercice VI.4.3 du poly)"
 difficulty: 3
-time: 50
+time: 40
 tools: [ch02-rouche, ch06-fonctions-implicites, ch01-c-derivable-ssi-df-c-lineaire, ch01-def-holomorphe, ch01-estimees-cauchy, ch01-def-multiplicite-zero]
 ---
 ## Énoncé

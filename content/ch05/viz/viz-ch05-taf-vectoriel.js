@@ -4,19 +4,19 @@ FMA.registerViz({
   title: "Accroissements finis vectoriels : une inégalité, pas une égalité",
   description: String.raw`**Ce que l'on voit.** On considère une courbe paramétrée $f:[a;b]\to\R^2$ de classe $C^1$ (choisie dans la liste) et deux paramètres $a<b$ réglables.
 
-* **À gauche, la courbe dans le plan.** Le trait épais est l'arc $f([a;b])$. La corde (tirets verts) est le vecteur $f(b)-f(a)$. La flèche orange est le vecteur vitesse $f'(c)$ attaché au point $f(c)$ (avec sa tangente en pointillés), pour un paramètre $c\in[a;b]$ que l'on règle (ou que l'on anime). Si l'**égalité des accroissements finis** $f(b)-f(a)=f'(c)(b-a)$ était vraie pour un $c$, la tangente en $f(c)$ serait parallèle à la corde **et** de longueur exactement adaptée ; le panneau de droite compare directement $f'(c)$ à $m=\frac{f(b)-f(a)}{b-a}$.
-* **À droite, l'« hodographe »** : la courbe $t\mapsto f'(t)$ des vecteurs vitesse, $t\in[a;b]$ (trait épais), son enveloppe convexe (zone teintée), et le point vert $m=\dfrac{f(b)-f(a)}{b-a}$ (pente moyenne). L'égalité $f(b)-f(a)=f'(c)(b-a)$ pour un certain $c$ revient à dire que **$m$ est sur l'hodographe**.
+* **En haut, la courbe dans le plan.** Le trait épais est l'arc $f([a;b])$. La corde (tirets verts) est le vecteur $f(b)-f(a)$. La flèche orange est le vecteur vitesse $f'(c)$ attaché au point $f(c)$ (avec sa tangente en pointillés), pour un paramètre $c\in[a;b]$ que l'on règle (ou que l'on anime). Si l'**égalité des accroissements finis** $f(b)-f(a)=f'(c)(b-a)$ était vraie pour un $c$, la tangente en $f(c)$ serait parallèle à la corde **et** de longueur exactement adaptée ; le panneau du bas compare directement $f'(c)$ à $m=\frac{f(b)-f(a)}{b-a}$.
+* **En bas, l'« hodographe »** : la courbe $t\mapsto f'(t)$ des vecteurs vitesse, $t\in[a;b]$ (trait épais), son enveloppe convexe (zone teintée), et le point vert $m=\dfrac{f(b)-f(a)}{b-a}$ (pente moyenne). L'égalité $f(b)-f(a)=f'(c)(b-a)$ pour un certain $c$ revient à dire que **$m$ est sur l'hodographe**.
 
 **Ce qu'il faut retenir.**
-1. Pour une fonction **réelle**, l'hodographe est un intervalle de $\R$ parcouru continûment et $m$ y est toujours (théorème des valeurs intermédiaires) : c'est l'égalité des accroissements finis. Choisissez « graphe de $t^3-t$ » : la première coordonnée de $f'$ vaut $1$, l'hodographe est une droite verticale, et $m$ est dessus.
-2. Pour une courbe **à valeurs dans $\R^2$**, $m$ peut être **hors** de l'hodographe : avec le cercle $(\cos t,\sin t)$ sur $[0;2\pi]$ on a $f(2\pi)-f(0)=0$ mais $\|f'(t)\|=1$ pour tout $t$ (poly, Théorème V.4.4, p. 104, et son contre-exemple). Le point $m=0$ est au centre du cercle de l'hodographe, jamais dessus.
-3. Ce qui reste vrai est l'**inégalité** $\|f(b)-f(a)\|\le \sup_{[a;b]}\|f'\|\,(b-a)$ (poly, Théorème V.4.1, p. 103, et Corollaire V.4.3, p. 104). On la lit à droite : $m$ est toujours dans le disque de rayon $\sup\|f'\|$, et même dans l'enveloppe convexe de l'hodographe, car $m$ est la **moyenne** des vecteurs $f'(t)$ : $f(b)-f(a)=\int_a^b f'(t)\,dt$ (poly, Théorème V.4.7, p. 105).`,
+1. Pour une fonction **réelle** $g:[a;b]\to\R$ de classe $C^1$, l'hodographe $g'([a;b])$ est un intervalle de $\R$ et la pente moyenne $\frac{g(b)-g(a)}{b-a}$ y est toujours : c'est l'**égalité** des accroissements finis (Rolle) ; on peut aussi le voir ainsi : cette pente est la moyenne $\frac1{b-a}\int_a^bg'$ de la fonction continue $g'$, comprise entre $\min g'$ et $\max g'$, donc atteinte (valeurs intermédiaires). Choisissez « graphe de $t^3-t$ » : la première coordonnée de $f'$ vaut $1$, l'hodographe est une droite verticale, et $m$ est dessus.
+2. Pour une courbe **à valeurs dans $\R^2$**, $m$ peut être **hors** de l'hodographe : avec le cercle $(\cos t,\sin t)$ sur $[0;2\pi]$ on a $f(2\pi)-f(0)=0$ mais $\|f'(t)\|=1$ pour tout $t$ : aucun $c$ ne convient. C'est pourquoi, à valeurs vectorielles, le poly n'énonce qu'une **inégalité** (Théorème V.4.4, p. 104). Le point $m=0$ est au centre du cercle de l'hodographe, jamais dessus.
+3. Ce qui reste vrai est l'**inégalité** $\|f(b)-f(a)\|\le \sup_{[a;b]}\|f'\|\,(b-a)$ (poly, Théorème V.4.1, p. 103, et Corollaire V.4.3, p. 104). On la lit en bas : $m$ est toujours dans le disque de rayon $\sup\|f'\|$, et même dans l'enveloppe convexe de l'hodographe, car $m$ est la **moyenne** des vecteurs $f'(t)$ : $f(b)-f(a)=\int_a^b f'(t)\,dt$ (poly, Théorème V.4.7, p. 105).`,
   related: ['ch05-accroissements-finis-vectoriel', 'ch05-accroissements-finis-borne', 'ch05-accroissements-finis', 'ch05-theoreme-fondamental', 'ch05-differentielle-nulle-constante'],
   height: 640,
   mount(container, kit) {
     const th = () => kit.theme();
     const CV = {
-      circle: { lab: 'cercle (cos t, sin t)', t0: 0, t1: 2 * Math.PI, f: t => [Math.cos(t), Math.sin(t)], d: t => [-Math.sin(t), Math.cos(t)], a: 0, b: 6.28 },
+      circle: { lab: 'cercle (cos t, sin t)', t0: 0, t1: 2 * Math.PI, f: t => [Math.cos(t), Math.sin(t)], d: t => [-Math.sin(t), Math.cos(t)], a: 0, b: 2 * Math.PI },
       cusp: { lab: 'point de rebroussement (t², t³)', t0: -1.5, t1: 1.5, f: t => [t * t, t * t * t], d: t => [2 * t, 3 * t * t], a: -1, b: 1 },
       spiral: { lab: 'spirale (t cos t, t sin t)', t0: 0, t1: 3 * Math.PI, f: t => [t * Math.cos(t), t * Math.sin(t)], d: t => [Math.cos(t) - t * Math.sin(t), Math.sin(t) + t * Math.cos(t)], a: 0.5, b: 6 },
       liss: { lab: 'huit (cos t, sin 2t)', t0: 0, t1: 2 * Math.PI, f: t => [Math.cos(t), Math.sin(2 * t)], d: t => [-Math.sin(t), 2 * Math.cos(2 * t)], a: 0.3, b: 5.5 },
@@ -26,8 +26,8 @@ FMA.registerViz({
     let cur = 'circle', bb = null, hb = null;
     const controls = kit.controls(container);
     const sel = kit.select(controls, { label: 'courbe', options: keys.map(k => [CV[k].lab, k]), value: cur, onChange: (k) => { cur = k; reset(); } });
-    const aS = kit.slider(controls, { label: '$a$', min: 0, max: 6.28, step: 0.01, value: 0, onChange: v => { if (v > bS.value - 0.05) bS.value = Math.min(CV[cur].t1, v + 0.05); draw(); } });
-    const bS = kit.slider(controls, { label: '$b$', min: 0, max: 6.28, step: 0.01, value: 6.28, onChange: v => { if (v < aS.value + 0.05) aS.value = Math.max(CV[cur].t0, v - 0.05); draw(); } });
+    const aS = kit.slider(controls, { label: '$a$', min: 0, max: 6.28, step: 0.01, value: 0, onChange: v => { const t1 = CV[cur].t1; if (v > t1 - 0.05) { v = t1 - 0.05; aS.value = v; } if (v > bS.value - 0.05) bS.value = v + 0.05; draw(); } });
+    const bS = kit.slider(controls, { label: '$b$', min: 0, max: 6.28, step: 0.01, value: 6.28, onChange: v => { const t0 = CV[cur].t0; if (v < t0 + 0.05) { v = t0 + 0.05; bS.value = v; } if (v < aS.value + 0.05) aS.value = v - 0.05; draw(); } });
     const cS = kit.slider(controls, { label: '$c$', min: 0, max: 1, step: 0.005, value: 0.3, format: v => (+v).toFixed(2), onChange: () => { stopAnim(); draw(); } });
     let anim = null; let animBtn;
     function stopAnim() { if (anim) { anim.stop(); anim = null; if (animBtn) animBtn.textContent = 'animer c'; } }
@@ -62,8 +62,15 @@ FMA.registerViz({
       const up = []; for (let i = p.length - 1; i >= 0; i--) { const q = p[i]; while (up.length >= 2 && cr(up[up.length - 2], up[up.length - 1], q) <= 0) up.pop(); up.push(q); }
       lo.pop(); up.pop(); return lo.concat(up);
     }
+    function segDist(p, q, m) { // distance de m au segment [p, q]
+      const vx = q[0] - p[0], vy = q[1] - p[1], L2 = vx * vx + vy * vy;
+      const s = L2 > 0 ? Math.max(0, Math.min(1, ((m[0] - p[0]) * vx + (m[1] - p[1]) * vy) / L2)) : 0;
+      return Math.hypot(m[0] - p[0] - s * vx, m[1] - p[1] - s * vy);
+    }
     function inHull(H, m, tol) {
-      if (H.length < 3) return false;
+      if (H.length === 0) return false;
+      if (H.length === 1) return Math.hypot(H[0][0] - m[0], H[0][1] - m[1]) <= tol;
+      if (H.length === 2) return segDist(H[0], H[1], m) <= tol; // enveloppe dégénérée (hodographe rectiligne : cas scalaire)
       for (let i = 0; i < H.length; i++) { const p = H[i], q = H[(i + 1) % H.length]; const crs = (q[0] - p[0]) * (m[1] - p[1]) - (q[1] - p[1]) * (m[0] - p[0]); if (crs < -tol) return false; }
       return true;
     }
@@ -90,7 +97,7 @@ FMA.registerViz({
           text(ctx, 'corde f(b)−f(a) (vert), vitesse f′(c) (orange)', 8, 5);
         }
         // right
-        const Hh = hull(hod); let dist = Infinity; for (let i = 0; i <= 800; i++) { const d = c.d(a + L * i / 800); dist = Math.min(dist, Math.hypot(d[0] - m[0], d[1] - m[1])); }
+        const Hh = hull(hod); let dist = Infinity; { let prev = c.d(a); for (let i = 1; i <= 800; i++) { const d = c.d(a + L * i / 800); dist = Math.min(dist, segDist(prev, d, m)); prev = d; } }
         sR.clear(); { const { ctx, W, H } = sR;
           const box = boxOf(hb ? [[hb.xmin, hb.ymin], [hb.xmax, hb.ymax]] : [], [m, [sup, sup], [-sup, -sup]]);
           const P = kit.plane(ctx, { xmin: box.xmin, xmax: box.xmax, ymin: box.ymin, ymax: box.ymax, W, H });
@@ -105,7 +112,7 @@ FMA.registerViz({
           text(ctx, 'zone teintée : enveloppe convexe', 8, 19);
         }
         const nrm = Math.hypot(chord[0], chord[1]);
-        const inside = inHull(Hh, m, 1e-9 * (1 + sup)) || dist < 1e-3 * (1 + sup);
+        const inside = inHull(Hh, m, 1e-6 * (1 + sup)) || dist < 1e-3 * (1 + sup);
         const f3 = v => (Math.abs(v) < 5e-4 ? '0' : v.toFixed(3)).replace('-', '−');
         ro1.set(`‖f(b)−f(a)‖ = <b>${f3(nrm)}</b> ≤ sup‖f′‖·(b−a) = <b>${f3(sup * L)}</b>`);
         ro2.set(`distance de m à l'hodographe = <b>${f3(dist)}</b> : ` + (dist > 2e-3 * (1 + sup) ? '<b style="color:var(--accent-2)">aucun c ne vérifie f(b)−f(a)=f′(c)(b−a)</b>' : '<b style="color:var(--accent-3)">il existe (ici) un c avec égalité</b>') + ` ; m ∈ enveloppe convexe : <b>${inside ? 'oui' : 'non'}</b>`);

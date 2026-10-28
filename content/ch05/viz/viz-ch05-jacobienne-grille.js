@@ -2,15 +2,15 @@ FMA.registerViz({
   id: 'viz-ch05-jacobienne-grille',
   chapter: 5,
   title: "Matrice jacobienne : une petite grille devient un parallélogramme",
-  description: String.raw`**Ce que l'on voit.** À gauche (en haut sur un téléphone), le plan des $x=(x_1,x_2)$ : un point $a$ (orange, **à glisser**), un petit carré $a+[-\delta,\delta]^2$ muni d'une grille (verticales bleues, horizontales roses), et une courbe $\alpha$ passant par $a$ (verte) dont le vecteur tangent en $t=0$ est $h=\alpha'(0)=\delta\,(\cos\varphi,\sin\varphi)$. À droite : le plan d'arrivée, **recentré sur $f(a)$ et agrandi** pour que l'image tienne dans la fenêtre. Traits pleins : l'image de la grille par $f:\R^2\to\R^2$ (courbée). Tirets : l'image de la même grille par l'**approximation affine** $x\mapsto f(a)+df_a(x-a)$, c'est-à-dire par la matrice jacobienne
+  description: String.raw`**Ce que l'on voit.** **En haut**, le plan de départ des $x=(x_1,x_2)$ : un point $a$ (orange, **à glisser**), un petit carré $a+[-\delta,\delta]^2$ muni d'une grille (verticales bleues, horizontales roses), et une courbe $\alpha$ passant par $a$ (verte) dont le vecteur tangent en $t=0$ est $h=\alpha'(0)=\delta\,(\cos\varphi,\sin\varphi)$. **En bas** : le plan d'arrivée, **recentré sur $f(a)$ et agrandi** pour que l'image tienne dans la fenêtre. Traits pleins : l'image de la grille par $f:\R^2\to\R^2$ (courbée). Tirets : l'image de la même grille par l'**approximation affine** $x\mapsto f(a)+df_a(x-a)$, c'est-à-dire par la matrice jacobienne
 $$J_f(a)=\begin{pmatrix}\partial_{x_1}f_1(a)&\partial_{x_2}f_1(a)\\ \partial_{x_1}f_2(a)&\partial_{x_2}f_2(a)\end{pmatrix},$$
 dont la colonne $i$ est $\frac{\partial f}{\partial x_i}(a)$ (poly, section V.3.5, p. 103).
 
 **Ce qu'il faut regarder.**
 * **Réduisez $\delta$** : le carré image se confond avec le **parallélogramme** engendré par les colonnes de la jacobienne. C'est la différentiabilité : $f(a+h)=f(a)+df_a(h)+o(h)$ (poly, Définition V.3.1, p. 98). Le nombre « erreur max$/\|h\|$ » affiché tend vers $0$.
 * **Facteur d'aire.** Le rapport (aire de l'image)$/$(aire du carré) tend vers le déterminant jacobien $\mathrm{Jac}(f)(a)=\det\big(df_a\big)$. Son signe donne l'orientation (négatif $\Rightarrow$ le parallélogramme est « retourné »).
-* **Vecteurs tangents (poly, Remarque V.3.13, p. 100).** La flèche orange à gauche est $h=\alpha'(0)$ ; à droite, la flèche orange est $df_a(h)=(f\circ\alpha)'(0)$, tangente à la courbe image $\beta=f\circ\alpha$ (verte). **Changez la courbure $\kappa$ de $\alpha$** sans toucher $\varphi$ : la courbe $\beta$ change mais la flèche $\beta'(0)=df_a(h)$ ne bouge pas, car elle ne dépend que de $h$.
-* **Applications à essayer.** $z^2$ en coordonnées réelles, $(x_1,x_2)\mapsto(x_1^2-x_2^2,2x_1x_2)$ : la jacobienne est une similitude (le parallélogramme est un carré, car $f$ est holomorphe : lien avec le chapitre I). Le « repli » $(x_1,x_2)\mapsto(x_1^2,x_2)$ : le déterminant $2x_1$ s'annule sur l'axe $x_1=0$, où le carré est écrasé sur un segment (ce n'est plus un isomorphisme local : lien avec le théorème d'inversion locale du chapitre VI).`,
+* **Vecteurs tangents (poly, Remarque V.3.13, p. 100).** La flèche orange en haut est $h=\alpha'(0)$ ; en bas, la flèche orange est $df_a(h)=(f\circ\alpha)'(0)$, tangente à la courbe image $\beta=f\circ\alpha$ (verte). **Changez la courbure $\kappa$ de $\alpha$** sans toucher $\varphi$ : la courbe $\beta$ change mais la flèche $\beta'(0)=df_a(h)$ ne bouge pas, car elle ne dépend que de $h$.
+* **Applications à essayer.** $z^2$ en coordonnées réelles, $(x_1,x_2)\mapsto(x_1^2-x_2^2,2x_1x_2)$ : la jacobienne en $a\neq0$ est une similitude directe (le parallélogramme est un carré, car $f$ est holomorphe et $f'(a)=2a\neq0$ : lien avec le chapitre I ; en $a=0$ la jacobienne est nulle). Le « repli » $(x_1,x_2)\mapsto(x_1^2,x_2)$ : le déterminant $2x_1$ s'annule sur l'axe $x_1=0$, où le carré est écrasé sur un segment (ce n'est plus un isomorphisme local : lien avec le théorème d'inversion locale du chapitre VI).`,
   related: ['ch05-matrice-jacobienne', 'ch05-vecteur-tangent-courbe', 'ch05-differentielle-def', 'ch05-composition-differentielles', 'ch05-differentielles-partielles'],
   height: 640,
   mount(container, kit) {
@@ -20,11 +20,9 @@ dont la colonne $i$ est $\frac{\partial f}{\partial x_i}(a)$ (poly, section V.3.
       pol: { lab: 'polaires : (x cos y, x sin y)', f: (x, y) => [x * Math.cos(y), x * Math.sin(y)], a0: [1.0, 0.8] },
       expc: { lab: 'exp : eˣ(cos y, sin y)', f: (x, y) => [Math.exp(x) * Math.cos(y), Math.exp(x) * Math.sin(y)], a0: [0.3, 0.8] },
       fold: { lab: 'repli : (x², y)', f: (x, y) => [x * x, y], a0: [0.6, 0.4] },
-      quad: { lab: 'non conforme : (x+y²/2, y+x²/2)... ', f: (x, y) => [x + 0.5 * y * y + 0.3 * x * y, y + 0.5 * x * x], a0: [0.5, 0.7] },
-      shear: { lab: 'linéaire : (x+y, 0,5·y)', f: (x, y) => [x + y, 0.5 * y], a0: [0.4, 0.4] },
+      quad: { lab: 'non conforme : (x+y²/2+0,3xy, y+x²/2)', f: (x, y) => [x + 0.5 * y * y + 0.3 * x * y, y + 0.5 * x * x], a0: [0.5, 0.7] },
+      shear: { lab: 'linéaire : (x+y, y/2)', f: (x, y) => [x + y, 0.5 * y], a0: [0.4, 0.4] },
     };
-    FN.quad.lab = 'non conforme : (x+y²/2+0,3xy, y+x²/2)';
-    FN.shear.lab = 'linéaire : (x+y, y/2)';
     const keys = Object.keys(FN);
     let cur = 'z2'; let a = FN[cur].a0.slice();
 

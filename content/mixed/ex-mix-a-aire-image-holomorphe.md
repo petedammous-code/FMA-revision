@@ -5,7 +5,7 @@ chapters: [1, 6, 5]
 title: Aire de l'image d'un disque par une fonction holomorphe injective
 source: "Classique (formule de l'aire des fonctions univalentes, dans l'esprit du théorème de l'aire de Gronwall), adapté et complété"
 difficulty: 3
-time: 50
+time: 40
 tools: [ch01-similitude-conforme, ch01-bijection-holomorphe-reciproque-holomorphe, ch01-application-ouverte, ch06-inversion-globale, ch05-matrice-jacobienne, ch01-serie-entiere-holomorphe]
 ---
 ## Énoncé

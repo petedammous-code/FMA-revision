@@ -9,9 +9,9 @@ FMA.registerViz({
 $$R(\rho)=\max_{\|h\|=\rho}\frac{\|f(a+h)-f(a)-\ell(h)\|}{\|h\|}$$
 (maximum sur 36 directions). Différentiabilité en $a$ $\iff$ $R(\rho)\to0$ quand $\rho\to0$ (avec $\ell=df_a$) : la courbe plonge, avec pente $1$ si $f$ est assez régulière. Sinon elle reste à plat.
 
-**À faire.** Prenez $\sin x\cos y$ et glissez $a$ : la courbe du bas plonge partout (échelle log : une droite de pente $1$ signifie $R(\rho)\approx C\rho$). Passez à $\dfrac{xy}{x^2+y^2}$, au point $a=(0,0)$ : les deux dérivées partielles existent ($\ell=0$), mais mettez la direction à $\theta=45^\circ$ : $f(su)=\tfrac12$ pour $s\neq0$, très loin du plan $0$. Le rapport vaut $\tfrac{1}{2\rho}\to+\infty$ : la courbe du bas **monte** quand on zoome (poly, Remarque V.3.18, p. 102). Pour $\dfrac{x^3}{x^2+y^2}$, $f$ est continue et toutes les dérivées directionnelles existent, mais elles ne dépendent pas linéairement de $u$ : aucun $\ell$ ne convient et $R(\rho)$ reste de l'ordre de $1$ (courbe plate). Pour $|x|+y^2/2$ et $\sqrt{x^2+y^2}$, le « pli » (le cône) empêche tout plan tangent. Dès que l'on quitte le point singulier (en le faisant glisser), $f$ redevient différentiable et la courbe du bas replonge.
+**À faire.** Prenez $\sin x\cos y$ et glissez $a$ : la courbe du bas plonge partout (échelle log : une droite de pente $1$ signifie $R(\rho)\approx C\rho$). Passez à $\dfrac{xy}{x^2+y^2}$, au point $a=(0,0)$ : les deux dérivées partielles existent ($\ell=0$), mais mettez la direction à $\theta=45^\circ$ : $f(su)=\tfrac12$ pour $s\neq0$, très loin du plan $0$. Le rapport vaut $\tfrac{1}{2\rho}\to+\infty$ : la courbe du bas **monte** quand on zoome (poly, Remarque V.3.18, p. 102). Pour $\dfrac{x^3}{x^2+y^2}$, $f$ est continue et toutes les dérivées directionnelles existent ($\partial_uf(0)=u_1^3$), mais elles ne dépendent pas linéairement de $u$ : aucun $\ell$ ne convient et $R(\rho)$ reste constant (courbe plate, $R\approx0{,}38$ avec les dérivées partielles $\ell(h)=h_1$). Pour $\dfrac{x^2y}{x^4+y^2}$, $f$ n'est même pas continue en $0$ ($f(t,t^2)=\tfrac12$) : le vrai $R(\rho)$ est $\tfrac1{2\rho}$, atteint dans une direction très proche de l'axe des $x$ ; l'échantillonnage en 36 directions n'en voit qu'un plateau élevé, qui suffit à conclure. Pour $|x|+y^2/2$ et $\sqrt{x^2+y^2}$, le « pli » (le cône) empêche tout plan tangent. Dès que l'on quitte le point singulier (en le faisant glisser), $f$ redevient différentiable et la courbe du bas replonge.
 
-*Remarque.* Pour $|x|$ et le cône, la dérivée partielle n'existe pas en $(0,0)$ ; la valeur utilisée (différence centrée) est $0$ ; ceci n'affaiblit pas la conclusion : aucune application linéaire ne convient, on le voit à la forme en « V » à fort zoom.`,
+*Remarque.* Pour $|x|+y^2/2$ et le cône, la dérivée partielle $\partial_xf$ n'existe pas en $(0,0)$ ; la valeur utilisée (différence centrée) est $0$ ; ceci n'affaiblit pas la conclusion : aucune application linéaire ne convient, on le voit à la forme en « V » à fort zoom. Le bouton « revenir au point $a_0$ » ramène $a$ au point singulier (ou, pour $\sin x\cos y$, au point initial).`,
   related: ['ch05-differentielle-def', 'ch05-partielles-sans-differentiabilite', 'ch05-differentielles-partielles', 'ch05-derivee-directionnelle-unicite', 'ch05-petit-o-def'],
   height: 760,
   mount(container, kit) {
@@ -32,7 +32,7 @@ $$R(\rho)=\max_{\|h\|=\rho}\frac{\|f(a+h)-f(a)-\ell(h)\|}{\|h\|}$$
     const sel = kit.select(controls, { label: '$f=$', options: keys.map(k => [FN[k].lab, k]), value: cur, onChange: (k) => { cur = k; a = FN[k].a0.slice(); draw(); } });
     const dirS = kit.slider(controls, { label: '$\\theta$ (°)', min: 0, max: 359, step: 1, value: 45, onChange: draw });
     const zoomS = kit.slider(controls, { label: '$\\log_{10}\\rho$', min: -3, max: 0.3, step: 0.05, value: -0.3, format: v => (+v).toFixed(2), onChange: draw });
-    kit.button(controls, { label: 'revenir au point singulier', onClick: () => { a = FN[cur].a0.slice(); draw(); } });
+    kit.button(controls, { label: 'revenir au point a₀', onClick: () => { a = FN[cur].a0.slice(); draw(); } });
     const ro = kit.readout(controls, { label: '' });
 
     const s1 = kit.canvas(container, { height: 250 });
@@ -96,7 +96,7 @@ $$R(\rho)=\max_{\|h\|=\rho}\frac{\|f(a+h)-f(a)-\ell(h)\|}{\|h\|}$$
       for (let i = 0; i < N; i++) { const px = X(ts[i]), py = Y(ys[i]); i ? ctx.lineTo(px, py) : ctx.moveTo(px, py); } ctx.stroke();
       ctx.restore();
       text(ctx, 'f(a+su) − f(a)', 8, 4, { color: t.accent }); text(ctx, '- - ℓ(su) linéaire', 110, 4, { color: t.accent2 });
-      text(ctx, '±' + kit.fmt(+span.toPrecision(2)), L - 4, T, { align: 'right' }); text(ctx, '−' + kit.fmt(+span.toPrecision(2)), L - 4, H - B, { align: 'right', base: 'bottom' });
+      text(ctx, '+' + kit.fmt(+span.toPrecision(2)), L - 4, T, { align: 'right' }); text(ctx, '−' + kit.fmt(+span.toPrecision(2)), L - 4, H - B, { align: 'right', base: 'bottom' });
       text(ctx, '−ρ = −' + kit.fmt(+rho.toPrecision(2)), L, H - B + 4); text(ctx, 's', X(0), H - B + 4, { align: 'center' }); text(ctx, 'ρ', W - R, H - B + 4, { align: 'right' });
     }
     function drawRatio(g) {
@@ -131,7 +131,7 @@ $$R(\rho)=\max_{\|h\|=\rho}\frac{\|f(a+h)-f(a)-\ell(h)\|}{\|h\|}$$
         drawProfile(g); drawRatio(g);
         const r1 = Rmax(g, 1e-3), r2 = Rmax(g, 1e-2);
         const ok = r1 < 0.35 * r2 || r1 < 1e-5;
-        ro.set(`a = (${a[0].toFixed(2)}, ${a[1].toFixed(2)}), ∇f ≈ (${g[0].toFixed(2)}, ${g[1].toFixed(2)}) — R(10⁻³) = ${r1 < 1e-9 ? '≈ 0' : r1.toPrecision(2)} : ` + (ok ? '<b style="color:var(--accent-3)">le rapport tend vers 0 : f différentiable en a</b>' : '<b style="color:var(--accent-2)">le rapport ne tend pas vers 0 : pas de df_a</b>'));
+        ro.set(`a = (${a[0].toFixed(2)}, ${a[1].toFixed(2)}), (∂ₓf, ∂ᵧf)(a) ≈ (${g[0].toFixed(2)}, ${g[1].toFixed(2)}) — R(10⁻³) = ${r1 < 1e-9 ? '≈ 0' : r1.toPrecision(2)} : ` + (ok ? '<b style="color:var(--accent-3)">le rapport tend vers 0 : f différentiable en a</b>' : '<b style="color:var(--accent-2)">le rapport ne tend pas vers 0 : pas de df_a</b>'));
       } catch (e) { console.error(e); }
     }
     function setFromPointer(p) {

@@ -5,7 +5,7 @@ chapters: [7, 1, 2, 5]
 title: "Champs de vecteurs holomorphes complets sur C : seuls les affines"
 source: "Classique (flots des champs holomorphes complets du plan), rédaction et exemples inventés"
 difficulty: 4
-time: 75
+time: 60
 tools: [ch07-flot-global-ouvert-regulier, ch07-proprietes-flot-formules, ch05-lemme-schwarz, ch01-c-derivable-ssi-df-c-lineaire, ch07-unicite-globale, ch07-groupe-un-parametre, ch02-automorphismes-de-c, ch01-def-biholomorphisme]
 ---
 ## Énoncé

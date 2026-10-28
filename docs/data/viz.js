@@ -1798,9 +1798,9 @@ FMA.registerViz({
 $$R(\rho)=\max_{\|h\|=\rho}\frac{\|f(a+h)-f(a)-\ell(h)\|}{\|h\|}$$
 (maximum sur 36 directions). Différentiabilité en $a$ $\iff$ $R(\rho)\to0$ quand $\rho\to0$ (avec $\ell=df_a$) : la courbe plonge, avec pente $1$ si $f$ est assez régulière. Sinon elle reste à plat.
 
-**À faire.** Prenez $\sin x\cos y$ et glissez $a$ : la courbe du bas plonge partout (échelle log : une droite de pente $1$ signifie $R(\rho)\approx C\rho$). Passez à $\dfrac{xy}{x^2+y^2}$, au point $a=(0,0)$ : les deux dérivées partielles existent ($\ell=0$), mais mettez la direction à $\theta=45^\circ$ : $f(su)=\tfrac12$ pour $s\neq0$, très loin du plan $0$. Le rapport vaut $\tfrac{1}{2\rho}\to+\infty$ : la courbe du bas **monte** quand on zoome (poly, Remarque V.3.18, p. 102). Pour $\dfrac{x^3}{x^2+y^2}$, $f$ est continue et toutes les dérivées directionnelles existent, mais elles ne dépendent pas linéairement de $u$ : aucun $\ell$ ne convient et $R(\rho)$ reste de l'ordre de $1$ (courbe plate). Pour $|x|+y^2/2$ et $\sqrt{x^2+y^2}$, le « pli » (le cône) empêche tout plan tangent. Dès que l'on quitte le point singulier (en le faisant glisser), $f$ redevient différentiable et la courbe du bas replonge.
+**À faire.** Prenez $\sin x\cos y$ et glissez $a$ : la courbe du bas plonge partout (échelle log : une droite de pente $1$ signifie $R(\rho)\approx C\rho$). Passez à $\dfrac{xy}{x^2+y^2}$, au point $a=(0,0)$ : les deux dérivées partielles existent ($\ell=0$), mais mettez la direction à $\theta=45^\circ$ : $f(su)=\tfrac12$ pour $s\neq0$, très loin du plan $0$. Le rapport vaut $\tfrac{1}{2\rho}\to+\infty$ : la courbe du bas **monte** quand on zoome (poly, Remarque V.3.18, p. 102). Pour $\dfrac{x^3}{x^2+y^2}$, $f$ est continue et toutes les dérivées directionnelles existent ($\partial_uf(0)=u_1^3$), mais elles ne dépendent pas linéairement de $u$ : aucun $\ell$ ne convient et $R(\rho)$ reste constant (courbe plate, $R\approx0{,}38$ avec les dérivées partielles $\ell(h)=h_1$). Pour $\dfrac{x^2y}{x^4+y^2}$, $f$ n'est même pas continue en $0$ ($f(t,t^2)=\tfrac12$) : le vrai $R(\rho)$ est $\tfrac1{2\rho}$, atteint dans une direction très proche de l'axe des $x$ ; l'échantillonnage en 36 directions n'en voit qu'un plateau élevé, qui suffit à conclure. Pour $|x|+y^2/2$ et $\sqrt{x^2+y^2}$, le « pli » (le cône) empêche tout plan tangent. Dès que l'on quitte le point singulier (en le faisant glisser), $f$ redevient différentiable et la courbe du bas replonge.
 
-*Remarque.* Pour $|x|$ et le cône, la dérivée partielle n'existe pas en $(0,0)$ ; la valeur utilisée (différence centrée) est $0$ ; ceci n'affaiblit pas la conclusion : aucune application linéaire ne convient, on le voit à la forme en « V » à fort zoom.`,
+*Remarque.* Pour $|x|+y^2/2$ et le cône, la dérivée partielle $\partial_xf$ n'existe pas en $(0,0)$ ; la valeur utilisée (différence centrée) est $0$ ; ceci n'affaiblit pas la conclusion : aucune application linéaire ne convient, on le voit à la forme en « V » à fort zoom. Le bouton « revenir au point $a_0$ » ramène $a$ au point singulier (ou, pour $\sin x\cos y$, au point initial).`,
   related: ['ch05-differentielle-def', 'ch05-partielles-sans-differentiabilite', 'ch05-differentielles-partielles', 'ch05-derivee-directionnelle-unicite', 'ch05-petit-o-def'],
   height: 760,
   mount(container, kit) {
@@ -1821,7 +1821,7 @@ $$R(\rho)=\max_{\|h\|=\rho}\frac{\|f(a+h)-f(a)-\ell(h)\|}{\|h\|}$$
     const sel = kit.select(controls, { label: '$f=$', options: keys.map(k => [FN[k].lab, k]), value: cur, onChange: (k) => { cur = k; a = FN[k].a0.slice(); draw(); } });
     const dirS = kit.slider(controls, { label: '$\\theta$ (°)', min: 0, max: 359, step: 1, value: 45, onChange: draw });
     const zoomS = kit.slider(controls, { label: '$\\log_{10}\\rho$', min: -3, max: 0.3, step: 0.05, value: -0.3, format: v => (+v).toFixed(2), onChange: draw });
-    kit.button(controls, { label: 'revenir au point singulier', onClick: () => { a = FN[cur].a0.slice(); draw(); } });
+    kit.button(controls, { label: 'revenir au point a₀', onClick: () => { a = FN[cur].a0.slice(); draw(); } });
     const ro = kit.readout(controls, { label: '' });
 
     const s1 = kit.canvas(container, { height: 250 });
@@ -1885,7 +1885,7 @@ $$R(\rho)=\max_{\|h\|=\rho}\frac{\|f(a+h)-f(a)-\ell(h)\|}{\|h\|}$$
       for (let i = 0; i < N; i++) { const px = X(ts[i]), py = Y(ys[i]); i ? ctx.lineTo(px, py) : ctx.moveTo(px, py); } ctx.stroke();
       ctx.restore();
       text(ctx, 'f(a+su) − f(a)', 8, 4, { color: t.accent }); text(ctx, '- - ℓ(su) linéaire', 110, 4, { color: t.accent2 });
-      text(ctx, '±' + kit.fmt(+span.toPrecision(2)), L - 4, T, { align: 'right' }); text(ctx, '−' + kit.fmt(+span.toPrecision(2)), L - 4, H - B, { align: 'right', base: 'bottom' });
+      text(ctx, '+' + kit.fmt(+span.toPrecision(2)), L - 4, T, { align: 'right' }); text(ctx, '−' + kit.fmt(+span.toPrecision(2)), L - 4, H - B, { align: 'right', base: 'bottom' });
       text(ctx, '−ρ = −' + kit.fmt(+rho.toPrecision(2)), L, H - B + 4); text(ctx, 's', X(0), H - B + 4, { align: 'center' }); text(ctx, 'ρ', W - R, H - B + 4, { align: 'right' });
     }
     function drawRatio(g) {
@@ -1920,7 +1920,7 @@ $$R(\rho)=\max_{\|h\|=\rho}\frac{\|f(a+h)-f(a)-\ell(h)\|}{\|h\|}$$
         drawProfile(g); drawRatio(g);
         const r1 = Rmax(g, 1e-3), r2 = Rmax(g, 1e-2);
         const ok = r1 < 0.35 * r2 || r1 < 1e-5;
-        ro.set(`a = (${a[0].toFixed(2)}, ${a[1].toFixed(2)}), ∇f ≈ (${g[0].toFixed(2)}, ${g[1].toFixed(2)}) — R(10⁻³) = ${r1 < 1e-9 ? '≈ 0' : r1.toPrecision(2)} : ` + (ok ? '<b style="color:var(--accent-3)">le rapport tend vers 0 : f différentiable en a</b>' : '<b style="color:var(--accent-2)">le rapport ne tend pas vers 0 : pas de df_a</b>'));
+        ro.set(`a = (${a[0].toFixed(2)}, ${a[1].toFixed(2)}), (∂ₓf, ∂ᵧf)(a) ≈ (${g[0].toFixed(2)}, ${g[1].toFixed(2)}) — R(10⁻³) = ${r1 < 1e-9 ? '≈ 0' : r1.toPrecision(2)} : ` + (ok ? '<b style="color:var(--accent-3)">le rapport tend vers 0 : f différentiable en a</b>' : '<b style="color:var(--accent-2)">le rapport ne tend pas vers 0 : pas de df_a</b>'));
       } catch (e) { console.error(e); }
     }
     function setFromPointer(p) {
@@ -1945,15 +1945,15 @@ FMA.registerViz({
   id: 'viz-ch05-jacobienne-grille',
   chapter: 5,
   title: "Matrice jacobienne : une petite grille devient un parallélogramme",
-  description: String.raw`**Ce que l'on voit.** À gauche (en haut sur un téléphone), le plan des $x=(x_1,x_2)$ : un point $a$ (orange, **à glisser**), un petit carré $a+[-\delta,\delta]^2$ muni d'une grille (verticales bleues, horizontales roses), et une courbe $\alpha$ passant par $a$ (verte) dont le vecteur tangent en $t=0$ est $h=\alpha'(0)=\delta\,(\cos\varphi,\sin\varphi)$. À droite : le plan d'arrivée, **recentré sur $f(a)$ et agrandi** pour que l'image tienne dans la fenêtre. Traits pleins : l'image de la grille par $f:\R^2\to\R^2$ (courbée). Tirets : l'image de la même grille par l'**approximation affine** $x\mapsto f(a)+df_a(x-a)$, c'est-à-dire par la matrice jacobienne
+  description: String.raw`**Ce que l'on voit.** **En haut**, le plan de départ des $x=(x_1,x_2)$ : un point $a$ (orange, **à glisser**), un petit carré $a+[-\delta,\delta]^2$ muni d'une grille (verticales bleues, horizontales roses), et une courbe $\alpha$ passant par $a$ (verte) dont le vecteur tangent en $t=0$ est $h=\alpha'(0)=\delta\,(\cos\varphi,\sin\varphi)$. **En bas** : le plan d'arrivée, **recentré sur $f(a)$ et agrandi** pour que l'image tienne dans la fenêtre. Traits pleins : l'image de la grille par $f:\R^2\to\R^2$ (courbée). Tirets : l'image de la même grille par l'**approximation affine** $x\mapsto f(a)+df_a(x-a)$, c'est-à-dire par la matrice jacobienne
 $$J_f(a)=\begin{pmatrix}\partial_{x_1}f_1(a)&\partial_{x_2}f_1(a)\\ \partial_{x_1}f_2(a)&\partial_{x_2}f_2(a)\end{pmatrix},$$
 dont la colonne $i$ est $\frac{\partial f}{\partial x_i}(a)$ (poly, section V.3.5, p. 103).
 
 **Ce qu'il faut regarder.**
 * **Réduisez $\delta$** : le carré image se confond avec le **parallélogramme** engendré par les colonnes de la jacobienne. C'est la différentiabilité : $f(a+h)=f(a)+df_a(h)+o(h)$ (poly, Définition V.3.1, p. 98). Le nombre « erreur max$/\|h\|$ » affiché tend vers $0$.
 * **Facteur d'aire.** Le rapport (aire de l'image)$/$(aire du carré) tend vers le déterminant jacobien $\mathrm{Jac}(f)(a)=\det\big(df_a\big)$. Son signe donne l'orientation (négatif $\Rightarrow$ le parallélogramme est « retourné »).
-* **Vecteurs tangents (poly, Remarque V.3.13, p. 100).** La flèche orange à gauche est $h=\alpha'(0)$ ; à droite, la flèche orange est $df_a(h)=(f\circ\alpha)'(0)$, tangente à la courbe image $\beta=f\circ\alpha$ (verte). **Changez la courbure $\kappa$ de $\alpha$** sans toucher $\varphi$ : la courbe $\beta$ change mais la flèche $\beta'(0)=df_a(h)$ ne bouge pas, car elle ne dépend que de $h$.
-* **Applications à essayer.** $z^2$ en coordonnées réelles, $(x_1,x_2)\mapsto(x_1^2-x_2^2,2x_1x_2)$ : la jacobienne est une similitude (le parallélogramme est un carré, car $f$ est holomorphe : lien avec le chapitre I). Le « repli » $(x_1,x_2)\mapsto(x_1^2,x_2)$ : le déterminant $2x_1$ s'annule sur l'axe $x_1=0$, où le carré est écrasé sur un segment (ce n'est plus un isomorphisme local : lien avec le théorème d'inversion locale du chapitre VI).`,
+* **Vecteurs tangents (poly, Remarque V.3.13, p. 100).** La flèche orange en haut est $h=\alpha'(0)$ ; en bas, la flèche orange est $df_a(h)=(f\circ\alpha)'(0)$, tangente à la courbe image $\beta=f\circ\alpha$ (verte). **Changez la courbure $\kappa$ de $\alpha$** sans toucher $\varphi$ : la courbe $\beta$ change mais la flèche $\beta'(0)=df_a(h)$ ne bouge pas, car elle ne dépend que de $h$.
+* **Applications à essayer.** $z^2$ en coordonnées réelles, $(x_1,x_2)\mapsto(x_1^2-x_2^2,2x_1x_2)$ : la jacobienne en $a\neq0$ est une similitude directe (le parallélogramme est un carré, car $f$ est holomorphe et $f'(a)=2a\neq0$ : lien avec le chapitre I ; en $a=0$ la jacobienne est nulle). Le « repli » $(x_1,x_2)\mapsto(x_1^2,x_2)$ : le déterminant $2x_1$ s'annule sur l'axe $x_1=0$, où le carré est écrasé sur un segment (ce n'est plus un isomorphisme local : lien avec le théorème d'inversion locale du chapitre VI).`,
   related: ['ch05-matrice-jacobienne', 'ch05-vecteur-tangent-courbe', 'ch05-differentielle-def', 'ch05-composition-differentielles', 'ch05-differentielles-partielles'],
   height: 640,
   mount(container, kit) {
@@ -1963,11 +1963,9 @@ dont la colonne $i$ est $\frac{\partial f}{\partial x_i}(a)$ (poly, section V.3.
       pol: { lab: 'polaires : (x cos y, x sin y)', f: (x, y) => [x * Math.cos(y), x * Math.sin(y)], a0: [1.0, 0.8] },
       expc: { lab: 'exp : eˣ(cos y, sin y)', f: (x, y) => [Math.exp(x) * Math.cos(y), Math.exp(x) * Math.sin(y)], a0: [0.3, 0.8] },
       fold: { lab: 'repli : (x², y)', f: (x, y) => [x * x, y], a0: [0.6, 0.4] },
-      quad: { lab: 'non conforme : (x+y²/2, y+x²/2)... ', f: (x, y) => [x + 0.5 * y * y + 0.3 * x * y, y + 0.5 * x * x], a0: [0.5, 0.7] },
-      shear: { lab: 'linéaire : (x+y, 0,5·y)', f: (x, y) => [x + y, 0.5 * y], a0: [0.4, 0.4] },
+      quad: { lab: 'non conforme : (x+y²/2+0,3xy, y+x²/2)', f: (x, y) => [x + 0.5 * y * y + 0.3 * x * y, y + 0.5 * x * x], a0: [0.5, 0.7] },
+      shear: { lab: 'linéaire : (x+y, y/2)', f: (x, y) => [x + y, 0.5 * y], a0: [0.4, 0.4] },
     };
-    FN.quad.lab = 'non conforme : (x+y²/2+0,3xy, y+x²/2)';
-    FN.shear.lab = 'linéaire : (x+y, y/2)';
     const keys = Object.keys(FN);
     let cur = 'z2'; let a = FN[cur].a0.slice();
 
@@ -2090,19 +2088,19 @@ FMA.registerViz({
   title: "Accroissements finis vectoriels : une inégalité, pas une égalité",
   description: String.raw`**Ce que l'on voit.** On considère une courbe paramétrée $f:[a;b]\to\R^2$ de classe $C^1$ (choisie dans la liste) et deux paramètres $a<b$ réglables.
 
-* **À gauche, la courbe dans le plan.** Le trait épais est l'arc $f([a;b])$. La corde (tirets verts) est le vecteur $f(b)-f(a)$. La flèche orange est le vecteur vitesse $f'(c)$ attaché au point $f(c)$ (avec sa tangente en pointillés), pour un paramètre $c\in[a;b]$ que l'on règle (ou que l'on anime). Si l'**égalité des accroissements finis** $f(b)-f(a)=f'(c)(b-a)$ était vraie pour un $c$, la tangente en $f(c)$ serait parallèle à la corde **et** de longueur exactement adaptée ; le panneau de droite compare directement $f'(c)$ à $m=\frac{f(b)-f(a)}{b-a}$.
-* **À droite, l'« hodographe »** : la courbe $t\mapsto f'(t)$ des vecteurs vitesse, $t\in[a;b]$ (trait épais), son enveloppe convexe (zone teintée), et le point vert $m=\dfrac{f(b)-f(a)}{b-a}$ (pente moyenne). L'égalité $f(b)-f(a)=f'(c)(b-a)$ pour un certain $c$ revient à dire que **$m$ est sur l'hodographe**.
+* **En haut, la courbe dans le plan.** Le trait épais est l'arc $f([a;b])$. La corde (tirets verts) est le vecteur $f(b)-f(a)$. La flèche orange est le vecteur vitesse $f'(c)$ attaché au point $f(c)$ (avec sa tangente en pointillés), pour un paramètre $c\in[a;b]$ que l'on règle (ou que l'on anime). Si l'**égalité des accroissements finis** $f(b)-f(a)=f'(c)(b-a)$ était vraie pour un $c$, la tangente en $f(c)$ serait parallèle à la corde **et** de longueur exactement adaptée ; le panneau du bas compare directement $f'(c)$ à $m=\frac{f(b)-f(a)}{b-a}$.
+* **En bas, l'« hodographe »** : la courbe $t\mapsto f'(t)$ des vecteurs vitesse, $t\in[a;b]$ (trait épais), son enveloppe convexe (zone teintée), et le point vert $m=\dfrac{f(b)-f(a)}{b-a}$ (pente moyenne). L'égalité $f(b)-f(a)=f'(c)(b-a)$ pour un certain $c$ revient à dire que **$m$ est sur l'hodographe**.
 
 **Ce qu'il faut retenir.**
-1. Pour une fonction **réelle**, l'hodographe est un intervalle de $\R$ parcouru continûment et $m$ y est toujours (théorème des valeurs intermédiaires) : c'est l'égalité des accroissements finis. Choisissez « graphe de $t^3-t$ » : la première coordonnée de $f'$ vaut $1$, l'hodographe est une droite verticale, et $m$ est dessus.
-2. Pour une courbe **à valeurs dans $\R^2$**, $m$ peut être **hors** de l'hodographe : avec le cercle $(\cos t,\sin t)$ sur $[0;2\pi]$ on a $f(2\pi)-f(0)=0$ mais $\|f'(t)\|=1$ pour tout $t$ (poly, Théorème V.4.4, p. 104, et son contre-exemple). Le point $m=0$ est au centre du cercle de l'hodographe, jamais dessus.
-3. Ce qui reste vrai est l'**inégalité** $\|f(b)-f(a)\|\le \sup_{[a;b]}\|f'\|\,(b-a)$ (poly, Théorème V.4.1, p. 103, et Corollaire V.4.3, p. 104). On la lit à droite : $m$ est toujours dans le disque de rayon $\sup\|f'\|$, et même dans l'enveloppe convexe de l'hodographe, car $m$ est la **moyenne** des vecteurs $f'(t)$ : $f(b)-f(a)=\int_a^b f'(t)\,dt$ (poly, Théorème V.4.7, p. 105).`,
+1. Pour une fonction **réelle** $g:[a;b]\to\R$ de classe $C^1$, l'hodographe $g'([a;b])$ est un intervalle de $\R$ et la pente moyenne $\frac{g(b)-g(a)}{b-a}$ y est toujours : c'est l'**égalité** des accroissements finis (Rolle) ; on peut aussi le voir ainsi : cette pente est la moyenne $\frac1{b-a}\int_a^bg'$ de la fonction continue $g'$, comprise entre $\min g'$ et $\max g'$, donc atteinte (valeurs intermédiaires). Choisissez « graphe de $t^3-t$ » : la première coordonnée de $f'$ vaut $1$, l'hodographe est une droite verticale, et $m$ est dessus.
+2. Pour une courbe **à valeurs dans $\R^2$**, $m$ peut être **hors** de l'hodographe : avec le cercle $(\cos t,\sin t)$ sur $[0;2\pi]$ on a $f(2\pi)-f(0)=0$ mais $\|f'(t)\|=1$ pour tout $t$ : aucun $c$ ne convient. C'est pourquoi, à valeurs vectorielles, le poly n'énonce qu'une **inégalité** (Théorème V.4.4, p. 104). Le point $m=0$ est au centre du cercle de l'hodographe, jamais dessus.
+3. Ce qui reste vrai est l'**inégalité** $\|f(b)-f(a)\|\le \sup_{[a;b]}\|f'\|\,(b-a)$ (poly, Théorème V.4.1, p. 103, et Corollaire V.4.3, p. 104). On la lit en bas : $m$ est toujours dans le disque de rayon $\sup\|f'\|$, et même dans l'enveloppe convexe de l'hodographe, car $m$ est la **moyenne** des vecteurs $f'(t)$ : $f(b)-f(a)=\int_a^b f'(t)\,dt$ (poly, Théorème V.4.7, p. 105).`,
   related: ['ch05-accroissements-finis-vectoriel', 'ch05-accroissements-finis-borne', 'ch05-accroissements-finis', 'ch05-theoreme-fondamental', 'ch05-differentielle-nulle-constante'],
   height: 640,
   mount(container, kit) {
     const th = () => kit.theme();
     const CV = {
-      circle: { lab: 'cercle (cos t, sin t)', t0: 0, t1: 2 * Math.PI, f: t => [Math.cos(t), Math.sin(t)], d: t => [-Math.sin(t), Math.cos(t)], a: 0, b: 6.28 },
+      circle: { lab: 'cercle (cos t, sin t)', t0: 0, t1: 2 * Math.PI, f: t => [Math.cos(t), Math.sin(t)], d: t => [-Math.sin(t), Math.cos(t)], a: 0, b: 2 * Math.PI },
       cusp: { lab: 'point de rebroussement (t², t³)', t0: -1.5, t1: 1.5, f: t => [t * t, t * t * t], d: t => [2 * t, 3 * t * t], a: -1, b: 1 },
       spiral: { lab: 'spirale (t cos t, t sin t)', t0: 0, t1: 3 * Math.PI, f: t => [t * Math.cos(t), t * Math.sin(t)], d: t => [Math.cos(t) - t * Math.sin(t), Math.sin(t) + t * Math.cos(t)], a: 0.5, b: 6 },
       liss: { lab: 'huit (cos t, sin 2t)', t0: 0, t1: 2 * Math.PI, f: t => [Math.cos(t), Math.sin(2 * t)], d: t => [-Math.sin(t), 2 * Math.cos(2 * t)], a: 0.3, b: 5.5 },
@@ -2112,8 +2110,8 @@ FMA.registerViz({
     let cur = 'circle', bb = null, hb = null;
     const controls = kit.controls(container);
     const sel = kit.select(controls, { label: 'courbe', options: keys.map(k => [CV[k].lab, k]), value: cur, onChange: (k) => { cur = k; reset(); } });
-    const aS = kit.slider(controls, { label: '$a$', min: 0, max: 6.28, step: 0.01, value: 0, onChange: v => { if (v > bS.value - 0.05) bS.value = Math.min(CV[cur].t1, v + 0.05); draw(); } });
-    const bS = kit.slider(controls, { label: '$b$', min: 0, max: 6.28, step: 0.01, value: 6.28, onChange: v => { if (v < aS.value + 0.05) aS.value = Math.max(CV[cur].t0, v - 0.05); draw(); } });
+    const aS = kit.slider(controls, { label: '$a$', min: 0, max: 6.28, step: 0.01, value: 0, onChange: v => { const t1 = CV[cur].t1; if (v > t1 - 0.05) { v = t1 - 0.05; aS.value = v; } if (v > bS.value - 0.05) bS.value = v + 0.05; draw(); } });
+    const bS = kit.slider(controls, { label: '$b$', min: 0, max: 6.28, step: 0.01, value: 6.28, onChange: v => { const t0 = CV[cur].t0; if (v < t0 + 0.05) { v = t0 + 0.05; bS.value = v; } if (v < aS.value + 0.05) aS.value = v - 0.05; draw(); } });
     const cS = kit.slider(controls, { label: '$c$', min: 0, max: 1, step: 0.005, value: 0.3, format: v => (+v).toFixed(2), onChange: () => { stopAnim(); draw(); } });
     let anim = null; let animBtn;
     function stopAnim() { if (anim) { anim.stop(); anim = null; if (animBtn) animBtn.textContent = 'animer c'; } }
@@ -2148,8 +2146,15 @@ FMA.registerViz({
       const up = []; for (let i = p.length - 1; i >= 0; i--) { const q = p[i]; while (up.length >= 2 && cr(up[up.length - 2], up[up.length - 1], q) <= 0) up.pop(); up.push(q); }
       lo.pop(); up.pop(); return lo.concat(up);
     }
+    function segDist(p, q, m) { // distance de m au segment [p, q]
+      const vx = q[0] - p[0], vy = q[1] - p[1], L2 = vx * vx + vy * vy;
+      const s = L2 > 0 ? Math.max(0, Math.min(1, ((m[0] - p[0]) * vx + (m[1] - p[1]) * vy) / L2)) : 0;
+      return Math.hypot(m[0] - p[0] - s * vx, m[1] - p[1] - s * vy);
+    }
     function inHull(H, m, tol) {
-      if (H.length < 3) return false;
+      if (H.length === 0) return false;
+      if (H.length === 1) return Math.hypot(H[0][0] - m[0], H[0][1] - m[1]) <= tol;
+      if (H.length === 2) return segDist(H[0], H[1], m) <= tol; // enveloppe dégénérée (hodographe rectiligne : cas scalaire)
       for (let i = 0; i < H.length; i++) { const p = H[i], q = H[(i + 1) % H.length]; const crs = (q[0] - p[0]) * (m[1] - p[1]) - (q[1] - p[1]) * (m[0] - p[0]); if (crs < -tol) return false; }
       return true;
     }
@@ -2176,7 +2181,7 @@ FMA.registerViz({
           text(ctx, 'corde f(b)−f(a) (vert), vitesse f′(c) (orange)', 8, 5);
         }
         // right
-        const Hh = hull(hod); let dist = Infinity; for (let i = 0; i <= 800; i++) { const d = c.d(a + L * i / 800); dist = Math.min(dist, Math.hypot(d[0] - m[0], d[1] - m[1])); }
+        const Hh = hull(hod); let dist = Infinity; { let prev = c.d(a); for (let i = 1; i <= 800; i++) { const d = c.d(a + L * i / 800); dist = Math.min(dist, segDist(prev, d, m)); prev = d; } }
         sR.clear(); { const { ctx, W, H } = sR;
           const box = boxOf(hb ? [[hb.xmin, hb.ymin], [hb.xmax, hb.ymax]] : [], [m, [sup, sup], [-sup, -sup]]);
           const P = kit.plane(ctx, { xmin: box.xmin, xmax: box.xmax, ymin: box.ymin, ymax: box.ymax, W, H });
@@ -2191,7 +2196,7 @@ FMA.registerViz({
           text(ctx, 'zone teintée : enveloppe convexe', 8, 19);
         }
         const nrm = Math.hypot(chord[0], chord[1]);
-        const inside = inHull(Hh, m, 1e-9 * (1 + sup)) || dist < 1e-3 * (1 + sup);
+        const inside = inHull(Hh, m, 1e-6 * (1 + sup)) || dist < 1e-3 * (1 + sup);
         const f3 = v => (Math.abs(v) < 5e-4 ? '0' : v.toFixed(3)).replace('-', '−');
         ro1.set(`‖f(b)−f(a)‖ = <b>${f3(nrm)}</b> ≤ sup‖f′‖·(b−a) = <b>${f3(sup * L)}</b>`);
         ro2.set(`distance de m à l'hodographe = <b>${f3(dist)}</b> : ` + (dist > 2e-3 * (1 + sup) ? '<b style="color:var(--accent-2)">aucun c ne vérifie f(b)−f(a)=f′(c)(b−a)</b>' : '<b style="color:var(--accent-3)">il existe (ici) un c avec égalité</b>') + ` ; m ∈ enveloppe convexe : <b>${inside ? 'oui' : 'non'}</b>`);
