@@ -6,7 +6,7 @@ title: "« Isolé » ne signifie pas « en nombre fini » : $\sin(\pi z)$"
 ref: Remarque I.11.5
 page: 28
 importance: 2
-depends: [ch01-zeros-isoles, ch01-exp-trigo-hyperboliques, ch01-ensemble-zeros-discret-ferme]
+depends: [ch01-zeros-isoles, ch01-exp-trigo-hyperboliques, ch01-ensemble-zeros-discret-ferme, ch01-stabilite-operations, ch01-def-multiplicite-zero]
 tags: [zeros, isole, localement-fini, sinus, contre-exemple]
 ---
 ## Intuition
@@ -43,7 +43,7 @@ chacun de ces zéros est simple. Ce que garantit le principe des zéros isolés 
 
 **Rôle.** Ce sont les hypothèses du principe des zéros isolés.
 
-**Si on la retire.** $f\equiv0$ sur $\C$ : $Z(f,\C)\cap\bar D(0,1)=\bar D(0,1)$, infini.
+**Si on la retire.** Sans « $f\not\equiv0$ » : $f\equiv0$ sur $\C$ donne $Z(f,\C)\cap\bar D(0,1)=\bar D(0,1)$, infini. Sans connexité : $\Omega=D(0,1)\cup D(3,1)$ (réunion disjointe), $f=0$ sur $D(0,1)$ et $f=1$ sur $D(3,1)$ ; $f$ est holomorphe, non identiquement nulle sur $\Omega$, mais $Z(f,\Omega)\cap\bar D(0,\tfrac12)=\bar D(0,\tfrac12)$ est infini.
 
 ## Idée de la preuve
 

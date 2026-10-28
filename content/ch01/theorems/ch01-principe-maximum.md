@@ -55,7 +55,7 @@ On montre que $f$ est constante sur un disque $D(z_0,R)$, puis on conclut par pr
 
 Si $f(z_0)=0$, alors $|f|\le0$ sur $\bar D(z_0,R)$, donc $f=0$ sur ce disque, et c'est terminé. On suppose désormais $f(z_0)\neq0$.
 
-**Première démonstration (développement en série entière).** Par [[ch01-estimees-cauchy]], $f$ est développable en série entière près de $z_0$ : $f(z)=f(z_0)+\sum_{n\ge1}a_n(z-z_0)^n$ sur un disque $D(z_0,\delta)$, $0<\delta\le R$. Supposons par l'absurde $f$ non constante sur $D(z_0,\delta)$ : il existe $n\ge1$ avec $a_n\neq0$ ; soit $N$ le plus petit. Alors
+**Première démonstration (développement en série entière).** Par [[ch01-estimees-cauchy|le Corollaire I.7.5 (développement de Taylor d'une fonction holomorphe)]], $f$ est développable en série entière près de $z_0$ : $f(z)=f(z_0)+\sum_{n\ge1}a_n(z-z_0)^n$ sur un disque $D(z_0,\delta)$, $0<\delta\le R$. Supposons par l'absurde $f$ non constante sur $D(z_0,\delta)$ : il existe $n\ge1$ avec $a_n\neq0$ ; soit $N$ le plus petit. Alors
 $$
 f(z)=f(z_0)+(z-z_0)^Ng(z),\qquad g(z):=\sum_{n\ge N}a_n(z-z_0)^{n-N},
 $$

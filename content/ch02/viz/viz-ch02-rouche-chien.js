@@ -17,7 +17,7 @@ nombre de zéros moins nombre de pôles dans $U$, **comptés avec multiplicité*
 
 > ⚠️ Rouché compare $Z-P$, pas $Z$ seul, et il faut l'inégalité **stricte en tout point** de $\Gamma$ (elle interdit en particulier à $f$ et $g$ de s'annuler sur $\Gamma$). [[ch02-rouche]], [[ch02-principe-argument]].`,
   related: ['ch02-principe-argument', 'ch02-principe-argument-domaine', 'ch02-rouche', 'ch02-dalembert-gauss-rouche', 'ch02-indice-def', 'ch02-pole-meromorphe-def'],
-  height: 600,
+  height: 470,
   mount(container, kit) {
     const C = kit.complex, TAU = 2 * Math.PI;
     const row = document.createElement('div'); row.style.cssText = 'display:flex;flex-wrap:wrap;gap:8px;'; container.appendChild(row);
@@ -58,7 +58,7 @@ nombre de zéros moins nombre de pôles dans $U$, **comptés avec multiplicité*
     let r = 1, tCur = 0, anim = null, view = 1.6;
 
     const sel = kit.select(controls, { label: 'configuration', options: Object.keys(CFG).map(k => [CFG[k].name, k]), value: 'r1', onChange: () => { stopAnim(); load(sel.value); } });
-    sel.select.style.maxWidth = '280px';
+    sel.select.style.maxWidth = 'min(280px, calc(100vw - 160px))';
     const sR = kit.slider(controls, { label: 'rayon $r$', min: 0.2, max: 1.8, step: 0.01, value: 1, onChange: v => { r = v; draw(); } });
     const sT = kit.slider(controls, { label: '$t$', min: 0, max: 1, step: 0.002, value: 0, onChange: v => { tCur = v; draw(); } });
     const btn = kit.button(controls, { label: '▶ promener', primary: true, onClick: () => toggleAnim() });

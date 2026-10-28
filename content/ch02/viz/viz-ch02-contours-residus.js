@@ -5,8 +5,8 @@ FMA.registerViz({
   description: String.raw`**Ce que l'on voit.** Un contour usuel $\Gamma$, bord d'un ouvert borné $U$, parcouru dans le **sens direct** ($U$ à gauche, flèches), posé sur le *domain coloring* atténué de $f$ (teinte = argument de $f(z)$, clair = $|f(z)|$ grand, sombre = petit). Les pôles de $f$ sont des disques : **orange plein** s'ils sont dans $U$, creux sinon. En bas, en échelle logarithmique : $R\mapsto\big|\int_{C_R}f(z)\,dz\big|$ sur le grand arc $C_R$ (trait rose) et la majoration « longueur de l'arc $\times\sup_{C_R}|f|$ » (tirets), le trait vertical marquant la valeur actuelle de $R$.
 
 **Le théorème.** Si $U$ est bordé par un lacet simple $\gamma$ orienté positivement et si $f$ est méromorphe sur un ouvert simplement connexe contenant $\bar U$, sans pôle sur $\gamma$, alors
-$$\int_\gamma f(z)\,dz=2i\pi\sum_{s\in S}\mathrm{res}_s(f),\qquad S=\text{pôles de }f\text{ dans }U$$
-(poly, Formule (II.6.1), p. 48 ; c'est le Théorème II.5.1, p. 47, avec $\Ind_s(\gamma)=1$ pour $s\in U$ et $0$ hors de $\bar U$). Les lectures comparent l'intégrale **calculée numériquement** (méthode de Simpson sur chaque morceau du contour) et $2i\pi\sum\mathrm{res}$. [[ch02-formule-residus-pratique]], [[ch02-formule-residus]].
+$$\int_\gamma f(z)\,dz=2i\pi\sum_{s\in S}\mathrm{res}_s(f),$$
+où $S$ est l'ensemble (fini) des pôles de $f$ dans $U$ (poly, Formule (II.6.1), p. 48 ; c'est le Théorème II.5.1, p. 47, avec $\Ind_s(\gamma)=1$ pour $s\in U$ et $0$ hors de $\bar U$). Les lectures comparent l'intégrale **calculée numériquement** (méthode de Simpson sur chaque morceau du contour) et $2i\pi\sum\mathrm{res}$. [[ch02-formule-residus-pratique]], [[ch02-formule-residus]].
 
 **À faire.**
 * Faites varier $R$ (ou « ▶ faire grandir $R$ ») : l'égalité est vraie **pour chaque $R$**, pas seulement à la limite, et elle **saute** quand un pôle entre dans $U$ (il s'allume). Pôle exactement sur $\Gamma$ : l'intégrale n'est pas définie.
@@ -101,7 +101,7 @@ $$\int_\gamma f(z)\,dz=2i\pi\sum_{s\in S}\mathrm{res}_s(f),\qquad S=\text{pôles
     };
 
     const sel = kit.select(controls, { label: '$f$ et contour', options: Object.keys(EX).map(k => [EX[k].name, k]), value: 'fourier', onChange: () => { stopAnim(); sR.value = EX[sel.value].R; R = sR.value; showParams(); recomputeStrip(); draw(); } });
-    sel.select.style.maxWidth = '270px';
+    sel.select.style.maxWidth = 'min(270px, calc(100vw - 150px))';
     let R = EX.fourier.R;
     const sR = kit.slider(controls, { label: '$R$', min: 0.2, max: 6, step: 0.01, value: R, onChange: v => { R = v; draw(); } });
     const sK = kit.slider(controls, { label: '$k$', min: -2, max: 3, step: 0.1, value: 1, onChange: () => { recomputeStrip(); draw(); } });

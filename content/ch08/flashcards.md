@@ -28,7 +28,7 @@ Dans le chapitre VIII, que désignent $u$, $q$, $v$, $t$, $\frac{\partial L}{\pa
 * $\frac{\partial L}{\partial q}(t,\gamma(t),\gamma'(t))$, $\frac{\partial L}{\partial v}(t,\gamma(t),\gamma'(t))$ : différentielles partielles de $L$ par rapport à la 2e et à la 3e variable ([[ch05-differentielles-partielles]]), **évaluées le long de la courbe** : ce sont des fonctions de $t$, à valeurs dans $L(V;\R)\simeq V$.
 * « $\ell\cdot w$ » : évaluation de la forme linéaire $\ell$ sur le vecteur $w$ (soit $\langle\ell,w\rangle$ après identification).
 * (E.L) : l'équation d'Euler-Lagrange $\frac{d}{dt}\Big(\frac{\partial L}{\partial v}(t,\gamma(t),\gamma'(t))\Big)=\frac{\partial L}{\partial q}(t,\gamma(t),\gamma'(t))$.
-* Collisions du poly : $U$ = potentiel (Q7) **et** ouvert de $V$ (Q8-Q12) ; $X$ = espace métrique (Q8) puis champ de vecteurs (Q11) ; $F$ = fermé $X\setminus U$ (Q8) puis flot (Q11) ; $V$ = l'espace et, en calligraphique $\mathcal V$, un ouvert (Q10).
+* Lettres à deux sens dans le poly : $X$ = espace métrique (Q8) puis champ de vecteurs (Q11) ; $F$ = fermé $X\setminus\mathcal U$ (Q8) puis flot (Q11) ; $V$ = l'espace de Hilbert et, en calligraphique, $\mathcal V$ = un ouvert de $V$ (Q10). En revanche le poly distingue $U$ (droite) = **potentiel** (Q7, Remarque) des ouverts $\mathcal U,\mathcal U_1,\mathcal U_2$ (calligraphiques, Q8-Q12) : ne pas les confondre.
 
 (poly, chap. VIII, p. 143-145)
 
@@ -46,7 +46,7 @@ Pour la différentiabilité de $\hat L$ : pourquoi faut-il la norme $C^1$ sur $E
 ### R
 * $\hat L$ dépend de $\gamma'$ : la variation $h'$ apparaît dans $d\hat L_\gamma(h)$, et pour que le reste soit un $o(\norm h_E)$ il faut que $\norm h_E$ contrôle aussi $\sup\norm{h'}$. Avec la seule norme $\sup\norm\gamma$, $\gamma\mapsto\int_0^1\norm{\gamma'}^2$ n'est même pas continue : $\gamma_n(t)=\frac1n\sin(n^2t)\,e$ ($\norm e=1$) tend vers $0$ uniformément mais $\gamma_n'(t)=n\cos(n^2t)\,e$ explose.
 * Si $L$ est seulement continue, $\hat L$ n'est pas différentiable en général : $V=\R$, $L(u,q,v)=\abs q$, $\hat L(\gamma)=\int_0^1\abs{\gamma}$ ; en $\gamma=0$, $\hat L(\eps h)=\abs\eps\int_0^1\abs h$ n'est pas linéaire en $\eps$.
-* La compacité de $\gamma([0;1])$ et $\gamma'([0;1])$ (dimension finie) sert à contrôler le reste uniformément en $t$.
+* Le reste est contrôlé uniformément en $t$ grâce à la compacité de $\gamma([0;1])$ et $\gamma'([0;1])$ (images continues du compact $[0;1]$) et à la dimension finie de $V$ : un voisinage fermé borné de ces compacts est encore compact, et $dL$ y est uniformément continue.
 
 ## CARD id=fc-ch08-006 ref=ch08-du-bois-reymond tags=enonce
 ### Q
@@ -124,19 +124,19 @@ où $\nabla U$ est le gradient de $U$ ([[ch05-gradient-hilbert]]). En effet $\fr
 ### Q
 Énoncer le lemme de topologie de la Question 8 (compact dans un ouvert) et dire à quoi il sert.
 ### R
-Soient $K$ un **compact** et $U$ un **ouvert** d'un espace métrique $(X,d)$, avec $K\subset U$. Pour $\eps>0$, soit $K_\eps=\bigcup_{x\in K}B(x,\eps)$. Si $F=X\setminus U\neq\emptyset$, alors $\inf_{(x,y)\in K\times F}d(x,y)>0$ (par l'absurde, en extrayant dans le compact $K$), et donc $K_\eps\subset U$ pour $\eps$ assez petit. (poly, chap. VIII, Question 8, p. 144)
+Soient $K$ un **compact** et $\mathcal U$ un **ouvert** d'un espace métrique $(X,d)$, avec $K\subset\mathcal U$. Pour $\eps>0$, soit $K_\eps=\bigcup_{x\in K}B(x,\eps)$ (points à distance $<\eps$ de $K$). Si $F=X\setminus\mathcal U\neq\emptyset$ (le cas $\mathcal U=X$ est trivial), alors $\inf_{(x,y)\in K\times F}d(x,y)>0$ (par l'absurde : $d(x_n,y_n)\to0$, extraire $x_{\varphi(n)}\to x\in K$, alors $y_{\varphi(n)}\to x$ et $x\in F$ car $F$ est fermé, contradiction), et donc $K_\eps\subset\mathcal U$ pour tout $\eps$ inférieur à cet inf. (poly, chap. VIII, Question 8, p. 144)
 
-Usage (Q9) : avec $K=\gamma_0([0;1])\subset U_1$ et $K'=\gamma_0'([0;1])\subset U_2$, toute $\gamma$ avec $\norm{\gamma-\gamma_0}_E<\eps$ reste confinée : $E(U_1,U_2)$ et $E_{a,b}(U_1,U_2)$ sont ouverts.
+Usage (Q9) : avec $K=\gamma_0([0;1])\subset\mathcal U_1$ et $K'=\gamma_0'([0;1])\subset\mathcal U_2$, toute $\gamma$ avec $\norm{\gamma-\gamma_0}_E<\eps$ reste confinée : $E(\mathcal U_1,\mathcal U_2)$ et $E_{a,b}(\mathcal U_1,\mathcal U_2)$ sont ouverts.
 
-> ⚠️ Faux si $K$ est seulement fermé : $K=\R\times\{0\}$, $U=\{(x,y):\abs y<e^{-x^2}\}$ dans $\R^2$.
+> ⚠️ Faux si $K$ est seulement fermé : $K=\R\times\{0\}$, $\mathcal U=\{(x,y):\abs y<e^{-x^2}\}$ dans $\R^2$ ($\dist(K,F)=0$, aucun $K_\eps$ n'est dans $\mathcal U$).
 
 ## CARD id=fc-ch08-015 ref=ch08-changement-de-variables tags=enonce
 ### Q
 Énoncer le comportement de (E.L) par changement de variables $\phi$.
 ### R
-Soit $L$ de classe $C^1$ sur $I\times U\times V$, $U$ ouvert de $V$, et $\phi:\mathcal V\to U$ un difféomorphisme (**au moins $C^2$**) d'un ouvert $\mathcal V$ de $V$ sur $U$. On pose
+Soit $L$ de classe $C^1$ sur $I\times\mathcal U\times V$, $\mathcal U$ ouvert de $V$, et $\phi:\mathcal V\to\mathcal U$ un difféomorphisme (**au moins $C^2$**) d'un ouvert $\mathcal V$ de $V$ sur $\mathcal U$. On pose
 $$L_1:I\times\mathcal V\times V\to\R,\qquad (u,q_1,v_1)\mapsto L(u,\phi(q_1),d\phi_{q_1}(v_1)).$$
-Si $\beta=\phi\circ\gamma$ vérifie l'équation d'Euler-Lagrange pour $L$, où $\gamma:[0;1]\to\mathcal V$, alors $\gamma$ vérifie l'équation d'Euler-Lagrange pour $L_1$. (poly, chap. VIII, Question 10, p. 145)
+Si $\beta=\phi\circ\gamma$ vérifie l'équation d'Euler-Lagrange pour $L$, où $\gamma:[0;1]\to\mathcal V$ est de classe $C^1$, alors $\gamma$ vérifie l'équation d'Euler-Lagrange pour $L_1$. (poly, chap. VIII, Question 10, p. 145)
 
 Le $C^2$ sert à ce que $L_1$ soit $C^1$ : $\frac{\partial L_1}{\partial q_1}$ fait intervenir $d^2\phi$.
 
@@ -144,7 +144,7 @@ Le $C^2$ sert à ce que $L_1$ soit $C^1$ : $\frac{\partial L_1}{\partial q_1}$ f
 ### Q
 Définir : groupe à un paramètre de difféomorphismes engendré par un champ $X$, et Lagrangien invariant sous son action.
 ### R
-$L$ ($C^1$) est défini sur $I\times U\times V$, $U$ ouvert de $V$. Soit $X$ un champ de vecteurs $C^\infty$ sur $U$ **ne dépendant pas du temps**, de flot $(s,x)\mapsto F(s,x)=F_s(x)$ **supposé défini sur $\R\times U$**. Chaque $F_s$ est un difféomorphisme de $U$ et $F_{s_1}\circ F_{s_2}=F_{s_1+s_2}$ : $(F_s)_{s\in\R}$ est un groupe à un paramètre de difféomorphismes. $L$ est **invariant** sous son action si pour tout $s\in\R$ et tout $(u,q,v)\in I\times U\times V$,
+$L$ ($C^1$) est défini sur $I\times\mathcal U\times V$, $\mathcal U$ ouvert de $V$. Soit $X$ un champ de vecteurs $C^\infty$ sur $\mathcal U$ **ne dépendant pas du temps**, de flot $(s,x)\mapsto F(s,x)=F_s(x)$ **supposé défini sur $\R\times\mathcal U$**. Chaque $F_s$ est un difféomorphisme de $\mathcal U$ dans lui-même, $F_0=\id_{\mathcal U}$ et $F_{s_1}\circ F_{s_2}=F_{s_1+s_2}$ : $(F_s)_{s\in\R}$ est un groupe à un paramètre de difféomorphismes. $L$ est **invariant** sous son action si pour tout $s\in\R$ et tout $(u,q,v)\in I\times\mathcal U\times V$,
 $$L\big(u,F_s(q),d(F_s)_q(v)\big)=L(u,q,v).$$
 (poly, chap. VIII, p. 145)
 
@@ -152,15 +152,15 @@ $$L\big(u,F_s(q),d(F_s)_q(v)\big)=L(u,q,v).$$
 ### Q
 Quelle identité obtient-on en dérivant l'invariance $L(u,F_s(q),d(F_s)_q(v))=L(u,q,v)$ par rapport à $s$ en $s=0$ ?
 ### R
-Pour tout $(u,q,v)\in I\times U\times V$ :
+Pour tout $(u,q,v)\in I\times\mathcal U\times V$ :
 $$\frac{\partial L}{\partial q}(u,q,v)\cdot X(q)+\frac{\partial L}{\partial v}(u,q,v)\cdot dX_q(v)=0 .$$
-On utilise $F_0=\id_U$ (donc $d(F_0)_q=\id$), $\frac{\partial F}{\partial s}(0,q)=X(q)$ et $\frac{\partial}{\partial s}\big[d(F_s)_q(v)\big]_{|s=0}=dX_q(v)$, ce dernier par échange de $\partial_s$ et $d_q$ ([[ch05-lemme-schwarz]], le flot étant $C^\infty$). (poly, chap. VIII, Question 11, p. 145)
+On utilise $F_0=\id_{\mathcal U}$ (donc $d(F_0)_q=\id$), $\frac{\partial F}{\partial s}(0,q)=X(q)$ et $\frac{\partial}{\partial s}\big[d(F_s)_q(v)\big]_{|s=0}=dX_q(v)$, ce dernier par échange de $\partial_s$ et $d_q$ ([[ch05-lemme-schwarz]], le flot étant $C^\infty$). (poly, chap. VIII, Question 11, p. 145)
 
 ## CARD id=fc-ch08-018 ref=ch08-noether tags=enonce,formule
 ### Q
 Énoncer le théorème de Noether (chapitre VIII).
 ### R
-Soit $L$ de classe $C^1$ sur $I\times U\times V$, **invariant** sous l'action du groupe à un paramètre de difféomorphismes $(F_s)_{s\in\R}$, flot d'un champ $X$ de classe $C^\infty$ sur $U$. Soit $\gamma\in E$ une courbe à valeurs dans $U$ vérifiant l'équation d'Euler-Lagrange. Alors la fonction
+Soit $L$ de classe $C^1$ sur $I\times\mathcal U\times V$ ($\mathcal U$ ouvert de $V$), **invariant** sous l'action du groupe à un paramètre de difféomorphismes $(F_s)_{s\in\R}$, flot (défini sur $\R\times\mathcal U$) d'un champ $X$ de classe $C^\infty$ sur $\mathcal U$ ne dépendant pas du temps. Soit $\gamma\in E$ une courbe à valeurs dans $\mathcal U$ vérifiant l'équation d'Euler-Lagrange. Alors la fonction
 $$t\mapsto Q(t)=\frac{\partial L}{\partial v}(t,\gamma(t),\gamma'(t))\cdot\Big(\frac{\partial F}{\partial s}(s,\gamma(t))\Big)_{|s=0}=\frac{\partial L}{\partial v}(t,\gamma(t),\gamma'(t))\cdot X(\gamma(t))$$
 est **constante**. Slogan : à une symétrie à un paramètre du Lagrangien correspond une quantité conservée. (poly, chap. VIII, Question 12 et Remarque, p. 145)
 
@@ -224,3 +224,18 @@ Dans l'existence-unicité locale pour (E.L), que se passe-t-il si l'on remplace 
 * **Problème aux deux bouts : ni existence ni unicité en général.** $V=\R$, $L=\frac12v^2-\frac12\pi^2q^2$ : (E.L) est $\gamma''=-\pi^2\gamma$, de solutions $c_1\cos(\pi t)+c_2\sin(\pi t)$. Avec $a=b=0$ : une infinité de solutions $c_2\sin(\pi t)$ ; avec $a=0$, $b\neq0$ : aucune ($\gamma(1)=-c_1=-a$).
 * **Sans régularité**, (E.L) reste implicite en $\gamma''$ : pas de forme $\alpha'=Y(t,\alpha)$, et l'unicité peut tomber (pour $L=\norm v$, longueur d'arc, toute reparamétrisation d'une solution est solution).
 * Le résultat est **local** : $J$ peut être strictement plus petit que $]0;1[$.
+
+## CARD id=fc-ch08-026 ref=ch08-eab-complet-affine tags=enonce,methode
+### Q
+Pourquoi $E_{a,b}$ est-il complet ? En quel sens est-ce un espace affine, et quel est son espace directeur ?
+### R
+* **Complétude.** $(E,\norm{\cdot}_E)$ est un espace de Banach : si $(\gamma_n)$ est de Cauchy pour $\norm{\cdot}_E$, alors $\gamma_n\to\gamma$ et $\gamma_n'\to\delta$ uniformément (limites continues, $V$ étant complet car de dimension finie) ; en passant à la limite dans $\gamma_n(t)=\gamma_n(0)+\int_0^t\gamma_n'(s)\,ds$ on obtient $\gamma(t)=\gamma(0)+\int_0^t\delta(s)\,ds$, donc $\gamma$ est $C^1$ avec $\gamma'=\delta$ et $\norm{\gamma_n-\gamma}_E\to0$. Les conditions $\gamma(0)=a$, $\gamma(1)=b$ passent à la limite uniforme : $E_{a,b}$ est **fermé** dans $E$, donc complet.
+* **Structure affine.** $E_{0,0}$ est un sous-espace vectoriel fermé de $E$ et, pour tout $\gamma_0\in E_{a,b}$, $E_{a,b}=\gamma_0+E_{0,0}$ : $\gamma_0+h\in E_{a,b}$ si et seulement si $h(0)=h(1)=0$. Si $(a,b)\neq(0,0)$, $E_{a,b}$ n'est **pas** un sous-espace vectoriel ($0\notin E_{a,b}$) : c'est pourquoi la différentielle de $\hat L|_{E_{a,b}}$ en $\gamma$ est une forme linéaire sur l'espace directeur $E_{0,0}$ (point critique : $d\hat L_\gamma(h)=0$ pour tout $h\in E_{0,0}$). (poly, chap. VIII, Question 1, p. 143)
+
+## CARD id=fc-ch08-027 ref=ch08-ouverture-courbes-confinees tags=enonce
+### Q
+Lagrangien défini sur $I\times\mathcal U_1\times\mathcal U_2$ ($\mathcal U_1,\mathcal U_2$ ouverts de $V$) : que sont $E(\mathcal U_1,\mathcal U_2)$ et $E_{a,b}(\mathcal U_1,\mathcal U_2)$, et qu'affirme la Question 9 ?
+### R
+$E(\mathcal U_1,\mathcal U_2)$ (resp. $E_{a,b}(\mathcal U_1,\mathcal U_2)$) est l'ensemble des $\gamma\in E$ (resp. $\gamma\in E_{a,b}$) telles que pour tout $t\in[0;1]$, $\gamma(t)\in\mathcal U_1$ et $\gamma'(t)\in\mathcal U_2$ (courbes confinées dans $\mathcal U_1$, vecteurs tangents dans $\mathcal U_2$). **Énoncé (Q9) :** $E(\mathcal U_1,\mathcal U_2)$ et $E_{a,b}(\mathcal U_1,\mathcal U_2)$ sont **ouverts** respectivement dans $E$ et dans $E_{a,b}$, et les résultats des Questions 2 à 7 ($\hat L$ de classe $C^1$ et formule de $d\hat L_\gamma$, équation d'Euler-Lagrange pour les points critiques de $\hat L|_{E_{a,b}(\mathcal U_1,\mathcal U_2)}$, conservation de $H$, équation de Newton) restent valables pour $L$ de classe $C^1$ sur $I\times\mathcal U_1\times\mathcal U_2$. (poly, chap. VIII, Question 9, p. 145)
+
+Preuve de l'ouverture : fixer $\gamma_0$, appliquer [[ch08-voisinage-compact-dans-ouvert]] aux compacts $K=\gamma_0([0;1])\subset\mathcal U_1$ et $K'=\gamma_0'([0;1])\subset\mathcal U_2$ ; si $\norm{\gamma-\gamma_0}_E<\eps$ alors $\gamma(t)\in K_\eps\subset\mathcal U_1$ et $\gamma'(t)\in K'_\eps\subset\mathcal U_2$ pour tout $t$. Exemple motivant : potentiel $U(q)=-\frac1{\norm q}$ défini seulement sur $\mathcal U_1=V\setminus\{0\}$ ($\mathcal U_2=V$).
