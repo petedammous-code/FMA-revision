@@ -103,5 +103,5 @@ Enfin $\Gamma\subset\bar D(0,R)$ ; $\{|z|>R\}$ est connexe, donc contenu dans un
 * > ⚠️ L'indice dépend de l'**orientation** : $\Ind_z(\gamma^{opp})=-\Ind_z(\gamma)$. Un cercle parcouru dans le sens horaire a pour indice $-1$ à l'intérieur.
 * L'indice n'est **pas** défini sur $\Gamma$ : avant de l'invoquer, vérifier $z\notin\Gamma$.
 * « Constante sur les composantes connexes » ne veut pas dire « constante sur $\C\setminus\Gamma$ » : les valeurs diffèrent d'une composante à l'autre (ex. $1$ à l'intérieur d'un cercle, $0$ à l'extérieur).
-* L'indice peut être nul sur une composante **bornée** (troisième exemple) et prendre des valeurs $\ge2$ ou $\le-1$ : ne pas croire qu'il vaut toujours $0$ ou $1$. Il vaut $\pm1$ sur l'intérieur seulement pour un lacet **simple** ([[ch02-jordan-remarque]]).
+* L'indice peut être nul sur une composante **bornée** (troisième exemple) et prendre des valeurs $\ge2$ ou $\le-1$ : ne pas croire qu'il vaut toujours $0$ ou $1$. La garantie « $\pm1$ sur la composante bornée, $0$ sur l'autre » n'est acquise que pour un lacet **simple** ([[ch02-jordan-remarque]]).
 * La preuve n'utilise pas de logarithme global de $\gamma-z_0$ (il n'en existe pas en général) : c'est l'exponentielle d'une intégrale qui remplace $\exp\circ\log$.

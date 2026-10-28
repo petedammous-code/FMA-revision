@@ -45,6 +45,7 @@ FMA.registerViz({
         g: [-1.875, 1.875, -1.875, 1.875, 0.25], zwin: [-2.1, 2.1, -2.1, 2.1], wwin: [-2.2, 2.2, -2.2, 2.2], wstep: 0.2, crit: [], z0: [0.4, 0.7] },
     };
     const sel = kit.select(controls, { label: '$f(z)=$', options: Object.keys(FNS).map(k => [FNS[k].name, k]), value: 'sq', onChange: () => { z0 = FNS[sel.value].z0.slice(); drawAll(); } });
+    sel.select.style.maxWidth = '240px';
     const lvl = kit.checkbox(controls, { label: 'lignes de niveau de $\\Re f$, $\\Im f$', checked: false, onChange: drawAll });
     const sTheta = kit.slider(controls, { label: 'angle $\\theta$ entre les arcs', min: 10, max: 170, step: 5, value: 60, onChange: drawAll, format: v => (+v).toFixed(0) + '°' });
     const sPhi = kit.slider(controls, { label: 'direction du 1er arc', min: 0, max: 355, step: 5, value: 20, onChange: drawAll, format: v => (+v).toFixed(0) + '°' });
@@ -258,6 +259,7 @@ est le potentiel complexe ; pour $c=0$, $R=1$, c'est exactement celui de l'Exerc
     const controls = kit.controls(container);
     const PRESETS = { plate: [0, 0], sym: [-0.12, 0], camb: [-0.1, 0.13] };
     const sel = kit.select(controls, { label: 'cercle', options: [['centré en 0 → plaque plane', 'plate'], ['excentré → aile symétrique', 'sym'], ['excentré → aile cambrée', 'camb']], value: 'plate', onChange: v => { c = PRESETS[v].slice(); drawAll(); } });
+    sel.select.style.maxWidth = '240px';
     const sA = kit.slider(controls, { label: 'incidence $\\alpha$', min: -20, max: 20, step: 1, value: 10, onChange: drawAll, format: v => (+v).toFixed(0) + '°' });
     const cbK = kit.checkbox(controls, { label: 'circulation de Kutta (hors programme)', checked: false, onChange: drawAll });
     const cbS = kit.checkbox(controls, { label: 'couleur = vitesse', checked: true, onChange: drawAll });
@@ -430,7 +432,7 @@ FMA.registerViz({
   description: String.raw`**Ce que l'on voit.** La carte colore chaque point $z$ selon la valeur de $h(z)$ **comparée à $h(z_0)$** : rouge si $h(z) > h(z_0)$, bleu si $h(z) < h(z_0)$ (fines lignes : lignes de niveau de $h$ ; trait épais : la ligne de niveau $h = h(z_0)$ qui passe par le centre). Le cercle $C(z_0,r)$ se déplace à la souris (ou au doigt) ; son rayon se règle au curseur. La bande du bas trace $\theta\mapsto h(z_0+re^{i\theta})$ sur $[0,2\pi]$, avec en pointillé la valeur au centre $h(z_0)$ et en orange la moyenne sur le cercle.
 
 **Le théorème.** Une fonction $h$ harmonique réelle ($C^2$ et $\Delta h = \partial_x^2 h+\partial_y^2 h = 0$, [[ch04-harmonique-def|définition]]) vérifie, pour tout disque fermé $\bar D(z_0,r)\subset\Omega$,
-$$h(z_0)=\frac1{2\pi}\int_0^{2\pi}h\big(z_0+re^{i\theta}\big)\,d\theta ,$$
+$$h(z_0)=\tfrac1{2\pi}\int_0^{2\pi}h(z_0+re^{i\theta})\,d\theta$$
 et, sur un ouvert connexe, n'a **aucun maximum local** sauf si elle est constante (poly, Corollaire IV.2.5, p. 77 ; [[ch04-harmonique-moyenne-maximum|fiche]]).
 
 **À faire.**
@@ -450,11 +452,12 @@ et, sur un ouvert connexe, n'a **aucun maximum local** sauf si elle est constant
       cube: { name: 'x³ − 3xy² = Re(z³)  (harmonique)', h: (x, y) => x * x * x - 3 * x * y * y, z0: [0, 0], r: 1 },
       expc: { name: 'eˣ cos y = Re(eᶻ)  (harmonique)', h: (x, y) => Math.exp(x) * Math.cos(y), z0: [0, 0.5], r: 1.2 },
       log: { name: 'log|z|  (harmonique sur ℂ∖{0})', h: (x, y) => 0.5 * Math.log(x * x + y * y), z0: [1, 0.4], r: 0.6, sing: true },
-      rinv: { name: 'Re(1/z) = x/(x²+y²)  (harmonique sur ℂ∖{0})', h: (x, y) => x / (x * x + y * y), z0: [1, 0.5], r: 0.6, sing: true },
-      bump: { name: '−(x² + y²)  (NON harmonique, Δ = −4)', h: (x, y) => -(x * x + y * y), z0: [0, 0], r: 1, nonh: true },
-      bowl: { name: 'x² + y²  (NON harmonique, Δ = 4)', h: (x, y) => x * x + y * y, z0: [0.3, 0.2], r: 1, nonh: true },
+      rinv: { name: 'Re(1/z)  (harmonique sur ℂ∖{0})', h: (x, y) => x / (x * x + y * y), z0: [1, 0.5], r: 0.6, sing: true },
+      bump: { name: '−(x² + y²)  (NON harmonique)', h: (x, y) => -(x * x + y * y), z0: [0, 0], r: 1, nonh: true },
+      bowl: { name: 'x² + y²  (NON harmonique)', h: (x, y) => x * x + y * y, z0: [0.3, 0.2], r: 1, nonh: true },
     };
     const sel = kit.select(controls, { label: '$h=$', options: Object.keys(FN).map(k => [FN[k].name, k]), value: 'x2y2', onChange: () => { const F = FN[sel.value]; z0 = F.z0.slice(); sR.value = F.r; computeGrid(); draw(); } });
+    sel.select.style.maxWidth = '240px';
     const sR = kit.slider(controls, { label: 'rayon $r$', min: 0.1, max: 1.9, step: 0.01, value: 1, onChange: draw });
     let anim = null, tAnim = 0;
     const btn = kit.button(controls, { label: '▶ animer r', onClick: () => {

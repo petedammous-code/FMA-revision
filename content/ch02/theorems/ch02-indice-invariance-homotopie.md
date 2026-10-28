@@ -6,7 +6,7 @@ title: Invariance de l'indice par homotopie de lacets dans $\C\setminus\{z_0\}$
 ref: Proposition II.3.4
 page: 41
 importance: 2
-depends: [ch02-invariance-homotopie-integrale, ch02-indice-def, ch02-homotopie-simplement-connexe]
+depends: [ch02-invariance-homotopie-integrale, ch02-indice-def, ch02-homotopie-simplement-connexe, ch01-stabilite-operations]
 tags: [indice, homotopie, lacet, deformation, invariance]
 ---
 ## Intuition
@@ -32,7 +32,7 @@ $$
 
 **Rôle.** On applique le théorème d'invariance ([[ch02-invariance-homotopie-integrale]]) à $f(z)=\frac1{z-z_0}$ sur l'ouvert $\Omega=\C\setminus\{z_0\}$ : il faut que toute l'homotopie, et pas seulement $\gamma_0$ et $\gamma_1$, reste dans $\Omega$, où $f$ est holomorphe.
 
-**Si on la retire.** Le cercle unité $\gamma_0(t)=e^{2i\pi t}$ et le lacet constant $\gamma_1\equiv0$ sont homotopes **dans $\C$** par $\gamma(s,t)=(1-s)e^{2i\pi t}$ (homotopie de lacets : $\gamma(s,0)=\gamma(s,1)=1-s$). Pourtant $\Ind_0(\gamma_0)=1$ ([[ch02-indice-cercle]]) et $\Ind_0(\gamma_1)=\frac1{2i\pi}\int_0^1\frac{\gamma_1'(t)}{\gamma_1(t)-0}\dd t=0$ (car $\gamma_1'\equiv0$ ; et de toute façon $\gamma_1$ passe par $0$, l'indice en $0$ n'y est même pas défini). L'homotopie traverse $z_0=0$ (en $s=1$) : la conclusion tombe.
+**Si on la retire.** Le cercle unité $\gamma_0(t)=e^{2i\pi t}$ et le lacet constant $\gamma_1\equiv2$ sont homotopes **dans $\C$** par $\gamma(s,t)=(1-s)e^{2i\pi t}+2s$ (homotopie de lacets : $\gamma(s,0)=\gamma(s,1)=1+s$). Ni $\gamma_0$ ni $\gamma_1$ ne passe par $z_0=0$, et pourtant $\Ind_0(\gamma_0)=1$ ([[ch02-indice-cercle]]) tandis que $\Ind_0(\gamma_1)=\frac1{2i\pi}\int_0^1\frac{\gamma_1'(t)}{\gamma_1(t)-0}\dd t=0$ (car $\gamma_1'\equiv0$ et $\gamma_1-0\equiv2\ne0$). La raison : l'homotopie traverse $z_0=0$, puisque $\gamma(s,t)=0$ équivaut à $e^{2i\pi t}=-\frac{2s}{1-s}$, ce qui a lieu pour $s=\frac13$, $t=\frac12$ : le lacet intermédiaire $\gamma_{1/3}$ passe par $0$, l'homotopie n'est pas à valeurs dans $\C\setminus\{0\}$, et la conclusion tombe.
 
 ### H2 — Homotopie de **lacets** : $\gamma(s,0)=\gamma(s,1)$ pour tout $s$
 
@@ -72,7 +72,11 @@ On pose $\Omega=\C\setminus\{z_0\}$ et $f(z)=\frac1{z-z_0}$ ; alors <trou indice
 
 ## Exemples
 
-* **Le bord d'un carré a pour indice $1$ en son centre.** Soit $\sigma$ le lacet parcourant le bord du carré $[-1,1]^2$ dans le sens direct (quatre segments), et $z_0=0$. L'application $\gamma(s,t)=(1-s)\sigma(t)+s\dfrac{\sigma(t)}{|\sigma(t)|}$ est continue sur $[0,1]^2$ (car $\sigma(t)\neq0$), vérifie $\gamma(s,0)=\gamma(s,1)$, et ne s'annule jamais : $\gamma(s,t)=\lambda_{s,t}\,\sigma(t)$ avec $\lambda_{s,t}=(1-s)+\frac{s}{|\sigma(t)|}>0$. C'est donc une homotopie de lacets dans $\C\setminus\{0\}$ entre $\sigma$ et $\gamma_1(t)=\sigma(t)/|\sigma(t)|$, qui parcourt le cercle unité une fois dans le sens direct : l'argument de $\sigma(t)$ croît strictement le long du bord et augmente de $2\pi$ sur un tour, donc $\gamma_1$ est un reparamétrage croissant, $C^1$ par morceaux, du cercle $C(0,1)$, et l'intégrale est invariante par reparamétrage croissant ([[ch01-integrale-reparametrage-oppose-concatenation]]). D'où $\Ind_0(\sigma)=\Ind_0(C(0,1))=1$ ([[ch02-indice-cercle]]). Le même argument « projection radiale » vaut pour tout lacet $\sigma$ étoilé par rapport à $z_0$ (rectangle, demi-disque, trou de serrure) : c'est la justification de « indice $=1$ » pour les contours usuels des calculs d'intégrales ([[ch02-formule-residus-pratique]]).
+* **Le bord d'un carré a pour indice $1$ en son centre.** Soit $\sigma$ le lacet parcourant le bord du carré $[-1,1]^2$ dans le sens direct (quatre segments), et $z_0=0$. L'application $\gamma(s,t)=(1-s)\sigma(t)+s\dfrac{\sigma(t)}{|\sigma(t)|}$ est continue sur $[0,1]^2$ (car $\sigma(t)\neq0$), vérifie $\gamma(s,0)=\gamma(s,1)$, et ne s'annule jamais : $\gamma(s,t)=\lambda_{s,t}\,\sigma(t)$ avec $\lambda_{s,t}=(1-s)+\frac{s}{|\sigma(t)|}>0$. C'est donc une homotopie de lacets dans $\C\setminus\{0\}$ entre $\sigma$ et $\gamma_1(t)=\sigma(t)/|\sigma(t)|$, lacet $C^1$ par morceaux à valeurs dans le cercle unité. Écrivons $\gamma_1(t)=e^{i\varphi(t)}$ où $\varphi$ est un argument continu de $\sigma(t)$, $C^1$ par morceaux : comme $\sigma$ parcourt le bord du carré dans le sens direct, $\varphi$ croît et $\varphi(1)-\varphi(0)=2\pi$ (un tour complet). Alors $\dfrac{\gamma_1'(t)}{\gamma_1(t)}=i\varphi'(t)$ et
+$$
+\Ind_0(\gamma_1)=\frac1{2i\pi}\int_0^1 i\varphi'(t)\,\dd t=\frac{\varphi(1)-\varphi(0)}{2\pi}=1 .
+$$
+D'où, par la proposition, $\Ind_0(\sigma)=\Ind_0(\gamma_1)=1$. (On peut aussi voir $\gamma_1$ comme un reparamétrage croissant du cercle $C(0,1)$, [[ch01-integrale-reparametrage-oppose-concatenation]], et conclure par [[ch02-indice-cercle]].) Le même argument « projection radiale » vaut pour tout lacet $\sigma$ étoilé par rapport à $z_0$ (rectangle, demi-disque, trou de serrure) : c'est la justification de « indice $=1$ » pour les contours usuels des calculs d'intégrales ([[ch02-formule-residus-pratique]]).
 * **Lacet dans un ouvert simplement connexe évitant $z_0$.** Si $\Omega$ est simplement connexe et $z_0\notin\Omega$ (par exemple $\Omega=\{\Re(z)>0\}$, convexe donc étoilé donc simplement connexe, [[ch02-etoile-simplement-connexe]], et $z_0=-1$), tout lacet $\gamma$ de $\Omega$ est homotope dans $\Omega\subset\C\setminus\{z_0\}$ à un lacet constant $c$. Or $\Ind_{z_0}(c)=\frac1{2i\pi}\int_0^1\frac{c'(t)}{c-z_0}\dd t=0$ puisque $c'\equiv0$. Donc $\Ind_{z_0}(\gamma)=0$.
 * **Utilisation par contraposée.** Le lacet $\gamma(t)=e^{4i\pi t}$ (cercle parcouru deux fois) a pour indice $2$ en $0$, le cercle unité a pour indice $1$ : ils ne sont **pas** homotopes dans $\C\setminus\{0\}$ (ils le sont dans $\C$). L'indice est un invariant d'homotopie qui permet de distinguer des classes de lacets ; c'est l'idée derrière $\pi_1(\C\setminus\{0\})\simeq\Z$ ([[ch02-groupe-fondamental-remarque]]).
 

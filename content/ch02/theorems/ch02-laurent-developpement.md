@@ -6,7 +6,7 @@ title: Développement de Laurent d'une fonction méromorphe au voisinage d'un po
 ref: Proposition II.4.6
 page: 44
 importance: 3
-depends: [ch01-estimees-cauchy, ch02-pole-meromorphe-def, ch01-def-holomorphe, ch01-holomorphe-analytique, ch02-discret-accumulation-localement-fini-def]
+depends: [ch01-estimees-cauchy, ch02-pole-meromorphe-def, ch01-def-holomorphe, ch01-holomorphe-analytique, ch02-discret-accumulation-localement-fini-def, ch01-stabilite-operations, ch01-serie-entiere-holomorphe, ch01-serie-entiere-derivees-tout-ordre]
 tags: [laurent, serie, pole, multiplicite, residu, couronne, convergence normale]
 ---
 ## Intuition
