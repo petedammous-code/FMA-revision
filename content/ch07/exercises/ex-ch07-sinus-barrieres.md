@@ -4,8 +4,8 @@ type: exercise
 chapters: [7]
 title: Des solutions piégées entre deux équilibres
 source: Inventé
-difficulty: 1
-time: 15
+difficulty: 2
+time: 20
 tools: [ch07-cauchy-lipschitz, ch07-restriction-domaine-c1-lipschitz, ch07-unicite-globale, ch07-courbe-integrale-maximale-def, ch07-lemme-des-bouts]
 ---
 ## Énoncé

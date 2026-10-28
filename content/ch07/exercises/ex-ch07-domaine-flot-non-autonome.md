@@ -5,7 +5,7 @@ chapters: [7]
 title: Intervalle maximal et domaine du flot pour x' = 2t x²
 source: Inventé
 difficulty: 1
-time: 15
+time: 20
 tools: [ch07-cauchy-lipschitz, ch07-restriction-domaine-c1-lipschitz, ch07-unicite-globale, ch07-courbe-integrale-maximale-def, ch07-flot-global-def, ch07-flot-global-ouvert-regulier, ch07-translation-temps-autonome]
 ---
 ## Énoncé
@@ -46,7 +46,7 @@ $$
 Réciproquement, sur tout intervalle contenant $0$ où $1-x_0t^2\neq0$, cette formule définit une solution : $x'(t)=\dfrac{x_0\cdot 2x_0t}{(1-x_0t^2)^2}=2t\,x(t)^2$ et $x(0)=x_0$.
 
 * Si $x_0<0$ : $1-x_0t^2=1+|x_0|t^2\ge1$ ne s'annule jamais, la formule définit une solution sur $\R$, donc $J_0(x_0)=\R$.
-* Si $x_0>0$ : $1-x_0t^2>0$ exactement sur $]-1/\sqrt{x_0},1/\sqrt{x_0}[$, qui contient donc $J_0(x_0)$ par maximalité. Inversement, sur $J_0(x_0)$ la formule est valable, donc $1-x_0t^2$ ne s'y annule pas ; comme $J_0(x_0)$ est un intervalle contenant $0$, il est inclus dans $]-1/\sqrt{x_0},1/\sqrt{x_0}[$. D'où
+* Si $x_0>0$ : $1-x_0t^2>0$ exactement sur $]-1/\sqrt{x_0},1/\sqrt{x_0}[$ ; la formule y définit une solution de condition initiale $(0,x_0)$, donc cet intervalle est inclus dans $J_0(x_0)$ par maximalité. Inversement, sur $J_0(x_0)$ la formule est valable, donc $1-x_0t^2$ ne s'y annule pas ; comme $J_0(x_0)$ est un intervalle contenant $0$, il est inclus dans $]-1/\sqrt{x_0},1/\sqrt{x_0}[$. D'où
 $$
 J_0(x_0)=\left]-\tfrac1{\sqrt{x_0}},\tfrac1{\sqrt{x_0}}\right[ ,
 $$

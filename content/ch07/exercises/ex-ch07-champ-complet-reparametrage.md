@@ -4,8 +4,8 @@ type: exercise
 chapters: [7]
 title: Champs complets, croissance au plus affine et reparamétrage
 source: "PC — TD Equations différentielles ex. 3 (adapté)"
-difficulty: 2
-time: 25
+difficulty: 3
+time: 35
 tools: [ch07-restriction-domaine-c1-lipschitz, ch07-equation-integrale, ch07-courbe-integrale-maximale-def, ch07-unicite-globale, ch07-lemme-des-bouts, ch05-composition-differentielles]
 ---
 ## Énoncé
@@ -73,5 +73,5 @@ La question 2 (avec $A=1$, $B=\frac12$) montre que $Y$ est complet ; par 3., ses
 
 * En 2., appliquer le lemme des bouts avec un compact qui dépend de $t$ : il faut **un** compact fixe, d'où l'usage de $e^{Ab}$ avec $b<+\infty$ (l'hypothèse absurde sert précisément à rendre le rayon fini).
 * L'hypothèse de croissance au plus affine est indispensable : $X(x)=x^2$ n'est pas complet ; en revanche $X(x)=x\ln(1+x^2)$ ne la vérifie pas non plus mais reste complet (séparer les variables : $\int_1^{+\infty}\frac{dx}{x\ln(1+x^2)}=+\infty$, donc pas d'explosion en temps fini) — la condition est suffisante, pas nécessaire.
-* En 3., on ne peut pas dire « $\beta=\alpha$ » : les paramétrages diffèrent ; seules les images (les trajectoires orientées) coïncident. On a en fait montré plus : $\sigma(J_Y)=J_X$ et $\beta=\alpha\circ\sigma$.
+* En 3., on ne peut pas dire « $\beta=\alpha$ » : les paramétrages diffèrent ; seules les images (les trajectoires orientées) coïncident. On a en fait montré plus (en composant les deux changements de temps, qui sont réciproques l'un de l'autre là où ils sont définis) : $\sigma(J_Y)=J_X$ et $\beta=\alpha\circ\sigma$.
 * Variante : si $g$ s'annule en un point $p$, $p$ devient un équilibre de $Y$ et la trajectoire de $X$ passant par $p$ se scinde en plusieurs trajectoires de $Y$ : l'hypothèse $g>0$ est essentielle.

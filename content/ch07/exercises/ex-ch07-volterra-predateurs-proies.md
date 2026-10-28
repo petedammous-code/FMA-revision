@@ -5,7 +5,7 @@ chapters: [7, 5]
 title: "Le système de Lotka–Volterra : intégrale première, solutions globales et périodiques"
 source: "Classique (modèle proies–prédateurs de Lotka–Volterra, cf. Hirsch–Smale–Devaney, *Differential Equations, Dynamical Systems, and an Introduction to Chaos*, ch. 11) — rédaction (preuve de la périodicité par l'angle) inventée"
 difficulty: 4
-time: 75
+time: 60
 tools: [ch07-cauchy-lipschitz, ch07-restriction-domaine-c1-lipschitz, ch07-unicite-globale, ch07-courbe-integrale-maximale-def, ch07-lemme-des-bouts, ch07-translation-temps-autonome, ch05-composition-differentielles]
 ---
 ## Énoncé

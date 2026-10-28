@@ -14,7 +14,7 @@ Soit $n\ge2$ et $P(z)=c_nz^n+c_{n-1}z^{n-1}+\dots+c_0$ un polynôme de degré $n
 
 1. Montrer que, pour tout entier $j$ tel que $0\le j\le n-1$,
 $$
-\sum_{k=1}^n\frac{a_k^{\,j}}{P'(a_k)}=\begin{cases}0 & \text{si } 0\le j\le n-2,\\[2pt] \dfrac1{c_n} & \text{si } j=n-1.\end{cases}
+\sum_{k=1}^n\frac{a_k^{\,j}}{P'(a_k)}=\begin{cases}0 & \text{si } 0\le j\le n-2,\\ \dfrac1{c_n} & \text{si } j=n-1.\end{cases}
 $$
 2. On suppose de plus $P(0)\ne0$. Calculer $\displaystyle\sum_{k=1}^n\frac{1}{a_k\,P'(a_k)}$.
 3. Soient $x_1,\dots,x_n$ des nombres complexes deux à deux distincts. Montrer que
@@ -85,5 +85,5 @@ $$
 * **Racines simples indispensables.** Si $a$ est racine double de $P$, $P'(a)=0$ et la formule n'a plus de sens ; $\frac{z^j}{P}$ a alors un pôle double en $a$, dont le résidu n'est pas $\frac{a^j}{P'(a)}$. Exemple : $P=z^2$, $j=0$ : la somme des résidus de $\frac1{z^2}$ est $0$, mais l'expression $\frac1{P'(0)}$ n'existe pas.
 * **Ne pas oublier les pôles « en plus »** : dans la question 2, le pôle en $0$ de $\frac1{zP}$ fournit le terme $\frac1{P(0)}$.
 * **Pourquoi $j\le n-2$ ?** Il faut $|z^jf|$ en $O(R^{-2})$ sur $C(0,R)$ pour que l'intégrale tende vers $0$ ; pour $j=n-1$ elle est en $\frac1{c_nz}$ et l'intégrale tend vers $\frac{2i\pi}{c_n}$, pas vers $0$ (c'est le « résidu à l'infini »).
-* **Variante.** Pour $Q$ polynôme de degré $\le n-2$, la même preuve donne $\sum_k\frac{Q(a_k)}{P'(a_k)}=0$ : c'est l'identité qui fait marcher la décomposition en éléments simples $\frac{Q}{P}=\sum_k\frac{Q(a_k)}{P'(a_k)}\frac1{z-a_k}$ (multiplier par $z$ et regarder le comportement à l'infini).
+* **Variante.** Pour $Q$ polynôme de degré $\le n-2$, la même preuve donne $\sum_k\frac{Q(a_k)}{P'(a_k)}=0$. On la retrouve aussi par la décomposition en éléments simples $\frac{Q}{P}=\sum_k\frac{Q(a_k)}{P'(a_k)}\frac1{z-a_k}$ (valable si $\deg Q\le n-1$) : multiplier par $z$ et faire $z\to\infty$ ; le membre de gauche tend vers $0$ si $\deg Q\le n-2$.
 * **Variante.** Pour $P(z)=z^n-1$, $a_k=e^{2ik\pi/n}$ et $P'(a_k)=na_k^{n-1}=n/a_k$ : la question 1 se réduit à $\sum_k a_k^{\,j+1}=0$ pour $0\le j\le n-2$, fait bien connu sur les racines de l'unité.

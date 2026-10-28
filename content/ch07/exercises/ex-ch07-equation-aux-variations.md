@@ -5,7 +5,7 @@ chapters: [7, 5]
 title: Différentielle du flot et équation aux variations
 source: "Classique (équation aux variations, cf. Arnold, *Équations différentielles ordinaires*) — rédaction et exemple inventés"
 difficulty: 3
-time: 45
+time: 40
 tools: [ch07-flot-global-ouvert-regulier, ch07-proprietes-flot-formules, ch07-groupe-un-parametre, ch07-unicite-globale, ch07-courbe-integrale-maximale-def, ch07-restriction-domaine-c1-lipschitz, ch05-lemme-schwarz, ch05-composition-differentielles]
 ---
 ## Énoncé

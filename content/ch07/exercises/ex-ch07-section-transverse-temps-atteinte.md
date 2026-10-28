@@ -26,7 +26,7 @@ $$
 4. On pose $P(p)=F(\tau(p),p)$ pour $p\in V$. Montrer que $P$ est de classe $C^1$, à valeurs dans $\Sigma$, et que $P$ est constante le long des morceaux de trajectoires contenus dans $V$ ; en déduire $dP_p\big(X(p)\big)=0$.
 5. *Exemple.* $n=2$, $X(x,y)=(1,y^2)$, $\varphi(x,y)=y-1$.
    a) Calculer $F(t,(x,y))$ et $J((x,y))$.
-   b) On prend $p_0=(0,\tfrac12)$. Déterminer $T_0$, vérifier l'hypothèse de transversalité, et montrer que l'on peut prendre $V=\{y>0\}$ avec $\tau(x,y)=\dfrac1y-1$. Vérifier les formules des questions 2 et 3 et calculer $P$.
+   b) On prend $p_0=(0,\tfrac12)$. Déterminer $T_0$ et vérifier l'hypothèse de transversalité. Montrer que, pour tout $p=(x,y)$ avec $y>0$, il existe un unique $t\in J(p)$ tel que $F(t,p)\in\Sigma$, à savoir $\tau(x,y)=\dfrac1y-1$ : le temps d'atteinte est ici défini globalement et de classe $C^1$ sur l'ouvert $\{y>0\}$, et toute fonction $\tau$ fournie par la question 1 en est une restriction. Vérifier sur cet exemple les formules des questions 2 et 3 et calculer $P(x,y)=F\big(\tau(x,y),(x,y)\big)$ pour $y>0$.
 6. *Contre-exemple.* $n=2$, $X(x,y)=(1,0)$, $\varphi(x,y)=y-x^2$, $p_0=(-1,0)$, $T_0=1$. Vérifier que $F(T_0,p_0)\in\Sigma$ mais que la transversalité est en défaut, et montrer qu'il n'existe **aucun** voisinage $V$ de $p_0$ et aucune fonction $\tau:V\to\R$ avec $\tau(p_0)=T_0$ et $F(\tau(p),p)\in\Sigma$ pour tout $p\in V$.
 
 ## Indices
@@ -90,6 +90,8 @@ l'intervalle étant maximal car $|y(t)|\to+\infty$ à la borne finie.
 **b)** $F\big(t,(0,\tfrac12)\big)\in\Sigma\iff\dfrac{1/2}{1-t/2}=1\iff t=1$ : $T_0=1\in J=\,]-\infty,2[$, $q_0=(1,1)$. Transversalité : $d\varphi_{(x,y)}(u,v)=v$, donc $d\varphi_{q_0}(X(q_0))=1^2=1\neq0$.
 
 Pour $y>0$ et $t\in J((x,y))$ : $\dfrac{y}{1-ty}=1\iff1-ty=y\iff t=\dfrac{1-y}{y}=\dfrac1y-1$, et cette valeur est bien dans $]-\infty,1/y[$. Donc, pour **tout** $(x,y)$ avec $y>0$, il y a exactement un temps d'atteinte de $\Sigma$, $\tau(x,y)=\frac1y-1$, fonction $C^1$ sur $V=\{y>0\}$ (ouvert) avec $\tau(p_0)=1$. (Pour $y\le0$, $y(t)$ reste $\le0$ et n'atteint jamais $1$.)
+
+*Lien avec la question 1.* Si $(V_1,\varepsilon_1,\tau_1)$ est un triplet fourni par la question 1, alors pour $p\in V_1$, $\tau_1(p)\in J(p)$ est un temps d'atteinte de $\Sigma$ ; les points d'ordonnée $y\le0$ n'atteignant jamais $\Sigma$, on a $V_1\subset\{y>0\}$, et l'unicité du temps d'atteinte donne $\tau_1=\tau_{|V_1}$. En revanche, l'ouvert $\{y>0\}$ tout entier ne convient **pas** comme $V$ dans l'énoncé de la question 1 : $\tau$ n'y est pas bornée (donc $\tau(V)\not\subset\,]T_0-\varepsilon,T_0+\varepsilon[$), et $]T_0-\varepsilon,T_0+\varepsilon[\times\{y>0\}\not\subset D_0$ puisque $1/y<1-\varepsilon$ pour $y$ grand. La question 1 est un énoncé **local** ; l'exemple montre qu'il peut se globaliser, mais ce n'est pas automatique.
 
 *Question 2.* $\dfrac{\partial F}{\partial p}\big(t,(x,y)\big)=\begin{pmatrix}1&0\\0&\frac1{(1-ty)^2}\end{pmatrix}$ ; en $(T_0,p_0)$, $1-T_0y_0=\frac12$, d'où $\frac{\partial F}{\partial p}(T_0,p_0)(h_1,h_2)=(h_1,4h_2)$ et la formule donne $d\tau_{p_0}(h)=-4h_2$. Directement : $\partial_y\tau=-1/y^2=-4$ en $y=\frac12$, $\partial_x\tau=0$. ✓
 
