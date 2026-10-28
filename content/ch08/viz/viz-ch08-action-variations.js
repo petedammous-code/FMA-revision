@@ -12,8 +12,8 @@ FMA.registerViz({
 **Quoi regarder.**
 1. Les trois nombres affichés coïncident : la formule de [[ch08-lhat-c1-differentielle]] $d\hat L_{\gamma_0}(h)=\int_0^1\big(\frac{\partial L}{\partial q}\,h+\frac{\partial L}{\partial v}\,h'\big)dt$, sa version intégrée par parties $\int_0^1R\,h\,dt$ (le terme de bord $\big[\frac{\partial L}{\partial v}h\big]_0^1$ est nul car $h(0)=h(1)=0$), et la pente numérique de $\varphi$.
 2. Bouton « revenir sur la solution » : alors $R\equiv0$ et la tangente est **horizontale pour toutes les directions** $h$ : $\gamma_*$ est un point critique de $\hat L$ restreinte à $E_{a,b}$ ([[ch08-euler-lagrange]]).
-3. Déforme $\gamma_0$ : $R\not\equiv0$. Choisis la direction « $h$ adaptée au résidu » ($h=4t(1-t)R$, normalisée) : la pente vaut $\int 4t(1-t)R^2>0$. C'est le mécanisme de [[ch08-du-bois-reymond]] et [[ch08-du-bois-reymond-derivee]] : si (E.L) n'est pas satisfaite, on fabrique une variation nulle aux bords qui fait varier l'action au premier ordre. Même chose avec la petite « bosse en $t_0$ » placée là où $R>0$.
-4. Potentiel oscillateur $U=\tfrac12\omega^2q^2$ et $h=\sin(\pi t)$ : $\varphi''(0)=\int_0^1(h'^2-\omega^2h^2)=\tfrac12(\pi^2-\omega^2)$. Pour $\omega<\pi$ la solution est un **minimum** dans cette direction, pour $\omega>\pi$ c'est un **col** ($\varphi$ concave) : (E.L) caractérise les points **critiques**, pas les minima. Près de $\omega=\pi$, la solution $\gamma_*(t)=\sin(\omega t)/\sin\omega$ explose (en $\omega=\pi$ il n'y en a aucune).
+3. Déforme $\gamma_0$ : $R\not\equiv0$. Choisis la direction « $h$ adaptée au résidu » ($h=\tfrac1m\,4t(1-t)R$ avec $m=\max|4t(1-t)R|$, pour garder $|h|\le1$ ; $h$ est $C^1$ et nulle aux bords) : la pente vaut $\int_0^1R\,h\,dt=\tfrac1m\int_0^14t(1-t)R^2\,dt>0$. C'est le mécanisme de [[ch08-du-bois-reymond]] et [[ch08-du-bois-reymond-derivee]] : si (E.L) n'est pas satisfaite, on fabrique une variation nulle aux bords qui fait varier l'action au premier ordre. Même chose avec la petite « bosse en $t_0$ » placée là où $R>0$.
+4. Potentiel oscillateur $U=\tfrac12\omega^2q^2$ et $h=\sin(\pi t)$ : $\varphi''(0)=\int_0^1(h'^2-\omega^2h^2)=\tfrac12(\pi^2-\omega^2)$. Pour $\omega<\pi$ la solution est un **minimum** dans cette direction, pour $\omega>\pi$ c'est un **col** : $\varphi$ est concave dans la direction $\sin(\pi t)$ mais encore convexe dans la direction $\sin(2\pi t)$, où $\varphi''(0)=\tfrac12(4\pi^2-\omega^2)>0$ tant que $\omega<2\pi$ (vérifie-le avec le menu). (E.L) caractérise les points **critiques**, pas les minima. Près de $\omega=\pi$, la solution $\gamma_*(t)=\sin(\omega t)/\sin\omega$ explose (en $\omega=\pi$ il n'y en a aucune).
 5. Avec $U=0$ ou $U=gq$, $\varphi$ est une parabole convexe : l'action est quadratique en $s$, de coefficient $\tfrac12\int h'^2>0$.`,
   related: ['ch08-lhat-c1-differentielle', 'ch08-euler-lagrange', 'ch08-du-bois-reymond', 'ch08-du-bois-reymond-derivee', 'ch08-lagrangien-fonctionnelle', 'ch08-equation-newton', 'ch08-cadre-espace-courbes'],
   height: 640,
@@ -131,7 +131,11 @@ FMA.registerViz({
           Q.curve([[-1.1, phi0 - 1.1 * dQ2], [1.1, phi0 + 1.1 * dQ2]], { color: T.accent2, width: 1.5, dash: [5, 4] });
           Q.curve(sv.map((v, i) => [v, ph[i]]), { color: T.accent, width: 2.2 });
           Q.point(0, phi0, { r: 3.5, color: T.fg }); Q.point(s, phis, { r: 5, color: T.accent2 });
-          void pyb;
+          // graduations verticales : min et max de φ sur [-1, 1], et φ(0)
+          ctx.save(); ctx.fillStyle = T.muted; ctx.font = '11px system-ui, sans-serif'; ctx.textAlign = 'left'; ctx.textBaseline = 'middle';
+          const pmin = Math.min(...ph), pmax = Math.max(...ph); const ticks = [[pmin, 'min'], [pmax, 'max']]; if (Math.abs(phi0 - pmin) > 0.15 * (a2 - a1) && Math.abs(phi0 - pmax) > 0.15 * (a2 - a1)) ticks.push([phi0, 'φ(0)']);
+          for (const [v, nm] of ticks) { const [, py] = Q.toPx(0, v); if (py < 18 || py > h - 14) continue; ctx.strokeStyle = T.grid; ctx.beginPath(); ctx.moveTo(0, py); ctx.lineTo(w, py); ctx.stroke(); ctx.fillText(nm + ' = ' + kit.fmt(+v.toFixed(3)), pz + 4, py - (nm === 'max' ? 7 : -7)); }
+          ctx.fillStyle = T.fg; ctx.textAlign = 'right'; ctx.textBaseline = 'bottom'; ctx.fillText('s', w - 4, pyb - 14); ctx.restore();
         });
         frame(G.mid); label(x + 6, y + 4, 'φ(s) = L̂(γ₀ + s h)  — tangente en 0', T.fg); }
 
@@ -149,8 +153,8 @@ FMA.registerViz({
         });
         frame(G.bot);
         const rmax = Math.max(...R.map(Math.abs));
-        label(x + 6, y + 4, 'R(t) ' + (rmax < 1e-6 ? '≡ 0' : '(÷ ' + kit.fmt(+mR.toPrecision(2)) + ')'), T.accent2);
-        label(x + 6 + 92, y + 4, 'h(t)', T.accent); label(x + w - 6, y + 4, 'aire R·h', T.accent3, 'right'); }
+        const lR = 'R(t) ' + (rmax < 1e-6 ? '≡ 0' : '(÷ ' + kit.fmt(+mR.toPrecision(2)) + ')'); label(x + 6, y + 4, lR, T.accent2);
+        ctx.save(); ctx.font = '12px system-ui, sans-serif'; const wR = ctx.measureText(lR).width; ctx.restore(); label(x + 6 + wR + 18, y + 4, 'h(t)', T.accent); label(x + w - 6, y + 4, 'aire R·h', T.accent3, 'right'); }
 
       ro1.set(`φ(0) = L̂(γ₀) = ${fx(phi0, 4)} ; φ(s) = ${fx(phis, 4)}`);
       ro2.set(`∫(∂L/∂q·h + ∂L/∂v·h′) = ${fx(dQ2, 4)} ; ∫R·h = ${fx(dIPP, 4)} ; numérique = ${fx(dFD, 4)}`);

@@ -1,5 +1,375 @@
 // généré par tools/build.mjs — ne pas éditer
 
+// ---- content/ch01/viz/viz-ch01-cauchy-retraction.js ----
+try {
+FMA.registerViz({
+  id: 'viz-ch01-cauchy-retraction',
+  chapter: 1,
+  title: 'Formule de Cauchy : rétracter le cercle sur le point',
+  description: String.raw`**Ce que l'on voit.** En fond, le *domain coloring* atténué de $f$ (teinte = argument de $f(z)$, clair = $|f(z)|$ grand, sombre = petit). Le cercle épais bleu est $\Gamma=C(0,1)$, parcouru dans le sens trigonométrique (flèches). Le point orange $z$ se **déplace à la souris ou au doigt**. Le cercle rose est $\Gamma_t=C(tz,1-t)$ : pour $t=0$ c'est $\Gamma$, et quand $t\to1$ il se rétracte sur $z$ (curseur $t$ ou bouton « Rétracter »). En bas, la courbe $t\mapsto|I(t)|$ où
+$$I(t)=\int_{\Gamma_t}\frac{f(\omega)-f(z)}{\omega-z}\,d\omega ,$$
+calculée numériquement (paramétrage $\omega=tz+(1-t)e^{i\theta}$ et méthode des trapèzes). Les lectures donnent $f(z)$ et la valeur numérique de l'intégrale de Cauchy $\frac{1}{2i\pi}\int_\Gamma\frac{f(\omega)}{\omega-z}\,d\omega$.
+
+**Le lien avec la preuve du poly** (poly, Théorème I.6.1, p. 18). La formule $f(z)=\frac{1}{2i\pi}\int_\Gamma\frac{f(\omega)}{\omega-z}\,d\omega$ découle de $\int_\Gamma\frac{d\omega}{\omega-z}=2i\pi$ (étape 1) et de $I(0)=0$ (étape 2). Pour l'étape 2, le poly montre que $I$ est **constante** en $t$ (sa dérivée est l'intégrale en $\theta$ d'une dérivée en $\theta$ d'une fonction $2\pi$-périodique, donc nulle — c'est là que sert l'holomorphie de $f$) et que $I(t)\to0$ quand $t\to1$ (le cercle rétrécit et l'intégrande, un taux d'accroissement, reste borné). Donc $I(0)=I(1)=0$.
+
+**À faire.**
+* Avec $e^z$, $z^3-z$ ou $\frac{1}{z-3/2}$ (pôle **hors** du disque fermé, donc $f$ est holomorphe sur un ouvert $\Omega\supset\bar D(0,1)$) : la courbe du bas est plate, collée à $0$, quelle que soit la position de $z$ ; l'intégrale de Cauchy redonne $f(z)$ à $10^{-12}$ près. Placez $z$ au centre ($z$ s'aimante en $0$) : l'intégrale de Cauchy est alors la **moyenne** de $f$ sur le cercle (poly, Corollaire I.6.2, p. 19).
+* Sortez $z$ du disque : la rétraction n'a plus de sens et l'intégrale de Cauchy vaut $0$, pas $f(z)$ (la fonction $\omega\mapsto\frac{f(\omega)}{\omega-z}$ est alors holomorphe au voisinage de $\bar D(0,1)$). La formule n'est valable que pour $z\in D(z_0,r)$.
+* Avec $\bar z$ ou $|z|^2$ (**non holomorphes**) : $|I(t)|$ n'est plus constante (pour $\bar z$, on trouve $I(t)=-2i\pi(1-t)\bar z$), donc $I(0)\neq0$ et la formule est fausse : pour $\bar z$, l'intégrale de Cauchy vaut $0$ au lieu de $\bar z$.
+* Avec $\frac{1}{z-p}$, $p$ **dans** le disque (croix) : l'hypothèse $\bar D(0,1)\subset\Omega$ est violée. La courbe du bas fait un **saut** exactement à l'instant où le cercle rose franchit le pôle $p$ : la rétraction ne peut pas « passer par-dessus » une singularité. Cette idée (déformer un lacet sans traverser de singularité) est celle de l'homotopie du chapitre II.`,
+  related: ['ch01-cauchy-formule-disque', 'ch01-formule-moyenne', 'ch01-integrale-sur-cercle', 'ch01-def-integrale-chemin', 'ch01-cercle-sens-direct', 'ch01-holomorphe-analytique'],
+  height: 600,
+  mount(container, kit) {
+    const C = kit.complex;
+    const st = kit.canvas(container, { height: 340 });
+    const sp = kit.canvas(container, { height: 130 });
+    const controls = kit.controls(container);
+    const P0 = [0.45, 0.3];
+    const FNS = {
+      exp: { name: 'exp z', f: C.exp, hol: true },
+      cub: { name: 'z³ − z', f: z => C.sub(C.mul(z, C.mul(z, z)), z), hol: true },
+      far: { name: '1/(z − 3/2)  (pôle hors du disque)', f: z => C.inv(C.sub(z, [1.5, 0])), hol: true, pole: [1.5, 0] },
+      conj: { name: 'z̄  (non holomorphe)', f: z => C.conj(z), hol: false },
+      mod2: { name: '|z|²  (non holomorphe)', f: z => [C.abs2(z), 0], hol: false },
+      pole: { name: '1/(z − p), p dans le disque', f: z => C.inv(C.sub(z, P0)), hol: false, pole: P0 },
+    };
+    const sel = kit.select(controls, { label: '$f(z)=$', options: Object.keys(FNS).map(k => [FNS[k].name, k]), value: 'exp', onChange: () => { bgKey = ''; curveKey = ''; draw(); } });
+    sel.select.style.maxWidth = '250px';
+    const sT = kit.slider(controls, { label: '$t$', min: 0, max: 1, step: 0.005, value: 0.35, onChange: () => { stopAnim(); draw(); } });
+    const btn = kit.button(controls, { label: '▶ Rétracter', primary: true, onClick: () => { if (anim) { stopAnim(); draw(); } else startAnim(); } });
+    const roF = kit.readout(controls, { label: '' });
+    const roC = kit.readout(controls, { label: '' });
+    const roI = kit.readout(controls, { label: '' });
+
+    let z = [0.35, 0.25], P = null, anim = null, bgKey = '', curveKey = '', curve = [];
+    const off = document.createElement('canvas'); const offCtx = off.getContext('2d');
+
+    const safe = (fn, w) => { try { const v = fn(w); return (isFinite(v[0]) && isFinite(v[1])) ? v : null; } catch (e) { return null; } };
+    // I(t) = ∫_0^{2π} i (f(tz+(1-t)e^{iθ}) - f(z)) e^{iθ} / (e^{iθ} - z) dθ   (I.6.1)
+    function I(fn, fz, t, M) {
+      if (t >= 0.999) return [0, 0];
+      let s = [0, 0];
+      for (let k = 0; k < M; k++) {
+        const th = 2 * Math.PI * k / M, e = [Math.cos(th), Math.sin(th)];
+        const w = [t * z[0] + (1 - t) * e[0], t * z[1] + (1 - t) * e[1]];
+        const fw = safe(fn, w); if (!fw) return null;
+        const q = C.div(C.mul(C.sub(fw, fz), e), C.sub(e, z));
+        s = C.add(s, q);
+      }
+      return C.mul([0, 1], C.scale(s, 2 * Math.PI / M));
+    }
+    // (1/2iπ) ∫_Γ f(ω)/(ω − z) dω avec ω = e^{iθ} : (1/2π) ∫ f(e^{iθ}) e^{iθ}/(e^{iθ} − z) dθ
+    function cauchy(fn, M) {
+      let s = [0, 0];
+      for (let k = 0; k < M; k++) {
+        const th = 2 * Math.PI * k / M, e = [Math.cos(th), Math.sin(th)];
+        const fw = safe(fn, e); if (!fw) return null;
+        s = C.add(s, C.div(C.mul(fw, e), C.sub(e, z)));
+      }
+      return C.scale(s, 1 / M);
+    }
+    const inside = () => Math.hypot(z[0], z[1]) < 1;
+    const fmt = v => v ? C.str(v, 4) : 'non défini';
+    function arrowsOnCircle(ctx, cx, cy, r, color, n) {
+      for (let k = 0; k < n; k++) {
+        const th = 2 * Math.PI * (k + 0.25) / n, [x0, y0] = P.toPx(cx + r * Math.cos(th), cy + r * Math.sin(th));
+        const tx = -Math.sin(th), ty = Math.cos(th);
+        kit.arrow(ctx, x0 - tx * 6, y0 + ty * 6, x0 + tx * 6, y0 - ty * 6, { color, width: 2, head: 8 });
+      }
+    }
+    function background() {
+      const key = sel.value + ':' + st.W + 'x' + st.H;
+      if (key === bgKey) return; bgKey = key;
+      off.width = st.W; off.height = st.H;
+      kit.domainColor({ ctx: offCtx, W: st.W, H: st.H, dpr: 1 }, P, FNS[sel.value].f, { lines: false, step: 2 });
+    }
+    function computeCurve() {
+      const key = sel.value + ':' + z[0].toFixed(4) + ',' + z[1].toFixed(4);
+      if (key === curveKey) return; curveKey = key; curve = [];
+      if (!inside()) return;
+      const fn = FNS[sel.value].f, fz = safe(fn, z); if (!fz) return;
+      for (let i = 0; i <= 120; i++) { const t = i / 120, v = I(fn, fz, t, 400); curve.push([t, v ? C.abs(v) : NaN]); }
+    }
+
+    function draw() {
+      const t = kit.theme(), ctx = st.ctx, F = FNS[sel.value], tt = sT.value;
+      P = kit.plane(ctx, { xmin: -1.45, xmax: 1.45, ymin: -1.3, ymax: 1.3, W: st.W, H: st.H });
+      background();
+      ctx.fillStyle = t.bg; ctx.fillRect(0, 0, st.W, st.H);
+      ctx.save(); ctx.globalAlpha = 0.5; ctx.drawImage(off, 0, 0, st.W, st.H); ctx.restore();
+      P.axes({ labels: true, step: 0.5 });
+      // Γ
+      P.circle(0, 0, 1, { color: t.accent, width: 3 });
+      arrowsOnCircle(ctx, 0, 0, 1, t.accent, 4);
+      P.text(Math.cos(2.4), Math.sin(2.4), 'Γ = C(0,1)', { dx: -4, dy: -6, align: 'right', color: t.accent, font: '600 12px system-ui, sans-serif' });
+      // pôle
+      if (F.pole) {
+        const [px, py] = P.toPx(F.pole[0], F.pole[1]);
+        ctx.save(); ctx.strokeStyle = t.fg; ctx.lineWidth = 2.5; ctx.beginPath(); ctx.moveTo(px - 6, py - 6); ctx.lineTo(px + 6, py + 6); ctx.moveTo(px + 6, py - 6); ctx.lineTo(px - 6, py + 6); ctx.stroke(); ctx.restore();
+        P.text(F.pole[0], F.pole[1], F.pole[0] > 1 ? 'pôle 3/2' : 'pôle p', { dx: 8, dy: -6, font: '600 12px system-ui, sans-serif' });
+      }
+      // Γ_t
+      if (inside()) {
+        const cx = tt * z[0], cy = tt * z[1], r = 1 - tt;
+        if (r > 0.004) { P.circle(cx, cy, r, { color: t.accent2, width: 2.2 }); if (r * P.sx > 25) arrowsOnCircle(ctx, cx, cy, r, t.accent2, 3); }
+        P.point(cx, cy, { r: 2.5, color: t.accent2 });
+        P.text(cx + r * Math.cos(-0.6), cy + r * Math.sin(-0.6), 'Γₜ', { dx: 5, dy: 4, baseline: 'top', color: t.accent2, font: '600 13px system-ui, sans-serif' });
+      }
+      P.point(z[0], z[1], { r: 6, color: t.accent4, stroke: t.fg });
+      P.text(z[0], z[1], 'z', { dx: 8, dy: -4, font: '600 13px system-ui, sans-serif' });
+
+      // lectures
+      const fz = safe(F.f, z), dist = Math.abs(Math.hypot(z[0], z[1]) - 1);
+      const cz = dist < 0.012 ? null : cauchy(F.f, 2048);
+      roF.set(`f(z) = ${fmt(fz)}`);
+      if (!cz) roC.set('z sur Γ : l’intégrale de Cauchy n’est pas définie');
+      else roC.set(`(1/2iπ)∫<sub>Γ</sub> f(ω)/(ω−z) dω = ${fmt(cz)}` + (fz ? ` &nbsp;(écart à f(z) : ${C.abs(C.sub(cz, fz)).toExponential(1)})` : ''));
+      if (inside() && fz) { const v = I(F.f, fz, tt, 1024); roI.set(`I(${tt.toFixed(3)}) = ${fmt(v)}`); }
+      else roI.set(inside() ? 'I(t) non défini (f(z) n’existe pas)' : 'z ∉ D(0,1) : pas de rétraction');
+      drawPlot();
+    }
+
+    function drawPlot() {
+      const t = kit.theme(), ctx = sp.ctx, W = sp.W, H = sp.H;
+      ctx.fillStyle = t.bg; ctx.fillRect(0, 0, W, H);
+      computeCurve();
+      const L = 46, R = 12, T = 22, B = 22;
+      ctx.save(); ctx.font = '11px system-ui, sans-serif'; ctx.fillStyle = t.fg; ctx.textBaseline = 'top'; ctx.textAlign = 'left';
+      ctx.fillText('|I(t)| en fonction de t (I(t) = ∫ sur Γₜ de (f(ω) − f(z))/(ω − z) dω)', 6, 4);
+      if (!curve.length) {
+        ctx.fillStyle = t.muted; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+        ctx.fillText(inside() ? 'f(z) non défini' : 'z hors du disque : la rétraction Γₜ = C(tz, 1−t) n’a de sens que pour z ∈ D(0,1)', W / 2, H / 2 + 6);
+        ctx.restore(); return;
+      }
+      let m = 0; for (const [, v] of curve) if (isFinite(v)) m = Math.max(m, v);
+      const ymax = Math.max(1, 1.15 * m);
+      const X = s => L + s * (W - L - R), Y = v => H - B - (v / ymax) * (H - T - B);
+      ctx.strokeStyle = t.axis; ctx.lineWidth = 1; ctx.beginPath(); ctx.moveTo(L, T); ctx.lineTo(L, H - B); ctx.lineTo(W - R, H - B); ctx.stroke();
+      ctx.fillStyle = t.muted; ctx.textAlign = 'right'; ctx.textBaseline = 'middle';
+      ctx.fillText('0', L - 4, Y(0)); ctx.fillText(ymax.toFixed(ymax < 10 ? 2 : 1), L - 4, Y(ymax));
+      ctx.textAlign = 'center'; ctx.textBaseline = 'top';
+      for (const s of [0, 0.25, 0.5, 0.75, 1]) ctx.fillText(String(s), X(s), H - B + 3);
+      ctx.textAlign = 'right'; ctx.fillText('t', W - R, H - B - 14);
+      ctx.strokeStyle = t.grid; ctx.beginPath(); ctx.moveTo(L, Y(ymax)); ctx.lineTo(W - R, Y(ymax)); ctx.stroke();
+      ctx.strokeStyle = t.accent2; ctx.lineWidth = 2.2; ctx.beginPath(); let first = true;
+      for (let i = 0; i < curve.length; i++) {
+        const [s, v] = curve[i]; if (!isFinite(v)) { first = true; continue; }
+        // saut (pôle franchi) : ne pas relier verticalement deux valeurs très différentes
+        if (!first && Math.abs(v - curve[i - 1][1]) > 0.25 * ymax) first = true;
+        if (first) { ctx.moveTo(X(s), Y(v)); first = false; } else ctx.lineTo(X(s), Y(v));
+      }
+      ctx.stroke();
+      const tt = sT.value; ctx.strokeStyle = t.accent4; ctx.lineWidth = 1.5; ctx.setLineDash([4, 3]); ctx.beginPath(); ctx.moveTo(X(tt), T); ctx.lineTo(X(tt), H - B); ctx.stroke(); ctx.setLineDash([]);
+      const F = FNS[sel.value];
+      ctx.fillStyle = F.hol ? t.accent3 : t.accent2; ctx.textAlign = 'right'; ctx.textBaseline = 'top'; ctx.font = '600 11px system-ui, sans-serif';
+      ctx.fillText(m < 1e-8 ? 'I(t) ≡ 0 : constante, donc I(0) = I(1) = 0' : 'I(t) varie : I(0) ≠ 0, la formule tombe', W - R, T + 2);
+      ctx.restore();
+    }
+
+    function stopAnim() { if (anim) { anim.stop(); anim = null; } btn.textContent = '▶ Rétracter'; }
+    function startAnim() {
+      if (!inside()) return;
+      if (sT.value >= 0.995) sT.value = 0;
+      btn.textContent = '■ Arrêter';
+      anim = kit.animate(dt => { const v = Math.min(1, sT.value + dt / 4); sT.value = v; draw(); if (v >= 1) stopAnim(); });
+    }
+    function setZ(p) {
+      if (!P) return; z = P.toWorld(p.x, p.y);
+      z[0] = Math.max(-1.4, Math.min(1.4, z[0])); z[1] = Math.max(-1.25, Math.min(1.25, z[1]));
+      if (Math.hypot(z[0], z[1]) < 0.06) z = [0, 0];
+      const F = FNS[sel.value]; if (F.pole && Math.hypot(z[0] - F.pole[0], z[1] - F.pole[1]) < 0.05) { z = [F.pole[0] - 0.08, F.pole[1] - 0.08]; }
+      if (!inside()) stopAnim();
+      draw();
+    }
+    const offDrag = kit.drag(st.canvas, { onDown: p => setZ(p), onMove: (p, ev, down) => { if (down) setZ(p); } });
+    st.onResize = () => { bgKey = ''; draw(); }; sp.onResize = () => drawPlot();
+    draw();
+    return () => { stopAnim(); offDrag(); st.destroy(); sp.destroy(); };
+  }
+});
+
+} catch (e) { console.error('viz viz-ch01-cauchy-retraction failed to register', e); }
+
+// ---- content/ch01/viz/viz-ch01-differentielle-similitude.js ----
+try {
+FMA.registerViz({
+  id: 'viz-ch01-differentielle-similitude',
+  chapter: 1,
+  title: 'La différentielle au microscope : similitude ou ellipse ?',
+  description: String.raw`**Ce que l'on voit.** À gauche (au-dessus sur un téléphone), le *plan des $z$* : un point $z_0$ (orange, **à glisser**) et le petit disque $D(z_0,h)$ muni d'une grille polaire (cercles bleus, rayons verts) et d'un « drapeau » : le segment $[z_0,z_0+h]$ (orange) et le segment $[z_0,z_0+ih]$ (violet). À droite, le *microscope* : on trace, pour $\omega$ dans le disque unité, le **taux d'accroissement**
+$$\omega\longmapsto\frac{f(z_0+h\omega)-f(z_0)}{h}$$
+(traits pleins), c'est-à-dire l'image de la grille par $f$, recentrée en $f(z_0)$ et agrandie $1/h$ fois ; en **tirets**, l'image de la même grille par la différentielle $df_{z_0}$. Le cercle gris est le cercle unité, pour comparer les tailles.
+
+**Le lien avec le cours.** Quand $h\to0$, les traits pleins se collent aux tirets : c'est la définition de la différentiabilité, $f(z_0+h\omega)=f(z_0)+h\,df_{z_0}(\omega)+o(h)$. Or toute application $\R$-linéaire de $\C$ s'écrit $L(\omega)=a\omega+b\bar\omega$ (poly, Lemme I.2.1, p. 6), et pour $L=df_{z_0}$ on a $a=\frac{\partial f}{\partial z}(z_0)$, $b=\frac{\partial f}{\partial \bar z}(z_0)$ (formule (I.2.4), poly, Remarque I.2.2, p. 7). L'image du cercle unité par $L$ est une **ellipse** de demi-axes $|a|+|b|$ et $\big||a|-|b|\big|$, et le déterminant jacobien vaut $|a|^2-|b|^2$.
+* Si $b=0$ (**Cauchy–Riemann**, poly, Corollaire I.2.4, p. 8), l'ellipse est un **cercle** : $df_{z_0}$ est la multiplication par $f'(z_0)=a$, une similitude directe (rotation d'angle $\arg f'(z_0)$, homothétie de rapport $|f'(z_0)|$). Le drapeau garde son angle droit et son sens (poly, Remarque I.2.5, p. 8).
+* Si $b\neq0$, la grille est aplatie en ellipse (cercles non conservés, angles déformés) ; si $|b|>|a|$, le drapeau est **retourné** (orientation renversée, déterminant $<0$) ; si $|a|=|b|$, tout est écrasé sur un segment.
+
+**À faire.**
+* Avec $z^2$, $e^z$ ou $1/z$, déplacez $z_0$ : le cercle tourne et change de taille, mais reste un cercle ; diminuez $h$ et regardez la grille courbe devenir la grille droite.
+* Avec $z^3-z$, approchez un point critique $\pm1/\sqrt3$ (le point s'y aimante) : $f'(z_0)=0$, la différentielle est nulle, le cercle se réduit à un point et l'échelle du microscope s'adapte au terme d'ordre $2$ (angles doublés).
+* Avec $\bar z$ : un cercle, mais le drapeau est retourné ($a=0$, $b=1$) : $\bar z$ n'est $\C$-dérivable nulle part (poly, Exemple I.2.7, p. 9). Avec $\Re z$ ou $|z|^2$ : un segment ($|a|=|b|$) ; pour $|z|^2$, on a $a=\bar z_0$, $b=z_0$, donc $b=0$ seulement en $z_0=0$ : $|z|^2$ est $\C$-dérivable en ce seul point, et n'est holomorphe sur aucun ouvert. Avec $z+\tfrac12\bar z$ : une vraie ellipse, orientation conservée.`,
+  related: ['ch01-decomposition-r-lineaire', 'ch01-operateurs-dz-dzbar', 'ch01-c-derivable-ssi-df-c-lineaire', 'ch01-cauchy-riemann', 'ch01-similitude-conforme', 'ch01-exemple-zbar-rez-module', 'ch01-def-differentiable-r2'],
+  height: 560,
+  mount(container, kit) {
+    const C = kit.complex;
+    const DEG = 180 / Math.PI;
+    // ---------- layout ----------
+    const row = document.createElement('div');
+    row.style.cssText = 'display:flex;flex-wrap:wrap;gap:8px;';
+    container.appendChild(row);
+    const mkCell = () => { const d = document.createElement('div'); d.style.cssText = 'flex:1 1 280px;min-width:0;'; row.appendChild(d); return d; };
+    const stZ = kit.canvas(mkCell(), { height: 300 });
+    const stW = kit.canvas(mkCell(), { height: 300 });
+    const controls = kit.controls(container);
+
+    // ---------- fonctions ----------
+    const s3 = 1 / Math.sqrt(3);
+    const FNS = {
+      sq: { name: 'z²  (holomorphe)', f: z => C.mul(z, z), crit: [[0, 0]], z0: [0.8, 0.5] },
+      cub: { name: 'z³ − z  (holomorphe)', f: z => C.sub(C.mul(z, C.mul(z, z)), z), crit: [[s3, 0], [-s3, 0]], z0: [0.9, 0.6] },
+      exp: { name: 'exp z  (holomorphe)', f: C.exp, crit: [], z0: [0.3, 0.8] },
+      inv: { name: '1/z  (holomorphe sur ℂ*)', f: z => C.inv(z), crit: [], z0: [0.9, 0.5], hole: true },
+      conj: { name: 'z̄  (non holomorphe)', f: z => C.conj(z), crit: [], z0: [0.8, 0.5] },
+      re: { name: 'Re z  (non holomorphe)', f: z => [z[0], 0], crit: [], z0: [0.8, 0.5] },
+      mod2: { name: '|z|²  (ℂ-dérivable en 0 seulement)', f: z => [C.abs2(z), 0], crit: [[0, 0]], z0: [0.8, 0.5] },
+      ell: { name: 'z + ½ z̄  (non holomorphe)', f: z => C.add(z, C.scale(C.conj(z), 0.5)), crit: [], z0: [0.8, 0.5] },
+    };
+    const sel = kit.select(controls, { label: '$f(z)=$', options: Object.keys(FNS).map(k => [FNS[k].name, k]), value: 'sq', onChange: () => { z0 = FNS[sel.value].z0.slice(); drawAll(); } });
+    sel.select.style.maxWidth = '250px';
+    const sH = kit.slider(controls, { label: 'rayon $h$ du disque', min: -2, max: 0, step: 0.05, value: -0.3, onChange: drawAll, format: v => (Math.pow(10, +v)).toPrecision(2) });
+    const cbDf = kit.checkbox(controls, { label: 'tirets : image par $df_{z_0}$', checked: true, onChange: drawAll });
+    const roAB = kit.readout(controls, { label: '' });
+    const roG = kit.readout(controls, { label: '' });
+
+    let z0 = FNS.sq.z0.slice();
+    let PZ = null, PW = null;
+
+    const safe = (fn, z) => { try { const w = fn(z); return (isFinite(w[0]) && isFinite(w[1])) ? w : null; } catch (e) { return null; } };
+    // dérivées partielles par différences centrées, puis a = ∂f/∂z, b = ∂f/∂z̄ (Remarque I.2.2)
+    function partials(fn, z) {
+      const e = 1e-5;
+      const fxp = safe(fn, [z[0] + e, z[1]]), fxm = safe(fn, [z[0] - e, z[1]]), fyp = safe(fn, [z[0], z[1] + e]), fym = safe(fn, [z[0], z[1] - e]);
+      if (!fxp || !fxm || !fyp || !fym) return null;
+      const fx = C.scale(C.sub(fxp, fxm), 1 / (2 * e)), fy = C.scale(C.sub(fyp, fym), 1 / (2 * e));
+      const ify = C.mul([0, 1], fy);
+      const a = C.scale(C.sub(fx, ify), 0.5), b = C.scale(C.add(fx, ify), 0.5);
+      const clean = v => [Math.abs(v[0]) < 1e-7 ? 0 : v[0], Math.abs(v[1]) < 1e-7 ? 0 : v[1]];
+      return { a: clean(a), b: clean(b) };
+    }
+    const L = (a, b, w) => C.add(C.mul(a, w), C.mul(b, C.conj(w)));
+    function label(ctx, text, t) {
+      ctx.save(); ctx.font = '600 12px system-ui, sans-serif'; const w = ctx.measureText(text).width;
+      ctx.globalAlpha = 0.85; ctx.fillStyle = t.bg; ctx.fillRect(4, 4, w + 12, 20); ctx.globalAlpha = 1;
+      ctx.fillStyle = t.fg; ctx.textBaseline = 'middle'; ctx.textAlign = 'left'; ctx.fillText(text, 10, 14); ctx.restore();
+    }
+    // la grille polaire du disque unité : cercles de rayon 1/4..1, 12 rayons ; le drapeau : [0,1] et [0,i]
+    const NC = 4, NR = 12, NS = 72;
+    function gridCurves() {
+      const circles = [], radii = [];
+      for (let k = 1; k <= NC; k++) { const r = k / NC, pts = []; for (let s = 0; s <= NS; s++) pts.push(C.polar(r, 2 * Math.PI * s / NS)); circles.push(pts); }
+      for (let k = 0; k < NR; k++) { const th = 2 * Math.PI * k / NR, pts = []; for (let s = 0; s <= 20; s++) pts.push(C.polar(s / 20, th)); radii.push(pts); }
+      return { circles, radii };
+    }
+    const GRID = gridCurves();
+    const flag1 = Array.from({ length: 21 }, (_, s) => [s / 20, 0]);
+    const flag2 = Array.from({ length: 21 }, (_, s) => [0, s / 20]);
+    function stroke(ctx, P, pts, color, width, dash) {
+      ctx.save(); ctx.strokeStyle = color; ctx.lineWidth = width; if (dash) ctx.setLineDash(dash);
+      ctx.beginPath(); let first = true;
+      for (const w of pts) { if (!w || Math.abs(w[0]) > 1e4 || Math.abs(w[1]) > 1e4) { first = true; continue; } const [px, py] = P.toPx(w[0], w[1]); if (first) { ctx.moveTo(px, py); first = false; } else ctx.lineTo(px, py); }
+      ctx.stroke(); ctx.restore();
+    }
+    function snap() { // aimanter z0 vers un point remarquable
+      const F = FNS[sel.value];
+      for (const c of F.crit) if (Math.hypot(z0[0] - c[0], z0[1] - c[1]) < 0.09) { z0 = c.slice(); return; }
+      if (F.hole && Math.hypot(z0[0], z0[1]) < 0.12) { const n = Math.hypot(z0[0], z0[1]) || 1; z0 = [0.12 * (z0[0] || 1) / (n || 1), 0.12 * z0[1] / n]; }
+    }
+
+    function drawZ() {
+      const F = FNS[sel.value], t = kit.theme(), ctx = stZ.ctx, h = Math.pow(10, sH.value);
+      ctx.fillStyle = t.bg; ctx.fillRect(0, 0, stZ.W, stZ.H);
+      PZ = kit.plane(ctx, { xmin: -2, xmax: 2, ymin: -1.7, ymax: 1.7, W: stZ.W, H: stZ.H });
+      PZ.grid(0.5); PZ.axes({ labels: true, step: 1 });
+      const map = pts => pts.map(w => [z0[0] + h * w[0], z0[1] + h * w[1]]);
+      const rpx = h * PZ.sx;
+      if (rpx > 14) {
+        for (const c of GRID.circles) stroke(ctx, PZ, map(c), t.accent, 1.1);
+        for (const r of GRID.radii) stroke(ctx, PZ, map(r), t.accent3, 1.1);
+      } else {
+        const [px, py] = PZ.toPx(z0[0], z0[1]);
+        ctx.save(); ctx.strokeStyle = t.accent; ctx.setLineDash([3, 3]); ctx.lineWidth = 1.2; ctx.beginPath(); ctx.arc(px, py, 14, 0, 2 * Math.PI); ctx.stroke(); ctx.restore();
+        PZ.text(z0[0], z0[1], 'D(z₀,h) trop petit : voir le microscope', { dx: 18, dy: 22, color: t.muted, font: '11px system-ui, sans-serif', baseline: 'middle' });
+      }
+      if (rpx > 4) { stroke(ctx, PZ, map(flag1), t.accent4, 2.6); stroke(ctx, PZ, map(flag2), t.accent5, 2.6); }
+      for (const c of F.crit) {
+        const [px, py] = PZ.toPx(c[0], c[1]);
+        ctx.save(); ctx.strokeStyle = t.fg; ctx.lineWidth = 1.3; ctx.fillStyle = t.bg; ctx.beginPath(); ctx.arc(px, py, 5, 0, 2 * Math.PI); ctx.fill(); ctx.stroke(); ctx.restore();
+        PZ.text(c[0], c[1], sel.value === 'mod2' ? 'b = 0' : "f' = 0", { dx: 6, dy: -6, font: '11px system-ui, sans-serif', color: t.muted });
+      }
+      if (F.hole) PZ.text(0, 0, '0 ∉ Ω', { dx: 6, dy: -6, font: '11px system-ui, sans-serif', color: t.muted });
+      PZ.point(z0[0], z0[1], { r: 6, color: t.accent4, stroke: t.fg });
+      PZ.text(z0[0], z0[1], 'z₀', { dx: -8, dy: 16, align: 'right', baseline: 'middle', font: '600 12px system-ui, sans-serif' });
+      label(ctx, 'plan des z', t);
+    }
+
+    function drawW() {
+      const F = FNS[sel.value], t = kit.theme(), ctx = stW.ctx, h = Math.pow(10, sH.value);
+      ctx.fillStyle = t.bg; ctx.fillRect(0, 0, stW.W, stW.H);
+      const f0 = safe(F.f, z0), D = partials(F.f, z0);
+      if (!f0 || !D) { PW = kit.plane(ctx, { W: stW.W, H: stW.H }); label(ctx, 'f non définie en z₀', t); return; }
+      const { a, b } = D, A = C.abs(a), B = C.abs(b);
+      const Q = w => { const v = safe(F.f, [z0[0] + h * w[0], z0[1] + h * w[1]]); return v ? [(v[0] - f0[0]) / h, (v[1] - f0[1]) / h] : null; };
+      // échelle : fixée par df (|a|+|b|) ; si df ≈ 0 (point critique), par l'image réelle
+      let R = 1.35 * (A + B);
+      if (A + B < 0.05) { let m = 0; for (const c of GRID.circles) for (const w of c) { const q = Q(w); if (q) m = Math.max(m, Math.hypot(q[0], q[1])); } R = Math.max(1.3 * m, 1e-6); }
+      PW = kit.plane(ctx, { xmin: -R, xmax: R, ymin: -R, ymax: R, W: stW.W, H: stW.H });
+      const st = Math.pow(10, Math.floor(Math.log10(R))); const step = R / st > 5 ? 2 * st : R / st > 2.5 ? st : st / 2;
+      PW.grid(step / 2); PW.axes({ labels: true, step });
+      PW.circle(0, 0, 1, { color: t.muted, width: 1, dash: [2, 4] });
+      // image réelle (agrandie) : traits pleins
+      for (const c of GRID.circles) stroke(ctx, PW, c.map(Q), t.accent, 1.4);
+      for (const r of GRID.radii) stroke(ctx, PW, r.map(Q), t.accent3, 1.4);
+      // image par df : tirets
+      if (cbDf.value && A + B >= 0.05) {
+        for (const c of GRID.circles) stroke(ctx, PW, c.map(w => L(a, b, w)), t.fg, 1.1, [5, 4]);
+        for (const r of GRID.radii) stroke(ctx, PW, r.map(w => L(a, b, w)), t.fg, 0.8, [2, 4]);
+      }
+      // drapeau
+      stroke(ctx, PW, flag1.map(Q), t.accent4, 3); stroke(ctx, PW, flag2.map(Q), t.accent5, 3);
+      if (A + B >= 0.05) {
+        const u = L(a, b, [1, 0]), v = L(a, b, [0, 1]);
+        const [ox, oy] = PW.toPx(0, 0), [ux, uy] = PW.toPx(u[0], u[1]), [vx, vy] = PW.toPx(v[0], v[1]);
+        kit.arrow(ctx, ox, oy, ux, uy, { color: t.accent4, width: 1.5, head: 8 });
+        kit.arrow(ctx, ox, oy, vx, vy, { color: t.accent5, width: 1.5, head: 8 });
+      }
+      PW.point(0, 0, { r: 3.5, color: t.fg });
+      label(ctx, 'microscope : (f(z₀+hω) − f(z₀))/h', t);
+      ctx.save(); ctx.font = '11px system-ui, sans-serif'; ctx.fillStyle = t.muted; ctx.textAlign = 'right'; ctx.textBaseline = 'bottom';
+      ctx.fillText('centre = f(z₀), agrandi ×1/h', stW.W - 6, stW.H - 6); ctx.restore();
+      // lectures
+      const f2 = v => C.str(v, 3);
+      roAB.set(`∂f/∂z(z₀) = a = ${f2(a)} &nbsp;·&nbsp; ∂f/∂z̄(z₀) = b = ${f2(b)}`);
+      const det = A * A - B * B;
+      let verdict;
+      if (B < 1e-6) verdict = A < 1e-6 ? "b = 0 (Cauchy–Riemann) et f'(z₀) = 0 : df = 0, rien n'est conservé à l'ordre 1" : `b = 0 : Cauchy–Riemann ✔, similitude directe de rapport |f'(z₀)| = ${A.toFixed(3)}, angle ${(C.arg(a) * DEG).toFixed(0)}°`;
+      else if (Math.abs(A - B) < 1e-6) verdict = 'b ≠ 0, |a| = |b| : image écrasée sur un segment (det J = 0)';
+      else verdict = `b ≠ 0 : pas ℂ-dérivable ; ellipse de demi-axes ${(A + B).toFixed(2)} et ${Math.abs(A - B).toFixed(2)}, det J = ${det.toFixed(2)} ${det < 0 ? '(orientation renversée)' : '(orientation conservée)'}`;
+      roG.set(verdict);
+    }
+    function drawAll() { drawZ(); drawW(); }
+
+    const off = kit.drag(stZ.canvas, {
+      onDown: p => { if (!PZ) return; z0 = PZ.toWorld(p.x, p.y); snap(); drawAll(); },
+      onMove: (p, ev, down) => { if (!down || !PZ) return; z0 = PZ.toWorld(p.x, p.y); z0[0] = Math.max(-1.95, Math.min(1.95, z0[0])); z0[1] = Math.max(-1.65, Math.min(1.65, z0[1])); snap(); drawAll(); },
+    });
+    stZ.onResize = drawAll; stW.onResize = drawAll;
+    drawAll();
+    return () => { off(); stZ.destroy(); stW.destroy(); };
+  }
+});
+
+} catch (e) { console.error('viz viz-ch01-differentielle-similitude failed to register', e); }
+
 // ---- content/ch02/viz/viz-ch02-contours-residus.js ----
 try {
 FMA.registerViz({
@@ -1884,8 +2254,8 @@ FMA.registerViz({
 **Quoi regarder.**
 1. Les trois nombres affichés coïncident : la formule de [[ch08-lhat-c1-differentielle]] $d\hat L_{\gamma_0}(h)=\int_0^1\big(\frac{\partial L}{\partial q}\,h+\frac{\partial L}{\partial v}\,h'\big)dt$, sa version intégrée par parties $\int_0^1R\,h\,dt$ (le terme de bord $\big[\frac{\partial L}{\partial v}h\big]_0^1$ est nul car $h(0)=h(1)=0$), et la pente numérique de $\varphi$.
 2. Bouton « revenir sur la solution » : alors $R\equiv0$ et la tangente est **horizontale pour toutes les directions** $h$ : $\gamma_*$ est un point critique de $\hat L$ restreinte à $E_{a,b}$ ([[ch08-euler-lagrange]]).
-3. Déforme $\gamma_0$ : $R\not\equiv0$. Choisis la direction « $h$ adaptée au résidu » ($h=4t(1-t)R$, normalisée) : la pente vaut $\int 4t(1-t)R^2>0$. C'est le mécanisme de [[ch08-du-bois-reymond]] et [[ch08-du-bois-reymond-derivee]] : si (E.L) n'est pas satisfaite, on fabrique une variation nulle aux bords qui fait varier l'action au premier ordre. Même chose avec la petite « bosse en $t_0$ » placée là où $R>0$.
-4. Potentiel oscillateur $U=\tfrac12\omega^2q^2$ et $h=\sin(\pi t)$ : $\varphi''(0)=\int_0^1(h'^2-\omega^2h^2)=\tfrac12(\pi^2-\omega^2)$. Pour $\omega<\pi$ la solution est un **minimum** dans cette direction, pour $\omega>\pi$ c'est un **col** ($\varphi$ concave) : (E.L) caractérise les points **critiques**, pas les minima. Près de $\omega=\pi$, la solution $\gamma_*(t)=\sin(\omega t)/\sin\omega$ explose (en $\omega=\pi$ il n'y en a aucune).
+3. Déforme $\gamma_0$ : $R\not\equiv0$. Choisis la direction « $h$ adaptée au résidu » ($h=\tfrac1m\,4t(1-t)R$ avec $m=\max|4t(1-t)R|$, pour garder $|h|\le1$ ; $h$ est $C^1$ et nulle aux bords) : la pente vaut $\int_0^1R\,h\,dt=\tfrac1m\int_0^14t(1-t)R^2\,dt>0$. C'est le mécanisme de [[ch08-du-bois-reymond]] et [[ch08-du-bois-reymond-derivee]] : si (E.L) n'est pas satisfaite, on fabrique une variation nulle aux bords qui fait varier l'action au premier ordre. Même chose avec la petite « bosse en $t_0$ » placée là où $R>0$.
+4. Potentiel oscillateur $U=\tfrac12\omega^2q^2$ et $h=\sin(\pi t)$ : $\varphi''(0)=\int_0^1(h'^2-\omega^2h^2)=\tfrac12(\pi^2-\omega^2)$. Pour $\omega<\pi$ la solution est un **minimum** dans cette direction, pour $\omega>\pi$ c'est un **col** : $\varphi$ est concave dans la direction $\sin(\pi t)$ mais encore convexe dans la direction $\sin(2\pi t)$, où $\varphi''(0)=\tfrac12(4\pi^2-\omega^2)>0$ tant que $\omega<2\pi$ (vérifie-le avec le menu). (E.L) caractérise les points **critiques**, pas les minima. Près de $\omega=\pi$, la solution $\gamma_*(t)=\sin(\omega t)/\sin\omega$ explose (en $\omega=\pi$ il n'y en a aucune).
 5. Avec $U=0$ ou $U=gq$, $\varphi$ est une parabole convexe : l'action est quadratique en $s$, de coefficient $\tfrac12\int h'^2>0$.`,
   related: ['ch08-lhat-c1-differentielle', 'ch08-euler-lagrange', 'ch08-du-bois-reymond', 'ch08-du-bois-reymond-derivee', 'ch08-lagrangien-fonctionnelle', 'ch08-equation-newton', 'ch08-cadre-espace-courbes'],
   height: 640,
@@ -2003,7 +2373,11 @@ FMA.registerViz({
           Q.curve([[-1.1, phi0 - 1.1 * dQ2], [1.1, phi0 + 1.1 * dQ2]], { color: T.accent2, width: 1.5, dash: [5, 4] });
           Q.curve(sv.map((v, i) => [v, ph[i]]), { color: T.accent, width: 2.2 });
           Q.point(0, phi0, { r: 3.5, color: T.fg }); Q.point(s, phis, { r: 5, color: T.accent2 });
-          void pyb;
+          // graduations verticales : min et max de φ sur [-1, 1], et φ(0)
+          ctx.save(); ctx.fillStyle = T.muted; ctx.font = '11px system-ui, sans-serif'; ctx.textAlign = 'left'; ctx.textBaseline = 'middle';
+          const pmin = Math.min(...ph), pmax = Math.max(...ph); const ticks = [[pmin, 'min'], [pmax, 'max']]; if (Math.abs(phi0 - pmin) > 0.15 * (a2 - a1) && Math.abs(phi0 - pmax) > 0.15 * (a2 - a1)) ticks.push([phi0, 'φ(0)']);
+          for (const [v, nm] of ticks) { const [, py] = Q.toPx(0, v); if (py < 18 || py > h - 14) continue; ctx.strokeStyle = T.grid; ctx.beginPath(); ctx.moveTo(0, py); ctx.lineTo(w, py); ctx.stroke(); ctx.fillText(nm + ' = ' + kit.fmt(+v.toFixed(3)), pz + 4, py - (nm === 'max' ? 7 : -7)); }
+          ctx.fillStyle = T.fg; ctx.textAlign = 'right'; ctx.textBaseline = 'bottom'; ctx.fillText('s', w - 4, pyb - 14); ctx.restore();
         });
         frame(G.mid); label(x + 6, y + 4, 'φ(s) = L̂(γ₀ + s h)  — tangente en 0', T.fg); }
 
@@ -2021,8 +2395,8 @@ FMA.registerViz({
         });
         frame(G.bot);
         const rmax = Math.max(...R.map(Math.abs));
-        label(x + 6, y + 4, 'R(t) ' + (rmax < 1e-6 ? '≡ 0' : '(÷ ' + kit.fmt(+mR.toPrecision(2)) + ')'), T.accent2);
-        label(x + 6 + 92, y + 4, 'h(t)', T.accent); label(x + w - 6, y + 4, 'aire R·h', T.accent3, 'right'); }
+        const lR = 'R(t) ' + (rmax < 1e-6 ? '≡ 0' : '(÷ ' + kit.fmt(+mR.toPrecision(2)) + ')'); label(x + 6, y + 4, lR, T.accent2);
+        ctx.save(); ctx.font = '12px system-ui, sans-serif'; const wR = ctx.measureText(lR).width; ctx.restore(); label(x + 6 + wR + 18, y + 4, 'h(t)', T.accent); label(x + w - 6, y + 4, 'aire R·h', T.accent3, 'right'); }
 
       ro1.set(`φ(0) = L̂(γ₀) = ${fx(phi0, 4)} ; φ(s) = ${fx(phis, 4)}`);
       ro2.set(`∫(∂L/∂q·h + ∂L/∂v·h′) = ${fx(dQ2, 4)} ; ∫R·h = ${fx(dIPP, 4)} ; numérique = ${fx(dFD, 4)}`);
@@ -2066,7 +2440,7 @@ et l'identité infinitésimale d'invariance ([[ch08-invariance-infinitesimale]])
 **Quoi regarder.**
 1. Avec $\epsilon=0$ : la courbe rose $Q(t)$ est **plate** (moment cinétique conservé), quelle que soit la condition initiale. **Glisse** le point de départ $\gamma(0)$ (gros point) et la pointe du vecteur vitesse $\gamma'(0)$.
 2. Avec $\epsilon\neq0$ : $Q$ **oscille**, mais l'énergie $H=\frac{\partial L}{\partial v}\cdot\gamma'-L=\tfrac12\lVert\gamma'\rVert^2+U(\gamma)$ (orange) reste constante : $L$ ne dépend pas du temps, c'est [[ch08-energie-conservee]], une autre symétrie (translation en temps) qui n'a pas été cassée.
-3. Curseur $s$ : en vert pointillé, la trajectoire tournée $F_s\circ\gamma$ ; en violet, la vraie solution issue des données tournées $\big(F_s(\gamma(0)),d(F_s)(\gamma'(0))\big)$. Elles coïncident si et seulement si la symétrie est exacte ($\epsilon=0$) : une symétrie du Lagrangien envoie solutions sur solutions (c'est l'invariance de (E.L) par changement de variables, [[ch08-changement-de-variables]], appliquée à $\phi=F_s$).
+3. Curseur $s$ : en vert pointillé, la trajectoire tournée $F_s\circ\gamma$ ; en violet, la vraie solution issue des données tournées $\big(F_s(\gamma(0)),d(F_s)(\gamma'(0))\big)$. Si la symétrie est exacte ($\epsilon=0$), elles coïncident pour tout $s$ et toute donnée initiale : une symétrie du Lagrangien envoie solutions sur solutions (c'est la covariance de (E.L) par changement de variables, [[ch08-changement-de-variables]], appliquée à $\phi=F_{-s}$, pour laquelle $L_1=L$ par invariance : $\beta=F_{-s}\circ(F_s\circ\gamma)=\gamma$ vérifie (E.L) pour $L$, donc $F_s\circ\gamma$ vérifie (E.L) pour $L_1=L$). Si $\epsilon\neq0$, elles se séparent en général (le readout donne l'écart) — sauf coïncidences : $s=0$, et $s=\pi$ car $U(-q)=U(q)$ reste vrai pour tout $\epsilon$ (la symétrie $q\mapsto-q$ n'est pas cassée).
 4. Bouton ▶ : le point mobile porte le vecteur vitesse $\gamma'$ (bleu) et le vecteur $X(\gamma)$ (violet) ; $Q$ est leur produit scalaire.
 5. Kepler avec un moment cinétique presque nul : la trajectoire plonge vers $0$ et le calcul s'arrête (collision) — la courbe sort de l'ouvert $V\setminus\{0\}$ où $L$ est défini.`,
   related: ['ch08-noether', 'ch08-invariance-infinitesimale', 'ch08-groupe-un-parametre-invariance', 'ch08-moment-cinetique', 'ch08-energie-conservee', 'ch08-equation-newton', 'ch08-changement-de-variables', 'ch08-courbes-confinees-ouverts'],
@@ -2145,7 +2519,7 @@ et l'identité infinitésimale d'invariance ([[ch08-invariance-infinitesimale]])
         P.point(q0[0] + v0[0], q0[1] + v0[1], { r: 6, color: T.bg, stroke: T.accent });
         // point mobile
         P.point(cur[0], cur[1], { r: 5, color: T.fg });
-        P.vector(cur[0], cur[1], cur[2], cur[3], { color: T.accent, width: 2, head: 7, scale: 0.6 });
+        { const vn = Math.hypot(cur[2], cur[3]); const vs = vn > 2.5 ? 0.6 * 2.5 / vn : 0.6; P.vector(cur[0], cur[1], cur[2], cur[3], { color: T.accent, width: 2, head: 7, scale: vs }); }
         P.vector(cur[0], cur[1], -cur[1], cur[0], { color: T.accent5, width: 2, head: 7, scale: 0.6 });
         ctx.restore(); frame(G.top);
         label(x0 + 6, y0 + 4, 'γ (glisser ● et ○)', T.accent2); label(x0 + 6, y0 + 19, 'F_s ∘ γ', T.accent3); label(x0 + 6, y0 + 34, 'solution issue de F_s(γ(0)), dF_s(γ′(0))', T.accent5);
@@ -2171,10 +2545,12 @@ et l'identité infinitésimale d'invariance ([[ch08-invariance-infinitesimale]])
         // bilans
         const Q0 = Qs[0], H0 = Hs[0]; let dQ = 0, dH = 0; for (let i = 0; i < Qs.length; i++) { dQ = Math.max(dQ, Math.abs(Qs[i] - Q0)); dH = Math.max(dH, Math.abs(Hs[i] - H0)); }
         let intD = 0; for (let i = 1; i < pts.length; i++) { const a = pts[i - 1].s, b = pts[i].s; intD += (pts[i].t - pts[i - 1].t) * 0.5 * eps * (a[0] * a[1] + b[0] * b[1]); }
+        // écart entre F_s∘γ et la vraie solution issue des données tournées (sur l'intervalle de temps commun)
+        let dev = 0; { const Tc = Math.min(sol.Tend, solS.Tend); for (const p of sol.pts) { if (p.t > Tc) break; const r = rot([p.s[0], p.s[1]], s), q = sampleAt(solS.pts, p.t).s; dev = Math.max(dev, Math.hypot(r[0] - q[0], r[1] - q[1])); } }
         const Qc = Qof(cur), Hc = Hof(cur);
         roQ.set(`Q(t) = ⟨γ′, X(γ)⟩ = ${fx(Qc, 4)} ; écart max ${dQ.toExponential(1)} ; Q(T) − Q(0) = ${fx((Qs[Qs.length - 1] - Q0), 4)} = ∫ε x y dt = ${fx(intD, 4)}`);
-        roH.set(`H(t) = ${fx(Hc, 4)} ; écart max ${dH.toExponential(1)}`);
-        let msg = Math.abs(eps) < 1e-9 ? 'ε = 0 : L est invariant par les rotations F_s, donc Q est constant (Noether) ; la courbe tournée F_s∘γ est encore une solution (vert et violet confondus).' : 'ε ≠ 0 : la symétrie est cassée, Q′ = ε x y ≠ 0 et Q varie ; H reste constant (L autonome) ; F_s∘γ n’est plus une solution (vert ≠ violet).';
+        roH.set(`H(t) = ${fx(Hc, 4)} ; écart max ${dH.toExponential(1)} ; distance max entre F_s∘γ et la solution tournée : ${dev.toExponential(1)}`);
+        let msg = Math.abs(eps) < 1e-9 ? 'ε = 0 : L est invariant par les rotations F_s, donc Q est constant (Noether) ; la courbe tournée F_s∘γ est encore une solution (vert et violet confondus).' : 'ε ≠ 0 : la symétrie est cassée, Q′ = ε x y n’est plus identiquement nul et Q varie ; H reste constant (L autonome) ; F_s∘γ n’est en général plus une solution (vert ≠ violet' + (Math.abs(Math.abs(s) - Math.PI) < 0.02 ? ', sauf ici : s ≈ π et U(−q) = U(q), la rotation d’angle π reste une symétrie' : '') + ').';
         if (sol.status === 'collision') msg += ` Collision avec l’origine en t ≈ ${sol.Tend.toFixed(2)} : la courbe sort de l’ouvert V∖{0} où U est défini.`;
         if (sol.status === 'fuite') msg += ` La trajectoire s’échappe à l’infini (énergie positive), calcul arrêté en t ≈ ${sol.Tend.toFixed(2)}.`;
         note.textContent = msg;

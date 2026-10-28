@@ -70,7 +70,9 @@ La détermination principale $\mathrm{Log}$ ([[ch02-logarithme-determination-pri
 $$
 f(z)=z\,\exp\Big(\tfrac12\mathrm{Log}\big(1+u(z)\big)\Big)
 $$
-est holomorphe sur $A$, vérifie $f^2=z^2(1+u)=g$, et $r\sqrt{1-q}\le|f(z)|\le R\sqrt{1+q}$ : $f\in\mathcal U$. Pour $g=\iota^2$ ($u=0$) on trouve $f=\iota$. Enfin $g\mapsto f$ est continue de $B(\iota^2,r^2)$ dans $E$ (composée d'opérations continues, uniformément sur $A$) ; près de $\iota^2$ elle prend ses valeurs dans le voisinage $V$ de $\iota$ du a), où la racine carrée est unique : elle coïncide avec le $\sqrt\cdot$ du a) près de $\iota^2$. (Vérification numérique : pour $g=z^2+0{,}2$ et $r=\frac12$, $f^2-g$ est de l'ordre de $10^{-16}$ en plusieurs points de $A$.)
+est holomorphe sur $A$, vérifie $f^2=z^2(1+u)=g$, et $r\sqrt{1-q}\le|f(z)|\le R\sqrt{1+q}$ : $f\in\mathcal U$. Pour $g=\iota^2$ ($u=0$) on trouve $f=\iota$. Notons $\Sigma(g)=f$.
+
+*Régularité.* $g\mapsto u$ est affine et $\frac1{r^2}$-lipschitzienne de $E$ dans $E$, et $w\mapsto\exp(\frac12\mathrm{Log}(1+w))$ est holomorphe sur $D(0,1)$, donc lipschitzienne sur le disque compact convexe $\bar D(0,q')$ pour tout $q'<1$ ; ainsi $\Sigma$ est continue de $B(\iota^2,r^2)$ dans $E$ (majorations uniformes sur $A$). Soit $g_1\in B(\iota^2,r^2)$ et $f_1=\Sigma(g_1)\in\mathcal U$ ; le a) appliqué en $f_1$ fournit $V_1\ni f_1$, $W_1\ni g_1$ et une racine carrée $C^\infty$, $\sqrt\cdot:W_1\to V_1$. Par continuité, $\Sigma(g)\in V_1$ pour $g$ proche de $g_1$ ; comme $\Sigma(g)$ et $\sqrt g$ sont deux éléments de $V_1$ de même carré et que $S$ est injective sur $V_1$, $\Sigma(g)=\sqrt g$ près de $g_1$. Donc $\Sigma$ est $C^\infty$ au voisinage de chaque point : $W=B(\iota^2,r^2)$ convient, avec $\sqrt g=\Sigma(g)$, et $d\Sigma_{\iota^2}(k)=\frac{k}{2\iota}$. (Vérification numérique : pour $g=z^2+0{,}2$ et $r=\frac12$, $f^2-g$ est de l'ordre de $10^{-16}$ en plusieurs points de $A$.)
 
 **5.** Soit $g\in E$ avec $\delta=\norm{g-\iota}<r$.
 

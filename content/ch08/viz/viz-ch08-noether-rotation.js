@@ -13,7 +13,7 @@ et l'identité infinitésimale d'invariance ([[ch08-invariance-infinitesimale]])
 **Quoi regarder.**
 1. Avec $\epsilon=0$ : la courbe rose $Q(t)$ est **plate** (moment cinétique conservé), quelle que soit la condition initiale. **Glisse** le point de départ $\gamma(0)$ (gros point) et la pointe du vecteur vitesse $\gamma'(0)$.
 2. Avec $\epsilon\neq0$ : $Q$ **oscille**, mais l'énergie $H=\frac{\partial L}{\partial v}\cdot\gamma'-L=\tfrac12\lVert\gamma'\rVert^2+U(\gamma)$ (orange) reste constante : $L$ ne dépend pas du temps, c'est [[ch08-energie-conservee]], une autre symétrie (translation en temps) qui n'a pas été cassée.
-3. Curseur $s$ : en vert pointillé, la trajectoire tournée $F_s\circ\gamma$ ; en violet, la vraie solution issue des données tournées $\big(F_s(\gamma(0)),d(F_s)(\gamma'(0))\big)$. Elles coïncident si et seulement si la symétrie est exacte ($\epsilon=0$) : une symétrie du Lagrangien envoie solutions sur solutions (c'est l'invariance de (E.L) par changement de variables, [[ch08-changement-de-variables]], appliquée à $\phi=F_s$).
+3. Curseur $s$ : en vert pointillé, la trajectoire tournée $F_s\circ\gamma$ ; en violet, la vraie solution issue des données tournées $\big(F_s(\gamma(0)),d(F_s)(\gamma'(0))\big)$. Si la symétrie est exacte ($\epsilon=0$), elles coïncident pour tout $s$ et toute donnée initiale : une symétrie du Lagrangien envoie solutions sur solutions (c'est la covariance de (E.L) par changement de variables, [[ch08-changement-de-variables]], appliquée à $\phi=F_{-s}$, pour laquelle $L_1=L$ par invariance : $\beta=F_{-s}\circ(F_s\circ\gamma)=\gamma$ vérifie (E.L) pour $L$, donc $F_s\circ\gamma$ vérifie (E.L) pour $L_1=L$). Si $\epsilon\neq0$, elles se séparent en général (le readout donne l'écart) — sauf coïncidences : $s=0$, et $s=\pi$ car $U(-q)=U(q)$ reste vrai pour tout $\epsilon$ (la symétrie $q\mapsto-q$ n'est pas cassée).
 4. Bouton ▶ : le point mobile porte le vecteur vitesse $\gamma'$ (bleu) et le vecteur $X(\gamma)$ (violet) ; $Q$ est leur produit scalaire.
 5. Kepler avec un moment cinétique presque nul : la trajectoire plonge vers $0$ et le calcul s'arrête (collision) — la courbe sort de l'ouvert $V\setminus\{0\}$ où $L$ est défini.`,
   related: ['ch08-noether', 'ch08-invariance-infinitesimale', 'ch08-groupe-un-parametre-invariance', 'ch08-moment-cinetique', 'ch08-energie-conservee', 'ch08-equation-newton', 'ch08-changement-de-variables', 'ch08-courbes-confinees-ouverts'],
@@ -92,7 +92,7 @@ et l'identité infinitésimale d'invariance ([[ch08-invariance-infinitesimale]])
         P.point(q0[0] + v0[0], q0[1] + v0[1], { r: 6, color: T.bg, stroke: T.accent });
         // point mobile
         P.point(cur[0], cur[1], { r: 5, color: T.fg });
-        P.vector(cur[0], cur[1], cur[2], cur[3], { color: T.accent, width: 2, head: 7, scale: 0.6 });
+        { const vn = Math.hypot(cur[2], cur[3]); const vs = vn > 2.5 ? 0.6 * 2.5 / vn : 0.6; P.vector(cur[0], cur[1], cur[2], cur[3], { color: T.accent, width: 2, head: 7, scale: vs }); }
         P.vector(cur[0], cur[1], -cur[1], cur[0], { color: T.accent5, width: 2, head: 7, scale: 0.6 });
         ctx.restore(); frame(G.top);
         label(x0 + 6, y0 + 4, 'γ (glisser ● et ○)', T.accent2); label(x0 + 6, y0 + 19, 'F_s ∘ γ', T.accent3); label(x0 + 6, y0 + 34, 'solution issue de F_s(γ(0)), dF_s(γ′(0))', T.accent5);
@@ -118,10 +118,12 @@ et l'identité infinitésimale d'invariance ([[ch08-invariance-infinitesimale]])
         // bilans
         const Q0 = Qs[0], H0 = Hs[0]; let dQ = 0, dH = 0; for (let i = 0; i < Qs.length; i++) { dQ = Math.max(dQ, Math.abs(Qs[i] - Q0)); dH = Math.max(dH, Math.abs(Hs[i] - H0)); }
         let intD = 0; for (let i = 1; i < pts.length; i++) { const a = pts[i - 1].s, b = pts[i].s; intD += (pts[i].t - pts[i - 1].t) * 0.5 * eps * (a[0] * a[1] + b[0] * b[1]); }
+        // écart entre F_s∘γ et la vraie solution issue des données tournées (sur l'intervalle de temps commun)
+        let dev = 0; { const Tc = Math.min(sol.Tend, solS.Tend); for (const p of sol.pts) { if (p.t > Tc) break; const r = rot([p.s[0], p.s[1]], s), q = sampleAt(solS.pts, p.t).s; dev = Math.max(dev, Math.hypot(r[0] - q[0], r[1] - q[1])); } }
         const Qc = Qof(cur), Hc = Hof(cur);
         roQ.set(`Q(t) = ⟨γ′, X(γ)⟩ = ${fx(Qc, 4)} ; écart max ${dQ.toExponential(1)} ; Q(T) − Q(0) = ${fx((Qs[Qs.length - 1] - Q0), 4)} = ∫ε x y dt = ${fx(intD, 4)}`);
-        roH.set(`H(t) = ${fx(Hc, 4)} ; écart max ${dH.toExponential(1)}`);
-        let msg = Math.abs(eps) < 1e-9 ? 'ε = 0 : L est invariant par les rotations F_s, donc Q est constant (Noether) ; la courbe tournée F_s∘γ est encore une solution (vert et violet confondus).' : 'ε ≠ 0 : la symétrie est cassée, Q′ = ε x y ≠ 0 et Q varie ; H reste constant (L autonome) ; F_s∘γ n’est plus une solution (vert ≠ violet).';
+        roH.set(`H(t) = ${fx(Hc, 4)} ; écart max ${dH.toExponential(1)} ; distance max entre F_s∘γ et la solution tournée : ${dev.toExponential(1)}`);
+        let msg = Math.abs(eps) < 1e-9 ? 'ε = 0 : L est invariant par les rotations F_s, donc Q est constant (Noether) ; la courbe tournée F_s∘γ est encore une solution (vert et violet confondus).' : 'ε ≠ 0 : la symétrie est cassée, Q′ = ε x y n’est plus identiquement nul et Q varie ; H reste constant (L autonome) ; F_s∘γ n’est en général plus une solution (vert ≠ violet' + (Math.abs(Math.abs(s) - Math.PI) < 0.02 ? ', sauf ici : s ≈ π et U(−q) = U(q), la rotation d’angle π reste une symétrie' : '') + ').';
         if (sol.status === 'collision') msg += ` Collision avec l’origine en t ≈ ${sol.Tend.toFixed(2)} : la courbe sort de l’ouvert V∖{0} où U est défini.`;
         if (sol.status === 'fuite') msg += ` La trajectoire s’échappe à l’infini (énergie positive), calcul arrêté en t ≈ ${sol.Tend.toFixed(2)}.`;
         note.textContent = msg;
