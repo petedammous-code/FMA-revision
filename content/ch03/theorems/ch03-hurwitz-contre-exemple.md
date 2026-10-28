@@ -59,7 +59,7 @@ Chaque $f_n(z)=z^n$ est holomorphe et <trou indice="que vaut |z^n| ?">$|f_n(z)|=
 
 * **Exemple plus bête, même phénomène.** $f_n=1/n$ (constantes) sur n'importe quel ouvert connexe : holomorphes, sans zéro, et $f_n\to0$ uniformément. L'exemple $z^n$ montre que le phénomène n'est pas réservé aux constantes.
 * **Analogue pour l'injectivité (point 2 de Hurwitz).** $f_n(z)=z/n$ sur $D(0,1)$ est injective et converge uniformément vers la constante $0$ : le cas « $f$ constante » se produit aussi.
-* **Comment exclure le cas dégénéré en pratique.** Si l'on sait par ailleurs que $f(z_1)\ne0$ en un point $z_1$ (par exemple si les $f_n$ sont normalisées par $f_n(z_1)=1$), alors $f\not\equiv0$ et Hurwitz donne que $f$ ne s'annule pas. Pour le point 2, une normalisation du type $f_n'(z_0)\to c\ne0$ (convergence des dérivées par [[ch03-weierstrass]]) exclut que $f$ soit constante : c'est exactement ce qui est fait dans la preuve du théorème de Riemann.
+* **Comment exclure le cas dégénéré en pratique.** Si l'on sait par ailleurs que $f(z_1)\ne0$ en un point $z_1$ (par exemple si les $f_n$ sont normalisées par $f_n(z_1)=1$), alors $f\not\equiv0$ et Hurwitz donne que $f$ ne s'annule pas. Pour le point 2, une normalisation du type $f_n'(z_0)\to c\ne0$ (convergence des dérivées par [[ch03-weierstrass]]) exclut que $f$ soit constante : c'est l'argument de la preuve du théorème de Riemann ([[ch03-riemann-representation-conforme]]), où $|h'(z_0)|=\eta>0$ empêche la limite $h$ d'être constante.
 
 ## Pièges
 

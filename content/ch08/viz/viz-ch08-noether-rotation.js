@@ -7,7 +7,7 @@ FMA.registerViz({
 **Le groupe à un paramètre.** $F_s$ = rotation d'angle $s$ autour de $0$ ; c'est le flot du champ de vecteurs $X(q)=e\wedge q=(-y,x)$ (rotation d'axe $e$ perpendiculaire au plan), car $\frac{\partial F}{\partial s}(s,q)\big|_{s=0}=X(q)$. Comme $F_s$ est linéaire, $d(F_s)_q(v)=F_s(v)$, et $\lVert F_s(v)\rVert=\lVert v\rVert$. Donc $L$ est invariant ([[ch08-groupe-un-parametre-invariance]]) si et seulement si $U\circ F_s=U$, c'est-à-dire si et seulement si $\epsilon=0$.
 
 **La quantité de Noether** ([[ch08-noether]]) : $Q(t)=\frac{\partial L}{\partial v}(\gamma,\gamma')\cdot X(\gamma)=\langle\gamma',e\wedge\gamma\rangle=x\,y'-y\,x'$, la composante selon $e$ du moment cinétique $\gamma\wedge\gamma'$ ([[ch08-moment-cinetique]]). La preuve de la question 12 donne, le long de toute solution de (E.L),
-$$Q'(t)=\frac{\partial L}{\partial q}\cdot X(\gamma)+\frac{\partial L}{\partial v}\cdot dX_{\gamma}(\gamma')=y\,\partial_xU-x\,\partial_yU=\epsilon\,x\,y,$$
+$$\begin{aligned}Q'(t)&=\frac{\partial L}{\partial q}\cdot X(\gamma)+\frac{\partial L}{\partial v}\cdot dX_{\gamma}(\gamma')\\&=y\,\partial_xU-x\,\partial_yU=\epsilon\,x\,y,\end{aligned}$$
 et l'identité infinitésimale d'invariance ([[ch08-invariance-infinitesimale]]) dit exactement que ce membre de droite est nul quand $L$ est invariant.
 
 **Quoi regarder.**
