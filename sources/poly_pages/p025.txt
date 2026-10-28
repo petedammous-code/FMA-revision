@@ -1,0 +1,66 @@
+22                                                      CHAPITRE I. FONCTIONS HOLOMORPHES
+
+       Corollaire I.7.5 — Estimées de Cauchy
+     Supposons f holomorphe sur l’ouvert Ω. Soit z0 ∈ Ω. Alors, f admet un développement en
+     série entière au voisinage de z0 dont le rayon de convergence est au moins
+
+                                  ρ(z0 ) = sup{r > 0 | D̄(z0 , r) ⊂ Ω},
+
+     et pour tout z ∈ D(z0 , ρ(z0 ))
+                                                 X f (n) (z0 )
+                                       f (z) =                   (z − z0 )n .
+                                                          n!
+                                                 n≥0
+
+     Pour tout 0 < r < ρ(z0 ), et pour tout z ∈ D(z0 , r), on a
+
+                                 f (n) (z)
+                                                    Z
+                                              1                    f (ω)
+     (I.7.1)                               =                                dω.
+                                    n!       2iπ       C(z0 ,r) (ω −  z)n+1
+
+     De plus, on a les estimées de Cauchy
+
+                                        |f (n) (z0 )|   supC(z0 ,r) |f |
+                                                      ≤                  ,
+                                             n!             rn
+     pour tout n ≥ 0.
+
+
+Démonstration. La première assertion a en fait été établie dans la démonstration du théorème
+par l’utilisation du théorème de Cauchy. La seconde assertion est formelle, elle vient de la
+propriété de dérivabilité terme à terme des séries entières sur leurs disques de convergence : dans
+le développement                             X
+                                     f (z) =     an (z − z0 )n ,
+                                                    n≥0
+
+les coefficients an sont donnés par
+                                                        f (n) (z0 )
+                                                 an =               .
+                                                            n!
+La formule donnant f (n) (z) s’obtient en dérivant sous le signe somme la formule intégrale de
+Cauchy et la majoration de |an | s’en déduit immédiatement.
+
+    Ce résultat est assez étonnant dans la mesure où la formule (I.7.1) permet de calculer les
+dérivées complexes de f en fonction des valeurs de f . On déduit du Théorème I.7.4, le résultat
+très important suivant, dont une variante globale plus subtile sera donnée plus tard (voir le
+Théorème II.9.1).
+
+       Corollaire I.7.6 — Existence locale de primitives
+     Toute fonction holomorphe admet localement une primitive. Plus précisément, si f est une
+     fonction holomorphe sur un disque ouvert D, il existe F ∈ Hol(D) qui est une primitive de
+     f , i.e. F ′ = f sur D.
+
+
+Démonstration. Écrivons D = D(z0 , ρ). D’après le corollaire I.7.5, le développement de f en
+série entière au point z0 a un rayon de convergence au moins égal à ρ : ce n’est pas la simple
+analyticité de f qui est utilisée ici, mais le fait qu’une seule série entière représente f sur D tout
+entier. Il suffit alors de remarquer
+                                 P que toute série    entière convergeant surP D admet
+                                                                                    an
+                                                                                         une primitive
+convergeant sur D : si f (z) = n≥0 an (z − z0 ) sur D, la série F (z) = n≥0 n+1 (z − z0 )n+1 a le
+                                                   n
+
+même rayon de convergence et vérifie F ′ = f d’après la proposition I.3.3.

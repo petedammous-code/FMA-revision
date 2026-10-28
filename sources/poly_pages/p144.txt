@@ -1,0 +1,56 @@
+VII.4. EXERCICES                                                                                141
+
+
+   (4) Tracez l’allure des courbes intégrales de X.
+
+
+  Exercice VII.4.12 : Equation de transport — Soient A : R × Rn → Rn de classe C 1 telle
+  que sup(t,x)∈R×Rn ∥A(t, x)∥ < +∞ et f0 : Rn → R également de classe C 1 . On considère
+  l’équation aux dérivées partielles dite “équation de transport” :
+                                    ∂f
+                                       + ⟨A(t, x), ∇x f ⟩ = 0,
+                                    ∂t
+  avec la condition f (0, ·) = f0 sur Rn , d’inconnue f : R × Rn → R.
+   (1) Soit f une solution de classe C 1 sur R × Rn , de donnée f0 . Trouver une formule pour
+       f en fonction de f0 et du flot associé à A ; justifier le nom d’équation de transport.
+   (2) Montrer que l’équation de transport admet une unique solution de classe C 1 sur
+       R × Rn , de donnée f0 .
+
+
+  Exercice VII.4.13 — La surface d’un fluide unidimensionnel est décrite par une fonction
+  u(t, x) qui est la hauteur de fluide au temps t et au point x ∈ R. Dans une limite de petite
+  amplitude, la dynamique de la vague est régie par l’équation de Korteweg-de-Vries (1895) :
+
+                              ∂t u + ∂x (∂xx u + up ) = 0, p ∈ {2, 3}
+
+  où la valeur de p dépend du fluide. On cherche des solutions correspondant à la propagation
+  sans déformation d’une vague
+                                       u(t, x) = Q(x − t).
+  1) Montrez qu’une condition suffisante est que le profil Q vérifie le système dynamique
+
+                                   Q′′ − Q + Qp = 0, x ∈ R.
+
+  2) On se propose de décrire toutes les solutions de
+
+                   (∗) Q′′ − Q + Qp = 0, Q(0) = a, Q′ (0) = b, Q = Q(t)
+
+  pour p ∈ {2, 3}. Expliquez pourquoi il suffit d’étudier les solutions pour t > 0 et montrez
+  que pour tout (a, b) ∈ R, il existe une unique solution maximale sur [0, T ), T = T (a, b).
+  3) Décrire toutes les solutions stationnaires en temps (points d’arrêt du système dynamique).
+  4) Montrez que l’énergie mécanique totale
+                                    1        1      1
+                              E(t) = (Q′ )2 − Q2 +     Qp+1
+                                    2        2     p+1
+  est conservée le long des trajectoires.
+  5) On suppose p = 3. Tracez dans le plan (Q, Q′ ) = (x, y) les lignes de niveau de
+                                1                    1      1
+                       E(x, y) = y 2 − f (x), f (x) = x2 −     xp+1 .
+                                2                    2     p+1
+  En déduire que toutes les solutions sont globales en temps.
+  6) Montrez que les trajectoires sont périodiques en temps pour E ̸= 0. On pourra tracer le
+  “portrait de phase", c’est-à-dire tracer les trajectoires dans le plan (Q, Q′ ) en indiquant le
+  sens de parcours.
+  7) Montrez que la solution pour E = 0 est “homocline" i.e.
+
+                                      lim (Q(t), Q′ (t)) = 0.
+                                     t→±∞

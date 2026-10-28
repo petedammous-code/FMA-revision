@@ -1,0 +1,22 @@
+194                                         ANNEXE A. SUJETS D’EXAMEN ET PROBLÈMES
+
+   4. Supposons de plus que x : V → C vérifie (⋆). Prouver que pour tout n ∈ N, il existe
+      un polynôme Rn (u0 , u1 , . . . , un−1 ) en les variables u0 , . . . , un−1 dont les coefficients sont
+      positifs, et qui ne dépend pas de f , de sorte que xn = Rn (f0 , f1 , . . . , fn−1 ). En déduire un
+      énoncé d’unicité de la solution à (⋆).
+
+Étant données deux séries entières f (x) = n∈N fn xn , g(x) = n∈N gn xn , avec fn des nombres
+                                                P                       P
+complexes, et gn des nombres réels positifs, on dit que f est majorée par g (ou que g majore f ),
+et on écrit f ≪ g, si pour tout n ∈ N, on a |fn | ≤ gn .
+
+   5. Montrer que si g : U → C est une fonction holomorphe dont le développement en série entière
+      en 0 ne comporte que des coefficients réels positifs et majore celui de f , et si y : V ⊂ U → C
+      est une fonction holomorphe vérifiant
+
+                                         y ′ (z) = g(y(z)),   y(0) = 0,
+
+      alors le développement en série entière de y en 0 a des coefficients positifs et majore celui
+      de x.
+   6. Imaginer une stratégie pour montrer l’existence de la solution de (⋆) à partir de ces
+      considérations.

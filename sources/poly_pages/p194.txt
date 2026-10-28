@@ -1,0 +1,59 @@
+                                                                                                 191
+
+   MAT431                                                                                      2023
+
+
+                       Calcul différentiel et fonctions holomorphes
+
+                             Contrôle classant du 17 novembre 2023
+
+
+
+    Exercice 1. Soit a > 0. On considère f une fonction holomorphe sur C telle que pour tous
+x, y ∈ R,
+                                                        2   2
+                                      |f (x + iy)| ≤ e−x +ay .
+
+   1. Montrer que la fonction fˆ: z 7→ R f (x)e−ixz dx est holomorphe sur C.
+                                        R
+
+   2. Prouver qu’il existe C > 0 tel que pour tout η ∈ R,
+                                                            1 2
+                                             |fˆ(iη)| ≤ Ce 4 η .
+
+  3. En intégrant sur le bord de rectangles de sommets {−M, M, M − iλ, −M − iλ} avec M > 0
+     et λ > 0, démontrer qu’il existe C > 0 et b, c > 0 tels que pour tous ξ, η ∈ R,
+                                                              2    2
+                                        |fˆ(ξ + iη)| ≤ Ce−bξ +cη .
+
+     Indication : on pourra supposer ξ > 0, et prendre λ = εξ, avec ε > 0 assez petit.
+  4. Conclure que l’application f 7→ fˆ envoie l’ensemble
+                                                                                       2   2
+              H := {f ∈ Hol(C); ∃C > 0, b, c > 0, ∀x, y ∈ R, |f (x + iy)| ≤ Ce−bx +cy }
+
+     dans lui-même.
+
+
+    Exercice 2. Soient ω1 , ω2 ∈ C deux nombres complexes R-indépendants, et Λ := Zω1 ⊕ Zω2
+le réseau associé. On dit qu’une fonction f : C → C ∪ {∞} est elliptique pour Λ si elle est
+méromorphe sur C et vérifie f (· + λ) = f (·), pour tout λ ∈ Λ. On note E(Λ) l’ensemble des
+fonctions elliptiques pour Λ. Pour z0 ∈ C, on note
+
+                            Qz0 := {z0 + t1 ω1 + t2 ω2 : t1 , t2 ∈ [0, 1]},
+
+et ∂Qz0 le parallélogramme bordant Qz0 .
+  1. Soit f ∈ E(Λ), f non-constante.
+      (a) Pour z ∈ C, et j = 1, 2, on note (faire un dessin)
+
+                                 Izj := {z + tωj : t ∈ [0, 1]},    Jz := Iz1 ∪ Iz2 .
+
+          On considère K := ∪t∈[−1,0] Jt(ω1 +ω2 ) . Montrer que K contient un nombre fini de zéros
+          et de pôles de f .
+      (b) En déduire qu’il existe un ensemble fini S ⊂ [−1, 0] tel que pour tout t0 ∈ [−1, 0] \ S,
+          Jt0 (ω1 +ω2 ) ne contient ni zéro, ni pôle de f . Conclure que ∂Qt0 (ω1 +ω2 ) ne contient ni
+          zéro, ni pôle de f .
+
+          ⇝ Pour t0 ∈ [−1, 0] \ S, on note z0 = t0 (ω1 + ω2 ). On fixe un tel z0 , et on note Zz0 ,
+          resp. Pz0 l’ensemble des zéros, resp. pôles de f à l’intérieur de Qz0 .
+                        P
+      (c) Montrer que      z∈Pz0 resz (f ) = 0.

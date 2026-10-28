@@ -1,0 +1,51 @@
+                                                                                                   213
+
+   3. Montrer que Ω est simplement connexe et qu’il existe une bijection biholomorphe entre Ω
+      et le disque unité.
+
+    Exercice IV.
+                                           √     √
+   1. Montrer que pour tout t ∈] − 22 , 22 [, l’équation
+
+                                                 cos(tx) + sin(tx) = x
+
+      admet une unique solution x = ϕ(t).
+   2. Montrer que t 7→ ϕ(t) est de classe C ∞ et donner un développement limité de ϕ en 0 à
+      l’ordre 2.
+
+     Exercice V. On dit qu’une application g : X → Y entre deux espaces topologiques est propre
+si l’image réciproque par g de tout compact de Y est un compact de X.
+    Soit f : Rn → Rn de classe C 2 . Le but de cet exercice est de montrer que les deux assertions
+suivantes sont équivalentes :
+ (A) f est propre et dfx est inversible pour tout x ∈ Rn ,
+ (B) f est un C 2 -difféomorphisme de Rn dans lui-même (f est bijective et f −1 est de classe C 2 ).
+   1. Montrer que (B) implique (A).
+   2. Montrer que (A) implique que f est surjective. On pourra montrer que f (Rn ) est ouvert et
+      fermé dans Rn .
+Dans le suite, on suppose (A).
+   3. Fixons z ∈ Rn . Montrer que
+
+                               Sz = f −1 ({f (z)}) = {x ∈ Rn : f (x) = f (z)}
+
+      est un ensemble discret dans Rn et en déduire qu’il est fini.
+On pose dans la suite Sz = {z1 , . . . , zm }.
+   4. On considère maintenant l’équation différentielle
+
+                                 (Ez ) :       x′ (t) = −(dfx )−1 (f (x(t)) − f (z)) ,
+
+      avec condition initiale x(0) = x0 ∈ Rn . Justifier l’existence d’une courbe intégrale maximale
+      t 7→ x(t) de (Ez ) définie sur un intervalle ]a, b[ avec a ∈ [−∞, 0[ et b ∈]0, +∞]. Montrer que
+      la fonction t 7→ F (t) = ∥f (x(t)) − f (z)∥2 est bornée sur [0 ; b[, puis que x y reste bornée, et
+      en déduire que b = +∞. (Indication : on pourra chercher une équation différentielle simple
+      satisfaite par F ).
+   5. Conservons les notations de la question précédente. Soit t 7→ x(t) une courbe intégrale
+      maximale de (Ez ) de condition initiale x(0) = x0 . Elle est donc définie sur [0, +∞[. On pose
+      y(t) = f (x(t)) − f (z). Montrer que limt→+∞ y(t) = 0.
+   6. Montrer que pour tout 1 ≤ i ≤ m, il existe δi > 0 tel que, pour tout x0 ∈ B(zi , δi ),
+      limt→+∞ x(t) = zi .
+   7. On revient à une condition initiale x0 ∈ Rn quelconque. Montrer qu’il existe une suite
+      (tn )n∈N de réels positifs tendant vers +∞ telle que x(tn ) converge dans Rn . En déduire que
+      pour tout x0 ∈ Rn , il existe 1 ≤ i ≤ m tel que limt→+∞ x(t) = zi .
+   8. Pour 1 ≤ i ≤ m, on pose Ai := {x0 ∈ Rn , limt→+∞ x(t) = zi }. Montrer que Ai est bien
+      défini et ouvert.
+   9. En déduire que m = 1 et conclure.

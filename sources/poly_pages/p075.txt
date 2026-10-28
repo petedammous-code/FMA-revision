@@ -1,0 +1,67 @@
+72                                                   CHAPITRE III. SUITES, SÉRIES ET PRODUITS
+
+
+     On peut réécrire l’expression qui apparaît dans le membre de droite sous la forme
+                            n                                                   n
+                            Y            z             Pn        Y    z  −z
+                      n−z          1+       = e−z(log n− k=1 1/k)    1+    e k.
+                                         k                              k
+                            k=1                                              k=1
+
+     On rappelle que la constante d’Euler est définie par
+                                                  n
+                                                       !
+                                                X    1
+                                   γ := lim              − log n.
+                                        n→+∞         k
+                                                         k=1
+
+     En particulier, la suite de fonctions
+                                                                Pn
+                                              z 7→ e−z(log n−    j=1 1/j)    ,
+
+     converge uniformément sur tout compact de C vers la fonction holomorphe z 7→ eγz .
+     Maintenant, on définit, pour tout k ∈ N× et tout z ∈ C, la fonction
+                                                 z  −z/k
+                                    uk (z) := 1 +    e     − 1.
+                                                  k
+     On utilise le fait qu’il existe une constante C > 0 telle que
+
+                                          |(1 + z)e−z − 1| ≤ C |z|2 ,
+
+     pour tout z ∈ D̄(0, R), pour démontrer que
+
+                                                                 R2
+                                                 |uk (z)| ≤ C       ,
+                                                                 k2
+                                                                 P
+     pour tout z ∈ D̄(0, R). En particulier, on voit que la série k≥1 uk converge normalement
+     sur tout D̄(0, R) et le théorème précédent nous assure que la fonction
+                                  ∞                                     n
+                                  Y           z  −z        Y    z  −z
+                          z 7→          1+       e k := lim    1+    e k,
+                                              k        n→+∞       k
+                                  k=1                                k=1
+
+     est une fonction holomorphe sur C. Les entiers strictement négatifs sont des zéros (simples)
+     de cette fonction. Tout ceci montre que
+                                                      ∞ 
+                                                                                     !−1
+                                       1              Y        z  −z
+                                   z 7→ e−γz                1+    e k                      ,
+                                       z                       k
+                                                     k=1
+
+     est une fonction holomorphe sur C \ (−N), méromorphe sur C avec pour pôles les entiers
+     négatifs ou nuls, qui sont simples, et qui coïncide avec la fonction Γ sur le demi-plan
+     ℜe(z) > 0.
+
+                                        ∞ 
+                                                            !−1                       ∞
+                        1               Y        z  −z                  e−γz Y     z −1 z
+                  Γ(z) = e−γz                 1+    e k              =            1+      ek .
+                        z                        k                        z          k
+                                        k=1                                           k=1
+
+     Ceci définit un prolongement analytique de Γ sur C \ (−N). L’équation fonctionnelle
+     Γ(z + 1) = zΓ(z) est toujours valide sur ce domaine.

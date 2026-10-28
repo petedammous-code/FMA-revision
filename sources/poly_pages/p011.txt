@@ -1,0 +1,67 @@
+8                                                   CHAPITRE I. FONCTIONS HOLOMORPHES
+
+      Corollaire I.2.4
+    Soit f différentiable au point z. Alors f est C-dérivable en z si et seulement si
+                                                ∂f
+    (I.2.5)                                          (z) = 0,
+                                                ∂ z̄
+    c’est-à-dire, en écrivant f = P + iQ, si et seulement si
+                                ∂P       ∂Q                ∂P         ∂Q
+    (I.2.6)                        (z) =    (z) et            (z) = −    (z).
+                                ∂x       ∂y                ∂y         ∂x
+    On appelle ces dernières relations les conditions de Cauchy réelles. Lorsqu’elles sont
+    satisfaites, on a
+                                                         ∂f
+    (I.2.7)                                  f ′ (z) =      (z).
+                                                         ∂z
+
+Démonstration. D’après le lemme I.2.1 et (I.2.4), l’application dfz est C-linéaire si et seulement si
+le coefficient de ω̄ est nul, c’est-à-dire si et seulement si ∂f
+                                                              ∂ z̄ (z) = 0 ; elle est alors la multiplication
+par ∂f
+     ∂z (z). La proposition   I.2.3 donne  l’équivalence avec la C-dérivabilité, ainsi que (I.2.7). Enfin,
+en séparant parties réelle et imaginaire,
+                                                                                     
+                   ∂f        ∂       ∂                   ∂P      ∂Q            ∂P     ∂Q
+                 2      =        +i       (P + iQ) =         −          +i         +         ,
+                   ∂ z̄     ∂x      ∂y                   ∂x       ∂y           ∂y      ∂x
+
+de sorte que l’annulation de ∂f
+                             ∂ z̄ (z) équivaut à (I.2.6).
+
+
+    Remarque I.2.5 — Une application C-linéaire de C dans C est la multiplication par un
+    nombre complexe λ = α + iβ. Vue comme application de R2 dans R2 , c’est une similitude
+    directe, éventuellement nulle, dont la matrice dans la base canonique est
+                                                   
+                                             α −β
+    (I.2.8)                                           .
+                                              β α
+
+    Les conditions de Cauchy (I.2.6) expriment donc exactement que la matrice jacobienne
+                                                                           ∂Q
+    (I.2.2) de f au point z est de cette forme, avec α = ∂P  ∂x (z) et β = ∂x (z).
+    Lorsque λ = ̸ 0, une telle similitude est la composée de l’homothétie de rapport |λ| et de la
+    rotation d’angle arg λ : elle multiplie les longueurs par |λ| et conserve les angles orientés.
+    Ainsi, en tout point z où f ′ (z) ̸= 0, une fonction holomorphe conserve les angles orientés —
+    on dit qu’elle est conforme en z — et son déterminant jacobien y vaut α2 +β 2 = |f ′ (z)|2 > 0,
+    de sorte qu’elle préserve l’orientation. C’est le point de vue géométrique sur l’holomorphie ;
+    il est à la base du paragraphe IV.1 consacré aux transformations conformes.
+
+
+    Remarque I.2.6 — Enfin, z = x + iy 7→ f ′ (z) est continue si et seulement si f est C 1
+    comme fonction des deux variables réelles x et y. Ainsi, f est holomorphe sur Ω si et
+    seulement si f est de classe C 1 sur Ω et ∂f
+                                              ∂ z̄ = 0 en tout point de Ω.
+
+
+                                                                      ∂      ∂
+    Donnons maintenant quelques règles de calcul pour les opérateurs      et      . On suppose
+                                                                      ∂z     ∂ z̄
+les fonctions de classe C comme fonctions de deux variables réelles, mais pas nécessairement
+                         1
+
+holomorphes. En conjuguant les définitions, on obtient
+                                    ∂f   ∂ f¯                   ∂f     ∂ f¯
+(I.2.9)                                =            et               =     ,
+                                    ∂z   ∂ z̄                   ∂ z̄   ∂z

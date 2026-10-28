@@ -1,0 +1,54 @@
+                                                                                              229
+
+       Il reste à produire la suite de points demandée. Les zk appartiennent à D(0, 1), dont
+       l’adhérence D(0, 1) est compacte et contenue dans Ω : quitte à extraire une dernière
+       fois, on peut donc supposer que zk converge vers un point z∞ ∈ D(0, 1) ⊂ Ω. C’est
+       exactement ici que sert l’hypothèse que Ω contient le disque fermé : sans elle, la limite
+       pourrait se trouver sur le cercle unité et sortir de Ω. On a donc construit une suite
+       de points zk → z∞ ∈ Ω, une suite ρk → 0 et une suite (fk ) de F ayant les propriétés
+       souhaitées.
+5. On considère une famille de fonctions méromorphes F, définies sur un ouvert simplement
+   connexe Ω, et qui évitent trois valeurs a1 , a2 , a3 ∈ C ∪ {∞}.
+    (a) Si par exemple ai ̸= ∞ pour i = 1, 2, on pose
+                                                a3 − a 2 z − a 1
+                                       φ(z) =           ·        ,
+                                                a3 − a 1 z − a 2
+       où la première fraction vaut 1 si a3 = ∞. Alors, φ(a1 ) = 0, φ(a2 ) = ∞, φ(a3 ) = 1.
+       On se convainc aisément que la famille F est normale si, et seulement si, la famille
+       {φ ◦ f |f ∈ F} est normale. On peut donc supposer que les fonctions f ∈ F évitent les
+       valeurs 0, 1, ∞. En particulier, ce sont des fonctions holomorphes et partout non-nulles
+       sur Ω.
+   (b) Soit f ∈ F. Puisque l’ouvert Ω est simplement connexe et f est partout non-nulle, on
+       peut définir un logarithme de f , et alors aussi une racine 2n -ième. Toutes ces racines
+       diffèrent d’une racine 2n -ième de l’unité. On note Fn la famille de toutes les racines
+       2n -ième des fonctions f ∈ F . Il s’agit d’une famille de fonctions holomorphes.
+   (c) Que g σ ≥ f σ /2n découle d’un calcul élémentaire, en observant que si x > 0 et 0 < t ≤ 1,
+       alors x + x−1 ≥ xt + x−t , qui à son tour découle de la croissance (resp. decroissance)
+       de la fonction cosh sur [0, +∞[ (resp. sur ] − ∞, 0]). Si F n’est pas normale, la famille
+       des f σ n’est pas localement uniformément bornée par le critère de normalité, et donc
+       la famille des g σ , avec g ∈ Fn et n fixé, ne l’est pas non plus. Le même critère fournit
+       alors la non-normalité de Fn .
+   (d) On applique le point 4 de cet exercice à Fn , et on trouve une fonction méromorphe
+       non-constante gn : C → C ∪ {∞}, qui est en particulie r limite localement uniforme
+       de fonctions de la forme e    hk (z) = hk (zk + ρk z), avec hk ∈ Fn . Ces fonctions sont
+       holomorphes, et convergent localement uniformément vers gn qui est non-constante.
+       Par le point 1a, on déduit que gn est en fait holomorphe. Puisque les fonctions de F
+       évitent la valeur 1, les fonctions de Fn évitent toutes les racines 2n -ièmes de l’unité. Il
+       en est donc de même des fonctions e    hk . La fonction gn étant limite localement uniforme
+       des hk , le théorème de Hurwitz montre que gn évite aussi toutes les racines 2n -ièmes
+             e
+       de l’unité.
+   (e) L’inégalité gnσ (z) ≤ gnσ (0) = 1 montre que les σ-dérivées des fonctions gn sont unifor-
+       mément bornées. Par le critère de normalité, la famille {gn }n est normale, et on peut
+       donc en extraire une sous-suite gnk qui converge localement uniformément vers une
+       fonction méromorphe G : C → C ∪ {∞}. Par passage à la limite Gσ (0) = 1, et G est
+       donc non-constante. Puisque les gn sont toutes holomorphes, par le point 1a on déduit
+       que G est en fait holomorphe sur C. Par le théorème de Hurwitz, G évite toutes les
+       racines 2n -ièmes de l’unité, pour tout n. En effet, soit ζ une telle racine. Pour k ≥ k0
+       suffisamment grand, on aura nk ≥ n. Alors, ζ est aussi une racine 2nk -ième, et les gnk
+       évitent donc ζ.
+   (f) Notons que les racines 2n -ièmes de l’unité, pour tout n, sont denses dans le cercle unité
+       S 1 . Pour cela, il suffit d’observer que les racines de l’unité sont denses dans le cercle
+       unité, et que tout nombre rationnel peut être approché par des rationnels de la forme
+       k/2n , avec k entier (écriture en binaire). La fonction G étant non-constante, par le
+       théorème de la fonction ouverte G(C) est un ouvert. Si z est tel que |G(z)| = 1, alors

@@ -1,0 +1,645 @@
+
+
+======== [PDF page 78 | page imprimée 75] ========
+                                                                                  Chapitre       IV
+Applications
+
+
+IV.1      Transformations conformes
+
+
+      Soit f ∈ Hol(Ω). On s’intéresse au comportement de f au voisinage d’un point z0 tel que
+f ′ (z0 ) ̸= 0.
+
+   Remarque IV.1.1 — D’après le principe des zéros isolés, Théorème I.11, il ne s’agit
+   pas d’une hypothèse forte : pourvu que f ne soit pas localement constante, les points
+   d’annulation de f ′ sont isolés et cette hypothèse n’est donc pas très restrictive.
+
+    Considérons deux arcs de classe C 1
+
+                                         γ1 , γ2 : ] − 1, 1[ → C,
+
+qui passent par z0 quand t = 0. On suppose ces arcs réguliers au voisinage de t = 0, c’est-à-dire
+que γj′ (0) ̸= 0 et l’on rappelle que γj′ (0) correspond au vecteur tangent au point z0 = γj (0)
+(remarquer que l’on peut supposer γj injectif pour |t| assez petit d’après le théorème d’inversion
+locale). Pour j = 1, 2, les arcs images f ◦ γj ont pour tangentes f ′ (z0 )γj′ (0) en t = 0 de sorte que
+l’angle entre les tangentes à γj en z0 est le même que l’angle entre les tangentes aux arcs images
+en f (z0 ) (en d’autres termes, on utilise le fait que la jacobienne de f est une similitude). On fait
+référence à cette propriété de conservation des angles en disant que les fonctions holomorphes
+sont des transformations conformes.
+
+
+
+
+                                      Transformation conforme.
+
+
+    Si l’on regarde l’image par une application holomorphe du « grillage » formé des droites
+verticales et horizontales du plan (disons sur un domaine où la dérivée ne s’annule pas), on obtient
+un « grillage » constitué de courbes dont les tangentes sont orthogonales aux endroits où ces
+courbes se croisent. Si l’on observe que les lignes de niveau
+
+                                    ℜe(f ) = c et ℑm(f ) = c′ ,
+
+                                                   75
+
+
+======== [PDF page 79 | page imprimée 76] ========
+76                                                              CHAPITRE IV. APPLICATIONS
+
+sont les images des droites verticales et horizontales
+
+                                     ℜe(z) = c et ℑm(z) = c′ ,
+
+par la réciproque f −1 de f qui est une fonction holomorphe au voisinage de f (z0 ) d’après la
+proposition I.4.4. Le résultat précédent montre que ces lignes de niveau sont des courbes dont les
+tangentes sont orthogonales aux points où elles se coupent.
+                                                                              
+     Exemple IV.1.2 — Dans le cas où f (z) = argtanh z = 12 log          1+z
+                                                                         1−z       et f −1 (z) = tanh(z),
+     on obtient la Figure IV.2.
+
+
+
+
+                             Lignes de niveau de la fonction argtanh.
+
+
+
+    Le lecteur féru d’électromagnétisme reconnaîtra sur la Figure IV.2 les équipotentielles (en
+vert) et les lignes du champ magnétique (en bleu) crées par deux fils infinis parallèles, contenus
+dans un plan normal au plan des lignes de champs, parcourus par des courants d’intensités égales
+et constantes de sens opposés. Cette propriété bien connue d’orthogonalité entre lignes de champs
+et équipotentielles, dans le cas plan, reflète la nature conforme des applications holomorphes.
+Cette observation est intimement liée au fait que le potentiel est une fonction harmonique et au
+lien entre fonctions harmoniques réelles et les parties réelles de fonctions holomorphes.
+
+
+IV.2       Fonctions harmoniques
+
+
+      Définition IV.2.1
+     Une fonction f : Ω → C est dite harmonique si elle est de classe C 2 sur Ω et si
+
+                                     ∂2f   ∂2f      ∂2f         ∂2f
+                            ∆ f :=       +      = 4        = 4        = 0.
+                                     ∂x2   ∂y 2     ∂z∂ z̄     ∂ z̄∂z
+
+    Clairement, si f est une fonction holomorphe, f et f¯ sont des fonctions harmoniques et par
+conséquent, ℜef et ℑmf sont aussi des fonctions harmoniques. Le résultat ci-dessous montre que
+ce sont essentiellement les seuls exemples.
+
+      Théorème IV.2.2
+     Toute fonction harmonique h : Ω → C, définie sur un ouvert Ω simplement connexe, s’écrit
+     sous la forme h = f + ḡ où f, g ∈ Hol(Ω).
+
+
+======== [PDF page 80 | page imprimée 77] ========
+IV.3. FILMS DE SAVON ET FONCTIONS MÉROMORPHES                                                         77
+
+Démonstration. Par définition                              
+                                            ∂          ∂h
+                                                                = 0,
+                                            ∂ z̄       ∂z
+donc ∂h
+     ∂z est une fonction holomorphe sur Ω. Étant donné que nous avons supposé Ω simplement
+connexe, il existe une fonction f , primitive holomorphe de ∂h
+                                                            ∂z sur Ω. On peut alors écrire que
+
+                                    ∂h ∂f     ∂(h − f )   ∂(h − f )
+                               0=      −    =           =           ,
+                                    ∂z   ∂z      ∂z          ∂ z̄
+ce qui démontre que g := h − f est une fonction holomorphe sur Ω. On conclut que h = f + ḡ,
+comme souhaité.
+
+   Remarque IV.2.3 — Dans le cas où Ω n’est plus un ouvert simplement connexe, on
+   obtient, par restriction à des disques (qui eux sont simplement connexes) que toute fonction
+   harmonique s’écrit localement comme la somme d’une fonction holomorphe et de la conjuguée
+   d’une fonction holomorphe.
+
+   Si de plus h est à valeurs réelles, alors, avec les notations ci-dessus, h = f + ḡ = f¯ + g, donc
+2h = f + f¯ + g + ḡ = 2 ℜe(f + g). Nous avons donc obtenu le :
+
+     Corollaire IV.2.4
+   Une fonction harmonique réelle, définie sur un ouvert simplement connexe Ω, est la partie
+   réelle d’une fonction holomorphe, unique à une constante additive imaginaire pure près.
+
+   En appliquant la formule de la moyenne à f et g, on obtient par linéarité le résultat suivant :
+
+     Corollaire IV.2.5
+   Une fonction harmonique réelle h, définie sur un ouvert Ω, vérifie la propriété de la moyenne.
+   Si de plus Ω est connexe, elle vérifie le principe du maximum : si h admet un maximum
+   local en z0 ∈ Ω, alors h est constante sur Ω.
+
+
+Démonstration. La propriété de la moyenne est une conséquence de la linéarité de la formule de
+la moyenne et de la remarque IV.2.3. Pour le principe du maximum, soit D̄(z0 , r) ⊂ Ω un disque
+sur lequel h ≤ h(z0 ). La fonction continue θ 7→ h(z0 ) − h(z0 + ρeiθ ) est positive et d’intégrale nulle
+sur [0, 2π] pour tout ρ ≤ r, donc identiquement nulle : h est constante sur D̄(z0 , r). L’ensemble
+des points où h vaut h(z0 ) est donc à la fois ouvert et fermé dans Ω, qui est connexe : h est
+constante sur Ω.
+
+   Remarque IV.2.6 — L’importance du principe du maximum vient notamment du fait
+   qu’il donne bien souvent l’unicité de fonctions harmoniques vérifiant des conditions au bord
+   fixées (voir l’exemple du paragraphe IV.4.1).
+
+
+IV.3      Films de savon et fonctions méromorphes
+
+
+    Nous allons présenter, en admettant un seul résultat extérieur à ce cours (voir la remarque IV.3.1),
+l’apparition des fonctions méromorphes dans un cadre somme toute inattendu, la forme des films
+de savon (on prendra soin de bien distinguer les films de savon des bulles de savon). Les films de
+savon minimisent une énergie qui est proportionnelle à leur aire (formule de Laplace), ce sont
+des surfaces qui sont appelées surfaces minimales et qui apparaissent dans la modélisation de
+
+
+======== [PDF page 81 | page imprimée 78] ========
+78                                                                         CHAPITRE IV. APPLICATIONS
+
+nombreux phénomènes physiques, notamment dans la modélisation des interfaces entre fluides de
+densités différentes.
+    A. Enneper et K. Weierstrass ont montré en 1866 que toutes les surfaces minimales pouvaient
+se paramétrer, du moins localement par
+                       Z                      Z                 Z             !
+                                   2                   2
+              z 7→ ℜe        (1 − g ) f dw, i    (1 + g ) f dw,        2g f dw ,
+                             [z0 ,z]                  [z0 ,z]                   [z0 ,z]
+
+où f et g sont holomorphes sur l’ouvert Ω ⊂ C où l’on travaille. On autorise plus généralement g
+à être méromorphe, pourvu que f s’annule à l’ordre 2m en tout pôle d’ordre m de g, de sorte
+que les trois intégrandes restent holomorphes. Dans les exemples donnés plus bas, f et g sont
+méromorphes sur la sphère de Riemann et Ω est obtenu en retirant leurs pôles : les points ainsi
+retirés sont les bouts de la surface.
+
+     Remarque IV.3.1 : Esquisse de la démonstration — Nous admettons le seul point qui
+     relève de la géométrie différentielle des surfaces, et non de ce cours : toute surface admet
+     localement un paramétrage conforme X : Ω → R3 , où Ω est un ouvert de C ≃ R2 , c’est-à-dire
+     vérifiant |Xu | = |Xv | et ⟨Xu , Xv ⟩ = 0 (avec z = u + iv) ; et pour un tel paramétrage,
+
+                                               ∆X = 2 |Xu |2 H N,
+
+     où H désigne la courbure moyenne de la surface et N sa normale unitaire. Ainsi, la surface
+     est minimale, c’est-à-dire H ≡ 0, si et seulement si les trois fonctions coordonnées de X
+     sont harmoniques. Tout le reste relève des outils de ce cours.
+     Posons
+                                       ∂X
+                                φ := 2      = Xu − iXv : Ω → C3 .
+                                        ∂z
+                ∂
+     Comme ∂∂z̄ ∂z = 14 ∆, la fonction φ est holomorphe si et seulement si X est harmonique. Par
+     ailleurs,
+                         φ · φ := φ21 + φ22 + φ23 = |Xu |2 − |Xv |2 − 2i ⟨Xu , Xv ⟩
+     — il s’agit ici de la forme bilinéaire de C3 et non du produit hermitien —, de sorte que le
+     paramétrage est conforme si et seulement si φ·φ = 0. Enfin ℜe (φ dz) = Xu du+Xv dv = dX,
+     d’où                                                Z
+                                     X(z) = X(z0 ) + ℜe       φ dw.
+                                                                 [z0 ,z]
+
+     Les surfaces minimales conformément paramétrées correspondent donc exactement aux
+     applications holomorphes φ : Ω → C3 \ {0} à valeurs dans la quadrique
+
+                                       Q = {w ∈ C3 : w12 + w22 + w32 = 0}.
+
+     Il ne reste plus qu’à paramétrer   Q, et c’est là que f et g apparaissent. D’une part, si
+     φ = (1 − g 2 )f, i(1 + g 2 )f, 2gf , alors
+
+                             φ · φ = f 2 (1 − g 2 )2 − (1 + g 2 )2 + 4g 2 = 0.
+                                                                        
+
+
+     D’autre part, soit φ holomorphe à valeurs dans Q. Si φ1 − iφ2 est identiquement nulle,
+     alors φ1 = iφ2 et φ3 = 0, et la surface est contenue dans un plan. Sinon, posons
+                                                                          φ3
+                                   f := 12 (φ1 − iφ2 ),         g :=            .
+                                                                       φ1 − iφ2
+
+     La relation φ21 +φ22 = −φ23 , c’est-à-dire (φ1 −iφ2 )(φ1 +iφ2 ) = −φ23 , donne φ1 +iφ2 = −2f g 2 ,
+     et en recombinant, on retrouve bien φ1 = f (1 − g 2 ), φ2 = if (1 + g 2 ) et φ3 = 2f g.
+
+
+======== [PDF page 82 | page imprimée 79] ========
+IV.3. FILMS DE SAVON ET FONCTIONS MÉROMORPHES                                                         79
+
+
+   Au fond, la formule de Weierstrass–Enneper n’est donc rien d’autre que le paramétrage
+   rationnel de la quadrique Q : projectivement, Q est une conique lisse de P2 (C), donc
+   isomorphe à P1 (C), et (f, g) en sont respectivement le facteur d’échelle et le point. Signalons
+   pour finir que g possède une interprétation géométrique : c’est la projection stéréographique
+   de l’application de Gauss N , ce qui explique qu’elle soit naturellement méromorphe, ses
+   pôles étant les points où la normale pointe vers le pôle nord.
+
+
+
+
+                                             Catenoïde.
+
+
+    Les noms de plusieurs mathématiciens sont attachés aux surfaces minimales qu’ils ont décou-
+vertes. En prenant f (w) = 1/w2 et g(w) = w, on trouve la caténoïde découverte par L. Euler en
+1744, en prenant f (w) = i/w2 et g(w) = w, on trouve l’hélicoïde découvert par J.B. Meusnier en
+                                                                                              1
+1776. En prenant f (w) = 1 et g(w) = w on trouve la surface d’Enneper et en prenant f (w) = 1−w 4
+et g(w) = w on trouve la première surface de Scherk. Plus récemment, la découverte en 1984 par
+C. Costa de la surface qui porte maintenant son nom a initié toute une série de travaux sur ces
+surfaces.
+
+   Remarque IV.3.2 — La formule ci-dessus ne définit X sans ambiguïté que si l’intégrale ne
+   dépend pas du chemin suivi, ce qui n’a rien d’automatique dès que Ω n’est pas simplement
+   connexe. La condition exacte, dite condition de périodes, est
+                            I
+                          ℜe φ dw = 0         pour tout lacet γ de Ω,
+                                γ
+
+   où φ = (1 − g 2 )f, i(1 + g 2 )f, 2gf , et c’est le théorème des résidus qui permet de la
+                                            
+
+   vérifier en pratique. Ainsi, pour la caténoïde (f (w) = 1/w2 et g(w) = w sur C∗ ), les deux
+   premières composantes de φ ont un résidu nul en 0, tandis que la troisième, φ3 = 2/w, a
+   pour résidu 2 : sa période vaut donc 4iπ, qui est purement imaginaire, et la partie réelle
+   l’annule. Sur un ouvert simplement connexe la condition est vide, mais dans le cas général
+   c’est la difficulté centrale de la théorie : c’est elle que C. Costa a su surmonter en 1984, sur
+   un tore privé de trois points.
+
+   L’avènement des ordinateurs a permis de développer des outils de visualisation des surfaces
+minimales qui sont devenus essentiels pour la compréhension de ces objets géométriques mais qui
+ont ensuite trouvé de nombreuses applications à la réalité virtuelle et à l’architecture.
+
+   Remarque IV.3.3 : Difficile, sujet de réflexion — La caténoïde est une surface minimale
+   que l’on peut obtenir expérimentalement en prenant deux cercles parallèles et en les
+   plongeant dans de l’eau savonneuse. Si les deux cercles ne sont pas trop éloignés l’un de
+
+
+======== [PDF page 83 | page imprimée 80] ========
+80                                                                CHAPITRE IV. APPLICATIONS
+
+
+
+
+                            Surface minimale de Costa découverte en 1984.
+
+
+
+
+     l’autre, le film de savon prend la forme d’une catenoïde. Mais, si l’on écarte progressivement
+     les deux cercles vient un moment où le film de savon se casse et, en fait, on obtient une
+     surface minimale beaucoup plus simple, à savoir deux disques de savon bordés par les deux
+     cercles (faire l’expérience est très simple). On touche du doigt un phénomène important que
+     l’on rencontre souvent dans les problèmes de minimisation du calcul des variations (voir [2]).
+     Précisément, l’application qui, à une surface, associe son aire admet une différentielle nulle
+     exactement pour les surfaces minimales, on parle alors de point critique de la fonctionnelle
+     « aire ». Donc, les minima sont à chercher parmi ces points. Toutefois, il se peut que parmi
+     les points critiques, on trouve des minima locaux ou bien des points selle. C’est ce qui se
+     passe ici : quand la distance entre les deux cercles est assez grande, l’aire des disques bordés
+     par nos cercles est plus petite que l’aire de la caténoïde qui s’appuie dessus.
+
+
+
+
+                           Film de savon bordé par deux cercles parallèles.
+
+     Un exercice intéressant est de déterminer en fonction du rayon des cercles d’appui et de
+     la distance entre ces deux cercles l’aire minimale de la surface qui s’appuie sur ces deux
+     cercles : est-ce une portion de caténoïde ou bien deux disques ?
+
+   Pour des raisons de minimisation de contraintes, on retrouve des surfaces minimales en
+architecture comme par exemple le toit du célèbre Arena Stadium de Munich.
+
+
+======== [PDF page 84 | page imprimée 81] ========
+IV.4. APPLICATIONS PHYSIQUES                                                                          81
+
+
+
+
+                                      Arena Stadium à Munich.
+
+
+
+IV.4      Applications physiques
+
+
+    Certains problèmes de physique se ramènent à la recherche de fonctions harmoniques. Il
+se trouve que dans plusieurs modèles physiques, nombre de régimes stationnaires sont définis
+par l’équation ∆f = 0 : les champs magnétiques ou électriques en électrostatique (Maxwell), le
+potentiel des vitesses d’un fluide parfait, le champ de gravitation classique, . . .
+    Rappelons que, si f est une fonction holomorphe, alors ℜef est une fonction harmonique. De
+plus, la composée de fonctions holomorphes est une fonction holomorphe et l’on vérifie aussi que
+la composée f ◦ h d’une fonction harmonique f et d’une fonction holomorphe h est harmonique
+(là où f ◦ h est bien définie).
+   Pour démontrer ce résultat, on reprend l’expression du Laplacien en coordonnées complexes,
+                                                      ∂2
+                                             ∆=4            .
+                                                     ∂z∂ z̄
+En appliquant la règle de composition établie dans le lemme I.2.9 pour l’opérateur ∂∂z̄ , on obtient
+pour tout z :
+                        ∂(f ◦ h)       ∂f        ∂h          ∂f          ∂ h̄
+                                 (z) =    (h(z))       (z) +      (h(z))      (z).
+                          ∂ z̄         ∂z        ∂ z̄        ∂ z̄        ∂ z̄
+La fonction h étant supposée holomorphe, on a ∂h  ∂ z̄ (z) = 0. L’expression se simplifie donc en :
+
+                                   ∂(f ◦ h)       ∂f          ∂ h̄
+                                            (z) =      (h(z))      (z).
+                                     ∂ z̄         ∂ z̄        ∂ z̄
+                                    ∂
+On applique ensuite l’opérateur ∂z     à cette égalité. Par la règle du produit, on a :
+                ∂ 2 (f ◦ h)
+                                                                                    
+                                   ∂ ∂f             ∂ h̄        ∂f          ∂ ∂ h̄
+                            (z) =          (h(z))        (z) +       (h(z))         (z) .
+                   ∂z∂ z̄         ∂z ∂ z̄           ∂ z̄        ∂ z̄        ∂z ∂ z̄
+
+D’une part, puisque h est holomorphe, on a ∂∂zh̄ = ∂h
+                                                           
+                                                       ∂ z̄ = 0. Par le théorème de Schwarz, le second
+terme s’annule :                                               
+                                  ∂ ∂ h̄            ∂ ∂ h̄
+                                           (z) =              (z) = 0.
+                                  ∂z ∂ z̄          ∂ z̄ ∂z
+                                                                                          ∂
+D’autre part, en appliquant à nouveau la règle de composition pour l’opérateur ∂z           à la fonction
+∂f                                      ∂ h̄
+∂ z̄ ◦ h, et en utilisant le fait que ∂z (z) = 0, on obtient :
+
+                                  ∂2f                  ∂2f                  ∂2f
+                          
+            ∂ ∂f                               ∂h                ∂ h̄                     ∂h
+                    (h(z)) =            (h(z))    (z) + 2 (h(z))      (z) =        (h(z))    (z).
+           ∂z ∂ z̄               ∂z∂ z̄        ∂z      ∂ z̄      ∂z         ∂z∂ z̄        ∂z
+
+
+======== [PDF page 85 | page imprimée 82] ========
+82                                                              CHAPITRE IV. APPLICATIONS
+
+En regroupant ces résultats et en multipliant par 4, le Laplacien devient :
+
+                                  ∂2f           ∂h     ∂ h̄                         2
+                ∆(f ◦ h)(z) = 4          (h(z))    (z)      (z) = (∆f )(h(z)) h′ (z) .
+                                  ∂z∂ z̄        ∂z     ∂ z̄
+La fonction f étant harmonique, on a (∆f )(h(z)) = 0, et l’on conclut que ∆(f ◦ h)(z) = 0.
+    Maintenant, si l’on souhaite déterminer des fonctions harmoniques sur un domaine donné, le
+théorème de représentation conforme de Riemann ramène l’étude au cas du demi-plan de Poincaré
+(en vertu de la remarque III.4.2 pour passer du disque unité au demi-plan de Poincaré).
+     Ce résultat permet en théorie de ramener la recherche d’une fonction harmonique définie
+dans un ouvert donné, à la détermination d’une fonction harmonique dans un demi-plan ou un
+plan, grâce à une transformation conforme. Précisément, si l’on cherche une fonction f qui est
+harmonique sur un ouvert simplement connexe Ω et qui vérifie certaines conditions au bord de Ω,
+il « suffit » de trouver une application biholomorphe h de Ω sur C ou sur H pour se ramener à la
+recherche d’une fonction harmonique sur H ou C. Nous donnons dans les paragraphes qui suivent
+quelques exemples précis.
+
+
+IV.4.1     Écoulement d’un fluide parfait incompressible, irrotationnel
+   Considérons un fluide parfait irrotationnel et incompressible s’écoulant sans frottement dans
+Ω, un domaine du plan simplement connexe. Le champ des vitesses ⃗v satisfait
+
+                                             rot ⃗v = 0,
+
+(i.e. le fluide est irrotationnel), donc il s’écrit ⃗v = ∇Φ pour un certain potentiel des vitesses Φ,
+de sorte que la connaissance du potentiel des vitesses Φ nous permet de retrouver le champ de
+vitesses ⃗v . Comme le champ des vitesses est à divergence nulle (i.e. le fluide est incompressible),
+on en déduit que
+                                          div(∇Φ) = ∆Φ = 0,
+autrement dit, le potentiel des vitesses Φ est une fonction harmonique. Remarquons que la
+composante normale de ⃗v doit être nulle au bord du domaine si l’on suppose que le bord du
+domaine est étanche. Ceci se traduit par le fait que la dérivée normale de Φ doit être nulle au
+bord du domaine. Il nous faut donc trouver une fonction harmonique dans le domaine, dont la
+dérivée normale est nulle au bord du domaine.
+    Le Théorème de Riemann nous incite à nous intéresser d’abord au domaine Ω = H et au cas
+où le potentiel des vitesses Φ0 vérifie |∇Φ0 | ∈ L∞ (H̄) (i.e. la vitesse est bornée pour des raisons
+physiques !). Dans ce cas, la composante normale vy du champ des vitesses est une fonction
+harmonique, bornée et nulle sur le bord de H, elle est donc identiquement nulle. (Ce n’est pas tout
+à fait le principe du maximum : sur un ouvert non borné il faut aussi l’hypothèse de bornitude,
+via un argument de type Phragmén–Lindelöf, ou passer au disque par une homographie.) Donc,
+
+                                          ∂y Φ0 = vy ≡ 0,
+
+dans H ce qui montre que Φ0 ne dépend que de la variable x = ℜez. Enfin, dans ce cas
+∆Φ = ∂x2 Φ0 = 0 de sorte
+                                  Φ0 (z) = λ ℜez,
+pour une constante λ ∈ R (la vitesse de l’écoulement uniforme est alors ⃗v = (λ, 0)).
+    Pour un domaine Ω général, il « suffit » de trouver une fonction holomorphe f envoyant Ω
+sur H pour connaître le potentiel des vitesses Φ = Φ0 ◦ f dans Ω. On remarquera que f étant
+une transformation conforme, elle préserve le fait que la dérivée normale de Φ0 ◦ f est nulle sur le
+bord de Ω.
+
+
+======== [PDF page 86 | page imprimée 83] ========
+IV.4. APPLICATIONS PHYSIQUES                                                                     83
+
+
+
+
+                                    Écoulement dans un coin.
+
+
+
+    Par exemple, donnons nous α ∈ ]0, 1[. Pour déterminer le champ de vitesses d’un fluide
+incompressible, irrotationnel, dans un coin
+
+                         Kα := {z = r eiθ ∈ C : r > 0,         0 ≤ θ ≤ 2 π α},
+
+on considère la transformation holomorphe
+
+                                         f (z) := z 1/(2α) ,
+
+qui envoie K  α sur le demi-plan H, ce qui nous donne comme potentiel des vitesses Φ(z) =
+λ ℜe z 1/(2α) pour l’écoulement d’un fluide dans un coin. Par exemple, pour un quart de plan
+(α = 1/4), on retrouve Φ(z) = λ ℜe(z 2 ).
+    D’autres transformations conformes sont utilisées dans ce contexte. Par exemple, la transforma-
+tion de Joukovski (1910) qui a été utilisée pour déterminer les profils des vitesses d’un écoulement
+d’un fluide autour d’un obstacle. Cette transformation conforme est donnée explicitement par
+                                                         
+                                                 1      1
+                                        f (z) :=     z+     .
+                                                 2      z
+
+
+
+
+                     Écoulement laminaire autour d’un obstacle circulaire.
+
+
+    On vérifie que l’image par f du cercle de centre 0 et de rayon 1 est le segment [−1, 1] de C
+(parcouru deux fois). Le potentiel des vitesses associé à un écoulement plan uniforme ⃗v ≡ ⃗v0
+dans la direction de l’axe des x, est donné par Φ0 (z) = λ ℜez. On obtient donc le potentiel des
+
+
+======== [PDF page 87 | page imprimée 84] ========
+84                                                                    CHAPITRE IV. APPLICATIONS
+
+
+
+
+            Image d’un cercle non centré à l’origine par la transformation de Joukovski.
+
+
+
+vitesses d’un écoulement plan autour du disque unité centré à l’origine (voir détails dans l’exercice
+ci-dessous)
+                                     Φ(z) = λ ℜe(f −1 (z)).
+
+    En étudiant les images des cercles qui ne sont pas centrés à l’origine par la transformation de
+Joukovski on obtient des profils qui ressemblent aux profils d’ailes d’avions ce qui, en première
+approximation, permet de calculer certains écoulements plans autour de ce profil et, par exemple,
+d’estimer la portance qui s’exerce sur une aile d’avion ! 1
+
+     Exercice IV.4.1 : Transformation de Joukovski et Aérodynamique — En mécanique
+     des fluides bidimensionnelle, le vecteur vitesse s’écrit ⃗v = (vx , vy ). L’écoulement étant
+     irrotationnel (rot ⃗v = 0), il dérive d’un potentiel des vitesses Φ tel que vx = ∂Φ         ∂Φ
+                                                                                      ∂x et vy = ∂y .
+     L’écoulement étant incompressible (div ⃗v = 0), ce potentiel est harmonique (∆Φ = 0). Le
+     domaine étant simplement connexe (à l’extérieur des obstacles), on peut associer à Φ une
+     fonction conjuguée Ψ (la fonction de courant) telle que le potentiel complexe G = Φ + iΨ
+     soit holomorphe. Les équations de Cauchy-Riemann imposent ∂Φ               ∂Ψ    ∂Φ     ∂Ψ
+                                                                          ∂x = ∂y et ∂y = − ∂x . La
+     dérivée complexe de G peut s’évaluer par rapport à la variable réelle x :
+                                                ∂Φ    ∂Ψ
+                                     G′ (z) =      +i    = vx − ivy .
+                                                ∂x    ∂x
+     La vitesse complexe est simplement l’affixe du vecteur vitesse dans le plan complexe, soit
+     v = vx + ivy . On obtient donc l’identité fondamentale : v = G′ (z).
+     On considère la transformation de Joukovski définie sur C∗ par :
+                                                         
+                                                 1      1
+                                         J(z) =     z+      .
+                                                 2      z
+        1. Soit R > 1. Déterminer l’image par J du cercle CR de centre 0 et de rayon R. Préciser
+           la nature géométrique de cette image.
+        2. Déterminer l’image par J du cercle unité C1 .
+        3. On s’intéresse à l’écoulement plan, irrotationnel et incompressible d’un fluide parfait.
+           Le potentiel complexe d’un écoulement uniforme de vitesse V0 > 0 faisant un angle
+           d’incidence α avec l’axe réel, autour d’un cylindre de rayon 1 (le cercle C1 ), est donné
+           par :                                                  
+                                                              1
+                                         F (z) = V0 ze−iα + eiα .
+                                                              z
+
+   1. Voir à ce sujet E. Guyon, J.P. Hulin et L. Petit, Hydrodynamique physique, Collection Savoirs Actuels, EDP
+Sciences 2001.
+
+
+======== [PDF page 88 | page imprimée 85] ========
+IV.4. APPLICATIONS PHYSIQUES                                                                         85
+
+
+           La transformation w = J(z) réalise un biholomorphisme entre l’extérieur du disque
+           unité C \ D(0, 1) et l’extérieur de la plaque plane C \ [−1, 1]. Exprimer la fonction
+           réciproque z(w) sur ce domaine.
+        4. En déduire le potentiel complexe G(w) = F (z(w)) de l’écoulement autour de la plaque
+           plane [−1, 1].
+        5. Calculer le champ des vitesses complexe v(w) = G′ (w). Que se passe-t-il aux extrémités
+           de la plaque (w = ±1) si l’angle d’incidence α est non nul ?
+
+
+
+
+           Plan z (Cylindre)                                         Plan w (Plaque plane)
+
+                   ℑm                                                            ℑm
+
+
+
+
+                                             w = J(z)                                 Sout
+                                        ℜe                      v→∞                           v → ∞ ℜe
+                                                                  −1       Sin               1
+
+   ⃗0
+   V                                                            ⃗0
+                                                                V
+          α                                                            α
+
+
+
+ Figure : Transformation de l’écoulement par l’application de Joukovski. L’angle d’incidence α
+est conservé à l’infini (transformation conforme). Le fluide frappe le dessous de la plaque au point
+d’arrêt entrant Sin , se sépare pour contourner les deux arêtes, et se rejoint sur le dessus au point
+               d’arrêt sortant Sout . La vitesse diverge aux extrémités de la plaque.
+
+
+IV.4.2        Propagation de la chaleur
+
+   Une gaine rectiligne infinie a une section en couronne (non simplement connexe !) de rayons
+R− < R+ et baigne dans des calorimètres à l’intérieur comme à l’extérieur, calorimètres à
+température T − et T + . Les deux cercles définissant le bord de la section de la gaine ne sont
+pas nécessairement centrés au même point. L’équation de la chaleur qui régit la distribution de
+température s’écrit
+                                         ∂T
+                                             − ∆T = 0.
+                                          ∂t
+En régime permanent ( ∂T∂t = 0), la distribution de température T est donc une fonction harmonique
+qui vaut T + et T − sur les cercles de bord de rayons R+ et R− . La différence de deux solutions est
+une fonction harmonique nulle au bord du domaine, donc nulle à l’intérieur (c’est une conséquence
+du principe du maximum). Autrement dit, si le problème possède une solution, celle-ci est unique.
+Les fonctions harmoniques invariantes par rotation (voir l’exercice IV.4.2) sont de la forme
+
+                                          z 7→ α log |z| + β,
+
+où α et β sont des constantes. En particulier, si les deux cercles définissant le bord de la couronne
+sont tous les deux centrés à l’origine, on détermine l’expression explicite de la distribution de
+
+
+======== [PDF page 89 | page imprimée 86] ========
+86                                                                   CHAPITRE IV. APPLICATIONS
+
+température en régime permanent
+
+                                         T+ − T−             T − ln R+ − T + ln R−
+                     Tcentrée (z) =               −
+                                                    ln |z| +                       .
+                                          +
+                                      ln R − ln R                ln R+ − ln R−
+Dans le cas général (i.e. quand les deux cercles définissant le bord de la couronne n’ont pas le
+même centre), on remarque que l’on peut toujours trouver une transformation homographique
+                                                        az + b
+                                              f (z) =          ,
+                                                        cz + d
+qui transforme la couronne excentrée en une couronne centrée, de rayons ρ− < ρ+ . La distribution
+de température en régime permanent sera alors donnée par Tcentrée ◦ f , où Tcentrée est calculée
+avec les rayons ρ± de la couronne image, et non avec R± : le rapport ρ+ /ρ− , qui est le module
+conforme de la couronne, diffère en général de R+ /R− .
+
+
+
+
+                         Transformation homographique de deux couronnes.
+
+                                                     5 z−3
+                                              z 7→    +
+                                                     3 z−2
+
+
+
+     Exercice IV.4.2 — Calculer le Laplacien en coordonnées polaires. Déterminer toutes les
+     fonctions harmoniques définies sur C× qui sont invariantes par rotation.
+
+
+     Exercice IV.4.3 : Problème de Dirichlet et Fonctions Harmoniques — On s’intéresse
+     à la distribution de température stationnaire T (x, y) dans une plaque modélisée par le
+     demi-plan supérieur H = {z = x + iy ∈ C | y > 0}. En régime stationnaire, l’équation de la
+     chaleur se réduit à l’équation de Laplace : la fonction T est harmonique (∆T = 0).
+     On impose les conditions aux limites (températures fixées) suivantes sur le bord de la plaque
+     (l’axe réel) :
+
+                  T (x, 0) = T1   pour x > 0,        et       T (x, 0) = T0   pour x < 0.
+
+        1. Rappeler pourquoi la partie imaginaire d’une fonction holomorphe est une fonction
+           harmonique.
+        2. On considère la détermination principale du logarithme complexe Log(z) sur C \ R− .
+           Quelle est sa partie imaginaire ? Déterminer les limites de cette partie imaginaire
+           lorsque z ∈ H tend vers un réel x > 0, puis vers un réel x < 0.
+        3. En cherchant T sous la forme A ℑm(Log(z)) + B, déterminer la solution T (x, y) du
+           problème de Dirichlet en fonction de T0 , T1 et de Arg(z).
+
+
+======== [PDF page 90 | page imprimée 87] ========
+IV.4. APPLICATIONS PHYSIQUES                                                               87
+
+
+    4. Quelle est la forme géométrique des isothermes (les courbes où la température est
+       constante) ?
+
+
+======== [PDF page 91 | page imprimée 88] ========
+88   CHAPITRE IV. APPLICATIONS

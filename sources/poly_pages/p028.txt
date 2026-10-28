@@ -1,0 +1,73 @@
+I.9. FONCTIONS HOLOMORPHES DÉFINIES PAR UNE INTÉGRALE                                                25
+
+                  F (ω,x)        gz0 (x)
+La majoration   (ω−z0 )k+1
+                             ≤           permet d’appliquer Fubini dans l’autre sens, et l’on obtient en
+                                  r0k+1
+appliquant encore une fois (I.7.1) à z 7→ F (z, x)
+                                                            !
+                                                                      ∂kF
+                       Z          Z                                Z
+             (k)              k!              F (ω, x)
+            f (z0 ) =                                    dω   dx =         (z0 , x) dx.
+                        X    2iπ C(z0 ,r0 ) (ω − z0 )k+1            X ∂z
+                                                                         k
+
+
+
+
+   Exemple I.9.2 : La fonction Γ d’Euler —                Pour z ∈ C tel que ℜe (z) > 0, posons
+                         Z +∞
+                  Γ(z) =       tz−1 e−t dt,               où tz−1 := e(z−1) ln t (t > 0).
+                             0
+
+   Appliquons le théorème avec X = ]0, +∞[ et F (z, t) = tz−1 e−t . Pour tout t > 0, la fonction
+   z 7→ F (z, t) est holomorphe sur le demi-plan {ℜe (z) > 0}. Par ailleurs |tz−1 | = tℜe (z)−1 ,
+   de sorte que, pour 0 < α ≤ ℜe (z) ≤ β,
+
+                             |F (z, t)| ≤ gα,β (t) := tα−1 + tβ−1 e−t ,
+                                                                 
+
+
+   fonction intégrable sur ]0, +∞[ puisque α > 0. Tout point du demi-plan possède un disque
+   fermé le contenant et inclus dans une telle bande : le théorème s’applique donc, et Γ est
+   holomorphe sur {ℜe (z) > 0}, avec
+                                           Z +∞
+                                Γ(k) (z) =      (ln t)k tz−1 e−t dt.
+                                                0
+
+   Une intégration par parties donne Γ(z + 1) = z Γ(z), et Γ(1) = 1, d’où Γ(n + 1) = n! pour
+   tout n ∈ N : la fonction Γ prolonge la factorielle. L’équation fonctionnelle, écrite sous la
+   forme Γ(z) = Γ(z + 1)/z, permettra plus tard de prolonger Γ en une fonction méromorphe
+   sur C tout entier, dont les pôles sont les entiers négatifs ou nuls.
+
+
+   Remarque I.9.3 — On peut utiliser différentes variantes, sur le même principe. Par
+   exemple si la fonction F est donnée par une série entière
+                                             X
+                                  F (z, x) =   an (x)(z − z0 )n
+                                                    n∈N
+
+   de rayon de convergence au P   moins égal à R > 0 pour
+                                           n
+                                                         R tout x ∈ X, avec les fonctions an
+   intégrables sur X et la série n∈N An z , où An = X |anP    (x)| dx,
+                                                                   R de rayon de convergence
+   au moins R, on utilise le théorème d’inversion des signes    et (donc encore Fubini) pour
+   obtenir un développement en série entière
+                                       X Z               
+                               f (z) =          an (x) dx (z − z0 )n
+                                          n∈N       X
+
+   sur D(z0 , R).
+   On peut aussi voir F comme une fonction de trois variables, en remplaçant la variable
+   complexe z par deux variables réelles uR et v, montrer par les théorèmes de Lebesgue de
+   continuité et de dérivation sous le signe (en vérifiant leurs hypothèses) que f est de classe
+   C 1 comme fonction de deux variables réelles, avec
+                              Z                                Z
+                  ∂f             ∂F                ∂f              ∂F
+                     (u, v) =        (u, v, x) dx,    (u, v) =        (u, v, x) dx.
+                  ∂u           X ∂u                ∂v            X ∂v
+   On vérifie alors immédiatement les équations de RCauchy-Riemann qui montrent que f est
+   holomorphe. De plus on a alors f ′ (z) = ∂f         ∂F
+                                            ∂z (z) = X ∂z (z, x) dx.

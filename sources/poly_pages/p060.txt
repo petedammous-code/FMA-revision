@@ -1,0 +1,48 @@
+II.9. EXISTENCE DE PRIMITIVES - LOGARITHME COMPLEXE                                              57
+
+
+  Exercice II.9.6 — 1) Soit α ∈ C. Montrer que la fonction x 7→ xα définie sur ]0, +∞[ se
+  prolonge de manière unique en une fonction fα holomorphe sur C\ ] − ∞, 0].
+  2) Déterminer le développement en série entière de fα en 1 et la dérivée de fα .
+  3) Pour quels α peut-on prolonger fα à C∗ , à C ?
+
+
+    Nous pouvons maintenant traiter un troisième exemple de calcul d’intégrale par la formule
+des résidus (voir la section II.6), qui demandait le logarithme complexe.
+
+                                              ℑm
+
+
+
+
+                                                Cε          γ+
+                                                                             ℜe
+                                −1                          γ−          CR
+
+
+
+
+                        Contour d’intégration Γε,R en trou de serrure.
+
+
+  Exemple II.9.7 : Intégrale avec coupure (contour en trou de serrure) — Nous allons
+  calculer l’intégrale suivante, pour 0 < α < 1 :
+                                           Z +∞ α−1
+                                                  x
+                                       J=              dx.
+                                            0     1 +x
+                                     α−1
+  Considérons la fonction f (z) = z1+z . Pour définir rigoureusement z α−1 , nous choisissons
+  la détermination du logarithme sur C \ R+ telle que l’argument soit dans ]0, 2π[ (donc
+  Log(−1) = iπ pour cette détermination). Ainsi, z α−1 = e(α−1)Log(z) . L’ouvert C \ R+
+  étant simplement connexe, l’existence d’une telle détermination est garantie par la proposi-
+  tion II.9.3 ; ce n’est pas la détermination principale introduite ci-dessus, dont la coupure
+  est R− . La fonction f est méromorphe sur C \ R+ et possède un unique pôle simple en
+  z = −1 = eiπ . Le résidu en ce pôle est :
+
+                                              e(α−1)Log(z)
+                   res−1 (f ) = lim (z + 1)                = e(α−1)iπ = −eiαπ .
+                               z→−1              1+z
+  Nous intégrons f sur un contour Γε,R en "trou de serrure" constitué de :
+     — Un segment γ+ de ε à R juste au-dessus de l’axe réel (z = xei0 ).
+     — Un grand cercle CR de rayon R parcouru dans le sens trigonométrique.

@@ -1,0 +1,58 @@
+III.3. LE THÉORÈME DE MONTEL                                                                                   65
+
+en déduit que
+                                                               2C(K)
+(III.3.1)                             |fn (z) − fn (z ′ )| ≤         |z − z ′ |,
+                                                                 δ
+pour tout n ≥ 0 et tous z, z ′ ∈ D(z0 , r). Quitte à prendre C(K) plus grand, on peut également
+supposer que 2C(K)
+               δ    ≥ 1.
+     Fixons 0 < ε ≤ r/2 et considérons un point w0 ∈ D(z0 , r/2). Quels que soient n ≥ 0 et
+z, z ′ ∈ D(w0 , 12C(K)
+                  εδ
+                       ), on a en utilisant (III.3.1), |fn (z) − fn (z ′ )| ≤ ε/3.
+                                                                     εδ
+      D’autre part, comme S est dense dans Ω, il existe ζ ∈ D(w0 , 12C(K) ) ∩ S. Il existe N ∈ N, tel
+que
+                                          |fφ(k) (ζ) − fφ(p) (ζ)| ≤ ε/3.
+                                                            εδ
+pour tout k, p ≥ N . On trouve donc, pour tout z ∈ D(w0 , 12C(K) ) et tout p, k ≥ N ,
+
+       |fφ(k) (z) − fφ(p) (z)| ≤ |fφ(k) (z) − fφ(k) (ζ)| + |fφ(k) (ζ) − fφ(p) (ζ)| + |fφ(p) (ζ) − fφ(p) (z)|
+                              ≤ ε.
+                                                                                εδ
+La suite (fφ(n) )n∈N est donc uniformément de Cauchy sur D(z0 , r/2) ∩ D(w0 , 12C(K) ). Comme
+                                                                                                 εδ
+D(z0 , r/2) est compact, on peut le recouvrir par un nombre fini de disques de la forme D(w0 , 12C(K) ).
+Ceci montre que la suite (fφ(n) )n est uniformément de Cauchy sur D(z0 , r/2). Ceci étant vrai pour
+tout z0 ∈ Ω, la suite (fφ(n) )n est localement uniformément de Cauchy, donc converge localement
+uniformément d’après le lemme III.1.3.
+
+
+
+   Remarque III.3.5 — Le théorème de Montel est un cas particulier du théorème d’Ascoli,
+   dont il est bon de rappeler l’énoncé. Soient X un espace topologique localement compact
+   (et séparé) et Y un R- ou C-espace vectoriel de dimension finie, muni d’une norme ∥ · ∥ —
+   le choix de celle-ci est indifférent, puisque toutes les normes sont équivalentes en dimension
+   finie. On munit l’espace C (X, Y ) des applications continues de X dans Y de la topologie
+   de la convergence uniforme sur les compacts. Une partie H ⊂ C (X, Y ) est dite équicontinue
+   en un point x0 ∈ X si
+
+               (∀ε > 0) (∃ V voisinage de x0 ) (∀f ∈ H) (∀x ∈ V),              ∥f (x) − f (x0 )∥ ≤ ε,
+
+   le point important étant que le voisinage V est le même pour toutes les fonctions de la
+   famille. Le théorème d’Ascoli affirme alors que H est relativement compacte dans C (X, Y )
+   si et seulement si
+        1. H est équicontinue en tout point de X,
+        2. pour tout x ∈ X, l’ensemble H(x) = {f (x), f ∈ H} est borné dans Y .
+   Si de plus X est métrisable et σ-compact, ce qui est le cas d’un ouvert Ω de C, l’espace
+   C (X, Y ) est lui-même métrisable et la conclusion se lit sous forme séquentielle : de toute
+   suite d’éléments de H on peut extraire une sous-suite qui converge uniformément sur tout
+   compact de X.
+
+
+   Remarque III.3.6 — Relisons la démonstration ci-dessus avec ce vocabulaire. L’assertion 1
+   du théorème de Montel est exactement la condition (2) d’Ascoli, et la majoration (III.3.1),
+   conséquence des inégalités de Cauchy, est exactement la condition (1) — la famille est
+   même localement équilipschitzienne. La démonstration donnée plus haut n’est donc rien
+   d’autre qu’une preuve d’Ascoli « à la main » : extraction diagonale le long d’une partie

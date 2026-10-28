@@ -1,0 +1,47 @@
+                                                                                     Chapitre      I
+Fonctions holomorphes
+
+   Notations. Si z0 ∈ C et r ∈ R+ , on note :
+   D(z0 , r) = {z ∈ C, |z − z0 | < r} le disque ouvert de centre z0 et de rayon r,
+   D̄(z0 , r) = {z ∈ C, |z − z0 | ≤ r} le disque fermé de centre z0 et de rayon r,
+   D(z0 , r)× = D(z0 , r) \ {z0 } le disque ouvert privé de son centre z0 et de rayon r,
+   C(z0 , r) = {z ∈ C, |z − z0 | = r} le cercle de centre z0 et de rayon r,
+   ℜe(z) et ℑm(z) les parties réelles et imaginaires d’un nombre complexe z.
+
+
+
+I.1     Définition des fonctions holomorphes
+
+
+   Considérons une fonction continue f : I → R définie sur un intervalle ouvert I non vide de R.
+La définition de la dérivabilité en un point x ∈ I de la fonction f est l’existence de
+
+                                           f (x + t) − f (x)
+                                       lim                   .
+                                       t→0         t
+
+Remplaçons le corps de nombres réel par le corps des nombres complexes. Ce qui précède a
+toujours un sens, c’est-à-dire que si f : Ω → C, où Ω est un ouvert non vide de C, est une fonction
+continue, on dit que f est C-dérivable, ou encore dérivable au sens complexe, en un point z ∈ Ω si
+
+                                           f (z + ω) − f (z)
+                                       lim
+                                       ω→0         ω
+
+existe (dans C). Si tel est le cas, on note f ′ (z) cette limite, la dérivée au sens complexe de f au
+point z.
+
+      Définition I.1.1
+   Soit Ω un ouvert de C. On dit qu’une fonction continue f : Ω → C est holomorphe si elle
+   est C-dérivable en tout point de Ω et si z 7→ f ′ (z) est continue sur Ω. On note Hol(Ω)
+   l’espace vectoriel (sur C) des fonctions holomorphes sur Ω.
+
+   Ainsi, les fonctions holomorphes sont les fonctions « de classe C 1 au sens complexe ».
+   L’hypothèse de continuité de z 7→ f ′ (z) est en fait superflue. Nous verrons au paragraphe I.8,
+avec le théorème de Goursat, qu’elle est automatiquement satisfaite dès que f est C-dérivable
+en tout point de Ω. Nous la conservons dans la définition parce qu’elle simplifie les premières
+démonstrations.
+
+
+
+                                                 5

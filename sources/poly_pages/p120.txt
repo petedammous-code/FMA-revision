@@ -1,0 +1,55 @@
+VI.1. THÉORÈME DE POINT FIXE DE BANACH                                                           117
+
+     Théorème VI.1.4 — Point fixe de Banach à paramètre II
+   Soient Λ un ouvert d’un espace de Banach E, X un fermé convexe d’un espace de Banach
+   F et
+                                      g : Λ×X →X
+   une application de classe C p , p ∈ (N \ {0}) ∪ {+∞}. Soit a ∈ [0 ; 1[. On suppose que
+
+                            ∂g
+                               (λ, x) ≤ a         pour tout (λ, x) ∈ Λ × X.
+                            ∂x
+   Alors, pour tout λ ∈ Λ, l’application gλ : x 7→ g(λ, x) admet un unique point fixe φ(λ) et
+   l’application Λ → X, λ 7→ φ(λ) est de classe C p et
+                                             ∂g          −1 ∂g
+                          dφλ =       IdF −      (λ, φ(λ))   ◦    (λ, φ(λ)).
+                                              ∂x               ∂λ
+
+Démonstration. Fixons λ ∈ Λ et posons
+                     ∂g                                      ∂g
+                A :=    (λ, φ(λ)) ∈ L(F ),            B :=      (λ, φ(λ)) ∈ L(E; F ).
+                     ∂x                                      ∂λ
+    Étape 0 : gλ est a-lipschitzienne sur X. C’est ici que sert la convexité de X : pour x1 , x2 ∈ X,
+le segment [x1 , x2 ] est contenu dans X, et l’inégalité des accroissements finis jointe à l’hypothèse
+∥∂g/∂x∥ ≤ a sur Λ × X donne ∥g(λ, x1 ) − g(λ, x2 )∥ ≤ a∥x1 − x2 ∥. Un fermé d’un espace de
+Banach est un espace métrique complet, et la version I donne déjà l’existence et l’unicité de φ(λ).
+   Étape 1 : IdF −A est inversible.
+                                 P Par hypothèse ∥A∥ ≤ a < 1. Un opérateur IdF −A avec
+∥A∥ < 1 est inversible, d’inverse n≥0 An , de norme ≤ (1 − a)−1 (exercice VI.1.5).
+   Étape 2 : φ est localement lipschitzienne. Fixons ρ > 0 tel que B̄(λ, ρ) ⊂ Λ et posons
+γ(h) = φ(λ + h) − φ(λ) pour ∥h∥E ≤ ρ. En insérant un terme intermédiaire,
+                                                                               
+        γ(h) = g(λ + h, φ(λ + h)) − g(λ + h, φ(λ)) + g(λ + h, φ(λ)) − g(λ, φ(λ)) .
+Le premier terme est de norme ≤ a∥γ(h)∥, car gλ+h est a-lipschitzienne avec la même constante a ;
+le second est de norme ≤ C∥h∥ par l’inégalité des accroissements finis appliquée à µ 7→ g(µ, φ(λ)),
+                       ∂g
+où C := supµ∈B̄(λ,ρ) ∥ ∂λ (µ, φ(λ))∥ est fini par continuité sur le compact B̄(λ, ρ) en dimension
+finie, ou quitte à diminuer ρ dans le cas général ; il ne dépend en tout cas pas de h. D’où
+                                                     C
+(VI.1.1)                             ∥γ(h)∥F ≤            ∥h∥E .
+                                                   1−a
+On retrouve au passage la continuité de φ.
+   Étape 3 : différentiabilité. Comme g est de classe C 1 et que φ(λ) + γ(h) = φ(λ + h),
+                                                                                     
+     γ(h) = g λ + h, φ(λ) + γ(h) − g λ, φ(λ) = A(γ(h)) + B(h) + o ∥h∥E + ∥γ(h)∥F .
+Par (VI.1.1), ∥γ(h)∥F = O(∥h∥E ), donc le reste est un o(∥h∥E ) et
+                                  (IdF −A) γ(h) = B h + o(∥h∥).
+En composant par (IdF −A)−1 , dont la norme est majorée par (1 − a)−1 ,
+                         φ(λ + h) − φ(λ) = (IdF −A)−1 ◦ B (h) + o(∥h∥).
+Ainsi φ est différentiable en λ, avec dφλ = (IdF −A)−1 ◦ B.
+    Étape 4 : régularité C p . Par récurrence sur k. On sait φ de classe C 0 . Supposons-la C k−1 ,
+                                                   ∂g ∂g
+avec 1 ≤ k ≤ p. Alors λ 7→ (λ, φ(λ)) est C k−1 et ∂x , ∂λ sont C p−1 , donc λ 7→ A(λ) et λ 7→ B(λ)
+sont C k−1 . L’application L 7→ (IdF −L)−1 est C ∞ sur la boule ∥L∥ < 1 (exercice VI.1.5) et la
+composition L(F ) × L(E; F ) → L(E; F ) est bilinéaire continue. Donc λ 7→ dφλ est C k−1 , et φ
+est C k .

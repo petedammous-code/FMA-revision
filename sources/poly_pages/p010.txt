@@ -1,0 +1,63 @@
+I.2. CONDITIONS DE CAUCHY RÉELLES. C-DÉRIVABILITÉ                                                          7
+
+Démonstration. Écrivons ω = s + it, avec s = ω+ω̄     ω−ω̄
+                                              2 et t = 2i . Par R-linéarité,
+
+
+                                ω + ω̄        ω − ω̄        L(1) − i L(i)    L(1) + i L(i)
+    L(ω) = s L(1) + t L(i) =           L(1) +        L(i) =               ω+               ω̄,
+                                  2             2i               2                2
+
+d’où l’existence. Pour l’unicité, si a ω + b ω̄ = 0 pour tout ω ∈ C, le choix ω = 1 donne a + b = 0
+et le choix ω = i donne i(a − b) = 0, donc a = b = 0. Enfin, si b = 0, alors L est la multiplication
+par a, donc C-linéaire ; réciproquement, si L est C-linéaire, elle coïncide avec la multiplication
+par L(1), et l’unicité de la décomposition impose b = 0.
+
+
+
+   Remarque I.2.2 — Introduisons les opérateurs différentiels
+                                                                 
+                   ∂     1 ∂        ∂            ∂      1 ∂      ∂
+                      :=       −i          et        :=       +i     .
+                   ∂z    2 ∂x      ∂y           ∂ z̄    2 ∂x     ∂y
+
+   Supposons f différentiable en z et appliquons le lemme I.2.1 à L = dfz . Comme dfz (1) =
+   ∂f                  ∂f
+   ∂x (z) et dfz (i) = ∂y (z), les coefficients a et b sont précisément
+                                                                                
+                1       ∂f    ∂f             ∂f              1          ∂f    ∂f               ∂f
+             a=            −i          (z) =    (z),      b=               +i          (z) =        (z).
+                2       ∂x    ∂y             ∂z              2          ∂x    ∂y               ∂ z̄
+
+   Autrement dit, ces deux opérateurs ne sont rien d’autre que les coordonnées de la différentielle
+   dans la décomposition du lemme I.2.1 :
+                                          ∂f         ∂f
+  (I.2.4)                    dfz (ω) =       (z) ω +      (z) ω̄,        (ω ∈ C).
+                                          ∂z         ∂ z̄
+
+     Proposition I.2.3
+   Avec les notations ci-dessus, les conditions suivantes sont équivalentes :
+   (i) f est différentiable au point z et dfz est C-linéaire,
+   (ii) f est C-dérivable en z.
+   Lorsqu’elles sont réalisées, dfz est la multiplication par f ′ (z).
+
+
+
+Démonstration. Supposons (i). D’après le lemme I.2.1, il existe λz ∈ C tel que dfz (ω) = λz ω
+pour tout ω ∈ C. Le développement limité (I.2.3) s’écrit donc
+
+
+                                   |f (z + ω) − f (z) − λz ω| = o(|ω|),
+
+                              f (z + ω) − f (z)
+et ceci entraîne bien sûr que lim               = λz , c’est-à-dire (ii), avec f ′ (z) = λz .
+                               ω→0    ω
+                                                                    f (z + ω) − f (z)
+   Réciproquement, supposons maintenant (ii), et notons λz = lim                       . On a alors
+                                                               ω→0          ω
+
+                                   |f (z + ω) − f (z) − λz ω| = o(|ω|).
+
+
+Ceci nous dit que f est différentiable en z et que dfz est égale à la multiplication par λz , et est
+donc C-linéaire.

@@ -1,0 +1,52 @@
+IX.9. EXERCICES                                                                                175
+
+     Théorème IX.8.8
+   Soit X : I × S −→ RN un champ de vecteurs tangents dépendant du temps sur une
+   sous-variété S de RN . Supposons que X soit localement lipschitzien en la seconde variable.
+   Alors :
+       a. D est un ouvert de I × I × S .
+      b. Si X est de classe C p , F est de classe C p sur D.
+
+   Lorsque S est une sous-variété compacte de RN , les courbes intégrales d’un champ de vecteurs
+tangents sont définies sur R tout entier grâce au théorème VII.3.10.
+
+     Théorème IX.8.9
+   Soit X un champ de vecteurs tangents qui ne dépend pas du temps et lipschitzien sur une
+   sous-variété compacte S de RN . Alors le domaine de définition de son flot global est
+
+                                           D0 = R × S .
+
+    La formule (IX.8.3) est donc valide quels que soient t, s ∈ R et x ∈ S . D’autre part, si X
+est de classe C r , r ≥ 1, pour tout t ∈ R, Ft : x 7→ Ft · x = F (t, x) est un difféomorphisme de
+classe C r de S d’inverse F−t . En effet F0 est l’identité de S et les Ft sont de classe C 1 car le
+flot global F l’est. Nous obtenons donc le
+
+     Corollaire IX.8.10
+   Supposons que X soit de classe C r . Notons Diff r (S ) le groupe des difféomorphismes de
+   classe C r , de S . L’application t 7→ Ft est un morphisme de groupes de R dans Diff r (S ).
+
+
+
+IX.9      Exercices
+
+
+   Exercice IX.9.1 — Soit S une sous-variété de RN , contenue dans un ouvert V. Soit
+   ϕ : V → W un difféomorphisme entre V et un autre ouvert W de RN . Montrer que ϕ(S )
+   est une sous-variété de RN , difféomorphe à S .
+
+
+  Exercice IX.9.2 — Montrer que le groupe SO(n) des matrices orthogonales de déterminant
+  1 est une sous-variété de Mn (R).
+
+
+   Exercice IX.9.3 : fibré tangent — Soit S une sous-variété de RN . Montrer que l’ensemble
+
+                                T S = {(p, v) ; p ∈ S , v ∈ Tp S }
+
+   est une sous-variété de RN × RN .
+
+
+   Exercice IX.9.4 — Soit S une sous-variété de dimension m de RN et soit ϕ : S −→ RN
+   une application différentiable vérifiant
+     a. En tout point p ∈ S , dϕp : Tp S → RN est injective.
+     b. ϕ est un homéomorphisme de S sur son image ϕ(S ).

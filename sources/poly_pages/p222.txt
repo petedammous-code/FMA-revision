@@ -1,0 +1,70 @@
+                                                                                                               219
+
+    (b) On pose u3 := −(u1 + u2 ), et pour i ∈ {1, 2, 3}, on note (xi , yi ) := (℘(ui ), ℘′ (ui )) ∈ C2 .
+        Montrer que les points (x1 , y1 ), (x2 , y2 ) et (x3 , y3 ) sont alignés sur une droite affine
+                                              ′ (u )−℘′ (u )
+        Y = aX + b dont la pente est a = ℘℘(u     1       2
+                                                  1 )−℘(u2 )
+                                                             , et que ces trois points appartiennent à
+                                2        3
+        la cubique d’équation Y = 4X − 60E4 X − 140E6 .
+    (c) En déduire la loi d’addition suivante :
+
+                                       1 ℘′ (u1 ) − ℘′ (u2 ) 2
+                                                                
+                        ℘(u1 + u2 ) =                                − ℘(u1 ) − ℘(u2 ).
+                                       4 ℘(u1 ) − ℘(u2 )
+
+3. Le but de cette question est d’établir une forme de réciproque à la question (1d).
+   Étant donné des nombres complexes a1 , . . . , ak , b1 , . . . , bℓ deux à deux distincts modulo
+   Λ (en particulier ai ̸≡ bj pour tous i, j), et des entiers m1 , · · · , mk ≥ 1, m′1 , · · · , m′ℓ ≥ 1,
+   satisfaisant ki=1 mi = ℓj=1 m′j et ki=1 mi ai = ℓj=1 m′j bj , on souhaite vérifier l’assertion
+               P           P           P              P
+   suivante :
+
+  (♣) il existe f ∈ E(Λ) dont les zéros (resp. pôles) sont les nombres de la forme ai + λ (resp.)
+  bj + λ avec i ∈ {1, · · · , k}, (resp.) j ∈ {1, · · · , ℓ}, λ ∈ Λ, de multiplicité mi (resp.) m′j .
+    (a) Montrer que le produit infini
+
+                                                                                      z2
+                                                                                              
+                                                     Y               z           z
+                                    θ : z 7→ z                   1−      exp         + 2
+                                                                      λ            λ 2λ
+                                                 λ∈Λ\{0}
+
+        converge uniformément sur tout compact de C. Déterminer les zéros de θ et leur
+        multiplicité.
+        Indication : on pourra appliquer la fonction Log aux facteurs pour lesquels |λ| est assez
+        grand.
+    (b) Montrer que pour tout λ ∈ Λ, il existe une fonction holomorphe hλ : C → C telle que
+        l’on ait
+                               θ(z + λ) = θ(z)ehλ (z) pour tout z ∈ C.
+    (c) Montrer que pour tout λ ∈ Λ, il existe αλ , βλ ∈ C tels que hλ : z 7→ αλ z + βλ ,
+        c’est-à-dire
+                              θ(z + λ) = θ(z)eαλ z+βλ pour tout z ∈ C.
+                                                                               ′ ′
+        Indication : montrer que h′′λ est identiquement nulle en vérifiant que θθ est elliptique.
+    (d) Soient a1 , · · · , ak , b1 , · · · , bℓ des nombres complexes, et m1 , · · · , mk ≥ 1, m′1 , · · · , m′ℓ ≥
+        1 des entiers vérifiant
+                                  k
+                                  X            ℓ
+                                               X                      k
+                                                                      X               ℓ
+                                                                                      X
+                                        mi =         m′j ,   et             mi ai =         m′j bj .
+                                  i=1          j=1                    i=1             j=1
+                                                 Qk
+                                                         θ(z−ai )mi
+         Montrer que la fonction f : z 7→ Qℓi=1                  m′
+                                                                       répond à la question, c’est-à-dire satisfait
+                                                                  j
+                                                     j=1 θ(z−bj )
+        (♣).
+4. Soit K(Λ) l’ensemble des fonctions qui peuvent s’écrire sous la forme R ◦ ℘ + ℘′ × S ◦ ℘,
+   où R et S sont des fractions rationnelles. On souhaite montrer que E(Λ) = K(Λ).
+    (a) Montrer que K(Λ) ⊂ E(Λ).
+    (b) Montrer que pour toute fonction f ∈ E(Λ) paire et dont les pôles sont contenus dans
+        Λ, il existe un polynôme P tel que f = P ◦ ℘.
+    (c) Montrer que pour toute fonction f ∈ E(Λ) paire, il existe une fraction rationnelle R
+        telle que f = R ◦ ℘.

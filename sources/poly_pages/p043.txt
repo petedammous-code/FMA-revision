@@ -1,0 +1,63 @@
+40                                                             CHAPITRE II. FORMULE DES RÉSIDUS
+
+
+     que, dans le cas particulier où Γ est le bord d’un domaine du plan U et où f est holomorphe
+     sur U , on a                             Z
+                                                        f (z)dz = 0.
+                                                    Γ
+
+
+   Nous avons utilisé dans la démonstration du théorème ci-dessus la notion de nombre de
+Lebesgue d’un recouvrement. Donnons quelques détails.
+
+       Proposition II.2.4
+     Soit K un compact de RN , et soit K ⊂ i∈I Ui un recouvrement de K par des ouverts Ui .
+                                              S
+     Alors il existe δ > 0 ayant la propriété suivante : pour tout k ∈ K, il existe i ∈ I tel que
+     B̄(k, δ) ⊂ Ui .
+
+
+Démonstration. Pour tout n ∈ N× , soit Fn l’ensemble des k ∈ K tels qu’il n’existe pas de i ∈ I
+vérifiant B̄(k, n1 ) ⊂ Ui . Si la conclusion de la proposition est fausse, Fn est non vide pour tout
+n ∈ N× . Soit alors (kn )n∈N× une suite de points de K telle que kn ∈ Fn pour tout n ∈ N× . Cette
+suite admet une valeur d’adhérence dans le compact K, et quitte à extraire une sous-suite, on
+peut tout aussi bien supposer que kn admet une limite k dans K.
+    Soit i ∈ I tel que k ∈ Ui , et soit ϵ tel que B̄(k, ϵ) ⊂ Ui . Il existe n0 ∈ N× tel que pour tout
+n ≥ n0 , kn ∈ B̄(k, ϵ/3). On a donc pour tout n ≥ n0 , B̄(kn , ϵ/3) ⊂ Ui . Or kn ∈ Fn , donc B̄(kn , n1 )
+n’est pas contenu dans Ui , d’où nécessairement n1 > ϵ/3. On aboutit à une contradiction pour n
+assez grand.
+
+
+              un nombre δ vérifiant la propriété de la proposition un nombre de Lebesgue du
+    On appelleS
+recouvrement i∈I Ui .
+
+
+II.3      Indice d’un lacet
+
+
+     Soit γ : [0, 1] → C un lacet dans C dont on note Γ l’image et soit z0 ̸∈ Γ.
+
+       Définition II.3.1
+     L’indice de γ en z0 est défini par
+
+                                                                               γ ′ (t)
+                                                Z                      Z 1
+                                           1        dz      1
+                           Indz0 (γ) :=                  =                             dt.
+                                          2iπ   γ z − z0   2iπ          0    γ(t) − z0
+
+     On vérifie que Indz0 (γ opp ) = − Indz0 (γ) (voir la Définition I.5.1).
+
+       Proposition II.3.2
+     Soit γ : [0, 1] → C un lacet dans C dont on note Γ l’image. Alors pour tout z ∈ C \ Γ,
+     Indz (γ) est dans Z. La fonction z 7→ Indz (γ) est constante sur les composantes connexes
+     de C \ Γ. Elle est nulle sur l’unique composante connexe non bornée.
+
+
+Démonstration. Pour tout t ∈ [0, 1], on note
+
+                                                              γ ′ (u)
+                                                        Z t            
+                                   f (t) := exp                       du .
+                                                          0 γ(u) − z0

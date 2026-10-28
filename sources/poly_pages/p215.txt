@@ -1,0 +1,62 @@
+212                                       ANNEXE A. SUJETS D’EXAMEN ET PROBLÈMES
+
+      FMA_41031_EP                                                                              2024
+
+
+                            Analyse complexe et calcul différentiel
+
+                              Contrôle classant du 19 novembre 2024
+
+
+
+                                                           eiz
+      Exercice I. On considère la fonction f : z 7→               .
+                                                       1 + z + z2
+   1. Justifier que f est méromorphe sur C, déterminer ses pôles et leurs résidus.
+   2. Calculer                           Z +∞
+                                                  cos t
+                                                          dt.
+                                          −∞   1 + t + t2
+
+
+      Exercice II. On note D = D(0, 1) le disque unité de C. Pour tout ω ∈ D, posons
+                                                     z−ω
+                                          ϕω (z) =           .
+                                                     1 − ω̄z
+Ainsi ϕω est une fonction rationnelle sur C.
+   1. Montrer que ϕω n’a pas de pôle dans D, puis que ϕω (D) ⊂ D.
+                                                                 ∞
+                                                                 X
+    Soit (yn )n∈N une suite de points de D \ {0}. On suppose que   (1 − |yn |) < +∞. On pose
+                                                                       n=0
+           |yn |
+Fn (z) = −       ϕy (z).
+            yn n
+                                                          1            1
+   2. Montrer que pour tout z ∈ D et tout n ∈ N,                  ≤         et en déduire |Fn (z) − 1| ≤
+                                                      |1 − ȳn z|   1 − |z|
+      1 + |z|
+              (1 − |yn |).
+      1 − |z|
+   3. Justifier que le produit infini F (z) := ∞
+                                              Q
+                                                n=0 Fn (z) est bien défini comme fonction holomorphe.
+      Quels sont ses zéros et leurs multiplicités ?
+   4. Montrer que F (D) ⊂ D.
+
+
+   Exercice III. Soit Ω un ouvert non vide connexe borné de C. Soit (fn )n∈N ∈ Authol (Ω)N
+une suite d’automorphismes de Ω (ainsi chaque fn est une bijection holomorphe de Ω dans lui
+même dont la réciproque fn−1 est holomorphe). On suppose qu’il existe un point a ∈ Ω et un
+point b ∈ ∂Ω = Ω \ Ω tels que
+                                       lim fn (a) = b.
+                                          n→∞
+
+   1. Montrer qu’il existe une suite extraite (fnk )k∈N de la suite (fn )n∈N qui converge localement
+      uniformément vers la fonction constante de valeur b.
+   2. Soit γ un lacet dans Ω et Γ son image dans Ω. Montrer que pour tout ϵ > 0, il existe n0 ∈ N
+      tel que pour tout n ≥ n0 , fn (Γ) ⊂ Ω ∩ D(b, ϵ).
+
+    On suppose que le bord de l’ouvert Ω est suffisamment régulier, de sorte que la propriété
+suivante soit satisfaite :
+      (H) il existe η > 0 tel que Ω ∩ D(b, η) est simplement connexe.

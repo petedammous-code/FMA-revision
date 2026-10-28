@@ -1,0 +1,58 @@
+II.8. LE THÉORÈME DE ROUCHÉ                                                                       53
+
+     Lemme II.8.1 — Principe de l’argument (Cauchy, 1826)
+   Soit Ω un ouvert simplement connexe, soit g une fonction méromorphe sur Ω, non iden-
+   tiquement nulle, et soit γ un lacet dans Ω dont l’image ne contient ni pôle ni zéro de g.
+   Alors            Z ′
+                1      g (z)        X                      X
+                             dz =         Inds (γ) m(s) −       Inds (γ) m(s)
+               2iπ γ g(z)
+                                   s∈Z(g,Ω)                 s∈P(g,Ω)
+
+   où m(s) désigne la multiplicité de s comme zéro ou pôle de g. Comme pour la formule des
+   résidus, les deux sommes sont à support fini (remarque II.5.2).
+
+
+
+
+Démonstration. On écrit en un point z0 de Ω le développement en série de g sous la forme
+g(z) = (z − z0 )N g1 (z), avec g1 holomorphe ne s’annulant pas dans un voisinage de z0 , et l’on a
+alors
+
+                                     g ′ (z)     N    g ′ (z)
+                                             =       + 1
+                                     g(z)      z − z0 g1 (z)
+
+
+                                                                               ′
+On applique la formule des résidus, en constatant que l’ensemble des pôles de gg(z)
+                                                                                 (z)
+                                                                                     est exactement
+la réunion de l’ensemble des zéros et de l’ensemble des pôles de g, d’après la formule qui précède,
+valide aussi pour N = 0 et pour N < 0. Si N > 0 alors z0 est un zéro de multiplicité m(z0 ) = N
+et si N < 0 alors z0 est un pôle de multiplicité m(z0 ) = −N
+
+
+
+
+     Corollaire II.8.2
+   Soit g une fonction méromorphe sur un ouvert Ω et soit U un ouvert tel que U ⊂ Ω. On
+   suppose que le bord Γ de U est un lacet orienté positivement qui ne contient pas de pôles
+   ni de zéros de g. Alors
+                                 Z ′
+                              1     g (z)
+                                          dz = Z(g, U ) − P (g, U )
+                             2iπ Γ g(z)
+
+   où Z(g, U ) et P (g, U ) sont respectivement le nombre de zéros et de pôles de g dans U (les
+   zéros et pôles étant comptés avec multiplicité).
+
+
+   Remarque II.8.3 — On utilise aussi le fait non démontré que l’indice de Γ par rapport à
+   tout point de U est 1. Nous n’avons pas non plus démontré le théorème de Jordan qui dit
+   que si γ est un lacet simple d’image Γ, alors C \ Γ est un ouvert ayant deux composantes
+   connexes, l’une non bornée (voir la remarque II.3.5). On peut justifier cette omission en
+   disant qu’en pratique, on n’utilisera ces résultats que dans des cas où ils sont facilement
+   établis, par exemple sur un disque.
+
+   Nous pouvons maintenant démontrer le :

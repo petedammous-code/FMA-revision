@@ -1,0 +1,55 @@
+128                                           CHAPITRE VII. EQUATIONS DIFFÉRENTIELLES
+
+      Définition VII.1.1
+   On appelle champ de vecteurs dépendant du temps sur un ouvert U d’un espace de
+   Banach E une application continue
+
+                                            X : I × U −→ E,
+
+   où I est un intervalle ouvert (non vide) de R. On appelle courbe intégrale de classe C p ,
+   du champ de vecteurs X une courbe paramétrée α : J → U de classe C p définie sur un
+   intervalle ouvert J de R contenu dans I telle que pour tout t ∈ J,
+
+                                            α′ (t) = X(t, α(t)).
+
+   Cette courbe intégrale est dite de condition initiale (t0 , x) ∈ J × U si α(t0 ) = x.
+
+
+   Remarque VII.1.2 — Il est important de noter que les équations différentielles « implicites »,
+   c’est à dire de la forme f (t, α(t), α′ (t)) = 0, présentent des difficultés qui n’apparaissent pas
+   dans l’étude les équations « ordinaires ». On peut, lorsque ∂f   ∂v (t0 , x0 , v0 ) est inversible en un
+   point (t0 , x0 , v0 ) annulant f , utiliser le théorème des fonctions implicites pour se ramener
+   au voisinage de ce point aux théorèmes du cours. Nous ne ferons pas ici la théorie générale
+   de telles équations.
+
+
+VII.2      Résultats d’existence et d’unicité locaux : le théorème de
+           Cauchy-Lipschitz
+
+
+    Nous allons énoncer et démontrer dans cette section des théorèmes d’existence et d’unicité
+locaux de solutions d’équations différentielles.
+
+      Théorème VII.2.1 — Théorème de Cauchy-Lipschitz
+   Soit X : I × U → E un champ de vecteurs sur un ouvert U d’un espace de Banach E.
+   Supposons X localement lipschitzien en la seconde variable. Alors, pour tout τ0 ∈ I et
+   pour tout x0 ∈ U, il existe η > 0, δ > 0 et ϵ > 0 tels que si x est dans B(x0 , η) et t0 est
+   dans ]τ0 − δ ; τ0 + δ[, l’équation différentielle avec condition initiale
+                                         ′
+                                           α (t) = X(t, α(t))
+   (VII.2.1)
+                                           α(t0 ) = x
+
+   possède une unique solution définie sur ]t0 − ϵ ; t0 + ϵ[. Autrement dit, il existe une unique
+   courbe intégrale α = αt0 ,x de X définie sur ]t0 − ϵ ; t0 + ϵ[ et vérifiant α(t0 ) = x.
+
+    L’hypothèse localement lipschitzien en la seconde variable, signifie que quel que soit
+t0 ∈ I, quel que soit x0 ∈ U, il existe un voisinage J0 de t0 dans I, un voisinage U0 de x dans U
+et une constante k ≥ 0 tels que quels que soient t ∈ J0 et x1 , x2 ∈ U0 ,
+
+                                ∥X(t, x1 ) − X(t, x2 )∥E ≤ k ∥x1 − x2 ∥E .
+
+
+  Remarque VII.2.2 — Le domaine U peut être arbitrairement restreint sans changer la
+  conclusion du théorème. On peut donc supposer que X soit k-lipschitzien en la seconde
+  variable pour démontrer le théorème. De même, on peut restreindre l’intervalle I. En

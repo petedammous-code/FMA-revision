@@ -1,0 +1,45 @@
+                                                                               Chapitre      III
+Suites, séries et produits de fonctions
+holomorphes
+
+   Si f est une fonction à valeurs dans un espace vectoriel normé (V, ∥.∥V ) et définie sur un
+ensemble U, on note
+                                   ∥f ∥∞, U = sup ∥f (x)∥V .
+                                                x∈U
+
+
+
+III.1    Un théorème de Weierstrass
+
+
+    La formule intégrale de Cauchy permet de démontrer que les suites et les séries de fonctions
+holomorphes définies sur un ouvert Ω qui convergent uniformément sur tout compact inclus dans
+Ω convergent vers une fonction holomorphe. Par compacité, il suffit d’une convergence uniforme
+locale. Clarifions ces idées.
+
+     Définition III.1.1
+   Soient Ω un ouvert de C et (fn )n∈N une suite de fonctions de Ω dans C. On dit que la
+   suite (fn )n∈N converge localement uniformément s’il existe une fonction f : Ω → C telle
+   que, pour tout point x ∈ Ω, il existe un voisinage Ux de x dans Ω tel que la suite (fn )n∈N
+   converge uniformément sur Ux vers f .
+   On dit que la suite (fn )n∈N est localement uniformément de Cauchy si, pour tout point
+   x ∈ Ω, il existe un voisinage Ux de x dans Ω où la suite (fn ) est uniformément de Cauchy
+   sur Ux , autrement dit, si pour tout ε > 0, il existe N ≥ 1 tel que pour tous p, q ≥ N , on a
+   |fp (z) − fq (z)| ≤ ε, pour tout z ∈ Ux .
+
+   Remarquons que l’usage de l’adverbe « localement » dans cette définition est conforme à la
+remarque I.4.6. Mais il est souvent utile de reformuler ces définitions comme suit.
+
+     Proposition III.1.2
+   Soient Ω un ouvert de C et (fn )n∈N une suite de fonctions de Ω dans C. Alors (fn )n∈N
+   converge localement uniformément vers f si et seulement si, pour tout compact K ⊂ Ω, la
+   suite (fn )n∈N converge uniformément sur K vers f .
+   De même (fn )n∈N est localement uniformément de Cauchy si et seulement si (fn )n∈N est
+   uniformément de Cauchy sur tout compact K ⊂ Ω (autrement dit, pour tout ε > 0, il
+   existe N ≥ 1 tel que pour tous p, q ≥ N , on a |fp (z) − fq (z)| ≤ ε, pour tout z ∈ K).
+
+
+Démonstration. On passe de la définition à la propriété dans la proposition en utilisant la
+compacité : au voisinage de tout x ∈ K, on a un voisinage Ux où la propriété considérée est
+
+                                                59

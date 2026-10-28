@@ -1,0 +1,57 @@
+IX.2. PARAMÉTRAGE LOCAL. SYSTÈME DE COORDONNÉES                                                149
+
+                                                z
+                                   x
+
+                        v
+                    U
+                                                          p
+                    q = (u, v) u           S                               y
+
+                                                     V
+                                       x
+
+                             Paramétrage local (ici m = 2, N = 3)
+
+
+
+
+ les sous-variétés considérées sont toujours lisses (i.e. k = ∞) et que toutes les applications
+ sont de classe C ∞ , soit s’il est courageux, déterminer pour quelles classes de régularité les
+ énoncés ont un sens et sont valides.
+ 3. On peut remplacer RN dans le définition ci-dessus par n’importe quel espace vectoriel
+ réel de dimension finie E.
+
+
+
+
+  Exemple IX.2.3 — Un ouvert U de RN est une sous-variété de RN . En tout point de U,
+  on peut choisir comme paramétrage local l’inclusion de U dans RN .
+
+
+  Exemple IX.2.4 — Une sous-variété de dimension 0 de RN est un ensemble discret.
+
+
+  Exemple IX.2.5 — Un sous-espace vectoriel ou affine de RN de dimension m est une
+  sous-variété.
+
+
+  Exemple IX.2.6 — Un ouvert d’une sous-variété S de RN est une sous-variété de RN (de
+  même classe de régularité et de même dimension).
+
+
+ Exemple IX.2.7 — Soient S1 et S2 des sous-variétés, respectivement de RN1 et RN2 .
+ Alors S1 × S2 est une sous-variété de RN1 × RN2 .
+
+
+  Exemple IX.2.8 — Soit S une sous-variété de RN et soit Φ un difféomorphisme de RN
+  sur lui-même. Alors Φ(S ) est encore une sous-variété
+                                            4
+                                                        de RN .
+
+
+ Exemple IX.2.9 — Soit f : U → RN une application de classe C 1 définie sur un ouvert
+ U de Rm . Soit q ∈ U tel que dfq soit injective. D’après la proposition IX.1.2, il existe un
+ voisinage ouvert U1 de q dans U tel que la restriction de f à U1 soit une immersion en tout
+ point réalisant un homéomorphisme sur son image. Ainsi S = f (U1 ) est une sous-variété
+ de RN paramétrée par f : U1 → S .

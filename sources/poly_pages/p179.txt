@@ -1,0 +1,55 @@
+176                                                           CHAPITRE IX. SOUS-VARIÉTÉS
+
+
+  Montrer que l’ensemble ϕ(S ) est une sous-variété de RN et que ϕ : S → ϕ(S ) est un
+  difféomorphisme.
+  Application. Soit f : S2 → R×+ une fonction de classe C
+                                                            ∞ sur la sphère unité. Montrer
+
+  que
+                                S (f ) = {f (p)p ; p ∈ S2 }
+  est une surface compacte de R3 difféomorphe à S2 .
+  On dit qu’une surface compacte connexe S de R3 ne contenant pas 0 est radialement
+  transverse (on dit parfois « étoilée par rapport à 0 ») s’il n’existe aucune demi-droite
+  d’origine 0 tangente à S en l’un de ses points.
+  Montrer que toute surface S (f ) est radialement transverse, puis que, réciproquement, si
+  S est radialement transverse, la projection radiale
+                                                               p
+                                  π : S −→ S2 ,       p 7−→
+                                                              ∥p∥
+
+  est une immersion. (On peut montrer qu’alors π est un difféomorphisme, de sorte que
+  S = S (f ) avec f = ∥π −1 ∥ : S étant compacte, π est un revêtement de la sphère, qui est
+  simplement connexe. Cet argument relève de la théorie des revêtements et dépasse le cadre
+  de ce cours.)
+
+
+  Exercice IX.9.5 — Soit S la partie de R3 définie par
+
+               S = {(x, y, z) ∈ R3 | F (x, y, z) = x4 + x2 z 2 + y 4 + 2z 2 − 1 = 0}.
+
+  Montrer que c’est une sous-variété de R3 .
+  Soit f : S → R, (x, y, z) 7→ x2 + y 2 + z 2 . Montrer que f est de classe C ∞ . Trouver les
+  extrema de f sur S .
+
+
+  Exercice IX.9.6 — Soient a > 3 un réel et S la partie de R3 définie par
+                                                         2     2     2
+                   S = {(x, y, z) ∈ R3 | F (x, y, z) = ex + ey + ez − a = 0}.
+
+  Montrer que c’est une sous-variété de R3 . Exhiber un difféomorphisme entre S et S2 .
+
+
+  Exercice IX.9.7 — Soient S une surface de R3 et a ∈ R3 un vecteur de norme 1.
+      1. Si S est compacte, montrer qu’il existe un point p de S tel que la droite passant
+         par p et orthogonale à Tp S soit parallèle au vecteur a.
+      2. Si S est connexe, et si pour tout point p de S , la droite passant par p et orthogonale
+         à Tp S est parallèle au vecteur a, alors S est contenue dans un plan orthogonal à a.
+
+
+  Exercice IX.9.8 — Soient S une surface et D ⊂ R3 une droite de R3 .
+      1. Si S est compacte, montrer qu’il existe un point p de S tel que la droite passant
+         par p et orthogonale à Tp S intersecte D perpendiculairement.
+      2 Si S est connexe, et si pour tout point p de S , la droite passant par p et orthogonale
+        à Tp S intersecte D perpendiculairement, alors S est contenue dans un cylindre d’axe
+        D.

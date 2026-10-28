@@ -1,0 +1,64 @@
+I.14. THÉORÈME DE L’APPLICATION OUVERTE                                                              33
+
+
+  3) Si γ : [0, 1] → D est un chemin dans D, on définit sa longueur hyperbolique par
+
+                                                           |γ ′ (t)|
+                                                   Z 1
+                                    lhyp (γ) =                       dt
+                                                    0    1 − |γ(t)|2
+
+  La distance hyperbolique entre deux points z1 et z2 de D est alors la longueur minimale
+  d’un chemin γ comme ci-dessus joignant z1 et z2 :
+
+                              dhyp (z1 , z2 ) =           inf           lhyp (γ).
+                                                  γ|γ(0)=z1 , γ(1)=z2
+
+  Montrer que l’action du groupe Authol (D) sur D préserve cette distance.
+
+
+
+I.14    Théorème de l’application ouverte
+
+
+  La démonstration du théorème suivant fait l’objet de l’exercice qui le suit.
+
+    Théorème I.14.1 — de l’application ouverte (Riemann 1851)
+  Soit Ω un ouvert connexe non vide de C et f : Ω → C une application holomorphe non
+  constante. Alors l’image f (Ω) est un ouvert de C.
+
+
+
+  Exercice I.14.2 — On se place dans les hypothèses du théorème. On raisonne par l’absurde
+  en supposant qu’il existe un point z0 de Ω tel que f (Ω) n’est pas un voisinage de f (z0 ),
+  c’est-à-dire qu’il existe une suite (αn )n∈N de nombres complexes qui ne sont pas dans f (Ω)
+  et qui converge vers f (z0 ).
+  1) Montrer qu’il existe r > 0 avec les propriétés suivantes :
+  (i) D̄(z0 , r) ⊂ Ω, (ii) pour tout z ∈ D̄(z0 , r) \ {z0 }, f (z) ̸= f (z0 ).
+                                                 1
+  2) On pose pour tout n ∈ N, gn (z) =                 . Montrer que pour tout n ∈ N, gn est bien
+                                           f (z) − αn
+  définie et holomorphe sur Ω et qu’il existe zn ∈ C(z0 , r) tel que pour tout z ∈ D̄(z0 , r),
+  |f (z) − αn | ≥ |f (zn ) − αn |.
+  3) Montrer qu’il existe ϵ > 0 tel que pour tout z ∈ C(z0 , r), |f (z) − f (z0 )| ≥ ϵ. En déduire
+  que pour n assez grand, |f (zn ) − αn | ≥ 2ϵ et aboutir à une contradiction avec le fait que la
+  suite αn tend vers f (z0 ).
+
+  Comme application, notons le fait suivant.
+
+  Remarque I.14.3 — Supposons que f : Ω1 → Ω2 soit une bijection holomorphe entre
+  les ouverts Ω1 et Ω2 de C. Alors f −1 est automatiquement holomorphe. En effet grâce au
+  théorème d’inversion locale et à la proposition I.4.4, il suffit de montrer que f ′ ne s’annule
+  pas. Montrons que l’annulation de f ′ en un point z0 contredit l’injectivité de f . On peut
+  quitte à translater, supposer     f (z0 ) = 0, et le développement
+                                queP                                 de f en z0 est alors de la
+                             N             aN +n         n
+  forme f (z) = aN (z − z0 )    1 + n≥1 aN (z − z0 ) avec aN ̸= 0 et N ≥ 2. La fonction
+                   aN +n
+  z 7→ 1 + n≥1 aN (z − z0 )n prend ses valeurs dans D(1, 1/2) sur D(z0 , ϵ) pour ϵ > 0
+            P
+
+  assez petit (par continuité), et donc cette fonction admet un logarithme (primitive de z1
+  s’annulant en 1 sur le disque D(1, 1/2) dont l’existence est garantie par le corollaire I.7.6),
+                                                  1
+  et donc une racine N -ième (par la formule e N Log(z) ). Ainsi f admet une racine N -ième h

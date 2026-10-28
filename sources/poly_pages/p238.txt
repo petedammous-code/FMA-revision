@@ -1,0 +1,70 @@
+                                                                                                   235
+
+   (d) D’après la condition (i) et les questions (b) et (c), le graphe Γ de P + : x 7→ Px+ est
+       fermé et borné dans Λ × L(Rn ). Il est donc compact. L’application (y, Q) 7→ y, de
+       Γ dans Λ, est bijective et continue par définition ; puisque Γ et Λ sont compacts, sa
+       bijection réciproque est donc continue. Cette réciproque est l’application x 7→ (x, Px+ )
+       de Λ dans Γ ; l’application P + est obtenue en la composant avec l’application continue
+       (y, Q) 7→ Q de Γ dans L(Rn ) ; l’application P + est donc continue. Le cas de x 7→ Px−
+       se traite de même.
+   (e) Soit x ∈ Λ. Si v ∈ Rn vérifie Nx (v) = 0, alors dφx (v) = dφx (v+ ) + dφx (v− ) est nul,
+       donc v est nul car φ est un difféomorphisme. L’inégalité triangulaire et l’homogénéité
+       étant immédiates, on en déduit que Nx est une norme sur Rn .
+       Pour tout x ∈ Λ et tout v ∈ Ex+ , on a en outre si v ∈ Ex+ , alors Px+ v = v et Px− v = 0,
+                                                  +
+       donc Nx (v) = ∥v∥ ; de même dφx (v) ∈ Eφ(x)    , donc Nφ(x) (dφx (v)) = ∥dφx (v)∥. La
+       propriété (γ) appliquée avec j = 1 donne alors
+
+                             Nφ(x) (dφx (v)) = ∥dφx (v)∥ ≤ θ∥v∥ = θNx (v).
+
+       L’inégalité Nφ−1 (x) (d(φ−1 )x (v)) ≤ θNx (v) si v ∈ Ex− se prouve de même.
+       Enfin, x 7→ Nx est continue : pour x, y ∈ Λ et ∥v∥ ≤ 1,
+
+                                                      Px+ − Py+ ,      Px− − Py−
+                                                                                   
+                        |Nx (v) − Ny (v)| ≤ max                                        ,
+
+       majorant indépendant de v et qui tend vers 0 quand y → x d’après la question 1(d).
+       La convergence est donc uniforme sur la boule unité, donc sur tout compact par
+       homogénéité.
+2. (a) Les applications x 7→ Px+ et x 7→ Px− sont continues, donc uniformément continues,
+       sur le compact Λ. Il suffit alors d’écrire la continuité uniforme.
+   (b) Soient x et y des éléments de V. Pour j ∈ Z, notons zj+ et zj− les nombres (∗), et
+                      −
+       notons t+j et tj les nombres obtenus en remplaçant x par y dans (∗). Alors
+                                                               h                  i                         
+       Nqj (zj+ − t+
+                   j ) = Nqj   dϕ qj−1 ◦ P +
+                                               (x
+                                           qj−1 j−1 − y j−1 ) +  P +
+                                                                   qj − P +
+                                                                          ϕ(qj−1 )   ◦ dϕ     (x
+                                                                                          qj−1 j−1 − y j−1 )
+                      ≤ (θ + ηK)Nqj−1 (xj−1 − yj−1 ),
+
+       et de même on vérifie que
+
+                   Nqj (zj− − t−                                    2
+                               j ) ≤ θNqj+1 (xj+1 − yj+1 ) + η(K + K )Nqj (xj − yj ).
+
+       Il ne faut surtout pas ajouter ces deux majorations : zj+ − t+                    +
+                                                                         j appartient à Eqj et
+       zj− − t−               −
+              j appartient à Eqj , de sorte que, par définition de Nqj ,
+
+                                     −    −                               −    −
+                 Nqj (zj+ − t+                            +    +
+                                                                                 
+                             j ) + (zj − tj ) = max Nqj (zj − tj ), Nqj (zj − tj ) .
+
+       C’est précisément pour cela que l’on a introduit cette norme. En passant à la borne
+       supérieure sur j ∈ Z, on obtient donc
+
+                            ∥Φg (x) − Φg (y)∥V ≤ (θ + ηK + ηK 2 )∥x − y∥V .
+
+       Si l’on choisit η > 0 assez petit pour que θ + η(K + K 2 ) < 1, on voit que Φg est
+       contractante.
+   (c) • D’abord, si x = (xj )j∈Z est un élément de ℓ∞ , alors
+                                                   
+                 ∥Ψ(x)∥V = sup Nqj d(φ)qj−1 (xj−1 ) ≤ µ sup Nqj−1 (xj−1 ) ≤ µ∥x∥V ,
+                              j∈Z                              j∈Z

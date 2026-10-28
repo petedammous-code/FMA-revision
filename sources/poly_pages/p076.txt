@@ -1,0 +1,54 @@
+III.7. EXERCICES                                                                                      73
+
+III.7      Exercices
+
+
+
+   Exercice III.7.1 — Soit (fn )n≥0 une suite de fonctions holomorphes sur un ouvert Ω. On
+   suppose que la suite converge simplement vers une fonction f et que pour tout compact
+   K ⊂ Ω, il existe une constante C(K) telle que
+
+                                         sup |fn (z)| ≤ C(K),
+                                            K
+
+  pour tout n ∈ N.
+  1) Montrer que f est holomorphe.
+  2) Montrer que, pour tout k ∈ N et pour tout compact K ⊂ Ω, il existe une constante
+  C(k, K) telle que
+                                 sup |fn(k) (z)| ≤ C(k, K),
+                                        K
+
+   pour tout n ∈ N.
+
+   Le but des exercices qui suivent est d’étudier les propriétés élémentaires des systèmes dyna-
+miques holomorphes possédant un point fixe, à savoir le comportement de la suite des itérées
+d’une fonction holomorphe f d’un ouvert dans lui-même pour laquelle il existe a tel que f (a) = a.
+
+   Exercice III.7.2 — Soient Ω un ouvert connexe borné de C et f : Ω → Ω holomorphe.
+   Supposons qu’il existe a ∈ Ω, tel que f (a) = a, et posons pour n ∈ N∗ , f n = f ◦ · · · ◦ f la
+   n-ième itérée de f et f 0 = idΩ .
+        1. Montrer que |f ′ (a)| ≤ 1.
+        2. Montrer que si f ′ (a) = 1, alors pour tout z ∈ Ω, f (z) = z.
+        3. Montrer que lorsque |f ′ (a)| = 1, f est un automorphisme holomorphe de Ω.
+        4. Lorsque |f ′ (a)| < 1, montrer que la suite (f n )n∈N∗ converge uniformément sur tout
+           compact de Ω vers la fonction constante égale à a.
+
+
+   Exercice III.7.3 — Soient Ω ⊂ C un ouvert connexe borné contenant 0 et f : Ω → Ω
+   holomorphe. Supposons que f (0) = 0 et supposons que f ′ (0) = λ satisfait 0 < |λ| < 1.
+   Notons encore f n = f ◦ ... ◦ f .
+        1. Montrer que si on prend c ∈ R+ , tel que 0 < c2 < |λ| < c < 1, il existe r > 0, tel que
+           Dr = D(0, r) ⊂ Ω et tel que |f n (z)| ≤ cn |z| pour n ≥ 1 et z ∈ Dr ,
+        2. Quitte à prendre r′ < r, montrer qu’il existe k > 0, tel que |f (z) − λz| ≤ k|z|2 , pour
+           tout z ∈ Dr′ ,
+        3. Pour n ≥ 1, posons φn := f n /λn . Montrer que
+                                                     n
+                                                kr′2 c2
+                          |φn+1 (z) − φn (z)| ≤           pour tout z ∈ Dr′ .
+                                                |λ| |λ|
+
+        4. Montrer qu’il existe φ : Dr′ → C holomorphe telle que (φn )n≥1 converge uniformément
+           sur tout compact de Dr′ vers φ, φ′ (0) = 1 et telle que φ ◦ f = λφ sur Dr′ .
+        5. Supposons que f est holomorphe sur C et posons
+
+                                 A = {z ∈ C | (f n (z))n≥0 converge vers 0}

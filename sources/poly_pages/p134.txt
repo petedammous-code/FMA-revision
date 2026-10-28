@@ -1,0 +1,56 @@
+VII.2. THÉORÈME DE CAUCHY-LIPSCHITZ                                                                      131
+
+    Choisissons enfin b > 0 tel que
+
+                                    b ℓ < a,      b k ≤ 12 ,     b < a′ ,
+
+et soient x ∈ B(x0 , a) et t0 ∈ ]τ0 − a′ ; τ0 + a′ [. Comme b < a′ , on a [t0 − b ; t0 + b] ⊂ [τ0 − 2a′ ; τ0 +
+2a′ ] ⊂ I. Le lemme VII.2.7, appliqué avec c = t0 , ρ = a, ϵ = b et Y la restriction de X, montre
+alors que l’opérateur
+                                                                      Z t
+                  S = St0 ,x : ϕ 7→ St0 ,x (ϕ), St0 ,x (ϕ)(t) = x +       X(s, ϕ(s)) ds
+                                                                        t0
+
+envoie X = C 0 ([t0 − b ; t0 + b], B̄(x0 , 2a)) dans lui-même et y est 12 -lipschitzien. Comme X est
+complet, le théorème de Banach VI.1.1 fournit un unique point fixe α de S dans X : c’est l’unique
+solution de (VII.2.2) définie sur [t0 − b ; t0 + b] et à valeurs dans B̄(x0 , 2a).
+   L’unicité dans l’énoncé du théorème est un peu plus forte. Pour l’établir, il suffit de vérifier
+que toute solution α de (VII.2.1) définie sur [t0 − b ; t0 + b] est à valeurs dans B̄(x0 , 2a). Soit
+
+             J = {t ∈ [t0 − b ; t0 + b] : ∥α(s) − x0 ∥ < 2a pour tout s entre t0 et t},
+
+un intervalle contenant t0 , ouvert dans [t0 − b ; t0 + b] par continuité de α. Pour t ∈ J on a
+∥α′ (s)∥ = ∥X(s, α(s))∥ ≤ ℓ sur le segment joignant t0 à t, d’où
+
+                          ∥α(t) − x0 ∥ ≤ ∥x − x0 ∥ + ℓ |t − t0 | < a + ℓb < 2a,
+
+la dernière inégalité venant de bℓ < a. Cette majoration stricte passe à la limite et montre que J
+est aussi fermé dans [t0 − b ; t0 + b] ; par connexité J est l’intervalle tout entier.
+    Pour revenir aux notations de l’énoncé, on prend ϵ = b et δ = a′ , η = a.
+
+
+    Nous allons maintenant utiliser la version « à paramètres » du théorème de Picard pour
+montrer que si une famille d’équations différentielles dépend de manière C p d’un paramètre λ, il
+en est de même de sa solution donnée par le théorème de Cauchy-Lipschitz. Remarquons que la
+condition initiale peut aussi être considérée comme un paramètre.
+
+     Théorème VII.2.8 — Théorème de Cauchy-Lipschitz à paramètres
+   Soit X : Λ × I × U → E une application de classe C p , p ≥ 0 où Λ est un ouvert d’un
+   espace métrique si p = 0 et d’un espace de Banach si p ≥ 1, I est un intervalle ouvert de R
+   et U est un ouvert d’un espace de Banach E (on voit X comme une famille (Xλ )λ∈Λ de
+   champs de vecteurs sur U ).
+   Supposons X localement lipschitzien en la variable x ∈ U. Notons X(λ, t, x) = Xλ (t, x).
+   Alors, pour tout λ0 ∈ Λ, pour tout τ0 ∈ I et pour tout x0 ∈ U, il existe σ > 0, η > 0,
+   δ > 0 et ϵ > 0 tels que si λ ∈ B(λ0 , σ), x est dans B(x0 , η) et t0 est dans ]τ0 − δ ; τ0 + δ[,
+   l’équation différentielle avec condition initiale
+                                       ′
+                                         α (t) = Xλ (t, α(t))
+   (VII.2.3)
+                                         α(t0 ) = x
+
+   possède une unique solution définie αλ,t0 ,x sur ]t0 − ϵ ; t0 + ϵ[. Notons
+
+                         E = {(t0 , t) ∈]τ0 − δ, τ0 + δ[×R | t ∈]t0 − ϵ, t0 + ϵ[}.
+
+   C’est un ouvert connexe de R2 . L’application F : (λ, t0 , t, x) 7→ αλ,t0 ,x (t) définie sur
+   B(λ0 , σ) × E × B(x0 , η) est de classe C p , et de classe C p+1 en t.

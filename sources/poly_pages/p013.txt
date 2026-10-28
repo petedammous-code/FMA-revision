@@ -1,0 +1,57 @@
+10                                                       CHAPITRE I. FONCTIONS HOLOMORPHES
+
+      Lemme I.2.9
+     On a                                                              
+                     ∂(f ◦ g)             ∂f           ∂g         ∂f             ∂ḡ
+                              (z) =          ◦ g (z) ×    (z) +        ◦ g (z) ×     (z),
+                       ∂z                 ∂z           ∂z         ∂ z̄           ∂z
+     et                                                                  
+                     ∂(f ◦ g)             ∂f           ∂g           ∂f             ∂ḡ
+                              (z) =          ◦ g (z) ×      (z) +        ◦ g (z) ×      (z).
+                       ∂ z̄               ∂z           ∂ z̄         ∂ z̄           ∂ z̄
+
+
+Démonstration. La composition des différentielles donne d(f ◦ g)z = dfg(z) ◦ dgz . D’après (I.2.4)
+appliqué à g, puis à ḡ,
+
+                                          ∂g         ∂g                          ∂ḡ         ∂ḡ
+               (∀ω ∈ C),    dgz (ω) =        (z) ω +      (z) ω̄,   dḡz (ω) =       (z) ω +      (z) ω̄.
+                                          ∂z         ∂ z̄                        ∂z          ∂ z̄
+
+En appliquant (I.2.4) à f au point g(z), il vient
+
+                           ∂f                    ∂f
+           d(f ◦ g)z (ω) =    (g(z)) (dgz (ω)) +     (g(z)) (dgz (ω))
+                          ∂z                   ∂ z̄                                    
+              ∂f       ∂g       ∂f         ∂ḡ           ∂f         ∂g    ∂f         ∂ḡ
+          =      (g(z)) (z) +        (g(z)) (z) ω +          (g(z)) (z) +      (g(z)) (z) ω̄.
+              ∂z       ∂z       ∂ z̄       ∂z            ∂z         ∂ z̄  ∂ z̄       ∂ z̄
+
+La décomposition (I.2.4) de d(f ◦ g)z étant unique, l’identification des coefficients de ω et de ω̄
+donne l’énoncé du lemme.
+
+
+     Exercice I.2.10 —
+          1. Montrer qu’une fonction holomorphe définie sur un ouvert connexe Ω et à valeurs
+             réelles, est constante.
+          2. Trouver les fonctions holomorphes f , g et h sur C dont la partie réelle est :
+             (a) ℜef (x + iy) = 2 x y
+             (b) ℜe g(x + iy) = ex cos y,
+             (c) ℜe h(x + iy) = sin(x + y) cosh(x − y).
+
+
+
+I.3        Premières constructions de fonctions holomorphes
+
+
+    Les propriétés de stabilité par les opérations usuelles des fonctions C 1 , la formule (I.2.10) et
+les formules du Lemme I.2.9 donnent la proposition suivante :
+
+      Proposition I.3.1
+     Les combinaisons linéaires et produits de fonctions holomorphes définies sur un même
+     ouvert sont des fonctions holomorphes sur cet ouvert. Si f est holomorphe, alors 1/f est
+     holomorphe sur l’ouvert où f ne s’annule pas. Enfin, si f ∈ Hol(Ω), g ∈ Hol(Ω′ ) et si
+     g(Ω′ ) ⊂ Ω, alors f ◦ g ∈ Hol(Ω′ ).
+
+   Bien entendu, les dérivées complexes se calculent avec les formules habituelles. Par exemple,
+pour tout n ∈ N \ {0}, la dérivée complexe de z 7→ z n est donnée par z 7→ n z n−1 . On déduit de

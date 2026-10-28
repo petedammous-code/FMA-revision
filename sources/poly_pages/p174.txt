@@ -1,0 +1,63 @@
+IX.8. EQUATIONS DIFFÉRENTIELLES SUR LES SOUS-VARIÉTÉS                                             171
+
+    Il découle des propriétés des différentielles secondes en calcul différentiel ordinaire que d2 fp
+est une forme bilinéaire symétrique sur Tp S . On appelle cette forme la hessienne de f au point
+critique p. D’autre part, si la fonction f admet un maximum (resp. minimum) local en p, alors
+d2 fp est négative (resp. positive) ; inversement, sous l’hypothèse plus forte où d2 fp est définie
+négative (resp. définie positive), f admet un maximum (resp. minimum) local isolé en p.
+
+
+
+   Exercice IX.7.39 — Soient f : S1 → S2 une application de classe C 2 entre deux sous-
+   variétés S1 et S2 , p un point de S1 où la différentielle de f s’annule et d2 fp la hessienne
+   de f en p. Montrer que si α : I → S1 est une courbe de classe C 2 tracée sur S1 telle que
+   α(0) = p et α′ (0) = v ∈ Tp S1 , alors
+
+                                                    d2       h          i
+                                   d2 fp (v, v) =              f (α(t))   .
+                                                    dt2 |t=0
+
+
+   Remarque IX.7.40 : Lemme de Morse sur une sous-variété — Soient S une sous-variété
+   de dimension m de RN de classe C ∞ , f : S → R une fonction de classe C ∞ et p un point
+   critique de f . Supposons que la hessienne d2 fp soit une forme bilinéaire symétrique non
+   dégénérée sur Tp S , de signature (r, s), avec r + s = m. Alors il existe un paramétrage local
+   x : U → S de S en p, avec 0 ∈ U et x(0) = p, tel que
+                                  r
+                                  X      m
+                                         X
+                                     2
+                                           u2i ,
+                       
+                 f x(u) = f (p) +   ui −                           u = (u1 , . . . , um ) ∈ U.
+                                     i=1       i=r+1
+
+   Il n’y a rien à démontrer de plus que dans le cas d’un ouvert de Rm , qui fait l’objet de
+   l’exercice VI.3.4 : tout se transporte par un paramétrage. Soit en effet y : U1 → S un
+   paramétrage local quelconque en p, avec y(q0 ) = p, et posons g = f ◦y, fonction de classe C ∞
+   sur l’ouvert U1 de Rm . Le point q0 est un point critique de g, puisque dgq0 = dfp ◦ dyq0 = 0,
+   et la définition même de la hessienne donne
+
+                      d2 gq0 (h, k) = d2 fp dyq0 (h), dyq0 (k) ,  (h, k ∈ Rm ).
+                                                              
+
+
+   Comme dyq0 est un isomorphisme de Rm sur Tp S , la forme d2 gq0 est non dégénérée et de
+   même signature (r, s). L’exercice VI.3.4 fournit donc un difféomorphisme ψ d’un voisinage
+   ouvert de 0 sur un voisinage ouvert de q0 , avec ψ(0) = q0 , mettant g sous la forme voulue ;
+   le paramétrage cherché est x = y ◦ ψ.
+
+
+
+
+IX.8      Equations différentielles sur les sous-variétés
+
+
+IX.8.1     Champs tangents à une sous-variété
+
+   Soit S une sous-variété de RN . Soit X : I × U → RN un champ de vecteurs dépendant du
+temps, vérifiant les conditions du théorème VII.2.12, où U est un ouvert de RN contenant S et
+I un intervalle ouvert de R contenant 0. Supposons que pour tout t ∈ I et pour tout x ∈ S ,
+X(t, x) ∈ Tx S . Alors il est clair intuitivement que les courbes intégrales de X de condition initiale
+dans S vont rester dans S pour t suffisamment petit. Si S est fermée, les courbes intégrales ne
+peuvent en sortir, comme le montre le résultat suivant :

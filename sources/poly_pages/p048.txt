@@ -1,0 +1,54 @@
+II.4. FONCTIONS MÉROMORPHES, RÉSIDUS                                                               45
+
+qui converge normalement sur tout compact contenu dans D (voir le Corollaire I.7.5). On a alors,
+                                             X
+                                   f (z) =         an (z − z0 )n−2−m ,
+                                             n≥0
+
+
+sur le disque épointé D× , ce qui est bien un développement de la forme annoncée (avec a0 =
+h(z0 ) = 0 et a1 = h′ (z0 ) = 0, les premiers termes effectifs correspondent bien à des exposants
+≥ −m). Pour la dernière assertion : si tous les an , n ≤ −1, sont nuls, le développement est une série
+entière et f se prolonge holomorphiquement en z0 , qui n’est donc pas un pôle ; réciproquement, si
+k = − min{n ; an ̸= 0} ≥ 1, alors (z − z0 )k f (z) est bornée au voisinage de z0 et (z − z0 )k−1 f (z)
+ne l’est pas, de sorte que z0 est un pôle de multiplicité k.
+
+     Corollaire II.4.7 — Singularité effaçable (Riemann)
+   Avec les notations ci-dessus, soit z0 ∈ P et supposons que la fonction f reste bornée au
+   voisinage de z0 (par exemple si f se prolonge par continuité en z0 ). Alors f se prolonge en
+   une fonction holomorphe en z0 .
+
+
+Démonstration. On considère le développement en série de Laurent en z0 pour étudier le com-
+portement asymptotique de |f | en z0 . Le terme prépondérant est celui de la puissance la plus
+négative de z, et l’on voit que pour que la fonction reste bornée au voisinage de z0 il faut qu’il
+n’y ait pas de puissance négative de z dans le développement. Autrement dit celui-ci est un
+développement en série entière donc holomorphe en z0 .
+
+
+   Complètons la proposition II.4.5 ci-dessus :
+
+     Proposition II.4.8
+   Si Ω est connexe, l’ensemble M(Ω) est un corps (une extension de dimension infinie de C).
+
+
+Démonstration. Il s’agit de montrer que si f ∈ M(Ω) est non identiquement nulle, alors g = f1
+est aussi méromorphe. Dans la définition de f entre en jeu l’existence d’une partie localement
+finie P . Vérifions que g est méromorphe. En dehors de P1 := P ∪ Z(f, Ω), qui est localement
+finie comme union de deux parties localement finies, g est holomorphe. Au voisinage d’un zéro z0
+de f , la fonction est holomorphe, et nous avons vu que z0 est alors un pôle de g. Au voisinage
+d’un point z0 de P , on considère la fonction h(z) = (z − z0 )n0 f (z) avec n0 assez grand pour avoir
+h(z) bornée. Cette fonction est alors holomorphe en z0 d’après ce qui précède et son inverse est
+méromorphe. Du développement en série de Laurent de h1 en z0 , on déduit immédiatement un
+développement en série de Laurent de g.
+
+     Définition II.4.9
+   Avec les notations précédentes, on définit resz0 (f ), le résidu de f en z0 , par la formule
+
+                                          resz0 (f ) := a−1 .
+
+   La propriété suivante est une conséquence directe du résultat de la Proposition II.4.6 :
+
+     Corollaire II.4.10
+   L’application f 7→ resz0 (f ) est une forme linéaire sur l’espace des fonctions méromorphes
+   sur Ω à valeurs dans C.

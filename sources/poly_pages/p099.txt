@@ -1,0 +1,59 @@
+96                                CHAPITRE V. CALCUL DIFFÉRENTIEL DANS LES E.V.N.
+
+      Théorème V.2.1 — Théorème de Baire (1899)
+     Dans un espace métrique complet, la réunion d’une famille dénombrable de fermés d’intérieur
+     vide est encore d’intérieur vide. De manière équivalente, une intersection dénombrable
+     d’ouverts denses est dense.
+
+     Voir [11] théorème 4.1.
+
+
+V.2.2      Théorème de l’application ouverte
+
+   Nous allons maintenant énoncer et démontrer un théorème important de la théorie des espaces
+de Banach, le théorème de l’application ouverte. Il est dû à J. Schauder (1930).
+
+      Théorème V.2.2 — Application ouverte
+     Soient E et F des espaces de Banach, et soit f : E → F une application linéaire continue
+     et surjective. Alors l’image par f d’un ouvert de E est un ouvert de F .
+
+
+Démonstration. Par translation et linéarité, il suffit de montrer qu’il existe c > 0 tel que BF (0, c) ⊂
+f (BE (0, 1)). Notons B = BE (0, 1) la boule unité ouverte de E et B̄ son adhérence. Comme f est
+surjective, et que par continuité, f (B̄) ⊂ f (B), on a :
+                                            [             [                  [
+                        F = f (E) = f (         n B̄) =         n f (B̄) =         n f (B).
+                                         n≥1              n≥1                n≥1
+
+
+Comme F est complet, d’après le théorème de Baire, l’un des n f (B) est d’intérieur non vide.
+Donc f (B) est d’intérieur non vide. Comme f (B) est un convexe symétrique (par rapport à 0),
+il existe α > 0 tel que B̄F (0, α) ⊂ f (B). Nous allons montrer que ceci implique que pour tout
+                                                   1
+β < α, B̄F (0, β) ⊂ f (B). En remplaçant f par f , il suffit de montrer que pour tout λ < 1,
+                                                   α
+B̄F (0, 1) ⊂ f (B) ⇒ B̄F (0, λ) ⊂ f (B).
+                                                               ∞
+                                                               X
+    Soient des réels strictement positifs ϵn , n ∈ N, tels que   ϵn = 1 − λ. Soit y ∈ B̄F (0, λ).
+                                                                         n=1
+Comme :
+                          B̄F (0, λ) = λ B̄F (0, 1) ⊂ λ f (B) = f (BE (0, λ)),
+
+il existe x1 ∈ E tel que ∥x1 ∥E < λ, ∥y − f (x1 )∥F ≤ ϵ1 . On a donc
+
+                  y − f (x1 ) ∈ B̄F (0, ϵ1 ) = ϵ1 B̄F (0, 1) ⊂ ϵ1 f (B) = f (BE (0, ϵ1 )).
+
+Ainsi il existe x2 ∈ E tel que ∥x2 ∥E < ϵ1 et ∥y − f (x1 ) − f (x2 )∥F ≤ ϵ2 . En continuant ce procédé,
+on obtient des éléments xn ∈ E, n ≥ 1, tels que :
+
+                    ∥xn ∥E < ϵn−1 ,     ∥y − f (x1 ) − f (x2 ) − · · · − f (xn )∥F ≤ ϵn .
+
+Alors
+                                      X                     X
+                                          ∥xn ∥E < λ +            ϵn ≤ 1.
+                                      n≥1                   n≥1
+                                P
+Comme E est complet, la série Xxn converge dans E. Notons x sa somme. On a ∥x∥E < 1, et
+puisque f est continue, f (x) =   f (xn ) = y. Donc y ∈ f (B), ce que l’on voulait montrer.
+                                  n≥1

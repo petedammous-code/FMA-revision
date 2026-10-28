@@ -1,0 +1,56 @@
+V.3. APPLICATIONS DIFFÉRENTIABLES, DIFFÉRENTIELLE                                                    99
+
+
+  Exemple V.3.5 — Soit f : E → F une application linéaire continue entre deux espaces
+  vectoriel normés. Alors f est partout différentiable, et sa différentielle en tout point est f .
+  En effet, f (x0 + h) − f (x0 ) − f (h) = 0 quels que soient x0 et h dans E.
+
+
+
+  Exemple V.3.6 — Soient E1 , E2 et F des espaces vectoriels normés. On munit l’espace
+  vectoriel E = E1 × E2 de la norme ∥(x, y)∥E = ∥x∥E1 + ∥y∥E2 . Soit f : E1 × E2 → F une
+  application bilinéaire continue. La différentielle de f au point (a, b) est donnée par
+
+                         df(a,b) (h, k) = f (a, k) + f (h, b),   (h ∈ E1 , k ∈ E2 ).
+
+  En effet, on a alors
+
+                          f (a + h, b + k) − f (a, b) − df(a,b) (h, k) = f (h, k).
+
+  Or ∥f (h, k)∥F ≤ ∥f ∥ × ∥h∥E1 × ∥k∥E2 = o((h, k)).
+
+
+
+  Exercice V.3.7 — Reprendre l’exemple ci-dessus dans le cadre plus général des applications
+  multilinéaires continues de la section V.1.3.
+
+  Exemple V.3.8 — On suppose que (E, ⟨. , .⟩E ) est un espace de Hilbert. Soit f : U → R une
+  application définie sur un ouvert U de E. Supposons f différentiable en a, de différentielle
+  dfa : E → R. D’après le théorème de représentation de Riesz, il existe un unique vecteur
+  ∇f (a) de E tel que pour tout h ∈ E,
+
+                                          ⟨∇f (a), h⟩E = dfa (h).
+
+  On appelle le vecteur ∇f (a) le gradient de f en a.
+
+
+  Exemple V.3.9 — Soit f : U → F une application différentiable d’un ouvert U d’un espace
+  vectoriel normé E dans un espace vectoriel normé F . Soit E ′ un sous-espace de E, muni
+  de la norme induite. Alors U ′ = E ′ ∩ U est un ouvert de E ′ , la restriction g de f à U ′ est
+  différentiable, et pour tout a ∈ U ′ , dga est la restriction de dfa à E ′ .
+
+
+  Exercice V.3.10 — On se place dans les hypothèses de l’exemple ci-dessus, avec E un
+  espace de Hilbert, E ′ un sous-espace fermé, et F = R. Déterminer ∇g(a) en fonction de
+  ∇f (a).
+
+
+V.3.2   Propriétés de la différentielle
+  On rappelle maintenant les propriétés de linéarité et de composition des différentielles.
+
+    Proposition V.3.11 — Linéarité de la différentielle
+  Soient E et F des espaces vectoriels normés, U un ouvert de E et f, g : U → F des
+  applications différentiables en un point a de U. Alors toute combinaison linéaire λf + µg
+  de f et de g est encore différentiable au point a, et
+
+                                      d(λf + µg)a = λ dfa + µ dga .

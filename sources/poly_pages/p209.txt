@@ -1,0 +1,77 @@
+206                                            ANNEXE A. SUJETS D’EXAMEN ET PROBLÈMES
+
+Mais par ailleurs, pour tout t ∈ R on a e2iπ(t−iε) = e2πε > 1. On a donc
+                   Z +∞                      Z +∞
+                           f (t − iε)                        f (t − iε)
+                                        dt =                                     dt
+                    −∞   e2iπ(t−iε) − 1
+                                              −∞ e
+                                                   2iπ(t−iε)    1 − e−2iπ(t−iε)
+                                             Z +∞             +∞
+                                                  f (t − iε) X −2iπn(t−iε)
+                                           =       2iπ(t−iε)
+                                                                   e            dt
+                                              −∞ e            n=0
+                                             +∞ Z +∞
+                                             X
+                                           =           f (t − iε)e−2iπ(n+1)(t−iε) dt
+                                                    n=0 −∞
+
+Où nous avons utilisé le théorème de Fubini dans la dernière égalité pour justifier l’interversion
+somme/intégrale, grâce à une variante des majorations faites plus haut.
+                                      R
+   On procède de façon similaire pour γ3 f (z)g(z)dz. On a
+                  Z                       Z +∞                                       Z +∞
+                                                                                                  f (t + iε)
+            lim        f (z)g(z)dz = −              f (t + iε)g(t + iε)dt = −                                  dt.
+          N →+∞ γ3,N                          −∞                                         −∞   e2iπ(t+iε) − 1
+
+Pour tout t ∈ R on a e2iπ(t+iε) = e−2πε < 1. On a donc
+                           Z +∞                          Z +∞                +∞
+                                    f (t + iε)                               X
+                       −                         dt =           f (t + iε)         e2iπn(t+iε) dt
+                           −∞     e2iπ(t+iε) − 1         −∞                  n=0
+                                                         +∞ Z +∞
+                                                         X
+                                                     =               f (t + iε)e2iπn(t+iε) dt
+                                                         n=0 −∞
+
+      (6) Montrons maintenant que l’on a
+               Z +∞                                  Z +∞
+                                −2iπ(n+1)(t−iε)
+                    f (t − iε)e                 dt =      f (t)e−2iπ(n+1)t dt = fˆ(n + 1).
+                  −∞                                       −∞
+
+Pour faire cela il suffit d’appliquer le théorème des résidus à la fonction holomorphe z 7→
+f (z)e−2iπ(n+1)z sur le chemin parcourant le rectangle de sommet {−R − iε, R − iε, R, −R}.
+Comme ci-dessus on montre que les intégrale sur les deux segments verticaux tendent vers 0
+quand R tend vers +∞. On en déduit la formule voulue par passage à la limite dans le théorème
+des résidus. On a donc montré que
+                                   Z                       +∞
+                                                           X                       +∞
+                                                                                   X
+                            lim          f (z)g(z)dz =           fˆ(n + 1) =             fˆ(n).
+                           N →+∞ γ1,N
+                                                           n=0                     n=1
+
+On montre de même que γ3 f (z)g(z)dz = +∞   ˆ
+                             R        P
+                                        n=0 f (−n).
+   (7) Il reste à rassembler les morceaux. Les deux côtés verticaux de γN sont portés par les droites
+ℜe(z) = ±(N + 12 ) et sont de longueur fixe 2ε ; sur ces droites, e2iπz − 1 = −e−2πℑm(z) − 1 ⩾ 1,
+donc |g| ⩽ 1, et la décroissance de f à l’infini entraîne que ces deux intégrales tendent vers 0
+quand N → +∞. Il reste donc les deux côtés horizontaux, et les questions (5) et (6) donnent
+                                  Z           +∞
+                                              X               +∞
+                                                              X                +∞
+                                                                               X
+                            lim        fg =         fˆ(n) +         fˆ(−n) =             fˆ(n),
+                           N →+∞ γN
+                                              n=1             n=0              n=−∞
+
+les ensembles d’indices {n ⩾ 1} et {−n, n ⩾ 0} = {n ⩽ 0} formant une partition de Z. En faisant
+tendre N → +∞ dans la formule
+                                   Z                N
+                                                    X
+                                      f (z)g(z)dz =     f (n)
+                                         γN                     n=−N

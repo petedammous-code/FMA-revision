@@ -1,0 +1,53 @@
+III.5. PRODUITS INFINIS DE FONCTIONS HOLOMORPHES                                                    67
+
+bijective de D dans D, on a fα ◦ ψ ∈ Σ et par construction, fα ◦ ψ ne s’annule pas sur Ω. Il
+s’ensuit comme précédemment qu’il existe g ∈ Hol(Ω), telle que g 2 = fα ◦ ψ. Comme fα ◦ ψ est
+injective, g est aussi injective et, pour tout z ∈ Ω, on a
+
+                                      |g(z)|2 = |fα ◦ ψ(z)| < 1,
+
+c’est-à-dire que g ∈ Σ. Posons alors β := g(z0 ), s : z 7→ z 2 et ψ1 := fβ ◦ g, on a alors ψ1 ∈ Σ et
+
+                         ψ = f−α ◦ g 2 = f−α ◦ s ◦ g = f−α ◦ s ◦ f−β ◦ ψ1 .
+
+En posant F = f−α ◦ s ◦ f−β , comme ψ1 (z0 ) = 0, et en dérivant la fonction composée, on trouve
+
+                                       ψ ′ (z0 ) = F ′ (0)ψ1′ (z0 ).
+
+Par ailleurs, F est non-injective et F ∈ Hol(D) satisfait F (D) ⊂ D et F (0) = 0 (c’est équivalent
+à l’hypothèse ψ(z0 ) = 0). D’après le lemme de Schwarz I.13.1, on a donc |F ′ (0)| < 1, ce qui donne
+|ψ ′ (z0 )| < |ψ1′ (z0 )|.
+    Posons alors η = sup{|ψ ′ (z0 )|, ψ ∈ Σz0 }, qui est fini : si D̄(z0 , ρ) ⊂ Ω, l’estimée de Cauchy
+donne |ψ ′ (z0 )| ≤ 1/ρ pour tout ψ ∈ Σz0 . Si h ∈ Σz0 vérifie h(z0 ) = 0 et |h′ (z0 )| = η, par ce que
+l’on vient de voir, h est nécessairement surjective et h(Ω) = D. Nous devons donc montrer qu’une
+telle fonction existe. Comme supz∈Ω |ψ(z)| ≤ 1 pour tout ψ ∈ Σz0 , le théorème III.3.4 de Montel
+stipule que toute suite (fn )n∈N de fonctions holomorphes fn ∈ Σz0 admet une sous-suite qui
+converge localement uniformément sur Ω. Par définition de η, il existe une suite (ψn )n∈N ⊂ Σz0 ,
+telle que
+                                          lim |ψn′ (z0 )| = η.
+                                         n→∞
+
+
+Il existe donc (ψnk )k≥0 qui converge localement uniformément sur Ω vers h ∈ Hol(Ω). De plus,
+pour tout z ∈ Ω et tout k ∈ N, on a |ψnk (z)| ≤ 1 et donc |h(z)| ≤ 1. D’après le second point
+du théorème III.1.4 de Weierstraß, ψn′ k (z0 ) → h′ (z0 ), de sorte que |h′ (z0 )| = η. Étant donné que
+η > 0, la fonction h est non-constante sur Ω. Ainsi, h(Ω) ⊂ D et, d’après le théorème III.2.1
+de Hurwitz, puisque pour tout k ∈ N, ψnk est injective, h est également injective. On a donc
+trouvé h ∈ Σ qui est surjective, et h est bien une bijection holomorphe entre Ω et D. Il reste à
+observer que h est un biholomorphisme, et non seulement une bijection holomorphe : d’après
+la remarque I.14.3, la réciproque h−1 d’une bijection holomorphe entre deux ouverts de C est
+automatiquement holomorphe.
+
+
+
+   Remarque III.4.2 — Le disque unité D étant conformément équivalent au demi-plan de
+   Poincaré H (cf. exercice I.4.3), on peut remplacer D par H dans l’énoncé du théorème de
+   Riemann.
+
+
+
+III.5    Produits infinis de fonctions holomorphes
+
+
+    L’existence du logarithme d’une fonction holomorphe permet d’étendre les résultats sur les
+séries de fonctions aux produits de fonctions holomorphes.

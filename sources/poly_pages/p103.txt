@@ -1,0 +1,57 @@
+100                               CHAPITRE V. CALCUL DIFFÉRENTIEL DANS LES E.V.N.
+
+      La démonstration est très facile et donc omise.
+
+       Proposition V.3.12 — Composition des différentielles
+   oient E, F et G des espaces vectoriels normés, U un ouvert de E, f : U → F une application
+   différentiable en un point a de U, V un ouvert de F contenant f (a) et g : V → G une
+   application différentiable en f (a). Alors g ◦ f est différentiable en a, et
+
+                                        d(g ◦ f )a = dgf (a) ◦ dfa .
+
+
+Démonstration. Posons y = f (a + h) et b = f (a). On a
+
+                                  g(y) = g(b) + dgb (y − b) + r(y, b)
+
+       ∥r(y, b)∥G
+où lim            = 0. On a aussi
+   y→b ∥y − b∥F
+
+                              y − b = f (a + h) − f (a) = dfa (h) + s(h)
+
+      ∥s(h)∥F
+où lim        = 0. Par linéarité de dgb , on obtient
+   h→0 ∥h∥E
+
+                   g ◦ f (a + h) − g ◦ f (a) − dgf (a) ◦ dfa (h) = dgb (s(h)) + r(y, b).
+
+D’autre part :
+                                ∥dgb (s(h))∥G ≤ ∥dgb ∥ ∥s(h)∥F = o(h),
+et, étant donné ε > 0, on peut prendre h assez petit de sorte que
+
+                         ∥y − b∥F = ∥dfa (h) + s(h)∥F ≤ (∥dfa ∥ + ε) ∥h∥E
+
+Comme par continuité de f en a on a y → b lorsque h → 0, on obtient r(y, b) = o(h).
+
+  Remarque V.3.13 — Grâce à cette règle de composition des différentielles, on obtient une
+  interprétation géométrique de la différentielle. Soient E, F des espaces vectoriels normés,
+  U un ouvert de E, f : U → F une application différentiable en un point a ∈ U. Soit
+  ε > 0 et soit α : ]−ε ; ε[ → E une application de classe C 1 de l’intervalle ]−ε ; ε[ dans
+  E (une courbe paramétrée par t ∈ ]−ε ; ε[ dans l’espace E). Supposons que α(0) = a
+  et posons h = α′ (0) = dα0 (1) (le vecteur tangent à la courbe en t = 0). Considérons
+  β = f ◦ α : ]−ε ; ε[ → F . C’est une courbe dans F , différentiable en 0, et
+
+                               β ′ (0) = dβ0 (1) = dfa (dα0 (1)) = dfa (h).
+
+  La différentielle dfa envoie donc le vecteur tangent h à la courbe α en t = 0 sur le vecteur
+  tangent en t = 0 à la courbe image β = f ◦ α.
+
+
+  Remarque V.3.14 — Soient E, F des espaces vectoriels normés, U un ouvert de E,
+  f : U → F une application différentiable sur U. Posons
+
+                        T f : U × E −→ F × F,            (x, h) 7→ (f (x), dfx (h)).
+
+  Cette application s’appelle l’application tangente. L’avantage de considérer celle-ci est que
+  la règle de composition est plus simple : T (g ◦ f ) = T g ◦ T f .

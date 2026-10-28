@@ -1,0 +1,58 @@
+                                                                                               145
+
+  9. En déduire que E(U1 , U2 ) et Ea,b (U1 , U2 ) sont ouverts respectivement dans E et Ea,b et
+     que les résultats établis ci-dessus restent valides. On pourra fixer γ0 dans l’un de ces
+     espaces, et appliquer la question précédente aux compacts K = {γ0 (t)| t ∈ [0; 1]} et
+     K ′ = {γ0′ (t)| t ∈ [0; 1]}.
+
+    On s’intéresse maintenant à savoir ce qu’il advient de l’équation d’Euler-Lagrange lorsqu’on
+effectue un changement de variables. Supposons donc que L soit défini sur I × U × V où U est un
+ouvert de V , et soit ϕ : V → U un difféomorphisme (au moins C 2 ) d’un ouvert V de V sur U.
+Posons
+                   L1 : I × V × V → R,      (u, q1 , v1 ) 7→ L(u, ϕ(q1 ), dϕq1 (v1 )).
+ 10. Montrer que si β = ϕ ◦ γ vérifie l’équation d’Euler-Lagrange pour L, où γ : [0; 1] → V, alors
+     γ vérifie l’équation d’Euler-Lagrange pour L1 .
+
+    Dans la suite, on suppose le Lagrangien L défini sur I × U × V . Soit X un champ de vecteurs
+C ∞ sur U ne dépendant pas du temps. On note (s, x) 7→ F (s, x) = Fs (x) son flot, que l’on suppose
+défini sur R × U. Rappelons que pour tout s ∈ R, Fs est un difféomorphisme de U dans lui-même,
+et que Fs1 ◦ Fs2 = Fs1 +s2 . On suppose que L est invariant sous l’action du groupe à un paramètre
+de difféomorphismes (Fs )s∈R , c’est-à-dire que pour tout s ∈ R, pour tout (u, q, v) ∈ I × U × V ,
+                               L(u, Fs (q), d(Fs )q (v)) = L(u, q, v).
+ 11. Différentier cette identité par rapport à s, et évaluer en s = 0.
+ 12. Soit γ ∈ E une courbe à valeurs dans U vérifiant l’équation d’Euler-Lagrange. En se servant
+     de la question précédente, montrer que la fonction
+                                                                            
+                                        ∂L            ′         ∂F
+                           t 7→ Q(t) =     (t, γ(t), γ (t)) ·      (s, γ(t))
+                                        ∂v                      ∂s            |s=0
+
+      est constante.
+
+    Remarque. Ce résultat fondamental est le théorème de Noether : si le Lagrangien est invariant
+sous l’action d’un groupe à un paramètre de difféomorphismes, on peut associer une quantité
+conservée. C’est par exemple le fondement de la physique des particules (modèle standard, etc.).
+À titre d’exemple, les plus courageux pourront reprendre le Lagrangien de la question 7 dans
+                                                                                   1
+le cas où V = R3 et où le potentiel U admet une symétrie sphérique, U (q) = − ∥q∥      par exemple.
+Pour un vecteur unitaire e fixé, les rotations d’axe e forment un groupe à un paramètre de
+difféomorphismes de V \ {0} qui laisse ce Lagrangien invariant ; on en déduira la conservation de
+la composante selon e du « moment cinétique » γ ∧ γ ′ , donc, en faisant varier e, celle du vecteur
+tout entier.
+    Nous revenons maintenant à l’équation d’Euler-Lagrange pour une courbe γ, et nous aimerions
+transformer celle-ci en une équation différentielle du second ordre vérifiant les hypothèses du
+théorème de Cauchy-Lipschitz. Pour cela, il faut faire certaines hypothèses. Tout d’abord, on
+suppose le Lagrangien défini sur I × V × V (pour simplifier les notations) et de classe C 2 .
+                                                       2
+Rappelons que pour tout (u, q, v) ∈ I × V × V , ∂∂vL2 (u, q, v) est une forme bilinéaire symétrique
+sur V :
+                                                     ∂2L
+                             (ℓ1 , ℓ2 ) ∈ V × V 7→        (u, q, v) · (ℓ1 , ℓ2 ).
+                                                     ∂v 2
+On peut voir
+                                               ∂2L
+                                     ℓ1 ∈ V 7→       (u, q, v) · (ℓ1 , . )
+                                                ∂v 2
+comme une application linéaire de V à valeurs dans L(V ; R). L’hypothèse supplémentaire que
+l’on fait dans la suite est que cette application linéaire est un isomorphisme de V sur L(V ; R).
+On dit alors que le Lagrangien est régulier.

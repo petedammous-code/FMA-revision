@@ -1,0 +1,56 @@
+IX.7. CALCUL DIFFÉRENTIEL SUR LES SOUS-VARIÉTÉS                                                 159
+
+IX.7     Calcul différentiel sur les sous-variétés
+
+
+   Dans cette section, nous généralisons les outils du calcul différentiel aux sous-variétés.
+
+
+
+
+IX.7.1    Applications différentiables sur les sous-variétés
+
+   Commençons par définir une notion de fonction différentiable.
+
+
+     Définition IX.7.1
+   Soit f : S → R une fonction définie sur une sous-variété S de dimension m et de classe
+   C k de RN . On dit que f est différentiable en p ∈ S si pour tout paramétrage x : U → S
+   avec p ∈ x(U) ⊂ S , la fonction f ◦ x : U → R est différentiable en q = x−1 (p). On dit que
+   f est différentiable sur S si elle est différentiable en tout point de S . On dit que f est de
+   classe C r , r ≤ k, sur S si pour tout paramétrage x : U → S la fonction f ◦ x : U → R
+   est de classe C r sur U.
+
+
+
+
+  Remarque IX.7.2 — D’après la proposition IX.6.1, pour que f soit différentiable en p ∈ S ,
+  il suffit que f ◦ x : U → R soit différentiable en q = x−1 (p) pour un paramétrage local
+  x. De même, si r ≤ k, pour que f soit de classe C r dans un voisinage de p, il suffit que
+  f ◦ x : U → R soit de classe C r pour un paramétrage local x de S en p.
+
+
+
+
+   Exercice IX.7.3 — Montrer que pour toute fonction f de classe C r sur S et tout p ∈ S ,
+   il existe un voisinage ouvert V de p dans RN et une fonction F de classe C r de V dans R
+   tels que f soit la restriction de F à V ∩ S .
+  Remarque. On peut en fait construire un tel prolongement F sur tout un voisinage de
+  S dans RN , en recollant les prolongements locaux ci-dessus au moyen d’une partition de
+  l’unité de classe C r subordonnée à un recouvrement de S par de tels voisinages. Nous
+  n’aurons pas besoin de ce résultat global dans la suite.
+
+
+
+
+   Remarque IX.7.4 — Soit S une sous-variété de dimension m et de classe C k de RN et
+   soit n ∈ N× . On peut étendre immédiatement les définitions de fonction différentiable en
+   un point p de S ou de fonction de classe C r sur S aux fonctions à valeurs dans Rn .
+
+
+
+
+   Définissons maintenant plus généralement les applications différentiables entre sous-variétés.
+Soient S1 et S2 deux sous-variétés (respectivement de RN1 et RN2 ). Notons que puisque S1 et
+S2 sont des espaces topologiques (les topologies étant induites des espaces ambiants), on peut
+parler d’application continue de S1 dans S2 .

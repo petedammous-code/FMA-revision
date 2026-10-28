@@ -1,0 +1,48 @@
+234                                       ANNEXE A. SUJETS D’EXAMEN ET PROBLÈMES
+
+      Corrigé
+  1. (a) Si v ∈ Ex+ , alors la condition (γ) implique aussitôt que (d(φj )x (v))j∈N est bornée.
+            Inversement, supposons (d(φj )x (v))j∈N bornée. Posons v+ = Px+ (v) et v− = Px− (v).
+            Soit j ∈ Z. D’après l’inégalité triangulaire, on a
+                                 ∥d(φj )x (v)∥ ≥ ∥d(φj )x (v− )∥ − ∥d(φj )x (v+ )∥.
+            Or, d’après la condition (γ) pour ξ = d(φ−j )x (v), on a ∥d(φj )x (v− )∥ ≥ θ−j ∥v− ∥.
+            Compte tenu de la condition (γ) pour v+ , il en résulte que pour tout j ∈ Z, on a
+                                       ∥d(φj )x (v)∥ ≥ θ−j ∥v− ∥ − θj ∥v+ ∥.
+            Puisque (d(φj )x (v))j∈N est bornée et θ ∈]0, 1[, on en déduit ∥v− ∥ = 0 en faisant tendre
+            j vers +∞. Donc v appartient à Ex+ .
+            Cela prouve que v appartient à Ex+ si et seulement si (d(φj )x (v))j∈N est bornée ; le
+            cas de Ex− se traite de manière analogue.
+        (b) L’ensemble Λ est compact et le difféomorphisme φ est de classe C 1 ; il existe donc
+            A > 0 tel qu’on ait ∥dφx ∥ ≤ A pour tout x ∈ Λ.
+            Soit x ∈ Λ. Pour v ∈ Rn , si l’on écrit v = v+ + v− avec v+ ∈ Ex+ et v− ∈ Ex− , on a
+                                     A∥v∥ ≥ ∥dφx (v)∥ ≥ θ−1 ∥v− ∥ − θ∥v+ ∥
+            vu l’inégalité triangulaire et la condition (γ). Par ailleurs, on a ∥v+ ∥ = ∥v − v− ∥ ≤
+            ∥v∥ + ∥v− ∥, si bien que
+                                A∥v∥ ≥ ∥dφx (v)∥ ≥ θ−1 ∥v− ∥ − θ(∥v∥ + ∥v− ∥),
+            autrement dit
+                                         (A + θ)∥v∥ ≥ (θ−1 − θ)∥v− ∥.
+            Si l’on pose K = θA+θ                          −                                  n
+                                    −1 −θ , on a donc ∥Px (v)∥ ≤ K∥v∥ pour tout v ∈ R . Ainsi
+                           −             −
+            l’opérateur Px vérifie ∥Px ∥ ≤ K, et ce quel que soit le point x ∈ Λ. Cela montre que
+            la fonction x 7→ ∥Px− ∥ est bornée. Le cas de x 7→ ∥Px− ∥ se traite de même.
+        (c) Soit Γ le graphe de x 7→ Px+ et soit (y, Q) un point de l’adhérence de Γ. Il existe donc
+            une suite (xn , Px+n )n∈N de points de Γ telle que (xn )n∈N converge vers y dans Rn et que
+            Px+n converge vers Q dans L(Rn ). Puisque Λ est fermé dans Rn , on a y ∈ Λ ; il s’agit
+            maintenant de voir que (y, Q) appartient à Γ, c’est-à-dire de vérifier que Q = Py+ .
+            Or, on a (Px+n )2 = Px+n pour tout n ∈ N ; en faisant tendre n vers +∞ on obtient
+            Q2 = Q, donc Q est un projecteur ; en particulier, on a Rn = Ker(Q) ⊕ Im(Q) ; de
+            plus, Im(Q) est l’ensemble des points fixes de Q. Pour montrer que Q = Py+ , il suffit
+            donc de montrer que les projecteurs Q et Py+ ont même image et même noyau.
+            Soit K > 0 tel que l’on ait ∥Px+ ∥ ≤ K pour tout x ∈ Λ ; on a alors ∥d(φj )xn ◦ Px+n ∥ ≤
+            Kθj pour tout j ∈ N. Comme l’application x 7→ d(φj )x est continue, il en résulte que
+            l’on a
+                                              ∥d(φj )y ◦ Q∥ ≤ Kθj
+            pour tout j ≥ 0. Ainsi, si v est un élément de Im(Q), la suite (d(φj )x (v))j∈N est bornée,
+            donc v appartient à Ey+ = Im(Py+ ) d’après la question (a).
+            De même, en remarquant que 1 − Q = limj→∞ (1 − Px+j ) = limj→∞ Px−j et en répétant
+            le raisonnement ci-dessus, on constate que si v appartient à Ker(Q) = Im(1 − Q), alors
+            v ∈ Ey− . Comme on a Rn = Im(Q) ⊕ Ker(Q) = Im(Py+ ) ⊕ Ker(Py+ ), il en résulte que
+            les projecteurs Q et Py ont même image et même noyau, donc sont égaux, comme
+            espéré. Cela montre que le graphe de x 7→ Px+ est fermé ; le cas de x 7→ Px− se traite
+            de manière analogue.

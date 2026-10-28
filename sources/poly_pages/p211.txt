@@ -1,0 +1,90 @@
+208                                                   ANNEXE A. SUJETS D’EXAMEN ET PROBLÈMES
+
+      Partie C.
+                                                                                  1
+    (1) Soit δ > 0. Pour tout s ∈ U1+δ , en notant σ = ℜ(s) on a |n1s | = n1σ ⩽ n1+δ . D’après le
+                             P 1                               P 1
+critère de Riemann, la série    n1+δ
+                                     converge et donc la série   ns converge normalement sur
+U1+δ .
+    (2) D’après le théorème III.1.4 du cours, il suffit de montrer que la série de fonctions n1s
+converge normalement sur tout compact K inclus dans U1 . Mais si K est un compact inclus dans
+U1 , il existe δ > 0 tel que K ⊂ U1+δ , et on peut donc conclure par la question précédente.
+      (3) Soit s ∈ U1 et n ∈ N∗ .
+                                            Z +∞                                      Z +∞
+                  1 −s/2                             1 −s/2 −t s/2−1                                 2
+                     π   Γ(s/2) =                       π  e t       dt =                       e−πn v v (s/2)−1 dv
+                  ns                         0       ns                                0
+
+      où on a fait le changement de variables v = πnt 2 .
+      (4) On a
+                                                     +∞                               +∞ Z +∞
+                         −s/2
+                                                     X  1           −s/2
+                                                                                      X                  2
+             L(s) = π           Γ(s/2)ζ(s) =                    π          Γ(s/2) =                 e−πn t t(s/2)−1 dt
+                                                           ns
+                                                     n=1                              n=1 0
+                             +∞
+                        Z +∞ X                                       Z +∞                 
+                                          −πn2 t (s/2)−1                       θ(t) − 1
+                    =                 e          t         dt =                                t(s/2)−1 dt.
+                         0                                            0           2
+                                n=1
+
+   Ici on a utilisé le théorème de
+                                  Tonelli —Ptous les termes sont positifs, et la somme est finie
+pour ℜe(s) > 1 — et le fait que    θ(t)−1
+                                            = +∞    −πn2 t .
+                                      2        n=1 e
+
+      (5) Pour tout s ∈ U1 , on a
+
+                         1 +∞ (s/2)−1
+                           Z
+                  L(s) =        t       (θ(t) − 1)dt
+                         2 0
+                         1 1 (s/2)−1                  1 +∞ (s/2)−1
+                           Z                            Z
+                       =      t      (θ(t) − 1)dt +          t      (θ(t) − 1)dt
+                         2 0                          2 1
+                           Z +∞                                Z +∞
+                         1                             dt 1
+                                t1−(s/2) θ t−1 − 1 2 +              t(s/2)−1 (θ(t) − 1)dt
+                                                
+                       =
+                         2 1                            t   2 1
+                         1 +∞ −1−(s/2) √                    1 +∞ (s/2)−1
+                           Z                                  Z
+                       =        t        ( tθ(t) − 1)dt +          t        (θ(t) − 1)dt
+                         2 1                                2 1
+                         1 +∞ −1−(s/2) √                    1 +∞ (s/2)−1
+                           Z                                  Z
+                       =        t           t(θ(t) − 1)dt +        t        (θ(t) − 1)dt
+                         2 1                                2 1
+                         1 +∞ −1−s/2 √           1 +∞ −1−s/2
+                           Z                       Z
+                       +        t         tdt −           t     dt
+                         2 1                     2 1
+                         1 +∞  −1/2−s/2
+                           Z                                           1      1
+                       =          t         + ts/2−1 (θ(t) − 1)dt +         − .
+                         2 1                                         s−1 s
+
+   (6) Remarquons que la fonction 12 (θ(t) − 1) décroît de façon exponentielle quand t → +∞.
+En effet, pour tout t ⩾ 1, on a
+
+                                       +∞            +∞                  +∞
+                        1              X
+                                            −πn2 t
+                                                     X
+                                                           −πnt   −πt
+                                                                         X
+                          (θ(t) − 1) =     e       ⩽     e      =e    +      e−πnt
+                        2
+                                       n=1           n=1                 n=2
+                                              Z +∞
+                                                                       e −πt
+                                     ⩽ e−πt +        e−πyt dy = e−πt +       ⩽ 2e−πt .
+                                               1                        πt
+      On peut donc appliquer le théorème I.9.1 du poly pour déduire que la fonction g est holomorphe.

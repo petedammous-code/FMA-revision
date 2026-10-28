@@ -1,0 +1,53 @@
+VI.4. EXERCICES                                                                                                      125
+
+
+   On considère l’équation différentielle sur [0, 1] avec condition aux bords :
+                                 (
+                                   u′′ − λf (u) = 0 sur ]0, 1[,
+                                   u(0) = u(1) = 0.
+
+   Montrer qu’il existe un intervalle ouvert I contenant 0 tel que pour tout λ ∈ I, l’équation
+   ci-dessus admet une solution uλ ∈ C 2 ([0, 1], R).
+
+    Le théorème du rang constant, objet de l’exercice suivant, est une conséquence importante
+du théorème d’inversion locale : il dit qu’une application de rang localement constant est, à des
+changements de variables près à la source et au but, une application linéaire. Les deux premières
+questions en traitent les cas extrêmes, celui des immersions et celui des submersions ; la troisième
+est le cas général.
+
+   Exercice VI.4.9 : Théorème du rang constant —
+   Soit f : U → Rm une application C p d’un ouvert U de Rn dans Rm . Soit a ∈ U. Démontrer
+   les assertions suivantes, dont la dernière est appelée théorème de rang constant.
+  Rappel. Le théorème du rang de l’algèbre linéaire affirme que si A est une matrice réelle
+  à m lignes et n colonnes et de rang r, il existe des matrices inversibles U et V , de tailles
+  m × m et n × n, telles que                          
+                                                 Ir 0
+                                     U AV =              .
+                                                  0 0
+   L’exercice en établit la version locale, les changements de base étant remplacés par des
+   changements de coordonnées. On n’en utilisera ci-dessous que la forme affaiblie suivante :
+   quitte à permuter les coordonnées à la source et au but et à composer par des translations,
+   on peut supposer que a = 0, que f (a) = 0, et que le bloc r × r supérieur gauche de la
+   matrice jacobienne de f en 0 est inversible.
+
+      1. Si f est une immersion en a (i.e. si dfa est injective) alors il existe un voisinage
+         ouvert U1 de a dans U, un voisinage ouvert W1 de f (a) dans Rm et Ψ : W1 → W2 ⊂
+         Rm un difféomorphisme de W1 sur un ouvert W2 de Rm tels que f (U1 ) ⊂ W1 et
+         Ψ ◦ f (x1 , . . . , xn ) = (x1 , . . . , xn , 0, . . . , 0) pour tout x = (x1 , . . . , xn ) ∈ U1 . Autrement
+         dit, à un changement de variable au but près, toute immersion est localement égale à
+         l’injection canonique de Rn dans Rm .
+      2. Si f est une submersion en a (i.e. si dfa est surjective), alors il existe un voisinage
+         ouvert U1 de a dans U, un ouvert U2 de Rn et un difféomorphisme Φ : U2 → U1 tels
+         que
+                                  f ◦ Φ(x1 , . . . , xn ) = (x1 , . . . , xm )
+         pour tout x = (x1 , . . . , xn ) ∈ U2 . Autrement dit, à un changement de variable à la
+         source près, toute submersion est égale à la projection canonique de Rn dans Rm .
+      3. Posons r = rang(dfa ). Supposons que dfx soit de rang r pour tout x dans un voisinage
+         de a. Alors il existe
+          (a) un difféomorphisme Φ : U2 → U1 d’un ouvert U2 de Rn sur un voisinage ouvert
+              U1 de a dans U ,
+          (b) un difféomorphisme Ψ : W1 → W2 d’un voisinage ouvert W1 de f (a) dans Rm
+              sur un ouvert W2 de Rm ,
+         vérifiant f (U1 ) ⊂ W1 et
+
+                       Ψ ◦ f ◦ Φ : U2 → W2 ,             (x1 , . . . , xn ) 7→ (x1 , . . . , xr , 0, . . . , 0).

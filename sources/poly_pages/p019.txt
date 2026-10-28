@@ -1,0 +1,57 @@
+16                                                         CHAPITRE I. FONCTIONS HOLOMORPHES
+
+       Définition I.5.4
+     Si f : Ω → C est une fonction continue et si γ : [a, b] → Ω est un chemin, on définit
+     l’intégrale de f le long du chemin γ par la formule
+                                      Z                  Z b
+                                           f (z) dz :=            f (γ(t)) γ ′ (t) dt.
+                                       γ                   a
+
+
+    Bien que γ ′ ne soit pas nécessairement continue, elle reste bornée (remarque I.5.2) et l’intégrale
+est bien définie.
+
+     Exemple I.5.5 — Si γ est le lacet qui décrit le cercle de centre z0 et de rayon r > 0 tel
+     qu’il est donné dans l’exemple précédent et si f est définie sur un ouvert contenant ce cercle,
+     nous avons                 Z               Z             2π
+                                     f (z) dz = i r                f (z0 + reit ) eit dt.
+                                 γ                        0
+
+
+     On vérifie immédiatement que les propriétés suivantes sont satisfaites :
+
+       Proposition I.5.6
+     Soit f une fonction continue définie sur Ω. Alors :
+       (i) si γ : [a, b] → Ω est un chemin et si φ : [ã, b̃] → [a, b] est un C 1 -difféomorphisme
+           croissant,                   Z              Z
+                                                      f (z) dz =             f (z) dz,
+                                                  γ                     γ̃
+
+           où γ̃ := γ ◦ φ ;
+
+      (ii) si γ : [a, b] → Ω est un chemin, alors
+                                        Z               Z
+                                           f (z) dz = −                         f (z) dz;
+                                              γ                         γ opp
+
+      (iii) Si γ1 : [a1 , b1 ] → Ω et γ2 : [a2 , b2 ] → Ω sont deux chemins composables alors
+                                     Z                   Z             Z
+                                             f (z) dz =     f (z) dz +   f (z) dz.
+                                     γ1 ∨γ2                    γ1                    γ2
+
+
+    La démonstration de ces trois propriétés ne pose aucune difficulté et est laissée en exercice au
+lecteur.
+     Donnons une majoration élémentaire qui sert souvent.
+
+       Proposition I.5.7
+     Soit γ : [a, b] → Ω un chemin. On appelle longueur de γ le nombre
+                                                          Z b
+                                              L(γ) :=              |γ ′ (t)| dt,
+                                                              a
+
+     qui est fini car γ ′ est bornée (remarque I.5.2). Alors, pour toute fonction continue f sur Ω,
+     on a
+                                  Z                              
+     (I.5.1)                          f (z) dz ≤    sup |f (γ(t))| L(γ).
+                                  γ                       t∈[a,b]

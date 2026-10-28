@@ -1,0 +1,62 @@
+I.6. LA FORMULE INTÉGRALE DE CAUCHY                                                                     19
+
+
+                                                                           Γt
+
+
+
+                                                      ∗0
+
+
+                                                                           z
+
+
+     On pose ω = t z + (1 − t) eiθ , pour θ ∈ [0, 2π], de telle sorte que
+                          Z 2π                                        Z 2π
+                                f (tz + (1 − t) eiθ ) − f (z) iθ
+(I.6.1)          I(t) = i                                    e dθ =        F (t, θ) dθ,
+                           0              eiθ − z                      0
+où par définition
+                                               f (tz + (1 − t) eiθ ) − f (z) iθ
+                               F (t, θ) := i                                e .
+                                                         eiθ − z
+    On remarque que
+                                                    f (ω) − f (z)
+                                               ω 7→               ,
+                                                        ω−z
+est une fonction holomorphe sur Ω\{z} et continue sur Ω. En particulier, la fonction (t, θ) 7→ F (t, θ)
+est continue sur [0, 1] × [0, 2π] et C 1 sur ]0, 1[ ×]0, 2π[. On conclut que I est de classe C 1 sur ]0, 1[
+et que cette fonction, qui est a priori continue sur [0, 1[, se prolonge par continuité sur [0, 1] en
+prenant I(1) = 0 (dépendance en t de l’intégrale (I.6.1)). De plus, pour tout t ∈ ]0, 1[, la dérivée
+de I s’obtient en dérivant sous le signe somme :
+                                                   Z 2π
+                                                        ∂F
+                                         I ′ (t) =          (t, θ) dθ.
+                                                    0    ∂t
+Or, un simple calcul montre que
+                           ∂F                                          ∂G
+                              (t, θ) = −if ′ (tz + (1 − t) eiθ ) eiθ =    (t, θ),
+                           ∂t                                          ∂θ
+où nous avons défini
+                                                      f (tz + (1 − t) eiθ )
+                                         G(t, θ) :=                         .
+                                                             t−1
+Mais alors, pour tout t ∈ ]0, 1[
+                                    Z 2π
+                           ′               ∂G
+                          I (t) =             (t, θ) dθ = G(t, 2π) − G(t, 0) = 0.
+                                     0     ∂θ
+La fonction I est donc constante sur l’intervalle ]0, 1[, donc sur l’intervalle [0, 1] (par continuité)
+et I(1) = I(0) = 0.
+
+     Corollaire I.6.2 — Formule de la moyenne
+   Sous les hypothèses du théorème I.6.1, on a
+                                           Z 2π
+                                         1
+                                                f z0 + r eiθ dθ.
+                                                            
+   (I.6.2)                    f (z0 ) =
+                                        2π 0
+
+   Autrement dit, la valeur d’une fonction holomorphe au centre d’un disque est la moyenne
+   de ses valeurs sur le bord de ce disque. En particulier |f (z0 )| ≤ supC(z0 ,r) |f |.

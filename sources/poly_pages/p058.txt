@@ -1,0 +1,62 @@
+II.9. EXISTENCE DE PRIMITIVES - LOGARITHME COMPLEXE                                              55
+
+
+   Exercice II.8.6 — Soit n ∈ N× .
+   1) Montrer que
+                                          | sin z| < |z cos z|,
+   pour tout z = x + iy tel que max(|x|, |y|) = n π.
+   2) En déduire que toutes les solutions de tan z = z sont réelles.
+
+
+
+II.9     Existence de primitives - Logarithme Complexe
+
+
+   Nous avons déjà vu un résultat local d’existence de primitive holomorphe pour une fonction
+holomorphe (voir le Corollaire I.7.6). Démontrons maintenant le :
+
+       Théorème II.9.1
+   Toute fonction f qui est holomorphe sur un ouvert Ω simplement connexe admet sur cet
+   ouvert une primitive holomorphe, unique à une constante additive près (deux primitives
+   diffèrent d’une fonction de dérivée nulle sur l’ouvert connexe Ω, donc d’une constante).
+
+
+Démonstration. Donnons nous z0 ∈ Ω. L’ensemble des points de Ω qui peuvent être reliés à z0
+par un chemin (même polygonal par morceaux) est clairement un ouvert et un fermé non vide de
+Ω. Comme Ω est connexe, cet ensemble est égal à Ω. Pour tout ω ∈ Ω, choisissons γω un chemin
+reliant z0 à ω et définissons               Z
+                                        F (ω) :=          f (z) dz.
+                                                     γω
+
+Si γω′ est un autre chemin qui relie z0 à ω, le chemin γω′ ∨ γωopp est alors un lacet, homotope
+à un lacet constant (car, par hypothèse, Ω est simplement connexe). D’après l’invariance par
+homotopie de l’intégrale le long d’un lacet (voir le Théorème II.2.1), on a
+                                  Z                  Z
+                                        f (z) dz −        f (z) dz = 0.
+                                   γω                 ′
+                                                     γω
+
+
+Autrement dit, F (ω) ne dépend pas du choix du chemin qui relie z0 à ω. Soit r > 0 tel que
+D(ω, r) ⊂ Ω. Pour tout h ∈ D(0, r), puisque le choix du chemin est indifférent pour le calcul de
+F (ω + h), on peut choisir le chemin
+
+                                        γω+h := γω ∨ γ[ω,ω+h] ,
+
+où γ[ω,ω+h] (t) := ω + t h, pour t ∈ [0, 1]. Ce qui nous donne la formule
+                                                                       Z 1
+                    F (ω + h) − F (ω)
+                                             Z
+                                        1
+                                      =                   f (z) dz =         f (ω + th) dt.
+                            h           h     γ[ω,ω+h]                  0
+
+
+Donc                                                      Z 1
+                          F (ω + h) − F (ω)
+                      lim                   = lim               f (ω + th) dt = f (ω).
+                      h→0         h           h→0          0
+
+On en déduit immédiatement que F est C-dérivable en ω et que F ′ (ω) = f (ω). Grâce aux
+propriétés de dérivabilité des intégrales, la formule ci-dessus prouve également que F est de classe
+C 1 de sorte que F est bien une fonction holomorphe.

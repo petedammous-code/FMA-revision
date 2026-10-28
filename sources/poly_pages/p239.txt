@@ -1,0 +1,61 @@
+236                                     ANNEXE A. SUJETS D’EXAMEN ET PROBLÈMES
+
+         où l’on a posé µ := 2KA, avec A := supx∈Λ |||dφx ||| (fini par compacité de Λ) et K
+         la constante de la question 1(b) : en effet Nqj (w) ≤ K∥w∥ pour tout w, et ∥v∥ ≤
+         2Nqj−1 (v) puisque ∥v∥ ≤ ∥P + v∥ + ∥P − v∥. donc l’application linéaire Ψ est continue,
+         et Θ = Idℓ∞ − Ψ l’est aussi.
+         • L’espace V est complet : les inégalités 12 ∥v∥ ≤ Nqj (v) ≤ K∥v∥, valables pour tout
+         j avec les mêmes constantes, montrent que sa norme supj Nqj (·) est équivalente à la
+         norme uniforme de ℓ∞ (Z, Rn ), qui est complète.
+         • Soit g = (gj )j∈Z un élément de ℓ∞ . Pour x = (xj )j∈Z dans ℓ∞ , on constate en
+         observant les définitions de Ψ et de Φg que l’on a Θ(x) = g si et seulement si Φg (x) = x.
+         Le sens direct est immédiat ; pour la réciproque, en posant ej := xj − dφqj−1 xj−1 − gj ,
+         la relation Φg (x) = x équivaut à dφqj Pq+j ej = Pq−j+1 ej+1 pour tout j ; ce vecteur
+                                      +                                           −
+         appartenant à la fois à Eφ(q   j)
+                                           et à Eq−j+1 , il est égal à (Pq−j+1 − Pφ(q j)
+                                                                                         ) appliqué à
+         lui-même, donc de norme ≤ η fois sa norme : il est nul dès que η < 1, et alors
+         e = 0. Comme Φg est contractante, il existe un unique élément x de ℓ∞ vérifiant cette
+         condition, qui est donc l’unique antécédent de g par Θ.
+         • De plus, si l’on fixe α > 0 tel que l’on ait ∥Φg (a) − Φg (b)∥V ≤ α∥a − b∥V pour tout
+         (a, b) ∈ V 2 , on a
+
+                           ∥x∥V = ∥Φg (x)∥V ≤ ∥Φg (x) − Φg (0)∥V + ∥Φg (0)∥V
+                                               ≤ α∥x∥V + ∥Φg (0)∥V
+                                                         
+         Or, Φg (0) est la suite Pq+ gj − dφ−1  +
+                                            qj Pqj+1 gj+1           ; comme les applications a 7→ Pa+
+                                    j                         j∈Z
+         et a 7→ d(φ−1 )a sont continues, donc bornées, sur le compact Λ, il existe β > 0 tel que
+         l’on ait ∥Φh (0)∥V ≤ β∥h∥V pour tout h ∈ V. On a donc
+
+                                         ∥x∥V ≤ α∥x∥V + β∥g∥V ,
+
+         d’où
+                                                      β
+                                            ∥x∥V ≤       ∥g∥V .
+                                                     1−α
+                                                                     β
+         Cela prouve que Θ est bijective et continue, avec ∥Θ−1 ∥ ≤ 1−α .
+         • L’application Θ est donc un endomorphisme continu et bijectif de l’espace normé V,
+                                                                                        β
+         et la majoration ci-dessus montre que Θ−1 est continu, de norme majorée par 1−α   —
+         borne qui ne dépend pas de la pseudo-orbite q, ce dont on aura besoin.
+  3. (a) D’abord, pour (x, y) ∈ V 2 , on a
+
+                                   ∥G(x) − G(y)∥V ≤ ∥Θ−1 ∥α∥x − y∥V
+
+         donc G est 12 -lipschitzienne. En particulier, pour tout x ∈ V, on
+
+                                                          1
+                         ∥G(x)∥ ≤ ∥G(x) − G(0)∥ + ∥G(0)∥ ≤ ∥x∥ + ∥G(0)∥.
+                                                          2
+         Or, on a ∥G(0)∥ ≤ ∥Θ−1 ∥∥F (0)∥ ≤ r/2 d’après l’hypothèse ∥F (0)∥ ≤ αr. Ainsi, si
+         ∥x∥ ≤ r alors ∥G(x)∥ ≤ (r/2) + (r/2), donc G(B(r)) ⊂ B(r). De plus, on a vu que G
+         est 1/2-lipschitzienne, donc contractante, dans le fermé B(r) de l’espace de Banach V.
+         Elle admet donc un unique point fixe. Si x0 est ce point fixe, alors
+                              1
+            ∥x0 ∥ ≤ ∥G(x0 )∥ ≤ ∥x0 ∥ + ∥G(0)∥,        donc ∥x0 ∥ ≤ 2∥G(0)∥ ≤ 2∥Θ−1 ∥ ∥F (0)∥,
+                              2
+         comme voulu.

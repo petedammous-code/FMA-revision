@@ -1,0 +1,40 @@
+                                                                                    Chapitre       II
+Formule des résidus
+
+
+II.1      Homotopie - Ouverts simplement connexes
+
+
+   On formalise ici la notion de déformation continue de chemins que nous avons déjà rencontrée
+dans la preuve de la formule intégrale de Cauchy.
+
+       Définition II.1.1
+   Soient Ω un ouvert non vide de C et γ0 , γ1 : [0, 1] → Ω des applications continues. Une
+   homotopie entre γ0 et γ1 dans Ω, est une application γ ∈ C ([0, 1]2 ; Ω) telle que
+
+                             γ(0, t) = γ0 (t),    et     γ(1, t) = γ1 (t),
+
+   pour tout t ∈ [0, 1]. On dit que γ0 et γ1 sont homotopes.
+   Si γ0 et γ1 sont des chemins, on dit que γ est une homotopie de chemins. Si l’on demande de
+   plus γ(s, 0) = γ(s, 1) pour tout s ∈ [0, 1] (en particulier γ0 et γ1 sont des lacets), on dit que
+   γ est une homotopie de lacets : le point base γ(s, 0) a ici le droit de se déplacer avec s, c’est
+   pourquoi on parle aussi d’homotopie libre de lacets. C’est cette seconde notion, plus souple,
+   qu’utilisera le théorème d’invariance du paragraphe II.2. On dit que Ω est simplement
+   connexe s’il est connexe et si tout lacet γ de Ω est homotope à un lacet constant.
+
+
+
+
+                                     Homotopie entre γ0 et γ1 .
+
+
+
+  Remarque II.1.2 — On peut définir plus généralement la notion d’homotopie entre deux
+  applications continues f0 , f1 : X → Y entre espaces topologiques X et Y : c’est une
+  application continue F : [0, 1] × X → Y telle que F (0, x) = f0 (x) et F (1, x) = f1 (x)
+  pour tout x ∈ X. Lorsque f0 et f1 ont des propriétés supplémentaires, par exemple de
+  différentiabilité, on peut vouloir ou non selon le contexte que les applications partielles
+  x 7→ F (x, s) aient les mêmes propriétés pour tout s ∈ [0, 1].
+
+
+                                                  35

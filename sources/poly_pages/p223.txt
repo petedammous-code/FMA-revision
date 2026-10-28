@@ -1,0 +1,54 @@
+220                                       ANNEXE A. SUJETS D’EXAMEN ET PROBLÈMES
+
+        (d) En déduire que E(Λ) = K(Λ).
+
+      Exercice 2 : Familles normales de fonctions méromorphes.
+    Soit Ω ⊆ C un ouvert connexe non vide, et soit (fn )n≥1 une suite de fonctions méromorphes
+sur Ω. Comme indiqué dans le préambule, on identifiera chaque fn à une fonction de Ω dans
+                                    1
+C ∪ {∞}. On pose par convention ∞     := 0 et 10 := ∞, de sorte que si f : Ω → C ∪ {∞}, alors f1
+est également une fonction définie sur Ω et à valeurs dans C ∪ {∞}.
+    On dit que la suite (fn )n≥1 converge localement uniformément si pour tout z ∈ Ω, il existe un
+voisinage U ⊆ Ω de z tel qu’au moins une des deux conditions suivantes soit satisfaite :
+
+  — (fn |U )n≥1 est une suite de fonctions holomorphes sur U qui converge uniformément.
+  — (1/fn |U )n≥1 est une suite de fonctions holomorphes sur U qui converge uniformément.
+
+Pour z ∈ Ω, on pose f (z) = limn→∞ fn (z) dans le premier cas et f (z) = limn→∞11/fn (z) dans le
+second cas.
+
+   1. Soit (fn )n≥1 une suite de fonctions méromorphes sur Ω qui converge localement uniformément
+
+        (a) Vérifier que la définition de f ci-dessus est cohérente (les deux cas n’étant pas mutuel-
+            lement exclusifs), et que f : Ω → C ∪ {∞} est soit méromorphe soit constante de valeur
+            ∞. Montrer que de plus, f est soit holomorphe soit constante égale à ∞ si chacune
+            des fonctions fn est holomorphe.
+        (b) Donner un exemple d’ouvert connexe non vide Ω et de suite (fn )n≥1 de fonctions
+            holomorphes sur Ω tels que la limite f soit constante de valeur ∞.
+
+   2. Étendre la notion de convergence précédente aux suites fn : Ωn → C ∪ {∞}, où les domaines
+      Ωn varient, mais vérifient Ω1 ⊆ Ω2 ⊆ . . . et Ω = ∪n≥1 Ωn .
+
+Si f : Ω → C est une fonction holomorphe, on définit une fonction réelle continue sur Ω par
+
+                                                      |f ′ (z)|
+                                        f σ (z) =                 ,
+                                                    1 + |f (z)2 |
+
+et on l’appelle la σ-dérivée de f .
+   3. Démontrer que si g : Ω → C∪{∞} est méromorphe, à ensemble de pôles P, alors la σ dérivée
+      de g|Ω\P se prolonge continûment sur Ω. On notera cette extension g σ et on l’appellera
+      encore la σ-dérivée de g.
+On dira qu’une famille F de fonctions méromorphes sur Ω est normale si toute suite d’éléments
+de F admet une sous-suite qui converge localement uniformément. On admettra la caractérisation
+suivante :
+    Lemme [Critère de normalité] Une famille F de fonctions méromorphes sur Ω est normale
+si et seulement si la famille des σ-dérivées {f σ | f ∈ F} est localement uniformément bornée,
+c’est-à-dire possède la propriété suivante : pour tout z ∈ Ω, il existe un voisinage U ⊆ Ω de z et
+un réel M > 0 tels que l’on ait |f σ (w)| ≤ M pour tout w ∈ U et pour tout f ∈ F .
+
+   4. Soit F une famille de fonctions méromorphes sur Ω. On souhaite montrer que si F n’est
+      pas normale, alors il existe
+         — une suite de points zn ∈ Ω (n ≥ 1), qui converge vers z0 ∈ Ω,
+         — une suite de nombres réels ρn > 0, qui converge vers 0,
+         — une suite fn dans F ,

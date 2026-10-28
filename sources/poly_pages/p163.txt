@@ -1,0 +1,60 @@
+160                                                           CHAPITRE IX. SOUS-VARIÉTÉS
+
+      Définition IX.7.5
+   Soit φ : S1 → S2 une application continue entre les sous-variétés (supposées de classe au
+   moins C r , (r ≥ 1)) S1 et S2 respectivement de RN1 et RN2 .
+   On dit que φ est de classe C r (resp. différentiable en p ∈ S1 ) si quels que soient les
+   paramétrages
+                                 x1 : U1 → S1 , x2 : U2 → S2
+   de S1 et S2 , l’application x−1                        −1
+                                                              φ−1 (x2 (U2 )) ∩ x1 (U1 ) à valeurs
+                                                                                       
+                                 2 ◦ φ ◦ x1 définie sur x1
+   dans U2 est de classe C r (resp. différentiable en x−1
+                                                       1 (p)).
+
+
+
+
+   Exemple IX.7.6 — Les paramétrages locaux d’une sous-variété de classe C r sont des
+   applications de classe C r , et il en va de même des cartes : si x : U → S est un paramétrage
+   local, la carte x−1 est de classe C r , puisque x−1 ◦ x = IdU l’est.
+
+
+
+   Remarques IX.7.7 —
+      1. La proposition IX.6.1 montre que φ est de classe C r si l’on peut trouver pour tout
+         p ∈ S1 des paramétrages locaux x1 et x2 respectivement de S1 en p et de S2 en
+         φ(p) tels que x−1                               −1
+                        2 ◦ φ ◦ x1 soit de classe C sur x1
+                                                   r        φ−1 (x2 (U2 )) ∩ x1 (U1 ) .
+      2. On peut voir φ : S1 → S2 comme une application de S1 dans RN2 , et parler en
+         tant que telle de sa différentiabilité en un point ou son caractère C r (cf. remarque
+         IX.7.4). Nous laissons le lecteur vérifier que φ : S1 → S2 est de classe C r au sens de
+         la définition ci-dessus si et seulement si φ : S1 → RN2 est de classe C r au sens de la
+         remarque IX.7.4.
+      3. On vérifie facilement que la composée de deux applications différentiables (resp. de
+         classe C r ) est une application différentiable (resp. de classe C r ).
+      4. Soit I un intervalle ouvert de R et soit α : I → S1 une courbe paramétrée de classe
+         C r tracée dans une sous-variété S1 (de classe au moins C r ) de RN1 . C’est donc une
+         application de classe C r de I dans RN1 dont l’image est dans S1 , que l’on peut aussi
+         voir comme une application de classe C r de la sous-variété I dans la sous-variété S1
+         au sens de la définition ci-dessus, d’après le point 2. Soit φ : S1 → S2 une application
+         de classe C r . Le point 3 montre alors que β = φ ◦ α : I → S2 est de classe C r .
+
+
+IX.7.2     Espace tangent
+   Intuitivement, il est naturel de définir l’espace tangent en un point p d’une sous-variété S de
+RN comme l’espace des vecteurs tangents en p aux courbes tracées sur S        passant par p. Il n’est
+pas clair que ceci forme un sous-espace vectoriel de RN , mais en utilisant les paramétrages locaux
+de S , nous allons voir que tel est le cas.
+
+      Définition IX.7.8
+   Soit S une sous-variété de dimension m de RN . On dit que ⃗v est un vecteur tangent à
+   S en p s’il existe une courbe paramétrée α : I → RN de classe C 1 , où I est un intervalle
+   ouvert contenant 0, dont la trace est contenue dans S , telle que α(0) = p et α′ (0) = ⃗v .
+   On appelle espace tangent à S en p l’ensemble des vecteurs tangents à S en p.
+
+
+  L’espace tangent en un point q d’un ouvert U de Rm est tout simplement l’espace vectoriel
+ambiant Rm . Faisons le lien grâce aux paramétrages locaux.

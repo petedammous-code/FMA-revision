@@ -1,0 +1,62 @@
+VI.4. EXERCICES                                                                                121
+
+
+  que
+                                r
+                                X      m
+                                       X
+                                   2
+                                         h2i ,
+                     
+               f ψ(h) = f (a) +   hi −                           h = (h1 , . . . , hm ) ∈ W.
+                                   i=1        i=r+1
+
+    1. Montrer que l’on peut se ramener au cas où a = 0, f (0) = 0 et où la matrice de d2 f0
+       dans la base canonique est 2Ir,s (le facteur 2 n’est là que pour simplifier la question
+       suivante). On suppose désormais que c’est le cas, et l’on fixe une boule ouverte U0 ⊂ U
+       centrée en 0.
+    2. À l’aide de la formule de Taylor avec reste intégral V.5.11, montrer qu’il existe une
+       application B : U0 → Symm de classe C ∞ telle que
+
+                            f (x) = t xB(x)x (x ∈ U0 ),              B(0) = Ir,s .
+
+    3. On considère
+                            g : Mm (R) → Symm ,                 g(C) = t C Ir,s C.
+        Calculer dgIm et montrer que
+
+                Mm (R) = E ⊕ ker dgIm ,         E := {X ∈ Mm (R) ; Ir,s X ∈ Symm }.
+
+        En déduire qu’il existe un voisinage ouvert Y de Ir,s dans Symm et une application
+        η : Y → GL(m, R) de classe C ∞ telles que
+
+                        η(Ir,s ) = Im    et        S = t η(S) Ir,s η(S) (S ∈ Y).
+                                    
+    4. On pose φ(x) = η B(x) x, pour x assez proche de 0. Montrer que f (x) =
+       t φ(x) I
+               r,s φ(x), puis que dφ0 = IdRm . Conclure.
+
+
+
+
+VI.4    Exercices
+
+
+  Exercice VI.4.1 : Une variante astucieuse du théorème de Picard — Soit (X, d) un
+  espace métrique complet, et T : X → X une application telle qu’il existe n ∈ N× avec T n
+  contractante. Montrer que T admet un unique point fixe x et que pour tout x0 ∈ X, x est
+  limite de la suite T k (x0 ) k lorsque k tend vers l’infini.
+
+
+
+  Exercice VI.4.2 : La méthode de Newton — Dans cet exercice, nous élargissons le cadre
+  classique de la méthode de Newton aux espaces de Banach.
+  Soit U un ouvert convexe d’un espace de Banach E et soit f : U → F une application de
+  classe C 1 à valeurs dans un espace de Banach F .
+  1. (Question préliminaire) Montrer que quels que soient a, b et c dans U, on a
+                                                                  !
+                ∥f (b) − f (a) − dfc (b − a)∥F ≤       sup ∥dfu − dfc ∥        ∥b − a∥E ,
+                                                      u∈[a,b]
+
+  où [a, b] = {ta + (1 − t)b|t ∈ [0; 1]} ⊂ U.
+  On suppose qu’en un point x0 ∈ U, la différentielle dfx0 : E → F soit un isomorphisme
+  entre espaces de Banach. On suppose aussi qu’il existe une constante M > 0 telle que quels

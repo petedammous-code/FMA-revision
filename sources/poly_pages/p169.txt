@@ -1,0 +1,55 @@
+166                                                            CHAPITRE IX. SOUS-VARIÉTÉS
+
+       Théorème IX.7.26 — Inversion locale
+   Soient S1 et S2 deux sous-variétés (respectivement de RN1 et RN2 ) de classe au moins
+   C k , soit p ∈ S1 , soit
+                                      φ : S1 −→ S2
+   une application de classe C k telle que
+
+                                      dφp : Tp S1 −→ Tφ(p) S2
+
+   soit un isomorphisme linéaire. Alors il existe un voisinage ouvert V1 de p dans S1 et un
+   voisinage ouvert V2 de φ(p) dans S2 tel que φ(V1 ) = V2 et la restriction de φ à V1 réalise
+   un C k -difféomorphisme de V1 sur V2 .
+
+
+Démonstration. Soient x1 : U1 → S1 et x2 : U2 → S2 des paramétrages locaux de S1 en p et
+de S2 en φ(p) respectivement, tels que x1 (U1 ) ⊂ φ−1 (x2 (U2 )). La différentielle de x2 −1 ◦ φ ◦ x1
+en q1 = x1 −1 (p) est d(x2 −1 )φ(p) ◦ dφp ◦ d(x1 )q1 , composée de trois isomorphismes ; c’est donc un
+isomorphisme. On peut appliquer le théorème d’inversion locale VI.3.2 à
+
+                                     x2 −1 ◦ φ ◦ x1 : U1 −→ U2
+
+et en déduire le résultat voulu.
+
+
+      On en déduit le résultat suivant qui complète la proposition IX.5.3.
+
+       Corollaire IX.7.27
+   Soit S une sous-variété de dimension m de RN et soit p ∈ S . Soit P le sous-espace
+   affine passant par p et parallèle à Tp S . Il existe un voisinage ouvert W de p dans S , un
+   voisinage ouvert V de p dans P , un sous-espace vectoriel H de dimension N − m de RN et
+   une fonction différentiable h : V → H tels que W est le graphe de h.
+
+
+Démonstration. Soit f : S → RN la projection orthogonale sur P . C’est clairement une applica-
+tion différentiable de S dans P , car c’est la restriction d’une application différentiable (et même
+affine) de RN dans lui-même. En particulier, on a
+
+                            dfp : Tp S → Tp P = Tp S ,    v 7→ dfp (v) = v.
+
+Comme dfp est l’identité de Tp S , le théorème d’inversion locale IX.7.26 s’applique, et il existe
+un voisinage ouvert W de p dans S , un voisinage ouvert V de p dans P tel que f réalise un
+difféomorphisme de W sur V, d’inverse g : V → W. On note π la projection orthogonale sur
+H = (Tp S )⊥ et l’on pose
+                               h : V → H, h(u) = π(g(u) − p).
+Tout x ∈ W s’écrit x = g(u), u ∈ V et
+
+                        x = f (x) + π(x − p) = u + π(g(u) − p) = u + h(u).
+
+Ceci montre le résultat, étant entendu un léger abus de langage : on identifie RN à Tp S × H par
+Tp S × H ≃ Tp S ⊕ H = RN .
+
+
+    Etendons maintenant les notions d’immersion et de submersion aux applications entre sous-
+variétés.

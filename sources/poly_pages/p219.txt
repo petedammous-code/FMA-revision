@@ -1,0 +1,57 @@
+216                                         ANNEXE A. SUJETS D’EXAMEN ET PROBLÈMES
+
+la limite en évaluant en a, Or, comme les fn sont à valeurs dans Ω, pour tout n ∈ N, fn − b ne
+s’annule pas, mais la limite s’annule. Le théorème de Hurwitz donne alors f identiquement égale
+à b.
+    2. La question précédente ne fournit qu’une sous-suite ; mais toute sous-suite de (fn )n vérifie
+encore l’hypothèse fn (a) → b, donc admet elle-même une sous-suite convergeant localement
+uniformément vers la constante b. La suite (fn )n∈N tout entière converge donc uniformément vers
+la constante b sur le compact Γ.
+    3. On prend ϵ = η dans la question précédente. Le lacet τ = fn ◦ γ est donc dans D(b, η) ∩ Ω
+(pour n ≥ n0 fixé), qui est simplement connexe donc il existe une homotopie E reliant le chemin
+τ et un lacet constant. Mais alors fn−1 ◦ E est une homotopie reliant γ à un lacet constant. On
+conclut avec la théorème de représentation conforme de Riemann.
+
+    Exercice 4. Voyons cette équation comme un problème de point fixe pour la fonction
+u(x) = cos(tx) + sin(tx). On a u′ (x) = −t sin(tx) + t cos(tx). Pour majorer |u′ (x)|,√étudions
+α : y 7→ cos y − sin y sur [0, 2π]. La dérivée s’annule en y0 = 3π         7π
+                                                                 4 et y1 = 4 , α(y0 ) = − 2 est un
+                        √
+minimum et α(y1 ) = 2 est un maximum. On a donc
+                                                       √
+                                         |u′ (x)| ≤ |t| 2 < 1.
+
+ce qui montre que u est contractante. Elle admet donc un unique point fixe x(t).
+      Posons F (t, x) = cos(tx) + sin(tx) − x. C’est une fonction de classe C ∞ . On a
+
+                        ∂F                                          √
+                           (t, x) = −t sin(tx) + t cos(tx) − 1 ≤ |t| 2 − 1 < 0.
+                        ∂x
+Le théorème des fonctions implicites nous dit que t 7→ x(t) est de classe C ∞ . En t = 0, on obtient
+x = 1. En dérivant t 7→ F (t, x(t)) = cos(tx(t)) + sin(tx(t)) − x(t) = 0 on obtient
+
+                  − sin(tx(t))(x(t) + tx′ (t)) + cos(tx(t))(x(t) + tx′ (t)) − x′ (t) = 0
+
+On évalue en t = 0, ce qui donne x′ (0) = 1. On dérive à nouveau l’expression ci-dessus et on
+l’évalue en t = 0, pour obtenir que x′′ (0) = 1. Finalement, on a
+
+                                                       t2                   t2
+                     x(t) = x(0) + x′ (0)t + x′′ (0)      + o(t2 ) = 1 + t + + o(t2 ).
+                                                       2                    2
+
+
+    Exercice 5. 1. L’inverse f −1 de f existe et est continue par hypothèse. Pour tout compact
+K, f −1 (K) dans ce cas peut donc signifier deux choses, qui fort heureusement sont les mêmes :
+d’une part, c’est l’image réciproque du compact K par f , et d’autre part, c’est l’image de K par
+f −1 L’image d’un compact par une application continue est compacte, on a donc ce que l’on veut.
+De plus, dfx est inversible pour tout x ∈ Rn , l’inverse étant d(f −1 )f (x) .
+    2. On suppose maintenant dans toute la suite que (A) est vrai. D’après le théorème d’inversion
+locale, f (Rn ) est un ouvert non vide de Rn . Il suffit donc de montrer que f (Rn ) est fermé
+pour conclure que f (Rn ) = Rn . Soit (xm )m une suite de Rn telle que (f (xm ))m converge vers
+y ∈ Rn . Puisque y = limm f (xm ), K := {y} ∪ {f (xm ) : m ≥ 0} est compact et pour tout m,
+xm ∈ K ′ := f −1 (K) qui est compact puisque f est propre. Il existe donc une sous-suite (xφ(m) )m
+qui converge vers ℓ ∈ K ′ . Comme f est continue, on a f (ℓ) = limm f (xm ) = y, c’est-à-dire que
+y = f (ℓ) ∈ f (Rn ).
+   3. On a Sz = f −1 ({f (z)}) donc Sz est compact par hypothèse. Ensuite, si x ∈ Sz , d’après le
+théorème d’inversion locale, comme dfx est inversible, f est un difféomorphisme d’un voisinage
+U de x vers un voisinage V de f (x) = f (z). Il n’y a donc pas de point x′ dans U \ {x} tel que

@@ -1,0 +1,63 @@
+102                                     CHAPITRE V. CALCUL DIFFÉRENTIEL DANS LES E.V.N.
+
+
+   que f1 et f2 soient différentiables au point a ∈ U. Alors il en est de même de g, et
+
+                              dga (h) = b((df1 )a (h), f2 (a)) + b(f1 (a), (df2 )a (h)).
+
+   En effet, on écrit g comme composée de b et de x 7→ (f1 (x), f2 (x)) de U dans F1 × F2 . On
+   utilise alors la proposition qui précède, la formule de composition des différentielles, et la
+   formule de la différentielle d’une application bilinéaire (cf. exemple V.3.6).
+
+
+V.3.4       Différentielles partielles
+    On se place maintenant dans le cas où E = E1 × · · · × Em est un produit d’espaces vectoriels
+normés. Soit U un ouvert de E et soit f : U → F une application de U à valeurs dans un espace
+vectoriel normé F .
+   Fixons un point a = (a1 , . . . , am ) de U, et pour tout i = 1, . . . , m, considérons les applications
+partielles
+                            f[i] : xi 7→ f (a1 , . . . ai−1 , xi , ai+1 , . . . am )
+définies respectivement sur des voisinages ouverts de ai dans Ei .
+
+        Proposition V.3.17
+      Avec les notations ci-dessus, si f est différentiable au point a ∈ U, pour tout i = 1, . . . , m,
+                                                                      ∂f
+      l’application partielle f[i] est différentiable en ai . On note     (a) la différentielle de f[i] en
+                                                                      ∂xi
+      ai . C’est un élément de L(Ei ; F ) que l’on appelle la dérivée partielle de f par rapport à la
+      variable xi . En outre, on a
+                                                 m
+                                                 X ∂f
+   (V.3.3)            dfa (h1 , . . . , hm ) =               (a)(hi ),   (h1 ∈ E1 , . . . , hm ∈ Em ).
+                                                       ∂xi
+                                                 i=1
+
+
+
+Démonstration. Comme dans la section précédente, on note ιi l’injection canonique de Ei dans
+E et pi la projection canonique de E sur Ei . On a alors f[i] = f ◦ λi , où λi (xi ) = a + ιi (xi − ai ).
+Comme ιi est linéaire, elle est partout différentiable, et si f est différentiable au point a ∈ U,
+il en est de même de f[i] au point ai par le théorème de composition des différentielles. De
+                                                                             m
+                                                ∂f                          X
+plus, on a par la formule de composition           (a) = dfa ◦ ιi . Comme       ιi ◦ pi = IdE , on a
+                                               ∂xi
+                                                                            i=1
+ m                  m
+X                   X  ∂f
+    dfa ◦ ιi ◦ pi =       (a) ◦ pi = dfa , ce qui donne bien (V.3.3).
+                      ∂xi
+i=1                   i=1
+
+
+   Remarque V.3.18 — Contrairement au résultat montré dans la proposition V.3.15, la
+   dernière proposition n’établit qu’une implication et non une équivalence. En effet, il est
+   faux d’affirmer que l’existence des différentielles partielles implique la différentiabilité de f
+   en un point. Nous reviendrons sur cette question en section V.5.
+
+
+V.3.5       Applications de Rm dans Rn
+    La combinaison des cas étudiés dans les deux sections précédentes nous permet de retrouver
+les notions et notations usuelles du calcul différentiel pour les fonctions de Rm dans Rn . Soit
+f : Rm → Rn . Fixons un point a ∈ Rm . Les applications partielles f[i] en a ont été définies dans la
+section précédente, et les applications fj dans la section V.3.3. De même, pour tout i = 1, . . . , m

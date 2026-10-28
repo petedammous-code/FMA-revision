@@ -1,0 +1,9 @@
+142                                    CHAPITRE VII. EQUATIONS DIFFÉRENTIELLES
+
+
+                                                                          1
+  Calculez Q(t) (on pourra introduire le changement de variable y =       p−1   ).
+                                                                      Q    2
+  8) Reprendre l’étude pour p = 2. On montrera en particulier que toutes les solutions avec
+  E > 0 explosent en temps fini.
+  9) Discuter la stabilité de la solution homocline.

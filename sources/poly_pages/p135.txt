@@ -1,0 +1,62 @@
+132                                               CHAPITRE VII. EQUATIONS DIFFÉRENTIELLES
+
+Démonstration. Réduction à t0 = τ0 . Pour (λ, t0 ) ∈ Λ × ]τ0 − δ ; τ0 + δ[, posons
+                                                                            
+                                       X̃λ,t0 (t, y) := Xλ t − (τ0 − t0 ), y ,
+
+qui est X composée avec une application affine : X̃ est donc de classe C p en (λ, t0 , t, y), et
+k-lipschitzienne en y avec la même constante. Elle fait intervenir X à l’instant t − τ0 + t0 , qui
+s’écarte de τ0 d’au plus ϵ + δ ; elle est donc bien définie pour t ∈ [τ0 − ϵ ; τ0 + ϵ] dès que ϵ + δ ≤ a′ ,
+ce que l’on suppose désormais. Si l’on pose β(t) = αλ,t0 ,x (t − (τ0 − t0 )), alors
+
+                                  β ′ (t) = X̃λ,t0 (t, β(t)),      β(τ0 ) = x,
+
+et réciproquement. Autrement dit t0 cesse d’être un instant initial pour devenir un paramètre, au
+même titre que λ et x : il suffit de résoudre le problème en τ0 .
+      Posons
+
+          X := C 0 [τ0 − ϵ ; τ0 + ϵ], B̄(x0 , 2η) ,
+                                                 
+                                                              Θ := Λ × ]τ0 − δ ; τ0 + δ[ × B(x0 , η),
+
+et, pour θ = (λ, t0 , x) ∈ Θ,
+                                                                       Z t
+                     T : Θ × X −→ X ,                Tθ (φ)(t) = x +         X̃λ,t0 (s, φ(s)) ds.
+                                                                        τ0
+
+L’ensemble X ne dépend plus d’aucun paramètre, et c’est là tout le bénéfice de la réduction.
+    Quitte à diminuer σ, a′ et η, les constantes k et ℓ peuvent être choisies uniformes en λ ∈
+B(λ0 , σ) : pour k c’est l’hypothèse de caractère localement lipschitzien, qui porte sur X comme
+fonction de (λ, t, x) ; pour ℓ c’est la continuité de X au point (λ0 , τ0 , x0 ), exactement comme dans
+la démonstration précédente. Comme X̃λ,t0 n’est qu’une translation en temps de Xλ , elle admet
+les mêmes constantes.
+   Le lemme VII.2.7, appliqué avec c = τ0 , ρ = η et Y = X̃λ,t0 , montre alors que X est un fermé
+convexe complet, que T est à valeurs dans X et que chaque Tθ est 12 -lipschitzienne, pourvu que
+
+                                            ϵℓ ≤ η       et     ϵ k ≤ 12 ,
+
+ce que l’on suppose désormais.
+   Cas p = 0. L’application T est continue sur Θ × X . La version I du théorème du point fixe à
+paramètre, VI.1.2, donne l’existence et l’unicité de βθ et la continuité de θ 7→ βθ .
+    Cas p ≥ 1. L’application T est de classe C p (on s’inspirera de l’exercice V.6.6), et sa
+différentielle partielle en φ s’écrit
+                                 Z t
+           ∂T                        ∂ X̃λ,t0                                             ∂T
+                                                                                             ≤ kϵ ≤ 12 .
+                                                     
+              (θ, φ) · ψ (t) =                s, φ(s) · ψ(s) ds,             d’où
+           ∂φ                     τ0    ∂y                                                ∂φ
+
+Les hypothèses de la version II, VI.1.4, sont donc vérifiées — X fermé convexe, différentielle
+partielle de norme ≤ 12 — et θ 7→ βθ est de classe C p .
+                                                              
+     Retour à α. On a αλ,t0 ,x (t) = β(λ,t0 ,x) t + (τ0 − t0 ) , donc F : (λ, t0 , t, x) 7→ αλ,t0 ,x (t) est de
+classe C p en (λ, t0 , x). Elle est de classe C 1 en t, et comme αλ,t   ′
+                                                                          0 ,x
+                                                                               (t) = Xλ (t, αλ,t0 ,x (t)), une
+récurrence immédiate montre qu’elle est de classe C        p+1   en t. On en déduit que F est de classe
+C p.
+
+
+    Reformulons ce résultat avec la notion de flot local. On reprend les mêmes notations que dans
+le théorème précédent.

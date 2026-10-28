@@ -1,0 +1,1294 @@
+
+
+======== [PDF page 96 | page imprimée 93] ========
+                                                                                    Chapitre      V
+Calcul différentiel dans les espaces
+vectoriels normés
+
+
+V.1       Rappels sur les espaces vectoriels normés
+
+
+V.1.1      Espaces de Banach
+     Les espaces vectoriels normés dans ce chapitre sont tous définis sur le corps des nombres réels
+R.
+    Un espace de Banach E est un espace vectoriel normé, qui, en tant qu’espace métrique, est
+complet, c’est-à-dire que toute suite de Cauchy dans E est convergente. Nous renvoyons le
+lecteur au cours de première année [11], chapitre II et IV, pour ce qui concerne la théorie de base
+des espaces métriques complets et des espaces de Banach. Dans la suite, nous utiliserons sans
+plus de commentaires la caractérisation suivante des espaces de Banach.
+
+      Proposition V.1.1
+     Soit E un espace vectoriel normé. Alors E est complet si et seulement si toute série à
+     valeurs dans E absolument convergente est convergente.
+
+
+V.1.2      Applications linéaires continues
+    Soient E et F des espaces vectoriels normés. On note L(E; F ) l’ensemble des applications
+linéaires continues de E dans F . Rappelons qu’une application linéaire T : E → F est continue si
+et seulement si elle est continue en 0 et ceci a lieu si et seulement si T est bornée, c’est-à-dire que
+
+                                                        ∥T (x)∥F
+(V.1.1)                         ∥T ∥L(E;F ) :=    sup            < +∞.
+                                                 x∈E\{0} ∥x∥E
+
+
+D’autre part, ∥ . ∥L(E;F ) est une norme sur L(E; F ) ; si de plus F est un espace de Banach,
+(L(E; F ), ∥ . ∥L(E;F ) ) est lui aussi un espace de Banach. (Voir cours de F. Pacard [11]). Pour
+alléger la rédaction, nous noterons souvent les normes simplement par ∥.∥ sans mention de l’espace
+sous-jacent. Sur L(E; F ), la norme sera sauf mention explicite du contraire la norme d’opérateur
+(V.1.1).
+     Remarquons que
+
+                                      ∥T (x)∥F
+        ∥T ∥ = ∥T ∥L(E;F ) =    sup            =    sup      ∥T (x)∥F =    sup      ∥T (x)∥F .
+                               x∈E\{0} ∥x∥E      x∈E, ∥x∥E ≤1           x∈E, ∥x∥E =1
+
+
+     Si E est un espace vectoriel normé, la norme ∥ . ∥ = ∥ . ∥L(E;E) définie ci-dessus sur L(E) =
+
+                                                    93
+
+
+======== [PDF page 97 | page imprimée 94] ========
+94                                   CHAPITRE V. CALCUL DIFFÉRENTIEL DANS LES E.V.N.
+
+L(E; E) est une norme d’algèbre, c’est-à-dire qu’elle vérifie
+
+                                   ∥AB∥ ≤ ∥A∥ ∥B∥,               (A, B ∈ L(E)).
+
+   Plus généralement, si A et B se composent, disons A ∈ L(F ; G), B ∈ L(E; F ), alors AB ∈
+L(E; G) et l’inégalité ci-dessus est valable.
+
+
+     Exercice V.1.2 — Soit F un espace vectoriel normé. Montrer que L(R; F ) s’identifie
+     canoniquement à F par T 7→ T (1). Qu’en-est-il des normes ∥ . ∥L(R;F ) et ∥ . ∥F ?
+
+
+V.1.3       Applications multilinéaires continues
+    Nous avons rappelé qu’une application linéaire entre deux espaces vectoriels normés est
+continue si et seulement si elle est continue en 0 et ceci a lieu si et seulement si elle est bornée sur
+la boule unité. Ceci s’étend aux applications multilinéaires comme suit.
+
+       Proposition V.1.3
+     Soient E1 , E2 , . . . , En et F des espaces vectoriels normés et soit
+
+                                        f : E1 × E2 × · · · × En −→ F
+
+     une application multilinéaire. Les conditions suivantes sont équivalentes :
+     (a) f est continue en tout point de E1 × E2 × · · · × En ;
+     (b) f est continue en 0 ;
+     (c) f est bornée sur le produit des boules unités B̄E1 (0, 1) × · · · × B̄En (0, 1).
+
+    Pour une démonstration, voir Théorème 1.8.1, [4]. Remarquons qu’il n’y a pas lieu de se
+demander de quelle norme est muni l’espace produit E1 × E2 × · · · × En . La continuité des
+applications est une propriété topologique, la proposition fait donc sens dès que E1 × E2 × · · · × En
+est muni d’une topologie (ici la topologie produit). Une norme qui donne cette topologie produit
+est
+                                                                  n
+                                                                  X
+                             ∥(x1 , . . . , xn )∥E1 ×E2 ×···×En =   ∥xi ∥Ei ,
+                                                                            i=1
+
+ou toute autre norme équivalente.
+   On note L(E1 , E2 , . . . , En ; F ) l’espace des applications multilinéaires continues de E1 ×E2 · · ·×
+En dans F . On peut munir L(E1 , E2 , . . . , En ; F ) de la norme
+
+                         ∥f ∥ =                    sup                  ∥f (x1 , . . . , xn )∥F .
+                                  (x1 ,...,xn )∈B̄E1 (0,1)×···×B̄En (0,1)
+
+
+  Comme dans le cas des applications linéaires, si F est un espace de Banach, alors L(E1 , E2 , . . . , En ; F )
+muni de cette norme est encore un espace de Banach.
+
+
+V.1.4       Un isomorphisme canonique entre espace d’applications linéaires
+   Intéressons-nous maintenant au cas des applications bilinéaires de E1 × E2 dans F , où E1 ,
+E2 et F sont des espaces vectoriels normés. Nous allons exhiber une isométrie (c’est-à-dire un
+isomorphisme linéaire respectant les normes)
+                                                         ∼
+                                     L(E1 , E2 ; F ) −→ L(E1 ; L(E2 ; F )).
+
+
+======== [PDF page 98 | page imprimée 95] ========
+V.2. THÉORÈME DE L’APPLICATION OUVERTE ET COROLLAIRES                                                           95
+
+   Pour cela, posons pour toute f ∈ L(E1 , E2 ; F ),
+
+                               Φ(f )(x)(y) = f (x, y),      (x ∈ E1 , y ∈ E2 )
+
+On vérifie immédiatement que pour tout x ∈ E1 , y 7→ Φ(f )(x)(y) est une application linéaire de
+E2 dans F . Comme par définition
+
+                     ∥f (x, y)∥F ≤ ∥f ∥ × ∥x∥E1 × ∥y∥E2 ,            (x ∈ E1 , y ∈ E2 ),
+
+il est clair que pour tout x ∈ E1 , Φ(f )(x) est continue, donc Φ(f )(x) ∈ L(E2 ; F ). De même, on
+vérifie que x 7→ Φ(f )(x) est linéaire de E1 dans L(E2 ; F ). Comme
+
+          ∥Φ(f )(x)∥ =       sup        ∥Φ(f )(x)(y)∥F =      sup    ∥f (x, y)∥F ≤ ∥f ∥ × ∥x∥E1 ,
+                          y∈BE2 (0,1)                      y∈BE2 (0,1)
+
+l’application Φ(f ) : x 7→ Φ(f )(x) est linéaire continue de E1 dans L(E2 ; F ), de norme au plus ∥f ∥.
+Ainsi, l’application qui à f associe Φ(f ) est bien définie de L(E1 , E2 ; F ) dans L(E1 , L(E2 ; F )).
+Bien entendu, elle est linéaire, et la majoration
+
+                                 ∥Φ(f )(x)∥ ≤ ∥f ∥ × ∥x∥E1 ,        (x ∈ E1 )
+
+obtenue ci-dessus implique que ∥Φ(f )∥ ≤ ∥f ∥. On en déduit que Φ est continue, de norme au
+plus 1.
+   Nous allons maintenant définir une application qui est l’inverse de Φ. Posons, pour tout
+g ∈ L(E1 ; L(E2 ; F )),
+                        Ψ(g)(x, y) = g(x)(y),    (x ∈ E1 , y ∈ E2 ).
+L’application Ψ(g) est évidemment bilinéaire. Comme ∥g(x)∥ ≤ ∥g∥ × ∥x∥E1 , on a
+
+  ∥Ψ(g)(x, y)∥F = ∥g(x)(y)∥F ≤ ∥g(x)∥ × ∥y∥E2 ≤ ∥g∥ × ∥x∥E1 × ∥y∥E2 ,                   (x ∈ E1 , y ∈ E2 ).
+
+Ceci montre que Ψ(g) est bilinéaire continue, de norme au plus ∥g∥. Comme g 7→ Ψ(g) est
+linéaire, Ψ est une application linéaire de L(E1 ; L(E2 ; F )) dans L(E1 , E2 ; F ), qui s’avère donc
+être continue et de norme au plus 1.
+    Comme par construction, Φ et Ψ sont inverses l’une de l’autre, Φ est un isomorphisme linéaire
+entre L(E1 , E2 ; F ) et L(E1 ; L(E2 ; F )) d’inverse Ψ, ces deux applications linéaires étant continues
+de norme au plus 1. Montrons maintenant que ce sont des isométries. On a Ψ ◦ Φ = IdL(E1 ,E2 ;F ) .
+Pour tout f ∈ L(E1 , E2 ; F ) ,
+
+                  ∥f ∥ = ∥Ψ ◦ Φ(f )∥ ≤ ∥Ψ∥ × ∥Φ(f )∥ ≤ ∥Ψ∥ × ∥Φ∥ × ∥f ∥ ≤ ∥f ∥.
+
+On en conclut que ∥Φ(f )∥ = ∥f ∥, ce qui prouve que Φ (et donc Ψ) est une isométrie.
+
+   Exercice V.1.4 — Soit f ∈ L(E ⊗m ; F ) := L(E, E, . . . , E; F ) (m facteurs E) une appli-
+   cation m-linéaire symétrique, c’est-à-dire que pour toute permutation σ ∈ Sm , et tous
+   v1 , . . . , vm ∈ E, on a f (v1 , . . . , vm ) = f (vσ(1) , . . . , vσ(m) ). Montrer que f est entièrement
+   déterminée par ses valeurs sur les éléments de la forme (v, . . . , v), v ∈ E.
+
+
+V.2      Théorème de l’application ouverte et corollaires
+
+
+V.2.1     Théorème de Baire
+    Un résultat important concernant les espaces métriques complets et que nous utiliserons dans
+la démonstration du théorème de l’application ouverte est le théorème de Baire.
+
+
+======== [PDF page 99 | page imprimée 96] ========
+96                                CHAPITRE V. CALCUL DIFFÉRENTIEL DANS LES E.V.N.
+
+      Théorème V.2.1 — Théorème de Baire (1899)
+     Dans un espace métrique complet, la réunion d’une famille dénombrable de fermés d’intérieur
+     vide est encore d’intérieur vide. De manière équivalente, une intersection dénombrable
+     d’ouverts denses est dense.
+
+     Voir [11] théorème 4.1.
+
+
+V.2.2      Théorème de l’application ouverte
+
+   Nous allons maintenant énoncer et démontrer un théorème important de la théorie des espaces
+de Banach, le théorème de l’application ouverte. Il est dû à J. Schauder (1930).
+
+      Théorème V.2.2 — Application ouverte
+     Soient E et F des espaces de Banach, et soit f : E → F une application linéaire continue
+     et surjective. Alors l’image par f d’un ouvert de E est un ouvert de F .
+
+
+Démonstration. Par translation et linéarité, il suffit de montrer qu’il existe c > 0 tel que BF (0, c) ⊂
+f (BE (0, 1)). Notons B = BE (0, 1) la boule unité ouverte de E et B̄ son adhérence. Comme f est
+surjective, et que par continuité, f (B̄) ⊂ f (B), on a :
+                                            [             [                  [
+                        F = f (E) = f (         n B̄) =         n f (B̄) =         n f (B).
+                                         n≥1              n≥1                n≥1
+
+
+Comme F est complet, d’après le théorème de Baire, l’un des n f (B) est d’intérieur non vide.
+Donc f (B) est d’intérieur non vide. Comme f (B) est un convexe symétrique (par rapport à 0),
+il existe α > 0 tel que B̄F (0, α) ⊂ f (B). Nous allons montrer que ceci implique que pour tout
+                                                   1
+β < α, B̄F (0, β) ⊂ f (B). En remplaçant f par f , il suffit de montrer que pour tout λ < 1,
+                                                   α
+B̄F (0, 1) ⊂ f (B) ⇒ B̄F (0, λ) ⊂ f (B).
+                                                               ∞
+                                                               X
+    Soient des réels strictement positifs ϵn , n ∈ N, tels que   ϵn = 1 − λ. Soit y ∈ B̄F (0, λ).
+                                                                         n=1
+Comme :
+                          B̄F (0, λ) = λ B̄F (0, 1) ⊂ λ f (B) = f (BE (0, λ)),
+
+il existe x1 ∈ E tel que ∥x1 ∥E < λ, ∥y − f (x1 )∥F ≤ ϵ1 . On a donc
+
+                  y − f (x1 ) ∈ B̄F (0, ϵ1 ) = ϵ1 B̄F (0, 1) ⊂ ϵ1 f (B) = f (BE (0, ϵ1 )).
+
+Ainsi il existe x2 ∈ E tel que ∥x2 ∥E < ϵ1 et ∥y − f (x1 ) − f (x2 )∥F ≤ ϵ2 . En continuant ce procédé,
+on obtient des éléments xn ∈ E, n ≥ 1, tels que :
+
+                    ∥xn ∥E < ϵn−1 ,     ∥y − f (x1 ) − f (x2 ) − · · · − f (xn )∥F ≤ ϵn .
+
+Alors
+                                      X                     X
+                                          ∥xn ∥E < λ +            ϵn ≤ 1.
+                                      n≥1                   n≥1
+                                P
+Comme E est complet, la série Xxn converge dans E. Notons x sa somme. On a ∥x∥E < 1, et
+puisque f est continue, f (x) =   f (xn ) = y. Donc y ∈ f (B), ce que l’on voulait montrer.
+                                  n≥1
+
+
+======== [PDF page 100 | page imprimée 97] ========
+V.2. THÉORÈME DE L’APPLICATION OUVERTE ET COROLLAIRES                                                   97
+
+V.2.3      Théorème d’isomorphisme de Banach
+
+   Une conséquence facile à obtenir du théorème de l’application ouverte est le résultat suivant,
+dû à S. Banach.
+
+       Théorème V.2.3 — de Banach
+   Soient E et F des espaces de Banach, et soit f : E → F un isomorphisme linéaire, continu.
+   Alors son inverse f −1 : F → E est continu.
+
+
+Démonstration. En effet, le théorème de l’application ouverte implique qu’il existe c > 0 tel que
+                                               1
+BF (0, c) ⊂ f (BE (0, 1)). On a alors ∥f −1 ∥ ≤ .
+                                               c
+
+       Corollaire V.2.4
+   Soit E un espace vectoriel muni de deux normes telles que E soit complet pour chacune
+   d’elles. Alors si ces deux normes sont comparables, elles sont équivalentes.
+
+
+Démonstration. Dire qu’elles sont comparables signifie que l’une d’elles est plus fine que l’autre :
+il existe k > 0 tel que ∥x∥1 ≤ k ∥x∥2 pour tout x ∈ E. Mais cela signifie que l’application identité
+Id : (E, ∥ . ∥2 ) → (E, ∥ . ∥1 ) qui est linéaire et bijective, est continue ; elle est donc bicontinue, et
+les deux normes sont équivalentes.
+
+
+V.2.4      Théorème du graphe fermé
+
+   Un énoncé équivalent au théorème de l’application ouverte est le théorème du graphe
+fermé.
+
+       Théorème V.2.5 — Graphe fermé
+   Soient E et F des espaces de Banach, et soit f : E → F une application linéaire. Alors f
+   est continue si et seulement si son graphe
+                                          
+                           Graphe(f ) = (x, f (x)) ∈ E × F, x ∈ E
+
+   est fermé.
+
+
+Démonstration. Si f est continue, son graphe est évidemment fermé. Démontrons la réciproque.
+Munissons E d’une seconde norme ∥ . ∥f définie par :
+
+                                 ∥ x ∥f = ∥ x ∥E + ∥ f (x) ∥F , (x ∈ E).
+
+Elle est plus fine que ∥ . ∥E et la condition que le graphe de f soit fermé dit que (E, ∥ . ∥f ) est
+un espace complet (on le voit comme un sous-espace fermé dans l’espace complet E × F via
+l’injection x 7→ (x, f (x))). Les normes ∥ . ∥E et ∥ . ∥f sont donc équivalentes : il existe donc C > 1
+tel que, pour tout x ∈ E :
+                                          ∥ x ∥f ≤ C ∥ x ∥ E ,
+
+soit
+                                      ∥ f (x) ∥F ≤ (C − 1) ∥ x ∥E .
+
+
+======== [PDF page 101 | page imprimée 98] ========
+98                                 CHAPITRE V. CALCUL DIFFÉRENTIEL DANS LES E.V.N.
+
+V.3        Applications différentiables, différentielle
+
+
+V.3.1       Définition de la différentielle
+
+     Soit f : U → R une fonction définie sur un ouvert U d’un espace vectoriel normé E contenant
+0. On écrit f (x) = o(x) si pour tout ϵ > 0, il existe δ > 0 tel que pour tout x ∈ BE (0, δ) ∩ U,
+|f (x)| < ϵ ∥x∥E .
+
+       Définition V.3.1
+     Soient E et F des espaces vectoriels normés et U un ouvert de E. On dit que l’application
+     f : U → F est différentiable en a ∈ U s’il existe une application linéaire continue,
+     dfa : E → F telle que
+
+     (V.3.1)                      ∥f (a + h) − f (a) − dfa (h)∥F = o(h).
+
+     Il est facile de voir que cette application linéaire est unique. On appelle dfa la différentielle
+     de f au point a.
+     On dit que f est différentiable sur U si elle est différentiable en tout point de U .
+     On dit que f est de classe C 1 sur U si elle est différentiable en tout point de U et si
+     l’application
+                                     df : U −→ L(E; F ),       a 7→ dfa
+     est continue.
+
+    Fixons h ∈ E. Pour ϵ > 0 assez petit, a + th ∈ U pour tout t ∈ ]−ϵ ; ϵ[ car U est ouvert, et si
+dfa existe, on a
+                                              f (a + th) − f (a)
+                                dfa (h) = lim                    ,
+                                          t→0          t
+ce qui montre au passage l’unicité de dfa .
+
+     Remarque V.3.2 — Dans la définition de la différentielle, il est exigé que dfa : E → F
+     soit continue. Ceci entraîne la continuité de f en a. Alternativement, on peut exiger la
+     continuité en a dans la définition de la différentiabilité. Une application linéaire dfa vérifiant
+     (V.3.1) est alors nécessairement continue. Rappelons qu’en dimension finie, une application
+     linéaire est toujours continue.
+
+
+     Remarque V.3.3 — La définition de la différentielle dépend des normes choisies sur E
+     et F . Remplaçons ∥ ∥E et ∥ ∥F par des normes équivalentes. L’ouvert U reste ouvert pour
+     la nouvelle topologie, et il n’est pas difficile de vérifier que si f est différentiable avec
+     les anciennes normes, elle l’est encore avec la même différentielle dfa pour les nouvelles
+     normes. En particulier, comme en dimension finie, toute les normes sont équivalentes, la
+     différentiation ne dépend pas des normes.
+
+
+     Exemple V.3.4 — Soit f : U → F une application d’un ouvert U de R dans un espace
+     vectoriel normé F , que l’on suppose différentiable au point a ∈ U. Alors dfa ∈ L(R, F ).
+     Comme L(R, F ) est canoniquement isomorphe à F (cf. exercice V.1.2), on peut identifier dfa
+     avec un vecteur de F (le vecteur tangent de f en a, donné par dfa (1)). On note couramment
+     f ′ (a) le vecteur dfa (1).
+
+
+======== [PDF page 102 | page imprimée 99] ========
+V.3. APPLICATIONS DIFFÉRENTIABLES, DIFFÉRENTIELLE                                                    99
+
+
+  Exemple V.3.5 — Soit f : E → F une application linéaire continue entre deux espaces
+  vectoriel normés. Alors f est partout différentiable, et sa différentielle en tout point est f .
+  En effet, f (x0 + h) − f (x0 ) − f (h) = 0 quels que soient x0 et h dans E.
+
+
+
+  Exemple V.3.6 — Soient E1 , E2 et F des espaces vectoriels normés. On munit l’espace
+  vectoriel E = E1 × E2 de la norme ∥(x, y)∥E = ∥x∥E1 + ∥y∥E2 . Soit f : E1 × E2 → F une
+  application bilinéaire continue. La différentielle de f au point (a, b) est donnée par
+
+                         df(a,b) (h, k) = f (a, k) + f (h, b),   (h ∈ E1 , k ∈ E2 ).
+
+  En effet, on a alors
+
+                          f (a + h, b + k) − f (a, b) − df(a,b) (h, k) = f (h, k).
+
+  Or ∥f (h, k)∥F ≤ ∥f ∥ × ∥h∥E1 × ∥k∥E2 = o((h, k)).
+
+
+
+  Exercice V.3.7 — Reprendre l’exemple ci-dessus dans le cadre plus général des applications
+  multilinéaires continues de la section V.1.3.
+
+  Exemple V.3.8 — On suppose que (E, ⟨. , .⟩E ) est un espace de Hilbert. Soit f : U → R une
+  application définie sur un ouvert U de E. Supposons f différentiable en a, de différentielle
+  dfa : E → R. D’après le théorème de représentation de Riesz, il existe un unique vecteur
+  ∇f (a) de E tel que pour tout h ∈ E,
+
+                                          ⟨∇f (a), h⟩E = dfa (h).
+
+  On appelle le vecteur ∇f (a) le gradient de f en a.
+
+
+  Exemple V.3.9 — Soit f : U → F une application différentiable d’un ouvert U d’un espace
+  vectoriel normé E dans un espace vectoriel normé F . Soit E ′ un sous-espace de E, muni
+  de la norme induite. Alors U ′ = E ′ ∩ U est un ouvert de E ′ , la restriction g de f à U ′ est
+  différentiable, et pour tout a ∈ U ′ , dga est la restriction de dfa à E ′ .
+
+
+  Exercice V.3.10 — On se place dans les hypothèses de l’exemple ci-dessus, avec E un
+  espace de Hilbert, E ′ un sous-espace fermé, et F = R. Déterminer ∇g(a) en fonction de
+  ∇f (a).
+
+
+V.3.2   Propriétés de la différentielle
+  On rappelle maintenant les propriétés de linéarité et de composition des différentielles.
+
+    Proposition V.3.11 — Linéarité de la différentielle
+  Soient E et F des espaces vectoriels normés, U un ouvert de E et f, g : U → F des
+  applications différentiables en un point a de U. Alors toute combinaison linéaire λf + µg
+  de f et de g est encore différentiable au point a, et
+
+                                      d(λf + µg)a = λ dfa + µ dga .
+
+
+======== [PDF page 103 | page imprimée 100] ========
+100                               CHAPITRE V. CALCUL DIFFÉRENTIEL DANS LES E.V.N.
+
+      La démonstration est très facile et donc omise.
+
+       Proposition V.3.12 — Composition des différentielles
+   oient E, F et G des espaces vectoriels normés, U un ouvert de E, f : U → F une application
+   différentiable en un point a de U, V un ouvert de F contenant f (a) et g : V → G une
+   application différentiable en f (a). Alors g ◦ f est différentiable en a, et
+
+                                        d(g ◦ f )a = dgf (a) ◦ dfa .
+
+
+Démonstration. Posons y = f (a + h) et b = f (a). On a
+
+                                  g(y) = g(b) + dgb (y − b) + r(y, b)
+
+       ∥r(y, b)∥G
+où lim            = 0. On a aussi
+   y→b ∥y − b∥F
+
+                              y − b = f (a + h) − f (a) = dfa (h) + s(h)
+
+      ∥s(h)∥F
+où lim        = 0. Par linéarité de dgb , on obtient
+   h→0 ∥h∥E
+
+                   g ◦ f (a + h) − g ◦ f (a) − dgf (a) ◦ dfa (h) = dgb (s(h)) + r(y, b).
+
+D’autre part :
+                                ∥dgb (s(h))∥G ≤ ∥dgb ∥ ∥s(h)∥F = o(h),
+et, étant donné ε > 0, on peut prendre h assez petit de sorte que
+
+                         ∥y − b∥F = ∥dfa (h) + s(h)∥F ≤ (∥dfa ∥ + ε) ∥h∥E
+
+Comme par continuité de f en a on a y → b lorsque h → 0, on obtient r(y, b) = o(h).
+
+  Remarque V.3.13 — Grâce à cette règle de composition des différentielles, on obtient une
+  interprétation géométrique de la différentielle. Soient E, F des espaces vectoriels normés,
+  U un ouvert de E, f : U → F une application différentiable en un point a ∈ U. Soit
+  ε > 0 et soit α : ]−ε ; ε[ → E une application de classe C 1 de l’intervalle ]−ε ; ε[ dans
+  E (une courbe paramétrée par t ∈ ]−ε ; ε[ dans l’espace E). Supposons que α(0) = a
+  et posons h = α′ (0) = dα0 (1) (le vecteur tangent à la courbe en t = 0). Considérons
+  β = f ◦ α : ]−ε ; ε[ → F . C’est une courbe dans F , différentiable en 0, et
+
+                               β ′ (0) = dβ0 (1) = dfa (dα0 (1)) = dfa (h).
+
+  La différentielle dfa envoie donc le vecteur tangent h à la courbe α en t = 0 sur le vecteur
+  tangent en t = 0 à la courbe image β = f ◦ α.
+
+
+  Remarque V.3.14 — Soient E, F des espaces vectoriels normés, U un ouvert de E,
+  f : U → F une application différentiable sur U. Posons
+
+                        T f : U × E −→ F × F,            (x, h) 7→ (f (x), dfx (h)).
+
+  Cette application s’appelle l’application tangente. L’avantage de considérer celle-ci est que
+  la règle de composition est plus simple : T (g ◦ f ) = T g ◦ T f .
+
+
+======== [PDF page 104 | page imprimée 101] ========
+V.3. APPLICATIONS DIFFÉRENTIABLES, DIFFÉRENTIELLE                                                   101
+
+V.3.3     Fonctions à valeurs dans un produit d’espaces vectoriels normés
+   Soient E, F1 , . . . Fn des espaces vectoriels normés. On munit F = F1 × · · · × Fn de la norme
+
+                              ∥(x1 , . . . , xn )∥F = ∥x1 ∥F1 + · · · + ∥xn ∥Fn
+
+qui donne la topologie produit. On considère pour chaque indice i = 1, . . . , n, la projection
+canonique
+                              pi : F → Fi , (x1 , . . . , xn ) 7→ xi
+et l’injection canonique
+                                ιi : Fi → F,        xi 7→ (0, . . . , xi , . . . , 0)
+(des 0 partout sauf à la i-ème place). Ce sont des applications linéaires continues.
+   On a alors
+                                                           n
+                                                           X
+(V.3.2)                          pi ◦ ιi = IdFi ,                 ιi ◦ pi = IdF .
+                                                            i=1
+
+   On en déduit le résultat suivant.
+
+     Proposition V.3.15
+   Soient E, F1 , . . . Fn des espaces vectoriels normés. Soit f : U → F = F1 × · · · × Fn une
+   application, où U est un ouvert de l’espace E. Pour que f soit différentiable au point a ∈ U,
+   il faut et il suffit que pour tout i, fi := pi ◦ f soit différentiable au point a, et l’on a alors
+                                                    n
+                                                    X
+                                           dfa =           ιi ◦ (dfi )a .
+                                                     i=1
+
+
+
+Démonstration. Si f est différentiable en a, les fi = pi ◦ f le sont aussi d’après le théorème de
+composition des différentielles et le fait que les pi sont linéaires. La formule de composition des
+différentielles donne
+                                           (dfi )a = pi ◦ dfa .
+
+   Réciproquement, si l’on suppose toutes les fi différentiables en a, on obtient de (V.3.2) que
+                                           n
+                                           X                      n
+                                                                  X
+                                    f=           ιi ◦ p i ◦ f =          ιi ◦ f i .
+                                           i=1                     i=1
+
+La fonction f est donc différentiable en a, sa différentielle en a étant bien
+                                                     n
+                                                     X
+                                            dfa =          ιi ◦ (dfi )a
+                                                     i=1
+
+d’après la formule de composition des différentielles.
+
+   Exemple V.3.16 : Formule de Leibniz — Soient E, F1 , F2 et G des espaces vectoriels
+   normés, U un ouvert de E, et
+
+                           f1 : U → F1 ,     f2 : U → F2 ,           b : F 1 × F2 → G
+
+   où b est bilinéaire continue. On définit g : U → G par g(x) = b(f1 (x), f2 (x)). Supposons
+
+
+======== [PDF page 105 | page imprimée 102] ========
+102                                     CHAPITRE V. CALCUL DIFFÉRENTIEL DANS LES E.V.N.
+
+
+   que f1 et f2 soient différentiables au point a ∈ U. Alors il en est de même de g, et
+
+                              dga (h) = b((df1 )a (h), f2 (a)) + b(f1 (a), (df2 )a (h)).
+
+   En effet, on écrit g comme composée de b et de x 7→ (f1 (x), f2 (x)) de U dans F1 × F2 . On
+   utilise alors la proposition qui précède, la formule de composition des différentielles, et la
+   formule de la différentielle d’une application bilinéaire (cf. exemple V.3.6).
+
+
+V.3.4       Différentielles partielles
+    On se place maintenant dans le cas où E = E1 × · · · × Em est un produit d’espaces vectoriels
+normés. Soit U un ouvert de E et soit f : U → F une application de U à valeurs dans un espace
+vectoriel normé F .
+   Fixons un point a = (a1 , . . . , am ) de U, et pour tout i = 1, . . . , m, considérons les applications
+partielles
+                            f[i] : xi 7→ f (a1 , . . . ai−1 , xi , ai+1 , . . . am )
+définies respectivement sur des voisinages ouverts de ai dans Ei .
+
+        Proposition V.3.17
+      Avec les notations ci-dessus, si f est différentiable au point a ∈ U, pour tout i = 1, . . . , m,
+                                                                      ∂f
+      l’application partielle f[i] est différentiable en ai . On note     (a) la différentielle de f[i] en
+                                                                      ∂xi
+      ai . C’est un élément de L(Ei ; F ) que l’on appelle la dérivée partielle de f par rapport à la
+      variable xi . En outre, on a
+                                                 m
+                                                 X ∂f
+   (V.3.3)            dfa (h1 , . . . , hm ) =               (a)(hi ),   (h1 ∈ E1 , . . . , hm ∈ Em ).
+                                                       ∂xi
+                                                 i=1
+
+
+
+Démonstration. Comme dans la section précédente, on note ιi l’injection canonique de Ei dans
+E et pi la projection canonique de E sur Ei . On a alors f[i] = f ◦ λi , où λi (xi ) = a + ιi (xi − ai ).
+Comme ιi est linéaire, elle est partout différentiable, et si f est différentiable au point a ∈ U,
+il en est de même de f[i] au point ai par le théorème de composition des différentielles. De
+                                                                             m
+                                                ∂f                          X
+plus, on a par la formule de composition           (a) = dfa ◦ ιi . Comme       ιi ◦ pi = IdE , on a
+                                               ∂xi
+                                                                            i=1
+ m                  m
+X                   X  ∂f
+    dfa ◦ ιi ◦ pi =       (a) ◦ pi = dfa , ce qui donne bien (V.3.3).
+                      ∂xi
+i=1                   i=1
+
+
+   Remarque V.3.18 — Contrairement au résultat montré dans la proposition V.3.15, la
+   dernière proposition n’établit qu’une implication et non une équivalence. En effet, il est
+   faux d’affirmer que l’existence des différentielles partielles implique la différentiabilité de f
+   en un point. Nous reviendrons sur cette question en section V.5.
+
+
+V.3.5       Applications de Rm dans Rn
+    La combinaison des cas étudiés dans les deux sections précédentes nous permet de retrouver
+les notions et notations usuelles du calcul différentiel pour les fonctions de Rm dans Rn . Soit
+f : Rm → Rn . Fixons un point a ∈ Rm . Les applications partielles f[i] en a ont été définies dans la
+section précédente, et les applications fj dans la section V.3.3. De même, pour tout i = 1, . . . , m
+
+
+======== [PDF page 106 | page imprimée 103] ========
+V.4. THÉORÈMES DE LA MOYENNE                                                                                  103
+
+et tout j = 1, . . . n, on peut définir f[i] j et fj [i] . Il est facile de voir que ces deux fonctions définies
+sur un ouvert de R et à valeurs dans R coïncident, et nous noterons plus commodément fi,j cette
+                                                                                   ′         ∂fj
+fonction. Si f est différentiable en a, les fi,j sont dérivables en ai , fi,j        (ai ) =     (a) (il y a là un
+                                                                                             ∂xi
+                                        ∂f
+léger abus de notations. En effet ∂xji (a) est définie comme une application linéaire de R dans
+R. On identifie ici naturellement une telle application linéaire et un nombre réel comme dans
+l’exercice V.1.2) et
+                                               X         X              ∂fj
+(V.3.4)                            dfa =                         ιj ◦       (a) ◦ pi .
+                                                                        ∂xi
+                                           i=1,...,m j=1,...,n
+
+Autrement dit, l’application linéaire dfa est représentée dans les bases canoniques de Rm et Rn par
+                                       ∂f
+la matrice à n lignes et m colonnes ( ∂xji (a))j,i . On appelle cette matrice la matrice jacobienne
+de f en a. L’équation (V.3.4) s’écrit alors
+                                                                                       h 
+                                               ∂f1       ∂f1                    ∂f1
+                                           
+                                                                                            1
+                                                   (a)       (a) . .                (a)  h 
+                                              ∂x1       ∂x2                    ∂xm        2
+                                                                                       
+                                              .           .     . .              .        .
+                                             
+                                                                                            
+                    dfa (h1 , . . . , hm ) =                                               
+                                              .           .     . .              .      . 
+                                              ∂f                               ∂fn     
+                                                                                        
+                                                 n                                         . 
+                                                   (a)       .           . .        (a)
+                                               ∂x1                              ∂xm       hm
+
+où l’on identifie un élément de Rn et le « vecteur colonne » (c’est-à-dire une matrice à n lignes et
+une colonne) qui lui est associé.
+   Si n = m le déterminant de la matrice jacobienne, noté Jac(f )(a), s’appelle le déterminant
+jacobien, ou simplement jacobien, de f en a.
+
+
+V.4       Théorèmes de la moyenne
+
+
+V.4.1      Théorème des accroissements finis
+    Le but de cette section est d’énoncer des résultats généralisant le théorème des accroissements
+finis pour les fonctions de la variable réelle à valeurs réelles. Commençons par un résultat sur les
+fonctions de la variable réelle à valeurs dans un espace vectoriel normé.
+
+     Théorème V.4.1
+   Soient a et b deux réels avec a < b, et F un espace vectoriel normé. Soient f : [a ; b] → F et
+   g : [a ; b] → R deux applications continues sur [a ; b] et différentiables sur ]a ; b[. Supposons
+   que pour tout t ∈ ]a ; b[, ∥f ′ (t)∥F ≤ g ′ (t). Alors ∥f (b) − f (a)∥F ≤ g(b) − g(a).
+
+
+Démonstration. Nous allons montrer que pour tout u, v tels que a < u < v < b, ∥f (v) − f (u)∥F ≤
+g(v)−g(u). Le résultat s’en déduit par continuité en faisant tendre u vers a et v vers b. Raisonnons
+par l’absurde en supposant que
+
+                                ∥f (v) − f (u)∥F − (g(v) − g(u)) = M > 0.
+
+Posons m = u+v
+            2 . L’inégalité triangulaire montre que l’on a nécessairement
+
+                                                 M                                                      M
+     ∥f (v) − f (m)∥F − (g(v) − g(m)) ≥                  ou ∥f (m) − f (u)∥F − (g(m) − g(u)) ≥            .
+                                                 2                                                      2
+
+
+======== [PDF page 107 | page imprimée 104] ========
+104                                CHAPITRE V. CALCUL DIFFÉRENTIEL DANS LES E.V.N.
+
+Notons [u1 ; v1 ] un intervalle sur lequel cette inégalité est vérifiée, et notons m1 = u1 +v
+                                                                                           2
+                                                                                             1
+                                                                                               et
+réitérons le procédé. On construit ainsi une suite d’intervalles emboîtés [uk ; vk ] avec
+
+                                                              M                     v−u
+                 ∥f (vk ) − f (uk )∥F − (g(vk ) − g(uk )) ≥        et   vk − uk =       .
+                                                              2k                     2k
+Alors uk et vk convergent vers un même point w, et l’on a uk ≤ w ≤ vk et
+
+      M
+         ≤ ∥f (vk ) − f (w)∥F − (g(vk ) − g(w)) + ∥f (w) − f (uk )∥F − (g(w) − g(uk ))
+      2k
+         ≤ ∥dfw (vk − w)∥F + o(vk − w) − g ′ (w)(vk − w) + o(vk − w)
+              + ∥dfw (w − uk )∥F + o(w − uk ) − g ′ (w)(w − uk ) + o(w − uk )
+          ≤ ∥dfw ∥ (|vk − w| + |w − uk |) − g ′ (w) (|vk − w| + |w − uk |) + o(vk − w) + o(w − uk )
+          ≤ ∥dfw ∥ − g ′ (w) (vk − uk ) + o(vk − uk )
+                            
+
+
+En divisant par vk − uk = v−u 2k
+                                               M
+                                 , on obtient v−u ≤ (∥dfw ∥ − g ′ (w)) + o(1) et ceci donne une
+contradiction avec l’hypothèse.
+
+
+   Remarque V.4.2 — Dans le théorème précédent, on peut affaiblir les hypothèses en
+   supposant seulement que pour tout t ∈ ]a ; b[, sauf peut-être un nombre dénombrable de
+   points, f et g sont différentiables et ∥f ′ (t)∥F ≤ g ′ (t) (voir [4]).
+
+       Corollaire V.4.3
+   Soient a et b deux réels avec a < b, et F un espace vectoriel normé. Soit f : [a ; b] → F
+   une application continue sur [a ; b] et différentiable sur ]a ; b[. Supposons que pour tout
+   t ∈ ]a ; b[, ∥f ′ (t)∥F ≤ k, pour une certaine constante k. Alors ∥f (b) − f (a)∥F ≤ k(b − a).
+
+      Nous énonçons maintenant une version du théorème des accroissements finis.
+
+       Théorème V.4.4 — Théorème des accroissements finis
+   Soient E et F des espaces vectoriels normés, U un ouvert de E et f : U → F une application
+   différentiable sur U. Soient a et b des points de U. Si le segment [a, b] = ta + (1 − t)b; t ∈
+   [0, 1] est contenu dans U, alors
+
+                           ∥f (b) − f (a)∥F ≤ sup ∥dfta+(1−t)b ∥ × ∥b − a∥E .
+                                               t∈[0,1]
+
+   En particulier, si U est convexe, et que sup ∥dfx ∥ ≤ k pour une constante k, alors quels
+                                                 x∈U
+   que soient a et b dans U,
+                                     ∥f (b) − f (a)∥F ≤ k ∥b − a∥E .
+
+
+Démonstration. On applique le corollaire ci-dessus à h(t) = f ((1 − t)a + tb), en constatant que
+
+                                       h′ (t) = df(1−t)a+tb (b − a).
+
+
+
+
+       Corollaire V.4.5
+   Si U est connexe, et que dfx est nulle pour tout x ∈ U, alors f est constante sur U.
+
+
+======== [PDF page 108 | page imprimée 105] ========
+V.4. THÉORÈMES DE LA MOYENNE                                                                           105
+
+Démonstration. Ceci découle directement du théorème si U est convexe. Le cas d’un ouvert U
+connexe s’en déduit en utilisant le fait qu’un espace vectoriel normé est localement convexe (tout
+point admet un voisinage convexe aussi petit que l’on souhaite). Ainsi, l’hypothèse implique
+que f est localement constante. Or une fonction localement constante sur un ouvert connexe est
+constante. Les détails sont laissés au lecteur.
+
+V.4.2     Théorème fondamental du calcul différentiel
+    Pour énoncer ce théorème, il faut disposer d’une théorie de l’intégration d’une fonction définie
+sur un intervalle [a ; b] de R et à valeurs dans un espace de Banach F . Une théorie de l’intégration
+à la Riemann suffit à nos besoins. Nous n’allons pas développer une telle théorie, mais simplement
+dire qu’on définit de manière évidente l’intégrale d’une fonction en escalier (par une somme), et
+par passage à la limite, on définit ensuite l’intégrale des fonctions réglées (limites uniformes de
+fonction en escalier) et c’est dans cette étape que l’hypothèse de complétude de l’espace F est
+indispensable. Les propriétés usuelles des intégrales sont évidentes (relations de Chasles, linéarité,
+etc). Les fonctions continues sont réglées, et on a
+                                      Z b
+                                     ∥    f (t) dt∥F ≤ (b − a) ∥f ∥0 .
+                                         a
+
+où ∥f ∥0 = supt∈[a ;b] ∥f (t)∥F .
+
+     Théorème V.4.6
+   Soit g : [a ; b] → F une application continue de l’intervalle [a ; b] à valeurs dans un espace
+   de Banach F . Soit t0 ∈ [a ; b]. Posons
+                                                      Z t
+                                             G(t) =         g(u) du.
+                                                       t0
+
+   Alors G : [a ; b] → F est continue sur [a ; b] et de classe C 1 sur ]a ; b[ et pour tout t ∈ ]a ; b[,
+   G′ (t) = g(t).
+
+
+Démonstration. On a d’après le relation de Chasles, et les propriétés de l’intégrale
+                                    Z t+h
+     ∥G(t + h) − G(t) − g(t)h∥ = ∥        (g(u) − g(t)) du∥ ≤ sup ∥g(u) − g(t)∥ × |h|
+                                             t                               u∈[t ;t+h]
+
+Or, quand h tend vers 0, supu∈[t ;t+h] ∥g(u) − g(t)∥ fait de même, et donc le terme de gauche est
+o(h).
+
+     Théorème V.4.7
+   Soient E un espace vectoriel normé, F un espace de Banach, et soit f : U → F une
+   application définie sur un ouvert U de E et de classe C 1 . Soient x ∈ U, y ∈ E, et supposons
+   que pour tout t ∈ [0 ; 1], x + ty ∈ U. On a alors
+                                                            Z 1
+                                    f (x + y) = f (x) +           dfx+ty (y) dt.
+                                                             0
+
+
+Démonstration. On pose g(t) = f (x + ty)R pour tout t ∈ [0 ; 1]. Pour tout t ∈ ]0 ; 1[, on a
+                                                   t
+g ′ (t) = dfx+ty (y). Définissons h(t) = f (x) + 0 dfx+sy (y) ds. D’après le théorème précédent, pour
+tout t ∈ ]0 ; 1[, h (t) = dfx+ty (y), et donc h (t) − g ′ (t) = 0. On en déduit que g − h est constante
+                    ′                           ′
+
+sur ]0 ; 1[, et par continuité, sur [0 ; 1]. Comme g(0) − h(0) = 0, on en déduit que h = g sur tout
+[0 ; 1].
+
+
+======== [PDF page 109 | page imprimée 106] ========
+106                                     CHAPITRE V. CALCUL DIFFÉRENTIEL DANS LES E.V.N.
+
+V.5        Classe C k et différentielles d’ordre supérieur
+
+
+V.5.1       Définitions
+   Soient E et F des espaces vectoriels normés et U un ouvert de E. On définit, pour une
+application f : U → F , le fait d’être de classe C k , k ∈ N ∪ {∞}, par récurrence.
+      Classe C 0 : f est continue.
+      Classe C 1 : f est différentiable en tout point x ∈ U et l’application
+
+                                           df : U → L(E, F ),            x 7→ dfx
+
+est continue.
+      Classe C k , k ∈ N \ {0, 1} : f est différentiable en tout point x ∈ U et df est de classe C k−1 .
+      Classe C ∞ : f est de classe C k pour tout k ∈ N.
+
+    Les espaces L(E; F ), L(E; L(E; F )), L(E; L(E; L(E; F ))), etc, sont des espaces vectoriels
+normés. Ainsi les questions de continuité et de différentiabilité successive de f , df , d(df ), etc,
+rentrent-elles bien dans le cadre de notre étude.
+
+
+V.5.2       Condition suffisante sur les dérivées partielles
+   Replaçons nous dans le cadre de la section V.3.4 : E = E1 × · · · × Em est un produit d’espaces
+vectoriels normés, U est un ouvert de E et f : U → F une application de U à valeurs dans un
+                                                                                       ∂f
+espace vectoriel normé F . Nous avons défini la notion de dérivée partielles (notée       ). Nous
+                                                                                      ∂xi
+avons alors le résultat suivant, qui complète la proposition V.3.17.
+
+       Proposition V.5.1
+   Avec les notations ci-dessus, pour que f soit de classe C 1 sur U, il faut et il suffit que f
+                                    ∂f
+   admette des dérivées partielles      en tout point de U, et que celles-ci soient continues.
+                                    ∂xi
+   Pour que f soit différentiable au point a, il suffit que les dérivées partielles existent en tout
+   point x dans un voisinage de a et qu’elles soient continues en a.
+
+
+Démonstration. On a déjà vu que la condition était nécessaire (Proposition V.3.17). D’après la
+formule (V.3.3), il suffit de montrer la seconde assertion pour conclure la démonstration. Soit
+a = (a1 , . . . , am ) ∈ U. Posons
+                                                                            m
+                                                                            X ∂f
+                     g : U −→ F,              g(x) = f (x) − f (a) −                    (a)(xk − ak ).
+                                                                                  ∂xk
+                                                                            k=1
+
+                                          ∂g         ∂f        ∂f
+On a alors pour tout k = 1, . . . , m, ∂x   k
+                                              (x) = ∂x k
+                                                         (x) − ∂xk
+                                                                   (a), et puisque les différentielles
+partielles sont continues en a, pour tout ϵ > 0, il existe δ > 0 tel que pour tout x ∈ BE (a, δ),
+   ∂g
+∥ ∂x k
+       (x)∥ ≤ ϵ. Il résulte du théorème des accroissements finis que l’on a
+                            m
+                            X
+                ∥g(x)∥ ≤          ∥g(x1 , . . . xk , ak+1 , . . . , am ) − g(x1 , . . . xk−1 , ak , . . . , am )∥
+                            k=1
+                            m
+                            X
+                        ≤         ϵ∥xk − ak ∥ = ϵ∥x − a∥.
+                            k=1
+
+
+======== [PDF page 110 | page imprimée 107] ========
+V.5. CLASSE C k ET DIFFÉRENTIELLES D’ORDRE SUPÉRIEUR                                                 107
+
+                                   m
+                                   X ∂f
+On obtient donc f (x) = f (a)+                (a)(xk −ak )+o(x−a), ce qui montre que f est différentiable
+                                       ∂xk
+                                  k=1
+en a et pour tout h = (h1 , . . . , hm ) ∈ E,
+                                                        m
+                                                        X ∂f
+                                            dfa (h) =               (a)(hk ),
+                                                              ∂xk
+                                                        k=1
+
+ce qui conclut la démonstration.
+
+   Exemple V.5.2 — Une application linéaire continue est de classe C ∞ . Elle est égale à sa
+   différentielle en tout point. Ses différentielles d’ordre supérieur sont nulles.
+
+
+
+V.5.3      Le lemme de Schwarz
+   Intéressons nous de plus près dans un premier temps à la différentielle seconde. On suppose
+donc que f : U → F est une application d’un ouvert U d’un espace vectoriel normé E à valeurs
+dans un espace vectoriel normé F de classe C 1 . L’application
+
+                                       df : U → L(E; F ),             x 7→ dfx
+
+est partout définie sur U et continue. Supposons qu’elle soit différentiable en un point a ∈ U. Sa
+différentielle en a est alors un élément
+
+                                      d2 fa = d(df )a ∈ L(E; L(E; F )),
+
+l’application x 7→ d2 fx allant de U dans L(E; L(E; F )). Or, nous avons vu dans la section V.1.4
+que l’on a un isomorphisme naturel
+                                                              ∼
+                                       L(E; L(E; F )) → L(E, E; F ).
+
+La différentielle seconde d2 fa = d(df )a en un point a peut donc être vue comme une application
+bilinéaire de E × E → F .
+
+     Théorème V.5.3 — Lemme de Schwarz
+   Avec les hypothèses ci-dessus, la différentielle seconde d(df )a est une application bilinéaire
+   symétrique de E × E dans F .
+
+
+Démonstration. Introduisons gu,v (t, s) = f (a + tu + sv) − f (a + sv) − f (a + tu) + f (a). Ici on a
+fixé a ∈ U et u, v ∈ E et gu,v (t, s) est définie pour des réels t et s dans un intervalle ouvert autour
+de 0. Nous allons montrer que
+                          gu,v (t, t) − d2 fa (tu, tv)       gu,v (t, t)
+                      lim                2
+                                                       = lim             − d2 fa (u, v) = 0
+                      t→0              t                 t→0     t2
+et comme gu,v (t, t) = gv,u (t, t), ceci montre que d2 fa (u, v) = d2 fa (v, u). On a
+
+          ∥gu,v (t, s) − d2 fa (tu, sv)∥F
+          = ∥(gu,v (t, s) − dfa+tu (sv) + dfa (sv)) − (d2 fa (tu, sv) − dfa+tu (sv) + dfa (sv))∥F
+          ≤ ∥gu,v (t, s) − dfa+tu (sv) + dfa (sv)∥F + ∥d2 fa (tu, sv) − dfa+tu (sv) + dfa (sv)∥F
+
+    Or la différentiabilité de df en a nous dit que : ∀ϵ > 0, ∃δ > 0 tel que si ∥x∥ ≤ 2δ, alors
+
+(V.5.1)                            ∥d2 fa (x, .) − dfa+x + dfa ∥ ≤ ϵ∥x∥E .
+
+
+======== [PDF page 111 | page imprimée 108] ========
+108                                 CHAPITRE V. CALCUL DIFFÉRENTIEL DANS LES E.V.N.
+
+On a donc en particulier pour t assez petit,
+
+                                  ∥d2 fa (tu, .) − dfa+tu + dfa ∥ ≤ ϵ∥tu∥E
+
+et ainsi
+
+(V.5.2)            ∥d2 fa (tu, sv) − dfa+tu (sv) + dfa (sv)∥F ≤ ϵ∥tu∥E ∥sv∥ = ϵ|t||s|∥u∥E ∥v∥E
+
+      D’autre part, posons ktu,v (s) = f (a + tu + sv) − f (a + sv) − dfa+tu (sv) + dfa (sv). On a alors
+                          ′
+                        ktu,v (s) = dfa+tu+sv (v) − dfa+sv (v) − dfa+tu (v) + dfa (v)
+                       = dfa+tu+sv − dfa − d2 fa (tu + sv, .)
+                                                              
+
+                       − dfa+tu − dfa − d2 fa (tu, .)
+                                                     
+
+                       − dfa+sv − dfa − d2 fa (sv, .) (v)
+                                                      
+
+et ainsi pour s, t assez petit, d’après (V.5.1),
+       ′
+     ∥ktu,v (s)∥F ≤ ϵ∥tu + sv∥E ∥v∥E + ϵ∥tu∥E ∥v∥E + ϵ∥sv∥E ∥v∥E ≤ 2ϵ|t|∥u∥E ∥v∥E + 2ϵ|s|∥v∥2E
+
+Le théorème des accroissements finis donne alors
+
+                         ∥ktu,v (s) − ktu,v (0)∥F ≤ 2ϵ|t||s|∥u∥E ∥v∥E + 2ϵ|s|2 ∥v∥2E
+
+Or
+
+     ktu,v (s) − ktu,v (0) = f (a + tu + sv) − f (a + sv) − dfa+tu (sv) + dfa (sv) − f (a + tu) + f (a)
+      = gu,v (t, s) − dfa+tu (sv) + dfa (sv)
+
+      Par inégalité triangulaire, en utilisant (V.5.2), on obtient finalement la majoration
+
+           ∥gu,v (t, s) − d2 fa (tu, sv)∥F ≤ ϵ|t||s|∥u∥E ∥v∥E + 2ϵ|t||s|∥u∥E ∥v∥E + 2ϵ|s|2 ∥v∥2E
+
+qui donne pour s = t,
+
+             ∥gu,v (t, t) − d2 fa (tu, tv)∥F ≤ ϵ|t|2 ∥u∥E ∥v∥E + 2ϵ|t|2 ∥u∥E ∥v∥E + 2ϵ|t|2 ∥v∥2E
+
+et démontre l’assertion faite au début de la démonstration.
+
+     Exercice V.5.4 — Soit f : R2 → R une fonction de classe C 2 . Montrer que le théorème
+     ci-dessus est bien équivalent dans ce cas au fait que
+                                               ∂ ∂      ∂ ∂
+                                                     f=       f.
+                                               ∂x ∂y    ∂y ∂x
+
+    Le lemme de Schwarz admet une généralisation aux dérivées d’ordre supérieur, dont nous
+laissons la démonstration au lecteur.
+
+       Théorème V.5.5
+     Soit f : U → F une application d’un ouvert U d’un espace vectoriel normé E à valeurs
+     dans un espace vectoriel normé F de classe C p−1 (p ≥ 2). Soit a ∈ U tel que dp−1 f soit
+     différentiable en a. La différentielle dp fa est alors une application p-linéaire symétrique
+     de E p dans F , c’est-à-dire que pour tout h = (h1 , . . . , hp ) ∈ E p , pour toute permutation
+     σ ∈ Sp ,
+                               dp fa (h1 , . . . , hp ) = dp fa (hσ(1) , . . . , hσ(p) ).
+
+
+======== [PDF page 112 | page imprimée 109] ========
+V.5. CLASSE C k ET DIFFÉRENTIELLES D’ORDRE SUPÉRIEUR                                                     109
+
+
+  Remarque V.5.6 : Une formule pratique de calcul — Soit f : U → F une application
+  d’un ouvert U d’un espace vectoriel normé E à valeurs dans un espace vectoriel normé F ,
+  de classe C p . Soit a ∈ U . On a alors
+  (V.5.3)
+                                                                              p
+                                                "                                     !#
+        p                        ∂ ∂         ∂                                X
+      d fa (h1 , . . . , hp ) =         ...       (t1 , . . . , tp ) 7→ f a +   ti hi    .
+                                ∂t1 ∂t2     ∂tp
+                                                                         i=1         t1 =t2 =···=tp =0
+
+
+
+V.5.4     Un exemple d’application infiniment différentiable
+   Soient E et F des espaces de Banach.
+
+       Théorème V.5.7
+   L’ensemble Iso(E; F ) des isomorphismes linéaires bicontinus de E dans F est un ouvert de
+   L(E; F ) et l’application
+
+                             Ψ : Iso(E; F ) → Iso(F ; E),        f 7→ f −1
+
+   est de classe C ∞ , sa différentielle en f étant donnée par
+
+                           dΨf (g) = −f −1 ◦ g ◦ f −1 ,      (g ∈ L(E; F )).
+
+
+   Remarque V.5.8 — En vertu du théorème d’isomorphisme de Banach V.2.3, il suffit
+   d’exiger la continuité et l’inversibilité dans la définition de Iso(E; F ), la bicontinuité en
+   découle.
+
+Démonstration. Il se peut que Iso(E; F ) soit vide, dans ce cas, le théorème est trivialement vrai.
+On se place dans le cas où Iso(E; F ) est non vide. Soit f0 ∈ Iso(E; F ). Montrons que pour tout
+g ∈ L(E; F ) de norme suffisamment petite, f0 + g est encore inversible. En composant par f0−1 , il
+s’agit de montrer que IdE +f0−1 g est inversible et donc de montrer que si h ∈ L(E) est de norme
+suffisamment petite, alors IdE −h est inversible. Or on sait que tel est le cas si ∥h∥ < 1, l’inverse
+                                                              +∞
+                                                              X
+de Id −h étant donné par la série normalement convergente         hn . Remarquons que l’on utilise
+                                                                   n=0
+ici l’hypothèse de complétude de l’espace.
+    Montrons maintenant que Ψ : Iso(E; F ) → Iso(F ; E), f 7→ f −1 est continue. Fixons
+f0 ∈ Iso(E; F ) et montrons la continuité en ce point. Posons f = f0 + g, h = −f0−1 g, où g est de
+norme suffisamment petite, de sorte que si ∥h∥ < 1,
+                                                                           !
+                                                 X                 X
+                 f = f0 (IdE −h), (IdE −h) =−1         n    −1
+                                                     h et f =          h n
+                                                                             f0−1 .
+                                                    n∈N                   n∈N
+
+On a alors                                                  
+                                                       X
+                                  f −1 − f0−1 =           hn  f0−1 ,
+                                                     n≥1
+
+d’où                                              
+                                           X                         ∥h∥
+                      ∥f −1 − f0−1 ∥ ≤        ∥h∥n  ∥f0−1 ∥ ≤           ∥f −1 ∥.
+                                                                   1 − ∥h∥ 0
+                                         n≥1
+
+Lorsque f tend vers f0 , g tend vers 0 donc h aussi, ce qui montre que f −1 tend vers f0−1 .
+
+
+======== [PDF page 113 | page imprimée 110] ========
+110                                CHAPITRE V. CALCUL DIFFÉRENTIEL DANS LES E.V.N.
+
+    Montrons maintenant que Ψ est différentiable, la différentielle en un point étant donnée par
+la formule de l’énoncé. On reprend les mêmes notations que ci-dessus. Il s’agit de montrer que
+pour f = f0 + g proche de f0 ,
+
+                                    ∥f −1 − f0−1 + f0−1 gf0−1 ∥ = o(g).
+
+Or, on a vu que                                                       
+                                                             X
+                                        f −1 − f0−1 =             hn  f0−1 ,
+                                                             n≥1
+
+d’où
+                                                                                                   
+                                         X                                           X
+         f −1 − f0−1 + f0−1 gf0−1 =           hn  f0−1 + f0−1 gf0−1 =                  hn  + f0−1 g  f0−1
+                                         n≥1                                         n≥1
+                                                             
+                                                      X
+                                               =           hn  f0−1 .
+                                                      n≥2
+
+Ainsi
+                                                                              
+                                            X                          X                           ∥h∥2
+        ∥f −1 − f0−1 + f0−1 gf0−1 ∥ = ∥        hn  f0−1 ∥ ≤             ∥h∥n  ∥f0−1 ∥ =              ∥f0−1 ∥.
+                                                                                                 1 − ∥h∥
+                                          n≥2                        n≥2
+
+
+   Le terme de droite est bien un o(h), donc un o(g). Ceci montre que Ψ est différentiable en f0 ,
+de différentielle
+                          dΨf0 (g) = −f0−1 ◦ g ◦ f0−1 , (g ∈ L(E; F )).
+    L’application f 7→ dΨf est la composée de f 7→ f −1 , dont on a vu qu’elle est continue, de
+h 7→ (−h, h) de L(F ; E) dans L(F ; E) × L(F ; E), qui est linéaire continue, et de
+
+                         L × R : L(F ; E) × L(F ; E) → L(L(E; F ); L(F ; E)),
+
+                 (h1 , h2 ) 7→ L × R(h1 , h2 ) : L(E; F ) → L(F ; E),            g 7→ h1 ◦ g ◦ h2 ,
+qui est bilinéaire continue (car ∥L × R(h1 , h2 )∥ ≤ ∥h1 ∥ ∥h2 ∥), donc continue.
+    Elle est donc continue, ce qui montre que Ψ est de classe C 1 . Par récurrence, on montre que
+si Ψ est de classe C k , elle est de classe C k+1 ; elle est donc de classe C ∞ .
+
+V.5.5      Formule de Taylor
+   La formule de Taylor généralise le théorème fondamental du calcul infinitésimal V.4.7. Com-
+mençons par un lemme dont la démonstration est évidente.
+
+       Lemme V.5.9
+   Soit f une fonction d’un intervalle ouvert I contenant 0 et 1, à valeurs dans un espace de
+   Banach F et de classe C p+1 . On a alors
+
+                                    f ′′ (0)
+                                                                 Z 1
+                             ′                       f (p) (0)       (1 − t)p (p+1)
+            f (1) − f (0) − f (0) −          − ··· −           =             f      (t) dt.
+                                       2!               p!        0     p!
+
+
+Démonstration. Il suffit d’appliquer le théorème fondamental du calcul infinitésimal V.4.7 à la
+                          k                                                  p
+fonction g(t) = pk=0 (1−t)   (k) (t) = f (t) + (1 − t)f ′ (t) + · · · + (1−t) f (p) (t) qui est de classe C 1 ,
+               P
+                        k! f                                              p!
+                                    p
+en remarquant que g ′ (t) = (1−t)
+                              p! f
+                                   (p+1) (t).
+
+
+======== [PDF page 114 | page imprimée 111] ========
+V.5. CLASSE C k ET DIFFÉRENTIELLES D’ORDRE SUPÉRIEUR                                                      111
+
+   On peut affaiblir les hypothèses de ce lemme et obtenir
+
+     Lemme V.5.10
+   Soit f une fonction d’un intervalle ouvert I contenant 0 et 1, à valeurs dans un espace
+   de Banach F et p + 1-différentiable. Supposons de plus que pour tout t ∈ [0 ; 1], on ait
+   ∥f (p+1) (t)∥F ≤ C pour une certaine constante C > 0. On a alors
+
+                                                f ′′ (0)         f (p) (0)         C
+                   ∥f (1) − f (0) − f ′ (0) −            − ··· −           ∥F ≤          .
+                                                   2!               p!          (p + 1)!
+
+
+Démonstration. On utilise ici le théorème V.4.1 appliqué à la même fonction g que ci-dessus.
+
+
+     Théorème V.5.11
+   Soit f une fonction de classe C p+1 d’un ouvert U d’un espace vectoriel normé E à
+   valeurs dans un espace de Banach F . Soit a ∈ U, h ∈ E et supposons que le segment
+   {a + th, t ∈ [0 ; 1]} soit contenu dans U. On a alors
+
+                                                   d2 fa (h, h)         dp fa (h, h, . . . , h)
+                 f (a + h) − f (a) − dfa (h) −                  − ··· −
+                                                        2!                       p!
+                                  Z 1
+                                        (1 − t)p p+1
+                              =                 d fa+th (h, h, . . . , h) dt.
+                                   0       p!
+
+
+Démonstration. On utilise le lemme V.5.9 appliqué à la fonction g(t) = f (a + th), en remarquant
+que g (k) (t) = dk fa+th (h, . . . , h), k = 1, . . . , p + 1.
+
+
+   En utilisant le lemme V.5.10, on obtient la version suivante :
+
+     Théorème V.5.12
+   Soit f une fonction p + 1-différentiable d’un ouvert U d’un espace vectoriel normé E à
+   valeurs dans un espace vectoriel normé F . Supposons de plus que pour tout x ∈ U, on ait
+   ∥d(p+1) fx ∥ ≤ C pour une certaine constante C > 0.
+   Soit a ∈ U, h ∈ E et supposons que le segment {a + th, t ∈ [0 ; 1]} soit contenu dans U.
+   On a alors
+
+                                        d2 fa (h, h)         dp fa (h, . . . , h)      C∥h∥p+1
+                                                                                            E
+         ∥f (a + h) − f (a) − dfa (h) −              − ··· −                      ∥F ≤          .
+                                             2!                      p!                (p + 1)!
+
+   On peut obtenir aussi, avec des hypothèses légèrement plus faibles.
+
+     Théorème V.5.13
+   Soit p ≥ 1. Soit f une fonction p − 1-différentiable d’un ouvert U d’un espace vectoriel
+   normé E à valeurs dans un espace vectoriel normé F . Supposons de plus que f soit
+   p-différentiable en a ∈ U . On a alors
+
+                                           d2 fa (h, h)         dp fa (h, h, . . . , h)
+        ∥f (a + h) − f (a) − dfa (h) −                  − ··· −                         ∥F = o(∥h∥pE ).
+                                                2!                       p!
+
+
+======== [PDF page 115 | page imprimée 112] ========
+112                                  CHAPITRE V. CALCUL DIFFÉRENTIEL DANS LES E.V.N.
+
+Démonstration. Pour p = 1, c’est la définition de la différentielle en a. On raisonne par récurrence
+en supposant p ≥ 2 et le résultat vrai pour p − 1. Considérons l’application
+                                                              d2 fa (h, h)         dp fa (h, h, . . . , h)
+          h 7→ g(h) = f (a + h) − f (a) − dfa (h) −                        − ··· −                         .
+                                                                   2!                       p!
+Calculons sa différentielle, et pour cela, pour j = 1, . . . , p, calculons la différentielle de h 7→
+ϕ(h) = dj fa (h, . . . , h). Comme dj fa est une application j-linéaire symétrique, on obtient, pour
+tout k ∈ E,
+
+            dϕh (k) = dj fa (k, h, . . . , h) + dj fa (h, k, h, . . . , h) + · · · + dj fa (h, h, . . . , k)
+                     = j dj fa (k, h, . . . , h).
+
+On en déduit
+                                                 d2 fa (k, h)              dp fa (k, h, . . . , h)
+               dgh : k 7→dfa+h (k) − dfa (k) − 2              − ··· − p                            ,
+                                                       2!                           p!
+                                                                       dp fa (k, h, . . . , h)
+                         =dfa+h (k) − dfa (k) − d2 fa (k, h) − · · · −                         .
+                                                                             (p − 1)!
+
+En appliquant l’hypothèse de récurrence à df , on obtient ∥dgh ∥ = o(∥h∥p−1
+                                                                        E ). C’est-à-dire que
+pour tout ϵ > 0, il existe η > 0 tel que si ∥h∥E ≤ η, alors ∥dgh ∥ ≤ ϵ ∥h∥p−1
+                                                                          E . En utilisant le
+théorème des accroissements finis, on en déduit
+
+                                   ∥g(h)∥F = ∥g(h) − g(0)∥F ≤ ϵ ∥h∥pE ,
+
+c’est-à-dire g(h) = o(∥h∥pE ).
+
+
+V.6      Exercices
+
+
+   Exercice V.6.1 — Soit E un espace de Hilbert. Montrer que
+                                                                              x
+                                      f : E \ {0} −→ E,            x 7→
+                                                                            ∥x∥E
+
+   est différentiable et calculer sa différentielle en tout point.
+
+
+   Exercice V.6.2 — Soit Φ : Mm (R) → Mm (R), A 7→ An (n ≥ 2 entier positif). Donner un
+   argument pour justifier le fait que Φ est C ∞ et calculer sa différentielle et sa différentielle
+   seconde.
+
+   Exercice V.6.3 : Une variante utile du théorème des accroissements finis — Soit U un
+   ouvert convexe d’un espace de Banach E et soit f : U → F une application de classe C 1 à
+   valeurs dans un espace de Banach F .
+      1. Montrer que quels que soient a, b et c dans U, on a
+                                                                                        !
+                      ∥f (b) − f (a) − dfc (b − a)∥F ≤             sup ∥dfu − dfc ∥         ∥b − a∥E ,
+                                                                  u∈[a,b]
+
+         où [a, b] = {ta + (1 − t)b|t ∈ [0; 1]} ⊂ U.
+
+
+======== [PDF page 116 | page imprimée 113] ========
+V.6. EXERCICES                                                                                                113
+
+
+  Exercice V.6.4 — On rappelle quePℓ1 (R) est l’espace des suites réelles (x = xi )i∈N
+  sommables, muni de la norme ∥x∥ = i∈N |xi |, et que c’est un espace de Banach. Soit f
+  une fonction de classe C 1 sur R, à valeurs réelles, telle que f (0) = 0. On définit
+
+                    F : ℓ1 (R) −→ ℓ1 (R),          x = (xi )i∈N 7→ F (x) = (f (xi ))i∈N .
+
+  Montrer que F est bien définie, de classe C 1 et calculer sa différentielle en tout point.
+
+
+  Exercice V.6.5 — Soit E = C 1 ([0, 1], R2 ), c’est-à-dire l’espace des restrictions à [0, 1] des
+  fonctions de classe C 1 définies sur un intervalle ouvert contenant [0, 1], à valeurs dans R2 .
+  On définit                                     Z            1
+                             T : E −→ R,          f 7→            det(f (t), f ′ (t)) dt.
+                                                          0
+
+  Montrer que T est de classe C 1 et calculer sa différentielle en tout point.
+
+
+  Exercice V.6.6 — Soit f une application continue de [0 ; 1] × R dans R de classe C p sur
+  ]0 ; 1[ × R. Montrer que l’application
+                                                                       Z 1
+                            F : C ([0 ; 1], R) −→ R,
+                                   0
+                                                              u 7→           f (t, u(t))dt
+                                                                        0
+
+  est de classe C p , sa différentielle k-ième étant donnée par
+                            Z 1 k
+                               ∂ f
+      k
+     d Fu (h1 , ..., hk ) =       k
+                                    (t, u(t)) h1 (t) . . . hk (t) dt, (h1 , . . . , hk ∈ C 0 ([0 ; 1], R)).
+                             0 ∂y
+
+
+======== [PDF page 117 | page imprimée 114] ========
+114   CHAPITRE V. CALCUL DIFFÉRENTIEL DANS LES E.V.N.

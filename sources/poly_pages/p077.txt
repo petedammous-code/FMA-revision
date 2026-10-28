@@ -1,0 +1,68 @@
+74                                                CHAPITRE III. SUITES, SÉRIES ET PRODUITS
+
+
+          le bassin d’attraction de 0 de f . Montrer que A est ouvert et que l’on peut prolonger
+          φ à A de manière à ce que φ(A) = C et
+
+                                               φ ◦ f = λφ sur A.
+
+
+     Exercice III.7.4 — Soient Ω ⊂ C un ouvert connexe borné contenant 0 et f : Ω → Ω
+     holomorphe telle que f (0) = 0. Posons λ = f ′ (0) et supposons que |λ| = 1.
+        1. On pose ϕn (z) = n1 0≤j≤n−1 λ−j f j (z). Montrer que |ϕn ◦ f (z) − λϕn (z)| ≤ 2c
+                                P
+                                                                                              n où
+           c = supz∈Ω |z|. En déduire qu’il existe ϕ : Ω → C non-constante et injective au
+           voisinage de 0 telle que ϕ ◦ f = λ · ϕ sur Ω (on dit que f est linéarisable en 0).
+
+
+     Exercice
+          P III.7.5    — Soit f : C → C définie par f (z) = z 2 + λz où λ = e2iπθ avec
+                  −q
+     θ = k≥1 2 k et log(qk+1 ) ≥ k2qk pour k ≥ 1. Supposons que f est linéarisable en 0 à
+     l’aide de ϕ et considérons δ > 0, tel que Dδ ⊂ ϕ(Dr ).
+       1. Montrer que les points fixes 0, z2 , z3 , ..., z2n de f n vérifient
+                                                                        n
+                                                        Y
+                                     |1 − λn | =             |zj | ≥ δ 2 −1 .
+                                                     2≤j≤2n
+
+                                          q 
+       2. En déduire que la suite qk+1 /22 k k∈N∗ est bornée.
+       3. En déduire une contradiction, et donc que f n’est pas linéarisable en 0 : la série
+          entière qui la linéarise formellement en 0 a un rayon de convergence nul.
+
+
+     Exercice III.7.6 — Soit Ω un ouvert connexe borné de C dont la frontière ∂Ω est de classe
+     C 1 . Supposons qu’il existe une suite d’automorphismes φn : Ω → Ω, un point a ∈ Ω et
+     un point η ∈ ∂Ω tels que (φn (a))n∈N converge vers η. Montrer qu’il existe une bijection
+     holomorphe entre Ω et le disque unité D(0, 1).
+
+
+     Exercice III.7.7 : Formule des compléments et intégrale de Gauss — On rappelle les
+     deux formules suivantes, établies dans le cours :
+       — Le développement en produit infini du sinus (Euler) :
+                                                +∞
+                                                Y      z2
+                                                           
+                                 sin(πz) = πz        1 − 2 , ∀z ∈ C.
+                                                        n
+                                                   n=1
+
+       — La définition de la fonction Γ par le produit de Weierstrass :
+                                            +∞
+                                    e−γz Y     z −1 z/n
+                             Γ(z) =          1+      e ,              ∀z ∈ C \ (−N).
+                                     z          n
+                                            n=1
+
+       1. En calculant le produit Γ(z)Γ(−z), démontrer la formule des compléments :
+                                                   π
+                                 Γ(z)Γ(1 − z) =         , ∀z ∈ C \ Z.
+                                                sin(πz)
+       2. En déduire la valeur de Γ(1/2).
+       3. À l’aide d’un changement de variable, en déduire la valeur de l’intégrale de Gauss :
+                                              Z +∞
+                                                       2
+                                          I=        e−x dx.
+                                                      −∞

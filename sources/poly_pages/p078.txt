@@ -1,0 +1,41 @@
+                                                                                  Chapitre       IV
+Applications
+
+
+IV.1      Transformations conformes
+
+
+      Soit f ∈ Hol(Ω). On s’intéresse au comportement de f au voisinage d’un point z0 tel que
+f ′ (z0 ) ̸= 0.
+
+   Remarque IV.1.1 — D’après le principe des zéros isolés, Théorème I.11, il ne s’agit
+   pas d’une hypothèse forte : pourvu que f ne soit pas localement constante, les points
+   d’annulation de f ′ sont isolés et cette hypothèse n’est donc pas très restrictive.
+
+    Considérons deux arcs de classe C 1
+
+                                         γ1 , γ2 : ] − 1, 1[ → C,
+
+qui passent par z0 quand t = 0. On suppose ces arcs réguliers au voisinage de t = 0, c’est-à-dire
+que γj′ (0) ̸= 0 et l’on rappelle que γj′ (0) correspond au vecteur tangent au point z0 = γj (0)
+(remarquer que l’on peut supposer γj injectif pour |t| assez petit d’après le théorème d’inversion
+locale). Pour j = 1, 2, les arcs images f ◦ γj ont pour tangentes f ′ (z0 )γj′ (0) en t = 0 de sorte que
+l’angle entre les tangentes à γj en z0 est le même que l’angle entre les tangentes aux arcs images
+en f (z0 ) (en d’autres termes, on utilise le fait que la jacobienne de f est une similitude). On fait
+référence à cette propriété de conservation des angles en disant que les fonctions holomorphes
+sont des transformations conformes.
+
+
+
+
+                                      Transformation conforme.
+
+
+    Si l’on regarde l’image par une application holomorphe du « grillage » formé des droites
+verticales et horizontales du plan (disons sur un domaine où la dérivée ne s’annule pas), on obtient
+un « grillage » constitué de courbes dont les tangentes sont orthogonales aux endroits où ces
+courbes se croisent. Si l’on observe que les lignes de niveau
+
+                                    ℜe(f ) = c et ℑm(f ) = c′ ,
+
+                                                   75

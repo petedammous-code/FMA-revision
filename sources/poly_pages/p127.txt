@@ -1,0 +1,59 @@
+124                       CHAPITRE VI. INVERSION LOCALE ET FONCTIONS IMPLICITES
+
+
+  planètes environ 532′′ ; restait un résidu d’une quarantaine de secondes d’arc que la méca-
+  nique newtonienne ne savait pas rendre, et pour lequel Le Verrier était allé jusqu’à postuler
+  une planète intérieure, Vulcain, qu’on n’a jamais trouvée. Einstein fit ce calcul avant même
+  d’avoir la forme définitive de ses équations de champ ; la théorie ne comportait aucun
+  paramètre ajustable et le résultat tomba juste. Ce fut, selon son biographe Abraham Pais,
+  « la plus forte expérience émotionnelle de la vie scientifique d’Einstein, peut-être de toute
+  sa vie ». L’éclipse de 1919 a rendu la relativité célèbre ; c’est le périhélie de Mercure qui en
+  avait d’abord convaincu son auteur.
+  Un dernier mot sur la troisième racine, dont le calcul se débarrasse si vite : xc (ε) ∼ 1/ε
+  correspond à r ∼ ε, c’est-à-dire à l’horizon de Schwarzschild — hors de propos pour Mercure,
+  dont le périhélie est à 46 millions de kilomètres. C’est pourtant elle qui empêche l’orbite de
+  se refermer, et son départ à l’infini quand ε → 0 qui fait dégénérer la cubique en trinôme et
+  restitue Kepler.
+
+
+
+  Exercice VI.4.5 — Soient E et F des espaces de Banach, U un ouvert de E et f : U → F
+  une application de classe C 1 . Supposons qu’il existe un point a ∈ U tel que dfa : E → F
+  soit surjective et supposons qu’il existe un supplémentaire fermé E2 de E1 = ker dfa dans
+  E. Montrer que f (U) contient un voisinage ouvert de f (a).
+
+
+
+
+  Exercice VI.4.6 —           Soit E = C 1 ([0 ; 1]; R) muni de la norme ∥f ∥1 = sup |f (t)| +
+                                                                                         t∈[0 ;1]
+               ′
+      sup    |f (t)| et soit F = C 0 ([0 ; 1]; R) muni de la norme ∥f ∥0 =     sup |f (t)|. On rappelle
+  t∈[0 ;1]                                                                   t∈[0 ;1]
+  que ce sont des espaces de Banach. On définit
+
+                          Ψ : E → F,     f 7→ Ψ(f ),   Ψ(f )(t) = f ′ (t) + tf (t)2 .
+
+  Montrer que Ψ est de classe C 1 . Montrer que dΨ0 = dt        d
+                                                                  et que cette application linéaire
+  de E dans F est surjective. Trouver un supplémentaire fermé E2 dans E de E1 = ker dΨ0 .
+  Utiliser l’exercice précédent pour en déduire qu’il existe ϵ > 0 tel que si g ∈ BF (0, ϵ), il
+  existe f ∈ E telle que pour tout t ∈ [0 ; 1], f ′ (t) + tf (t)2 = g(t).
+
+
+  Exercice VI.4.7 — Soit A0 ∈ Mn (R) une matrice admettant n valeurs propres distinctes
+  λ1 (0), λ2 (0) . . . , λn (0).
+  (1) Montrer qu’il existe un voisinage U de A0 dans Mn (R) et des fonctions λi : U → R,
+  i = 1, . . . , n de classe C ∞ tels que pour tout A ∈ U, λ1 (A), λ2 (A), . . . , λn (A) soient les
+  valeurs propres de A et restent distinctes.
+  (2) On fixe i. Soit vi (0) un vecteur propre de A0 pour la valeur propre λi (0). Montrer que
+  quitte à restreindre le voisinage U de A0 de la question précédente, il existe une fonction vi
+  définie sur U à valeurs dans Rn et de classe C ∞ telle que vi (A) soit un vecteur propre non
+  nul de A pour la valeur propre λi (A).
+
+
+  Exercice VI.4.8 — Soit f ∈ C 1 (R, R). On suppose qu’il existe une constante C telle que
+                                     (
+                                       |f (x) − f (y)| ≤ C|x − y|,
+                     (∀x, y ∈ R),
+                                       |f ′ (x) − f ′ (y)| ≤ C|x − y|.

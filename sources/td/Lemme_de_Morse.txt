@@ -1,0 +1,272 @@
+  FMA 41031 EP                                                                  2026-2027
+
+                          Deux exercices de calcul différentiel
+       Le lemme de Morse et le théorème du rang constant — énoncés et corrigés.
+
+Ces deux exercices, applications du théorème d’inversion locale (chapitre VI du cours),
+n’ont pas été traités en séance. On en donne ici l’énoncé et une solution détaillée.
+
+
+Exercice 1 (Lemme de Morse). Soit U un ouvert de Rm et soit f : U → R une fonction de
+classe C ∞ . Soit a ∈ U un point critique de f , c’est-à-dire tel que dfa = 0. On suppose que
+la forme bilinéaire symétrique d2 fa est non dégénérée, de signature (r, s), avec r + s = m.
+   On note Mm (R) l’espace des matrices carrées réelles de taille m, Symm et ASymm les
+sous-espaces des matrices symétriques et antisymétriques, et l’on pose
+                                                  
+                                           Ir 0
+                                  Ir,s =              ∈ Symm .
+                                           0 −Is
+On identifie Rm à l’espace des matrices colonnes, de sorte qu’une forme bilinéaire symétrique
+de matrice S dans la base canonique s’écrit (h, k) 7→ t hSk.
+   Le but de l’exercice est de montrer qu’il existe un voisinage ouvert W de 0 dans Rm et
+un C ∞ -difféomorphisme ψ de W sur un voisinage ouvert de a dans U, vérifiant ψ(0) = a,
+tel que
+                                 Xr         Xm
+                                       2
+                                                h2i ,
+                      
+               f ψ(h) = f (a) +      hi −                h = (h1 , . . . , hm ) ∈ W.
+                                   i=1      i=r+1
+
+1. Montrer que l’on peut se ramener au cas où a = 0, f (0) = 0 et où la matrice de d2 f0
+   dans la base canonique est 2Ir,s (le facteur 2 n’est là que pour simplifier la question
+   suivante). On suppose désormais que c’est le cas, et l’on fixe une boule ouverte U0 ⊂ U
+   centrée en 0.
+2. À l’aide de la formule de Taylor avec reste intégral à l’ordre 2, montrer qu’il existe une
+   application B : U0 → Symm de classe C ∞ telle que
+                        f (x) = t xB(x)x (x ∈ U0 ),         B(0) = Ir,s .
+3. On considère
+                      g : Mm (R) → Symm ,             g(C) = t C Ir,s C.
+   Calculer dgIm et montrer que
+            Mm (R) = E ⊕ ker dgIm ,         E := {X ∈ Mm (R) ; Ir,s X ∈ Symm }.
+   En déduire qu’il existe un voisinage ouvert Y de Ir,s dans Symm et une application
+   η : Y → GL(m, R) de classe C ∞ telles que
+                 η(Ir,s ) = Im     et  S = t η(S) Ir,s η(S) (S ∈ Y).
+                           
+4. On pose φ(x) = η B(x) x, pour x assez proche de 0. Montrer que f (x) = t φ(x) Ir,s φ(x),
+   puis que dφ0 = IdRm . Conclure.
+
+
+Correction. 1. Réduction.
+  Quitte à remplacer f par x 7→ f (x + a) − f (a), définie sur l’ouvert U − a, on peut
+supposer a = 0 et f (0) = 0 : une translation est une application affine de différentielle
+                                                1
+2
+
+l’identité, elle ne change donc ni df ni d2 f , et la conclusion se transporte en composant
+le difféomorphisme obtenu avec cette translation.
+   Soit H la matrice de d2 f0 dans la base canonique : elle est symétrique, inversible, de
+signature (r, s). Le théorème d’inertie de Sylvester (ou le théorème spectral, suivi d’une
+mise à l’échelle des vecteurs propres√puis d’une permutation) fournit P0 ∈ GL(m, R) telle
+que t P0 HP0 = Ir,s ; en posant P = 2 P0 , on obtient
+                                              t
+                                                  P HP = 2Ir,s .
+Notons u l’automorphisme linéaire de Rm de matrice P dans la base canonique et rem-
+plaçons f par f ◦ u, définie sur l’ouvert u−1 (U). Alors
+     d2 (f ◦ u)0 (h, k) = d2 f0 u(h), u(k) = t (P h) H (P k) = t h (t P HP ) k = t h (2Ir,s ) k,
+                                          
+
+et la conclusion pour f ◦u redonne celle pour f en composant par u. On suppose désormais
+a = 0, f (0) = 0 et B0 = 2Ir,s , où By désigne la matrice de d2 fy dans la base canonique.
+On fixe enfin une boule ouverte U0 ⊂ U centrée en 0.
+
+2. Écriture de f comme forme quadratique à coefficients variables.
+
+   Soit x ∈ U0 . La boule U0 étant convexe, le segment {tx, t ∈ [0, 1]} y est contenu et la
+formule de Taylor avec reste intégral à l’ordre 1 s’applique ; comme f (0) = 0 et df0 = 0,
+elle donne
+             Z 1                           Z 1                        Z 1               
+                          2                           t            t
+     f (x) =     (1 − t) d ftx (x, x) dt =     (1 − t) x Btx x dt = x      (1 − t) Btx dt x.
+                 0                                 0                                   0
+
+On pose donc
+                                       Z 1
+    B : U0 −→ Symm ,          B(x) =         (1 − t) Btx dt,            de sorte que       f (x) = t xB(x)x.
+                                        0
+
+Les coefficients de By sont les dérivées partielles secondes de f , donc y 7→ By est de classe
+C ∞ , à valeurs dans Symm par le lemme de Schwarz ; par dérivation sous le signe intégral,
+B est de classe C ∞ . Enfin
+                                 Z 1            
+                        B(0) =         (1 − t) dt B0 = 12 · 2Ir,s = Ir,s ,
+                                        0
+
+ce qui est exactement la raison du facteur 2 imposé à la question 1.
+
+3. Une racine carrée lisse pour la congruence.
+
+ L’application g : Mm (R) → Symm , g(C) = t C Ir,s C, est polynomiale donc de classe
+C , et
+    ∞
+
+
+        dgC (X) = t X Ir,s C + t C Ir,s X,             en particulier      dgIm (X) = t X Ir,s + Ir,s X.
+Comme Ir,s est symétrique, t XIr,s = t (Ir,s X), de sorte que dgIm (X) = Ir,s X + t (Ir,s X).
+Par conséquent
+                ker dgIm = {X ; Ir,s X ∈ ASymm },                 E = {X ; Ir,s X ∈ Symm }.
+                                                                            2
+Or X 7→ Ir,s X est un automorphisme de Mm (R), d’inverse lui-même puisque Ir,s = Im ,
+et Mm (R) = Symm ⊕ ASymm ; en prenant les images réciproques par cet automorphisme,
+                                       Mm (R) = E ⊕ ker dgIm .
+                                                                                                               3
+
+  Soit ḡ la restriction de g à E . On a Im ∈ E , et pour X ∈ E la matrice Ir,s X est
+symétrique, d’où dḡIm (X) = 2Ir,s X. L’équation 2Ir,s X = D, D ∈ Symm , admet l’unique
+solution X = 12 Ir,s D, qui appartient bien à E car Ir,s X = 21 D est symétrique :
+                             dḡIm : E −→ Symm          est un isomorphisme.
+Le théorème d’inversion locale fournit alors un ouvert Q de E contenant Im et un ouvert
+Y de Symm contenant g(Im ) = Ir,s tels que ḡ réalise un C ∞ -difféomorphisme de Q sur Y.
+On pose η = ḡ −1 : Y → Q. Par construction
+                                      S = g η(S) = t η(S) Ir,s η(S) (S ∈ Y).
+                                                  
+              η(Ir,s ) = Im    et
+Quitte à restreindre Y à l’ouvert des matrices symétriques inversibles, qui contient Ir,s ,
+on a det S ̸= 0, donc det η(S) ̸= 0 d’après l’égalité ci-dessus : η est bien à valeurs dans
+GL(m, R).
+
+4. Conclusion.
+   Comme B est continue et B(0) = Ir,s ∈ Y, il existe un voisinage ouvert U1 ⊂ U0 de 0
+tel que B(U1 ) ⊂ Y. On pose
+                        φ : U1 −→ Rm ,
+                                                          
+                                          φ(x) = η B(x) x.
+Pour tout x ∈ U1 ,
+                 f (x) = t xB(x)x = t x t η B(x) Ir,s η B(x) x = t φ(x) Ir,s φ(x).
+                                                           
+
+  L’application φ est de classe C ∞ : c’est la composée de x 7→ η(B(x)), x , de U1 dans
+                                                                                 
+Mm (R) × Rm , et de l’application bilinéaire (C, v) 7→ Cv. La règle de différentiation d’une
+application bilinéaire donne, pour v ∈ Rm ,
+                                                               
+                         dφx (v) = dηB(x) dBx (v) x + η B(x) v.
+En x = 0 le premier terme s’annule, et il reste
+                          
+          dφ0 (v) = η B(0) v = η(Ir,s ) v = Im v = v,                    soit       dφ0 = IdRm .
+Le théorème d’inversion locale s’applique : φ réalise un C ∞ -difféomorphisme d’un voisi-
+nage ouvert V de 0 sur un voisinage ouvert W de 0 dans Rm . Posons ψ = φ−1 . Pour tout
+h = (h1 , . . . , hm ) ∈ W,
+                                                               r
+                                                               X         Xm
+                  f ψ(h) = t φ ψ(h) Ir,s φ ψ(h) = t h Ir,s h =    h2i −      h2i .
+                                             
+                                                                           i=1        i=r+1
+
+En défaisant les réductions de la question 1 — composition par l’automorphisme u, puis
+par la translation de vecteur a — on obtient le difféomorphisme annoncé, la constante
+f (a) réapparaissant au second membre.                                               □
+
+
+Exercice 2 (Théorème du rang constant). Soit f : U → Rm une application C p d’un
+ouvert U de Rn dans Rm . Soit a ∈ U. Démontrer les assertions suivantes, dont la dernière
+est appelée théorème de rang constant.
+(1) Si f est une immersion en a (i.e. si dfa est injective) alors il existe un voisinage ouvert
+    U1 de a dans U, un voisinage ouvert W1 de f (a) dans Rm et Ψ : W1 → W2 ⊂
+    Rm un difféomorphisme de W1 sur un ouvert W2 de Rm tels que f (U1 ) ⊂ W1 et
+    Ψ ◦ f (x1 , . . . , xn ) = (x1 , . . . , xn , 0, . . . , 0) pour tout x = (x1 , . . . , xn ) ∈ U1 . Autrement
+    dit, à un changement de variable au but près, toute immersion est localement égale à
+    l’injection canonique de Rn dans Rm .
+4
+
+(2) Si f est une submersion en a (i.e. si est dfa surjective), alors il existe un voisinage
+    ouvert U1 de a dans U, un ouvert U2 de Rn et un difféomorphisme Φ : U2 → U1 tels
+    que
+                                f ◦ Φ(x1 , . . . , xn ) = (x1 , . . . , xm )
+    pour tout x = (x1 , . . . , xn ) ∈ U2 . Autrement dit, à un changement de variable à la
+    source près, toute submersion est égale à la projection canonique de Rn dans Rm .
+(3) Posons r = rang(dfa ). Supposons que dfx soit de rang r pour tout x dans un voisinage
+    de a. Alors il existe
+     (a) un difféomorphisme Φ : U2 → U1 d’un ouvert U2 de Rn sur un voisinage ouvert
+         U1 de a dans U,
+     (b) un difféomorphisme Ψ : W1 → W2 d’un voisinage ouvert W1 de f (a) dans Rm
+         sur un ouvert W2 de Rm ,
+    vérifiant f (U1 ) ⊂ W1 et
+                Ψ ◦ f ◦ Φ : U2 → W2 ,                  (x1 , . . . , xn ) 7→ (x1 , . . . , xr , 0, . . . , 0).
+    pour tout x = (x1 , . . . , xn ) ∈ U2 .
+
+
+Correction. On remarque que (1) et (2) sont des cas particuliers de (3). On commence
+donc directement par (3). Pour tout x ∈ U, notons M (x) la matrice jacobienne de f en
+x:                                                        
+                                                   ∂fi
+                 f = (f1 , . . . , fm ), M (x) =       (x)
+                                                   ∂xj      1⩽i⩽m, 1⩽j⩽n
+On suppose que rg(M (a)) = r. Quitte à composer à gauche et à droite par des isomor-
+phismes linéaires (permutations des coordonnées) de Rn et Rm respectivement, on suppose
+que                                             
+                                         ∂fi
+                              A(x) :=        (x)
+                                         ∂xj      1⩽i⩽r, 1⩽j⩽r
+est inversible en x = a.
+   Remarque : Dans le cas (1), r = n ⩽ m, il suffit de permuter les coordonnées dans
+Rm , et dans le cas (2), r = m ⩽ n, il suffit de permuter les coordonnées dans Rn .
+   On a det(A(a)) ̸= 0, et par continuité, det(A(x)) ̸= 0 pour tout x dans un voisinage de
+a. Le rang reste donc au moins égal à r dans un voisinage de a.
+   Posons
+    Θ : U → Rn ,        (x1 , . . . , xn ) 7→ (f1 ((x1 , . . . , xn )), . . . , fr ((x1 , . . . , xn )), xr+1 , . . . , xn ).
+La matrice jacobienne de Θ en x est de la forme
+                                                                     !
+                                         ∂fi
+                     ∂Θi                   ∂xj
+                                               (x)                 ∗
+                         (x)          =              1⩽i⩽r, 1⩽j⩽r
+                     ∂xj      1⩽i,j⩽n                0            In−r
+et donc dΘa est inversible. D’après le théorème d’inversion locale, il existe un voisinage
+ouvert U1 de a et un voisinage ouvert U2 de b := Θ(a) dans Rn tel que Θ réalise un
+difféomorphisme entre U1 et U2 . Soit Φ : U2 → U1 son inverse. On a alors
+         f ◦ Φ(y1 , . . . , yn ) = (y1 , . . . yr , fr+1 (Φ(y1 , . . . , yn )), . . . , fm (Φ(y1 , . . . , yn ))).
+Si r = m ⩽ n (cas (2)), on a obtenu ce qu’on voulait, à savoir
+                                       f ◦ Φ(y1 , . . . , yn ) = (y1 , . . . ym ).
+                                                                                                                       5
+
+Continuons dans le cas général.
+                                                                                                        !
+           
+             ∂(fi ◦ Φ)
+                                                            Ir               0
+                       (y)               =                   ∗    ∂(fi ◦Φ)
+                                                                           (y)
+               ∂yj          1⩽i⩽m, 1⩽j⩽n                            ∂yj
+                                                                                   r+1⩽i⩽m, r+1⩽j⩽n
+
+Or, pour tout y = (y1 , . . . , yn ) ∈ U2 , dΦy est inversible puisque Φ est un difféomorphisme.
+Donc pour y suffisamment proche de b := Θ(a), Φ(y) est proche de a, et donc rg(dfΦ(y) ) = r
+(par hypothèse). Quitte à restreindre U2 (et U1 ), on peut donc supposer que pour tout
+y ∈ U2 , rg(dfΦ(y) ) = r. Or vu la forme de la matrice ci-dessus, les r premières colonnes
+sont linéairement indépendantes, et donc les n − r dernières colonnes sont nulles (sinon,
+le rang augmente !). Ainsi
+                                               
+                                  ∂(fi ◦ Φ)
+                                             (y)                   =0
+                                      ∂yj         r+1⩽i⩽m, r+1⩽j⩽n
+sur U2 . Autrement dit, les fonctions fi ◦Φ, r +1 ⩽ i ⩽ m, ne dépendent pas de yr+1 , . . . , yn
+(on aura pris U2 de la forme d’un pavé, faute de quoi l’annulation des dérivées partielles
+n’entraı̂ne l’indépendance que localement). On pose alors, avec un léger abus de notations :
+    Ψ(z1 , . . . zm ) = (z1 , . . . zr , zr+1 − (fr+1 ◦ Φ)(z1 , . . . zr ), . . . , zm − (fm ◦ Φ)(z1 , . . . zr )).
+Quel est le domaine de Ψ ? Soit z = (z1 , . . . zm ). Si (z1 , . . . zr ) est dans l’image de U2
+par la projection canonique de Rn sur Rr , Ψ(z) est bien défini. Comme b = Θ(a) =
+(f1 (a), . . . , fr (a), ar+1 , . . . , an ) ∈ U2 , se projette sur (f1 (a), . . . , fr (a)), on voit que Ψ(f (a))
+est défini.
+  La matrice jacobienne de Ψ en z est de la forme :
+                                                                
+                                                        Ir    0
+                                                         ∗ Im−r
+Ainsi, dΨf (a) est inversible : il existe un voisinage ouvert W1 de f (a) et un voisinage ouvert
+W2 de Ψ(f (a)) tel que Ψ réalise un difféomorphisme entre W1 et W2 . D’autre part :
+       Ψ ◦ f ◦ Φ(y1 , . . . , yn ) = Ψ(y1 , . . . yr , fr+1 (Φ(y1 , . . . , yn )), . . . , fm (Φ(y1 , . . . , yn )))
+                                             = (y1 , . . . , yr , 0, . . . , 0).
+   On obtient (3), mais pas tout à fait ce que l’on veut pour (1)... On recommence depuis
+le début dans ce cas. Si f est une immersion en a, choisissons un supplémentaire H de
+dfa (Rn ) dans Rm :
+                                     Rm = dfa (Rn ) ⊕ H.
+Choisissons un isomorphisme linéaire
+                                                  ϕ : Rm−n → H,
+et posons
+                              F : U × Rm−n → Rm ,                (u, t) 7→ f (u) + ϕ(t).
+On voit que
+                             dF(a,0) (v, w) = dfa (v) + ϕ(w)
+et donc dF(a,0) est un isomorphisme. On applique le théorème d’inversion locale, et on
+prend Ψ = F −1 . On obtient
+               Ψ ◦ f (x1 , . . . , xn ) = Ψ ◦ F ((x1 , . . . , xn ), 0) = (x1 , . . . , xn , 0, . . . , 0).
+

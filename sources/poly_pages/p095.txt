@@ -1,0 +1,48 @@
+92
+
+(sur un ouvert de RN , ou plus généralement sur une sous-variété), une solution est une courbe
+intégrale de ce champ de vecteurs et l’ensemble de ces courbes intégrales forme le flot du champ
+de vecteurs. Le théorème de Cauchy-Lipschitz affirme sous certaines conditions l’existence d’un
+flot local, et la version « à paramètres » que nous donnons permet d’établir la régularité du flot
+(celui-ci est au moins aussi régulier que le champ de vecteurs). Nous abordons ensuite le problème
+du temps de vie des solutions, c’est-à-dire des courbes intégrales maximales, et nous introduisons
+le flot global et ses propriétés.
+    Dans un court chapitre VIII nous abordons sous forme d’exercices le calcul des variations. Le
+calcul différentiel élémentaire donne une condition nécessaire pour qu’une fonction numérique
+suffisamment régulière sur un ouvert de RN admette un extremum local en un point : l’annulation
+de la différentielle en ce point. On a vu l’extension de ce résultat au cadre des espaces de Banach
+au chapitre V, et on l’applique ici à la recherche d’une fonction dans un espace de Banach réalisant
+un extremum local d’une fonctionnelle (une fonction de fonctions) donnée par une intégrale et
+un Lagrangien. Dans ce cadre, la condition d’annulation de la différentielle conduit à l’équation
+d’Euler-Lagrange. On établit ensuite la conservation de certaines quantités lorsque le Lagrangien
+est invariant par un groupe à un paramètre de difféomorphismes (théorème de Noether). Sous
+une hypothèse de régularité du Lagrangien, on réécrit localement l’équation d’Euler-Lagrange
+sous la forme d’une équation différentielle ordinaire satisfaisant les hypothèses du théorème de
+Cauchy-Lipschitz et l’on en déduit l’existence et l’unicité locale d’une solution.
+    De nombreux problèmes nécessitent de généraliser le calcul différentiel à des fonctions définies
+sur des entités géométriques autres que des ouverts d’un espace RN . Par exemple, on peut être
+amené à chercher les extrema d’une fonction dont la variable décrit l’espace des phases d’un
+système physique, cet espace de phases étant un certain lieu géométrique dans un espace RN ,
+mais pas nécessairement un ouvert. De tels problèmes d’optimisation sous contrainte apparaissent
+naturellement en mécanique, en physique, en économie, etc. Dans le chapitre IX, nous introduisons
+les sous-variétés, qui apparaissent historiquement comme généralisation de la théorie classique
+des courbes et surfaces dans l’espace R3 .
+     Elles peuvent être considérées selon différents points de vue qui font la richesse et la difficulté de
+la théorie. Une première étape va donc être de dégager des définitions équivalentes correspondant
+à ces différents points de vue, pour pouvoir choisir le plus adapté. L’outil fondamental permettant
+le lien entre ces points de vue est le théorème d’inversion locale. Localement, une sous-variété
+de dimension m de RN ressemble à l’inclusion d’un ouvert de Rm dans RN . Une fois les sous-
+variétés introduites, on peut définir les applications différentiables, ou de classe C k entre deux
+sous-variétés, et généraliser les résultats du calcul différentiel. La principale différence est que la
+différentielle dfp en un point p d’une telle application f entre deux sous-variétés S1 et S2 est une
+application linéaire de l’espace tangent à S1 en p vers l’espace tangent à S2 en f (p). Le domaine
+de définition et l’espace d’arrivée dépendent donc de p. Une fois ces outils mis en place, l’extension
+des résultats du calcul différentiel est naturelle et guère difficile. Notons que l’une des conséquences
+du formalisme des sous-variétés est de pouvoir introduire facilement la notion d’espace tangent
+en un point, qui possède une interprétation géométrique évidente. Dans la théorie des variétés
+différentiables abstraites, qui constitue la suite naturelle de ce cours, la définition des espaces
+tangents constitue une difficulté initiale non négligeable. Ces variétés différentiables peuvent être
+munies de structures supplémentaires (formes différentielles, métriques riemanniennes, connexions,
+etc). Ceci constitue le domaine de la géométrie différentielle, qui occupe une place centrale en
+mathématiques et en physique théorique (théories de jauge, etc) et pourra faire l’objet d’un cours
+plus avancé.

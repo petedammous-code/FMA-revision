@@ -1,0 +1,68 @@
+I.7. FONCTIONS HOLOMORPHES VS FONCTIONS ANALYTIQUES                                                                  21
+
+Démonstration. Supposons que f soit analytique sur Ω. En tout point z0 deX     Ω, la fonction
+f est donnée sur un certain disque ouvert D(z0 , ρ(z0 )) par une série entière   an (z − z0 )n .
+                                                                                                               n≥0
+
+        Xalors la proposition I.3.3 qui nous dit que f est holomorphe sur D(z0 , ρ(z0 )), avec
+On utilise
+ ′
+f (z) =    nan (z − z0 )n−1 sur ce disque. La propriété d’être holomorphe étant locale, ceci montre
+         n≥1
+que f ∈ Hol(Ω).
+    Inversement, supposons que la fonction f soit holomorphe sur Ω. Soient z0 ∈ Ω et r > 0 tel
+que D̄(z0 , r) ⊂ Ω. On note Γ le cercle bordant D̄(z0 , r), autrement dit Γ := C(z0 , r), cercle que
+l’on suppose toujours parcouru dans le sens trigonométrique. Alors, grâce à la formule intégrale
+de Cauchy, on a
+                                                                            Z
+                                                                       1        f (ω)
+                                 (∀z ∈ D(z0 , r)),         f (z) =                    dω.
+                                                                      2iπ     Γ ω−z
+
+
+
+En posant ω = z0 + r eiθ , on trouve que
+
+                                 Z 2π                                           Z 2π
+                             1          f (z0 + r eiθ ) iθ       1                        f (z0 + r eiθ )
+                  f (z) =                              r e dθ =                                           dθ
+                            2π    0     r eiθ + z0 − z          2π                0       1 − z−z 0 −iθ
+                                                                                                r e
+                                 Z 2π X                  n
+                          1                     z − z0
+                       =                                        f (z0 + r eiθ ) e−inθ dθ.
+                         2π       0               r
+                                        n≥0
+
+
+
+     La majoration
+
+                                     n                                                             n
+                            z − z0                    iθ     −inθ                         |z − z0 |
+                                           f (z0 + r e ) e           ≤ sup |f |                            ,
+                              r                                           Γ                  r
+
+
+et le fait que |z − z0 | < r assurent la convergence normale de la série, permettant d’intervertir
+l’intégration et la sommation pour conclure que
+
+                                                          X
+                                              f (z) =           an (z − z0 )n ,
+                                                          n≥0
+
+
+
+où
+                                                     Z 2π
+                                                 1
+                                   an rn =                  f (z0 + r eiθ ) e−inθ dθ,
+                                                2π    0
+
+
+ce qui termine la preuve.
+
+
+
+
+     La preuve précédente donne en fait le résultat plus précis suivant :

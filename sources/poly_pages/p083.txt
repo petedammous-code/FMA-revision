@@ -1,0 +1,33 @@
+80                                                                CHAPITRE IV. APPLICATIONS
+
+
+
+
+                            Surface minimale de Costa découverte en 1984.
+
+
+
+
+     l’autre, le film de savon prend la forme d’une catenoïde. Mais, si l’on écarte progressivement
+     les deux cercles vient un moment où le film de savon se casse et, en fait, on obtient une
+     surface minimale beaucoup plus simple, à savoir deux disques de savon bordés par les deux
+     cercles (faire l’expérience est très simple). On touche du doigt un phénomène important que
+     l’on rencontre souvent dans les problèmes de minimisation du calcul des variations (voir [2]).
+     Précisément, l’application qui, à une surface, associe son aire admet une différentielle nulle
+     exactement pour les surfaces minimales, on parle alors de point critique de la fonctionnelle
+     « aire ». Donc, les minima sont à chercher parmi ces points. Toutefois, il se peut que parmi
+     les points critiques, on trouve des minima locaux ou bien des points selle. C’est ce qui se
+     passe ici : quand la distance entre les deux cercles est assez grande, l’aire des disques bordés
+     par nos cercles est plus petite que l’aire de la caténoïde qui s’appuie dessus.
+
+
+
+
+                           Film de savon bordé par deux cercles parallèles.
+
+     Un exercice intéressant est de déterminer en fonction du rayon des cercles d’appui et de
+     la distance entre ces deux cercles l’aire minimale de la surface qui s’appuie sur ces deux
+     cercles : est-ce une portion de caténoïde ou bien deux disques ?
+
+   Pour des raisons de minimisation de contraintes, on retrouve des surfaces minimales en
+architecture comme par exemple le toit du célèbre Arena Stadium de Munich.

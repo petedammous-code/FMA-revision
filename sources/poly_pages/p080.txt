@@ -1,0 +1,57 @@
+IV.3. FILMS DE SAVON ET FONCTIONS MÉROMORPHES                                                         77
+
+Démonstration. Par définition                              
+                                            ∂          ∂h
+                                                                = 0,
+                                            ∂ z̄       ∂z
+donc ∂h
+     ∂z est une fonction holomorphe sur Ω. Étant donné que nous avons supposé Ω simplement
+connexe, il existe une fonction f , primitive holomorphe de ∂h
+                                                            ∂z sur Ω. On peut alors écrire que
+
+                                    ∂h ∂f     ∂(h − f )   ∂(h − f )
+                               0=      −    =           =           ,
+                                    ∂z   ∂z      ∂z          ∂ z̄
+ce qui démontre que g := h − f est une fonction holomorphe sur Ω. On conclut que h = f + ḡ,
+comme souhaité.
+
+   Remarque IV.2.3 — Dans le cas où Ω n’est plus un ouvert simplement connexe, on
+   obtient, par restriction à des disques (qui eux sont simplement connexes) que toute fonction
+   harmonique s’écrit localement comme la somme d’une fonction holomorphe et de la conjuguée
+   d’une fonction holomorphe.
+
+   Si de plus h est à valeurs réelles, alors, avec les notations ci-dessus, h = f + ḡ = f¯ + g, donc
+2h = f + f¯ + g + ḡ = 2 ℜe(f + g). Nous avons donc obtenu le :
+
+     Corollaire IV.2.4
+   Une fonction harmonique réelle, définie sur un ouvert simplement connexe Ω, est la partie
+   réelle d’une fonction holomorphe, unique à une constante additive imaginaire pure près.
+
+   En appliquant la formule de la moyenne à f et g, on obtient par linéarité le résultat suivant :
+
+     Corollaire IV.2.5
+   Une fonction harmonique réelle h, définie sur un ouvert Ω, vérifie la propriété de la moyenne.
+   Si de plus Ω est connexe, elle vérifie le principe du maximum : si h admet un maximum
+   local en z0 ∈ Ω, alors h est constante sur Ω.
+
+
+Démonstration. La propriété de la moyenne est une conséquence de la linéarité de la formule de
+la moyenne et de la remarque IV.2.3. Pour le principe du maximum, soit D̄(z0 , r) ⊂ Ω un disque
+sur lequel h ≤ h(z0 ). La fonction continue θ 7→ h(z0 ) − h(z0 + ρeiθ ) est positive et d’intégrale nulle
+sur [0, 2π] pour tout ρ ≤ r, donc identiquement nulle : h est constante sur D̄(z0 , r). L’ensemble
+des points où h vaut h(z0 ) est donc à la fois ouvert et fermé dans Ω, qui est connexe : h est
+constante sur Ω.
+
+   Remarque IV.2.6 — L’importance du principe du maximum vient notamment du fait
+   qu’il donne bien souvent l’unicité de fonctions harmoniques vérifiant des conditions au bord
+   fixées (voir l’exemple du paragraphe IV.4.1).
+
+
+IV.3      Films de savon et fonctions méromorphes
+
+
+    Nous allons présenter, en admettant un seul résultat extérieur à ce cours (voir la remarque IV.3.1),
+l’apparition des fonctions méromorphes dans un cadre somme toute inattendu, la forme des films
+de savon (on prendra soin de bien distinguer les films de savon des bulles de savon). Les films de
+savon minimisent une énergie qui est proportionnelle à leur aire (formule de Laplace), ce sont
+des surfaces qui sont appelées surfaces minimales et qui apparaissent dans la modélisation de

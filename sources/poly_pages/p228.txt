@@ -1,0 +1,68 @@
+                                                                                                                                225
+
+(c) La dérivée de hλ est égale à la différence des dérivées logarithmiques de z 7→ θ(z + λ)
+    et z 7→ θ(z), i.e.,
+                                           θ′          θ′
+                                    h′λ = (· + λ) − (·).
+                                           θ           θ
+                        ′′
+    En particulier, hλ = 0 si et seulement si
+                                           ′ ′            ′ ′
+                                           θ                θ
+                                                 (· + λ) =        (·).
+                                           θ                θ
+                                        ′ ′                                         ′
+    Pour cela, il suffit de montrer que θθ est elliptique. La dérivée logarithmique θθ est
+    la somme des dérivées logarithmiques des facteurs composant θ, i.e., pour z ∈ C \ Λ
+    (on rappelle que les zéros de θ sont les points du réseau Λ), on a
+
+                             θ′           X  1                   
+                                     1                     1   z
+                                (z) = +                 + +         .
+                             θ       z            z − λ λ λ2
+                                                    λ∈Λ\{0}
+
+    Cette série converge normalement sur tout compact K ⊂ C \ Λ, et en dérivant terme à
+    terme, on obtient                         ′ ′
+                                               θ
+                                                    = −℘.
+                                               θ
+                                                    ′ ′
+    Par conséquent, la fonction méromorphe θθ est bien Λ-elliptique, et donc h′′λ = 0.
+    Comme C est connexe, on déduit que la fonction entière hλ est affine, i.e., de la forme
+    hλ 7→ z 7→ αλ z + βλ .
+(d) Montrons que la fonction f ainsi définie est Λ-périodique. Pour cela on montre que
+    f (· + ωi ) = f (·), i = 1, 2. Montrons-le pour ω1 , l’autre cas est analogue. En choisissant
+    λ = ω1 dans la question précédente, on déduit qu’il existe α, β ∈ C tels que pour tout
+    z ∈ C,
+                                        θ(z + ω1 ) = θ(z)eαz+β .
+    Par conséquent,
+         k                                k
+                                                                 !
+         Y                                Y                                Pk              Pk                Pk
+               θ(z + ω1 − ai )mi =                θ(z − ai )mi        eα     i=1 mi z−α       i=1 mi ai +β     i=1 mi   ,
+         i=1                              i=1
+                                                                    
+         ℓ                                  ℓ                               Pℓ              Pℓ                 Pℓ
+                                 m′j                           m′j                 ′                 ′                 ′
+         Y                                  Y
+               θ(z + ω1 − bj )         =         θ(z − bj )          eα     j=1 mj z−α        j=1 mj bj +β      j=1 mj    .
+         j=1                              j=1
+
+    Grâce à l’hypothèse
+                           k
+                           X              ℓ
+                                          X                      k
+                                                                 X                   ℓ
+                                                                                     X
+                                   mi =           m′j ,   et               mi ai =         m′j bj ,
+                            i=1             j=1                      i=1             j=1
+
+    en prenant le quotient des deux équations ci-dessous, les termes à l’intérieur des
+    exponentielles se simplifient, et on a bien que f (z + ω1 ) = f (z) comme souhaité.
+    On conclut que la fonction f est Λ-périodique ; de plus, elle est méromorphe, donc
+    elliptique pour Λ.
+    On rappelle que les zéros de θ sont exactement les éléments λ ∈ Λ, chacun étant de
+    multiplicité 1. On déduit que la fonction f définie ci-dessus a pour zéros (resp. pôles)
+    les nombres de la forme ai + λ (resp. bj + λ), avec i ∈ {1, · · · , k}, (resp. j ∈ {1, · · · , ℓ}),
+    λ ∈ Λ, de multiplicité mi (resp. m′j ).

@@ -1,0 +1,63 @@
+IX.4. SOUS-VARIÉTÉS DÉFINIES PAR DES ÉQUATIONS                                                  155
+
+                                                       z
+
+
+
+
+                                                                   y
+
+
+
+
+                                     x
+
+
+
+
+                          Hyperboloïde à deux nappes : z 2 − x2 − y 2 = 1
+
+                                                   z
+
+
+
+
+                               a+r
+
+
+
+                      a                        0                              y
+
+
+
+
+                          x
+
+
+
+                                           p
+                                Tore : (       x2 + y 2 − a)2 + z 2 = r2
+
+
+
+                                 p pas en p ∈ S
+   p différentielle dfp ne s’annule
+  La                                           9
+                                                  : si z ̸= 0, alors ∂f /∂z =
+                                                                            ̸ 0 ; si z = 0, alors
+  ( x2 + y 2 − a)2 = r2 donne x2 + y 2 = a ± r ̸= a, de sorte que (x, y) ̸= (0, 0) et que
+  ∂f /∂x et ∂f /∂y ne sont pas toutes deux nulles. Ceci montre que S est une sous-variété de
+  R3 . On notera T2 le tore obtenu en prenant a = 2 et r = 1.
+
+   Comme la définition d’une sous-variété est de nature locale, et que par une translation, on
+peut sans perte de généralité supposer que a = 0 dans la proposition ci-dessus, on obtient :
+
+    Proposition IX.4.5
+   Soit S une partie de RN et supposons que pour tout point p de S , il existe un voisinage
+   ouvert V de p dans RN et une fonction Ψ 8: V → RN −m de classe C k dont 0 est valeur
+   régulière tels que
+                               S ∩ V = {x ∈ V | Ψ(x) = 0}.
+   Alors S est une sous-variété de dimension m de RN .
+
+
+   Réciproquement une sous-variété de RN peut être définie localement par une équation du

@@ -1,0 +1,71 @@
+                                                                                                               195
+
+Correction.
+
+Exercice 1.
+
+1. Soit M > 0 et UM := {z ∈ C, |ℑz| < M }. Pour tout x ∈ R, la fonction z 7→ f (x)e−izx est
+                                                                             2
+   holomorphe sur UM et on a la majoration |f (x)e−izx | ≤ |f (x)|eℑz x ≤ e−x eM |x| ∈ L1 (R)
+   par hypothèse sur f . On en déduit par le théorème d’holomorphie sous le signe intégrale
+   que fˆ est holomorphe sur UM pour tout M > 0 et donc sur C tout entier.
+2. Soit η ∈ R. On a par la majoration de la question précédente
+                                                                   √ 1 2
+                              Z                   Z
+                                              1 2         1
+                                 −x2 ηx                       2
+                    ˆ
+                   |f (iη)| ≤   e e dx = e 4   η
+                                                    e−(x− 2 η) dx = πe 4 η .
+                                    R                           R
+
+3. Pour ξ = 0, c’est le résultat de la question précédente. Soit ξ > 0 et η ∈ R. Soit M > 0 et
+   λ > 0. On intègre sur le bord du rectangle RM,λ de sommets {−M, M, M − iλ, −M − iλ}
+   (négativement orienté) la fonction holomorphe z 7→ f (z)e−iz(ξ+iη) . On obtient donc
+                                   Z
+                                          f (z)e−iz(ξ+iη) dz = 0.
+                                          ∂RM,λ
+
+  Pour l’instant λ est fixé, et on souhaite faire tendre M vers l’infini. Par convergence dominée,
+  on obtient tout d’abord
+                 Z                                     Z M
+                                 −iz(ξ+iη)
+           lim            f (z)e           dz = lim         f (x)e−ix(ξ+iη) dx = fˆ(ξ + iη).
+         M →+∞ [−M,M ]                                M →+∞ −M
+
+                                                                                                     2     2
+  On continue avec le segment [M, M −iλ]. Comme |f (M +iy)e−i(M +iy)(ξ+iη) | ≤ e−M eay eM η eξy ≤
+      2   2
+  e−M eaλ eM η on obtient pour tout M > 0,
+                            Z
+                                                                                  2         2
+                                              f (z)e−iz(ξ+iη) dz ≤ λe−M eaλ eM η
+                              [M,M −iλ]
+
+  ce qui entraîne                             Z
+                                    lim                f (z)e−iz(ξ+iη) dz = 0.
+                                 M →+∞ [M,M −iλ]
+
+  De même il vient                        Z
+                                 lim                     f (z)e−iz(ξ+iη) dz = 0.
+                                M →+∞ [−M −iλ,−M ]
+
+  Pour terminer, il reste à majorer pour tout M > 0
+           Z                                                Z
+                                    −i(x−iλ)(ξ+iη)
+                      f (x − iλ)e                    dx ≤                   f (x − iλ)e−i(x−iλ)(ξ+iη) dx
+            [−M,M ]                                         [−M,M ]
+                                                            Z
+                                                                                  2     2
+                                                        ≤                   e−x eaλ eηx e−λξ dx
+                                                            [−M,M ]
+                                                            √           2             1 2
+                                                        ≤       πeaλ e−λξ e 4 η ,
+
+  comme dans la question (2). En conclusion, on prend λ = εξ et peut choisir ε > 0 assez
+                                              1
+  petit de sorte que aε < 1, par exemple ε = 2a . On obtient ainsi
+                                                                    1   2   1 2
+                                          |fˆ(ξ + iη)| ≤ Ce− 4a ξ e 4 η
+
+  Pour le cas ξ < 0, on peut voir que z 7→ f (−z) vérifie la même hypothèse que f .

@@ -1,0 +1,65 @@
+I.2. CONDITIONS DE CAUCHY RÉELLES. C-DÉRIVABILITÉ                                                     9
+
+pourvu que f ait des dérivées partielles d’ordre 1 au point où l’on effectue le calcul ; en particulier,
+la décomposition (I.2.4) de f¯ s’obtient en conjuguant celle de f . Les propriétés des dérivées
+partielles permettent d’obtenir immédiatement le formulaire habituel :
+
+                               ∂(λf + µg)    ∂f   ∂g            ∂(f g)   ∂f    ∂g
+(I.2.10)        (∀λ, µ ∈ C),              =λ    +µ ,                   =    g+f ,
+                                   ∂z        ∂z   ∂z             ∂z      ∂z    ∂z
+
+ainsi que les identités analogues pour l’opérateur différentiel ∂∂z̄ :
+
+                               ∂(λf + µg)    ∂f     ∂g          ∂(f g)   ∂f      ∂g
+(I.2.11)        (∀λ, µ ∈ C),              =λ      +µ ,                 =      g+f .
+                                   ∂ z̄      ∂ z̄   ∂ z̄         ∂ z̄    ∂ z̄    ∂ z̄
+
+    On en déduit :
+
+                                              ∂f                    ∂f
+                                 ∂(1/f )             ∂(1/f )
+(I.2.12)                                 = − ∂z2 ,           = − ∂ z̄2 .
+                                   ∂z        f         ∂ z̄      f
+
+
+   Exemple I.2.7 — Ces formules permettent de tester rapidement l’holomorphie. On a
+                                                                 
+                 ∂ z̄      ∂(z z̄)         ∂           ∂ z + z̄      1
+                      = 1,         = z,        ℜe z =               = .
+                 ∂ z̄       ∂ z̄          ∂ z̄         ∂ z̄   2       2
+
+   Les fonctions z 7→ z̄ et z 7→ ℜe z ne sont donc C-dérivables en aucun point. En revanche
+   z 7→ |z|2 = z z̄ est C-dérivable en 0, et en aucun autre point : elle n’est donc holomorphe
+   sur aucun ouvert non vide. Cet exemple montre que la C-dérivabilité en un point isolé est
+   une propriété bien plus faible que l’holomorphie sur un ouvert.
+
+
+   Remarque I.2.8 — Rappelons que le laplacien d’une fonction u de classe C 2 sur un ouvert
+   Ω de R2 , à valeurs réelles ou complexes, est la fonction
+
+                                                   ∂2u ∂2u
+                                         ∆u :=         + 2,
+                                                   ∂x2  ∂y
+   et qu’une telle fonction est dite harmonique sur Ω lorsque ∆u = 0 en tout point de Ω. Si f
+   est de classe C 2 comme fonction des deux variables réelles x et y, le théorème de Schwarz
+   donne
+                      ∂2f                                    ∂2f    ∂2f
+                                                    
+                                 ∂      ∂     ∂     ∂
+                   4         =      −i          +i       f=       +       = ∆f,
+                     ∂z ∂ z̄     ∂x    ∂y    ∂x     ∂y       ∂x2    ∂y 2
+                            ∂2
+   autrement dit ∆ = 4            . En particulier, si f = P + iQ est holomorphe et de classe C 2 ,
+                          ∂z ∂ z̄
+   la condition ∂f
+                ∂ z̄ = 0 entraîne ∆f = 0, c’est-à-dire
+
+                                          ∆P = ∆Q = 0 :
+
+   les parties réelle et imaginaire d’une fonction holomorphe sont des fonctions harmoniques.
+   Nous verrons au théorème I.7.4 que toute fonction holomorphe est automatiquement de
+   classe C ∞ , de sorte que l’hypothèse C 2 est ici superflue. Nous reviendrons longuement sur
+   les fonctions harmoniques au paragraphe IV.2.
+
+   Passons à la composition des fonctions. Supposons que g : Ω → Ω′ et f : Ω′ → C soient deux
+fonctions de classe C 1 comme fonctions de deux variables réelles.

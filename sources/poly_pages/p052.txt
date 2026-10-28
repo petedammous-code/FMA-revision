@@ -1,0 +1,73 @@
+II.6. FORMULE DES RÉSIDUS ET LE CALCUL D’INTÉGRALES                                                   49
+
+
+                                       +
+   réel et du demi-cercle supérieur CR    de rayon R centré à l’origine, parcouru dans le sens
+   trigonométrique. Pour R > a, le seul pôle à l’intérieur du lacet est ia. Le résidu en ce pôle
+   simple est :
+                                                   eikz         eik(ia)   e−ka
+                   resia (f ) = lim (z − ia)                  =         =      .
+                                z→ia         (z − ia)(z + ia)    2ia       2ia
+   Le théorème des résidus donne alors :
+                                                            e−ka
+                        Z
+                                                                  π
+                            f (z) dz = 2iπ resia (f ) = 2iπ      = e−ka .
+                         ΓR                                  2ia  a
+
+   D’autre part, l’intégrale sur le lacet se décompose en :
+                                        Z R
+                                             eikx                   eikz
+                         Z                                   Z
+                             f (z) dz =     2     2
+                                                    dx +                  dz.
+                                                               + z 2 + a2
+                          ΓR            −R x + a              CR
+
+                        +
+   Sur le demi-cercle CR  , on pose z = Reiθ avec θ ∈ [0, π]. Puisque k > 0 et Im(z) = R sin θ ≥ 0,
+           ikz
+   on a |e | = e  −kR sin θ ≤ 1. Ainsi, pour R assez grand :
+
+                                          eikz
+                                  Z
+                                                          1
+                                                dz ≤ πR 2     ,
+                                     + z 2 + a2        R − a2
+                                    CR
+
+   qui tend vers 0 lorsque R → +∞. En passant à la limite R → +∞, on obtient :
+                                Z +∞
+                                        eikx        π
+                                       2     2
+                                               dx = e−ka .
+                                 −∞ x + a           a
+
+   En prenant la partie réelle de cette équation, on conclut que :
+                                   Z +∞
+                                          cos(kx)      π
+                                           2    2
+                                                  dx = e−ka .
+                                    −∞ x + a           a
+
+
+
+                                              ℑm
+
+
+                                                                  +
+                                                                 CR
+
+                                                  ia
+
+
+                                                                          ℜe
+                             −R                         ΓR            R
+
+
+                                                  −ia
+
+                    Contour d’intégration ΓR pour la transformée de Fourier.
+
+   Un troisième exemple, le « contour en trou de serrure », est traité dans la section II.9 : il
+nécessite le logarithme complexe, qui n’est pas encore à notre disposition (voir l’exemple II.9.7).

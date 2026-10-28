@@ -1,0 +1,212 @@
+FMA 410431 EP                                                                          2026-2027
+
+                                  Exercices d’analyse complexe
+
+Sauf précision contraire, Ω désigne un ouvert non-vide de C.
+
+Conditions de Cauchy-Riemann
+Exercice 1.
+(1) Montrer qu’une fonction holomorphe définie sur un ouvert connexe Ω et à valeurs réelles,
+    est constante.
+(2) Trouver les fonctions holomorphes f , g et h dont la partie réelle est :
+(a) ℜef (x+iy) = 2 x y,   (b) ℜe g(x+iy) = ex cos y,            (c) ℜe h(x+iy) = sin(x+y) cosh(x−y).
+
+
+
+Holomorphe/analytique
+Exercice 2. On considère les fonctions de variable complexe z définies par
+                                ez − 1                  sin(πz)
+                     f (z) :=          ,     g(z) :=            ,   h(z) := tan z.
+                                   z                     z2 − 1
+sur leur domaine de définition respectifs C× , C \ {−1, +1}, C \ ( π2 + πZ).
+(1) Montrer que f et g se prolongent en des fonctions holomorphes sur C, et que h est holomorphe
+    sur son domaine de définition mais ne peut pas se prolonger en une fonction holomorphe sur
+    un domaine plus grand.
+(2) Déterminer le rayon de convergence des séries de Taylor en 0 de ces fonctions.
+
+
+
+Estimées de Cauchy et applications
+Exercice 3. Soit f une fonction holomorphe sur C et bornée.
+
+(1) Montrer que f (k) (0) = 0 pour tout k ⩾ 1.
+(2) En déduire que f est constante.
+(3) Montrer que tout polynôme non constant admet un zéro dans C.
+(4) Soit h une fonction non constante, holomorphe sur C. Montrer que h(C), l’image de C par
+    h, est dense dans C.
+(5) Soit f une fonction holomorphe qui est définie sur C. On suppose qu’il existe deux réels
+    a, b > 0 et un entier m ∈ N tels que
+                                           |f (z)| ⩽ a + b|z|m ,
+    pour tout z ∈ C. Montrer que f est un polynôme de degré ⩽ m.
+
+
+
+Formule de la moyenne
+Exercice 4. Soit f une fonction holomorphe sur un ouvert Ω de C.
+
+(1) Montrer que, pour tout z0 ∈ Ω et pour tout r > 0 tel que D(z0 , r) ⊂ Ω,
+                                       Z
+                                    1
+                          f (z0 ) = 2        f (z0 + x + iy) dx dy.
+                                   πr D(0,r)
+
+(2) En déduire que, si f est holomorphe et bornée sur C, f est constante.
+                                                    1
+2
+
+
+Théorèmes de Morera et Goursat
+Exercice 5 (Théorème de Morera). Soit f une fonction continue sur un ouvert Ω. On suppose
+que
+                       Z              Z              Z
+(A)                        f (z) dz +     f (z) dz +     f (z) dz = 0,
+                          [a,b]              [b,c]             [c,a]
+
+pour tous a, b, c ∈ Ω tels que le triangle plein de sommets a, b et c est inclus dans Ω.
+
+(1) Soit z0 ∈ Ω et r > 0 tel que D(z0 , r) ⊂ Ω. Pour tout z ∈ D(z0 , r), on note
+                                              Z
+                                     F (z) =       f (ζ) dζ.
+                                                     [z0 ,z]
+
+    Montrer que F est dérivable au sens complexe sur D(z0 , r) et calculer F ′ .
+(2) En déduire que f est holomorphe sur Ω.
+(3) Inversement, montrer que si f est holomorphe sur un ouvert Ω alors (A) est vérifié pour
+    tous a, b, c ∈ Ω tels que le triangle plein de sommets a, b et c est inclus dans Ω.
+
+
+Exercice 6 (Théorème de Goursat). En utilisant l’exercice précédent, montrer que si f : Ω → C
+est une fonction continue admettant une dérivée au sens complexe f ′ (z) en tout point z ∈ Ω,
+alors f est holomorphe.
+
+
+
+Principe des zéros isolés. Prolongement analytique
+Exercice 7. Soit D := {z ∈ C : |z| < 1} le disque unité ouvert et D̄ son adhérence.
+
+(1) Montrer que si le produit de deux fonctions holomorphes sur D est nul, l’une des deux
+    fonctions est nulle.
+(2) Soient f, g deux fonctions continues sur D̄, holomorphes sur D. Montrer que si f g est nulle
+    sur le cercle ∂ D̄ = D̄ − D, alors f ou g est nulle sur D̄.
+
+
+
+Principe du maximum
+Exercice 8. Soit P ∈ C[X] un polynôme de degré d ⩾ 1. Pour r > 0, on pose M (r) :=
+sup|z|=r |P (z)|. Montrer que pour tout 0 < r ⩽ R, on a
+                                            M (R)   M (r)
+                                               d
+                                                  ⩽       .
+                                             R       rd
+
+
+Exercice 9. Soient 0 < r < R, Ω ⊂ C un ouvert connexe contenant la couronne C := {z ∈ C :
+r ⩽ |z| ⩽ R} et f ∈ Hol(Ω). Pour tout ρ ∈ [r, R], on pose
+                                          M (ρ) := sup |f (z)|.
+                                                      |z|=ρ
+
+(1) Montrer que pour tout ρ ∈ [r, R] et tous p, q ∈ Z avec q > 0, on a
+                             ρp M (ρ)q ⩽ max {rp M (r)q , Rp M (R)q } .
+(2) En déduire que pour tout ρ ∈ [r, R] et tout α ∈ R, on a
+                                  ρα M (ρ) ⩽ max {rα M (r), Rα M (R)} .
+(3) En déduire que pour tout t ∈ [0, 1], on a
+                                     M (rt R1−t ) ⩽ M (r)t M (R)1−t .
+                                                                                                    3
+
+
+  Lemme de Schwarz. Automorphismes du disque
+Exercice 10 (Lemme de Schwarz). Soit f une fonction holomorphe sur le disque unité ouvert
+D := {z ∈ C : |z| < 1}. On suppose f (0) = 0 et que |f (z)| ⩽ 1 pour tout z ∈ D.
+
+(1) Montrer que |f (z)| ⩽ |z| pour tout z ∈ D.
+(2) Monter que si |f ′ (0)| = 1 alors f (z) = f ′ (0) z pour tout z ∈ D.
+(3) On suppose que f est bijective holomorphe de D dans D et que sa réciproque f −1 est elle
+    aussi holomorphe. De plus on suppose f (0) = 0. Montrer qu’il existe α ∈ C tel que |α| = 1
+    et
+                                              f (z) = α z,
+    pour tout z ∈ D.
+(4) Supposons que f n’est pas bijective. Montrer que |f (z)| < |z| pour tout z ∈ D \ {0}.
+
+
+Exercice 11 (Automorphismes de D). Soit D = {z ∈ C : |z| < 1}. Pour a ∈ D et z ∈ D on
+note
+                                                    z−a
+                                           fa (z) =        .
+                                                    1 − az
+(1) Montrer que fa (D) ⊂ D.
+(2) Montrer que fa est une bijection holomorphe de D dans lui-même.
+(3) En utilisant le résultat de la question 3 de l’exercice 8 en déduire que si f est une bijection
+    holomorphe de D dans lui-même alors il existe θ ∈ R et a ∈ D tels que
+                                                         z−a
+                                          f (z) = eiθ           .
+                                                         1 − az
+
+
+Exercice 12. Pour a ∈ D et θ ∈ R, on note
+                                                           z−a
+                                        fa,θ (z) = eiθ           .
+                                                          1 − az
+On a vu dans l’exercice précédent que ce sont exactement les automorphismes du disque unité
+D.
+1) On sait que Authol (D) est un groupe pour la composition des applications. Le vérifier ici
+directement en explicitant la loi de groupe, c’est-à-dire en calculant fa,θ ◦ fb,ω
+2) Montrer que ce groupe Authol (D) agit transitivement sur le disque unité. Déterminer le
+sous-groupe des éléments qui fixe l’origine.
+3) Si γ : [0, 1] → D est un chemin dans D, on définit sa longueur hyperbolique par
+                                                     |γ ′ (t)|
+                                                Z 1
+                                     lhyp (γ) =                2
+                                                                 dt
+                                                 0 1 − |γ(t) |
+
+La distance hyperbolique entre deux points z1 et z2 de D est alors la longueur minimale d’un
+chemin γ comme ci-dessus joignant z1 et z2 :
+                              dhyp (z1 , z2 ) =          inf            lhyp (γ).
+                                                  γ|γ(0)=z1 , γ(1)=z2
+
+Montrer que l’action du groupe Authol (D) sur D préserve cette distance.
+
+
+
+ ‘
+Théorème de l’application ouverte
+4
+
+
+Exercice 13. Le but de cet exercice est de montrer le théorème suivant :
+Théorème (de l’application ouverte pour les fonctions holomorphes). Soit Ω un ouvert connexe
+non vide de C et f : Ω → C une application holomorphe non constante. Alors l’image f (Ω) est
+un ouvert de C.
+    On se place dans les hypothèses du théorème. On raisonne par l’absurde en supposant qu’il
+existe un point z0 de Ω tel que f (Ω) n’est pas un voisinage de f (z0 ), c’est-à-dire qu’il existe une
+suite (αn )n∈N de nombre complexes qui ne sont pas dans f (Ω) et qui converge vers f (z0 ).
+    (1) Montrer qu’il existe r > 0 avec les propriétés suivantes :
+    (i) D̄(z0 , r) ⊂ Ω, (ii) pour tout z ∈ D̄(z0 , r) \ {z0 }, f (z) ̸= f (z0 ).
+                                                        1
+    (2) On pose pour tout n ∈ N, gn (z) =                      . Montrer que pour tout n ∈ N, gn est
+                                                   f (z) − αn
+bien définie et holomorphe sur Ω et qu’il existe zn ∈ C(z0 , r) tel que pour tout z ∈ D̄(z0 , r),
+|f (z) − αn | ⩾ |f (zn ) − αn |.
+    (3) Montrer qu’il existe ϵ > 0 tel que pout tout z ∈ C(z0 , r), |f (z) − f (z0 )| ⩾ ϵ. En déduire
+que pour n assez grand, |f (zn ) − αn | ⩾ 2ϵ et aboutir à une contradiction avec le fait que la suite
+αn tend vers z0 .
+
+
+
+Fonctions méromorphes. Pôles et résidus
+Exercice 14. Déterminer si les fonctions suivantes de la variable complexe z sont méromorphes
+sur C et déterminer leurs pôles éventuels
+                     z2                     1 − cos z                                           1
+        f (z) :=          ,       g(z) :=             ,    h(z) := sin(1/z),      k(z) :=            .
+                   z4 + 1                      z2                                             cosh z
+
+
+Exercice 15. Soit f : C 7→ C une fonction holomorphe. Montrer que z 7→ f (1/z) est méromorphe
+en 0 si et seulement si f est une fonction polynomiale.
+
+
+Exercice 16. Déterminer les pôles et résidus des fonctions suivantes
+                                    z2                                             sin z
+                   f (z) :=                    ,     g(z) := cot z,    h(z) :=            .
+                              (z − 2)(z 2 + 1)                                   (z + 2)2
+

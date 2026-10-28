@@ -1,0 +1,1028 @@
+
+
+======== [PDF page 62 | page imprimée 59] ========
+                                                                               Chapitre      III
+Suites, séries et produits de fonctions
+holomorphes
+
+   Si f est une fonction à valeurs dans un espace vectoriel normé (V, ∥.∥V ) et définie sur un
+ensemble U, on note
+                                   ∥f ∥∞, U = sup ∥f (x)∥V .
+                                                x∈U
+
+
+
+III.1    Un théorème de Weierstrass
+
+
+    La formule intégrale de Cauchy permet de démontrer que les suites et les séries de fonctions
+holomorphes définies sur un ouvert Ω qui convergent uniformément sur tout compact inclus dans
+Ω convergent vers une fonction holomorphe. Par compacité, il suffit d’une convergence uniforme
+locale. Clarifions ces idées.
+
+     Définition III.1.1
+   Soient Ω un ouvert de C et (fn )n∈N une suite de fonctions de Ω dans C. On dit que la
+   suite (fn )n∈N converge localement uniformément s’il existe une fonction f : Ω → C telle
+   que, pour tout point x ∈ Ω, il existe un voisinage Ux de x dans Ω tel que la suite (fn )n∈N
+   converge uniformément sur Ux vers f .
+   On dit que la suite (fn )n∈N est localement uniformément de Cauchy si, pour tout point
+   x ∈ Ω, il existe un voisinage Ux de x dans Ω où la suite (fn ) est uniformément de Cauchy
+   sur Ux , autrement dit, si pour tout ε > 0, il existe N ≥ 1 tel que pour tous p, q ≥ N , on a
+   |fp (z) − fq (z)| ≤ ε, pour tout z ∈ Ux .
+
+   Remarquons que l’usage de l’adverbe « localement » dans cette définition est conforme à la
+remarque I.4.6. Mais il est souvent utile de reformuler ces définitions comme suit.
+
+     Proposition III.1.2
+   Soient Ω un ouvert de C et (fn )n∈N une suite de fonctions de Ω dans C. Alors (fn )n∈N
+   converge localement uniformément vers f si et seulement si, pour tout compact K ⊂ Ω, la
+   suite (fn )n∈N converge uniformément sur K vers f .
+   De même (fn )n∈N est localement uniformément de Cauchy si et seulement si (fn )n∈N est
+   uniformément de Cauchy sur tout compact K ⊂ Ω (autrement dit, pour tout ε > 0, il
+   existe N ≥ 1 tel que pour tous p, q ≥ N , on a |fp (z) − fq (z)| ≤ ε, pour tout z ∈ K).
+
+
+Démonstration. On passe de la définition à la propriété dans la proposition en utilisant la
+compacité : au voisinage de tout x ∈ K, on a un voisinage Ux où la propriété considérée est
+
+                                                59
+
+
+======== [PDF page 63 | page imprimée 60] ========
+60                                           CHAPITRE III. SUITES, SÉRIES ET PRODUITS
+
+vraie, et ces Ux forment un recouvrement de K par des ouverts. On peut en extraire un sous-
+recouvrement fini, et la propriété sur K en découle. Pour la réciproque, il suffit de remarquer
+que C est localement compact : pour tout point x ∈ C et tout ouvert Ω contenant x, il existe un
+voisinage compact de x dans Ω.
+
+     Nous utiliserons le lemme suivant par la suite.
+
+      Lemme III.1.3
+     Soient Ω un ouvert de C et (fn )n∈N une suite de fonctions de Ω dans C. Alors (fn )n∈N
+     est localement uniformément de Cauchy si et seulement si (fn )n∈N converge localement
+     uniformément.
+
+Démonstration. Il suffit de vérifier que, pour tout compact K ⊂ Ω, la suite (fn )n∈N est uniformé-
+ment de Cauchy sur K si et seulement si elle converge uniformément sur K. Fixons un compact
+K ⊂ Ω. Supposons dans un premier temps que (fn )n∈N converge uniformément sur K vers une
+fonction f et choisissons ε > 0. Alors il existe N ≥ 1 tel que pour tout n ≥ N et tout z ∈ K, on a
+                                       |fn (z) − f (z)| ≤ ε/2,
+et l’inégalité triangulaire donne |fn (z) − fm (z)| ≤ ε pour tout z ∈ K et tout n, m ≥ N .
+    Supposons maintenant que (fn )n∈N est uniformément de Cauchy sur K et commençons par
+remarquer que pour tout z ∈ K, la suite (fn (z))n est Cauchy dans C. Comme C est complet,
+elle converge et on note f (z) sa limite. On a ainsi défini une fonction f : K → C et il reste à
+montrer que (fn )n∈N converge uniformément vers f sur K. Par hypothèse, pour tout ε > 0, il
+existe N ≥ 1 tel que pour tout z ∈ K et tout m ≥ n ≥ N , on a
+                                       |fn (z) − fm (z)| ≤ ε.
+En passant à la limite lorsque m → +∞, on trouve |fn (z) − f (z)| ≤ ε pour tout z ∈ K et tout
+n ≥ N.
+
+   Le premier résultat remarquable à propos des suites de fonctions holomorphes est le théorème
+de Weierstraß suivant qui porte sur les suites de fonctions holomorphes localement uniformément
+de Cauchy :
+
+      Théorème III.1.4 — Weierstraß
+     Soient Ω un ouvert de C et (fn )n∈N une suite de fonctions holomorphes de Ω dans C,
+     localement uniformément de Cauchy sur Ω et de limite f . Alors
+       1. f est une fonction holomorphe sur Ω,
+                                      (k)
+       2. pour tout k ≥ 1, la suite (fn )n converge localement uniformément sur Ω vers f (k) .
+
+
+Démonstration. Commençons par prouver le premier point. D’après le Lemme III.1.3, (fn )n∈N
+converge localement uniformément vers f . Puisque fn est continue pour tout n, la fonction f est
+également continue. Soient z0 ∈ Ω et r > 0 tels que D̄(z0 , r) ⊂ Ω et soit z ∈ D(z0 , r). Comme f
+est continue, la fonction                     Z
+                                           1           f (ζ)
+                                 G : z 7→                     dζ
+                                          2iπ C(z0 ,r) ζ − z
+est holomorphe sur D(z0 , r) et il suffit de montrer que f (z) = G(z) pour tout z ∈ D(z0 , r) pour
+conclure. D’après la formule intégrale de Cauchy, on a
+                                                Z
+                                              1           fn (ζ)
+                                   fn (z) =                      dζ.
+                                             2iπ C(z0 ,r) ζ − z
+
+
+======== [PDF page 64 | page imprimée 61] ========
+III.1. UN THÉORÈME DE WEIERSTRASS                                                                    61
+
+Pour tout n ≥ 1, on trouve donc
+
+                                                             fn (ζ) − f (ζ)
+                          Z                        Z
+                       1           f (ζ)        1
+             fn (z) −                    dζ =                               dζ
+                      2iπ C(z0 ,r) ζ − z       2iπ C(z0 ,r)      ζ −z
+                                                   r
+                                            ≤               · sup |fn (ζ) − f (ζ)|.
+                                              r − |z − z0 | |ζ−z0 |=r
+
+Puisque (fn )n∈N converge uniformément vers f sur C(z0 , r), on trouve
+                                                   Z
+                                                 1           f (ζ)
+                           f (z) = lim fn (z) =                    dζ.
+                                  n→∞           2iπ C(z0 ,r) ζ − z
+Ceci étant vrai pour tout z ∈ D(z0 , r), f est bien holomorphe sur D(z0 , r).
+    Montrons maintenant le second point. D’après la formule de Cauchy, si z0 ∈ Ω et r > 0
+satisfont D(z0 , r) ⊂ Ω, alors
+                                                      (k)
+          f (k) (z)
+                         Z                                       Z
+                       1              f (ζ)          fn (z)    1              fn (ζ)
+                    =                      k+1
+                                               dζ et        =                         dζ,
+             k!       2iπ C(z0 ,r) (ζ − z)             k!     2iπ C(z0 ,r) (ζ − z)k+1
+pour tout z ∈ D(z0 , r) et tout k ≥ 0. Fixons k ≥ 0. On déduit de ce qui précède que pour tout
+z ∈ D(z0 , r/2), on a
+
+                                         f (ζ) − fn (ζ)      k!2k+1
+                                 Z
+         (k)        (k)       k!
+       |f (z) − fn (z)| =                               dζ ≤        sup |f (ζ) − fn (ζ)|.
+                              2π C(z0 ,r) (ζ − z)k+1           rk |ζ−z0 |=r
+                                                                       (k)
+On vient de prouver que, dès lors que D(z0 , r) ⊂ Ω, la suite (fn )n∈N converge uniformément
+vers f (k) sur D(z0 , r/2). Autrement dit, elle converge localement uniformément vers f (k) , ce qui
+est l’assertion voulue.
+
+
+      On obtient, en utilisant des arguments semblables, le :
+
+       Théorème III.1.5
+   Soit                                               X
+                                               f :=         fn ,
+                                                      n≥0
+
+   une série de fonctions holomorphes sur Ω, qui converge localement normalement (uniformé-
+   ment). Alors,                               X
+                                          g :=     fn′ ,
+                                                      n≥0
+
+   la série des dérivées complexes, converge localement normalement (uniformément) et f est
+   une fonction holomorphe dont la dérivée est donnée par g.
+                                              X
+      On rappelle qu’une série de fonctions         fn converge normalement sur un ouvert U si la série
+                                              n≥0
+X
+      ∥fn ∥∞, U converge (i.e. elle converge normalement pour la norme de la convergence uniforme
+n≥0
+                                                                    X
+∥h∥∞, U = supz∈U |h(z)| ) et l’on dit que la série de fonctions           fn converge uniformément si la
+                                                                    n≥0
+       Xn
+suite (   fj )n≥0 converge uniformément. Bien entendu la convergence normale d’une série de
+         j=0
+fonction entraîne la convergence uniforme de cette série.
+
+
+======== [PDF page 65 | page imprimée 62] ========
+62                                             CHAPITRE III. SUITES, SÉRIES ET PRODUITS
+
+
+     Exercice III.1.6 : Formule du noyau de Bergman — Soit D = D(0, 1) le disque unité
+     ouvert. On note Hol2 (D) l’espace des fonctions holomorphes et de carré sommable sur D.
+     Cet espace s’injecte dans L2 (D).
+     1) Montrer que l’image de Hol2 (D) dans L2 (D) est un sous-espace fermé. On pourra utiliser
+     l’exercice I.7.8.
+     2) En déduire que pour tout y ∈ D, il existe une fonction holomorphe gy sur D telle que
+     pour tout f ∈ Hol2 (D),
+                                    Z
+                            f (y) =    gy (z) f (z) du dv,  (z = u + iv),
+                                     D
+                                                                  X
+     3) On considére le développement en série entière gy (z) =         an (y)z n . Que donne l’identité
+                                                                  n∈N
+     précédente appliquée à la fonction z 7→ z n ?
+     4) En déduire que pour tout f ∈ Hol2 (D), pour tout z ∈ D,
+                                           Z
+                                        1          f (u + iv)
+                                f (z) =                          du dv.
+                                        π D (1 − (u − iv)z)2
+                               n      q          o
+     5) Montrer que la famille z 7→ n+1  π   z n       est une base hilbertienne de Hol2 (D).
+                                                 n≥0
+
+
+
+
+III.2      Le théorème de Hurwitz
+
+
+    Nous allons maintenant montrer le théorème de Hurwitz, qui lie certaines propriétés de
+la limite d’une suite de fonctions holomorphes (annulation, injectivité) au comportement des
+éléments de la suite :
+
+       Théorème III.2.1 — Hurwitz (1889)
+     Soient Ω un ouvert connexe de C et (fn )n∈N une suite de fonctions holomorphes de Ω dans
+     C, localement uniformément convergente sur Ω et de limite f .
+        1. Si pour tout n ≥ 0, fn ne s’annule pas sur Ω, alors soit f ne s’annule pas sur Ω, soit
+           f ≡ 0 sur Ω,
+        2. Si pour tout n ≥ 0, fn est injective sur Ω, alors soit f est injective sur Ω, soit f est
+           constante sur Ω.
+
+Démonstration. Montrons d’abord le point 1. Le point 2 s’en déduira aisément. Supposons que
+f ̸≡ 0 sur Ω et soit z0 ∈ Ω. D’après le principe des zéros isolés, il existe r > 0 tel que pour tout
+z ∈ D(z0 , r) \ {z0 }, f (z) ̸= 0 (il se peut également que f (z0 ) ̸= 0 mais nous ne l’utiliserons pas).
+    Puisque |f | est continue sur C(z0 , r) et ne prend que des valeurs strictement positives, il existe
+ε > 0 tel que |f (z)| ≥ 2ε pour tout z ∈ C(z0 , r). Comme par ailleurs, (fn )n converge uniformément
+vers f sur C(z0 , r), il existe N ≥ 1 tel que pour tout n ≥ N , on ait |f (z) − fn (z)| ≤ ε pour tout
+z ∈ C(z0 , r). Ainsi,
+
+                         |fn (z)| ≥ ε , pour tout z ∈ C(z0 , r) et tout n ≥ N.
+
+Fixons z ∈ C(z0 , r) et n ≥ N . Alors on a
+                           1     1      |f (z) − fn (z)|   1
+                              −       =                  ≤ 2 sup |f − fn |
+                         f (z) fn (z)     |f (z)fn (z)|   2ε C(z0 ,r)
+
+
+======== [PDF page 66 | page imprimée 63] ========
+III.3. LE THÉORÈME DE MONTEL                                                                          63
+
+et la suite (1/fn )n converge donc uniformément vers 1/f sur C(z0 , r). D’après le Théorème III.1.4
+de Weierstraß, la suite (fn′ )n∈N converge uniformément vers f ′ sur tout compact, et ainsi on a
+convergence uniforme de la suite (fn′ /fn )n vers f ′ /f sur C(z0 , r). En particulier, grâce au principe
+de l’argument (plus précisément au corollaire qui suit le lemme II.8.1, appliqué à U = D(z0 , r))
+on trouve, en posant D := D(z0 , r) et en notant Z(·, D) le nombre de zéros dans D comptés avec
+leur multiplicité,
+
+                                     f ′ (z)                        fn′ (z)
+                           Z                               Z
+                     1                                1
+          Z(f, D) =                          dz = lim                       dz = lim Z(fn , D).
+                    2iπ     C(z0 ,r) f (z)       n→∞ 2iπ   C(z0 ,r) fn (z)      n→∞
+
+
+
+Comme Z(fn , D) = 0 pour tout n par hypothèse, on trouve Z(f, D) = 0 et f ne s’annule pas sur
+D(z0 , r). Ceci étant valable pour tout z0 ∈ Ω, on a bien montré que f ne s’annule pas.
+   Pour montrer le second point, on suppose que f est non-constante et on fixe a ∈ Ω. Posons
+pour tout n ≥ 1,
+                                gn (z) := fn (z) − fn (a), z ∈ Ω \ {a}.
+
+L’ouvert U := Ω \ {a} est encore connexe (un ouvert connexe de C est connexe par arcs, et deux
+points de U se joignent dans U quitte à contourner a dans un petit disque), et la suite (gn )n
+converge localement uniformément sur U vers la fonction holomorphe g := f − f (a). De plus,
+pour tout n ≥ 1, puisque fn est injective sur Ω, la fonction gn ne s’annule pas sur U , sinon il
+existerait z ∈ U tel que fn (z) = fn (a), ce qui est exclu.
+    On peut donc appliquer le premier point à la suite (gn ) : soit g ≡ 0 sur U , soit g ne s’annule
+pas sur U . Comme on a supposé f non-constante, g est également non-constante et donc ne
+s’annule pas sur U . Autrement dit, si f (z) = f (a), alors z = a et on a bien montré que f est
+injective.
+
+
+
+   Remarque III.2.2 — Si pour tout n ≥ 1, fn ne s’annule pas, il arrive que f soit identi-
+   quement nulle. Voilà un exemple : prenons Ω := D(0, 1) \ {0} et posons fn (z) := z n pour
+   n ≥ 1 et z ∈ Ω. On a bien fn (z) ̸= 0 pour tout n ≥ 1 et tout z ∈ Ω. De plus, fn converge
+   uniformément vers la fonction constante égale à 0 sur tout compact de Ω.
+
+
+   Remarque III.2.3 — La démonstration du premier point montre en fait le résultat plus fort
+   suivant : soient Ω un ouvert connexe de C et (fn )n∈N une suite de fonctions holomorphes
+   de Ω dans C, localement uniformément convergente sur Ω et de limite f . Pour tout z ∈ Ω,
+   il existe r > 0 tel que si l’on pose D := D(z, r), alors la suite Z(fn , D) tend vers Z(f, D)
+   lorsque n tend vers l’infini.
+
+
+
+III.3     Le théorème de Montel
+
+
+    Nous avons vu précédemment qu’il suffit qu’une suite (fn )n∈N de fonctions holomorphes soit
+                                                    (k)
+uniformément de Cauchy pour que toutes les suites (fn )n∈N de ses dérivées successives convergent
+localement uniformément et que les limites soient holomorphes. Nous allons maintenant montrer
+un résultat de compacité des suites de fonctions holomorphes qui sont localement bornées, le
+théorème de Montel. Pour cela, nous introduisons la notion de famille normale et celle de famille
+localement uniformément bornée et l’on montre que les deux sont équivalentes.
+
+
+======== [PDF page 67 | page imprimée 64] ========
+64                                              CHAPITRE III. SUITES, SÉRIES ET PRODUITS
+
+       Définition III.3.1
+     Soit Ω un ouvert de C. Une famille de fonctions F ⊂ Hol(Ω) est localement uniformément
+     bornée si pour tout x ∈ Ω, il existe un voisinage Ux et une constante C > 0 (dépendant
+     évidemment du voisinage choisi) tels que |f (z)| ≤ C pour tout f ∈ F et tout z ∈ Ux .
+
+
+     Remarque III.3.2 — Comme dans la proposition III.1.2, on peut reformuler ceci en une
+     propriété sur les compacts : pour tout compact K ⊂ Ω, il existe une constante C = C(K) > 0
+     telle que |f (z)| ≤ C pour tout f ∈ F et tout z ∈ K.
+
+       Définition III.3.3
+     Soit Ω un ouvert de C. Une famille de fonctions F ⊂ Hol(Ω) est dite normale si toute suite
+     d’éléments de F admet une sous-suite qui converge localement uniformément sur Ω. On
+     n’exige pas que la limite fasse partie de la famille F.
+
+
+       Théorème III.3.4 — Montel
+     Soient Ω ⊂ C un ouvert et F ⊂ Hol(Ω) une famille de fonctions holomorphes sur Ω. Les
+     assertions suivantes sont équivalentes :
+        1. la famille F est localement uniformément bornée sur Ω,
+        2. la famille F est normale sur Ω.
+
+
+Démonstration. Commençons par montrer 2 =⇒ 1. On raisonne par l’absurde en supposant
+qu’il existe un compact K ⊂ Ω et une suite (zn )n de points de K et une suite (fn )n∈N d’éléments
+de F tels que lim supn→∞ |fn (zn )| = +∞. Soit (fnk )k∈N une suite extraite de (fn )n∈N telle que
+limk→∞ |fnk (znk )| = +∞. Quitte à extraire, par hypothèse, on peut supposer que (fnk )k converge
+uniformément sur K. Soit f sa limite.
+   Quitte à extraire à nouveau, on peut supposer que (znk )k est une suite convergente du compact
+K et soit z∞ sa limite. On a alors |f (z∞ )| = limn→+∞ |fnk (znk )| = +∞, ce qui est absurde.
+
+    Montrons maintenant 1 =⇒ 2. Soit (fn )n∈N une suite d’éléments de F. On veut extraire une
+sous-suite qui converge localement uniformément. Commençons par considérer un sous-ensemble
+dénombrable dense S := {yn , n ≥ 0} de Ω. Par une extraction diagonale, nous allons extraire
+une sous-suite qui converge simplement sur S. Puisque (fn (y0 ))n est bornée, il existe φ0 : N → N
+strictement croissante telle que (fφ0 (n) (y0 ))n converge vers une limite f (y0 ) ∈ C. Par récurrence,
+on voit qu’on peut construire pour tout p ≥ 1 une extractrice φp : N → N telle que pour tout
+0 ≤ k ≤ p, la suite (fφ0 ◦···◦φp (n) (yk ))n converge vers une limite f (yk ). On pose alors
+
+                                    fφ(n) := fφ0 ◦···◦φn (n) , n ≥ 0.
+
+La suite (fφ(n) )n est une suite extraite de (fn )n qui converge simplement sur S.
+    Soient z0 ∈ Ω et δ, r > 0 tels que K := D(z0 , r + δ) ⊂ Ω. Alors, pour tout z ∈ D̄(z0 , r),
+puisque le disque D̄(z, δ) est contenu dans K, on a d(z, ∂K) ≥ δ. Puisque K est compact dans Ω,
+il existe par hypothèse C(K) > 0 telle que |fn (w)| ≤ C(K) pour tout w ∈ K et tout n ≥ 0 et les
+inégalités de Cauchy donnent
+
+                                             sup|ζ−z|=δ |fn (ζ)|   C(K)
+                               |fn′ (z)| ≤                       ≤
+                                                     δ               δ
+pour tout z ∈ D̄(z0 , r) et tout n ≥ 0. Pour tous z, z ′ ∈ D̄(z0 , r), en appliquant le théorème des
+accroissements finis sur le segment [z, z ′ ] ⊂ D(z0 , r) aux parties réelles et imaginaires de fn , on
+
+
+======== [PDF page 68 | page imprimée 65] ========
+III.3. LE THÉORÈME DE MONTEL                                                                                   65
+
+en déduit que
+                                                               2C(K)
+(III.3.1)                             |fn (z) − fn (z ′ )| ≤         |z − z ′ |,
+                                                                 δ
+pour tout n ≥ 0 et tous z, z ′ ∈ D(z0 , r). Quitte à prendre C(K) plus grand, on peut également
+supposer que 2C(K)
+               δ    ≥ 1.
+     Fixons 0 < ε ≤ r/2 et considérons un point w0 ∈ D(z0 , r/2). Quels que soient n ≥ 0 et
+z, z ′ ∈ D(w0 , 12C(K)
+                  εδ
+                       ), on a en utilisant (III.3.1), |fn (z) − fn (z ′ )| ≤ ε/3.
+                                                                     εδ
+      D’autre part, comme S est dense dans Ω, il existe ζ ∈ D(w0 , 12C(K) ) ∩ S. Il existe N ∈ N, tel
+que
+                                          |fφ(k) (ζ) − fφ(p) (ζ)| ≤ ε/3.
+                                                            εδ
+pour tout k, p ≥ N . On trouve donc, pour tout z ∈ D(w0 , 12C(K) ) et tout p, k ≥ N ,
+
+       |fφ(k) (z) − fφ(p) (z)| ≤ |fφ(k) (z) − fφ(k) (ζ)| + |fφ(k) (ζ) − fφ(p) (ζ)| + |fφ(p) (ζ) − fφ(p) (z)|
+                              ≤ ε.
+                                                                                εδ
+La suite (fφ(n) )n∈N est donc uniformément de Cauchy sur D(z0 , r/2) ∩ D(w0 , 12C(K) ). Comme
+                                                                                                 εδ
+D(z0 , r/2) est compact, on peut le recouvrir par un nombre fini de disques de la forme D(w0 , 12C(K) ).
+Ceci montre que la suite (fφ(n) )n est uniformément de Cauchy sur D(z0 , r/2). Ceci étant vrai pour
+tout z0 ∈ Ω, la suite (fφ(n) )n est localement uniformément de Cauchy, donc converge localement
+uniformément d’après le lemme III.1.3.
+
+
+
+   Remarque III.3.5 — Le théorème de Montel est un cas particulier du théorème d’Ascoli,
+   dont il est bon de rappeler l’énoncé. Soient X un espace topologique localement compact
+   (et séparé) et Y un R- ou C-espace vectoriel de dimension finie, muni d’une norme ∥ · ∥ —
+   le choix de celle-ci est indifférent, puisque toutes les normes sont équivalentes en dimension
+   finie. On munit l’espace C (X, Y ) des applications continues de X dans Y de la topologie
+   de la convergence uniforme sur les compacts. Une partie H ⊂ C (X, Y ) est dite équicontinue
+   en un point x0 ∈ X si
+
+               (∀ε > 0) (∃ V voisinage de x0 ) (∀f ∈ H) (∀x ∈ V),              ∥f (x) − f (x0 )∥ ≤ ε,
+
+   le point important étant que le voisinage V est le même pour toutes les fonctions de la
+   famille. Le théorème d’Ascoli affirme alors que H est relativement compacte dans C (X, Y )
+   si et seulement si
+        1. H est équicontinue en tout point de X,
+        2. pour tout x ∈ X, l’ensemble H(x) = {f (x), f ∈ H} est borné dans Y .
+   Si de plus X est métrisable et σ-compact, ce qui est le cas d’un ouvert Ω de C, l’espace
+   C (X, Y ) est lui-même métrisable et la conclusion se lit sous forme séquentielle : de toute
+   suite d’éléments de H on peut extraire une sous-suite qui converge uniformément sur tout
+   compact de X.
+
+
+   Remarque III.3.6 — Relisons la démonstration ci-dessus avec ce vocabulaire. L’assertion 1
+   du théorème de Montel est exactement la condition (2) d’Ascoli, et la majoration (III.3.1),
+   conséquence des inégalités de Cauchy, est exactement la condition (1) — la famille est
+   même localement équilipschitzienne. La démonstration donnée plus haut n’est donc rien
+   d’autre qu’une preuve d’Ascoli « à la main » : extraction diagonale le long d’une partie
+
+
+======== [PDF page 69 | page imprimée 66] ========
+66                                            CHAPITRE III. SUITES, SÉRIES ET PRODUITS
+
+
+     dénombrable dense, puis recouvrement fini d’un compact.
+     C’est aussi ce qui montre où est le contenu proprement complexe de l’énoncé. Pour des
+     fonctions continues quelconques, être localement uniformément bornée n’entraîne nullement
+     l’équicontinuité : la suite fn (x) = sin(nx) sur R est bornée par 1 et n’admet aucune
+     sous-suite uniformément convergente sur un intervalle. L’holomorphie, via les inégalités
+     de Cauchy, fait passer gratuitement d’un contrôle de f à un contrôle de f ′ , donc de la
+     borne à l’équicontinuité. Le théorème de Weierstrass assure enfin que la limite est encore
+     holomorphe, ce qu’Ascoli seul ne donne pas.
+
+
+III.4      Le théorème de représentation conforme de Riemann
+
+
+    Nous allons maintenant montrer que tout ouvert Ω de C qui est simplement connexe est soit
+C tout entier, soit l’image par un biholomorphisme du disque unité, en utilisant le théorème
+III.3.4 de Montel.
+   Dans ce contexte, on utilise la terminologie de « transformation conforme » pour ce biholo-
+morphisme, et on dit que Ω est conformément équivalent au disque unité D = D(0, 1).
+
+       Théorème III.4.1 — Représentation conforme de Riemann
+     Tout ouvert connexe et simplement connexe Ω de C, qui est distinct de C, est conformément
+     équivalent au disque unité D. Autrement dit, il existe un biholomorphisme h de Ω dans D.
+
+
+Démonstration. Posons
+
+                        Σ = {f ∈ Hol(Ω) : f (Ω) ⊂ D, et f est injective}.
+
+Commençons par montrer que Σ ̸= ∅. Soit ω0 ∈ C \ Ω. Comme Ω est simplement connexe
+et comme z − ω0 ̸= 0 pour tout z ∈ Ω, il existe φ ∈ Hol(Ω), telle que pour tout z ∈ Ω,
+on ait φ(z)2 = z − ω0 . En effet, d’après la proposition II.9.3, il existe u ∈ Hol(Ω) telle que
+exp(u(z)) = z − ω0 pour tout z ∈ Ω et il suffit de poser φ := exp(u/2). De plus, si z, z ′ ∈ Ω
+vérifient φ(z) = φ(z ′ ), alors φ(z)2 = φ(z ′ )2 et donc z = z ′ , c’est-à-dire que φ est injective. Par
+ailleurs, si φ(z) = −φ(z ′ ), on a de la même manière z = z ′ , ce qui est impossible. Soit a ∈ φ(Ω),
+comme φ est une application ouverte, il existe D(a, r) ⊂ φ(Ω) où 0 < r < |a| et par ce que l’on
+vient de voir, D(−a, r) ∩ φ(Ω) = ∅. Posons ψ = r/(φ + a). Pour tout z ∈ Ω, on a |φ(z) + a| ≥ r
+et donc |ψ(z)| ≤ 1. De plus ψ est injective, comme composée de l’application injective φ et d’une
+homographie. Comme ψ est non-constante, on a ψ(Ω) ⊂ D d’après le principe du maximum I.12.1,
+c’est-à-dire que ψ ∈ Σ. On a donc bien montré que Σ ̸= ∅.
+    Considérons donc ψ ∈ Σ qui est non-surjective. Rappelons que les automorphismes de D ont
+été déterminés dans la Proposition I.13.3 , et que dans l’exercice qui précède, nous avons introduit
+les automorphismes
+                                                    z−α
+                                         fα : z 7→
+                                                    1 − ᾱz
+de D, où α ∈ D.
+   Fixons z0 ∈ Ω. Quitte à composer par un de ces automorphismes, on peut supposer que
+ψ(z0 ) = 0, ce que nous faisons. C’est-à-dire que l’on pose
+
+                                     Σz0 = {f ∈ Σ |f (z0 ) = 0},
+
+on a établi que Σz0 est non-vide, et l’on considère alors ψ ∈ Σz0 qui est non-surjective. Montrons
+qu’il existe alors ψ1 ∈ Σz0 telle que |ψ1′ (z0 )| > |ψ ′ (z0 )|. Prenons α ∈ D \ ψ(Ω). Puisque fα est
+
+
+======== [PDF page 70 | page imprimée 67] ========
+III.5. PRODUITS INFINIS DE FONCTIONS HOLOMORPHES                                                    67
+
+bijective de D dans D, on a fα ◦ ψ ∈ Σ et par construction, fα ◦ ψ ne s’annule pas sur Ω. Il
+s’ensuit comme précédemment qu’il existe g ∈ Hol(Ω), telle que g 2 = fα ◦ ψ. Comme fα ◦ ψ est
+injective, g est aussi injective et, pour tout z ∈ Ω, on a
+
+                                      |g(z)|2 = |fα ◦ ψ(z)| < 1,
+
+c’est-à-dire que g ∈ Σ. Posons alors β := g(z0 ), s : z 7→ z 2 et ψ1 := fβ ◦ g, on a alors ψ1 ∈ Σ et
+
+                         ψ = f−α ◦ g 2 = f−α ◦ s ◦ g = f−α ◦ s ◦ f−β ◦ ψ1 .
+
+En posant F = f−α ◦ s ◦ f−β , comme ψ1 (z0 ) = 0, et en dérivant la fonction composée, on trouve
+
+                                       ψ ′ (z0 ) = F ′ (0)ψ1′ (z0 ).
+
+Par ailleurs, F est non-injective et F ∈ Hol(D) satisfait F (D) ⊂ D et F (0) = 0 (c’est équivalent
+à l’hypothèse ψ(z0 ) = 0). D’après le lemme de Schwarz I.13.1, on a donc |F ′ (0)| < 1, ce qui donne
+|ψ ′ (z0 )| < |ψ1′ (z0 )|.
+    Posons alors η = sup{|ψ ′ (z0 )|, ψ ∈ Σz0 }, qui est fini : si D̄(z0 , ρ) ⊂ Ω, l’estimée de Cauchy
+donne |ψ ′ (z0 )| ≤ 1/ρ pour tout ψ ∈ Σz0 . Si h ∈ Σz0 vérifie h(z0 ) = 0 et |h′ (z0 )| = η, par ce que
+l’on vient de voir, h est nécessairement surjective et h(Ω) = D. Nous devons donc montrer qu’une
+telle fonction existe. Comme supz∈Ω |ψ(z)| ≤ 1 pour tout ψ ∈ Σz0 , le théorème III.3.4 de Montel
+stipule que toute suite (fn )n∈N de fonctions holomorphes fn ∈ Σz0 admet une sous-suite qui
+converge localement uniformément sur Ω. Par définition de η, il existe une suite (ψn )n∈N ⊂ Σz0 ,
+telle que
+                                          lim |ψn′ (z0 )| = η.
+                                         n→∞
+
+
+Il existe donc (ψnk )k≥0 qui converge localement uniformément sur Ω vers h ∈ Hol(Ω). De plus,
+pour tout z ∈ Ω et tout k ∈ N, on a |ψnk (z)| ≤ 1 et donc |h(z)| ≤ 1. D’après le second point
+du théorème III.1.4 de Weierstraß, ψn′ k (z0 ) → h′ (z0 ), de sorte que |h′ (z0 )| = η. Étant donné que
+η > 0, la fonction h est non-constante sur Ω. Ainsi, h(Ω) ⊂ D et, d’après le théorème III.2.1
+de Hurwitz, puisque pour tout k ∈ N, ψnk est injective, h est également injective. On a donc
+trouvé h ∈ Σ qui est surjective, et h est bien une bijection holomorphe entre Ω et D. Il reste à
+observer que h est un biholomorphisme, et non seulement une bijection holomorphe : d’après
+la remarque I.14.3, la réciproque h−1 d’une bijection holomorphe entre deux ouverts de C est
+automatiquement holomorphe.
+
+
+
+   Remarque III.4.2 — Le disque unité D étant conformément équivalent au demi-plan de
+   Poincaré H (cf. exercice I.4.3), on peut remplacer D par H dans l’énoncé du théorème de
+   Riemann.
+
+
+
+III.5    Produits infinis de fonctions holomorphes
+
+
+    L’existence du logarithme d’une fonction holomorphe permet d’étendre les résultats sur les
+séries de fonctions aux produits de fonctions holomorphes.
+
+
+======== [PDF page 71 | page imprimée 68] ========
+68                                                 CHAPITRE III. SUITES, SÉRIES ET PRODUITS
+
+       Théorème III.5.1
+          P
+     Soit n≥0 fn une série de fonctions holomorphes, définies sur un ouvert Ω et qui converge
+     localement normalement. Posons gn = 1 + fn . Alors, la suite (Gn )n≥0 définie par
+                                             n
+                                             Y                n
+                                                              Y
+                                 Gn (z) :=         gj (z) =       (1 + fj (z)),
+                                             j=0              j=0
+
+     convergeQlocalement uniformément vers une fonction holomorphe G sur Ω. On note alors
+     G(z) = ∞   j=0 (1 + fj (z)). La fonction G s’annule en un point exactement lorsque l’un des
+     facteurs du produit infini s’annule en ce point, ce qui n’arrive que pour un nombre fini de
+     facteurs, et l’ordre de ce zéro de G est la somme des ordres de ce zéro pour ces facteurs.
+     On a alors
+                                              G′    X g′
+                                                         n
+                                                  =        ,
+                                              G         gn
+                                                       n∈N
+
+     la convergence de la série étant uniforme sur tout compact de Ω (i.e. pour un compact K
+     fixé, à partir d’un certain rang n0 , la fonction gn ne s’annule plus sur K et on a convergence
+                                    ′
+     uniforme de la série n∈N ggnn sur ce compact).
+                            P
+
+
+
+     Remarque III.5.2 — On veut éviter pour diverses raisons de considérer des produits infinis
+     qui s’annulent sans que l’un des facteurs s’annule, ou bien des zéros d’ordre infini. Les
+     hypothèses du théorème garantissent ceci.
+
+Démonstration. Étant donné un compact K ⊂ Ω, il existe un entier m ∈ N tel que supz∈K |fn (z)| <
+1/2, pour tout n ≥ m. On peut utiliser le fait qu’il existe une constante C > 0 telle que
+| Log(1 + ω)| ≤ C |ω| pour tout ω ∈ D(0, 1/2) et appliquer le résultat du Théorème III.1.5 pour
+montrer que la série
+                                       X∞
+                                           Log(1 + fj ),
+                                             j=m
+
+converge uniformément
+            Qn              sur K vers
+                                    Pn une fonction holomorphe. On en déduit que la suite de
+fonctions j=m (1 + fj ) = exp( j=m Log(1 + fj )) converge uniformément sur K vers une
+     P holomorphe, lorsque n tend vers +∞, la limite étant la fonction holomorphe G̃ =
+fonction
+exp( +∞  j=m Log(1 + fj )) (qui remarquons-le, ne s’annule pas).
+    On multiplie ensuite par le produit fini m−1
+                                               Q
+                                                  j=0 (1 + fj ) pour avoir la conclusion voulue sur G.
+L’assertion sur les zéros est immédiate d’après la remarque ci-dessus, car sur le compact K, les
+zéros de G proviennent nécessairement du produit fini.
+    Posons G̃n = nk=m gk . Pour k ≥ m onP
+                   Q
+                                               a |fk | < 1/2 sur K, donc |gk | > 1/2 et aucun des G̃n
+ne s’annule sur K. Mieux, en notant M = k≥m ∥fk ∥∞,K < +∞ et C la constante ci-dessus, on
+             Pn
+a |G̃n | = e k=m Log(1+fk ) ≥ e−CM > 0 sur K, uniformément en n ; il en va de même de G̃.
+    On a alors, encore par le théorème III.1.5, convergence uniforme sur K de G̃′n = nk=m gk′ j̸=k gj
+                                                                                       P        Q
+                                                       ′          g′         ′
+vers G̃′ et donc convergence uniforme sur K de G̃        = nk=m gkk vers G̃G̃ . Ceci montre la dernière
+                                                       n
+                                                           P
+                                                     G̃n
+assertion.
+
+
+III.6      Quelques exemples
+
+
+     On commence avec une formule célèbre, due à Euler.
+
+
+======== [PDF page 72 | page imprimée 69] ========
+III.6. QUELQUES EXEMPLES                                                                         69
+
+                                                                             2
+  Exemple III.6.1 : Euler, 1740 — Considérons la fonction g : z 7→ sin2π(πz) . Elle est méro-
+  morphe sur C, avec pour pôles les nombres entiers (relatifs). Elle est périodique de période
+  1 et donc l’étude locale des pôles se réduit à l’étude en 0. On écrit sous la forme
+
+                                           π2            1
+                               g(z) =      2     = 2
+                                        sin (πz)  z (1 + z 2 g1 (z))
+
+  où g1 est une fonction holomorphe sur C. Ainsi (1 + z 2 g1 (z))−1 est holomorphe       dans
+  un voisinage de 0 et admet un développement en série de la forme 1 + n≥2 cn z n . Le
+                                                                             P
+                                            2
+  développement en série de Laurent de sin2π(πz) est donc de la forme z12 + n≥0 cn+2 z n . Par
+                                                                           P
+                                                              1
+  périodicité, la partie singulière au pôle n ∈ Z est donc (z−n) 2.
+                                                            1
+  Fixons R > 0. Pour tout n ∈ Z avec |n| > R, fn : z 7→ (z−n) 2 est holomorphe sur D(0, R) et
+                     1              P
+  ∥fn ∥D̄(0,R) ≤ (|n|−R)2 . La série |n|>R fn est donc normalement convergente sur D̄(0, R) et
+                                                                                      P
+  y définit une fonction holomorphe sur D(0, R) d’après le théorème III.1.4. La série n∈Z fn
+  définit donc une fonction méromorphe sur D(0, R)   Pavec pour pôles les n ∈ Z, |n| ≤ R. Ceci
+  étant valable pour tout R > 0, on a obtenu que n∈Z fn définit une fonction méromorphe
+  f sur C avec pour pôles les n ∈ Z.
+                                         2
+  Considérons la fonction h : z 7→ sin2π(πz) − n∈Z (z−n)1
+                                               P
+                                                          2 = g(z) − f (z). C’est une fonction
+
+  méromorphe sur C avec comme pôles éventuels les n ∈ Z, mais en chacun de ses points, la
+  partie singulière du développement de Laurent est en fait nulle. Cette fonction se prolonge
+  donc en une fonction holomorphe sur C. On va montrer en utilisant le théorème de Liouville
+  que cette fonction est nulle. Il s’agit donc de montrer qu’elle est bornée. Comme elle est
+  périodique de période 1, il suffit de montrer qu’elle est bornée dans la bande verticale
+  B = {z ∈ C| ℜe(z) ∈ [0, 1]}. Pour z ∈ B et pour tout n ∈ Z \ {−1, 0, 1},
+
+                  |z − n|2 ≥ |ℜe(z) − n|2 ≥ (|ℜe(z)| − |n|)2 ≥ (|n| − 1)2 > 0.
+                       P                  1
+  Comme la série         n∈Z\{−1,0,1} (|n|−1)2 converge, on a convergence uniforme de
+  P
+  Pn∈Z\{−1,0,1} fn sur B, et comme limz∈B→∞ fn (z) = 0 pour tout n, il en est de même de
+    n∈Z fn . On a aussi pour tout z ∈ C,
+
+      2| sin2 (πz)| = 2 sin(πz)sin(πz) = 2 sin(πz) sin(πz̄) = cos(π(z − z̄)) − cos(π(z + z̄))
+
+             = cos(2iπ ℑm(z)) − cos(2π ℜe(z)) = cosh(2πℑm(z)) − cos(2πℜe(z))
+  Or la fonction z 7→ − cos(2πℜe(z)) est bornée dans B et limz∈B→∞ | cosh(2πℑm(z))| = +∞.
+                             2
+  On a donc limz∈B→∞ | sin2π(πz) | = 0. On en déduit que h est bornée sur C et donc constante.
+  Cette constante est nulle puisqu’on a vu que limz∈B→∞ h = 0. On a donc établi la jolie
+  formule :
+                                       π2     X      1
+ (III.6.1)                             2    =             .
+                                    sin (πz) n∈Z (z − n)2
+
+
+  Exemple III.6.2 : Formule de la cotangente — La fonction
+
+                                                        cos(πz)
+                                   z 7→ π cot(πz) = π
+                                                        sin(πz)
+
+
+======== [PDF page 73 | page imprimée 70] ========
+70                                                CHAPITRE III. SUITES, SÉRIES ET PRODUITS
+
+
+     est méromorphe sur C, avec pour pôles les nombres entiers (relatifs). Elle est périodique de
+     période 1 et donc l’étude locale des pôles se réduit à l’étude en 0. Comme
+
+                                            lim zπ cot(πz) = 1,
+                                            z→0
+
+     0 est un pôle simple et le résidu en 0 de cette fonction est 1. Il en est donc de même pour
+     tous les autres pôles n ∈ Z.
+     Nous allons montrer la formule
+                                              1     X  1             1
+                                                                        
+                                                                             1 X 2z
+     (III.6.2)    (∀z ∈ C \ Z) π cot(πz) = +                      +       = +                 .
+                                              z             z−n n            z       z 2 − n2
+                                                      n∈Z\{0}                      n≥1
+
+     On étudie le membre de droite en procédant comme dans l’exemple précédent. Fixons
+                                                      1
+     R > 0. Pour tout n ∈ Z avec |n| > R, fn : z 7→ (z−n) + n1 est holomorphe sur D̄(0, R) et
+
+                                           1     1                z            R
+              ∥fn ∥D̄(0,R) =     sup           +   = sup               ≤              .
+                               z∈D̄(0,R) z − n   n  z∈D̄(0,R) n(z − n)   |n|(|n| − R)
+              P
+     La série |n|>R fn est donc normalement convergente P sur D̄(0, R) et y définit une fonction
+     holomorphe d’après le théorème III.1.4. La série n∈Z\{0} fn définit donc une fonction
+     méromorphe sur D(0, R) P avec pour pôles les n ∈ Z, |n| ≤ R. Ceci étant valable pour tout
+     R > 0, on a obtenu que n∈Z\{0} fn définit une fonction méromorphe sur C avec pour
+     pôles les n ∈ Z. Posons
+
+                              1     X  1            1
+                                                       
+                                                            1 X 2z
+                        g(z) = +                  +      = +                 .
+                              z            z−n n            z       z 2 − n2
+                                       n∈Z\{0}                          n≥1
+
+     Sur cette dernière expression, on voit que g est impaire. C’est d’autre part une fonction
+     méromorphe sur C, holomorphe sur C \ Z et l’on a encore d’après le théorème de Weierstrass
+                                      1      X            1         X     1
+                          g ′ (z) = − 2 −                     2
+                                                                = −            .
+                                     z                (z − n)         (z − n)2
+                                            n∈Z\{0}                   n∈Z
+
+                                                      2
+     D’après (III.6.1), on voit que g ′ (z) = − sin2π(πz) = (π cot(πz))′ . Comme C \ Z est connexe,
+     g(z) diffère de π cot(πz) d’une constante. Mais la différence de deux fonctions impaires
+     étant impaire, cette constante est nulle, et on a obtenu (III.6.2).
+
+
+     Exemple III.6.3 — La formule suivante est encore due à Euler (1735) :
+                                                    Y       z2
+                                                                
+     (III.6.3)             (∀z ∈ C), sin(πz) = πz        1− 2 .
+                                                             n
+                                                                n≥1
+
+     Le membre P  de droite satisfait les hypothèses du théorème III.5.1, en effet, il est clair
+                         2
+     que la série n≥1 nz 2 converge normalement sur tout compact de C. La fonction F (z) =
+                    2
+                       
+     πz n≥1 1 − nz 2 est donc holomorphe sur C, avec pour zéros les entiers relatifs. Ces zéros
+        Q
+
+     sont simples. On a pour tout z ∈ C \ Z,
+
+                                         F ′ (z)  1 X 2z
+                                                 = +          .
+                                         F (z)    z  z 2 − n2
+                                                          n≥1
+
+
+======== [PDF page 74 | page imprimée 71] ========
+III.6. QUELQUES EXEMPLES                                                                        71
+
+
+  On reconnait dans le membre de droite la fonction π cot(πz) de l’exemple précédent, et
+  donc
+                             F ′ (z)               sin(πz)′
+                                     = π cot(πz) =          .
+                             F (z)                 sin(πz)
+  On en déduit que F (z) est égale à sin(πz) à une constante multiplicative près. Cette
+  constante est 1 comme on le voit en comparant les dérivées en 0. Ceci montre (III.6.3).
+
+
+  Exemple III.6.4 : Étude de la fonction Γ — La fonction Γ est définie, pour tout z ∈ C
+  tel que ℜe(z) > 0, par                 Z          ∞
+                                      Γ(z) :=           e−t tz−1 dt.
+                                                0
+  Nous avons déjà vu à l’exemple I.9.2 que Γ est holomorphe sur le demi-plan ℜe(z) > 0.
+  On peut aussi le voir directement : les théorèmes usuels sur les fonctions définies par des
+  intégrales montrent que Γ est de classe C 1 comme fonction de deux variables réelles, et la
+  dérivation sous l’intégrale qu’elle annule l’opérateur ∂∂z̄ .
+  On laisse le soin au lecteur de montrer que
+
+                                         Γ(z + 1) = z Γ(z),
+
+  pour tout ℜe(z) > 0 et en particulier Γ(n + 1) = n! pour tout n ∈ N. On peut se servir de
+  cette formule pour définir Γ comme une fonction méromorphe sur le demi-plan ℜe(z) > −1
+  avec pour seul pôle {0}, puis par une récurrence simple, comme fonction méromorphe sur
+  C avec pour pôles les entiers négatifs ou nuls.
+  Donnons maintenant une expression de Γ sous forme de produit sur C \ (−N). On définit la
+  suite de fonctions
+                                              t n z−1
+                                               
+                               fn (t) := 1 −      t    1[0,n] (t),
+                                              n
+  dont on vérifie d’une part qu’elle converge simplement vers la fonction t 7→ e−t tz−1 quand
+  n tend vers +∞ et d’autre part que
+
+                                       |fn (t)| ≤ e−t tℜe(z)−1 ,
+
+  sur [0, ∞[. En appliquant le théorème de convergence dominée, on conclut que
+
+                                                    t n z−1
+                                          Z n       
+                             Γ(z) = lim        1−       t   dt,
+                                     n→+∞ 0        n
+
+  pourvu que ℜe(z) > 0.
+  Un changement de variable nous permet d’écrire que
+
+                              t n z−1
+                     Z n                      Z 1
+                                              z
+                          1−       t   dt = n       (1 − u)n uz−1 du,
+                      0       n                   0
+
+  et, en utilisant n intégrations par parties, on démontre que
+
+                                   t n z−1
+                         Z n        
+                                                              n!
+                               1−       t    dt = nz                        .
+                          0        n                 z(z + 1) . . . (z + n)
+
+  Finalement, on conclut que pour tout z tel que ℜe(z) > 0,
+                                                            n
+                                 1           −z
+                                                Y    z
+                                    = lim z n      1+    .
+                                Γ(z) n→+∞             k
+                                                           k=1
+
+
+======== [PDF page 75 | page imprimée 72] ========
+72                                                   CHAPITRE III. SUITES, SÉRIES ET PRODUITS
+
+
+     On peut réécrire l’expression qui apparaît dans le membre de droite sous la forme
+                            n                                                   n
+                            Y            z             Pn        Y    z  −z
+                      n−z          1+       = e−z(log n− k=1 1/k)    1+    e k.
+                                         k                              k
+                            k=1                                              k=1
+
+     On rappelle que la constante d’Euler est définie par
+                                                  n
+                                                       !
+                                                X    1
+                                   γ := lim              − log n.
+                                        n→+∞         k
+                                                         k=1
+
+     En particulier, la suite de fonctions
+                                                                Pn
+                                              z 7→ e−z(log n−    j=1 1/j)    ,
+
+     converge uniformément sur tout compact de C vers la fonction holomorphe z 7→ eγz .
+     Maintenant, on définit, pour tout k ∈ N× et tout z ∈ C, la fonction
+                                                 z  −z/k
+                                    uk (z) := 1 +    e     − 1.
+                                                  k
+     On utilise le fait qu’il existe une constante C > 0 telle que
+
+                                          |(1 + z)e−z − 1| ≤ C |z|2 ,
+
+     pour tout z ∈ D̄(0, R), pour démontrer que
+
+                                                                 R2
+                                                 |uk (z)| ≤ C       ,
+                                                                 k2
+                                                                 P
+     pour tout z ∈ D̄(0, R). En particulier, on voit que la série k≥1 uk converge normalement
+     sur tout D̄(0, R) et le théorème précédent nous assure que la fonction
+                                  ∞                                     n
+                                  Y           z  −z        Y    z  −z
+                          z 7→          1+       e k := lim    1+    e k,
+                                              k        n→+∞       k
+                                  k=1                                k=1
+
+     est une fonction holomorphe sur C. Les entiers strictement négatifs sont des zéros (simples)
+     de cette fonction. Tout ceci montre que
+                                                      ∞ 
+                                                                                     !−1
+                                       1              Y        z  −z
+                                   z 7→ e−γz                1+    e k                      ,
+                                       z                       k
+                                                     k=1
+
+     est une fonction holomorphe sur C \ (−N), méromorphe sur C avec pour pôles les entiers
+     négatifs ou nuls, qui sont simples, et qui coïncide avec la fonction Γ sur le demi-plan
+     ℜe(z) > 0.
+
+                                        ∞ 
+                                                            !−1                       ∞
+                        1               Y        z  −z                  e−γz Y     z −1 z
+                  Γ(z) = e−γz                 1+    e k              =            1+      ek .
+                        z                        k                        z          k
+                                        k=1                                           k=1
+
+     Ceci définit un prolongement analytique de Γ sur C \ (−N). L’équation fonctionnelle
+     Γ(z + 1) = zΓ(z) est toujours valide sur ce domaine.
+
+
+======== [PDF page 76 | page imprimée 73] ========
+III.7. EXERCICES                                                                                      73
+
+III.7      Exercices
+
+
+
+   Exercice III.7.1 — Soit (fn )n≥0 une suite de fonctions holomorphes sur un ouvert Ω. On
+   suppose que la suite converge simplement vers une fonction f et que pour tout compact
+   K ⊂ Ω, il existe une constante C(K) telle que
+
+                                         sup |fn (z)| ≤ C(K),
+                                            K
+
+  pour tout n ∈ N.
+  1) Montrer que f est holomorphe.
+  2) Montrer que, pour tout k ∈ N et pour tout compact K ⊂ Ω, il existe une constante
+  C(k, K) telle que
+                                 sup |fn(k) (z)| ≤ C(k, K),
+                                        K
+
+   pour tout n ∈ N.
+
+   Le but des exercices qui suivent est d’étudier les propriétés élémentaires des systèmes dyna-
+miques holomorphes possédant un point fixe, à savoir le comportement de la suite des itérées
+d’une fonction holomorphe f d’un ouvert dans lui-même pour laquelle il existe a tel que f (a) = a.
+
+   Exercice III.7.2 — Soient Ω un ouvert connexe borné de C et f : Ω → Ω holomorphe.
+   Supposons qu’il existe a ∈ Ω, tel que f (a) = a, et posons pour n ∈ N∗ , f n = f ◦ · · · ◦ f la
+   n-ième itérée de f et f 0 = idΩ .
+        1. Montrer que |f ′ (a)| ≤ 1.
+        2. Montrer que si f ′ (a) = 1, alors pour tout z ∈ Ω, f (z) = z.
+        3. Montrer que lorsque |f ′ (a)| = 1, f est un automorphisme holomorphe de Ω.
+        4. Lorsque |f ′ (a)| < 1, montrer que la suite (f n )n∈N∗ converge uniformément sur tout
+           compact de Ω vers la fonction constante égale à a.
+
+
+   Exercice III.7.3 — Soient Ω ⊂ C un ouvert connexe borné contenant 0 et f : Ω → Ω
+   holomorphe. Supposons que f (0) = 0 et supposons que f ′ (0) = λ satisfait 0 < |λ| < 1.
+   Notons encore f n = f ◦ ... ◦ f .
+        1. Montrer que si on prend c ∈ R+ , tel que 0 < c2 < |λ| < c < 1, il existe r > 0, tel que
+           Dr = D(0, r) ⊂ Ω et tel que |f n (z)| ≤ cn |z| pour n ≥ 1 et z ∈ Dr ,
+        2. Quitte à prendre r′ < r, montrer qu’il existe k > 0, tel que |f (z) − λz| ≤ k|z|2 , pour
+           tout z ∈ Dr′ ,
+        3. Pour n ≥ 1, posons φn := f n /λn . Montrer que
+                                                     n
+                                                kr′2 c2
+                          |φn+1 (z) − φn (z)| ≤           pour tout z ∈ Dr′ .
+                                                |λ| |λ|
+
+        4. Montrer qu’il existe φ : Dr′ → C holomorphe telle que (φn )n≥1 converge uniformément
+           sur tout compact de Dr′ vers φ, φ′ (0) = 1 et telle que φ ◦ f = λφ sur Dr′ .
+        5. Supposons que f est holomorphe sur C et posons
+
+                                 A = {z ∈ C | (f n (z))n≥0 converge vers 0}
+
+
+======== [PDF page 77 | page imprimée 74] ========
+74                                                CHAPITRE III. SUITES, SÉRIES ET PRODUITS
+
+
+          le bassin d’attraction de 0 de f . Montrer que A est ouvert et que l’on peut prolonger
+          φ à A de manière à ce que φ(A) = C et
+
+                                               φ ◦ f = λφ sur A.
+
+
+     Exercice III.7.4 — Soient Ω ⊂ C un ouvert connexe borné contenant 0 et f : Ω → Ω
+     holomorphe telle que f (0) = 0. Posons λ = f ′ (0) et supposons que |λ| = 1.
+        1. On pose ϕn (z) = n1 0≤j≤n−1 λ−j f j (z). Montrer que |ϕn ◦ f (z) − λϕn (z)| ≤ 2c
+                                P
+                                                                                              n où
+           c = supz∈Ω |z|. En déduire qu’il existe ϕ : Ω → C non-constante et injective au
+           voisinage de 0 telle que ϕ ◦ f = λ · ϕ sur Ω (on dit que f est linéarisable en 0).
+
+
+     Exercice
+          P III.7.5    — Soit f : C → C définie par f (z) = z 2 + λz où λ = e2iπθ avec
+                  −q
+     θ = k≥1 2 k et log(qk+1 ) ≥ k2qk pour k ≥ 1. Supposons que f est linéarisable en 0 à
+     l’aide de ϕ et considérons δ > 0, tel que Dδ ⊂ ϕ(Dr ).
+       1. Montrer que les points fixes 0, z2 , z3 , ..., z2n de f n vérifient
+                                                                        n
+                                                        Y
+                                     |1 − λn | =             |zj | ≥ δ 2 −1 .
+                                                     2≤j≤2n
+
+                                          q 
+       2. En déduire que la suite qk+1 /22 k k∈N∗ est bornée.
+       3. En déduire une contradiction, et donc que f n’est pas linéarisable en 0 : la série
+          entière qui la linéarise formellement en 0 a un rayon de convergence nul.
+
+
+     Exercice III.7.6 — Soit Ω un ouvert connexe borné de C dont la frontière ∂Ω est de classe
+     C 1 . Supposons qu’il existe une suite d’automorphismes φn : Ω → Ω, un point a ∈ Ω et
+     un point η ∈ ∂Ω tels que (φn (a))n∈N converge vers η. Montrer qu’il existe une bijection
+     holomorphe entre Ω et le disque unité D(0, 1).
+
+
+     Exercice III.7.7 : Formule des compléments et intégrale de Gauss — On rappelle les
+     deux formules suivantes, établies dans le cours :
+       — Le développement en produit infini du sinus (Euler) :
+                                                +∞
+                                                Y      z2
+                                                           
+                                 sin(πz) = πz        1 − 2 , ∀z ∈ C.
+                                                        n
+                                                   n=1
+
+       — La définition de la fonction Γ par le produit de Weierstrass :
+                                            +∞
+                                    e−γz Y     z −1 z/n
+                             Γ(z) =          1+      e ,              ∀z ∈ C \ (−N).
+                                     z          n
+                                            n=1
+
+       1. En calculant le produit Γ(z)Γ(−z), démontrer la formule des compléments :
+                                                   π
+                                 Γ(z)Γ(1 − z) =         , ∀z ∈ C \ Z.
+                                                sin(πz)
+       2. En déduire la valeur de Γ(1/2).
+       3. À l’aide d’un changement de variable, en déduire la valeur de l’intégrale de Gauss :
+                                              Z +∞
+                                                       2
+                                          I=        e−x dx.
+                                                      −∞

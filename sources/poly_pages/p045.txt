@@ -1,0 +1,47 @@
+42                                                    CHAPITRE II. FORMULE DES RÉSIDUS
+
+
+
+
+                   Variation de l’indice d’un lacet par rapport à la position de z.
+
+
+
+     x = y ou bien {x, y} = {0, 1}. Un théorème célèbre dû à Jordan, et plus difficile qu’il n’y
+     paraît, affirme que le complémentaire de son image Γ possède deux composantes connexes,
+     l’une bornée (l’intérieur de la courbe), et l’autre non bornée (l’extérieur).
+     Supposons que γ soit de plus un lacet. Alors l’indice de ce lacet est une fonction constante
+     sur chaque composante connexe. Il vaut 0 sur la composante connexe non bornée. Sur la
+     composante bornée, il vaut −1 ou bien 1, selon l’orientation du lacet. Là encore, c’est un
+     résultat qui demande un certain travail d’analyse.
+
+
+
+II.4      Fonctions méromorphes, résidus
+
+
+   Commençons par définir la notion de fonction méromorphe. Pour cela, mettons tout d’abord
+au clair quelques notions topologiques :
+   - Un ensemble de points P de C est dit discret si tous les points de P sont isolés, c’est-à-dire
+que pour tout a dans P , il existe un voisinage ouvert de a dont l’intersection avec P est réduite à
+{a}. Ce voisinage peut être choisi de la forme D(a, r), r > 0.
+    - Un point d’accumulation d’une partie P de C est un point a ∈ C limite d’une suite
+d’éléments dans P \ {a}. De manière équivalente, tout voisinage de a rencontre P \ {a}.
+    - Une partie P d’un ouvert Ω de C est dite localement finie dans Ω si pour tout a ∈ Ω, il
+existe un voisinage de a dont l’intersection avec P est finie. De manière équivalente, P ∩ K est
+fini pour tout compact K de Ω. Dans un sens, on utilise le fait que C est localement compact,
+donc tout voisinage de a contient un voisinage de a compact (par exemple un disque fermé). Dans
+l’autre sens, on recouvre le compact K par des ouverts (par exemple en prenant en chaque point
+de K un voisinage de ce point dans Ω). On extrait un sous-recouvrement fini (compacité de K),
+on voit alors immédiatement que P ∩ K est fini.
+
+       Proposition II.4.1
+     Soit Ω un ouvert de C et P une partie de Ω. Les conditions suivantes sont équivalentes :
+       (1) P est discret et fermé dans Ω.
+       (2) P est localement fini dans Ω.
+       (3) P n’a pas de point d’accumulation dans Ω.
+
+
+Démonstration. (1) =⇒ (3) : si a est un point d’accumulation de P dans Ω, a ∈ P puisque P
+est fermée dans Ω ; c’est donc un point de P non isolé.
+     (3) =⇒ (2) : si P n’a pas de point d’accumulation dans Ω, et si K ⊂ Ω est compact, P ∩ K

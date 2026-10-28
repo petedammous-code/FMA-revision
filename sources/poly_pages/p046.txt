@@ -1,0 +1,55 @@
+II.4. FONCTIONS MÉROMORPHES, RÉSIDUS                                                                  43
+
+n’a pas de point d’accumulation dans K. Comme toute partie infinie d’un compact a un point
+d’accumulation dans ce compact, P ∩ K est nécessairement finie.
+     (2) =⇒ (1) : Soit a ∈ P . Pour tout D̄(a, r) ⊂ Ω, P ∩ D̄(a, r) est fini, donc P ∩ D(a, r) = {a}
+si r est assez petit et a est isolé. De plus si x ∈ Ω est limite d’une suite de points (xn )n∈N de P ,
+il existe un voisinage de x ne contenant qu’un nombre fini de points de P , et donc nécessairement
+x ∈ P , donc P est fermée dans Ω.
+
+
+
+     Définition II.4.2
+   Soit f : Ω \ {z0 } → C une fonction holomorphe. On dit que z0 est un pôle de f si :
+   (i)f ne se prolonge pas en une fonction holomorphe en z0 ,
+   (ii) il existe un entier m ∈ N \ {0} tel que (z − z0 )m f est bornée au voisinage de z0 .
+   Le plus petit entier m vérifiant (ii) est appelé la multiplicité (ou l’ordre) du pôle z0 , et
+   noté m(z0 ) . De manière équivalente, m(z0 ) est l’unique entier m ≥ 1 tel que l’on puisse
+   écrire f (z) = (z − z0 )−m h(z) sur un voisinage épointé de z0 , avec h holomorphe en z0 et
+   h(z0 ) ̸= 0. Un pôle de multiplicité 1 est dit simple.
+   Une fonction f est méromorphe sur Ω si f est holomorphe en dehors d’une partie P
+   localement finie de Ω et si les points de P vérifient la condition (ii) ci-dessus, de sorte que
+   ce sont soit des points où la fonction se prolonge en une fonction holomorphe, soit des
+   pôles de f .
+   On note M(Ω) l’espace des fonctions méromorphes sur Ω. Si f ∈ M(Ω), on note Z(f, Ω)
+   l’ensemble de ses zéros dans Ω et P(f, Ω) l’ensemble de ses pôles dans Ω. Lorsque ces
+   ensembles sont finis, on note
+                                 X                                    X
+                     Z(f, Ω) :=        m(s)       et     P (f, Ω) :=          m(s)
+                               s∈Z(f,Ω)                             s∈P(f,Ω)
+
+   le nombre de zéros et le nombre de pôles de f dans Ω, comptés avec leur multiplicité. Les
+   mêmes notations seront employées en remplaçant Ω par n’importe quel ouvert sur lequel f
+   est méromorphe.
+
+
+   Remarque II.4.3 — L’ensemble P(f, Ω) est donc inclus, mais pas nécessairement égal, à
+   la partie localement finie P ci-dessus. En effet, il est commode de pouvoir inclure dans P
+   de « fausses singularités », c’est-à-dire des points au voisinage desquels la fonction reste
+   bornée.
+
+   Les fonctions holomorphes sont évidemment méromorphes.
+
+   Remarque II.4.4 — La propriété pour la partie P de Ω d’être localement finie est plus
+   forte que d’être constituée de points isolés (il faut rajouter fermé). Par exemple, l’ensemble
+   { n1 , n ∈ N \ {0}} a un point limite dans C qui est 0, mais est constitué de points isolés dans
+   C. L’union de deux parties P1 et P2 localement finie est encore localement finie, et ainsi,
+   on voit facilement qu’une combinaison linéaire de fonctions méromorphes sur Ω est encore
+   méromorphe. De même un produit de deux fonctions méromorphes sur Ω est méromorphe.
+
+     Proposition II.4.5
+   Si f, g sont deux fonctions méromorphes sur Ω et si α, β ∈ C, alors les fonctions α f + β g et
+   f g sont elles aussi méromorphes sur Ω. Soit f une fonction holomorphe non identiquement
+                                                    1
+   nulle sur un ouvert connexe Ω de C. Alors g := est méromorphe sur Ω.
+                                                    f

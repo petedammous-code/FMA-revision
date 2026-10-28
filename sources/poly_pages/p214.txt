@@ -1,0 +1,73 @@
+                                                                                                              211
+
+On a donc, pour tout nombre premier p,
+                                                     
+                                −1    1             1   −1  1
+                                  s
+                                    − 2s B ⩽ ln 1 − s ⩽ s + 2s B,
+                                p    p             p    p  p
+et donc en particulier
+                                            1    B      1     B
+                           − ln 1 − p−s ⩽ s + 2s ⩽ s + 2 .
+                                       
+                                            p    p     p      p
+En prenant la somme sur tous les nombres premiers, on obtient
+                     +∞                  +∞                  +∞               +∞        +∞
+                     X         1         X         1         X        1      X 1        X         1
+       ln ζ(s) ⩽                  +B                  ⩽                  + B      ⩽                  + B′
+                               ps                  p2                 ps       n2                 ps
+                      p=2                 p=2                p=2              n=1        p=2
+                   p premier           p premier          p premier                   p premier
+
+où B ′ = Bπ 2 /6. Comme ζ(s) ≥ n≤N n−s pour tout N et tout s > 1, on a lims→1+ ζ(s) = +∞
+                              P
+et donc
+                             +∞
+                             X   1
+                                    ⩾ ln(ζ(s)) − B ′ →s→1+ +∞.
+                                 ps
+                                   p=2
+                                p premier
+
+Or comme par ailleurs p1 ⩾ p1s pour tout s > 1 et pour tout nombre premier, on en déduit que la
+série
+                                             +∞
+                                             X      1
+                                                    p
+                                                        p=2
+                                                     p premier
+diverge vers +∞.
+                                                                                                        +∞
+                                                                                                        X         1
+   Par l’absurde, si il n’y avait qu’un nombre fini de nombres premiers, la somme
+                                                                                                                  p
+                                                                                                         p=2
+                                                                                                      p premier
+serait finie et donc convergente.
+   Partie E.
+   (1) Soit s ∈ U1 . D’après la partie D on a
+
+                                                        +∞
+                                                        Y           1
+                                            ζ(s) =                       .
+                                                                 1 − p−s
+                                                        p=2
+                                                     p premier
+D’après ce que nous avons démontré dans la question D.(1), nous pouvons appliquer le théo-
+rème III.5.1 du cours et obtenir ζ(s) ̸= 0 car 1−p1 −s ̸= 0 pour tout premier p.
+   (2) Soit s ∈ C tel que ℜe(s) < 0. Par définition on a
+                                                          π s/2 L(s)
+                                               ζ(s) =                .
+                                                           Γ(s/2)
+On a aussi démontré la formule L(s) = L(1 − s). On en déduit donc
+                                                      Γ((1 − s)/2)
+                                   ζ(s) = π s−1/2                  ζ(1 − s).
+                                                         Γ(s/2)
+Comme ℜe(s) < 0 on a ℜe(1 − s) > 1, donc ζ(1 − s) ̸= 0 par la question précédente. D’autre
+part, la fonction Γ n’ayant pas de zéro, on a Γ((1 − s)/2) ̸= 0. De plus π s−1/2 ̸= 0. Rappelons
+                                           1
+aussi que la fonction (holomorphe) s 7→ Γ(s/2) s’annule si et seulement si s ∈ −2N. Donc pour
+tout s ∈ C tel que ℜ(s) < 0 on a
+                                         ζ(s) = 0       ⇔        s ∈ −2N∗ .
+   Partie F. Je n’ai pas la solution à cette question, qui est la célèbre hypothèse de Riemann. Si
+vous avez trouvé, félicitations, vous avez gagné la gloire éternelle et 1 000 000 de dollars.

@@ -1,0 +1,61 @@
+                                                                                                 199
+
+                                                                                   1
+        Comme y = ̸ x, on déduit que tM ≥ 1 − t, donc t ∈ [α, 1], avec α := 1+M       . En d’autres
+        termes, pour t ∈ [0, α[, φt (x) = φt (y) entraîne que y = x, i.e., φt est injective.
+        De plus, φt (B n ) ⊂ B n ; en effet, si x ∈ B n , ]0, 1[∋ t 7→ φt (x) prend ses valeurs
+        dans l’intérieur du segment joignant x à φ(x) (ces deux points étant distincts, car
+        φ(x) ∈ Sn−1 par construction, alors que x ∈ B n ), qui est bien contenu dans B n (par
+        convexité), et φ0 (x) = x ∈ B n .
+    (b) Soit t ∈ [0, α[. Pour tout x ∈ B n , on a dφt (x) = (1 − t)id + tdφ(x) = id − th(x), avec
+        h(x) := id − dφ(x). On a
+                                   |||h(x)||| ≤ |||id||| + |||dφ(x)||| ≤ 1 + M,
+         et donc |||th(x)||| ≤ t(1
+                                P+ M ) < α(1 + M ) = 1. On déduit que dφt (x) = id − th(x) est
+         inversible (d’inverse k≥0 tk h(x)k ).
+    (c) Comme φt |B n est injective et de classe C 1 (car φ|B n est de classe C 1 par ce qui précède),
+         et dφt (x) est inversible pour tout x ∈ B n , on conclut par le théorème d’inversion
+         globale que φt réalise un C 1 -difféomorphisme de B n sur φt (B n ) ⊂ B n .
+3. Soit (yk )k≥0 ∈ (φt (B n ))N une suite convergeant vers un certain y∞ ∈ B n ; on a yk = φt (xk )
+                                              n                                           n
+   pour xk ∈ B n . Comme xk ∈ B n ⊂ B pour tout k ≥ 0, par compacité de B , quitte à
+                                                     n
+   extraire, on peut supposer que xk → x∞ ∈ B quand k → +∞. Comme φt est continue,
+   en passant à la limite quand k → ∞ dans l’égalité yk = φt (xk ), on a y∞ = φt (x∞ ) =
+   (1 − t)x∞ + tφ(x∞ ). Si ∥x∞ ∥ = 1, alors x∞ ∈ Sn−1 , et donc par construction de φ, on a
+   x∞ = φ(x∞ ). On conclut que y∞ = (1 − t)x∞ + tφ(x∞ ) = x∞ , donc ∥y∞ ∥ = 1, ce qui est
+   absurde (on avait supposé y∞ ∈ B n ). Donc x∞ ∈ B n , et y∞ = φt (x∞ ) ∈ φt (B n ) ; on a bien
+   montré que φt (B n ) est fermé dans B n .
+   Par la question précédente, φt (B n ) est aussi un ouvert de B n , donc φt (B n ) est ouvert et
+   fermé du connexe B n , et évidemment non-vide, donc φt (B n ) = B n .
+4. Par définition, pour tout x ∈ B n , dφt (x) = id − th(x), avec h(x) := P      id − dφ(x), donc
+   det dφt (x) est un polynôme de degré au plus n en t, i.e., det dφt (x) = nk=0 ak (x)tk . De
+   plus, les coefficients ak (x) dépendent de manière C 1 de x, car φ|B n est C 1 , donc également
+   h|B n . Par linéarité de l’intégrale, on déduit que
+                            Z                          n Z
+                                                       X                      
+                    P (t) =      det dφt (x) dLeb(x) =         ak (x) dLeb(x) tk
+                            Bn                           k=0     Bn
+
+   est bien polynomiale en t.
+5. Soit t ∈ [0, α[. D’après les questions (2)-(3), φt est C 1 -difféomorphisme de B n sur lui-même.
+   En prenant U = V = B n et θ ≡ 1 dans la formule du changement de variables rappelée
+   dans l’énoncé, on déduit que
+                                 Z               Z
+                           n
+                    Leb(B ) =        dLeb(y) =       | det dφt (x)| dLeb(x) = P (t).
+                                 Bn                 Bn
+
+   Remarque : on a utilisé le fait que pour x ∈ B n , l’application [0, α[∋ t 7→ det dφt (x) est
+   continue, à valeurs dans R \ {0} (car φt |B n est un C 1 -difféomorphisme), avec det dφ0 (x) =
+   det id = 1 > 0, donc det dφt (x) > 0, pour tout t ∈ [0, α[.
+   La fonction polynomiale P est constante sur un intervalle d’intérieur non-vide, donc
+   constante, avec P ≡ Leb(B n ).
+6. Pour t = 1, on a φ1 = φ, donc pour tout x ∈ B n , dφ1 (x) = dφ(x), et alors par les questions
+   (1) et (5), on obtient
+                                  Z                          Z
+                      n
+           0 < Leb(B ) = P (1) =     det dφ1 (x) dLeb(x) =       det dφ(x) dLeb(x) = 0,
+                                      Bn                              Bn
+
+   ce qui est absurde.

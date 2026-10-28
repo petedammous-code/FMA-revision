@@ -1,0 +1,75 @@
+70                                                CHAPITRE III. SUITES, SÉRIES ET PRODUITS
+
+
+     est méromorphe sur C, avec pour pôles les nombres entiers (relatifs). Elle est périodique de
+     période 1 et donc l’étude locale des pôles se réduit à l’étude en 0. Comme
+
+                                            lim zπ cot(πz) = 1,
+                                            z→0
+
+     0 est un pôle simple et le résidu en 0 de cette fonction est 1. Il en est donc de même pour
+     tous les autres pôles n ∈ Z.
+     Nous allons montrer la formule
+                                              1     X  1             1
+                                                                        
+                                                                             1 X 2z
+     (III.6.2)    (∀z ∈ C \ Z) π cot(πz) = +                      +       = +                 .
+                                              z             z−n n            z       z 2 − n2
+                                                      n∈Z\{0}                      n≥1
+
+     On étudie le membre de droite en procédant comme dans l’exemple précédent. Fixons
+                                                      1
+     R > 0. Pour tout n ∈ Z avec |n| > R, fn : z 7→ (z−n) + n1 est holomorphe sur D̄(0, R) et
+
+                                           1     1                z            R
+              ∥fn ∥D̄(0,R) =     sup           +   = sup               ≤              .
+                               z∈D̄(0,R) z − n   n  z∈D̄(0,R) n(z − n)   |n|(|n| − R)
+              P
+     La série |n|>R fn est donc normalement convergente P sur D̄(0, R) et y définit une fonction
+     holomorphe d’après le théorème III.1.4. La série n∈Z\{0} fn définit donc une fonction
+     méromorphe sur D(0, R) P avec pour pôles les n ∈ Z, |n| ≤ R. Ceci étant valable pour tout
+     R > 0, on a obtenu que n∈Z\{0} fn définit une fonction méromorphe sur C avec pour
+     pôles les n ∈ Z. Posons
+
+                              1     X  1            1
+                                                       
+                                                            1 X 2z
+                        g(z) = +                  +      = +                 .
+                              z            z−n n            z       z 2 − n2
+                                       n∈Z\{0}                          n≥1
+
+     Sur cette dernière expression, on voit que g est impaire. C’est d’autre part une fonction
+     méromorphe sur C, holomorphe sur C \ Z et l’on a encore d’après le théorème de Weierstrass
+                                      1      X            1         X     1
+                          g ′ (z) = − 2 −                     2
+                                                                = −            .
+                                     z                (z − n)         (z − n)2
+                                            n∈Z\{0}                   n∈Z
+
+                                                      2
+     D’après (III.6.1), on voit que g ′ (z) = − sin2π(πz) = (π cot(πz))′ . Comme C \ Z est connexe,
+     g(z) diffère de π cot(πz) d’une constante. Mais la différence de deux fonctions impaires
+     étant impaire, cette constante est nulle, et on a obtenu (III.6.2).
+
+
+     Exemple III.6.3 — La formule suivante est encore due à Euler (1735) :
+                                                    Y       z2
+                                                                
+     (III.6.3)             (∀z ∈ C), sin(πz) = πz        1− 2 .
+                                                             n
+                                                                n≥1
+
+     Le membre P  de droite satisfait les hypothèses du théorème III.5.1, en effet, il est clair
+                         2
+     que la série n≥1 nz 2 converge normalement sur tout compact de C. La fonction F (z) =
+                    2
+                       
+     πz n≥1 1 − nz 2 est donc holomorphe sur C, avec pour zéros les entiers relatifs. Ces zéros
+        Q
+
+     sont simples. On a pour tout z ∈ C \ Z,
+
+                                         F ′ (z)  1 X 2z
+                                                 = +          .
+                                         F (z)    z  z 2 − n2
+                                                          n≥1

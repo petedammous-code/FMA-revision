@@ -1,0 +1,69 @@
+158                                                                CHAPITRE IX. SOUS-VARIÉTÉS
+
+                                                                   z
+
+
+
+                                        ∼
+                                                                              y
+                                                                           (R2 × {0}) ∩ W
+                                                    Ψ
+                                                               x
+
+                                             W
+                         u        x1                      x2           u
+                    U1                                                     U2
+
+                             v                                                  v
+
+
+                                             θ
+
+
+
+                         Changement de paramétrage (ici m = 2, N = 3)
+
+
+(néanmoins, un choix judicieux peut souvent faciliter les calculs). Le résultat suivant nous permet
+d’assurer que le passage d’un paramétrage à un autre se fait toujours par une transformation
+suffisamment régulière.
+
+      Proposition IX.6.1
+   Soit p un point d’une sous-variété S de dimension m de RN et soient
+
+                                   x1 : U 1 → S ,       x2 : U2 → S
+
+   deux paramétrages de S au voisinage de p. Notons W = x1 (U1 )∩x2 (U2 ). C’est un voisinage
+   de p dans S , et le changement de paramétrage
+
+                                 θ = x−1        −1        −1
+                                      1 ◦ x2 : x2 (W) −→ x1 (W)
+
+   est un homéomorphisme. Si les deux paramétrages sont de classe C k , k ≥ 1, le changement
+   de paramétrage est un C k -difféomorphisme.
+
+
+Démonstration. Comme θ est la composition de deux homéomorphismes, c’est bien sûr un homéo-
+                                            3
+morphisme. Cependant, on ne peut pas conclure par cet argument que c’est un difféomorphisme,
+puisque x−1
+          1 est défini sur l’ouvert W de S et puisque l’on ne sait pas encore ce que signi-
+fie pour une fonction sur S d’être différentiable en un point. En revanche, puisque θ est un
+homéomorphisme, il suffit de vérifier que c’est localement un difféomorphisme.
+   Reprenons des éléments de la démonstration de la proposition IX.3.1. Posons q1 = x−1
+                                                                                     1 (p) ∈ U1 .
+Nous avons étendu x1 en une application F : U1 × RN −m → RN en posant
+
+                                       F (u, t) = x1 (u) + φ(t),
+
+où φ est un isomorphisme linéaire entre RN −m et un supplémentaire de l’image de d(x1 )q1 dans
+RN . Nous avons ensuite montré grâce au théorème d’inversion locale que F se restreint en un
+difféomorphisme d’un voisinage de (q1 , 0) ∈ U1 × RN −m sur son image et appelé Φ = F −1 le
+difféomorphisme inverse.
+    Si l’on note p1 la projection de U1 × RN −m sur U1 , on a alors x−1 1 ◦ x2 = p1 ◦ Φ ◦ x2 dans un
+voisinage de q2 = x−12  (p) ∈ U2 , où de  plus Φ ◦ x 2 est à valeurs dans U1 × {0}. Sous cette forme,
+                               −1
+il apparaît clairement que x1 ◦ x2 est de classe C , et en échangeant les rôles de x1 et x2 , on
+                                                         k
+
+obtient un inverse de classe C k , ce qui montre que x−11 ◦ x2 est un difféomorphisme local en p.

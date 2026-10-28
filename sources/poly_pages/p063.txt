@@ -1,0 +1,54 @@
+60                                           CHAPITRE III. SUITES, SÉRIES ET PRODUITS
+
+vraie, et ces Ux forment un recouvrement de K par des ouverts. On peut en extraire un sous-
+recouvrement fini, et la propriété sur K en découle. Pour la réciproque, il suffit de remarquer
+que C est localement compact : pour tout point x ∈ C et tout ouvert Ω contenant x, il existe un
+voisinage compact de x dans Ω.
+
+     Nous utiliserons le lemme suivant par la suite.
+
+      Lemme III.1.3
+     Soient Ω un ouvert de C et (fn )n∈N une suite de fonctions de Ω dans C. Alors (fn )n∈N
+     est localement uniformément de Cauchy si et seulement si (fn )n∈N converge localement
+     uniformément.
+
+Démonstration. Il suffit de vérifier que, pour tout compact K ⊂ Ω, la suite (fn )n∈N est uniformé-
+ment de Cauchy sur K si et seulement si elle converge uniformément sur K. Fixons un compact
+K ⊂ Ω. Supposons dans un premier temps que (fn )n∈N converge uniformément sur K vers une
+fonction f et choisissons ε > 0. Alors il existe N ≥ 1 tel que pour tout n ≥ N et tout z ∈ K, on a
+                                       |fn (z) − f (z)| ≤ ε/2,
+et l’inégalité triangulaire donne |fn (z) − fm (z)| ≤ ε pour tout z ∈ K et tout n, m ≥ N .
+    Supposons maintenant que (fn )n∈N est uniformément de Cauchy sur K et commençons par
+remarquer que pour tout z ∈ K, la suite (fn (z))n est Cauchy dans C. Comme C est complet,
+elle converge et on note f (z) sa limite. On a ainsi défini une fonction f : K → C et il reste à
+montrer que (fn )n∈N converge uniformément vers f sur K. Par hypothèse, pour tout ε > 0, il
+existe N ≥ 1 tel que pour tout z ∈ K et tout m ≥ n ≥ N , on a
+                                       |fn (z) − fm (z)| ≤ ε.
+En passant à la limite lorsque m → +∞, on trouve |fn (z) − f (z)| ≤ ε pour tout z ∈ K et tout
+n ≥ N.
+
+   Le premier résultat remarquable à propos des suites de fonctions holomorphes est le théorème
+de Weierstraß suivant qui porte sur les suites de fonctions holomorphes localement uniformément
+de Cauchy :
+
+      Théorème III.1.4 — Weierstraß
+     Soient Ω un ouvert de C et (fn )n∈N une suite de fonctions holomorphes de Ω dans C,
+     localement uniformément de Cauchy sur Ω et de limite f . Alors
+       1. f est une fonction holomorphe sur Ω,
+                                      (k)
+       2. pour tout k ≥ 1, la suite (fn )n converge localement uniformément sur Ω vers f (k) .
+
+
+Démonstration. Commençons par prouver le premier point. D’après le Lemme III.1.3, (fn )n∈N
+converge localement uniformément vers f . Puisque fn est continue pour tout n, la fonction f est
+également continue. Soient z0 ∈ Ω et r > 0 tels que D̄(z0 , r) ⊂ Ω et soit z ∈ D(z0 , r). Comme f
+est continue, la fonction                     Z
+                                           1           f (ζ)
+                                 G : z 7→                     dζ
+                                          2iπ C(z0 ,r) ζ − z
+est holomorphe sur D(z0 , r) et il suffit de montrer que f (z) = G(z) pour tout z ∈ D(z0 , r) pour
+conclure. D’après la formule intégrale de Cauchy, on a
+                                                Z
+                                              1           fn (ζ)
+                                   fn (z) =                      dζ.
+                                             2iπ C(z0 ,r) ζ − z

@@ -1,0 +1,66 @@
+V.5. CLASSE C k ET DIFFÉRENTIELLES D’ORDRE SUPÉRIEUR                                                     109
+
+
+  Remarque V.5.6 : Une formule pratique de calcul — Soit f : U → F une application
+  d’un ouvert U d’un espace vectoriel normé E à valeurs dans un espace vectoriel normé F ,
+  de classe C p . Soit a ∈ U . On a alors
+  (V.5.3)
+                                                                              p
+                                                "                                     !#
+        p                        ∂ ∂         ∂                                X
+      d fa (h1 , . . . , hp ) =         ...       (t1 , . . . , tp ) 7→ f a +   ti hi    .
+                                ∂t1 ∂t2     ∂tp
+                                                                         i=1         t1 =t2 =···=tp =0
+
+
+
+V.5.4     Un exemple d’application infiniment différentiable
+   Soient E et F des espaces de Banach.
+
+       Théorème V.5.7
+   L’ensemble Iso(E; F ) des isomorphismes linéaires bicontinus de E dans F est un ouvert de
+   L(E; F ) et l’application
+
+                             Ψ : Iso(E; F ) → Iso(F ; E),        f 7→ f −1
+
+   est de classe C ∞ , sa différentielle en f étant donnée par
+
+                           dΨf (g) = −f −1 ◦ g ◦ f −1 ,      (g ∈ L(E; F )).
+
+
+   Remarque V.5.8 — En vertu du théorème d’isomorphisme de Banach V.2.3, il suffit
+   d’exiger la continuité et l’inversibilité dans la définition de Iso(E; F ), la bicontinuité en
+   découle.
+
+Démonstration. Il se peut que Iso(E; F ) soit vide, dans ce cas, le théorème est trivialement vrai.
+On se place dans le cas où Iso(E; F ) est non vide. Soit f0 ∈ Iso(E; F ). Montrons que pour tout
+g ∈ L(E; F ) de norme suffisamment petite, f0 + g est encore inversible. En composant par f0−1 , il
+s’agit de montrer que IdE +f0−1 g est inversible et donc de montrer que si h ∈ L(E) est de norme
+suffisamment petite, alors IdE −h est inversible. Or on sait que tel est le cas si ∥h∥ < 1, l’inverse
+                                                              +∞
+                                                              X
+de Id −h étant donné par la série normalement convergente         hn . Remarquons que l’on utilise
+                                                                   n=0
+ici l’hypothèse de complétude de l’espace.
+    Montrons maintenant que Ψ : Iso(E; F ) → Iso(F ; E), f 7→ f −1 est continue. Fixons
+f0 ∈ Iso(E; F ) et montrons la continuité en ce point. Posons f = f0 + g, h = −f0−1 g, où g est de
+norme suffisamment petite, de sorte que si ∥h∥ < 1,
+                                                                           !
+                                                 X                 X
+                 f = f0 (IdE −h), (IdE −h) =−1         n    −1
+                                                     h et f =          h n
+                                                                             f0−1 .
+                                                    n∈N                   n∈N
+
+On a alors                                                  
+                                                       X
+                                  f −1 − f0−1 =           hn  f0−1 ,
+                                                     n≥1
+
+d’où                                              
+                                           X                         ∥h∥
+                      ∥f −1 − f0−1 ∥ ≤        ∥h∥n  ∥f0−1 ∥ ≤           ∥f −1 ∥.
+                                                                   1 − ∥h∥ 0
+                                         n≥1
+
+Lorsque f tend vers f0 , g tend vers 0 donc h aussi, ce qui montre que f −1 tend vers f0−1 .

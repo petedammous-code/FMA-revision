@@ -1,0 +1,61 @@
+I.3. PREMIÈRES CONSTRUCTIONS DE FONCTIONS HOLOMORPHES                                               11
+
+(I.2.10) et du lemme I.2.9 les formules :
+
+
+(I.3.1)                        (f + g)′ (z) = f ′ (z) + g ′ (z),
+(I.3.2)                           (f g)′ (z) = f ′ (z)g(z) + f (z)g ′ (z),
+                                  ′
+                                   f           f ′ (z)g(z) − f (z)g ′ (z)
+(I.3.3)                                  (z) =                            ,
+                                   g                     g(z)2
+(I.3.4)                         (f ◦ g)′ (z) = f ′ (g(z))g ′ (z).
+
+
+
+   Exemple I.3.2 — Tout polynôme P ∈ C[X] à coefficients complexes définit une fonction
+   z 7→ P (z) qui est holomorphe sur C dont la dérivée complexe est donnée par z 7→ P ′ (z) (où
+   P ′ est la dérivée de la fonction polynôme x 7→ P (x)). Pour tous P, Q ∈ C[X], les fractions
+   rationnelles
+                                                 P (z)
+                                            z 7→       ,
+                                                 Q(z)
+   sont des fonctions holomorphes en dehors de l’ensemble des zéros de Q, dont la dérivée
+   complexe est donnée par
+                                    P ′ (z)Q(z) − P (z)Q′ (z)
+                               z 7→                           .
+                                             Q2 (z)
+
+
+   Plus généralement, les séries entières définissent desX
+                                                         fonctions holomorphes. Rappelons que le
+rayon de convergence R ∈ [0, +∞] d’une série entière        an z n est le sup des ρ ≥ 0 tels que la
+                                                                 n≥0
+série est normalement convergente sur le disque fermé de rayon ρ. C’est aussi le sup des ρ ≥ 0
+tels que la suite (|an | ρn )n≥0 est bornée. Un théorème de Cauchy et Hadamard donne aussi la
+                                     1
+formule R−1 = lim supn→+∞ |an | n .
+
+
+      Proposition I.3.3
+    Une série entière                                X
+                                          f (z) :=         an z n ,
+                                                     n≥0
+
+    à coefficients complexes, de rayon de convergence R > 0 définit une fonction holomorphe
+    sur son disque ouvert de convergence et la dérivée complexe de f est donnée par
+                                                X
+                                      f ′ (z) =   n an z n−1 .
+                                                 n≥1
+
+
+
+
+                                                           X
+Démonstration. Remarquons d’abord que la série                   n an z n−1 a même rayon de convergence
+                                                           n≥1
+que la série f . En effet, si 0 < ρ < R, choisissons ρ < ρ′ < R ; la suite (|an |ρ′n ) est bornée par
+un M > 0, d’où n|an |ρn−1 ≤ M             ′ n−1 , terme général d’une série convergente : le rayon de
+                                 ρ′ n (ρ/ρ )
+la série dérivée est donc ≥ R. Réciproquement |an |ρn ≤ ρ n|an |ρn−1 pour n ≥ 1, d’où l’inégalité
+inverse. Soit z ∈ D(0, R) et fixons ρ0 > 0 avec |z| < ρ0 < R. Prenons ω suffisamment petit de

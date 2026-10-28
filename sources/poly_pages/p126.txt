@@ -1,0 +1,64 @@
+VI.4. EXERCICES                                                                                   123
+
+
+        position des deux racines perturbées par rapport à a et b ?
+     3. En utilisant la relation entre les coefficients et les racines de Pε , montrer que
+                                                                               
+                     Pε (x) = x − xa (ε) xb (ε) − x 1 − ε x + xa (ε) + xb (ε) ,
+
+        puis que Pε > 0 sur ]xa (ε) ; xb (ε)[. L’intégrale elliptique
+                                                    Z xb (ε)
+                                                              dx
+                                           I(ε) =           p
+                                                     xa (ε)  Pε (x)
+
+        est donc bien définie, Pε ne s’annulant qu’à l’ordre 1 aux deux bornes.
+                                                                            1
+                                                                                               
+     4. On admet que le changement      de variable x = u + v sin t, où u = 2 x a (ε) + x b (ε)  et
+            1
+                             
+        v = 2 xb (ε) − xa (ε) , transforme cette intégrale en
+                                          Z π/2
+                                                                        − 1
+                                 I(ε) =           1 − ε(3u + v sin t)      2
+                                                                               dt.
+                                           −π/2
+
+        À l’aide de la formule de Taylor appliquée à s 7→ (1 − s)−1/2 , et en prenant garde à
+        l’uniformité en t, en déduire le développement asymptotique
+
+                                                    3π(a + b)
+                                    I(ε) = π +                ε + O(ε2 ).
+                                                        4
+
+  Remarque VI.4.4 : Le périhélie de Mercure —
+  Cet exercice est le calcul par lequel Einstein a testé la relativité générale, en novembre 1915.
+  Notons r la distance d’une planète au Soleil et φ son angle polaire, et posons x = 1/r. La
+  conservation de l’énergie et du moment cinétique L donne, dans les deux théories,
+                       dx 2       2GM                                        2GM
+                                =C+    2
+                                         x − x2 + |{z}
+                                                  ε x3 ,                ε=         .
+                        dφ       |   L{z      } Einstein                        c2
+                                       Newton
+
+  Le terme cubique est toute la différence entre les deux théories ; il vient de la métrique
+  de Schwarzschild, et ε n’est autre que le rayon de Schwarzschild du Soleil, soit 2,95 km.
+  Le trinôme newtonien s’annule aux deux points de rebroussement radial, l’aphélie et le
+  périhélie : écrit avec ses racines a = 1/rmax et b = 1/rmin , c’est exactement (x − a)(b − x),
+  et l’on retrouve le Pε ci-dessus.
+  L’intégrale I(ε) est alors l’angle balayé par la planète entre son aphélie et son périhélie ;
+  l’angle entre deux périhélies consécutifs vaut 2I(ε). Pour ε = 0 on trouve I(0) = π : l’orbite
+  se referme, c’est l’ellipse de Kepler. Pour ε > 0, le développement de la question 4 donne
+  une avance du périhélie, par révolution, de
+                                                    3π             6πGM
+                             ∆ϖ = 2I(ε) − 2π ≃         (a + b) ε =       ,
+                                                     2              c2 p
+                        1     1
+  puisque a + b = rmin     + rmax = p2 , où p désigne le paramètre de l’ellipse. Pour Mercure,
+  p = 0,371 ua, de sorte que le petit paramètre ε(a + b) vaut 1,1 · 10−7 : le premier ordre
+  suffit très largement. On obtient 0,104′′ par révolution, soit, à raison de 415 révolutions par
+  siècle, 43′′ par siècle.
+  Ce chiffre était connu depuis Le Verrier (1859). Sur les quelque 5600′′ par siècle d’avance
+  observée, la précession des équinoxes en explique environ 5025′′ et l’attraction des autres

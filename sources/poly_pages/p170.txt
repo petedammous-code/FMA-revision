@@ -1,0 +1,50 @@
+IX.7. CALCUL DIFFÉRENTIEL SUR LES SOUS-VARIÉTÉS                                                 167
+
+     Définition IX.7.28
+   Soient S1 et S2 deux sous-variétés (respectivement de RN1 et RN2 ) et φ : S1 → S2 une
+   application de classe C k . On dit que φ est une immersion (resp. une submersion) au
+   point p ∈ S1 si sa différentielle
+
+                                    dφp : Tp S1 −→ Tφ(p) S2
+
+   est injective (resp. surjective). On dit que φ est une immersion (resp. une submersion) si
+   c’est une immersion (resp. une submersion) en tout point p ∈ S1 .
+
+
+     Proposition IX.7.29
+   Soient S1 et S2 deux sous-variétés (respectivement de RN1 et RN2 ), et φ : S1 → S2 une
+   application de classe C k .
+      1. Supposons que φ soit une submersion en p ∈ S1 . Alors il existe un voisinage W1 de
+         p dans S1 tel que W1 ∩ φ−1 ({φ(p)}) soit une sous-variété de RN1 , incluse dans S1 .
+      2. Supposons que φ soit une immersion en p ∈ S1 . Alors il existe un voisinage W1 de p
+         dans S1 tel que φ(W1 ) soit une sous-variété de RN2 , incluse dans S2 .
+
+
+Démonstration. Notons m1 et m2 les dimensions respectives de S1 et S2 .
+   Pour le premier point, on peut, grâce à la proposition IX.3.1, supposer que S2 = (Rm2 ×
+{0}) ∩ V2 , V2 ouvert de RN2 , et utiliser alors le point 1 de la proposition IX.4.1.
+    Il faut prendre garde à un point : la proposition IX.4.1 s’applique à une application définie
+sur un ouvert de RN , alors que la source est ici la sous-variété S1 . Redresser S2 ne suffit donc
+pas, et il faut aussi passer en carte à la source. Précisément : soit x1 : U1 → S1 un paramétrage
+local en p, avec x1 (q1 ) = p, et soit p1 la projection de RN2 sur Rm2 . L’application
+
+                                  θ = p1 ◦ φ ◦ x1 : U1 −→ Rm2 ,
+
+définie sur un ouvert de Rm1 , est de classe C k et sa différentielle en q1 est surjective, puisque
+d(x1 )q1 est un isomorphisme sur Tp S1 et que dφp est surjective. La proposition IX.4.1 montre
+alors que θ−1 ({θ(q1 )}) est, au voisinage de q1 , une sous-variété de dimension m1 − m2 de Rm1 ;
+son image par le paramétrage x1 en est une de RN1 d’après l’exemple IX.2.9, et c’est bien
+W1 ∩ φ−1 ({φ(p)}) pour un voisinage W1 convenable.
+   Pour le second point, on suppose cette fois que S1 = (Rm1 × {0}) ∩ V1 , V1 ouvert de RN1 , et
+on utilise l’exemple IX.2.9.
+
+IX.7.5    Points critiques. Maxima et minima locaux
+    Les résultats suivants du calcul différentiel sur les sous-variétés découlent aisément de leurs
+analogues en calcul différentiel ordinaire (sur des ouverts de Rm ) en utilisant des paramétrages
+locaux.
+
+     Théorème IX.7.30
+   Soient S1 et S2 deux sous-variétés (respectivement de RN1 et RN2 ) avec S1 connexe, et
+   soit
+                                       f : S1 −→ S2
+   une application différentiable telle que dfp = 0 pour tout p ∈ S1 . Alors f est constante.

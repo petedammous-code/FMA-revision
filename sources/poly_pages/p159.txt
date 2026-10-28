@@ -1,0 +1,52 @@
+156                                                            CHAPITRE IX. SOUS-VARIÉTÉS
+
+type Ψ(x) = 0, x ∈ RN et 0 valeur régulière de Ψ.
+
+       Proposition IX.4.6
+   Soit S une sous-variété de dimension m de classe C k de RN . Alors pour tout point p de
+   S , il existe un voisinage ouvert V de p dans RN et une fonction Ψ : V → RN −m de classe
+   C k tels que
+                                  S ∩ V = {x ∈ V | Ψ(x) = 0},
+   et 0 est une valeur régulière de Ψ.
+
+
+Démonstration. Soit p un point de S et soit Φ : V → W un C k -difféomorphisme d’un voisinage
+ouvert V de p dans RN dans un ouvert W dans RN comme dans la proposition IX.3.1. En
+particulier
+                               Φ(V ∩ S ) = (Rm × {0}) ∩ W.
+Soit p2 la projection sur le second facteur dans la décomposition canonique RN ≃ Rm × RN −m .
+      Si Ψ est l’application composée p2 ◦ Φ définie sur V, on a
+
+           Ψ(q) = 0 ⇐⇒ p2 (Φ(q)) = 0 ⇐⇒ Φ(q) ∈ (Rm × {0}) ∩ W ⇐⇒ q ∈ S ∩ V.
+
+La variété S est définie par l’équation Ψ(x) = 0, au voisinage de p, c’est-à-dire que
+
+                                 (∀q ∈ V),   [q ∈ S ] ⇔ [Ψ(q) = 0].
+
+Comme Ψ est composé de Φ, qui est un difféomorphisme, et de p2 qui est linéaire surjective,
+sa différentielle en tout point est surjective, et donc en particulier 0 est une valeur régulière de
+Ψ.
+
+   Remarque IX.4.7 — Les deux propositions qui précèdent fournissent encore une autre
+   définition d’une sous-variété de dimension m de RN : c’est une partie S de RN vérifiant
+   les hypothèses de la proposition IX.4.5.
+
+
+
+
+IX.5       Sous-variétés définies par des graphes
+
+
+   Une manière très simple de construire des sous-variétés est de considérer les graphes des
+applications de classe C k d’un espace vectoriel de dimension finie dans un autre espace vectoriel
+de dimension finie.
+
+       Proposition IX.5.1
+   Soit f : U → RN −m une fonction différentiable de classe C k définie sur un ouvert U de
+   Rm . Le graphe de f
+                            Graphe(f ) = {(u, f (u)), (u ∈ U)}
+   est une sous-variété de Rm × RN −m = RN de dimension m.
+
+Démonstration. Le graphe de f est une sous-variété, un paramétrage global étant
+
+                                   x : U → RN ,    u 7→ (u, f (u)).

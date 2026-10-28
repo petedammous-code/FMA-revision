@@ -1,0 +1,60 @@
+52                                                           CHAPITRE II. FORMULE DES RÉSIDUS
+
+
+     prenant des valeurs réelles sur ] − 1, 1[. On définit F sur D par F (z) = f (z) si z ∈ D+ et
+     F (z) = f (z̄) si z ∈ D− . Montrer que F est holomorphe sur D.
+     3) Généraliser l’énoncé (1) à un ouvert Ω rencontrant R quelconque et (2) à un ouvert Ω
+     rencontrant R et stable par conjugaison complexe.
+
+
+     Exercice II.7.10 : La fonction ℘ de Weierstrass — Soit Λ ⊂ C un réseau i.e. un sous-
+     groupe discret de la forme Zω1 ⊕ Zω2 où ω1 et ω2 sont linéairement indépendants sur R.
+     On rappelle, ou on admet, ou on le démontre que pour tout entier k ≥ 3 la série
+                                                    X        1
+                                                            |λ|k
+                                                  λ∈Λ\{0}
+
+     est convergente. 1) Soit f une fonction holomorphe sur C qui est Λ-périodique i.e. satisfait
+
+                                             f (z + λ) = f (z),
+
+     pour tout λ ∈ Λ. Montrer que f est constante.
+     2) Montrer que la série
+                                           1       X            1     1
+                                  ℘(z) =      +                      −    ,
+                                           z2                (z + λ)2 λ2
+                                                  λ∈Λ\{0}
+
+     définit une fonction méromorphe Λ-périodique sur C et paire dont on précisera les pôles.
+     Pour établir la périodicité, on calculera ℘′ (z).
+     3) Pour tout entier k ≥ 3, on pose
+                                                          X        1
+                                           Ek (Λ) =                   .
+                                                                   λk
+                                                         λ∈Λ\{0}
+
+     Etablir que
+                                                     ∞
+                                     1     1   X
+                                         −   =   (k + 1)λ−k−2 (−1)k z k
+                                 (z + λ)2 λ2
+                                                    k=1
+
+     en déduire le développement en série de Laurent de ℘(z) au voisinage de 0 en fonction des
+     Ek (Λ). Remarquer que les Ek avec k impair sont nuls.
+     4) Montrer que
+                           ℘′ (z)2 = 4℘(z)3 − 60E4 (Λ)℘(z) − 140E6 (Λ).
+
+
+
+
+II.8       Le théorème de Rouché
+
+
+   Le théorème de Rouché 2 est un résultat qui permet de comparer le nombre de zéros et de
+pôles de deux fonctions méromorphes qui sont, en un sens à préciser, proches. Ce théorème peut
+en particulier être utilisé pour localiser les pôles et les zéros des fonctions méromorphes. On
+commence par le :
+
+
+     2. Eugène Rouché, X 1852.

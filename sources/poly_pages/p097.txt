@@ -1,0 +1,57 @@
+94                                   CHAPITRE V. CALCUL DIFFÉRENTIEL DANS LES E.V.N.
+
+L(E; E) est une norme d’algèbre, c’est-à-dire qu’elle vérifie
+
+                                   ∥AB∥ ≤ ∥A∥ ∥B∥,               (A, B ∈ L(E)).
+
+   Plus généralement, si A et B se composent, disons A ∈ L(F ; G), B ∈ L(E; F ), alors AB ∈
+L(E; G) et l’inégalité ci-dessus est valable.
+
+
+     Exercice V.1.2 — Soit F un espace vectoriel normé. Montrer que L(R; F ) s’identifie
+     canoniquement à F par T 7→ T (1). Qu’en-est-il des normes ∥ . ∥L(R;F ) et ∥ . ∥F ?
+
+
+V.1.3       Applications multilinéaires continues
+    Nous avons rappelé qu’une application linéaire entre deux espaces vectoriels normés est
+continue si et seulement si elle est continue en 0 et ceci a lieu si et seulement si elle est bornée sur
+la boule unité. Ceci s’étend aux applications multilinéaires comme suit.
+
+       Proposition V.1.3
+     Soient E1 , E2 , . . . , En et F des espaces vectoriels normés et soit
+
+                                        f : E1 × E2 × · · · × En −→ F
+
+     une application multilinéaire. Les conditions suivantes sont équivalentes :
+     (a) f est continue en tout point de E1 × E2 × · · · × En ;
+     (b) f est continue en 0 ;
+     (c) f est bornée sur le produit des boules unités B̄E1 (0, 1) × · · · × B̄En (0, 1).
+
+    Pour une démonstration, voir Théorème 1.8.1, [4]. Remarquons qu’il n’y a pas lieu de se
+demander de quelle norme est muni l’espace produit E1 × E2 × · · · × En . La continuité des
+applications est une propriété topologique, la proposition fait donc sens dès que E1 × E2 × · · · × En
+est muni d’une topologie (ici la topologie produit). Une norme qui donne cette topologie produit
+est
+                                                                  n
+                                                                  X
+                             ∥(x1 , . . . , xn )∥E1 ×E2 ×···×En =   ∥xi ∥Ei ,
+                                                                            i=1
+
+ou toute autre norme équivalente.
+   On note L(E1 , E2 , . . . , En ; F ) l’espace des applications multilinéaires continues de E1 ×E2 · · ·×
+En dans F . On peut munir L(E1 , E2 , . . . , En ; F ) de la norme
+
+                         ∥f ∥ =                    sup                  ∥f (x1 , . . . , xn )∥F .
+                                  (x1 ,...,xn )∈B̄E1 (0,1)×···×B̄En (0,1)
+
+
+  Comme dans le cas des applications linéaires, si F est un espace de Banach, alors L(E1 , E2 , . . . , En ; F )
+muni de cette norme est encore un espace de Banach.
+
+
+V.1.4       Un isomorphisme canonique entre espace d’applications linéaires
+   Intéressons-nous maintenant au cas des applications bilinéaires de E1 × E2 dans F , où E1 ,
+E2 et F sont des espaces vectoriels normés. Nous allons exhiber une isométrie (c’est-à-dire un
+isomorphisme linéaire respectant les normes)
+                                                         ∼
+                                     L(E1 , E2 ; F ) −→ L(E1 ; L(E2 ; F )).

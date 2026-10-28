@@ -1,0 +1,58 @@
+138                                             CHAPITRE VII. EQUATIONS DIFFÉRENTIELLES
+
+
+  Exercice VII.4.3 — Soit Mn (K) l’algèbre sur K des matrices carrés n × n à coefficients
+  dans K = R ou C, munie de la norme ∥X∥ = Tr(t XX). Soit X un élément de Mn (K).
+                                                                  +∞
+                                                                  X   Xn
+  L’exponentielle de X, notée exp X, désigne la somme de la série        , normalement
+                                                                      n!
+                                                                  n=0
+  convergente dans l’espace de Banach Mn (K).
+      (1) Quels que soient X et Y dans Mn (K), quels que soient t, s dans K, montrer les
+          propriétés suivantes de l’exponentielle.
+            (i) Si X et Y commutent, alors exp X exp Y = exp(X + Y ).
+           (ii) L’exponentielle est à valeurs dans GL(n, K) et (exp X)−1 = exp(−X).
+          (iii) exp(sX) exp(tX) = exp((s + t)X).
+          (iv) L’application R → GL(n, K), t 7→ exp(tX) est l’unique solution différentiable de
+                l’équation différentielle du premier ordre a′ (t) = X a(t) avec la condition initiale
+                a(0) = In .
+  Remarque. On peut reformuler (iii) en disant que t 7→ exp tX est un morphisme de
+  groupes (continu) de R dans GL(n, K). On appelle un tel morphisme un sous-groupe à un
+  paramètre de GL(n, K).
+      (2) Montrer qu’un morphisme de groupe continu ϕ : R → GL(n, K) est de classe C ∞ . En
+          déduire que tout sous-groupe à un paramètre de GL(n, K) est de la forme t 7→ exp tX
+          pour un certain X dans Mn (K). On pourra commencer par remarquer que pour tout
+          s, x ∈ R,                Z      x+s           Z            s
+                                                ϕ(u) du = ϕ(x)           ϕ(u) du.
+                                      x                          0
+
+      (3) Montrer que l’application exp de Mn (K) dans lui-même est de classe C ∞ . On pourra
+          appliquer les théorèmes du cours sur le flot du champs de vecteur (ne dépendant pas
+          du temps) sur Mn (K) × Mn (K) : Y(A, B) = (BA, 0).
+      (4) Calculer la différentielle de exp en 0. En déduire qu’il existe un voisinage U de 0 dans
+          Mn (K) et un voisinage V de Id dans GL(n, K) tels que exp réalise un difféomorphisme
+          de U sur V. On note Log son inverse.
+      (5) Montrer qu’il existe un voisinage ouvert V ′ de Id dans GL(n, K) tel que le seul
+          sous-groupe de GL(n, K) inclus dans V ′ soit le sous-groupe trivial {In }.
+      (6) Soient X et Y dans Mn (K). Montrer que
+                                              i
+                                 h     X         Y    p
+                             lim exp       exp          = exp(X + Y ),
+                            p→∞        p         p
+
+                                                          Y ip2
+                                                      
+                   h      X         Y         X
+                lim exp        exp     exp −       exp −         = exp(XY − Y X).
+               p→∞        p         p          p           p
+  Soit G un sous-groupe fermé de GL(n, K). On pose
+
+                            g = {X ∈ Mn (K) | exp tX ∈ G, (∀t ∈ R)}.
+
+      (7) Montrer que g est un sous-espace vectoriel réel de Mn (K) stable par
+
+                                      (X, Y ) 7→ [X, Y ] = XY − Y X.
+
+      (8) Montrer que si G est discret dans GL(n, K), alors g = {0}.
+      (9) Expliciter g lorsque G = SL(n, R), SO(n).

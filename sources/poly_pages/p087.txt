@@ -1,0 +1,51 @@
+84                                                                    CHAPITRE IV. APPLICATIONS
+
+
+
+
+            Image d’un cercle non centré à l’origine par la transformation de Joukovski.
+
+
+
+vitesses d’un écoulement plan autour du disque unité centré à l’origine (voir détails dans l’exercice
+ci-dessous)
+                                     Φ(z) = λ ℜe(f −1 (z)).
+
+    En étudiant les images des cercles qui ne sont pas centrés à l’origine par la transformation de
+Joukovski on obtient des profils qui ressemblent aux profils d’ailes d’avions ce qui, en première
+approximation, permet de calculer certains écoulements plans autour de ce profil et, par exemple,
+d’estimer la portance qui s’exerce sur une aile d’avion ! 1
+
+     Exercice IV.4.1 : Transformation de Joukovski et Aérodynamique — En mécanique
+     des fluides bidimensionnelle, le vecteur vitesse s’écrit ⃗v = (vx , vy ). L’écoulement étant
+     irrotationnel (rot ⃗v = 0), il dérive d’un potentiel des vitesses Φ tel que vx = ∂Φ         ∂Φ
+                                                                                      ∂x et vy = ∂y .
+     L’écoulement étant incompressible (div ⃗v = 0), ce potentiel est harmonique (∆Φ = 0). Le
+     domaine étant simplement connexe (à l’extérieur des obstacles), on peut associer à Φ une
+     fonction conjuguée Ψ (la fonction de courant) telle que le potentiel complexe G = Φ + iΨ
+     soit holomorphe. Les équations de Cauchy-Riemann imposent ∂Φ               ∂Ψ    ∂Φ     ∂Ψ
+                                                                          ∂x = ∂y et ∂y = − ∂x . La
+     dérivée complexe de G peut s’évaluer par rapport à la variable réelle x :
+                                                ∂Φ    ∂Ψ
+                                     G′ (z) =      +i    = vx − ivy .
+                                                ∂x    ∂x
+     La vitesse complexe est simplement l’affixe du vecteur vitesse dans le plan complexe, soit
+     v = vx + ivy . On obtient donc l’identité fondamentale : v = G′ (z).
+     On considère la transformation de Joukovski définie sur C∗ par :
+                                                         
+                                                 1      1
+                                         J(z) =     z+      .
+                                                 2      z
+        1. Soit R > 1. Déterminer l’image par J du cercle CR de centre 0 et de rayon R. Préciser
+           la nature géométrique de cette image.
+        2. Déterminer l’image par J du cercle unité C1 .
+        3. On s’intéresse à l’écoulement plan, irrotationnel et incompressible d’un fluide parfait.
+           Le potentiel complexe d’un écoulement uniforme de vitesse V0 > 0 faisant un angle
+           d’incidence α avec l’axe réel, autour d’un cylindre de rayon 1 (le cercle C1 ), est donné
+           par :                                                  
+                                                              1
+                                         F (z) = V0 ze−iα + eiα .
+                                                              z
+
+   1. Voir à ce sujet E. Guyon, J.P. Hulin et L. Petit, Hydrodynamique physique, Collection Savoirs Actuels, EDP
+Sciences 2001.

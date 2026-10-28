@@ -1,0 +1,47 @@
+                                                                                    Chapitre      V
+Calcul différentiel dans les espaces
+vectoriels normés
+
+
+V.1       Rappels sur les espaces vectoriels normés
+
+
+V.1.1      Espaces de Banach
+     Les espaces vectoriels normés dans ce chapitre sont tous définis sur le corps des nombres réels
+R.
+    Un espace de Banach E est un espace vectoriel normé, qui, en tant qu’espace métrique, est
+complet, c’est-à-dire que toute suite de Cauchy dans E est convergente. Nous renvoyons le
+lecteur au cours de première année [11], chapitre II et IV, pour ce qui concerne la théorie de base
+des espaces métriques complets et des espaces de Banach. Dans la suite, nous utiliserons sans
+plus de commentaires la caractérisation suivante des espaces de Banach.
+
+      Proposition V.1.1
+     Soit E un espace vectoriel normé. Alors E est complet si et seulement si toute série à
+     valeurs dans E absolument convergente est convergente.
+
+
+V.1.2      Applications linéaires continues
+    Soient E et F des espaces vectoriels normés. On note L(E; F ) l’ensemble des applications
+linéaires continues de E dans F . Rappelons qu’une application linéaire T : E → F est continue si
+et seulement si elle est continue en 0 et ceci a lieu si et seulement si T est bornée, c’est-à-dire que
+
+                                                        ∥T (x)∥F
+(V.1.1)                         ∥T ∥L(E;F ) :=    sup            < +∞.
+                                                 x∈E\{0} ∥x∥E
+
+
+D’autre part, ∥ . ∥L(E;F ) est une norme sur L(E; F ) ; si de plus F est un espace de Banach,
+(L(E; F ), ∥ . ∥L(E;F ) ) est lui aussi un espace de Banach. (Voir cours de F. Pacard [11]). Pour
+alléger la rédaction, nous noterons souvent les normes simplement par ∥.∥ sans mention de l’espace
+sous-jacent. Sur L(E; F ), la norme sera sauf mention explicite du contraire la norme d’opérateur
+(V.1.1).
+     Remarquons que
+
+                                      ∥T (x)∥F
+        ∥T ∥ = ∥T ∥L(E;F ) =    sup            =    sup      ∥T (x)∥F =    sup      ∥T (x)∥F .
+                               x∈E\{0} ∥x∥E      x∈E, ∥x∥E ≤1           x∈E, ∥x∥E =1
+
+
+     Si E est un espace vectoriel normé, la norme ∥ . ∥ = ∥ . ∥L(E;E) définie ci-dessus sur L(E) =
+
+                                                    93

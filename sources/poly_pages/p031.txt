@@ -1,0 +1,58 @@
+28                                                      CHAPITRE I. FONCTIONS HOLOMORPHES
+
+
+     Remarque I.11.3 — La connexité n’entre en jeu que pour avoir un joli énoncé. Dans le
+     cas général, la preuve permet de conclure que si les zéros ne sont pas isolés, la fonction
+     holomorphe est nulle sur une des composantes connexes (nécessairement ouverte) de Ω.
+
+
+     Remarque I.11.4 — L’ensemble des zéros d’une fonction holomorphe f sur Ω, que nous
+     noterons désormais Z(f, Ω), est donc discret et fermé. Il est donc localement fini (voir Prop.
+     II.4.1 plus loin).
+
+
+     Remarque I.11.5 — Attention, « isolé » ne signifie pas « en nombre fini » : une fonction
+     holomorphe non identiquement nulle peut très bien avoir une infinité de zéros isolés, par
+     exemple z 7→ sin(πz) sur C, dont les zéros sont exactement les entiers relatifs. C’est la
+     propriété, plus faible que la finitude, d’être localement finie qui est garantie par le principe
+     des zéros isolés (voir aussi la Remarque II.5.2, où cette même distinction entre « fini » et
+     « localement fini » joue un rôle clé pour la formule des résidus).
+
+       Corollaire I.11.6 — Principe du prolongement analytique
+     Deux fonctions holomorphes f et g sur un ouvert connexe Ω qui coïncident sur une partie
+     X de Ω ayant un point d’accumulation dans Ω, coïncident partout.
+
+
+Démonstration. Considérons f − g : l’ensemble de ses zéros contient X, et comme cet ensemble
+est fermé par continuité de f − g, il contient le point d’accumulation 2 donné par l’énoncé : ce
+point est un zéro non isolé de l’ensemble des zéros de f − g, et l’on en déduit que f − g est
+identiquement nulle par le principe des zéros isolés.
+
+    Souvent, dans les exemples, f et g coïncident sur un ouvert, ou bien sur un arc, et on peut
+alors conclure.
+    Voici un exemple de prolongement analytique d’une fonction holomorphe définie par une série
+entière.
+
+     Exemple I.11.7 — Par exemple la fonction holomorphe définie sur D(0, 1) par la série
+                                               X
+                                      f (z) :=    zn,
+                                                          n≥0
+
+                                                                                1
+     admet un prolongement analytique à C \ {1}. En effet, la fonction g(z) := 1−z est elle aussi
+     analytique et coïncide avec f sur le disque unité ouvert.
+
+    Nous donnerons dans la section III.5 un exemple plus subtil de prolongement analytique dans
+le cas de la fonction Gamma. Poursuivons par une application intéressante du principe des zéros
+isolés.
+
+       Proposition I.11.8
+                                                                    2
+     Les fonctions polynômes sont denses dans L2 (R, e−x dx). Elles sont aussi denses dans
+     L2 (]0, +∞[ , e−x dx).
+
+
+Démonstration. Montrons que l’espace des fonctions polynômes forme un sous-espace dense de
+          2                                                                2
+L2 (R, e−x dx). Pour ce faire, il suffit de démontrer que si f ∈ L2 (R, e−x dx) est orthogonale pour
+     2. Un point d’accumulation de X est un point a tel que tout voisinage de a intersecte X \ {a}.

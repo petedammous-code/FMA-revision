@@ -1,0 +1,55 @@
+186                                       ANNEXE A. SUJETS D’EXAMEN ET PROBLÈMES
+
+      2022                                                                                   MAT431
+
+                                    Devoir à la maison 1
+
+
+    Si Ω est un ouvert de C, on note Ω son adhérence et ∂Ω = Ω \ Ω son bord. Les notations pour
+les disques et les cercles sont celles du poly.
+
+Théorème (de l’application ouverte pour les fonctions holomorphes). Soit Ω un ouvert connexe
+non vide de C et f : Ω → C une application holomorphe non constante. Alors l’image f (Ω) est
+un ouvert de C.
+
+   Dans la partie A, on démontre ce théorème. On démontre ensuite un résultat qui nous dit
+que cet ouvert contient des disques dont on peut minorer le rayon.
+
+
+                                              Partie A
+
+    On se place dans les hypothèses du théorème du préambule. On raisonne par l’absurde en
+supposant qu’il existe un point z0 de Ω tel que f (Ω) n’est pas un voisinage de f (z0 ), c’est-à-dire
+qu’il existe une suite (αn )n∈N de nombres complexes qui ne sont pas dans f (Ω), et qui converge
+vers f (z0 ).
+
+   1. Montrer qu’il existe r > 0 avec les propriétés suivantes :
+       (i) D̄(z0 , r) ⊂ Ω,   (ii) pour tout z ∈ D̄(z0 , r) \ {z0 }, f (z) ̸= f (z0 ).
+                                                   1
+   2. On pose pour tout n ∈ N, gn (z) =                   . Montrer que pour tout n ∈ N, gn est bien
+                                              f (z) − αn
+      définie et holomorphe sur Ω et qu’il existe zn ∈ C(z0 , r) tel que pour tout z ∈ D̄(z0 , r),
+      |f (z) − αn | ≥ |f (zn ) − αn |.
+   3. Montrer qu’il existe ϵ > 0 tel que pour tout z ∈ C(z0 , r), |f (z) − f (z0 )| ≥ ϵ. En déduire
+      que pour n assez grand, |f (zn ) − αn | ≥ 2ϵ et aboutir à une contradiction avec le fait que la
+      suite αn tend vers f (z0 ). Conclure.
+
+
+                                              Partie B
+
+    Cette partie ne fait pas appel au cours d’analyse complexe, on y démontre le lemme ci-dessous,
+qui est un résultat de nature topologique. Pour cette raison, n’abordez cette partie qu’à la fin et
+admettez le résultat en attendant.
+
+Lemme. Soit Ω un un ouvert connexe borné de C et f : Ω → C une application continue. On
+suppose que f (Ω) est un ouvert de C, et qu’il existe un point a ∈ Ω tel que m := d(f (∂Ω), f (a)) > 0.
+Alors D(f (a), m) ⊂ f (Ω).
+
+Remarque. La partie ∂Ω est fermée bornée dans C donc compacte. La fonction f est continue,
+donc f (∂Ω) est un compact. La distance d’un point à un compact est finie, donc la distance
+du point f (a) à ce compact, m = d(f (∂Ω), f (a)) est finie et atteinte en un point de f (∂Ω). On
+suppose ici qu’elle n’est pas nulle. D’autre part, attention dans la suite à bien distinguer f (∂Ω)
+et ∂(f (Ω)).
+
+   1. Montrer que D(f (a), m) ∩ ∂(f (Ω)) = ∅.
+   2. Ecrire D(f (a), m) comme union de deux ouverts disjoints et conclure.

@@ -1,0 +1,16 @@
+                                                                                                185
+
+                                                                                ∂F
+6. Vérifions d’abord que F est une intégrale première de X = (a(z), 1, 0). On a ∂x1
+                                                                                    =
+      ′                 ∂F         ′
+   −f (x1 − a(z)x2 ) et ∂x2 = a(z)f (x1 − a(z)x2 ), d’où
+
+                                              ∂F   ∂F     ∂F
+                             ⟨∇F, X⟩ = a(z)      +    +0·    = 0.
+                                              ∂x1 ∂x2     ∂z
+   La question (3) s’applique donc et u est solution de (E1 ). On constate enfin que comme
+   F (x1 , 0, f (x1 )) = 0, on a f (x1 ) = u(x1 , 0).
+7. Dans ce cas F (x1 , x2 , z) = z − f (x1 − a(z)x2 ) = z − 1 + (x1 − zx2 ) = z(1 − x2 ) − (1 − x1 ),
+   d’où z = u(x1 , x2 ) = 1−x   1
+                             1−x2 .

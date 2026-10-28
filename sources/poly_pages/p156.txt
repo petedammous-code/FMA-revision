@@ -1,0 +1,56 @@
+IX.4. SOUS-VARIÉTÉS DÉFINIES PAR DES ÉQUATIONS                                                     153
+
+
+                                                    z
+
+
+
+
+                                                                       y
+
+
+
+
+                                x
+
+
+                                                           2
+                                                    P
+                                         Sphère :       i xi = 1
+
+
+
+
+Démonstration. Soit p un point de f −1 ({a}) tel que la différentielle de f en p soit surjective.
+Soit E ⊂ RN le noyau de dfp et soit F un sous-espace supplémentaire. Comme dfp est surjective,
+d’après le théorème du rang, E est de dimension m. Il existe donc un isomorphisme linéaire φ
+entre E et Rm . Tout point de V s’écrit de manière unique sous la forme p + x + y, avec x ∈ E et
+y ∈ F . On peut donc définir
+
+                         Ψ : V → RN ,     p + x + y 7→ (φ(x), f (p + x + y))
+
+pour tout x ∈ E et tout y ∈ F tels que p + x + y ∈ V. La différentielle de Ψ en p est
+
+              dΨp (v + w) = (φ(v), dfp (v + w)) = (φ(v), dfp (w)),     (v ∈ E, w ∈ F ).
+
+    Le théorème du rang implique que la restriction de dfp à F réalise un isomorphisme entre F et
+R N −m . On voit donc que dΨp est une application linéaire surjective de RN vers Rm × RN −m , et
+donc un isomorphisme par égalité des dimensions. On applique le théorème d’inversion locale : il
+existe un ouvert V1 ⊂ V contenant p, et des ouverts U, W respectivement de Rm et RN −m , avec
+0 ∈ U et a ∈ W tels que Ψ : V1 → U ×W soit un difféomorphisme. Soit ι1 : U → U ×W, u 7→ (u, a).
+Il est clair que l’application x = Ψ−1 ◦ ι1 est différentiable,
+                                                      6         injective et que c’est une immersion. De
+plus f (x(u)) = f (Ψ−1 ((u, a))) = a car f = p2 ◦Ψ, où p2 est la projection canonique de Rm ×RN −m
+sur RN −m . Ainsi x(U) = f −1 ({a}) ∩ V1 et x est un paramétrage local de S = f −1 ({a}) ∩ V1 au
+voisinage de p.
+   Le deuxième point découle immédiatement du premier, puisque par définition d’une valeur
+régulière, dfp est surjective pour tout p ∈ S = f −1 ({a}). La construction précédente fournit un
+paramétrage local en p pour tout p ∈ S .
+
+
+   Exemple IX.4.2 — On voit facilement que la sphère Sn est une sous-variété de Rn+1 , car
+   Sn = f −1 ({1}) où f : Rn+1 \ {0} → R, f (x) = ∥x∥2 est différentiable, de différentielle
+
+                          dfx (v) = 2⟨x, v⟩, (x ∈ Rn+1 \ {0}), (v ∈ Rn+1 )
+
+   donc est une submersion en tout point x.

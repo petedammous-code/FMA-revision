@@ -1,0 +1,63 @@
+II.7. EXERCICES                                                                                        51
+
+
+  7) Soit ϵ > 0. On suppose qu’il existe a ∈ C et r > 0 tels que D(a, r) n’intersecte pas
+  l’image de D(0, ϵ) \ {0} par f . Montrer que la fonction g définie sur D(0, ϵ) \ {0} par
+                                                          1
+                                         g(z) :=                ,
+                                                      f (z) − a
+
+  se prolonge en une fonction holomorphe en 0.
+  8) On suppose que f n’est pas méromorphe en 0 (on dit alors que f admet une singularité
+  essentielle en 0). Montrer que, pour tout ϵ > 0, l’image de D(0, ϵ) \ {0} par f est dense
+  dans C.
+  Remarque. En fait, un théorème (difficile !) de E. Picard dit que l’image de tout disque
+  D(0, ϵ) \ {0} par f est soit C tout entier, soit C privé d’un seul point.
+
+
+  Exercice II.7.5 : Automorphismes de C — Soit f : C → C un automorphisme de C,
+  c’est-à-dire une bijection holomorphe de C dans lui-même dont la réciproque f −1 est aussi
+  holomorphe. On suppose f (0) = 0. Montrer en utilisant la question (8) de l’exercice II.7.4
+  que z 7→ g(z) = f ( z1 ) est méromorphe en 0 et en déduire que f est de la forme z 7→ az pour
+  un certain a ∈ C× . Quelle est la forme générale d’un automorphisme de C ?
+
+
+  Exercice II.7.6 — Pour tout n ∈ N, calculer
+
+                                             1 n dz
+                                   Z          
+                                        z+          ,
+                                     Γ       z   z
+
+  où Γ désigne le cercle de centre 0 et de rayon 1 parcouru dans le sens direct. En déduire la
+  valeur de                              Z     2π
+                                                    (cos x)n dx.
+                                           0
+
+
+  Exercice II.7.7 — Pour tout n, m ∈ N tels que m ≥ n + 2, calculer
+                                        Z +∞
+                                                xn
+                                In,m :=              dx.
+                                         0    1 + xm
+
+
+
+  Exercice II.7.8 — Soient a, b deux réels strictement positifs. Calculer
+                                 Z 2π
+                                                dt
+                                                          .
+                                  0   a cos t + b2 sin2 t
+                                       2     2
+
+
+  On pourra utiliser la formule des résidus en prenant pour lacet l’ellipse t 7→ a cos t + ib sin t.
+
+
+
+  Exercice II.7.9 : Principe de réflexion de Schwarz —
+  Soit D le disque unité. Notons D+ = {z ∈ D| ℑm(z) ≥ 0} le demi-disque supérieur et
+  D− = {z ∈ D| ℑm(z) ≤ 0} le demi-disque inférieur.
+  1) On suppose que f : D → C est continue sur D et holomorphe sur D\] − 1, 1[. Montrer
+  que f est holomorphe sur D.
+  2) Soit f : D+ → C une fonction continue sur D+ et holomorphe sur D+ \] − 1, 1[ et

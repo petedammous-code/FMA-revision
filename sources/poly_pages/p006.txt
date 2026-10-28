@@ -1,0 +1,52 @@
+                                                                                                        3
+
+    Nous allons présenter la théorie des fonctions holomorphes qui sont des fonctions d’une
+variable complexe, « dérivables au sens complexe ». Comme on le verra rapidement, cette classe
+de fonctions coïncide avec celle des fonctions analytiques de la variable complexe, c’est-à-dire des
+fonctions développables en série entière au voisinage de tout point. Les fonctions holomorphes
+sont omniprésentes en mathématiques comme en physique (le lecteur intéressé pourra consulter à
+ce sujet [9, paragraphe 82]). L’une des raisons de leur présence en physique est que les fonctions
+harmoniques, c’est-à-dire les fonctions f : Ω → R dont le Laplacien est nul, i.e. ∆f = 0, sur un
+ouvert Ω ⊂ C, sont localement les parties réelles de fonctions holomorphes, et que les potentiels,
+qui apparaissent en physique, satisfont bien souvent cette propriété.
+    Au cours de son élaboration au dix-neuvième siècle (Gauss, Cauchy, Riemann, Weierstrass,
+Poincaré), la théorie a conduit à plusieurs des innovations majeures de cette période ; citons
+le développement de la rigueur en analyse, de la topologie et de la théorie du potentiel. Elle
+fait aujourd’hui partie de la culture de base en mathématiques et entretient des liens profonds
+avec l’arithmétique, la topologie, la géométrie algébrique, la géométrie riemannienne, l’étude des
+équations aux dérivées partielles, etc.
+    Le résultat le plus important de la théorie, s’il faut en dégager un, est la « formule des
+résidus ». Cette formule est certainement l’une des plus belles des mathématiques. Son importance
+conceptuelle ne saurait être surestimée, mais elle revêt aussi un intérêt pratique considérable pour
+le calcul de certaines intégrales de fonctions à valeurs réelles de la variable réelle (par exemple
+des transformées de Fourier).
+     Nous n’avons recherché ni l’exhaustivité ni les hypothèses minimales dans les théorèmes. Par
+exemple, il est possible de définir les fonctions holomorphes comme les fonctions dérivables au
+sens complexe, sans faire d’hypothèse de continuité des dérivées : le théorème de Goursat, fort
+utile pour des applications fines, affirme que cela ne change rien aux objets ainsi définis. On verra
+dans les cours de mathématiques ultérieurs (voir le cours de MAT 433 Distributions, analyse de
+Fourier, EDP) que l’on peut même s’affranchir totalement des hypothèses de régularité dans le
+cadre de la théorie des distributions. Le lecteur intéressé est encouragé à consulter l’abondante
+littérature [3], [1], [12], [8], [5].
+   En ce qui concerne la théorie des fonctions de plusieurs variables complexes, qui ont des
+propriétés tout à fait surprenantes, le lecteur pourra consulter [10] et [7].
+    Le chapitre I introduit les fonctions holomorphes, d’abord comme fonctions C-dérivables à
+dérivée continue, puis par les conditions de Cauchy réelles, qui expriment que la différentielle
+est C-linéaire. La formule intégrale de Cauchy, démontrée sur un disque par rétraction du cercle,
+en donne aussitôt les conséquences spectaculaires : holomorphie et analyticité coïncident, les
+estimées de Cauchy, le théorème de Liouville et le théorème de d’Alembert–Gauss, le principe des
+zéros isolés et le prolongement analytique, le principe du maximum, le lemme de Schwarz et le
+théorème de l’application ouverte.
+    Le chapitre II est consacré à la formule des résidus. Il faut pour l’énoncer deux ingrédients
+topologiques, l’homotopie de lacets — et l’invariance de l’intégrale qui en découle — et l’indice
+d’un lacet, puis une étude locale des singularités : fonctions méromorphes, développement de
+Laurent, résidus. La formule une fois acquise, on en tire le calcul de nombreuses intégrales réelles,
+le principe de l’argument et le théorème de Rouché, et l’existence de primitives sur un ouvert
+simplement connexe, donc du logarithme complexe.
+    Le chapitre III étudie les suites, séries et produits de fonctions holomorphes. Le théorème de
+Weierstraß dit que la limite localement uniforme de fonctions holomorphes est holomorphe, et
+que les dérivées suivent ; celui de Hurwitz, que l’annulation et l’injectivité passent à la limite ;
+celui de Montel, qu’une famille localement bornée est normale. Ces trois résultats se combinent
+pour démontrer le théorème de représentation conforme de Riemann. Le chapitre se termine par
+les produits infinis, avec les formules d’Euler pour π 2 / sin2 , la cotangente et le sinus, et le produit
+de Weierstraß pour la fonction Γ.

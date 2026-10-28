@@ -1,0 +1,58 @@
+                                                                                Chapitre     VII
+Equations différentielles
+
+
+VII.1       Remarques générales
+
+
+   Soit X : I × U → RN une fonction continue, où U est un ouvert de (RN )k et I un intervalle
+ouvert de R. On s’intéresse aux équations différentielles de la forme
+
+(VII.1.1)                        α(k) (t) = X(t, α(t), . . . , α(k−1) (t))
+
+dont on cherche les solutions α de classe C k définies sur un intervalle ouvert J ⊂ I.
+   En posant α0 = α, l’équation (VII.1.1) se réécrit sous la forme
+                              ′
+                              α 0 (t)       = α1 (t)
+                              α′ 1 (t)
+                             
+                                             = α2 (t)
+                             
+                             
+                               α2′ (t)       = α3 (t)
+                                      ...
+                             
+                             
+                             
+                             
+                              ′
+                               αk−1 (t)      = X(t, α1 (t), . . . , αk−1 (t))
+
+    Ce procédé permet de ne considérer que des systèmes d’ordre 1. Plus généralement, un système
+d’équations différentielles d’ordre quelconque se ramène toujours de cette manière à un système
+d’ordre un en dimension plus grande, dont la forme générale est
+
+                               ′
+                               α 1 (t)   = X1 (t, α1 (t), . . . , αr (t))
+                               ′
+                              
+                                α2 (t)    = X2 (t, α1 (t), . . . , αr (t))
+                              
+                                     ...
+                               ′
+                                αr (t)    = Xr (t, α1 (t), . . . , αr (t))
+
+et de manière abrégée, sous la forme
+
+(VII.1.2)                                   α′ (t) = X(t, α(t))
+
+où t 7→ α(t) = (α1 (t), . . . , αr (t)) est une fonction de classe C 1 d’un intervalle ouvert J inclus
+dans I et à valeurs dans Rr et X : I × U → Rr où U est un ouvert de Rr , est au moins continue.
+   Sous cette forme, il est clair que l’on peut remplacer Rr par un espace de Banach quelconque
+dans la formulation du problème.
+    Nous allons adopter un langage géométrique pour parler d’une équation différentielle de la
+forme (VII.1.2), celui des champs de vecteurs, des courbes intégrales, et des flots. Une équation
+différentielle comme (VII.1.2) est donné par le champ de vecteurs X, et une une courbe intégrale
+du champ de vecteurs est une solution de cette équation différentielle.
+
+                                                   127

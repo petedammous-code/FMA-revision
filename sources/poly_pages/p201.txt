@@ -1,0 +1,68 @@
+198                                         ANNEXE A. SUJETS D’EXAMEN ET PROBLÈMES
+
+       Sinon, 2zw ∈ Λ, et alors zw ∈ { ω21 , ω22 , ω1 +ω
+                                                      2 } + Λ. Dans ce cas, zw est également zéro de ℘
+                                                        2                                             ′
+
+       par ce qui précède, c’est-à-dire que zw est zéro au moins double de f , et m(zw ) ≥ 2. Par
+       (1), on a en fait m(zw ) = 2, et Zz0 = {zw } ; on a donc bien aussi
+
+                                  {℘ = w} = {zw } + Λ = {zw , −zw } + Λ.
+
+
+      Exercice 3.
+                       n
+  1. (a) Soit x ∈ B . Pour trouver un point de ∆x sur la sphère Sn−1 , on cherche t ≥ 0 tel que
+
+                                            ∥f (x) + t(x − f (x))∥2 = 1.
+
+            En développant, on trouve
+
+            (2)             t2 ∥x − f (x)∥2 + 2t⟨f (x), x − f (x)⟩ + (∥f (x)∥2 − 1) = 0.
+
+            On obtient une équation du second degré en t, de discriminant
+
+                            δ(x) = 4⟨f (x), x − f (x)⟩2 + 4∥x − f (x)∥2 (1 − ∥f (x)∥2 ).
+
+            Comme ∥f (x)∥ ≤ 1, tous les termes ci-dessus sont positifs, donc δ(x) ≥ 0. De plus
+            δ(x) = 0 entraîne que ∥f (x)∥ = 1, i.e., f (x) ∈ Sn−1 (car ∥x − f (x)∥2 (1 − ∥f (x)∥2 ) = 0
+            et f (x) ̸= x car f est sans point fixe) ainsi que ⟨f (x), x−f (x)⟩ = 0, i.e., f (x) et x−f (x)
+            sont orthogonaux ; mais c’est impossible, car l’unique droite du faisceau issu de f (x)
+            qui soit perpendiculaire au rayon [0, f (x)] est la tangente à Sn−1 en f (x) ; or x et f (x)
+                                               n
+            sont deux points distincts de B . On peut le voir également grâce à Cauchy-Schwarz ;
+            en effet, ∥f (x)∥ = 1 et ⟨f (x), x − f (x)⟩ = 0 entraînent que ⟨f (x), x⟩ = 1, ce qui
+            réalise le cas d’égalité dans Cauchy-Schwarz (car ∥x∥ ≤ 1 et ∥f (x)∥ = 1), c’est-à-dire
+            x = λf (x) ; de plus, ⟨f (x), x⟩ = 1 entraîne que λ = 1, i.e., f (x) = x, ce qui est absurde.
+            On déduit que δ(x) > 0, et alors (2) a deux solutions distinctes λ− (x) < λ+ (x).
+                                                       ∥f (x)∥2 −1
+            De plus, le produit des racines vaut ∥x−f        (x)∥2
+                                                                   ≤ 0, donc λ− (x) ≤ 0 ≤ λ+ (x) ; et si
+            ∥f (x)∥ = 1, alors ⟨f (x), x⟩ < 1 (cas d’égalité de Cauchy-Schwarz exclu ci-dessus)
+            donne λ− (x) + λ+ (x) > 0, donc λ+ (x) > 0. On déduit que
+                                                                                     p
+                                                               −2⟨f (x), x − f (x)⟩ + δ(x)
+              φ(x) = f (x) + λ+ (x)(x − f (x)) = f (x) +                                      (x − f (x)).
+                                                                      2∥x − f (x)∥2
+                                     1                                                      1
+                      √ de classe C , et par 1l’expression de δ ci-dessus, δ est de classe C , et comme
+            Comme f est
+            δ|B n > 0, δ|B n est de classe C aussi, par composition. D’autre part, ∥id − f ∥ > 0,
+            donc l’expression de φ trouvée ci-dessus entraîne que φ est bien de classe C 1 .
+                                                                                                    n
+        (b) Enfin, par contruction, φ prend ses valeurs dans Sn−1 , donc pour tout x ∈ B , on
+            obtient par différentiation :
+
+                                         ⟨φ(x), dφ(x)v⟩ = 0,      ∀ v ∈ Rn ,
+
+         i.e., dφ(x) prend ses valeurs dans l’hyperplan (vectoriel) orthogonal à φ(x). En parti-
+         culier, dφ(x) n’est pas surjective, donc det dφ(x) = 0.
+  2. (a) Supposons que pour un certain t ∈ [0, 1], il existe y =
+                                                               ̸ x tels que φt (x) = φt (y) ; alors
+
+                                        (1 − t)(y − x) = −t(φ(y) − φ(x)).
+
+            Par ailleurs, φ est M -lipschitzienne, avec M := supx∈B n |||dφ(x)|||, et donc l’égalité
+            précédente entraîne que
+
+                                 (1 − t)∥y − x∥ = t∥φ(y) − φ(x)∥ ≤ tM ∥y − x∥.

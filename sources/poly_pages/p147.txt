@@ -1,0 +1,58 @@
+144                                                CHAPITRE VIII. CALCUL DES VARIATIONS
+
+   3. Soit B : [0; 1] → V une fonction continue telle que pour toute fonction h ∈ C 1 ([0; 1]; V )
+      vérifiant h(0) = h(1) = 0, on a
+                                       Z 1
+                                           ⟨B(t), h′ (t)⟩ dt = 0.
+                                             0
+
+      Montrer que B est constante (Lemme de du Bois-Reymond).
+   4. Soit A, B : [0; 1] → V des fonctions continues telles que pour toute fonction h ∈ C 1 ([0; 1]; V )
+      vérifiant h(0) = h(1) = 0, on a
+                                Z 1
+                                     ⟨A(t), h(t)⟩ + ⟨B(t), h′ (t)⟩ dt = 0.
+                                                                  
+                                   0
+
+      Montrer que B est différentiable et B ′ = A.
+   5. Montrer que si γ est un point critique de la restriction de L̂ à Ea,b , alors on a pour tout
+      t ∈ [0; 1],
+                                                       
+                            d       ∂L             ′       ∂L
+      (E.L)                    t 7→     (t, γ(t), γ (t)) =    (t, γ(t), γ ′ (t)).
+                           dt       ∂v                     ∂q
+   6. Montrer que si L ne dépend pas de la première variable u et que γ est une solution de
+      l’équation d’Euler-Lagrange de classe C 2 , alors la fonction
+                                       ∂L
+                              H(t) =      (γ(t), γ ′ (t)) · γ ′ (t) − L(γ(t), γ ′ (t))
+                                       ∂v
+      est constante.
+   7. On suppose ici V = Rn muni du produit scalaire usuel et de la norme qui en découle.
+      On suppose que L = T − U , où T ne dépend que de v, T (v) = 12 ∥v∥2 (on reconnaît
+      l’énergie cinétique), et U ne dépend que de q (c’est un « potentiel »). Montrer que l’équation
+      d’Euler-Lagrange (E.L) se réduit alors à l’équation de Newton
+
+                                             γ ′′ (t) = −∇U (γ(t)),
+
+      où ∇U désigne le gradient de U .
+    On voudrait tout d’abord reformuler les résultats ci-dessus dans le cas où le Lagrangien L
+n’est pas défini sur I × V × V , mais sur une partie de la forme I × U1 × U2 , où U1 et U2 sont des
+ouverts de V . Par exemple, avec les notations de la question 7, on voudrait autoriser un potentiel
+           1
+U (q) = − ∥q∥ défini seulement sur V \ {0}.
+    On impose donc aux courbes γ ∈ E de vérifier : pour tout t ∈ [0; 1], γ(t) ∈ U1 , γ ′ (t) ∈ U2
+(les courbes restent confinées dans U1 , et leurs vecteurs tangents dans U2 ). Notons E(U1 , U2 )
+(respectivement Ea,b (U1 , U2 )) l’ensemble des γ ∈ E (respectivement γ ∈ Ea,b ) vérifiant ces
+conditions. Commençons par une question préliminaire de topologie.
+   8. Soient K et U respectivement un compact et un ouvert d’un espace métrique X (on note d
+      la distance). On suppose K ⊂ U. Pour tout ϵ > 0, on note
+                                              [
+                                        Kϵ =      B(x, ϵ).
+                                                     x∈K
+
+      C’est l’ensemble des points à distance plus petite que ϵ de K. On veut montrer que pour ϵ
+      assez petit, on a Kϵ ⊂ U. Introduisons le complémentaire F de U dans X, que l’on suppose
+      non vide (le cas U = X étant trivial). Montrer en raisonnant par l’absurde que l’inf de la
+      fonction
+                                   d : K × F → R, (x, y) 7→ d(x, y)
+      est strictement positif et conclure.

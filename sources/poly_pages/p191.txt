@@ -1,0 +1,65 @@
+188                                              ANNEXE A. SUJETS D’EXAMEN ET PROBLÈMES
+
+      Corrigé
+    A1. Ω est ouvert donc voisinage de z0 , et donc il existe r1 > 0 tel que D̄(z0 , r1 ) ⊂ Ω. D’après
+le principe des zéros isolés appliqué à f (z) − f (z0 ), il existe r2 tel que si z ∈ D̄(z0 , r2 ), et si
+f (z) = f (z0 ), alors z = z0 . On prend r = inf(r1 , r2 ).
+    A2. Par hypothèse αn ∈/ f (Ω) donc le dénominateur ne s’annule pas sur Ω, et les gn sont bien
+définies sur Ω et holomorphe. D’après le principe du maximum,
+
+                                                sup |gn | = sup |gn |
+                                            D̄(z0 ,r)      C(z0 ,r)
+
+et par compacité du cercle, ce dernier sup est atteint sur le cercle, disons en un point zn , ce qui
+donne bien
+                                                 1                1
+                       (∀z ∈ D̄(z0 , r)),               ≤                 .
+                                            f (z) − αn      f (zn ) − αn
+   A3. par compacité du cercle, la fonction |f (z) − f (z0 )| atteint sa borne inférieure sur le cercle
+C(z0 , r), et celle-ci est strictement positive par le choix de r au (1). Il existe donc ϵ > 0 avec la
+propriété voulue. Pour n assez grand, |f (z0 ) − αn | ≤ ϵ/2 et donc
+
+|f (zn ) − αn | = |(f (zn ) − f (z0 )) + (f (z0 ) − αn )| ≥ |f (zn ) − f (z0 )| − |f (z0 ) − αn )| ≥ ϵ − ϵ/2 = ϵ/2.
+
+L’inégalité du (2) donne alors
+
+                                            1              1       2
+                                                   ≤              ≤ .
+                                      f (z0 ) − αn   f (zn ) − αn  ϵ
+
+Ceci contredit le fait que αn tend vers f (z0 ).
+    B1. Soit z un point dans cette intersection. Il existe alors une suite de points xn de Ω, n ∈ N
+telle que f (xn ) converge vers z. Par compacité de Ω̄, on peut quitte à extraire une sous-suite,
+supposer que xn converge vers un point x dans Ω̄. Par continuité, on a f (x) = z. D’autre
+part, z ∈
+        / f (Ω), car f (Ω) est un ouvert par hypothèse, et donc ∂(f (Ω)) = f (Ω) \ f (Ω). Donc
+x ∈/ Ω, et x ∈ Ω̄ \ Ω = ∂Ω. Comme m = d(f (∂Ω), f (a)) ≤ d(f (x), f (a)), on en déduit que
+z = f (x) ∈
+          / D(f (a), m). Ainsi D(f (a), m) ∩ ∂(f (Ω)) = ∅.
+   B2. Le plan complexe C est réunion disjointe de f (Ω), C \ f (Ω) et ∂(f (Ω)). D’après la question
+précédente, le disque D(f (a), m) est réunion disjointe des ouverts
+
+                           D(f (a), m) ∩ f (Ω) et         D(f (a), m) ∩ (C \ f (Ω)).
+
+Comme D(f (a), m) est connexe, l’un de ces ouverts est vide, et cela ne peut être que le second
+car le premier contient f (a). On a donc D(f (a), m) ⊂ f (Ω).
+
+      Notons la conséquence suivante des parties A et B :
+   (*) Soit f une fonction continue sur Ω̄, holomorphe sur Ω. Supposons Ω connexe, borné, et
+supposons aussi qu’il existe a ∈ Ω tel que m := d(f (∂Ω), f (a)) > 0. Alors f (Ω) contient le disque
+D(f (a), m).
+
+      C1. On applique la formule de Cauchy (à f ′ , tz et 0 ) :
+
+
+                                     f ′ (ω)   f ′ (ω)      supC(0,R) |f ′ |             ω − (ω − tz)
+                             Z                                                   Z
+      ′       ′      1
+ |f (tz) − f (0)| =                          −         dω ≤                                           |dω|
+                    2iπ       C(0,R) ω − tz       ω             2π                C(0,R)  (ω − tz)ω
+
+             (supC(0,R) |f ′ |) × t × |z|                           (supC(0,R) |f ′ |) × t × |z|
+                                            Z
+                                                       1
+           ≤                                                 |dω| ≤
+                        2π                  C(0,R) (ω − tz)ω                 R − |z|

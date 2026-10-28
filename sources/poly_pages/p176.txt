@@ -1,0 +1,56 @@
+IX.8. EQUATIONS DIFFÉRENTIELLES SUR LES SOUS-VARIÉTÉS                                              173
+
+
+           H(q, p) = c définit bien une sous-variété). En mécanique classique, H est le hamiltonien
+           d’un système, q étant la position et p l’impulsion et le résultat nous dit que l’énergie
+           est conservée au cours du temps.
+        3. L’équation différentielle
+                                             M ′ (t) = Ω(t) ∧ M (t),
+           où Ω et M sont dans R3 , décrit le mouvement libre d’un solide de moment cinétique
+           M et de vitesse angulaire Ω. On a
+                                     
+                       d 1
+                            ∥M (t)∥ = ⟨M ′ (t), M (t)⟩ = ⟨Ω(t) ∧ M (t), M (t)⟩ = 0.
+                                    2
+                      dt 2
+
+           On en déduit que la norme du moment cinétique est préservée.
+
+
+
+    On aimerait maintenant obtenir un énoncé « intrinsèque » à la sous-variété S . Pour cela,
+introduisons les notions de champ de vecteurs tangents à une sous-variété dépendant du temps,
+de courbe intégrale sur une sous-variété et de flot sur une sous-variété.
+
+     Définition IX.8.3
+   On appelle champ de vecteurs tangents dépendant du temps sur une sous-variété
+   S de RN une application continue
+
+                                         X : I × S −→ RN ,
+
+   où I est un intervalle ouvert et où pour tout t ∈ I et pour tout x ∈ S , X(t, x) ∈ Tx S . On
+   appelle courbe intégrale de classe C p , du champ de vecteurs X une courbe paramétrée
+   α : J → S de classe C p définie sur un intervalle ouvert J de R contenu dans I, telle que
+   pour tout t ∈ J, α′ (t) = X(t, α(t)). Cette courbe intégrale est dite de condition initiale
+   (t0 , x) ∈ I × S si α(t0 ) = x.
+   On appelle flot local de X en (τ0 , x0 ) ∈ I × S la donnée d’un voisinage ouvert U de x0
+   dans S , d’un intervalle ouvert J contenu dans I et contenant τ0 , d’un ϵ > 0 tels que pour
+   tout t0 ∈ J, pour tout x ∈ U, il existe une unique courbe intégrale αt0 ,x de X de condition
+   initiale (t0 , x) définie sur ]t0 − ϵ, t0 + ϵ[. On note alors
+
+                          E = E(J, ϵ) = {(t0 , t) ∈ J × R | t ∈]t0 − ϵ, t0 + ϵ[}
+
+   et
+                              F : E ×U → S,           (t0 , t, x) 7→ αt0 ,x (t).
+   On note (E(J, ϵ), U, F ) ce flot local.
+
+
+   Remarque IX.8.4 — Comme dans la remarque VII.2.6, un cas important est celui où le
+   champ de vecteurs tangents X ne dépend pas du temps. Dans la définition ci-dessus, il n’y
+   a alors pas la contrainte que l’intervalle J dans le domaine de définition du flot local soit
+   contenu dans un intervalle prescrit I, ou en d’autre termes, on peut prendre I = R.
+
+
+    On obtient alors le théorème d’existence et d’unicité locale suivant, en utilisant les paramétrages
+locaux pour se ramener au théorème VII.2.12. Nous laissons les détails de la démonstration au
+lecteur qui pourra s’inspirer de la démonstration de la proposition IX.8.1.

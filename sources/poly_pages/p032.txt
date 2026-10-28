@@ -1,0 +1,66 @@
+I.12. PROPRIÉTÉ DE LA MOYENNE ET PRINCIPE DU MAXIMUM.                                               29
+
+                                    2
+le produit hermitien de L2 (R, e−x dx) à toutes les fonctions polynômes, alors c’est la fonction
+nulle.
+   Soit f une telle fonction. Définissons
+                                                    Z
+                                                                        2
+                                    F (z) :=              f (x) ezx e−x dx.
+                                                      R
+
+Nous laissons au lecteur le soin de vérifier la convergence de cette intégrale pour tout z. Les
+résultats de la section I.9 nous permettent d’affirmer sans trop de peine que F est une fonction
+holomorphe sur C. De plus la dérivée n-ième au sens complexe de la fonction F est donnée par
+                                          Z
+                                                              2
+                                   (n)
+                                 F (z) =      xn f (x) ezx e−x dx,
+                                                      R
+
+et par conséquent                                     Z
+                                                                         2
+                                   F    (n)
+                                              (0) =           xn f (x) e−x dx.
+                                                          R
+
+Par hypothèse F (n) (0) = 0 pour tout n ∈ N. On en déduit que F est identiquement nulle sur C.
+En particulier                                  Z
+                                                                   2
+                                F (−iξ) =             f (x) e−x e−iξx dx = 0,
+                                                 R
+                                                                                 2
+pour tout ξ ∈ R. Autrement dit, la transformée de Fourier de x 7→ f (x) e−x est nulle. On conclut
+que f = 0, ce qui termine la démonstration. Nous laissons le soin au lecteur d’adapter cette
+démonstration pour démontrer la deuxième assertion.
+
+
+I.12     Propriété de la moyenne et principe du maximum.
+
+
+    Le point de départ est la formule de la moyenne, obtenue au corollaire I.6.2 comme conséquence
+immédiate de la formule intégrale de Cauchy : c’est une propriété assez surprenante dont jouissent
+les fonctions holomorphes, puisqu’elle dit que la valeur d’une fonction holomorphe en un point
+z est égale à la moyenne de cette fonction sur tout cercle centré en z. Rappelons-la : si f est
+holomorphe sur Ω et si le disque fermé D̄(z, r), r > 0, est contenu dans Ω, alors
+                                              Z 2π
+                                            1
+(I.12.1)                          f (z) =          f (z + r eiθ ) dθ.
+                                           2π 0
+
+   On en déduit immédiatement le cas particulier suivant des estimées de Cauchy :
+
+                                     |f (z)| ≤ max |f (z + r eiθ )|.
+                                                        θ∈R
+
+Il n’y a pour l’instant rien de nouveau, mais nous allons voir que l’on dispose en fait d’énoncés
+beaucoup plus généraux qui constituent un point important de la théorie.
+
+     Théorème I.12.1 — Principe du maximum (Riemann 1851)
+   Soit f une fonction holomorphe sur un ouvert connexe Ω. On suppose que la fonction
+   z 7→ |f (z)| admet un maximum local en z0 ∈ Ω alors f est constante sur Ω.
+
+
+Démonstration. Supposons que |f | ait un maximum local en z0 ∈ Ω, i.e. qu’il existe R > 0 tel
+que le disque fermé D̄(z0 , R) soit contenu dans Ω et que |f (z)| ≤ |f (z0 )| pour tout z ∈ D̄(z0 , R).
+On va montrer qu’il existe un voisinage de z0 , où f est constante. L’ouvert Ω étant connexe, le

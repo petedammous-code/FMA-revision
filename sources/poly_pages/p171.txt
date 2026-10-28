@@ -1,0 +1,56 @@
+168                                                            CHAPITRE IX. SOUS-VARIÉTÉS
+
+      Théorème IX.7.31
+   Soit S une sous-variété de dimension m de RN et soit f : S → R une fonction différentiable
+   de S à valeurs réelles. Si p est un point d’extremum local de f , alors dfp = 0 sur Tp S .
+
+
+   On introduit donc pour les fonctions différentiables définies sur des sous-variétés la notion de
+point critique, comme en calcul différentiel usuel.
+
+      Définition IX.7.32
+   Soient S1 et S2 deux sous-variétés (respectivement de RN1 et RN2 ), et soit
+
+                                           φ : S1 → S2
+
+   une application différentiable. Si, en un point p ∈ S1 , la différentielle
+
+                                     dφp : Tp S1 −→ Tφ(p) S2
+
+   n’est pas surjective, on dit que p est un point critique de φ.
+   Dans le cas d’une fonction différentiable f : S → R d’une sous-variété S de RN ,
+   remarquons que p ∈ S est un point critique de f si et seulement si dfp s’annule.
+   On définit de même comme dans la définition IX.1.3 les points réguliers, valeurs
+   critiques et valeurs régulières.
+
+
+
+   Exemple IX.7.33 — Dans le contexte ci-dessus, supposons que f soit la restriction à S
+   d’une fonction différentiable g définie sur un ouvert U de RN contenant S . Alors p ∈ S
+   est un point critique de f si et seulement si dgp (Tp S ) = 0, autrement dit Tp S ⊂ ker dgp .
+
+
+   Exemple IX.7.34 — Si x : U → S est un paramétrage local de S en p, p est un point
+   critique de f si et seulement si d(f ◦ x)q = 0, où q = x−1 (p).
+
+
+
+      Proposition IX.7.35
+   Soit F : V → RN −m une application de classe C k définie sur un ouvert V de RN dont 0
+   est valeur régulière et soit S la sous-variété de dimension m de RN définie par
+
+                                     S = {x ∈ V | F (x) = 0}.
+
+   Soit g : V → R une fonction différentiable définie sur V et soit f la restriction de g à
+   S . Posons F (x) = (F1 (x), . . . , FN −m (x)). Alors un point p ∈ S est point critique de f ,
+   c’est-à-dire dfp = 0, si et seulement s’il existe des réels w1 , . . . , wN −m tels que
+
+                            dgp = w1 d(F1 )p + . . . + wN −m d(FN −m )p .
+
+   Les composantes du vecteur w = (w1 , . . . , wN −m ) s’appellent les multiplicateurs de
+   Lagrange.
+
+
+Démonstration. L’espace tangent à S en p est ker dFp (Proposition IX.7.13). Le point p est donc
+un point critique de f si et seulement si
+                                         ker dFp ⊂ ker dgp ,

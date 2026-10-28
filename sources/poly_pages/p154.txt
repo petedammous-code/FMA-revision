@@ -1,0 +1,49 @@
+IX.3. AUTRE DÉFINITION DES SOUS-VARIÉTÉS                                                      151
+
+
+
+
+                                     Le folium de Descartes
+
+
+
+   Remarque IX.2.16 — On ne suppose pas qu’une sous-variété est connexe. Toute composante
+   connexe de S est encore une sous-variété de RN de même classe de régularité et de même
+   dimension.
+
+
+
+   Remarque IX.2.17 — On ne suppose pas qu’une sous-variété de RN soit fermée dans RN .
+   Par exemple, dans R2 , la spirale définie par le paramétrage
+
+                              x : R → R2 ,   s 7→ (es cos s, es sin s)
+
+   a dans son adhérence le point (0, 0) qui n’est pas un point de la sous-variété. Comme autre
+   exemple, on peut citer celui d’une droite privée d’un point.
+
+
+IX.3     Autre définition des sous-variétés
+
+
+    On trouve souvent dans la littérature une autre définition des sous-variétés de dimension m
+dans RN , qui exprime le fait que localement une telle sous-variété est « à difféomorphisme près »
+l’inclusion d’un ouvert d’un sous-espace de dimension m.
+
+     Proposition IX.3.1
+   Soient m ∈ N et k ∈ N× ∪ {∞} et S une partie de RN . Alors S est une sous-variété de
+   dimension m de classe C k si et seulement si pour tout p ∈ S , il existe un voisinage ouvert
+   V ′ de p dans RN , un ouvert W dans RN et un C k -difféomorphisme Φ : V ′ → W tels que
+
+                                 Φ(V ′ ∩ S ) = (Rm × {0}) ∩ W.
+
+
+Démonstration. Supposons que S soit une sous-variété et soient p un point de S et x : U ⊂
+     ∼
+Rm −→ S ∩ V un paramétrage local de S en p, avec les notations de la définition IX.2.1. Posons
+q = x−1 (p). Soit H un supplémentaire de l’image de dxq dans RN ,
+
+                                      RN = dxq (Rm ) ⊕ H.
+
+C’est un sous-espace de dimension N − m de RN . Choisissons un isomorphisme linéaire
+
+                                        φ : RN −m → H.

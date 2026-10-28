@@ -1,0 +1,69 @@
+III.1. UN THÉORÈME DE WEIERSTRASS                                                                    61
+
+Pour tout n ≥ 1, on trouve donc
+
+                                                             fn (ζ) − f (ζ)
+                          Z                        Z
+                       1           f (ζ)        1
+             fn (z) −                    dζ =                               dζ
+                      2iπ C(z0 ,r) ζ − z       2iπ C(z0 ,r)      ζ −z
+                                                   r
+                                            ≤               · sup |fn (ζ) − f (ζ)|.
+                                              r − |z − z0 | |ζ−z0 |=r
+
+Puisque (fn )n∈N converge uniformément vers f sur C(z0 , r), on trouve
+                                                   Z
+                                                 1           f (ζ)
+                           f (z) = lim fn (z) =                    dζ.
+                                  n→∞           2iπ C(z0 ,r) ζ − z
+Ceci étant vrai pour tout z ∈ D(z0 , r), f est bien holomorphe sur D(z0 , r).
+    Montrons maintenant le second point. D’après la formule de Cauchy, si z0 ∈ Ω et r > 0
+satisfont D(z0 , r) ⊂ Ω, alors
+                                                      (k)
+          f (k) (z)
+                         Z                                       Z
+                       1              f (ζ)          fn (z)    1              fn (ζ)
+                    =                      k+1
+                                               dζ et        =                         dζ,
+             k!       2iπ C(z0 ,r) (ζ − z)             k!     2iπ C(z0 ,r) (ζ − z)k+1
+pour tout z ∈ D(z0 , r) et tout k ≥ 0. Fixons k ≥ 0. On déduit de ce qui précède que pour tout
+z ∈ D(z0 , r/2), on a
+
+                                         f (ζ) − fn (ζ)      k!2k+1
+                                 Z
+         (k)        (k)       k!
+       |f (z) − fn (z)| =                               dζ ≤        sup |f (ζ) − fn (ζ)|.
+                              2π C(z0 ,r) (ζ − z)k+1           rk |ζ−z0 |=r
+                                                                       (k)
+On vient de prouver que, dès lors que D(z0 , r) ⊂ Ω, la suite (fn )n∈N converge uniformément
+vers f (k) sur D(z0 , r/2). Autrement dit, elle converge localement uniformément vers f (k) , ce qui
+est l’assertion voulue.
+
+
+      On obtient, en utilisant des arguments semblables, le :
+
+       Théorème III.1.5
+   Soit                                               X
+                                               f :=         fn ,
+                                                      n≥0
+
+   une série de fonctions holomorphes sur Ω, qui converge localement normalement (uniformé-
+   ment). Alors,                               X
+                                          g :=     fn′ ,
+                                                      n≥0
+
+   la série des dérivées complexes, converge localement normalement (uniformément) et f est
+   une fonction holomorphe dont la dérivée est donnée par g.
+                                              X
+      On rappelle qu’une série de fonctions         fn converge normalement sur un ouvert U si la série
+                                              n≥0
+X
+      ∥fn ∥∞, U converge (i.e. elle converge normalement pour la norme de la convergence uniforme
+n≥0
+                                                                    X
+∥h∥∞, U = supz∈U |h(z)| ) et l’on dit que la série de fonctions           fn converge uniformément si la
+                                                                    n≥0
+       Xn
+suite (   fj )n≥0 converge uniformément. Bien entendu la convergence normale d’une série de
+         j=0
+fonction entraîne la convergence uniforme de cette série.

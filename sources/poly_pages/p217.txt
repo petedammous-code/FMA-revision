@@ -1,0 +1,81 @@
+214                                               ANNEXE A. SUJETS D’EXAMEN ET PROBLÈMES
+
+      Correction.
+
+      Exercice 1.
+                                  e    iz
+    1. La fonction z 7→ f (z) = 1+z+z 2 est le quotient d’une fonction entière par un polynôme non
+
+nul, donc une fonction méromorphe sur C. Ses pôles sont les racines de 1 + z + z 2 , c’est-à-dire
+      2iπ         −2iπ
+j = e 3 et j̄ = e 3 . On a
+                                                                                       √
+                                                                                           3
+                                                                  e− 2    cos( 12 ) − i sin( 12 )
+                                                                                                 
+                                                 eiz      eij
+             Resj (f ) = lim (z − j)f (z) = lim        =        =               √                   .
+                         z→j                z→j z − j̄   j − j̄              i 3
+                                                                      √
+                                                                        3
+                                                                    −e 2 cos( 12 ) − i sin( 21 )
+                                                                                                  
+                                                    eiz      eij̄
+             Resj̄ (f ) = lim (z − j̄)f (z) = lim        =        =             √                   .
+                          z→j̄                z→j̄ z − j   j̄ − j            i 3
+      2. L’intégrale cherchée est partie réelle de la limite lorsque R → +∞ de
+                                                Z +R
+                                                          eit
+                                       I(R) =                  2
+                                                                 dt
+                                                 −R 1 + t + t
+
+Calculons en utilisant la formule des résidus
+                                                            Z
+                                                J(R) =               f (z) dz
+                                                                γR
+
+où γR est la concaténation des chemins
+
+                                                 t 7→ t, t ∈ [−R, R]
+                                                 t 7→ Reit , t ∈ [0, π]
+
+
+    On suppose R grand, plus grand que 1. On a Indj̄ (γR ) = 0 et Indj (γR ) = 1. La formule des
+résidus donne donc
+                                    J(R) = 2iπResj (f )
+
+      D’où                                             √
+                                                        3
+                                                 2πe− 2         cos( 12 ) − i sin( 21 )
+                                                                                        
+                                    J(R) =                        √                       .
+                                                                      3
+D’autre part J(R) = I(R) + K(R) avec
+                                                    Z π               it
+                                                            eiRe Rieit dt
+                                       K(R) =
+                                                      0   1 + Reit + R2 ei2t
+Comme
+                                         it
+                                   |eiRe | = e−R sin t ≤ 1 pour t ∈ [0, π],
+On peut majorer
+               Z π                                        Z π
+                                R dt             1                           dt            1      π
+     |K(R)| ≤                                  ≤                                         ≤                →0
+                     0   |1 + Reit + R2 ei2t |   R          0     | R21e2it + Re1it + 1|   R 1 − R12 − R1
+
+lorsque R tend vers +∞.
+                                                                                     √
+                                                                                      3
+                                                         2πe− 2 (cos( 12 )−i sin( 12 ))
+      Ainsi la limite lorsque R tend vers +∞ de I(R) est           √
+                                                                     3
+                                                                                        et en prenant la
+partie réelle, on obtient                                                    √
+                                                                              3
+                                                              2πe− 2 cos( 12 )
+                                   Z +∞
+                                                 cos t
+                                                         dt =      √           .
+                                    −∞        1 + t + t2             3

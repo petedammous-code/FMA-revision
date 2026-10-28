@@ -1,0 +1,58 @@
+V.3. APPLICATIONS DIFFÉRENTIABLES, DIFFÉRENTIELLE                                                   101
+
+V.3.3     Fonctions à valeurs dans un produit d’espaces vectoriels normés
+   Soient E, F1 , . . . Fn des espaces vectoriels normés. On munit F = F1 × · · · × Fn de la norme
+
+                              ∥(x1 , . . . , xn )∥F = ∥x1 ∥F1 + · · · + ∥xn ∥Fn
+
+qui donne la topologie produit. On considère pour chaque indice i = 1, . . . , n, la projection
+canonique
+                              pi : F → Fi , (x1 , . . . , xn ) 7→ xi
+et l’injection canonique
+                                ιi : Fi → F,        xi 7→ (0, . . . , xi , . . . , 0)
+(des 0 partout sauf à la i-ème place). Ce sont des applications linéaires continues.
+   On a alors
+                                                           n
+                                                           X
+(V.3.2)                          pi ◦ ιi = IdFi ,                 ιi ◦ pi = IdF .
+                                                            i=1
+
+   On en déduit le résultat suivant.
+
+     Proposition V.3.15
+   Soient E, F1 , . . . Fn des espaces vectoriels normés. Soit f : U → F = F1 × · · · × Fn une
+   application, où U est un ouvert de l’espace E. Pour que f soit différentiable au point a ∈ U,
+   il faut et il suffit que pour tout i, fi := pi ◦ f soit différentiable au point a, et l’on a alors
+                                                    n
+                                                    X
+                                           dfa =           ιi ◦ (dfi )a .
+                                                     i=1
+
+
+
+Démonstration. Si f est différentiable en a, les fi = pi ◦ f le sont aussi d’après le théorème de
+composition des différentielles et le fait que les pi sont linéaires. La formule de composition des
+différentielles donne
+                                           (dfi )a = pi ◦ dfa .
+
+   Réciproquement, si l’on suppose toutes les fi différentiables en a, on obtient de (V.3.2) que
+                                           n
+                                           X                      n
+                                                                  X
+                                    f=           ιi ◦ p i ◦ f =          ιi ◦ f i .
+                                           i=1                     i=1
+
+La fonction f est donc différentiable en a, sa différentielle en a étant bien
+                                                     n
+                                                     X
+                                            dfa =          ιi ◦ (dfi )a
+                                                     i=1
+
+d’après la formule de composition des différentielles.
+
+   Exemple V.3.16 : Formule de Leibniz — Soient E, F1 , F2 et G des espaces vectoriels
+   normés, U un ouvert de E, et
+
+                           f1 : U → F1 ,     f2 : U → F2 ,           b : F 1 × F2 → G
+
+   où b est bilinéaire continue. On définit g : U → G par g(x) = b(f1 (x), f2 (x)). Supposons

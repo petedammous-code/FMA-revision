@@ -1,0 +1,58 @@
+II.5. LA FORMULE DES RÉSIDUS                                                                         47
+
+II.5     La formule des résidus
+
+
+   Nous avons vu la formule,                 Z
+                                                   f (z) dz = 0,
+                                               γ
+
+qui est valable pour tout lacet γ ⊂ Ω pourvu que la fonction f soit holomorphe sur Ω et admette
+une primitive holomorphe F sur Ω (voir le Théorème I.5.9).
+   La formule des résidus est une vaste généralisation, à la fois de ce résultat, mais aussi de la
+formule de Cauchy, qui s’énonce comme suit :
+
+       Théorème II.5.1 — Formule des résidus (Cauchy, 1826)
+   On suppose que Ω est un ouvert simplement connexe. Soit f une fonction méromorphe sur
+   Ω. Soit γ un lacet inclus dans Ω \ P(f, Ω). Alors,
+                                Z
+                             1                 X
+                                  f (z) dz =         ress (f ) Inds (γ).
+                            2iπ γ
+                                                    s∈P(f,Ω)
+
+
+
+   Remarque II.5.2 — L’ensemble des pôles s ∈ P(f, Ω) tels que Inds (γ) ̸= 0 est fini. En
+   effet, notons Γ l’image de γ et V = {z ∈  / Γ ; Indz (γ) ̸= 0}. Comme Γ est compact, V
+   est borné (l’indice est nul sur la composante connexe non bornée de C \ Γ) ; comme γ est
+   homotope à un lacet constant dans Ω, l’indice est aussi nul en tout point de C \ Ω, de sorte
+   que V ⊂ Ω. Le bord de V étant contenu dans Γ, l’adhérence V̄ ⊂ V ∪ Γ est un compact de
+   Ω, qui ne contient donc qu’un nombre fini de pôles. La somme dans le terme de droite de la
+   formule est donc à support fini.
+
+
+Démonstration. Quitte à restreindre le domaine, on peut se ramener au cas où le nombre de pôles
+est fini. En effet, le lacet γ est homotope à un lacet constant, et si l’on note γ̃ une telle homotopie,
+son image est compacte. Soit K l’image dans Ω de cette homotopie. Pour tout z ∈ K, soit Dz un
+disque ouvert de centre z dont l’adhérence D̄z est incluse dans Ω. On recouvre le compact K par
+les Dz , et on en extrait un sous-recouvrement fini
+                                                       m
+                                                       [
+                                                 K⊂          D zi
+                                                       i=1
+           Sm
+Soit Ω′ = i=1 Dzi . L’homotopie γ̃ est à valeurs dans K ⊂ Ω′ : le lacet γ est donc homotope à
+un lacet constant dans Ω′ , et c’est tout ce dont nous aurons besoin (nous n’affirmons pas que
+Ω′ est simplement connexe, ce qui serait faux en général pour une réunion finie de disques). En
+particulier, d’après le corollaire II.2.2 appliqué dans Ω′ , Indz (γ) = 0 pour tout z ∈ / Ω′ , de sorte
+que les pôles de fSextérieurs à Ω′ ne contribuent pas à la somme. De plus l’adhérence de Ω′ étant
+dans le compact m   i=1 D̄zi et les pôles de f constituant une partie localement finie, il n’y a qu’un
+nombre fini de pôles de f dans Ω′ . Quitte à remplacer Ω par Ω′ , on suppose donc désormais que
+f n’a qu’un nombre fini de pôles, et l’on note S = P(f, Ω) cet ensemble fini. En pratique, si l’on
+ne veut utiliser que ce qui est complètement démontré, on peut aussi n’appliquer le théorème
+qu’à des fonctions n’ayant qu’un nombre fini de pôles dans l’ouvert Ω.
+   Écrivons le développement de Laurent de f au point s ∈ P(f, Ω)
+                                  X                                 X
+                        f (z) =          an (z − s)n = Qs (z) +           an (z − s)n ,
+                                  n≥−N                              n≥0

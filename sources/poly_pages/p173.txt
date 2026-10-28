@@ -1,0 +1,54 @@
+170                                                                  CHAPITRE IX. SOUS-VARIÉTÉS
+
+local choisi. En effet, si h : U1 → U est un difféomorphisme entre un autre ouvert U1 de Rm et U,
+le paramétrage local
+                                       x1 = x ◦ h : U1 → S1
+donne :
+                   d(f ◦ x1 )q1 = d(f ◦ x ◦ h)q1 = d(f ◦ x)h(q1 ) ◦ dhq1 ,     (q1 ∈ U1 ).
+Ainsi q1 7→ d(f ◦ x1 )q1 est obtenu comme composition de
+
+                    q1 7→ (d(f ◦ x)h(q1 ) , dhq1 ),   U1 → L(Rm ; RN2 ) × L(Rm ; Rm )
+
+et de l’application naturelle de composition (bilinéaire)
+
+                               L(Rm ; RN2 ) × L(Rm ; Rm ) → L(Rm ; RN2 ).
+
+Ceci donne avec p = x1 (q1 ) :
+
+(IX.7.2)              d2 (f ◦ x1 )q1 = d(f ◦ x)q ◦ d2 hq1 + d2 (f ◦ x)q (dhq1 , dhq1 ).
+
+Cette équation s’interprète ainsi : le membre de gauche est une application bilinéaire de Rm × Rm
+dans RN2 . Le premier terme du membre de droite est la composée de (d(dh))q1 qui est une
+application bilinéaire de Rm × Rm dans Rm et de d(f ◦ x)q qui est une application linéaire de Rm
+dans RN2 . Le second terme du membre de droite est la composée de (dhq1 , dhq1 ), une application
+linéaire de Rm × Rm dans lui-même et de d2 (f ◦ x)q , une application bilinéaire de Rm × Rm dans
+RN2 .
+      En revanche, si dfp s’annule, on a d(f ◦ x)q = dfp ◦ dxq = 0, et donc
+
+                     d2 (f ◦ x1 )q1 = d(f ◦ x)q ◦ (d2 h)q1 + d2 (f ◦ x)q (dhq1 , dhq1 )
+(IX.7.3)                            = d2 (f ◦ x)q (dhq1 , dhq1 ).
+
+Ceci permet de définir pour tout v, w ∈ Tp S ,
+
+(IX.7.4)                  d2 fp (v, w) = d2 (f ◦ x)q (d(x−1 )p (v), d(x−1 )p (w)).
+
+La formule (IX.7.3) montre que cette définition est indépendante du paramétrage, car
+
+                        d2 (f ◦ x1 )q1 (d(x1 −1 )p (v), d(x1 −1 )p (w))
+                    = d2 (f ◦ x)q (dhq1 , dhq1 )(d(h−1 ◦ x−1 )p (v), d(h−1 ◦ x−1 )p (w))
+                    = d2 (f ◦ x)q (d(x−1 )p (v), d(x−1 )p (w)).
+
+
+    Soit S une sous-variété de RN et f : S → R une fonction de classe C 2 sur S . Comme nous
+venons de le voir, on ne peut en général pas définir de différentielle seconde de f en un point p de
+S , sauf dans le cas où p est un point critique de f .
+
+       Définition IX.7.38
+   Supposons que p soit un point critique de la fonction f : S → R de classe C 2 . Posons
+   alors, quels que soient v, w ∈ Tp S ,
+
+                              d2 fp (v, w) = d2 (f ◦ x)q (dx−1       −1
+                                                            p (v), dxp (w))
+
+   où x est un paramétrage local de S en p. On a montré que cette définition est indépendante
+   du paramétrage choisi.

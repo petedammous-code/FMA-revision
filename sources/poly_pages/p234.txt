@@ -1,0 +1,49 @@
+                                                                                                 231
+
+École polytechnique         Calcul différentiel et fonctions holomorphes (FMA_41031_EP)
+Département de Mathématiques                                               Année 2024-2025
+
+
+                                  Devoir à la maison no 2
+
+   Dans tout le problème, on fixe un entier n ≥ 2 et on munit Rn de la norme euclidienne ∥ · ∥ ; on
+note L(Rn ) l’espace vectoriel des endomorphismes de Rn , muni de la norme d’opérateur associée,
+que l’on notera aussi ∥ · ∥ quand il n’y a pas d’ambiguïté.
+
+   Soit φ : Rn → Rn un difféomorphisme, et soit Λ une partie de Rn . On dit que Λ est un
+ensemble hyperbolique pour φ si les conditions suivantes sont vérifiées :
+  (i) La partie Λ de Rn est compacte et vérifie φ(Λ) = Λ ;
+ (ii) Il existe un nombre réel θ ∈]0, 1[ et pour tout élément x de Λ, il existe des sous-espaces Ex+ ,
+      Ex− de Rn tels que les propriétés suivantes soient vérifiées :
+      (α) Pour tout x ∈ Λ, on a a Rn = Ex+ ⊕ Ex− ;
+                                              +                     −
+      (β) Pour tout x ∈ Λ, on a dφx (Ex+ ) = Eφ(x) et dφx (Ex− ) = Eφ(x) ;
+      (γ) Si (x, j) ∈ Λ × N, on a ∥d(φj )x (ξ)∥ ≤ θj ∥ξ∥ pour ξ ∈ Ex+ et ∥d(φ−j )x (ξ)∥ ≤ θj ∥ξ∥
+          pour ξ ∈ Ex− .
+
+Dans la suite du problème, on fixe un difféomorphisme φ de Rn , un ensemble hyperbolique Λ
+pour φ, ainsi qu’un nombre réel θ et des familles (Ex+ )x∈Λ , (Ex− )x∈Λ vérifiant les conditions
+ci-dessus.
+
+
+  1. Pour tout x ∈ Λ, notons Px+ (resp. Px− ) le projecteur de Rn d’image Ex+ et de noyau Ex−
+     (resp. d’image Ex− et de noyau Ex+ ).
+
+      (a) Soit x ∈ Λ, et soit v ∈ Rn . Vérifier que v appartient à Ex+ si et seulement si la suite
+          (d(φj )x (v))j∈N est bornée, et que v appartient à Ex− si et seulement si (d(φ−j )x (v))j∈N
+          est bornée.
+      (b) Vérifier que les applications x 7→ ∥Px+ ∥ et x 7→ ∥Px− ∥, de Λ dans R, sont bornées.
+       (c) À l’aide de la question (a), démontrer que les graphes des applications x 7→ Px+ et
+           x 7→ Px− , de Λ dans L(Rn ), sont des parties fermées de Λ × L(Rn ).
+      (d) En déduire que les applications x 7→ Px+ et x 7→ Px− sont continues.
+       (e) Pour x ∈ Λ et v ∈ Rn , soit Nx (v) = max(∥Px+ v∥, ∥Px− v∥). Montrer que pour tout
+           x ∈ Λ, l’application v 7→ Nx (v) est une norme sur Rn , et que l’on a les propriétés
+           suivantes :
+            — Pour tout x ∈ Λ et tout v ∈ Rn ,
+                             (
+                               Nφ(x) (dφx v) ≤ θNx (v)      si v ∈ Ex+ , et
+                               Nφ−1 (x) (d(φ−1 )x v) ≤ θNx (v)     si v ∈ Ex− .
+
+            — L’application x 7→ Nx est continue de Λ dans l’espace des applications continues
+              de Rn dans R, si ce dernier est muni de la topologie de la convergence uniforme
+              sur tout compact.

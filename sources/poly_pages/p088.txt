@@ -1,0 +1,58 @@
+IV.4. APPLICATIONS PHYSIQUES                                                                         85
+
+
+           La transformation w = J(z) réalise un biholomorphisme entre l’extérieur du disque
+           unité C \ D(0, 1) et l’extérieur de la plaque plane C \ [−1, 1]. Exprimer la fonction
+           réciproque z(w) sur ce domaine.
+        4. En déduire le potentiel complexe G(w) = F (z(w)) de l’écoulement autour de la plaque
+           plane [−1, 1].
+        5. Calculer le champ des vitesses complexe v(w) = G′ (w). Que se passe-t-il aux extrémités
+           de la plaque (w = ±1) si l’angle d’incidence α est non nul ?
+
+
+
+
+           Plan z (Cylindre)                                         Plan w (Plaque plane)
+
+                   ℑm                                                            ℑm
+
+
+
+
+                                             w = J(z)                                 Sout
+                                        ℜe                      v→∞                           v → ∞ ℜe
+                                                                  −1       Sin               1
+
+   ⃗0
+   V                                                            ⃗0
+                                                                V
+          α                                                            α
+
+
+
+ Figure : Transformation de l’écoulement par l’application de Joukovski. L’angle d’incidence α
+est conservé à l’infini (transformation conforme). Le fluide frappe le dessous de la plaque au point
+d’arrêt entrant Sin , se sépare pour contourner les deux arêtes, et se rejoint sur le dessus au point
+               d’arrêt sortant Sout . La vitesse diverge aux extrémités de la plaque.
+
+
+IV.4.2        Propagation de la chaleur
+
+   Une gaine rectiligne infinie a une section en couronne (non simplement connexe !) de rayons
+R− < R+ et baigne dans des calorimètres à l’intérieur comme à l’extérieur, calorimètres à
+température T − et T + . Les deux cercles définissant le bord de la section de la gaine ne sont
+pas nécessairement centrés au même point. L’équation de la chaleur qui régit la distribution de
+température s’écrit
+                                         ∂T
+                                             − ∆T = 0.
+                                          ∂t
+En régime permanent ( ∂T∂t = 0), la distribution de température T est donc une fonction harmonique
+qui vaut T + et T − sur les cercles de bord de rayons R+ et R− . La différence de deux solutions est
+une fonction harmonique nulle au bord du domaine, donc nulle à l’intérieur (c’est une conséquence
+du principe du maximum). Autrement dit, si le problème possède une solution, celle-ci est unique.
+Les fonctions harmoniques invariantes par rotation (voir l’exercice IV.4.2) sont de la forme
+
+                                          z 7→ α log |z| + β,
+
+où α et β sont des constantes. En particulier, si les deux cercles définissant le bord de la couronne
+sont tous les deux centrés à l’origine, on détermine l’expression explicite de la distribution de

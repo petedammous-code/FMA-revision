@@ -1,0 +1,1849 @@
+
+
+======== [PDF page 150 | page imprimée 147] ========
+                                                                                Chapitre      IX
+Sous-variétés
+
+   Dans tout ce qui suit, lorsqu’on parle d’une application ou d’une sous-variété de classe C k , on
+suppose que k est un entier au moins égal à 1, ou bien que k = +∞.
+
+
+IX.1     Immersions et submersions
+
+
+   Les notions d’immersion et de submersion sont au coeur de la théorie des sous-variétés.
+Rappelons rapidement les points importants.
+
+     Définition IX.1.1
+   Soit f : U → Rq une application différentiable définie sur un ouvert U de Rp . On dit que f
+   est une immersion (resp. une submersion) en a ∈ U si dfa est injective (resp. surjective)
+   de Rp dans Rq . On dit que f est une immersion (resp. une submersion) si c’est une
+   immersion (resp. une submersion) en tout point de U .
+
+
+   Le résultat qui suit est une conséquence du théorème d’inversion locale VI.3.2.
+
+     Proposition IX.1.2
+   Soit f : U → RN une application de classe C 1 définie sur un ouvert U de Rm . Soit a ∈ U
+   tel que dfa : Rm → RN soit injective. Alors il existe un voisinage ouvert U1 de a dans U
+   tel que la restriction de f à U1 soit une immersion en tout point, et de plus, f réalise un
+   homéomorphisme entre U1 et son image f (U1 ).
+
+
+Démonstration. Soit H un supplémentaire de l’image de dfa dans RN ,
+
+                                       RN = dfa (Rm ) ⊕ H.
+
+On étend f en une application F : U × H → RN en posant
+
+                                        F (q, t) = f (q) + t.
+
+La restriction de F à U × {0} coïncide avec f . D’autre part, F est différentiable, sa différentielle
+en un point (q, t) étant donnée par
+
+                         dFq,t : Rm × H −→ RN ,        (h, w) 7→ dfq (h) + w.
+
+Ainsi, il est clair que dF(a,0) est un isomorphisme de Rm × H dans RN , et le théorème d’inversion
+locale garantit l’existence d’un voisinage de (a, 0) dans U × H (que l’on peut prendre de la forme
+U1 × Y où U1 est un ouvert de U contenant a et Y un ouvert de H contenant 0) et d’un voisinage
+
+                                                147
+
+
+======== [PDF page 151 | page imprimée 148] ========
+148                                                               CHAPITRE IX. SOUS-VARIÉTÉS
+
+V de f (a) dans RN tel que F réalise un difféomorphisme entre U1 × Y et V. Ceci montre que dfq
+est injective pour tout q ∈ U1 et que f réalise un homéomorphisme de U1 ≃ U1 × {0} sur son
+image f (U1 ) = F (U1 × {0}).
+
+       Définition IX.1.3
+   Soit f : V → RN une fonction différentiable définie sur un ouvert V de Rm . Si x ∈ V
+   est tel que dfx : Rm → RN n’est pas surjective, x est appelé point critique de f et
+   a = f (x) ∈ RN est appelée valeur critique de f .
+   Si x ∈ V n’est pas un point critique, c’est un point régulier. Si a ∈ RN n’est pas une
+   valeur critique, c’est une valeur régulière. C’est en particulier le cas lorsque a n’est pas
+   dans l’image de f .
+
+
+
+  Remarque IX.1.4 — Le théorème du rang constant, démontré en exercice au chapitre
+  précédent (exercice VI.4.9), jouera un rôle dans ce qui suit : si f : U → Rm est de classe
+  C p sur un ouvert U de Rn et si dfx est de rang constant égal à r au voisinage de a, alors,
+  à des difféomorphismes près à la source et au but, f s’écrit localement (x1 , . . . , xn ) 7→
+  (x1 , . . . , xr , 0, . . . , 0). Les cas particuliers des immersions et des submersions y sont traités
+  séparément.
+
+
+IX.2        Paramétrage local. Système de coordonnées
+
+
+   Une première façon de voir les sous-variétés est celle de nappe paramétrée. Une sous-variété
+de dimension m de RN est un objet paramétré localement par des ouverts de Rm .
+
+       Définition IX.2.1
+   Soient m ∈ N et k ∈ N× ∪ {∞}. Un sous-ensemble S de RN est une sous-variété de
+   dimension m de classe C k si pour tout p ∈ S , il existe un ouvert U de Rm , un voisinage
+   ouvert V de p dans RN et une application x : U → V tels que :
+   1. l’application x est différentiable de classe C k ,
+   2. l’application x est un homéomorphisme de U sur V ∩ S ,
+   3. (condition de régularité) en tout point q ∈ U, la différentielle dxq : Rm → RN est
+   injective (autrement dit, x est une immersion).
+   L’application x est un paramétrage local de la sous-variété S en p. Son inverse x−1 :
+   V ∩ S → U, est une carte ou encore un système de coordonnées (locales) de la
+   sous-variété S en p.
+   La codimension d’une sous-variété S de dimension m de RN est N − m. Une sous-
+   variété de dimension 2 est appelée surface. Une sous-variété de codimension 1 est appelée
+   hypersurface.
+
+      Au point 2, la topologie sur S est celle induite par la topologie usuelle de RN .
+
+
+  Remarques IX.2.2 —
+  1. La condition 3 implique que m ≤ N .
+  2. Nous n’insisterons pas toujours sur les hypothèses de régularité minimales requises pour
+  définir les notions et obtenir les résultats qui suivent. Le lecteur pourra soit supposer que
+
+
+======== [PDF page 152 | page imprimée 149] ========
+IX.2. PARAMÉTRAGE LOCAL. SYSTÈME DE COORDONNÉES                                                149
+
+                                                z
+                                   x
+
+                        v
+                    U
+                                                          p
+                    q = (u, v) u           S                               y
+
+                                                     V
+                                       x
+
+                             Paramétrage local (ici m = 2, N = 3)
+
+
+
+
+ les sous-variétés considérées sont toujours lisses (i.e. k = ∞) et que toutes les applications
+ sont de classe C ∞ , soit s’il est courageux, déterminer pour quelles classes de régularité les
+ énoncés ont un sens et sont valides.
+ 3. On peut remplacer RN dans le définition ci-dessus par n’importe quel espace vectoriel
+ réel de dimension finie E.
+
+
+
+
+  Exemple IX.2.3 — Un ouvert U de RN est une sous-variété de RN . En tout point de U,
+  on peut choisir comme paramétrage local l’inclusion de U dans RN .
+
+
+  Exemple IX.2.4 — Une sous-variété de dimension 0 de RN est un ensemble discret.
+
+
+  Exemple IX.2.5 — Un sous-espace vectoriel ou affine de RN de dimension m est une
+  sous-variété.
+
+
+  Exemple IX.2.6 — Un ouvert d’une sous-variété S de RN est une sous-variété de RN (de
+  même classe de régularité et de même dimension).
+
+
+ Exemple IX.2.7 — Soient S1 et S2 des sous-variétés, respectivement de RN1 et RN2 .
+ Alors S1 × S2 est une sous-variété de RN1 × RN2 .
+
+
+  Exemple IX.2.8 — Soit S une sous-variété de RN et soit Φ un difféomorphisme de RN
+  sur lui-même. Alors Φ(S ) est encore une sous-variété
+                                            4
+                                                        de RN .
+
+
+ Exemple IX.2.9 — Soit f : U → RN une application de classe C 1 définie sur un ouvert
+ U de Rm . Soit q ∈ U tel que dfq soit injective. D’après la proposition IX.1.2, il existe un
+ voisinage ouvert U1 de q dans U tel que la restriction de f à U1 soit une immersion en tout
+ point réalisant un homéomorphisme sur son image. Ainsi S = f (U1 ) est une sous-variété
+ de RN paramétrée par f : U1 → S .
+
+
+======== [PDF page 153 | page imprimée 150] ========
+150                                                         CHAPITRE IX. SOUS-VARIÉTÉS
+
+
+  Exercice IX.2.10 — Montrer que le cercle C(a, r) de centre a et de rayon r dans R2 est
+  une sous-variété de R2 .
+
+   Nous verrons bientôt de nombreux autres exemples de sous-variétés. Voici maintenant quelques
+exemples d’ensembles qui ne sont pas des sous-variétés :
+
+  Exemple IX.2.11 — S = [0 ; +∞[. Tout voisinage ouvert connexe de 0 est de la forme
+  [0 ; a[, a > 0, qui n’est jamais homéomorphe à un ouvert connexe de Rm . C’est évident si
+  m = 0. Pour m = 1, on remarque que [0 ; a[ \ {0} est connexe, alors qu’un intervalle ouvert
+  privé d’un de ses points a deux composantes connexes. Pour m ≥ 2, [0 ; a[ \ {b} a deux
+  composantes connexes pour tout b ∈ ]0 ; a[, alors qu’un ouvert connexe de Rm privé d’un
+  de ses points reste connexe.
+
+
+  Exemple IX.2.12 — S = (R × {0}) ∪ ({0} × R). Tout voisinage connexe de (0, 0) dans
+  S est encore homéomorphe à S . Or S \ {(0, 0)} possède 4 composantes connexes, ce qui
+  montre que S ne peut être homéomorphe à un ouvert de Rm : un tel ouvert connexe privé
+  d’un point a au plus deux composantes connexes.
+
+
+  Exercice IX.2.13 — S = {(t2 , t3 ) ∈ R2 , t ∈ R}. Le point (0, 0) est un point de
+  rebroussement de première espèce. Montrer que l’on ne peut pas trouver de paramétrage
+  local en ce point qui vérifie le point 3 de la définition.
+
+
+
+
+                                        Point singulier
+
+
+
+
+  Exemple IX.2.14 — Voici un contre-exemple où le paramétrage x : t ∈ R 7→ (t3 − 4t, t2 − 4)
+  est une immersion en tout point, mais l’image n’est pas une sous-variété de R2 à cause du
+  point multiple en (0, 0).
+
+
+
+
+                                        Point multiple
+
+
+
+                                                                                  3t      3t2
+  Exemple IX.2.15 — Dans cet exemple, le paramétrage x : t ∈ ]−1 ; +∞[ 7→ ( 1+t      3 , 1+t3 )
+  est une immersion en tout point, et de plus injectif. Néanmoins, l’image n’est pas une
+  sous-variété à cause du point (0, 0) qui n’admet pas de paramétrage local satisfaisant la
+  condition 2 de la définition.
+
+
+======== [PDF page 154 | page imprimée 151] ========
+IX.3. AUTRE DÉFINITION DES SOUS-VARIÉTÉS                                                      151
+
+
+
+
+                                     Le folium de Descartes
+
+
+
+   Remarque IX.2.16 — On ne suppose pas qu’une sous-variété est connexe. Toute composante
+   connexe de S est encore une sous-variété de RN de même classe de régularité et de même
+   dimension.
+
+
+
+   Remarque IX.2.17 — On ne suppose pas qu’une sous-variété de RN soit fermée dans RN .
+   Par exemple, dans R2 , la spirale définie par le paramétrage
+
+                              x : R → R2 ,   s 7→ (es cos s, es sin s)
+
+   a dans son adhérence le point (0, 0) qui n’est pas un point de la sous-variété. Comme autre
+   exemple, on peut citer celui d’une droite privée d’un point.
+
+
+IX.3     Autre définition des sous-variétés
+
+
+    On trouve souvent dans la littérature une autre définition des sous-variétés de dimension m
+dans RN , qui exprime le fait que localement une telle sous-variété est « à difféomorphisme près »
+l’inclusion d’un ouvert d’un sous-espace de dimension m.
+
+     Proposition IX.3.1
+   Soient m ∈ N et k ∈ N× ∪ {∞} et S une partie de RN . Alors S est une sous-variété de
+   dimension m de classe C k si et seulement si pour tout p ∈ S , il existe un voisinage ouvert
+   V ′ de p dans RN , un ouvert W dans RN et un C k -difféomorphisme Φ : V ′ → W tels que
+
+                                 Φ(V ′ ∩ S ) = (Rm × {0}) ∩ W.
+
+
+Démonstration. Supposons que S soit une sous-variété et soient p un point de S et x : U ⊂
+     ∼
+Rm −→ S ∩ V un paramétrage local de S en p, avec les notations de la définition IX.2.1. Posons
+q = x−1 (p). Soit H un supplémentaire de l’image de dxq dans RN ,
+
+                                      RN = dxq (Rm ) ⊕ H.
+
+C’est un sous-espace de dimension N − m de RN . Choisissons un isomorphisme linéaire
+
+                                        φ : RN −m → H.
+
+
+======== [PDF page 155 | page imprimée 152] ========
+152                                                                       CHAPITRE IX. SOUS-VARIÉTÉS
+
+
+                                                z
+                                    x                                Ψ        z
+
+                         v
+                     U
+                                                        p                            y
+                     q = (u, v) u           S                    y                (R2 × {0}) ∩ W
+                                                                          x
+                                                    V
+                                        x
+
+
+
+
+                                    Redressement local (ici m = 2, N = 3)
+
+
+On étend x en une application F : U × RN −m → RN en posant
+                                                F (u, t) = x(u) + φ(t).
+L’application F est continûment différentiable et sa différentielle en un point (q, 0) étant donnée
+par
+                  dF(q,0) : Rm × RN −m −→ RN ,        (h, w) 7→ dxq (h) + φ(w).
+Ainsi, il est clair que dF(q,0) est une application linéaire surjective de Rm × RN −m dans RN , et
+par égalité des dimensions, c’est un isomorphisme.
+    Le théorème d’inversion locale garantit l’existence alors d’un voisinage W de (q, 0) dans
+U × RN −m (que l’on peut prendre de la forme W = U ′ × Y où U ′ est un ouvert de U contenant
+q et Y un ouvert de RN −m contenant 0) et d’un voisinage V ′ de p dans RN tel que F réalise
+un difféomorphisme entre U ′ × Y et V ′ . On peut aussi supposer que ces ouverts sont choisis
+suffisamment petits, de sorte que V ′ ⊂ V. Posons Φ = F −1 : V ′ → U ′ × Y. On a alors
+Φ(V ′ ∩ S ) = (Rm × {0}) ∩ (U ′ × Y). Ceci montre que la condition locale voulue est vérifiée en p.
+    Réciproquement, soient p un point de S , et Φ, W, V ′ comme dans l’énoncé de la proposition.
+On a donc V ′ ∩ S = Φ−1 ((Rm × {0}) ∩ W). Posons U = (Rm × {0}) ∩ W. C’est un ouvert du
+sous-espace Rm × {0} de RN . En identifiant R
+                                            5 m
+                                                × {0} et Rm , on voit U comme un ouvert de Rm
+et si x désigne la restriction de Φ à U, x : U → V ′ ∩ S est un paramétrage local de S en
+                                   −1
+
+p.
+
+
+
+IX.4      Sous-variétés définies par des équations
+
+
+    Certaines sous-variétés peuvent être définie comme l’ensemble des points de l’espace ambiant
+solutions d’une équation. Par exemple, le cercle unité dans R2 est l’ensemble des points (x, y) du
+plan tels que x2 + y 2 = 1. En revanche, l’ensemble des points (x, y) de R2 solutions de xy = 0
+n’est pas une sous-variété de R2 . La proposition suivante donne un critère sur l’équation pour
+que l’ensemble de ses solutions soit une sous-variété.
+
+      Proposition IX.4.1
+   Soient N et m deux entiers, N > m. Soit f : V → RN −m une fonction de classe C k définie
+   sur un ouvert V de RN .
+       1. Soit p ∈ V tel que dfp soit surjective. Posons a = f (p). Alors il existe un voisinage
+          ouvert V1 de p dans V tel que f −1 ({a}) ∩ V1 est une sous-variété de dimension m et
+          de classe C k de RN .
+       2. Soit a une valeur régulière de f . Alors S = f −1 ({a}) est une sous-variété de
+          dimension m et de classe C k de RN .
+
+
+======== [PDF page 156 | page imprimée 153] ========
+IX.4. SOUS-VARIÉTÉS DÉFINIES PAR DES ÉQUATIONS                                                     153
+
+
+                                                    z
+
+
+
+
+                                                                       y
+
+
+
+
+                                x
+
+
+                                                           2
+                                                    P
+                                         Sphère :       i xi = 1
+
+
+
+
+Démonstration. Soit p un point de f −1 ({a}) tel que la différentielle de f en p soit surjective.
+Soit E ⊂ RN le noyau de dfp et soit F un sous-espace supplémentaire. Comme dfp est surjective,
+d’après le théorème du rang, E est de dimension m. Il existe donc un isomorphisme linéaire φ
+entre E et Rm . Tout point de V s’écrit de manière unique sous la forme p + x + y, avec x ∈ E et
+y ∈ F . On peut donc définir
+
+                         Ψ : V → RN ,     p + x + y 7→ (φ(x), f (p + x + y))
+
+pour tout x ∈ E et tout y ∈ F tels que p + x + y ∈ V. La différentielle de Ψ en p est
+
+              dΨp (v + w) = (φ(v), dfp (v + w)) = (φ(v), dfp (w)),     (v ∈ E, w ∈ F ).
+
+    Le théorème du rang implique que la restriction de dfp à F réalise un isomorphisme entre F et
+R N −m . On voit donc que dΨp est une application linéaire surjective de RN vers Rm × RN −m , et
+donc un isomorphisme par égalité des dimensions. On applique le théorème d’inversion locale : il
+existe un ouvert V1 ⊂ V contenant p, et des ouverts U, W respectivement de Rm et RN −m , avec
+0 ∈ U et a ∈ W tels que Ψ : V1 → U ×W soit un difféomorphisme. Soit ι1 : U → U ×W, u 7→ (u, a).
+Il est clair que l’application x = Ψ−1 ◦ ι1 est différentiable,
+                                                      6         injective et que c’est une immersion. De
+plus f (x(u)) = f (Ψ−1 ((u, a))) = a car f = p2 ◦Ψ, où p2 est la projection canonique de Rm ×RN −m
+sur RN −m . Ainsi x(U) = f −1 ({a}) ∩ V1 et x est un paramétrage local de S = f −1 ({a}) ∩ V1 au
+voisinage de p.
+   Le deuxième point découle immédiatement du premier, puisque par définition d’une valeur
+régulière, dfp est surjective pour tout p ∈ S = f −1 ({a}). La construction précédente fournit un
+paramétrage local en p pour tout p ∈ S .
+
+
+   Exemple IX.4.2 — On voit facilement que la sphère Sn est une sous-variété de Rn+1 , car
+   Sn = f −1 ({1}) où f : Rn+1 \ {0} → R, f (x) = ∥x∥2 est différentiable, de différentielle
+
+                          dfx (v) = 2⟨x, v⟩, (x ∈ Rn+1 \ {0}), (v ∈ Rn+1 )
+
+   donc est une submersion en tout point x.
+
+
+======== [PDF page 157 | page imprimée 154] ========
+154                                                             CHAPITRE IX. SOUS-VARIÉTÉS
+
+                                                     z
+
+
+
+
+                                                                         y
+
+
+
+
+                              x
+
+
+                                                        2
+                                                 P
+                                  Ellipsoïde :    i ai xi = 1, ai > 0
+
+
+
+                                                         z
+
+
+
+
+                                                         0
+
+
+
+
+                     x
+
+                                                                             y
+
+
+
+
+                         Hyperboloïde à une nappe : x2 + y 2 − z 2 = 1
+
+
+  Exemple IX.4.3 — Plus généralement, toutes les quadriques de RN , c’est-à-dire les
+  sous-ensembles de RN définis par une équation de la forme
+                                                     7
+                                           N
+                                           X
+                                                 ai x2i = 1 ,
+                                           i=1
+
+  où les ai sont dans R et non-tous nuls, sont des sous-variétés de RN .
+
+
+  Exemple IX.4.4 : Le tore — Soit S le tore d’axe D = {x = y = 0} dont les distances
+  respectivement minimale et maximale à l’axe   p sont a − r et a + r, où a et r sont deux réels
+  tels que 0 < r < a, défini par l’équation ( x2 + y 2 − a)2 + z 2 = r2 . Comme 0 < r < a, le
+                 p pas l’axe : S ∩ D = ∅. On a donc S = f ({r }) où f : R \ D → R,
+  tore ne rencontre                                10               −1    2             3
+
+  f (x, y, z) = ( x2 + y 2 − a)2 + z 2 . La fonction f est différentiable sur l’ouvert R3 \ D et
+                      p                                      p
+   ∂f              2x( x2 + y 2 − a)      ∂f              2y( x2 + y 2 − a)      ∂f
+       (x, y, z) =    p               ,       (x, y, z) =    p              ,       (x, y, z) = 2z.
+   ∂x                   x2 + y 2           ∂y                   x2 + y 2         ∂z
+
+
+======== [PDF page 158 | page imprimée 155] ========
+IX.4. SOUS-VARIÉTÉS DÉFINIES PAR DES ÉQUATIONS                                                  155
+
+                                                       z
+
+
+
+
+                                                                   y
+
+
+
+
+                                     x
+
+
+
+
+                          Hyperboloïde à deux nappes : z 2 − x2 − y 2 = 1
+
+                                                   z
+
+
+
+
+                               a+r
+
+
+
+                      a                        0                              y
+
+
+
+
+                          x
+
+
+
+                                           p
+                                Tore : (       x2 + y 2 − a)2 + z 2 = r2
+
+
+
+                                 p pas en p ∈ S
+   p différentielle dfp ne s’annule
+  La                                           9
+                                                  : si z ̸= 0, alors ∂f /∂z =
+                                                                            ̸ 0 ; si z = 0, alors
+  ( x2 + y 2 − a)2 = r2 donne x2 + y 2 = a ± r ̸= a, de sorte que (x, y) ̸= (0, 0) et que
+  ∂f /∂x et ∂f /∂y ne sont pas toutes deux nulles. Ceci montre que S est une sous-variété de
+  R3 . On notera T2 le tore obtenu en prenant a = 2 et r = 1.
+
+   Comme la définition d’une sous-variété est de nature locale, et que par une translation, on
+peut sans perte de généralité supposer que a = 0 dans la proposition ci-dessus, on obtient :
+
+    Proposition IX.4.5
+   Soit S une partie de RN et supposons que pour tout point p de S , il existe un voisinage
+   ouvert V de p dans RN et une fonction Ψ 8: V → RN −m de classe C k dont 0 est valeur
+   régulière tels que
+                               S ∩ V = {x ∈ V | Ψ(x) = 0}.
+   Alors S est une sous-variété de dimension m de RN .
+
+
+   Réciproquement une sous-variété de RN peut être définie localement par une équation du
+
+
+======== [PDF page 159 | page imprimée 156] ========
+156                                                            CHAPITRE IX. SOUS-VARIÉTÉS
+
+type Ψ(x) = 0, x ∈ RN et 0 valeur régulière de Ψ.
+
+       Proposition IX.4.6
+   Soit S une sous-variété de dimension m de classe C k de RN . Alors pour tout point p de
+   S , il existe un voisinage ouvert V de p dans RN et une fonction Ψ : V → RN −m de classe
+   C k tels que
+                                  S ∩ V = {x ∈ V | Ψ(x) = 0},
+   et 0 est une valeur régulière de Ψ.
+
+
+Démonstration. Soit p un point de S et soit Φ : V → W un C k -difféomorphisme d’un voisinage
+ouvert V de p dans RN dans un ouvert W dans RN comme dans la proposition IX.3.1. En
+particulier
+                               Φ(V ∩ S ) = (Rm × {0}) ∩ W.
+Soit p2 la projection sur le second facteur dans la décomposition canonique RN ≃ Rm × RN −m .
+      Si Ψ est l’application composée p2 ◦ Φ définie sur V, on a
+
+           Ψ(q) = 0 ⇐⇒ p2 (Φ(q)) = 0 ⇐⇒ Φ(q) ∈ (Rm × {0}) ∩ W ⇐⇒ q ∈ S ∩ V.
+
+La variété S est définie par l’équation Ψ(x) = 0, au voisinage de p, c’est-à-dire que
+
+                                 (∀q ∈ V),   [q ∈ S ] ⇔ [Ψ(q) = 0].
+
+Comme Ψ est composé de Φ, qui est un difféomorphisme, et de p2 qui est linéaire surjective,
+sa différentielle en tout point est surjective, et donc en particulier 0 est une valeur régulière de
+Ψ.
+
+   Remarque IX.4.7 — Les deux propositions qui précèdent fournissent encore une autre
+   définition d’une sous-variété de dimension m de RN : c’est une partie S de RN vérifiant
+   les hypothèses de la proposition IX.4.5.
+
+
+
+
+IX.5       Sous-variétés définies par des graphes
+
+
+   Une manière très simple de construire des sous-variétés est de considérer les graphes des
+applications de classe C k d’un espace vectoriel de dimension finie dans un autre espace vectoriel
+de dimension finie.
+
+       Proposition IX.5.1
+   Soit f : U → RN −m une fonction différentiable de classe C k définie sur un ouvert U de
+   Rm . Le graphe de f
+                            Graphe(f ) = {(u, f (u)), (u ∈ U)}
+   est une sous-variété de Rm × RN −m = RN de dimension m.
+
+Démonstration. Le graphe de f est une sous-variété, un paramétrage global étant
+
+                                   x : U → RN ,    u 7→ (u, f (u)).
+
+
+======== [PDF page 160 | page imprimée 157] ========
+IX.6. CHANGEMENTS DE PARAMÉTRAGE                                                                  157
+
+    Soit A un isomorphisme linéaire de l’espace ambiant RN dans lui-même. Il est évident qu’avec
+les notations de la proposition, l’ensemble
+
+                          S = A(Graphe(f )) = {A((u, f (u))); u ∈ U }
+
+est encore une sous-variété de RN (c’est un cas particulier de l’exemple IX.2.8). Comme la
+définition d’une sous-variété est de nature locale, on obtient
+
+     Proposition IX.5.2
+   Soit S une partie de RN et supposons que pour tout point p de S , il existe un voisinage
+   ouvert V de p dans RN , un isomorphisme linéaire A : RN → RN , un ouvert U de Rm et
+   une application f : U → RN −m de classe C k tels que
+
+                                  V ∩ S = V ∩ {A((u, f (u))); u ∈ U}.
+
+   Alors S est une sous-variété de dimension m de RN .
+
+   Réciproquement, une sous-variété peut-être vue localement comme un graphe, « à un isomor-
+phisme linéaire près » de l’espace ambiant RN .
+
+     Proposition IX.5.3
+   Soit S une sous-variété de dimension m de classe C k de RN . Alors pour tout point p de
+   S , il existe un voisinage ouvert V de p dans RN , un isomorphisme linéaire A : RN → RN ,
+   un ouvert U de Rm et une application f : U → RN −m de classe C k telle que
+
+                                  V ∩ S = V ∩ {A((u, f (u))); u ∈ U}.
+
+                              ∼
+Démonstration. Soit x : U → V ∩ S un paramétrage local en p. Soit q = x−1 (p). Soit A un
+isomorphisme linéaire de RN dans lui-même tel que A−1 (dxq (Rm )) = Rm × {0} ⊂ RN . Alors
+d(A−1 ◦ x)q = A−1 ◦ dxq est un isomorphisme linéaire de Rm dans Rm × {0}. Ecrivons A−1 ◦ x
+sous la forme A−1 ◦ x(u) = (i(u), j(u)), i(u) ∈ Rm , j(u) ∈ RN −m . Par construction, djq = 0 et
+diq est un isomorphisme de Rm dans Rm . Le théorème d’inversion locale donne l’existence d’un
+ouvert U ′ de Rm contenant q (que l’on suppose inclus dans U) et d’un ouvert U1 de Rm tels que i
+réalise un difféomorphisme de U ′ sur U1 . Soit Φ : U1 → U ′ son inverse. Soit u1 ∈ U1 et posons
+u = Φ(u1 ) (et donc u1 = i(u)). On a alors
+
+                  A−1 ◦ x ◦ Φ(u1 ) = A−1 ◦ x(u) = (i(u), j(u)) = (u1 , j ◦ Φ(u1 )).
+
+Posons f = j ◦ Φ : U1 → RN −m . Alors x(U ′ ) = {A(u1 , f (u1 )); (u1 ∈ U1 )}. Comme x(U ′ ) est un
+ouvert de S , il est de la forme V ∩ S pour un ouvert V de RN , ce qui est l’énoncé voulu.
+
+   Remarque IX.5.4 — Les deux propositions qui précèdent fournissent une autre définition
+   d’une sous-variété de dimension m de RN : c’est une partie S de RN vérifiant les hypothèses
+   de la proposition IX.5.2.
+
+
+IX.6      Changements de paramétrage
+
+
+   Une sous-variété n’a pas de paramétrages privilégiés. Les objets ou les propriétés (différentielles,
+champs de vecteurs, etc) que nous allons étudier ne dépendent pas d’un choix de paramétrage
+
+
+======== [PDF page 161 | page imprimée 158] ========
+158                                                                CHAPITRE IX. SOUS-VARIÉTÉS
+
+                                                                   z
+
+
+
+                                        ∼
+                                                                              y
+                                                                           (R2 × {0}) ∩ W
+                                                    Ψ
+                                                               x
+
+                                             W
+                         u        x1                      x2           u
+                    U1                                                     U2
+
+                             v                                                  v
+
+
+                                             θ
+
+
+
+                         Changement de paramétrage (ici m = 2, N = 3)
+
+
+(néanmoins, un choix judicieux peut souvent faciliter les calculs). Le résultat suivant nous permet
+d’assurer que le passage d’un paramétrage à un autre se fait toujours par une transformation
+suffisamment régulière.
+
+      Proposition IX.6.1
+   Soit p un point d’une sous-variété S de dimension m de RN et soient
+
+                                   x1 : U 1 → S ,       x2 : U2 → S
+
+   deux paramétrages de S au voisinage de p. Notons W = x1 (U1 )∩x2 (U2 ). C’est un voisinage
+   de p dans S , et le changement de paramétrage
+
+                                 θ = x−1        −1        −1
+                                      1 ◦ x2 : x2 (W) −→ x1 (W)
+
+   est un homéomorphisme. Si les deux paramétrages sont de classe C k , k ≥ 1, le changement
+   de paramétrage est un C k -difféomorphisme.
+
+
+Démonstration. Comme θ est la composition de deux homéomorphismes, c’est bien sûr un homéo-
+                                            3
+morphisme. Cependant, on ne peut pas conclure par cet argument que c’est un difféomorphisme,
+puisque x−1
+          1 est défini sur l’ouvert W de S et puisque l’on ne sait pas encore ce que signi-
+fie pour une fonction sur S d’être différentiable en un point. En revanche, puisque θ est un
+homéomorphisme, il suffit de vérifier que c’est localement un difféomorphisme.
+   Reprenons des éléments de la démonstration de la proposition IX.3.1. Posons q1 = x−1
+                                                                                     1 (p) ∈ U1 .
+Nous avons étendu x1 en une application F : U1 × RN −m → RN en posant
+
+                                       F (u, t) = x1 (u) + φ(t),
+
+où φ est un isomorphisme linéaire entre RN −m et un supplémentaire de l’image de d(x1 )q1 dans
+RN . Nous avons ensuite montré grâce au théorème d’inversion locale que F se restreint en un
+difféomorphisme d’un voisinage de (q1 , 0) ∈ U1 × RN −m sur son image et appelé Φ = F −1 le
+difféomorphisme inverse.
+    Si l’on note p1 la projection de U1 × RN −m sur U1 , on a alors x−1 1 ◦ x2 = p1 ◦ Φ ◦ x2 dans un
+voisinage de q2 = x−12  (p) ∈ U2 , où de  plus Φ ◦ x 2 est à valeurs dans U1 × {0}. Sous cette forme,
+                               −1
+il apparaît clairement que x1 ◦ x2 est de classe C , et en échangeant les rôles de x1 et x2 , on
+                                                         k
+
+obtient un inverse de classe C k , ce qui montre que x−11 ◦ x2 est un difféomorphisme local en p.
+
+
+======== [PDF page 162 | page imprimée 159] ========
+IX.7. CALCUL DIFFÉRENTIEL SUR LES SOUS-VARIÉTÉS                                                 159
+
+IX.7     Calcul différentiel sur les sous-variétés
+
+
+   Dans cette section, nous généralisons les outils du calcul différentiel aux sous-variétés.
+
+
+
+
+IX.7.1    Applications différentiables sur les sous-variétés
+
+   Commençons par définir une notion de fonction différentiable.
+
+
+     Définition IX.7.1
+   Soit f : S → R une fonction définie sur une sous-variété S de dimension m et de classe
+   C k de RN . On dit que f est différentiable en p ∈ S si pour tout paramétrage x : U → S
+   avec p ∈ x(U) ⊂ S , la fonction f ◦ x : U → R est différentiable en q = x−1 (p). On dit que
+   f est différentiable sur S si elle est différentiable en tout point de S . On dit que f est de
+   classe C r , r ≤ k, sur S si pour tout paramétrage x : U → S la fonction f ◦ x : U → R
+   est de classe C r sur U.
+
+
+
+
+  Remarque IX.7.2 — D’après la proposition IX.6.1, pour que f soit différentiable en p ∈ S ,
+  il suffit que f ◦ x : U → R soit différentiable en q = x−1 (p) pour un paramétrage local
+  x. De même, si r ≤ k, pour que f soit de classe C r dans un voisinage de p, il suffit que
+  f ◦ x : U → R soit de classe C r pour un paramétrage local x de S en p.
+
+
+
+
+   Exercice IX.7.3 — Montrer que pour toute fonction f de classe C r sur S et tout p ∈ S ,
+   il existe un voisinage ouvert V de p dans RN et une fonction F de classe C r de V dans R
+   tels que f soit la restriction de F à V ∩ S .
+  Remarque. On peut en fait construire un tel prolongement F sur tout un voisinage de
+  S dans RN , en recollant les prolongements locaux ci-dessus au moyen d’une partition de
+  l’unité de classe C r subordonnée à un recouvrement de S par de tels voisinages. Nous
+  n’aurons pas besoin de ce résultat global dans la suite.
+
+
+
+
+   Remarque IX.7.4 — Soit S une sous-variété de dimension m et de classe C k de RN et
+   soit n ∈ N× . On peut étendre immédiatement les définitions de fonction différentiable en
+   un point p de S ou de fonction de classe C r sur S aux fonctions à valeurs dans Rn .
+
+
+
+
+   Définissons maintenant plus généralement les applications différentiables entre sous-variétés.
+Soient S1 et S2 deux sous-variétés (respectivement de RN1 et RN2 ). Notons que puisque S1 et
+S2 sont des espaces topologiques (les topologies étant induites des espaces ambiants), on peut
+parler d’application continue de S1 dans S2 .
+
+
+======== [PDF page 163 | page imprimée 160] ========
+160                                                           CHAPITRE IX. SOUS-VARIÉTÉS
+
+      Définition IX.7.5
+   Soit φ : S1 → S2 une application continue entre les sous-variétés (supposées de classe au
+   moins C r , (r ≥ 1)) S1 et S2 respectivement de RN1 et RN2 .
+   On dit que φ est de classe C r (resp. différentiable en p ∈ S1 ) si quels que soient les
+   paramétrages
+                                 x1 : U1 → S1 , x2 : U2 → S2
+   de S1 et S2 , l’application x−1                        −1
+                                                              φ−1 (x2 (U2 )) ∩ x1 (U1 ) à valeurs
+                                                                                       
+                                 2 ◦ φ ◦ x1 définie sur x1
+   dans U2 est de classe C r (resp. différentiable en x−1
+                                                       1 (p)).
+
+
+
+
+   Exemple IX.7.6 — Les paramétrages locaux d’une sous-variété de classe C r sont des
+   applications de classe C r , et il en va de même des cartes : si x : U → S est un paramétrage
+   local, la carte x−1 est de classe C r , puisque x−1 ◦ x = IdU l’est.
+
+
+
+   Remarques IX.7.7 —
+      1. La proposition IX.6.1 montre que φ est de classe C r si l’on peut trouver pour tout
+         p ∈ S1 des paramétrages locaux x1 et x2 respectivement de S1 en p et de S2 en
+         φ(p) tels que x−1                               −1
+                        2 ◦ φ ◦ x1 soit de classe C sur x1
+                                                   r        φ−1 (x2 (U2 )) ∩ x1 (U1 ) .
+      2. On peut voir φ : S1 → S2 comme une application de S1 dans RN2 , et parler en
+         tant que telle de sa différentiabilité en un point ou son caractère C r (cf. remarque
+         IX.7.4). Nous laissons le lecteur vérifier que φ : S1 → S2 est de classe C r au sens de
+         la définition ci-dessus si et seulement si φ : S1 → RN2 est de classe C r au sens de la
+         remarque IX.7.4.
+      3. On vérifie facilement que la composée de deux applications différentiables (resp. de
+         classe C r ) est une application différentiable (resp. de classe C r ).
+      4. Soit I un intervalle ouvert de R et soit α : I → S1 une courbe paramétrée de classe
+         C r tracée dans une sous-variété S1 (de classe au moins C r ) de RN1 . C’est donc une
+         application de classe C r de I dans RN1 dont l’image est dans S1 , que l’on peut aussi
+         voir comme une application de classe C r de la sous-variété I dans la sous-variété S1
+         au sens de la définition ci-dessus, d’après le point 2. Soit φ : S1 → S2 une application
+         de classe C r . Le point 3 montre alors que β = φ ◦ α : I → S2 est de classe C r .
+
+
+IX.7.2     Espace tangent
+   Intuitivement, il est naturel de définir l’espace tangent en un point p d’une sous-variété S de
+RN comme l’espace des vecteurs tangents en p aux courbes tracées sur S        passant par p. Il n’est
+pas clair que ceci forme un sous-espace vectoriel de RN , mais en utilisant les paramétrages locaux
+de S , nous allons voir que tel est le cas.
+
+      Définition IX.7.8
+   Soit S une sous-variété de dimension m de RN . On dit que ⃗v est un vecteur tangent à
+   S en p s’il existe une courbe paramétrée α : I → RN de classe C 1 , où I est un intervalle
+   ouvert contenant 0, dont la trace est contenue dans S , telle que α(0) = p et α′ (0) = ⃗v .
+   On appelle espace tangent à S en p l’ensemble des vecteurs tangents à S en p.
+
+
+  L’espace tangent en un point q d’un ouvert U de Rm est tout simplement l’espace vectoriel
+ambiant Rm . Faisons le lien grâce aux paramétrages locaux.
+
+
+======== [PDF page 164 | page imprimée 161] ========
+IX.7. CALCUL DIFFÉRENTIEL SUR LES SOUS-VARIÉTÉS                                                   161
+
+     Proposition IX.7.9
+   Soit S une sous-variété de dimension m de RN . Soient p ∈ S et x : U → S un
+   paramétrage local en p. Posons q = x−1 (p). Alors l’espace tangent à S en p s’identifie
+   à l’image de Rm par l’application dxq . En particulier c’est un sous-espace vectoriel de
+   dimension m de RN .
+
+
+
+Démonstration. Soit ⃗v un vecteur tangent à S en p, c’est-à-dire qu’il existe une courbe paramétrée
+α : I → RN de classe C 1 dont la trace est contenue dans S , définie sur un intervalle ouvert I
+contenant 0, telle que α(0) = p et α′ (0) = ⃗v . Quitte à réduire I, on peut supposer que la trace de
+α est dans x(U). La courbe β = x−1 ◦ α, I → U est alors de classe C 1 , d’après remarque IX.7.7,
+point 4 et l’exemple IX.7.6.
+   Par définition de la différentielle, dxq (β ′ (0)) = ⃗v , ce qui montre que ⃗v ∈ dxq (Rm ).
+   Réciproquement, si ⃗v = dxq (w)                ⃗ ∈ Rm , on peut considérer la courbe
+                                ⃗ pour un certain w
+
+
+                                      β : I → U,      t 7→ tw
+                                                            ⃗ +q
+
+
+ où I est un intervalle ouvert contenant 0. Posons α = x ◦ β. On a par définition de la différentielle
+⃗v = α′ (0). Ceci montre que ⃗v est un vecteur tangent en p à S .
+
+
+
+     Définition IX.7.10
+   Soit S une sous-variété. On note Tp S l’espace tangent à S en un point p ∈ S . C’est un
+   sous-espace vectoriel de l’espace ambiant RN . On note Tp S le sous-espace tangent affine à
+   S en p, c’est-à-dire le sous-espace affine passant par p et parallèle à Tp S .
+
+
+
+
+    De la discussion qui précède, on tire le résultat suivant qui est surtout pour nous le prétexte à
+introduire des notations utiles.
+
+     Corollaire IX.7.11
+   Soient S une sous-variété de dimension m de RN , p un point de S et x : U → S un
+   paramétrage local de S en p. Notons u = (u1 , . . . , um ) la variable d’une fonction définie
+   sur U ⊂ Rm . Soit (e1 , . . . , em ) la base canonique de Rm . Posons
+
+                                                  d                     ∂x
+   (IX.7.1)               xui (u) = dxu (ei ) =           x(u + tei ) =     (u)
+                                                  dt |t=0               ∂ui
+
+   Alors pour tout u ∈ U, (xu1 (u), . . . , xum (u)) est une base de Tx(u) S .
+
+
+
+
+   Exercice IX.7.12 — Montrer que le cône C = {(x, y, z)| x2 + y 2 − z 2 = 0} dans R3 n’est
+   pas une sous-variété de R3 .
+
+
+======== [PDF page 165 | page imprimée 162] ========
+162                                                             CHAPITRE IX. SOUS-VARIÉTÉS
+
+
+
+                                                  z
+
+
+
+
+                                                           y
+                                        x
+
+
+
+
+                                      Cône x2 + y 2 − z 2 = 0
+
+
+
+
+      Proposition IX.7.13
+   Si S = {(u, f (u))} est une sous-variété de RN définie par le graphe d’une application
+
+                                       f : U ⊂ Rm → RN −m
+
+   comme dans la section IX.5, alors l’espace tangent en p = (u, f (u)) est le graphe de dfu .
+   Si S est une sous-variété de RN définie par
+
+                                    S = {x ∈ RN | F (x) = 0},
+
+   où 0 est valeur régulière de F , alors pour tout p ∈ S , Tp S = ker dFp .
+
+
+
+
+   Exercice IX.7.14 — Démontrer la proposition.
+
+
+
+
+IX.7.3     Différentielle d’une application différentiable
+
+   Grâce à la notion d’espace tangent, nous allons définir la notion de différentielle d’une
+application entre sous-variétés. Soit φ : S1 → S2 une application continue entre les sous-variétés
+S1 et S2 (respectivement de RN1 et RN2 ).
+    Définissons maintenant la différentielle de l’application φ, en un point p ∈ S1 où elle est
+différentiable. Soit ⃗v un vecteur tangent à S1 en p. Par définition, ⃗v = α′ (0) où α : I → S1
+est une courbe paramétrée de classe C 1 d’un intervalle ouvert I contenant 0 dans S1 telle que
+α(0) = p. Considérons la courbe β = φ ◦ α : I → S2 . Elle vérifie β(0) = φ(p) et son vecteur
+tangent en φ(p), β ′ (0) est donc dans Tφ(p) S2 .
+                                                   11
+    Reprenons maintenant des éléments de la démonstration de la proposition IX.7.9. Le vecteur
+                                 ⃗ où x : U → S1 est un paramétrage local en p tel que x(q) = p
+tangent ⃗v = α′ (0) s’écrit dxq (w),
+et ceci pour un unique w   ⃗ ∈ Rm . Il est clair qu’avec ces notations, β ′ (0) = d(φ ◦ x)q (w),
+                                                                                             ⃗ ce qui
+              ′
+montre que β (0) ne dépend pas du choix de la courbe α, mais aussi que d(φ ◦ x)q (w)     ⃗ ne dépend
+pas du paramétrage choisi et que ⃗v 7→ β ′ (0) = d(φ ◦ x)q (w)
+                                                             ⃗ est linéaire.
+
+
+======== [PDF page 166 | page imprimée 163] ========
+IX.7. CALCUL DIFFÉRENTIEL SUR LES SOUS-VARIÉTÉS                                                  163
+
+    Définition IX.7.15
+  Soit φ : S1 → S2 une application continue entre les sous-variétés S1 et S2 et p un point
+  de S1 où elle est différentiable. Alors il existe une application linéaire
+
+                                    dφp : Tp S1 −→ Tφ(p) S2
+
+  caractérisée par l’une des propriétés suivantes :
+     1. si ⃗v ∈ Tp S1 s’écrit ⃗v = dxq (w),
+                                        ⃗ où x : U → S1 est un paramétrage local en p tel
+        que x(q) = p avec w  ⃗ ∈ Rm , alors dφp (⃗v ) = d(φ ◦ x)q (w).
+                                                                   ⃗
+     2. si ⃗v ∈ Tp S1 s’écrit ⃗v = α′ (0), où α : I → S1 est une courbe paramétrée de classe C 1
+        d’un intervalle ouvert I contenant 0 dans S1 telle que α(0) = p, alors dφp (⃗v ) = β ′ (0)
+        où β = φ ◦ α : I → S2 .
+  L’application linéaire dφp est appelée la différentielle de φ au point p.
+
+
+
+  Remarques IX.7.16 — Plaçons-nous dans le cas où S2 = RN2 .
+  1. Si S1 est un ouvert de RN , on a pour tout p ∈ S1 , Tp S1 = RN et l’on retrouve la
+  définition usuelle de dφ.
+  2. Si φ est la restriction d’une fonction différentiable F définie sur un voisinage ouvert V de
+  S1 dans RN1 , dφp est la restriction de dFp à Tp S1 .
+  3. Si x : U → S1 est un paramétrage local en p avec x(q) = p, l’application linéaire
+  dφp : Tp S1 → RN2 est caractérisée par la propriété suivante
+
+                           φ(x(q + h)) = φ(p) + dφp (dxq (h)) + o(h)
+
+ (comme fonction de h définie dans un voisinage approprié de q dans Rm ).
+
+
+  Les différentielles se composent de la manière habituelle.
+
+    Proposition IX.7.17
+  Soient S1 , S2 et S3 des sous-variétés (respectivement de RN1 , RN2 et RN3 ) et supposons
+  que les applications
+                             φ1 : S1 → S2 ,       φ2 : S2 → S3 ,
+  sont telles que φ1 est différentiable en p, et φ2 différentiable en φ1 (p). Alors φ2 ◦ φ1 est
+  différentiable en p, et
+                               d(φ2 ◦ φ1 )p = d(φ2 )φ1 (p) ◦ d(φ1 )p .
+
+
+
+
+                              α                            φ
+                                                  α0 (0)                    β 0 (0)
+                      0
+                                           α(0)                      β(0)
+                       I
+
+
+
+
+                                           Différentielle
+
+
+======== [PDF page 167 | page imprimée 164] ========
+164                                                          CHAPITRE IX. SOUS-VARIÉTÉS
+
+Démonstration. Ceci résulte facilement des formules habituelles du calcul différentiel et de la
+définition IX.7.15.
+
+  Notations IX.7.18 — Soient S1 et S2 deux sous-variétés (respectivement de RN1 et RN2 ).
+  On note C r (W1 , S2 ) l’espace des applications de classe C r d’un ouvert W1 de S1 dans S2 .
+
+
+
+  Exercice IX.7.19 — Soit S une sous-variété de RN de classe C ∞ .
+      1. Montrer que l’inclusion i : S → RN est de classe C ∞ .
+      2. Montrer que les applications constantes S → RN2 sont de classe C ∞ .
+      3. Montrer que l’application identique IdS : S → S est de classe C ∞ .
+      4. Soit V un ouvert de RN contenant S . Montrer que la restriction à S d’une fonction
+         de classe C r sur V est de classe C r .
+
+
+
+  Exemple IX.7.20 — Soit S une sous-variété de RN de classe C ∞ . Soit P un hyperplan
+  de RN passant par le point p0 ∈ RN , et soit a ∈ RN un vecteur normal unitaire à P en p0
+  (c’est-à-dire ⟨x − p0 , a⟩ = 0 pour tout x ∈ P et ∥a∥ = 1). La fonction hauteur
+
+                                 h : S → R,     p 7→ ⟨p − p0 , a⟩
+
+  est de classe C ∞ car c’est la restriction d’une fonction C ∞ définie sur l’espace RN . Sa
+  différentielle en p ∈ S est donnée par :
+
+                                 dhp : Tp S → R,     v 7→ ⟨v, a⟩.
+
+
+
+  Exemple IX.7.21 — Soit S une sous-variété de RN de classe C ∞ . Soit p0 ∈ RN . La
+  fonction distance au carré
+
+                        f : S → R,     p 7→ ⟨p − p0 , p − p0 ⟩ = ∥p − p0 ∥2
+
+  est de classe C ∞ car c’est la restriction d’une fonction C ∞ définie sur l’espace RN . Sa
+  différentielle en p ∈ S est donnée par
+
+                              dfp : Tp S → R,    v 7→ 2⟨v, p − p0 ⟩.
+
+
+
+  Exemple IX.7.22 — Soit S une sous-variété de RN de classe C ∞ . Soit p0 ∈ RN \ S . La
+  fonction distance
+                            f : S → R, p 7→ ∥p − p0 ∥
+  est de classe C ∞ car c’est la restriction d’une fonction C ∞ définie sur l’espace RN \ {p0 }.
+
+
+
+  Exercice IX.7.23 — Calculer la différentielle en un point p ∈ S de la fonction distance
+  de l’exemple précédent.
+
+
+======== [PDF page 168 | page imprimée 165] ========
+IX.7. CALCUL DIFFÉRENTIEL SUR LES SOUS-VARIÉTÉS                                                    165
+
+IX.7.4     Difféomorphisme local. Inversion locale
+
+    Ayant défini les applications différentiables entre sous-variétés et leur différentielles, on peut
+étendre certaines notions du calcul différentiel. Commençons par la notion de difféomorphisme.
+
+     Définition IX.7.24
+   Soient S1 et S2 deux sous-variétés (respectivement de RN1 et RN2 ) de classe au moins
+   C k et soit
+                                      φ : S1 −→ S2
+   une application de S1 dans S2 . On dit que φ est un C k -difféomorphisme si c’est un
+   homéomorphisme et si φ et φ−1 sont de classe C k . On dit alors que S1 et S2 sont
+   C k -difféomorphes.
+
+
+
+    Un des problèmes fondamentaux de la topologie différentielle est la classification des variétés
+à difféomorphisme près. Un résultat important de H.Whitney (1936) nous dit que toute variété
+différentiable abstraite de dimension m est difféomorphe à une sous-variété de R2m , de sorte que
+le problème se ramène à celui de la classification des sous-variétés. C’est d’ailleurs dans cet article
+de 1936 que la définition rigoureuse des variétés abstraites apparaît pour la première fois, même
+si des notions approximatives étaient utilisées depuis Riemann, en particulier dans les travaux de
+H. Weyl et en relativité générale.
+   Voici quelques résultats de classification. Nous n’explicitons pas tous les termes employés.
+     Dimension 1. À difféomorphisme près, il n’existe que deux variétés connexes de dimension
+1 : le cercle S1 dans le cas compact, la droite R dans le cas non compact.
+    Dimension 2. La classification des variétés compactes connexes orientables de dimension 2
+est donnée par la liste suivante : la sphère S2 , le tore à g trous, g ≥ 1. Les variétés compactes
+connexes non orientables sont obtenues en recollant des plans projectifs à ces dernières. Le cas
+non compact est plus compliqué, car on peut avoir une infinité de trous, ainsi que des « pointes ».
+   Dimension 3. Le mathématicien G. Perelman a montré récemment que la seule variété
+compacte de dimension 3 connexe et simplement connexe (c’est-à-dire que tout lacet y est
+homotope à un lacet constant) est la sphère S3 , résolvant ainsi la célèbre conjecture de Poincaré.
+
+
+
+     Proposition IX.7.25
+   Soient S1 et S2 deux sous-variétés (respectivement de RN1 et RN2 ) et soit
+
+                                           φ : S1 −→ S2
+
+   un difféomorphisme. Alors pour tout p ∈ S1 ,
+
+                                      dφp : Tp S1 −→ Tφ(p) S2
+
+   est un isomorphisme, d’inverse
+
+                                  d(φ−1 )φ(p) : Tφ(p) S2 −→ Tp S1 .
+
+   En particulier, les dimensions de S1 et S2 sont les mêmes.
+
+
+Démonstration. C’est évident par la formule de composition des différentielles.
+
+
+======== [PDF page 169 | page imprimée 166] ========
+166                                                            CHAPITRE IX. SOUS-VARIÉTÉS
+
+       Théorème IX.7.26 — Inversion locale
+   Soient S1 et S2 deux sous-variétés (respectivement de RN1 et RN2 ) de classe au moins
+   C k , soit p ∈ S1 , soit
+                                      φ : S1 −→ S2
+   une application de classe C k telle que
+
+                                      dφp : Tp S1 −→ Tφ(p) S2
+
+   soit un isomorphisme linéaire. Alors il existe un voisinage ouvert V1 de p dans S1 et un
+   voisinage ouvert V2 de φ(p) dans S2 tel que φ(V1 ) = V2 et la restriction de φ à V1 réalise
+   un C k -difféomorphisme de V1 sur V2 .
+
+
+Démonstration. Soient x1 : U1 → S1 et x2 : U2 → S2 des paramétrages locaux de S1 en p et
+de S2 en φ(p) respectivement, tels que x1 (U1 ) ⊂ φ−1 (x2 (U2 )). La différentielle de x2 −1 ◦ φ ◦ x1
+en q1 = x1 −1 (p) est d(x2 −1 )φ(p) ◦ dφp ◦ d(x1 )q1 , composée de trois isomorphismes ; c’est donc un
+isomorphisme. On peut appliquer le théorème d’inversion locale VI.3.2 à
+
+                                     x2 −1 ◦ φ ◦ x1 : U1 −→ U2
+
+et en déduire le résultat voulu.
+
+
+      On en déduit le résultat suivant qui complète la proposition IX.5.3.
+
+       Corollaire IX.7.27
+   Soit S une sous-variété de dimension m de RN et soit p ∈ S . Soit P le sous-espace
+   affine passant par p et parallèle à Tp S . Il existe un voisinage ouvert W de p dans S , un
+   voisinage ouvert V de p dans P , un sous-espace vectoriel H de dimension N − m de RN et
+   une fonction différentiable h : V → H tels que W est le graphe de h.
+
+
+Démonstration. Soit f : S → RN la projection orthogonale sur P . C’est clairement une applica-
+tion différentiable de S dans P , car c’est la restriction d’une application différentiable (et même
+affine) de RN dans lui-même. En particulier, on a
+
+                            dfp : Tp S → Tp P = Tp S ,    v 7→ dfp (v) = v.
+
+Comme dfp est l’identité de Tp S , le théorème d’inversion locale IX.7.26 s’applique, et il existe
+un voisinage ouvert W de p dans S , un voisinage ouvert V de p dans P tel que f réalise un
+difféomorphisme de W sur V, d’inverse g : V → W. On note π la projection orthogonale sur
+H = (Tp S )⊥ et l’on pose
+                               h : V → H, h(u) = π(g(u) − p).
+Tout x ∈ W s’écrit x = g(u), u ∈ V et
+
+                        x = f (x) + π(x − p) = u + π(g(u) − p) = u + h(u).
+
+Ceci montre le résultat, étant entendu un léger abus de langage : on identifie RN à Tp S × H par
+Tp S × H ≃ Tp S ⊕ H = RN .
+
+
+    Etendons maintenant les notions d’immersion et de submersion aux applications entre sous-
+variétés.
+
+
+======== [PDF page 170 | page imprimée 167] ========
+IX.7. CALCUL DIFFÉRENTIEL SUR LES SOUS-VARIÉTÉS                                                 167
+
+     Définition IX.7.28
+   Soient S1 et S2 deux sous-variétés (respectivement de RN1 et RN2 ) et φ : S1 → S2 une
+   application de classe C k . On dit que φ est une immersion (resp. une submersion) au
+   point p ∈ S1 si sa différentielle
+
+                                    dφp : Tp S1 −→ Tφ(p) S2
+
+   est injective (resp. surjective). On dit que φ est une immersion (resp. une submersion) si
+   c’est une immersion (resp. une submersion) en tout point p ∈ S1 .
+
+
+     Proposition IX.7.29
+   Soient S1 et S2 deux sous-variétés (respectivement de RN1 et RN2 ), et φ : S1 → S2 une
+   application de classe C k .
+      1. Supposons que φ soit une submersion en p ∈ S1 . Alors il existe un voisinage W1 de
+         p dans S1 tel que W1 ∩ φ−1 ({φ(p)}) soit une sous-variété de RN1 , incluse dans S1 .
+      2. Supposons que φ soit une immersion en p ∈ S1 . Alors il existe un voisinage W1 de p
+         dans S1 tel que φ(W1 ) soit une sous-variété de RN2 , incluse dans S2 .
+
+
+Démonstration. Notons m1 et m2 les dimensions respectives de S1 et S2 .
+   Pour le premier point, on peut, grâce à la proposition IX.3.1, supposer que S2 = (Rm2 ×
+{0}) ∩ V2 , V2 ouvert de RN2 , et utiliser alors le point 1 de la proposition IX.4.1.
+    Il faut prendre garde à un point : la proposition IX.4.1 s’applique à une application définie
+sur un ouvert de RN , alors que la source est ici la sous-variété S1 . Redresser S2 ne suffit donc
+pas, et il faut aussi passer en carte à la source. Précisément : soit x1 : U1 → S1 un paramétrage
+local en p, avec x1 (q1 ) = p, et soit p1 la projection de RN2 sur Rm2 . L’application
+
+                                  θ = p1 ◦ φ ◦ x1 : U1 −→ Rm2 ,
+
+définie sur un ouvert de Rm1 , est de classe C k et sa différentielle en q1 est surjective, puisque
+d(x1 )q1 est un isomorphisme sur Tp S1 et que dφp est surjective. La proposition IX.4.1 montre
+alors que θ−1 ({θ(q1 )}) est, au voisinage de q1 , une sous-variété de dimension m1 − m2 de Rm1 ;
+son image par le paramétrage x1 en est une de RN1 d’après l’exemple IX.2.9, et c’est bien
+W1 ∩ φ−1 ({φ(p)}) pour un voisinage W1 convenable.
+   Pour le second point, on suppose cette fois que S1 = (Rm1 × {0}) ∩ V1 , V1 ouvert de RN1 , et
+on utilise l’exemple IX.2.9.
+
+IX.7.5    Points critiques. Maxima et minima locaux
+    Les résultats suivants du calcul différentiel sur les sous-variétés découlent aisément de leurs
+analogues en calcul différentiel ordinaire (sur des ouverts de Rm ) en utilisant des paramétrages
+locaux.
+
+     Théorème IX.7.30
+   Soient S1 et S2 deux sous-variétés (respectivement de RN1 et RN2 ) avec S1 connexe, et
+   soit
+                                       f : S1 −→ S2
+   une application différentiable telle que dfp = 0 pour tout p ∈ S1 . Alors f est constante.
+
+
+======== [PDF page 171 | page imprimée 168] ========
+168                                                            CHAPITRE IX. SOUS-VARIÉTÉS
+
+      Théorème IX.7.31
+   Soit S une sous-variété de dimension m de RN et soit f : S → R une fonction différentiable
+   de S à valeurs réelles. Si p est un point d’extremum local de f , alors dfp = 0 sur Tp S .
+
+
+   On introduit donc pour les fonctions différentiables définies sur des sous-variétés la notion de
+point critique, comme en calcul différentiel usuel.
+
+      Définition IX.7.32
+   Soient S1 et S2 deux sous-variétés (respectivement de RN1 et RN2 ), et soit
+
+                                           φ : S1 → S2
+
+   une application différentiable. Si, en un point p ∈ S1 , la différentielle
+
+                                     dφp : Tp S1 −→ Tφ(p) S2
+
+   n’est pas surjective, on dit que p est un point critique de φ.
+   Dans le cas d’une fonction différentiable f : S → R d’une sous-variété S de RN ,
+   remarquons que p ∈ S est un point critique de f si et seulement si dfp s’annule.
+   On définit de même comme dans la définition IX.1.3 les points réguliers, valeurs
+   critiques et valeurs régulières.
+
+
+
+   Exemple IX.7.33 — Dans le contexte ci-dessus, supposons que f soit la restriction à S
+   d’une fonction différentiable g définie sur un ouvert U de RN contenant S . Alors p ∈ S
+   est un point critique de f si et seulement si dgp (Tp S ) = 0, autrement dit Tp S ⊂ ker dgp .
+
+
+   Exemple IX.7.34 — Si x : U → S est un paramétrage local de S en p, p est un point
+   critique de f si et seulement si d(f ◦ x)q = 0, où q = x−1 (p).
+
+
+
+      Proposition IX.7.35
+   Soit F : V → RN −m une application de classe C k définie sur un ouvert V de RN dont 0
+   est valeur régulière et soit S la sous-variété de dimension m de RN définie par
+
+                                     S = {x ∈ V | F (x) = 0}.
+
+   Soit g : V → R une fonction différentiable définie sur V et soit f la restriction de g à
+   S . Posons F (x) = (F1 (x), . . . , FN −m (x)). Alors un point p ∈ S est point critique de f ,
+   c’est-à-dire dfp = 0, si et seulement s’il existe des réels w1 , . . . , wN −m tels que
+
+                            dgp = w1 d(F1 )p + . . . + wN −m d(FN −m )p .
+
+   Les composantes du vecteur w = (w1 , . . . , wN −m ) s’appellent les multiplicateurs de
+   Lagrange.
+
+
+Démonstration. L’espace tangent à S en p est ker dFp (Proposition IX.7.13). Le point p est donc
+un point critique de f si et seulement si
+                                         ker dFp ⊂ ker dgp ,
+
+
+======== [PDF page 172 | page imprimée 169] ========
+IX.7. CALCUL DIFFÉRENTIEL SUR LES SOUS-VARIÉTÉS                                                              169
+
+autrement dit si la forme linéaire dgp s’annule sur ker dFp . Mais remarquons que si F (x) =
+(F1 (x), . . . , FN −m (x)), alors ker dFp est l’intersection des noyaux des formes linéaires d(F1 )p , . . . , d(FN −m )p .
+Un résultat standard d’algèbre linéaire (à faire absolument en exercice) nous dit que dgp s’annule
+sur l’intersection des ker d(Fi )p si et seulement si dgp est combinaison linéaire des d(Fi )p , i.e. s’il
+existe des réels w1 , . . . , wN −m tels que
+
+                                dgp = w1 d(F1 )p + . . . + wN −m d(FN −m )p .
+
+
+
+
+   Exercice IX.7.36 : Diagonalisation des matrices symétriques — Soit A un endomor-
+   phisme symétrique de l’espace euclidien RN , c’est-à-dire vérifiant
+
+                                     ⟨Av, w⟩ = ⟨v, Aw⟩,       (v, w ∈ RN ).
+
+   Considérons la fonction
+                                        f : SN −1 → R,      v 7→ ⟨Av, v⟩.
+   Montrer que v est un point critique de f si et seulement si Av = f (v)v. En déduire que A
+   admet un vecteur propre. Montrer que A est diagonalisable dans une base orthonormale de
+   RN .
+
+
+
+   Exercice IX.7.37 — Reprenons l’exemple IX.7.21. Soient S une hypersurface de RN de
+   classe C k , p0 ∈ RN et
+
+                            f : S → R,        p 7→ ⟨p − p0 , p − p0 ⟩ = ∥p − p0 ∥2 .
+
+   On suppose S compacte. Montrer qu’il existe une droite normale à S passant par p0
+   (c’est-à-dire qu’il existe un point p de S tel que p − p0 est orthogonal à Tp S ).
+   On suppose S connexe. Montrer que si toutes les droites normales à la surface S se
+   rencontrent en un point p0 , alors S est contenue dans une sphère.
+
+
+
+
+IX.7.6      Hessienne
+
+    Soient S1 et S2 deux sous-variétés (respectivement de RN1 et RN2 ) et
+
+                                                 f : S1 → S2
+
+une application de S1 dans S2 . On suppose S1 , S2 et f de classe au moins C 2 . On ne peut pas
+en général définir une notion de différentielle seconde de f . En effet, la différentielle première
+en un point p est une application linéaire de Tp S1 dans Tf (p) S2 . Comme Tp S1 dépend de p, on
+ne peut définir df comme une application de S dans un espace vectoriel fixe, et donc définir sa
+différentielle.
+    Si x : U → S1 est un paramétrage local de S1 en p, f ◦ x : U → RN2 admet une différentielle
+seconde en q = x−1 (p)
+
+                  q 7→ d(d(f ◦ x))q ,     U → L(Rm ; L(Rm ; RN2 )) ≃ L(Rm , Rm ; RN2 ).
+
+On pourrait être tenté d’utiliser ce fait pour définir malgré tout une différentielle seconde à f en p.
+Cet espoir est ruiné par le fait qu’une telle définition ne saurait être indépendante du paramétrage
+
+
+======== [PDF page 173 | page imprimée 170] ========
+170                                                                  CHAPITRE IX. SOUS-VARIÉTÉS
+
+local choisi. En effet, si h : U1 → U est un difféomorphisme entre un autre ouvert U1 de Rm et U,
+le paramétrage local
+                                       x1 = x ◦ h : U1 → S1
+donne :
+                   d(f ◦ x1 )q1 = d(f ◦ x ◦ h)q1 = d(f ◦ x)h(q1 ) ◦ dhq1 ,     (q1 ∈ U1 ).
+Ainsi q1 7→ d(f ◦ x1 )q1 est obtenu comme composition de
+
+                    q1 7→ (d(f ◦ x)h(q1 ) , dhq1 ),   U1 → L(Rm ; RN2 ) × L(Rm ; Rm )
+
+et de l’application naturelle de composition (bilinéaire)
+
+                               L(Rm ; RN2 ) × L(Rm ; Rm ) → L(Rm ; RN2 ).
+
+Ceci donne avec p = x1 (q1 ) :
+
+(IX.7.2)              d2 (f ◦ x1 )q1 = d(f ◦ x)q ◦ d2 hq1 + d2 (f ◦ x)q (dhq1 , dhq1 ).
+
+Cette équation s’interprète ainsi : le membre de gauche est une application bilinéaire de Rm × Rm
+dans RN2 . Le premier terme du membre de droite est la composée de (d(dh))q1 qui est une
+application bilinéaire de Rm × Rm dans Rm et de d(f ◦ x)q qui est une application linéaire de Rm
+dans RN2 . Le second terme du membre de droite est la composée de (dhq1 , dhq1 ), une application
+linéaire de Rm × Rm dans lui-même et de d2 (f ◦ x)q , une application bilinéaire de Rm × Rm dans
+RN2 .
+      En revanche, si dfp s’annule, on a d(f ◦ x)q = dfp ◦ dxq = 0, et donc
+
+                     d2 (f ◦ x1 )q1 = d(f ◦ x)q ◦ (d2 h)q1 + d2 (f ◦ x)q (dhq1 , dhq1 )
+(IX.7.3)                            = d2 (f ◦ x)q (dhq1 , dhq1 ).
+
+Ceci permet de définir pour tout v, w ∈ Tp S ,
+
+(IX.7.4)                  d2 fp (v, w) = d2 (f ◦ x)q (d(x−1 )p (v), d(x−1 )p (w)).
+
+La formule (IX.7.3) montre que cette définition est indépendante du paramétrage, car
+
+                        d2 (f ◦ x1 )q1 (d(x1 −1 )p (v), d(x1 −1 )p (w))
+                    = d2 (f ◦ x)q (dhq1 , dhq1 )(d(h−1 ◦ x−1 )p (v), d(h−1 ◦ x−1 )p (w))
+                    = d2 (f ◦ x)q (d(x−1 )p (v), d(x−1 )p (w)).
+
+
+    Soit S une sous-variété de RN et f : S → R une fonction de classe C 2 sur S . Comme nous
+venons de le voir, on ne peut en général pas définir de différentielle seconde de f en un point p de
+S , sauf dans le cas où p est un point critique de f .
+
+       Définition IX.7.38
+   Supposons que p soit un point critique de la fonction f : S → R de classe C 2 . Posons
+   alors, quels que soient v, w ∈ Tp S ,
+
+                              d2 fp (v, w) = d2 (f ◦ x)q (dx−1       −1
+                                                            p (v), dxp (w))
+
+   où x est un paramétrage local de S en p. On a montré que cette définition est indépendante
+   du paramétrage choisi.
+
+
+======== [PDF page 174 | page imprimée 171] ========
+IX.8. EQUATIONS DIFFÉRENTIELLES SUR LES SOUS-VARIÉTÉS                                             171
+
+    Il découle des propriétés des différentielles secondes en calcul différentiel ordinaire que d2 fp
+est une forme bilinéaire symétrique sur Tp S . On appelle cette forme la hessienne de f au point
+critique p. D’autre part, si la fonction f admet un maximum (resp. minimum) local en p, alors
+d2 fp est négative (resp. positive) ; inversement, sous l’hypothèse plus forte où d2 fp est définie
+négative (resp. définie positive), f admet un maximum (resp. minimum) local isolé en p.
+
+
+
+   Exercice IX.7.39 — Soient f : S1 → S2 une application de classe C 2 entre deux sous-
+   variétés S1 et S2 , p un point de S1 où la différentielle de f s’annule et d2 fp la hessienne
+   de f en p. Montrer que si α : I → S1 est une courbe de classe C 2 tracée sur S1 telle que
+   α(0) = p et α′ (0) = v ∈ Tp S1 , alors
+
+                                                    d2       h          i
+                                   d2 fp (v, v) =              f (α(t))   .
+                                                    dt2 |t=0
+
+
+   Remarque IX.7.40 : Lemme de Morse sur une sous-variété — Soient S une sous-variété
+   de dimension m de RN de classe C ∞ , f : S → R une fonction de classe C ∞ et p un point
+   critique de f . Supposons que la hessienne d2 fp soit une forme bilinéaire symétrique non
+   dégénérée sur Tp S , de signature (r, s), avec r + s = m. Alors il existe un paramétrage local
+   x : U → S de S en p, avec 0 ∈ U et x(0) = p, tel que
+                                  r
+                                  X      m
+                                         X
+                                     2
+                                           u2i ,
+                       
+                 f x(u) = f (p) +   ui −                           u = (u1 , . . . , um ) ∈ U.
+                                     i=1       i=r+1
+
+   Il n’y a rien à démontrer de plus que dans le cas d’un ouvert de Rm , qui fait l’objet de
+   l’exercice VI.3.4 : tout se transporte par un paramétrage. Soit en effet y : U1 → S un
+   paramétrage local quelconque en p, avec y(q0 ) = p, et posons g = f ◦y, fonction de classe C ∞
+   sur l’ouvert U1 de Rm . Le point q0 est un point critique de g, puisque dgq0 = dfp ◦ dyq0 = 0,
+   et la définition même de la hessienne donne
+
+                      d2 gq0 (h, k) = d2 fp dyq0 (h), dyq0 (k) ,  (h, k ∈ Rm ).
+                                                              
+
+
+   Comme dyq0 est un isomorphisme de Rm sur Tp S , la forme d2 gq0 est non dégénérée et de
+   même signature (r, s). L’exercice VI.3.4 fournit donc un difféomorphisme ψ d’un voisinage
+   ouvert de 0 sur un voisinage ouvert de q0 , avec ψ(0) = q0 , mettant g sous la forme voulue ;
+   le paramétrage cherché est x = y ◦ ψ.
+
+
+
+
+IX.8      Equations différentielles sur les sous-variétés
+
+
+IX.8.1     Champs tangents à une sous-variété
+
+   Soit S une sous-variété de RN . Soit X : I × U → RN un champ de vecteurs dépendant du
+temps, vérifiant les conditions du théorème VII.2.12, où U est un ouvert de RN contenant S et
+I un intervalle ouvert de R contenant 0. Supposons que pour tout t ∈ I et pour tout x ∈ S ,
+X(t, x) ∈ Tx S . Alors il est clair intuitivement que les courbes intégrales de X de condition initiale
+dans S vont rester dans S pour t suffisamment petit. Si S est fermée, les courbes intégrales ne
+peuvent en sortir, comme le montre le résultat suivant :
+
+
+======== [PDF page 175 | page imprimée 172] ========
+172                                                                CHAPITRE IX. SOUS-VARIÉTÉS
+
+      Proposition IX.8.1
+   Soit S une sous-variété fermée de RN et X : I × U → RN un champ de vecteurs dépendant
+   du temps, vérifiant les conditions du théorème VII.2.12, où U est un ouvert de RN contenant
+   S et I un intervalle ouvert de R contenant 0. Supposons que pour tout t ∈ I, pour tout
+   x ∈ S , X(t, x) ∈ Tx S . Soit γ une courbe intégrale de X définie sur un intervalle ]a ; b[
+   contenant 0, telle que γ(0) ∈ S , alors pour tout t ∈ ]a ; b[, γ(t) ∈ S .
+
+
+Démonstration. Soit τ = sup{t ∈ [0 ; b[ | γ(s) ∈ S pour tout s ∈ [0 ; t]}. Supposons τ < b.
+Comme S est fermée, γ(τ ) ∈ S . Soit Φ une carte locale en γ(τ ), comme dans la proposition
+IX.3.1 i.e.
+                               Φ : V → RN = Rm × RN −m
+où V est un ouvert de RN contenant γ(τ ), W = Φ(V) est un ouvert de RN et
+                                                 ∼
+                                    Φ : V ∩ S → (Rm × {0}) ∩ W.
+
+Quitte à restreindre l’ouvert V, on le suppose inclus dans U. Soit Y le champ de vecteurs
+(dépendant du temps) sur W défini par
+
+                                Y (t, Φ(x)) = dΦx (X(t, x)),      (x ∈ V).
+
+La courbe σ(t) = Φ(γ(t)) vérifie
+
+(IX.8.1)               σ ′ (t) = dΦγ(t) (γ ′ (t)) = dΦγ(t) (X(t, γ(t))) = Y (t, σ(t))
+
+et σ(τ ) ∈ Rm × {0}. Si z ∈ (Rm × {0}) ∩ W, alors Y (t, z) ∈ Rm × {0} : en effet z = Φ(x) avec
+x ∈ V ∩ S , et dΦx envoie Tx S sur Rm × {0} puisque Φ redresse S . Posons σ(t) = (x(t), y(t))
+avec x(t) ∈ Rm et y(t) ∈ RN −m . L’équation (IX.8.1) s’écrit alors
+                                  (
+                                    x′ (t) = A(t, (x(t), y(t)))
+(IX.8.2)
+                                    y ′ (t) = B(t, (x(t), y(t)))
+
+où A(t, (x, y)) (resp. B(t, (x, y)) ) est la projection de Y (t, (x, y)) sur Rm (resp. RN −m ). On pose
+x(τ ) = x0 . On a y(τ ) = 0. Soit x la solution de
+
+                                   x′ (t) = A(t, x(t), 0),   x(τ ) = x0
+
+dont l’existence et l’unicité sur un certain intervalle ouvert contenant τ est garantie par le
+théorème de Cauchy-Lipschitz, on constate que (x(t), 0) est solution de (IX.8.2), et que, quitte
+à restreindre l’intervalle de définition, c’est la seule d’après le même théorème. On en conclut
+que y reste nul tant qu’il est défini, et donc γ(t) = Φ−1 (σ(t)) ∈ S ∩ V pour tout t dans un petit
+intervalle autour de τ . Ceci contredit la maximalité de τ , et ainsi τ = b et γ(t) ∈ S pour tout
+t ∈ [0 ; b[. On raisonne de même pour montrer que γ(t) ∈ S pour tout t ∈ ]a ; 0].
+
+   Exemples IX.8.2 —
+      1. Avec les notations ci-dessus, si X est tel que X(t, x) est toujours orthogonal à x, alors
+         γ(t) reste sur une sphère.
+      2. Soit H(q, p) une fonction sur Rn × Rn . Posons XH = ( ∂H    ∂H
+                                                               ∂p , − ∂q ). Comme
+
+                                            dH(q,p) (XH (q, p)) = 0,
+           XH est un champ de vecteurs tangents aux hypersurfaces H(q, p) = c (on suppose
+           que H est de classe C 1 et que c est une valeur régulière de H, de sorte que l’équation
+
+
+======== [PDF page 176 | page imprimée 173] ========
+IX.8. EQUATIONS DIFFÉRENTIELLES SUR LES SOUS-VARIÉTÉS                                              173
+
+
+           H(q, p) = c définit bien une sous-variété). En mécanique classique, H est le hamiltonien
+           d’un système, q étant la position et p l’impulsion et le résultat nous dit que l’énergie
+           est conservée au cours du temps.
+        3. L’équation différentielle
+                                             M ′ (t) = Ω(t) ∧ M (t),
+           où Ω et M sont dans R3 , décrit le mouvement libre d’un solide de moment cinétique
+           M et de vitesse angulaire Ω. On a
+                                     
+                       d 1
+                            ∥M (t)∥ = ⟨M ′ (t), M (t)⟩ = ⟨Ω(t) ∧ M (t), M (t)⟩ = 0.
+                                    2
+                      dt 2
+
+           On en déduit que la norme du moment cinétique est préservée.
+
+
+
+    On aimerait maintenant obtenir un énoncé « intrinsèque » à la sous-variété S . Pour cela,
+introduisons les notions de champ de vecteurs tangents à une sous-variété dépendant du temps,
+de courbe intégrale sur une sous-variété et de flot sur une sous-variété.
+
+     Définition IX.8.3
+   On appelle champ de vecteurs tangents dépendant du temps sur une sous-variété
+   S de RN une application continue
+
+                                         X : I × S −→ RN ,
+
+   où I est un intervalle ouvert et où pour tout t ∈ I et pour tout x ∈ S , X(t, x) ∈ Tx S . On
+   appelle courbe intégrale de classe C p , du champ de vecteurs X une courbe paramétrée
+   α : J → S de classe C p définie sur un intervalle ouvert J de R contenu dans I, telle que
+   pour tout t ∈ J, α′ (t) = X(t, α(t)). Cette courbe intégrale est dite de condition initiale
+   (t0 , x) ∈ I × S si α(t0 ) = x.
+   On appelle flot local de X en (τ0 , x0 ) ∈ I × S la donnée d’un voisinage ouvert U de x0
+   dans S , d’un intervalle ouvert J contenu dans I et contenant τ0 , d’un ϵ > 0 tels que pour
+   tout t0 ∈ J, pour tout x ∈ U, il existe une unique courbe intégrale αt0 ,x de X de condition
+   initiale (t0 , x) définie sur ]t0 − ϵ, t0 + ϵ[. On note alors
+
+                          E = E(J, ϵ) = {(t0 , t) ∈ J × R | t ∈]t0 − ϵ, t0 + ϵ[}
+
+   et
+                              F : E ×U → S,           (t0 , t, x) 7→ αt0 ,x (t).
+   On note (E(J, ϵ), U, F ) ce flot local.
+
+
+   Remarque IX.8.4 — Comme dans la remarque VII.2.6, un cas important est celui où le
+   champ de vecteurs tangents X ne dépend pas du temps. Dans la définition ci-dessus, il n’y
+   a alors pas la contrainte que l’intervalle J dans le domaine de définition du flot local soit
+   contenu dans un intervalle prescrit I, ou en d’autre termes, on peut prendre I = R.
+
+
+    On obtient alors le théorème d’existence et d’unicité locale suivant, en utilisant les paramétrages
+locaux pour se ramener au théorème VII.2.12. Nous laissons les détails de la démonstration au
+lecteur qui pourra s’inspirer de la démonstration de la proposition IX.8.1.
+
+
+======== [PDF page 177 | page imprimée 174] ========
+174                                                                  CHAPITRE IX. SOUS-VARIÉTÉS
+
+       Théorème IX.8.5
+   Soient X : I × S −→ RN un champ de vecteurs tangents dépendant du temps sur une
+   sous-variété S de RN et (τ0 , x0 ) ∈ I × S . Supposons que X soit localement lipschitzien
+   en la seconde variable. Alors il existe un intervalle J ouvert contenant τ0 , une constante
+   ϵ > 0 et un voisinage ouvert U de x0 dans S définissant un flot local (E(J, ϵ), U, F ) en
+   (τ0 , x0 ). Si le champ de vecteurs tangents X est de classe C p , alors F aussi.
+   De plus, on a un énoncé d’unicité : soient t0 ∈ J, x ∈ U. Si γ :]t0 − ϵ′ , t0 + ϵ′ [→ RN avec
+   ϵ′ ≤ ϵ vérifie γ ′ (t) = X(t, γ(t)) et γ(t0 ) = x, alors γ(t) = αt0 ,x (t) = F (t0 , t, x) pour tout
+   t ∈]t0 − ϵ′ , t0 + ϵ′ [.
+
+
+   Remarque IX.8.6 — Comme un ouvert d’une sous-variété est une sous-variété, il n’y
+   a pas lieu d’énoncer le théorème avec un ouvert de S remplaçant S . En revanche, la
+   démonstration se ramène au théorème VII.2.12 via les paramétrages locaux.
+
+    Soit X : I × S −→ RN un champ de vecteurs tangents dépendant du temps sur une
+sous-variété S de RN . Supposons que X soit localement lipschitzien en la seconde variable.
+Soit (τ0 , x0 ) ∈ I × S . Comme dans les définitions VII.3.3 et VII.3.4, on peut définir Jτ0 (x0 )
+comme l’union de tous les intervalles ouverts J contenant τ0 tels qu’il existe une courbe intégrale
+α : J → U de condition initiale (τ0 , x0 ). et montrer qu’il existe une unique courbe intégrale ατ0 ,x0
+de condition initiale (τ0 , x0 ) définie sur Jτ0 (x0 ) (la courbe intégrale maximale de X de condition
+initiale (τ0 , x0 )). Ceci permet de définir le flot global de X.
+
+       Définition IX.8.7
+   Posons
+                             D = {(τ0 , t, x0 ) ∈ I × I × S | t ∈ Jτ0 (x0 )}.
+   L’application
+                                F : D → S,        F (τ0 , t, x0 ) = ατ0 ,x0 (t)
+   où ατ0 ,x0 est la courbe intégrale maximale de X de condition initiale (τ0 , x0 ), définie sur
+   Jτ0 (x0 ), est appelée flot global de X, et D est son domaine de définition.
+   Pour tout τ0 ∈ I, on pose
+
+                                Dτ0 = {(t, x0 ) ∈ I × S | t ∈ Jτ0 (x0 )}.
+
+
+    Dans le cas où le champ de vecteurs tangents X sur la sous-variété S est indépendant du
+temps, on peut simplifier les notations : on prend dans ce cas I = R, et l’on fixe τ0 = 0. On note
+alors simplement J(x0 ) pour J0 (x0 ), F (t, x0 ) pour F (0, t, x0 ), etc...
+      Soit (t0 , x) ∈ I × S . Supposons que s et s + t soient dans Jt0 (x). La formule de composition
+
+
+                               F (t0 , s + t, x) = F (s, s + t, F (t0 , s, x)).
+
+
+du théorème VII.3.7 est alors encore valide dans ce cadre. Lorsque le champ de vecteurs tangents
+X ne dépend pas du temps, on fixe les conditions initiales en temps à τ0 = 0, et cette formule
+devient comme en VII.3.1 lorsque (t, x) et (s, Ft · x) sont dans D0 ,
+
+
+(IX.8.3)                                 Fs · (Ft · x) = Ft+s · x.
+
+
+      On obtient aussi bien sûr l’analogue du théorème VII.3.9.
+
+
+======== [PDF page 178 | page imprimée 175] ========
+IX.9. EXERCICES                                                                                175
+
+     Théorème IX.8.8
+   Soit X : I × S −→ RN un champ de vecteurs tangents dépendant du temps sur une
+   sous-variété S de RN . Supposons que X soit localement lipschitzien en la seconde variable.
+   Alors :
+       a. D est un ouvert de I × I × S .
+      b. Si X est de classe C p , F est de classe C p sur D.
+
+   Lorsque S est une sous-variété compacte de RN , les courbes intégrales d’un champ de vecteurs
+tangents sont définies sur R tout entier grâce au théorème VII.3.10.
+
+     Théorème IX.8.9
+   Soit X un champ de vecteurs tangents qui ne dépend pas du temps et lipschitzien sur une
+   sous-variété compacte S de RN . Alors le domaine de définition de son flot global est
+
+                                           D0 = R × S .
+
+    La formule (IX.8.3) est donc valide quels que soient t, s ∈ R et x ∈ S . D’autre part, si X
+est de classe C r , r ≥ 1, pour tout t ∈ R, Ft : x 7→ Ft · x = F (t, x) est un difféomorphisme de
+classe C r de S d’inverse F−t . En effet F0 est l’identité de S et les Ft sont de classe C 1 car le
+flot global F l’est. Nous obtenons donc le
+
+     Corollaire IX.8.10
+   Supposons que X soit de classe C r . Notons Diff r (S ) le groupe des difféomorphismes de
+   classe C r , de S . L’application t 7→ Ft est un morphisme de groupes de R dans Diff r (S ).
+
+
+
+IX.9      Exercices
+
+
+   Exercice IX.9.1 — Soit S une sous-variété de RN , contenue dans un ouvert V. Soit
+   ϕ : V → W un difféomorphisme entre V et un autre ouvert W de RN . Montrer que ϕ(S )
+   est une sous-variété de RN , difféomorphe à S .
+
+
+  Exercice IX.9.2 — Montrer que le groupe SO(n) des matrices orthogonales de déterminant
+  1 est une sous-variété de Mn (R).
+
+
+   Exercice IX.9.3 : fibré tangent — Soit S une sous-variété de RN . Montrer que l’ensemble
+
+                                T S = {(p, v) ; p ∈ S , v ∈ Tp S }
+
+   est une sous-variété de RN × RN .
+
+
+   Exercice IX.9.4 — Soit S une sous-variété de dimension m de RN et soit ϕ : S −→ RN
+   une application différentiable vérifiant
+     a. En tout point p ∈ S , dϕp : Tp S → RN est injective.
+     b. ϕ est un homéomorphisme de S sur son image ϕ(S ).
+
+
+======== [PDF page 179 | page imprimée 176] ========
+176                                                           CHAPITRE IX. SOUS-VARIÉTÉS
+
+
+  Montrer que l’ensemble ϕ(S ) est une sous-variété de RN et que ϕ : S → ϕ(S ) est un
+  difféomorphisme.
+  Application. Soit f : S2 → R×+ une fonction de classe C
+                                                            ∞ sur la sphère unité. Montrer
+
+  que
+                                S (f ) = {f (p)p ; p ∈ S2 }
+  est une surface compacte de R3 difféomorphe à S2 .
+  On dit qu’une surface compacte connexe S de R3 ne contenant pas 0 est radialement
+  transverse (on dit parfois « étoilée par rapport à 0 ») s’il n’existe aucune demi-droite
+  d’origine 0 tangente à S en l’un de ses points.
+  Montrer que toute surface S (f ) est radialement transverse, puis que, réciproquement, si
+  S est radialement transverse, la projection radiale
+                                                               p
+                                  π : S −→ S2 ,       p 7−→
+                                                              ∥p∥
+
+  est une immersion. (On peut montrer qu’alors π est un difféomorphisme, de sorte que
+  S = S (f ) avec f = ∥π −1 ∥ : S étant compacte, π est un revêtement de la sphère, qui est
+  simplement connexe. Cet argument relève de la théorie des revêtements et dépasse le cadre
+  de ce cours.)
+
+
+  Exercice IX.9.5 — Soit S la partie de R3 définie par
+
+               S = {(x, y, z) ∈ R3 | F (x, y, z) = x4 + x2 z 2 + y 4 + 2z 2 − 1 = 0}.
+
+  Montrer que c’est une sous-variété de R3 .
+  Soit f : S → R, (x, y, z) 7→ x2 + y 2 + z 2 . Montrer que f est de classe C ∞ . Trouver les
+  extrema de f sur S .
+
+
+  Exercice IX.9.6 — Soient a > 3 un réel et S la partie de R3 définie par
+                                                         2     2     2
+                   S = {(x, y, z) ∈ R3 | F (x, y, z) = ex + ey + ez − a = 0}.
+
+  Montrer que c’est une sous-variété de R3 . Exhiber un difféomorphisme entre S et S2 .
+
+
+  Exercice IX.9.7 — Soient S une surface de R3 et a ∈ R3 un vecteur de norme 1.
+      1. Si S est compacte, montrer qu’il existe un point p de S tel que la droite passant
+         par p et orthogonale à Tp S soit parallèle au vecteur a.
+      2. Si S est connexe, et si pour tout point p de S , la droite passant par p et orthogonale
+         à Tp S est parallèle au vecteur a, alors S est contenue dans un plan orthogonal à a.
+
+
+  Exercice IX.9.8 — Soient S une surface et D ⊂ R3 une droite de R3 .
+      1. Si S est compacte, montrer qu’il existe un point p de S tel que la droite passant
+         par p et orthogonale à Tp S intersecte D perpendiculairement.
+      2 Si S est connexe, et si pour tout point p de S , la droite passant par p et orthogonale
+        à Tp S intersecte D perpendiculairement, alors S est contenue dans un cylindre d’axe
+        D.
+
+
+======== [PDF page 180 | page imprimée 177] ========
+IX.9. EXERCICES                                                                                          177
+
+
+  Exercice IX.9.9 —
+     1. Soit S une surface compacte. Montrer qu’il existe une droite qui intersecte S
+        perpendiculairement en au moins deux points.
+     2. Soient S1 et S2 deux surfaces compactes qui ne s’intersectent pas. Montrer qu’il
+        existe une droite qui coupe perpendiculairement S1 en un point et S2 en un autre
+        point.
+
+
+  Exercice IX.9.10 — Soit S une surface de R3 se trouvant entièrement dans un demi-espace
+  fermé délimité par un plan P . Montrer que S et P sont tangents en chaque point de leur
+  intersection.
+
+
+  Exercice IX.9.11 — Soit S une surface de R3 telle que chaque point de S admette un
+  voisinage contenu dans un plan (resp. une sphère). Montrer que S est contenue dans un
+  plan (resp. une sphère).
+
+
+  Exercice IX.9.12 — Soit S une sous-variété connexe de RN . Montrer que deux points de
+  S peuvent être reliés par un arc de classe C 1 .
+
+
+  Exercice IX.9.13 — Soit X un champ de vecteurs tangents de classe C ∞ sur une sous-
+  variété S de RN . Supposons que X(p0 ) ̸= 0 en un point p0 de S . Montrer qu’il existe un
+  paramétrage local x : U → S en p0 tel que
+
+                                   X(x(q)) = xu1 (q),           (q ∈ U).
+
+
+  Exercice IX.9.14 —
+  Soit S2n−1 la sphère unité de R2n .
+     1. Montrer que le champ de vecteurs X de R2n défini par
+                                           n
+                                           X               ∂             ∂
+                                     X=           −x2i          + x2i−1
+                                                         ∂x2i−1         ∂x2i
+                                            i=1
+
+        est tangent à la sphère (et donc se restreint en un champ de vecteurs sur la sphère).
+     2. Lorsque n = 2, définir deux autres champs de vecteurs Y et Z, tangents à la sphère,
+        tels que X, Y et Z soient linéairement indépendants en chaque point de S3 .
+                                                  a −b −c d
+                                                  b a  d   c
+        Indication. Pour tout (a, b, c, d) ∈ S3 ,              = −1
+                                                  c −d a −b
+                                                  d c −b −a
+     3. En déduire que le fibré tangent T S3 est trivial, c’est-à-dire est difféomorphe à S3 × R3 .
+
+
+
+
+  Exercice IX.9.15 — On identifie Rn et l’espace des matrices colonnes Mn,1 . Si v1 , . . . , vn ∈
+  Rn , on note (v1 |v2 | . . . |vn ) la matrice de Mn (R) dont les colonnes sont v1 , . . . , vn .
+  Etant donnés u1 , . . . , uk ∈ Rn , on note Vect(u1 , . . . , uk ) le sous-espace vectoriel de Rn qu’ils
+  engendrent.
+
+
+======== [PDF page 181 | page imprimée 178] ========
+178                                                                         CHAPITRE IX. SOUS-VARIÉTÉS
+
+
+  On considère la fonction
+
+                      f : (Rn )n −→ R,            (v1 , v2 , . . . , vn ) 7→ det(v1 |v2 | . . . |vn ).
+
+      1. Pour tout (v1 , v2 , . . . , vn ) ∈ (Rn )n , donner la différentielle df(v1 ,v2 ,...,vn ) en l’évaluant
+         en (w1 , w2 , . . . , wn ) ∈ (Rn )n .
+      2. On note g la restriction de f à (Sn−1 )n . Montrer que si (v1 , v2 , . . . , vn ) ∈ (Sn−1 )n est un
+         point critique de g, et que de plus (v1 , v2 , . . . , vn ) est libre, alors pour tout i = 1, . . . , n,
+         Tvi Sn−1 ⊂ Vect(v1 , . . . , vi−1 , vi+1 , . . . vn ). En déduire que (v1 , v2 , . . . , vn ) ∈ (Sn−1 )n
+         est une base orthonormée de Rn .
+      3. Montrer que pour tout (v1 , v2 , . . . , vn ) ∈ (Rn )n , on a
+
+                                    det(v1 |v2 | . . . |vn ) ≤ ||v1 || ||v2 || . . . ||vn || .

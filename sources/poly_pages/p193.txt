@@ -1,0 +1,26 @@
+190                                            ANNEXE A. SUJETS D’EXAMEN ET PROBLÈMES
+
+      D2. Calculons tout d’abord
+                                                            1 − |α|2
+                                           µ′α,λ (z) = λ              .
+                                                           (1 − ᾱz)2
+On a
+                       (f ◦ µα,λ )′ (0) = f ′ (µα,λ (0)) µ′α,λ (0) = f ′ (−λα)λ(1 − |α|2 ).
+Donc |(f ◦ µα,λ )′ (0)| = |f ′ (−λα)| (1 − | − λα|2 ).
+    D3. Comme |f ′ | est continue sur D̄, la fonction y 7→ |f ′ (y)|(1 − |y|2 ) atteint son maximum sur
+D̄ en un point y0 , et y0 est en fait dans D car la fonction s’annule sur le cercle unité (si f ′ est
+identiquement nulle, tout point convient). On choisit donc g = f ◦ µ−y0 ,1 . La propriété voulue est
+alors vérifiée : |h′ (0)| ≤ |g ′ (0)| pour toute fonction h ∈ F.
+      On remarque que AutC (D) est un groupe, et donc
+
+                                    F = {g ◦ µα,λ , α ∈ D, λ ∈ C(0, 1)}.
+
+En particulier, on calcule comme ci-dessus (g◦µα,λ )′ (0) = g ′ (−λα)λ(1−|α|2 ) et donc |g◦µ′−z,1 (0)| =
+|g ′ (z)(1 − |z|2 )| ≤ |g ′ (0)|.
+      D4. Ceci découle facilement de la question précédente.
+   D5. Les hypothèses de la partie C sont satisfaites pour la fonction g sur le disque D̄(0, √12 ).
+                                                     √
+On en déduit que g(D) contient le disque D g(0), ( 32 2 − 2)|g ′ (0)| .
+                                                                     
+
+      D6. Immédiat car f (D) = g(D) et |g ′ (0)| ≥ |f ′ (0)|.

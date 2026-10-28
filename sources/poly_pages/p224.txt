@@ -1,0 +1,47 @@
+                                                                                              221
+
+  tels que la suite de fonctions gn (z) = fn (zn + ρn z) (de domaines variables) converge
+  localement uniformément vers une fonction méromorphe non constante g : C → C ∪ {∞},
+  et que l’on ait en outre g σ (z) ≤ g σ (0) = 1 pour tout z ∈ C. Pour simplifier, on supposera
+  que Ω contient le disque fermé D(0, 1).
+
+   (a) Démontrer qu’il existe une suite (wk )k≥1 de points de Ω qui converge vers un point
+       w∞ de Ω, et une suite (fk )k≥1 d’éléments de F, tels que l’on ait fkσ (wk ) → +∞.
+
+       Pour simplifier, dans la suite on supposera que D(0, 1) ⊂ Ω, et que w∞ = 0 et
+       wk ∈ D(0, 1) pour tout k.
+   (b) Pour k ≥ 1, posons Mk = sup|z|≤1 fkσ (z)(1 − |z|). Montrer que Mk → +∞ quand
+       k → +∞.
+   (c) Pour tout k ≥ 1, fixons un élément zk de D(0, 1) tel que fkσ (zk )(1 − |zk |) = Mk , et
+       posons ρk = 1/fkσ (zk ). Vérifier que ρk → 0 quand k → +∞.
+   (d) Démontrer que la fonction gk : z 7→ fk (zk + ρk z) est bien définie sur le disque D(0, Mk ).
+   (e) En étudiant la σ-dérivée de gk , démontrer que la suite (gk )k≥1 admet une sous-suite
+       qui converge localement uniformément vers une fonction g : C → C ∪ {∞}, au sens du
+       point 2.
+   (f) Conclure.
+
+5. On se propose d’appliquer le point 4 pour démontrer :
+  Théorème. Soient a1 , a2 , a3 ∈ C ∪ {∞} trois points distincts. Soit Ω ⊆ C un ouvert non
+  vide et simplement connexe. Si F une famille de fonctions méromorphes sur Ω qui ne
+  prennent pas les valeurs a1 , a2 , a3 , alors F est une famille normale.
+  On procédera par l’absurde, en supposant que F n’est pas normale.
+
+   (a) Démontrer qu’on peut se ramener au cas où {a1 , a2 , a3 } = {0, 1, ∞}.
+   (b) Vérifier que pour toute fonction f ∈ F et pour tout entier n ≥ 1, il existe une
+                                                  n
+       fonction holomorphe g : Ω → C vérifiant g 2 = f . On note Fn la famille des fonctions
+                                             n
+       holomorphes g : Ω → C satisfaisant g 2 = f pour une certaine fonction f ∈ F.
+   (c) Pour g ∈ Fn , démontrer que g σ ≥ f σ /2n . En déduire que la famille Fn n’est pas
+       normale.
+   (d) Démontrer que pour tout entier n ≥ 1, il existe une fonction holomorphe gn : C → C
+                                               n
+       qui ne prend aucune des valeurs e2πik/2 avec k ∈ Z, et qui vérifie gnσ (z) ≤ gnσ (0) = 1
+       pour tout z ∈ C.
+   (e) Démontrer que la suite (gn )n≥1 admet une sous-suite qui converge localement unifor-
+       mément vers une fonction G : C → C qui est holomorphe, non constante, et ne prend
+                                 n
+       aucune des valeurs e2πik/2 , pour n ≥ 1 et k entiers.
+   (f) Soit G : C → C une fonction vérifiant les conditions de la question précédente.
+       Montrer que |G(z)| ̸= 1 pour tout z ∈ C. En déduire que G est constante, ce qui
+       contredit (e).

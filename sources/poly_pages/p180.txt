@@ -1,0 +1,58 @@
+IX.9. EXERCICES                                                                                          177
+
+
+  Exercice IX.9.9 —
+     1. Soit S une surface compacte. Montrer qu’il existe une droite qui intersecte S
+        perpendiculairement en au moins deux points.
+     2. Soient S1 et S2 deux surfaces compactes qui ne s’intersectent pas. Montrer qu’il
+        existe une droite qui coupe perpendiculairement S1 en un point et S2 en un autre
+        point.
+
+
+  Exercice IX.9.10 — Soit S une surface de R3 se trouvant entièrement dans un demi-espace
+  fermé délimité par un plan P . Montrer que S et P sont tangents en chaque point de leur
+  intersection.
+
+
+  Exercice IX.9.11 — Soit S une surface de R3 telle que chaque point de S admette un
+  voisinage contenu dans un plan (resp. une sphère). Montrer que S est contenue dans un
+  plan (resp. une sphère).
+
+
+  Exercice IX.9.12 — Soit S une sous-variété connexe de RN . Montrer que deux points de
+  S peuvent être reliés par un arc de classe C 1 .
+
+
+  Exercice IX.9.13 — Soit X un champ de vecteurs tangents de classe C ∞ sur une sous-
+  variété S de RN . Supposons que X(p0 ) ̸= 0 en un point p0 de S . Montrer qu’il existe un
+  paramétrage local x : U → S en p0 tel que
+
+                                   X(x(q)) = xu1 (q),           (q ∈ U).
+
+
+  Exercice IX.9.14 —
+  Soit S2n−1 la sphère unité de R2n .
+     1. Montrer que le champ de vecteurs X de R2n défini par
+                                           n
+                                           X               ∂             ∂
+                                     X=           −x2i          + x2i−1
+                                                         ∂x2i−1         ∂x2i
+                                            i=1
+
+        est tangent à la sphère (et donc se restreint en un champ de vecteurs sur la sphère).
+     2. Lorsque n = 2, définir deux autres champs de vecteurs Y et Z, tangents à la sphère,
+        tels que X, Y et Z soient linéairement indépendants en chaque point de S3 .
+                                                  a −b −c d
+                                                  b a  d   c
+        Indication. Pour tout (a, b, c, d) ∈ S3 ,              = −1
+                                                  c −d a −b
+                                                  d c −b −a
+     3. En déduire que le fibré tangent T S3 est trivial, c’est-à-dire est difféomorphe à S3 × R3 .
+
+
+
+
+  Exercice IX.9.15 — On identifie Rn et l’espace des matrices colonnes Mn,1 . Si v1 , . . . , vn ∈
+  Rn , on note (v1 |v2 | . . . |vn ) la matrice de Mn (R) dont les colonnes sont v1 , . . . , vn .
+  Etant donnés u1 , . . . , uk ∈ Rn , on note Vect(u1 , . . . , uk ) le sous-espace vectoriel de Rn qu’ils
+  engendrent.

@@ -1,0 +1,14 @@
+                                                                                           233
+
+    (c) Soit F : V → V la fonction définie dans la question précédente. Montrer qu’il existe
+        r0 > 0 tel que F soit α-lipschitzienne dans B(r0 ).
+
+   (d) Conclure.
+
+
+4. Application. Si p est un point de Λ, on dit que p est un point périodique pour le difféomor-
+   phisme φ s’il existe un entier m ≥ 1 tel qu’on ait φm (p) = p . On dit que p est un point
+   récurrent pour φ s’il existe une suite (mk )k∈N d’entiers qui tende vers +∞ et qui vérifie
+   φmk (p) → p quand k → ∞.
+  Montrer que tout point de Λ qui est récurrent pour φ appartient à l’adhérence de l’ensemble
+  des points périodiques de φ.

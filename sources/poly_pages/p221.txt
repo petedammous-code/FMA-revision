@@ -1,0 +1,65 @@
+218                                            ANNEXE A. SUJETS D’EXAMEN ET PROBLÈMES
+
+École polytechnique         Calcul différentiel et fonctions holomorphes (FMA_41031_EP)
+Département de Mathématiques                                               Année 2024-2025
+
+
+                                      Devoir à la maison no. 1
+
+    Dans tout le devoir, si Ω est un ouvert connexe non vide de C et si f est une fonction
+méromorphe sur Ω, on prolonge f en une fonction de Ω dans C ∪ {∞} de la manière suivante :
+si P désigne l’ensemble des pôles de f , on prolonge f en une fonction holomorphe sur Ω \ P, puis
+on pose f (z) = ∞ pour z ∈ P. On identifie f à la fonction de Ω dans C ∪ {∞} ainsi obtenue.
+      Exercice 1
+    Soient ω1 et ω2 deux nombres complexes R-indépendants, et soit Λ le réseau associé, c’est-à-dire
+la partie Zω1 ⊕ Zω2 de C.
+    On dit qu’une fonction f : C → C ∪ {∞} est elliptique pour Λ si elle est méromorphe sur C et
+vérifie f (z + λ) = f (z) pour tout (z, λ) ∈ C × Λ. On note E(Λ) l’ensemble des fonctions elliptiques
+pour Λ.
+      Pour z0 ∈ C, on note
+
+                                Qz0 := {z0 + t1 ω1 + t2 ω2 : t1 , t2 ∈ [0, 1]},
+
+et on note ∂Qz0 le parallélogramme bordant Qz0 . On rappelle 2 que la fonction de Weierstrass
+                                      1   X          1       1
+                                                                
+                             ℘ : z 7→ 2 +                 −
+                                     z            (z + λ)2 λ2
+                                                  λ∈Λ\{0}
+
+est paire, elliptique pour Λ, holomorphe sur C \ Λ, qu’elle admet un développement en série de
+Laurent au voisinage de 0 de la forme :
+                         +∞
+                 1   X                                                          X       1
+          ℘(z) = 2 +  (2k + 1)E2k+2 z 2k ,              où Eℓ = Eℓ (Λ) =                   pour ℓ ≥ 3,
+                z                                                                       λℓ
+                        k=1                                                   λ∈Λ\{0}
+
+et qu’elle satisfait l’équation différentielle
+
+                                  ℘′ (z)2 = 4℘(z)3 − 60E4 ℘(z) − 140E6 .
+
+   1. Soit f une fonction elliptique pour Λ ; on suppose que f n’est pas constante.
+         (a) Vérifier qu’il existe z0 ∈ C tel que f n’ait ni pôle ni zéro sur ∂Qz0 (Λ).
+            On fixe un tel z0 , et on note Z (resp. P), l’ensemble des zéros (resp. pôles) de f dans
+            Q = Qz0 (Λ).
+                         P
+        (b) Montrer que z∈P resz (f ) = 0.
+        (c) Si z ∈ Z ∪ P,P on note m(z) P ≥ 1 la multiplicité de z comme zéro ou comme pôle de f .
+            Montrer que z∈Z m(z) = z∈P m(z) et que la valeur commune est ≥ 2.
+                         P                 P
+        (d) Montrer que z∈Z m(z)z − z∈P m(z)z appartient à Λ.
+                                                              ′
+             Indication : considérer la fonction z 7→ zff (z)
+                                                           (z)
+                                                               .
+
+   2. Soient u1 et u2 deux nombres complexes n’appartenant pas à Λ et vérifiant ℘(u1 ) ̸= ℘(u2 ).
+         (a) Déterminer les zéros de la fonction
+
+                                                         1 ℘(z) ℘′ (z)
+                                                                          
+
+                                           f : z 7→ det 1 ℘(u1 ) ℘′ (u1 ) .
+                                                         1 ℘(u2 ) ℘′ (u2 )
+  2. Voir l’exercice 12 de la seconde feuille d’exercices sur les fonctions holomorphes.

@@ -1,0 +1,56 @@
+I.4. BIHOLOMORPHISMES                                                                                  13
+
+
+  fonctions trigonométriques
+
+                          eiz + e−iz                eiz − e−iz                        sin z
+               cos z :=              ,   sin z :=                    et    tan z :=         ,
+                               2                        2i                            cos z
+  ou hyperboliques
+
+                          ez + e−z                                   ez − e−z
+              cosh z :=            = cos(iz),            sinh z :=            = −i sin(iz),
+                              2                                          2
+  et
+                                          sinh z
+                                     tanh z :=    = −i tan(iz),
+                                          cosh z
+  sont des fonctions holomorphes sur leurs domaines de définition respectifs. On laisse le soin
+  au lecteur de déterminer les domaines de définition des fonctions tan et tanh et les dérivées
+  complexes de toutes ces fonctions.
+
+
+  Remarque I.3.6 — Cette abondance de fonctions holomorphes ne doit pas nous faire
+  oublier qu’il convient de faire attention et, si f est une fonction holomorphe, alors z 7→ |f (z)|
+  (module de f ) ou z 7→ f (z) (fonction complexe conjuguée) ne sont essentiellement jamais
+  holomorphes (sauf si la fonction f est constante sur chaque composante connexe de son
+  domaine).
+
+
+
+
+I.4      Biholomorphismes
+
+
+  Introduisons la définition :
+
+
+
+       Définition I.4.1
+  Une fonction holomorphe h : Ω1 → Ω2 , où Ω1 et Ω2 sont deux ouverts de C, est un
+  biholomorphisme si h est une bijection de Ω1 sur Ω2 dont la réciproque h−1 est holomorphe
+  sur Ω2 . Un biholomorphisme d’un ouvert Ω de C sur lui-même est appelé un automorphisme
+  (holomorphe) de Ω.
+
+
+  Remarque I.4.2 — Il est clair que l’ensemble Authol (Ω) des automorphismes d’un ouvert Ω
+  forme un groupe pour la composition des fonctions. Déterminer Authol (Ω) est un problème
+  important, nous verrons certains exemples en exercices : Ω = C (cf. Exercice. II.7.5),
+  Ω = D(0, 1) (cf. Prop. I.13.3).
+
+
+  Exemple I.4.3 — Soit D = D(0, 1) le disque unité et soit H = {z ∈ C | ℑm(z) > 0} le
+                                      1−z
+  demi-plan de Poincaré. Alors z 7→ i 1+z est un biholomorphisme de D sur H.
+
+  Le résultat qui suit est une conséquence du théorème d’inversion locale.

@@ -1,0 +1,56 @@
+IX.7. CALCUL DIFFÉRENTIEL SUR LES SOUS-VARIÉTÉS                                                   161
+
+     Proposition IX.7.9
+   Soit S une sous-variété de dimension m de RN . Soient p ∈ S et x : U → S un
+   paramétrage local en p. Posons q = x−1 (p). Alors l’espace tangent à S en p s’identifie
+   à l’image de Rm par l’application dxq . En particulier c’est un sous-espace vectoriel de
+   dimension m de RN .
+
+
+
+Démonstration. Soit ⃗v un vecteur tangent à S en p, c’est-à-dire qu’il existe une courbe paramétrée
+α : I → RN de classe C 1 dont la trace est contenue dans S , définie sur un intervalle ouvert I
+contenant 0, telle que α(0) = p et α′ (0) = ⃗v . Quitte à réduire I, on peut supposer que la trace de
+α est dans x(U). La courbe β = x−1 ◦ α, I → U est alors de classe C 1 , d’après remarque IX.7.7,
+point 4 et l’exemple IX.7.6.
+   Par définition de la différentielle, dxq (β ′ (0)) = ⃗v , ce qui montre que ⃗v ∈ dxq (Rm ).
+   Réciproquement, si ⃗v = dxq (w)                ⃗ ∈ Rm , on peut considérer la courbe
+                                ⃗ pour un certain w
+
+
+                                      β : I → U,      t 7→ tw
+                                                            ⃗ +q
+
+
+ où I est un intervalle ouvert contenant 0. Posons α = x ◦ β. On a par définition de la différentielle
+⃗v = α′ (0). Ceci montre que ⃗v est un vecteur tangent en p à S .
+
+
+
+     Définition IX.7.10
+   Soit S une sous-variété. On note Tp S l’espace tangent à S en un point p ∈ S . C’est un
+   sous-espace vectoriel de l’espace ambiant RN . On note Tp S le sous-espace tangent affine à
+   S en p, c’est-à-dire le sous-espace affine passant par p et parallèle à Tp S .
+
+
+
+
+    De la discussion qui précède, on tire le résultat suivant qui est surtout pour nous le prétexte à
+introduire des notations utiles.
+
+     Corollaire IX.7.11
+   Soient S une sous-variété de dimension m de RN , p un point de S et x : U → S un
+   paramétrage local de S en p. Notons u = (u1 , . . . , um ) la variable d’une fonction définie
+   sur U ⊂ Rm . Soit (e1 , . . . , em ) la base canonique de Rm . Posons
+
+                                                  d                     ∂x
+   (IX.7.1)               xui (u) = dxu (ei ) =           x(u + tei ) =     (u)
+                                                  dt |t=0               ∂ui
+
+   Alors pour tout u ∈ U, (xu1 (u), . . . , xum (u)) est une base de Tx(u) S .
+
+
+
+
+   Exercice IX.7.12 — Montrer que le cône C = {(x, y, z)| x2 + y 2 − z 2 = 0} dans R3 n’est
+   pas une sous-variété de R3 .

@@ -1,0 +1,67 @@
+202                                                ANNEXE A. SUJETS D’EXAMEN ET PROBLÈMES
+
+      2023                                                                                              MAT431
+
+                                      Devoir à la maison 1
+
+
+      L’objectif de ce devoir est d’étudier quelques propriétés de la fonction ζ de Riemann.
+
+                                  Partie A : Formule de Poisson
+
+
+   Soit a > 0 et notons Ω = {z ∈ C | −a < ℑm(z) < a}. Supposons que f : Ω → C soit une
+fonction holomorphe telle qu’il existe b > 0 vérifiant
+                                                        b
+                                   |f (z)| ⩽                          (∀z ∈ Ω).
+                                                   1 + ℜe(z)2
+                                               1
+ (1) Soit g la fonction définie par g(z) = e2iπz −1
+                                                    . Montrer que g est méromorphe sur C, puis
+     calculer les résidus de g en chacun de ses pôles.
+ (2) En déduire les résidus de la fonction (méromorphe sur Ω) f g.
+ (3) Soit 0 < ε < a. Pour tout N ∈ N,1 on considère  le chemin γN qui parcourt dans le sens direct
+     le rectangle de sommets −N − 2 − iε, N + 2 − iε, N + 12 + iε, −N − 21 + iε . Montrer que
+                                                   1
+
+
+                                          Z                            N
+                                                                       X
+                                                   f (z)g(z)dz =              f (n).
+                                              γN                      n=−N
+
+                                                                     R +∞
+     Pour u ∈ R, on considère la transformée de Fourier fˆ(u) = −∞ f (t)e−2iπut dt.
+ (4) Soit 0 < ε < a et soit N ∈ N. Notons γ1 , γ2 , γ3 , γ4 les chemins définis de la façon suivante :
+                                                                              1     1
+                              γ1,N (t) = t − iε,                     t ∈ [−N − , N + ]
+                                                                              2     2
+                                                     1
+                              γ2,N (t) = N +           + it,         t ∈ [−ε, ε]
+                                                     2
+                                                                              1     1
+                              γ3,N (t) = −t + iε,                    t ∈ [−N − , N + ]
+                                                                              2     2
+                                                       1
+                              γ4,N (t) = −N −            − it, t ∈ [−ε, ε]
+                                                       2
+        On a donc
+                                  Z                            4 Z
+                                                               X
+                                          f (z)g(z)dz =                      f (z)g(z)dz.
+                                     γN                        j=1    γj,N
+
+        Montrer que pour i = 2, 4,
+                                          Z
+                                                   f (z)g(z)dz −→N →+∞ 0.
+                                           γi,N
+
+
+ (5) Montrer que
+                              Z                         +∞ Z +∞
+                                                        X
+                        lim          f (z)g(z)dz =                      f (t − iε)e−2iπ(n+1)(t−iε) dt
+                      N →+∞ γ1,N
+                                                        n=0 −∞
+                                                     R
+        et trouver une formule analogue pour limN →+∞ γ3,N f (z)g(z)dz.

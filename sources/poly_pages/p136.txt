@@ -1,0 +1,51 @@
+VII.2. THÉORÈME DE CAUCHY-LIPSCHITZ                                                                    133
+
+    Définition VII.2.9
+  Un flot local en (λ0 , τ0 , x0 ) de X est la donnée d’un voisinage ouvert W de λ0 dans Λ,
+  d’un voisinage ouvert U ′ de x0 dans U, d’un intervalle ouvert J contenant τ0 et contenu
+  dans I, d’une constante ϵ > 0 et d’une application
+
+                                         F : W × E × U ′ → U,
+
+  où
+                         E = E(J, ϵ) = {(t0 , t) ∈ J × R | t ∈]t0 − ϵ, t0 + ϵ[},
+  tels que pour tout λ ∈ W, pour tout t0 ∈ J, pour tout x ∈ U ′ ,
+
+                                     t 7→ αλ,t0 ,x (t) = F (λ, t0 , t, x)
+
+  soit l’unique courbe intégrale de Xλ définie sur ]t0 − ϵ, t0 + ϵ[ de condition initiale (t0 , x).
+
+
+  Remarque VII.2.10 — La longueur de l’intervalle de définition de la courbe intégrale
+  αλ,t0 ,x est indépendante de λ ∈ W, t0 ∈ J et x ∈ U ′ . L’ensemble E est un ouvert connexe
+  de R2 .
+
+  Notons au passage la reformulation suivante des propriétés du flot
+
+    Proposition VII.2.11
+  Un flot local F comme dans la définition précédente vérifie pour tout (λ, t0 , t, x) dans le
+  domaine de définition de F ,
+                   ∂F
+                      (λ, t0 , t, x) = X(t, F (λ, t0 , t, x)),       F (λ, t0 , t0 , x) = x.
+                   ∂t
+
+
+  Le théorème de Cauchy-Lipschitz à paramètres VII.2.8, se reformule en
+
+    Théorème VII.2.12
+  Soient X : Λ × I × U → E comme dans le théorème VII.2.8 et (λ0 , τ0 , x0 ) ∈ Λ × I × U.
+  Alors il existe un voisinage ouvert W de λ0 dans Λ, un intervalle J ouvert contenant τ0 ,
+  un voisinage ouvert U ′ de x0 dans U et une constante ϵ > 0 définissant un flot local F en
+  (λ0 , τ0 , x0 ). Si le champ de vecteurs X est de classe C p , alors F aussi et de classe C p+1 en
+  t.
+  L’énoncé d’unicité est le suivant : soient λ ∈ W, t0 ∈ J, x ∈ U ′ . Si
+
+                                        γ :]t0 − ϵ′ , t0 + ϵ′ [→ E
+
+  avec ϵ′ ≤ ϵ vérifie γ ′ (t) = Xλ (t, γ(t)) et γ(t0 ) = x, alors γ(t) = αλ,t0 ,x (t) = F (λ, t0 , t, x)
+  pour tout t ∈]t0 − ϵ′ , t0 + ϵ′ [.
+
+
+  Remarque VII.2.13 — Souvent nous voulons étudier des équations différentielles où le
+  champ de vecteurs est sans dépendance en un paramètre λ. On reformule facilement les
+  résultats précédents sans cette dépendance.

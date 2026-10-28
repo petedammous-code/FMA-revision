@@ -1,0 +1,59 @@
+III.3. LE THÉORÈME DE MONTEL                                                                          63
+
+et la suite (1/fn )n converge donc uniformément vers 1/f sur C(z0 , r). D’après le Théorème III.1.4
+de Weierstraß, la suite (fn′ )n∈N converge uniformément vers f ′ sur tout compact, et ainsi on a
+convergence uniforme de la suite (fn′ /fn )n vers f ′ /f sur C(z0 , r). En particulier, grâce au principe
+de l’argument (plus précisément au corollaire qui suit le lemme II.8.1, appliqué à U = D(z0 , r))
+on trouve, en posant D := D(z0 , r) et en notant Z(·, D) le nombre de zéros dans D comptés avec
+leur multiplicité,
+
+                                     f ′ (z)                        fn′ (z)
+                           Z                               Z
+                     1                                1
+          Z(f, D) =                          dz = lim                       dz = lim Z(fn , D).
+                    2iπ     C(z0 ,r) f (z)       n→∞ 2iπ   C(z0 ,r) fn (z)      n→∞
+
+
+
+Comme Z(fn , D) = 0 pour tout n par hypothèse, on trouve Z(f, D) = 0 et f ne s’annule pas sur
+D(z0 , r). Ceci étant valable pour tout z0 ∈ Ω, on a bien montré que f ne s’annule pas.
+   Pour montrer le second point, on suppose que f est non-constante et on fixe a ∈ Ω. Posons
+pour tout n ≥ 1,
+                                gn (z) := fn (z) − fn (a), z ∈ Ω \ {a}.
+
+L’ouvert U := Ω \ {a} est encore connexe (un ouvert connexe de C est connexe par arcs, et deux
+points de U se joignent dans U quitte à contourner a dans un petit disque), et la suite (gn )n
+converge localement uniformément sur U vers la fonction holomorphe g := f − f (a). De plus,
+pour tout n ≥ 1, puisque fn est injective sur Ω, la fonction gn ne s’annule pas sur U , sinon il
+existerait z ∈ U tel que fn (z) = fn (a), ce qui est exclu.
+    On peut donc appliquer le premier point à la suite (gn ) : soit g ≡ 0 sur U , soit g ne s’annule
+pas sur U . Comme on a supposé f non-constante, g est également non-constante et donc ne
+s’annule pas sur U . Autrement dit, si f (z) = f (a), alors z = a et on a bien montré que f est
+injective.
+
+
+
+   Remarque III.2.2 — Si pour tout n ≥ 1, fn ne s’annule pas, il arrive que f soit identi-
+   quement nulle. Voilà un exemple : prenons Ω := D(0, 1) \ {0} et posons fn (z) := z n pour
+   n ≥ 1 et z ∈ Ω. On a bien fn (z) ̸= 0 pour tout n ≥ 1 et tout z ∈ Ω. De plus, fn converge
+   uniformément vers la fonction constante égale à 0 sur tout compact de Ω.
+
+
+   Remarque III.2.3 — La démonstration du premier point montre en fait le résultat plus fort
+   suivant : soient Ω un ouvert connexe de C et (fn )n∈N une suite de fonctions holomorphes
+   de Ω dans C, localement uniformément convergente sur Ω et de limite f . Pour tout z ∈ Ω,
+   il existe r > 0 tel que si l’on pose D := D(z, r), alors la suite Z(fn , D) tend vers Z(f, D)
+   lorsque n tend vers l’infini.
+
+
+
+III.3     Le théorème de Montel
+
+
+    Nous avons vu précédemment qu’il suffit qu’une suite (fn )n∈N de fonctions holomorphes soit
+                                                    (k)
+uniformément de Cauchy pour que toutes les suites (fn )n∈N de ses dérivées successives convergent
+localement uniformément et que les limites soient holomorphes. Nous allons maintenant montrer
+un résultat de compacité des suites de fonctions holomorphes qui sont localement bornées, le
+théorème de Montel. Pour cela, nous introduisons la notion de famille normale et celle de famille
+localement uniformément bornée et l’on montre que les deux sont équivalentes.

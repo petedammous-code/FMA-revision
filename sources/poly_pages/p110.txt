@@ -1,0 +1,62 @@
+V.5. CLASSE C k ET DIFFÉRENTIELLES D’ORDRE SUPÉRIEUR                                                 107
+
+                                   m
+                                   X ∂f
+On obtient donc f (x) = f (a)+                (a)(xk −ak )+o(x−a), ce qui montre que f est différentiable
+                                       ∂xk
+                                  k=1
+en a et pour tout h = (h1 , . . . , hm ) ∈ E,
+                                                        m
+                                                        X ∂f
+                                            dfa (h) =               (a)(hk ),
+                                                              ∂xk
+                                                        k=1
+
+ce qui conclut la démonstration.
+
+   Exemple V.5.2 — Une application linéaire continue est de classe C ∞ . Elle est égale à sa
+   différentielle en tout point. Ses différentielles d’ordre supérieur sont nulles.
+
+
+
+V.5.3      Le lemme de Schwarz
+   Intéressons nous de plus près dans un premier temps à la différentielle seconde. On suppose
+donc que f : U → F est une application d’un ouvert U d’un espace vectoriel normé E à valeurs
+dans un espace vectoriel normé F de classe C 1 . L’application
+
+                                       df : U → L(E; F ),             x 7→ dfx
+
+est partout définie sur U et continue. Supposons qu’elle soit différentiable en un point a ∈ U. Sa
+différentielle en a est alors un élément
+
+                                      d2 fa = d(df )a ∈ L(E; L(E; F )),
+
+l’application x 7→ d2 fx allant de U dans L(E; L(E; F )). Or, nous avons vu dans la section V.1.4
+que l’on a un isomorphisme naturel
+                                                              ∼
+                                       L(E; L(E; F )) → L(E, E; F ).
+
+La différentielle seconde d2 fa = d(df )a en un point a peut donc être vue comme une application
+bilinéaire de E × E → F .
+
+     Théorème V.5.3 — Lemme de Schwarz
+   Avec les hypothèses ci-dessus, la différentielle seconde d(df )a est une application bilinéaire
+   symétrique de E × E dans F .
+
+
+Démonstration. Introduisons gu,v (t, s) = f (a + tu + sv) − f (a + sv) − f (a + tu) + f (a). Ici on a
+fixé a ∈ U et u, v ∈ E et gu,v (t, s) est définie pour des réels t et s dans un intervalle ouvert autour
+de 0. Nous allons montrer que
+                          gu,v (t, t) − d2 fa (tu, tv)       gu,v (t, t)
+                      lim                2
+                                                       = lim             − d2 fa (u, v) = 0
+                      t→0              t                 t→0     t2
+et comme gu,v (t, t) = gv,u (t, t), ceci montre que d2 fa (u, v) = d2 fa (v, u). On a
+
+          ∥gu,v (t, s) − d2 fa (tu, sv)∥F
+          = ∥(gu,v (t, s) − dfa+tu (sv) + dfa (sv)) − (d2 fa (tu, sv) − dfa+tu (sv) + dfa (sv))∥F
+          ≤ ∥gu,v (t, s) − dfa+tu (sv) + dfa (sv)∥F + ∥d2 fa (tu, sv) − dfa+tu (sv) + dfa (sv)∥F
+
+    Or la différentiabilité de df en a nous dit que : ∀ϵ > 0, ∃δ > 0 tel que si ∥x∥ ≤ 2δ, alors
+
+(V.5.1)                            ∥d2 fa (x, .) − dfa+x + dfa ∥ ≤ ϵ∥x∥E .

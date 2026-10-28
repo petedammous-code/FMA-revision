@@ -1,0 +1,55 @@
+V.2. THÉORÈME DE L’APPLICATION OUVERTE ET COROLLAIRES                                                   97
+
+V.2.3      Théorème d’isomorphisme de Banach
+
+   Une conséquence facile à obtenir du théorème de l’application ouverte est le résultat suivant,
+dû à S. Banach.
+
+       Théorème V.2.3 — de Banach
+   Soient E et F des espaces de Banach, et soit f : E → F un isomorphisme linéaire, continu.
+   Alors son inverse f −1 : F → E est continu.
+
+
+Démonstration. En effet, le théorème de l’application ouverte implique qu’il existe c > 0 tel que
+                                               1
+BF (0, c) ⊂ f (BE (0, 1)). On a alors ∥f −1 ∥ ≤ .
+                                               c
+
+       Corollaire V.2.4
+   Soit E un espace vectoriel muni de deux normes telles que E soit complet pour chacune
+   d’elles. Alors si ces deux normes sont comparables, elles sont équivalentes.
+
+
+Démonstration. Dire qu’elles sont comparables signifie que l’une d’elles est plus fine que l’autre :
+il existe k > 0 tel que ∥x∥1 ≤ k ∥x∥2 pour tout x ∈ E. Mais cela signifie que l’application identité
+Id : (E, ∥ . ∥2 ) → (E, ∥ . ∥1 ) qui est linéaire et bijective, est continue ; elle est donc bicontinue, et
+les deux normes sont équivalentes.
+
+
+V.2.4      Théorème du graphe fermé
+
+   Un énoncé équivalent au théorème de l’application ouverte est le théorème du graphe
+fermé.
+
+       Théorème V.2.5 — Graphe fermé
+   Soient E et F des espaces de Banach, et soit f : E → F une application linéaire. Alors f
+   est continue si et seulement si son graphe
+                                          
+                           Graphe(f ) = (x, f (x)) ∈ E × F, x ∈ E
+
+   est fermé.
+
+
+Démonstration. Si f est continue, son graphe est évidemment fermé. Démontrons la réciproque.
+Munissons E d’une seconde norme ∥ . ∥f définie par :
+
+                                 ∥ x ∥f = ∥ x ∥E + ∥ f (x) ∥F , (x ∈ E).
+
+Elle est plus fine que ∥ . ∥E et la condition que le graphe de f soit fermé dit que (E, ∥ . ∥f ) est
+un espace complet (on le voit comme un sous-espace fermé dans l’espace complet E × F via
+l’injection x 7→ (x, f (x))). Les normes ∥ . ∥E et ∥ . ∥f sont donc équivalentes : il existe donc C > 1
+tel que, pour tout x ∈ E :
+                                          ∥ x ∥f ≤ C ∥ x ∥ E ,
+
+soit
+                                      ∥ f (x) ∥F ≤ (C − 1) ∥ x ∥E .

@@ -1,0 +1,60 @@
+130                                              CHAPITRE VII. EQUATIONS DIFFÉRENTIELLES
+
+       Lemme VII.2.7 — Estimations pour l’opérateur intégral
+   Soient E un espace de Banach, x0 ∈ E, ρ > 0, c ∈ R et ϵ > 0. Soit
+
+                                  Y : [c − ϵ ; c + ϵ] × B̄(x0 , 2ρ) −→ E
+
+   une application continue, majorée en norme par une constante ℓ > 0 et k-lipschitzienne en
+   la seconde variable, avec k > 0. Posons
+
+                               X = C 0 [c − ϵ ; c + ϵ], B̄(x0 , 2ρ) ,
+                                                                   
+
+
+   muni de la norme de la convergence uniforme ∥ . ∥∞ . Alors X est un fermé convexe de
+   l’espace de Banach C 0 ([c − ϵ ; c + ϵ], E), donc un espace métrique complet, et si
+
+                                         ϵℓ ≤ ρ           et        ϵ k ≤ 12 ,
+
+   alors, pour tout x ∈ B̄(x0 , ρ), l’opérateur
+                                                   Z t               
+                                Tx : φ 7−→ t 7→ x +     Y (s, φ(s)) ds
+                                                                c
+
+   envoie X dans X et y est 12 -lipschitzien :
+
+                                 ∥Tx (φ1 ) − Tx (φ2 )∥∞ ≤ 12 ∥φ1 − φ2 ∥∞ .
+
+
+Démonstration. Une limite uniforme de fonctions à valeurs dans le fermé B̄(x0 , 2ρ) y reste à
+valeurs : X est fermé dans C 0 ([c − ϵ ; c + ϵ], E), et il est convexe puisque B̄(x0 , 2ρ) l’est. Il est
+donc complet pour la distance induite.
+      Soit φ ∈ X . L’application t 7→ Tx (φ)(t) est bien définie et continue, et pour tout t ∈ [c−ϵ ; c+ϵ],
+                                                     Z t
+                  ∥Tx (φ)(t) − x0 ∥ ≤ ∥x − x0 ∥ +        ∥Y (s, φ(s))∥ ds ≤ ρ + ϵ ℓ ≤ 2ρ,
+                                                           c
+
+donc Tx (φ) ∈ X . Soient ensuite φ1 , φ2 ∈ X ; comme Y est k-lipschitzienne en la seconde variable,
+                                      Z t
+       ∥Tx (φ1 )(t) − Tx (φ2 )(t)∥ ≤      ∥Y (s, φ1 (s)) − Y (s, φ2 (s))∥ ds ≤ k ϵ ∥φ1 − φ2 ∥∞ ,
+                                           c
+
+et kϵ ≤ 12 .
+
+
+Démonstration du théorème VII.2.1. L’équation (VII.2.1) est équivalente à
+                                          Z t
+(VII.2.2)                      α(t) = x +     X(s, α(s)) ds.
+                                                          t0
+
+Nous allons trouver une telle application α comme point fixe d’un opérateur grâce au théorème
+de Banach VI.1.1.
+    Soit k > 0 tel que X soit k-lipschitzienne en la seconde variable (remarque VII.2.2). Soit a > 0
+tel que B̄(x0 , 2a) ⊂ U et soit a′ > 0 tel que [τ0 − 2a′ ; τ0 + 2a′ ] ⊂ I, les deux étant choisis assez
+petits pour que X soit k-lipschitzienne en la seconde variable sur [τ0 − 2a′ ; τ0 + 2a′ ] × B̄(x0 , 2a).
+   Quitte à diminuer encore a et a′ , on peut supposer de plus que X est bornée sur cette
+boîte : par continuité de X au point (τ0 , x0 ), il existe un voisinage de ce point sur lequel
+∥X(t, x) − X(τ0 , x0 )∥ ≤ 1. Posons
+                            ℓ=1+                    sup                  ∥X(t, x)∥ > 0.
+                                     t∈[τ0 −2a′ ;τ0 +2a′ ], x∈B̄(x0 ,2a)

@@ -1,0 +1,55 @@
+174                                                                  CHAPITRE IX. SOUS-VARIÉTÉS
+
+       Théorème IX.8.5
+   Soient X : I × S −→ RN un champ de vecteurs tangents dépendant du temps sur une
+   sous-variété S de RN et (τ0 , x0 ) ∈ I × S . Supposons que X soit localement lipschitzien
+   en la seconde variable. Alors il existe un intervalle J ouvert contenant τ0 , une constante
+   ϵ > 0 et un voisinage ouvert U de x0 dans S définissant un flot local (E(J, ϵ), U, F ) en
+   (τ0 , x0 ). Si le champ de vecteurs tangents X est de classe C p , alors F aussi.
+   De plus, on a un énoncé d’unicité : soient t0 ∈ J, x ∈ U. Si γ :]t0 − ϵ′ , t0 + ϵ′ [→ RN avec
+   ϵ′ ≤ ϵ vérifie γ ′ (t) = X(t, γ(t)) et γ(t0 ) = x, alors γ(t) = αt0 ,x (t) = F (t0 , t, x) pour tout
+   t ∈]t0 − ϵ′ , t0 + ϵ′ [.
+
+
+   Remarque IX.8.6 — Comme un ouvert d’une sous-variété est une sous-variété, il n’y
+   a pas lieu d’énoncer le théorème avec un ouvert de S remplaçant S . En revanche, la
+   démonstration se ramène au théorème VII.2.12 via les paramétrages locaux.
+
+    Soit X : I × S −→ RN un champ de vecteurs tangents dépendant du temps sur une
+sous-variété S de RN . Supposons que X soit localement lipschitzien en la seconde variable.
+Soit (τ0 , x0 ) ∈ I × S . Comme dans les définitions VII.3.3 et VII.3.4, on peut définir Jτ0 (x0 )
+comme l’union de tous les intervalles ouverts J contenant τ0 tels qu’il existe une courbe intégrale
+α : J → U de condition initiale (τ0 , x0 ). et montrer qu’il existe une unique courbe intégrale ατ0 ,x0
+de condition initiale (τ0 , x0 ) définie sur Jτ0 (x0 ) (la courbe intégrale maximale de X de condition
+initiale (τ0 , x0 )). Ceci permet de définir le flot global de X.
+
+       Définition IX.8.7
+   Posons
+                             D = {(τ0 , t, x0 ) ∈ I × I × S | t ∈ Jτ0 (x0 )}.
+   L’application
+                                F : D → S,        F (τ0 , t, x0 ) = ατ0 ,x0 (t)
+   où ατ0 ,x0 est la courbe intégrale maximale de X de condition initiale (τ0 , x0 ), définie sur
+   Jτ0 (x0 ), est appelée flot global de X, et D est son domaine de définition.
+   Pour tout τ0 ∈ I, on pose
+
+                                Dτ0 = {(t, x0 ) ∈ I × S | t ∈ Jτ0 (x0 )}.
+
+
+    Dans le cas où le champ de vecteurs tangents X sur la sous-variété S est indépendant du
+temps, on peut simplifier les notations : on prend dans ce cas I = R, et l’on fixe τ0 = 0. On note
+alors simplement J(x0 ) pour J0 (x0 ), F (t, x0 ) pour F (0, t, x0 ), etc...
+      Soit (t0 , x) ∈ I × S . Supposons que s et s + t soient dans Jt0 (x). La formule de composition
+
+
+                               F (t0 , s + t, x) = F (s, s + t, F (t0 , s, x)).
+
+
+du théorème VII.3.7 est alors encore valide dans ce cadre. Lorsque le champ de vecteurs tangents
+X ne dépend pas du temps, on fixe les conditions initiales en temps à τ0 = 0, et cette formule
+devient comme en VII.3.1 lorsque (t, x) et (s, Ft · x) sont dans D0 ,
+
+
+(IX.8.3)                                 Fs · (Ft · x) = Ft+s · x.
+
+
+      On obtient aussi bien sûr l’analogue du théorème VII.3.9.

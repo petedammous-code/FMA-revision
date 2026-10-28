@@ -1,0 +1,64 @@
+222                                         ANNEXE A. SUJETS D’EXAMEN ET PROBLÈMES
+
+      Correction :
+      Exercice 1.
+  1. Soit f ∈ E(Λ), f non-constante.
+      (a) On note
+                              Izj := {z + tωj : t ∈ [0, 1]},        Jz := Iz1 ∪ Iz2 .
+            Soit ε ∈ ]0, 1[ (il faut ε > 0 pour que [−ε, 0] soit infini). Par le principe des des zéros
+            isolés, l’ensemble des zéros de f est localement fini. L’ensemble des pôles de f est
+            également localement fini. Soit K := ∪t∈[−ε,0] Jt(ω1 +ω2 ) . L’ensemble K est compact,
+            donc contient un nombre fini de zéros et pôles de f . Par ailleurs, les ensembles
+            {Jt(ω1 +ω2 ) }t∈[−ε,0] forment une partition de K, donc il existe un ensemble fini S ⊂
+            [−ε, 0] tel que pour tout t ∈ [−ε, 0] \ S, l’ensemble Jt(ω1 +ω2 ) ne contient ni zéro ni pôle
+            de f . On fixe t0 ∈ [−ε, 0] \ S et on pose z0 := t0 (ω1 + ω2 ). Par Λ-périodicité de f , on
+            déduit que ∂Qz0 ne contient ni zéro ni pôle de f .
+            ⇝ On fixe un tel z0 , et on note Z, resp. P l’ensemble des zéros, resp. pôles de f dans
+            Q = Q z0 .
+        (b) On définit les chemins
+             — γ1 : [0, 1] → C, t 7→ z0 + tω1 ;
+             — γ̄2 : [0, 1] → C, t 7→ z0 + ω1 + tω2 ;
+             — γ̄1 : [0, 1] → C, t 7→ z0 + (1 − t)ω1 + ω2 ;
+             — γ2 : [0, 1] → C, t 7→ z0 + (1 − t)ω2 .
+            Quitte à échanger ω1 et ω2 , on suppose ℑm(ω2 /ω1 ) > 0, de sorte que le bord de Q
+            soit positivement orienté. Par la formule des résidus sur le contour ∂Q, et comme
+            Indz (∂Q) = 1 pour tout z ∈ P, on a
+                                                                  Z
+                                              X                 1
+                                                  resz (f ) =           f (z)dz
+                                                               2iπ ∂Q
+                                              z∈P
+                                   Z               Z              Z              Z          
+                                1
+                           =             f (z)dz +       f (z)dz +      f (z)dz +     f (z)dz .
+                              2iπ     γ1             γ̄2            γ̄1            γ2
+            En faisant le changement de variables z ← z−ω1 dans la seconde intégrale, et z ← z−ω2
+            dans
+            R        la troisième   R intégrale, et parP  Λ-périodicité de f , on déduit que pour i = 1, 2,
+              γ̄2 f (z)dz  =   −     γ2 f (z)dz, et donc   z∈P resz (f ) = 0, par la formule précédente.
+        (c) Si z ∈ Z ∪ P est un zéro ou un pôle, on note m(z) ≥ 1 sa multiplicité.
+                                ′
+            La fonction ff est méromorphe comme quotient de fonctions méromorphes (f ̸= 0) et
+            Λ-périodique donc elliptique pour Λ. Par construction, le bord ∂Q de Q ne contient ni
+                                                                                       ′
+            zéro ni pôle de f ; ces derniers sont précisément les pôles de ff , donc par la question
+            précédente,       en notant Z, resp. P les zéros, resp. pôles de f à l’intérieur de Q, on a
+            P                     f′
+                 z∈Z∪P   res z ( f ) = 0. D’autre part, le théorème des résidus et le principe de l’argument
+            (lemme II.8.1) donnent
+                                              f′               f′  X
+                                          Z
+                                      1              X                              X
+                                                  =       resz      =      m(z) −        m(z).
+                                     2iπ ∂Q f                  f
+                                                    z∈Z∪P              z∈Z          z∈P
+                                   P                P
+            On déduit que z∈Z m(z) − z∈P m(z) = 0.
+                                              P
+            Montrons à présent que z∈P m(z) ≥ 2. La fonction f est une fonction elliptique pour
+            Λ non-constante, donc pas holomorphe (par le théorème de Liouville, et Λ-périodicité) ;
+            en particulier, f a au moins un pôle dans C, donc à l’intérieur de Q, comme C = Q + Λ,
+            quePf n’a pas de pôle sur ∂Q, et que f est Λ-périodique. En d’autres termes, #P ≥ 1.
+            Si z∈P m(z) = 1, alors f a un uniquePpôle z∗ dans Q, de multiplicité m(z∗ ) = 1. Mais
+            alors son résidu est non-nul, et donc z∈P resz (f ) = resz∗ (f ) ̸= 0, ce qui contredit le
+            résultat de la question (1b).

@@ -1,0 +1,52 @@
+148                                                               CHAPITRE IX. SOUS-VARIÉTÉS
+
+V de f (a) dans RN tel que F réalise un difféomorphisme entre U1 × Y et V. Ceci montre que dfq
+est injective pour tout q ∈ U1 et que f réalise un homéomorphisme de U1 ≃ U1 × {0} sur son
+image f (U1 ) = F (U1 × {0}).
+
+       Définition IX.1.3
+   Soit f : V → RN une fonction différentiable définie sur un ouvert V de Rm . Si x ∈ V
+   est tel que dfx : Rm → RN n’est pas surjective, x est appelé point critique de f et
+   a = f (x) ∈ RN est appelée valeur critique de f .
+   Si x ∈ V n’est pas un point critique, c’est un point régulier. Si a ∈ RN n’est pas une
+   valeur critique, c’est une valeur régulière. C’est en particulier le cas lorsque a n’est pas
+   dans l’image de f .
+
+
+
+  Remarque IX.1.4 — Le théorème du rang constant, démontré en exercice au chapitre
+  précédent (exercice VI.4.9), jouera un rôle dans ce qui suit : si f : U → Rm est de classe
+  C p sur un ouvert U de Rn et si dfx est de rang constant égal à r au voisinage de a, alors,
+  à des difféomorphismes près à la source et au but, f s’écrit localement (x1 , . . . , xn ) 7→
+  (x1 , . . . , xr , 0, . . . , 0). Les cas particuliers des immersions et des submersions y sont traités
+  séparément.
+
+
+IX.2        Paramétrage local. Système de coordonnées
+
+
+   Une première façon de voir les sous-variétés est celle de nappe paramétrée. Une sous-variété
+de dimension m de RN est un objet paramétré localement par des ouverts de Rm .
+
+       Définition IX.2.1
+   Soient m ∈ N et k ∈ N× ∪ {∞}. Un sous-ensemble S de RN est une sous-variété de
+   dimension m de classe C k si pour tout p ∈ S , il existe un ouvert U de Rm , un voisinage
+   ouvert V de p dans RN et une application x : U → V tels que :
+   1. l’application x est différentiable de classe C k ,
+   2. l’application x est un homéomorphisme de U sur V ∩ S ,
+   3. (condition de régularité) en tout point q ∈ U, la différentielle dxq : Rm → RN est
+   injective (autrement dit, x est une immersion).
+   L’application x est un paramétrage local de la sous-variété S en p. Son inverse x−1 :
+   V ∩ S → U, est une carte ou encore un système de coordonnées (locales) de la
+   sous-variété S en p.
+   La codimension d’une sous-variété S de dimension m de RN est N − m. Une sous-
+   variété de dimension 2 est appelée surface. Une sous-variété de codimension 1 est appelée
+   hypersurface.
+
+      Au point 2, la topologie sur S est celle induite par la topologie usuelle de RN .
+
+
+  Remarques IX.2.2 —
+  1. La condition 3 implique que m ≤ N .
+  2. Nous n’insisterons pas toujours sur les hypothèses de régularité minimales requises pour
+  définir les notions et obtenir les résultats qui suivent. Le lecteur pourra soit supposer que

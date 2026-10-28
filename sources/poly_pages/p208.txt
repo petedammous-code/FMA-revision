@@ -1,0 +1,63 @@
+                                                                                                               205
+
+                                                    Corrigé
+
+   Partie A.
+    (1) La fonction h : z 7→ e2iπz − 1 est holomorphe sur C, non identiquement nulle, donc g = h1
+est méromorphe sur C (proposition II.4.5 du poly). Les pôles de g sont précisément les zéros de h.
+Pour tout z ∈ C on a
+                                   h(z) = 0 ⇔ e2iπz = 1 ⇔ z ∈ Z.
+
+Donc l’ensemble des pôles de g est Z ⊂ C. De plus ce sont tous des pôles simples. En effet,
+pour tout k ∈ Z, h(k) = 0 mais h′ (k) = 2iπ =  ̸ 0 donc au voisinage de k, on a h(z) = 2iπ(z −
+k) (1 + (z − k)h1 (z)) où h1 est une fonction holomorphe. Donc dans un voisinage ouvert de k il
+existe une fonction holomorphe h2 telle que l’on a
+
+                                    1                             1    1
+                       g(z) =              (1 + (z − k)h2 (z)) =           + h2 (z).
+                                2iπ(z − k)                       2iπ z − k
+
+                                                                                       1
+Ceci montre que chaque entier k ∈ Z est un pôle simple de g et que de plus resk (g) = 2iπ .
+   (2) Comme f est holomorphe et que chaque pôle de g est un pôle d’ordre 1 on obtient, pour
+tout k ∈ Z
+                                                          f (k)
+                            resk (f g) = f (k) resk (g) =       ,
+                                                          2iπ
+comme on le voit immédiatement en considérant les développement en série en k.
+    (3) Pour un pôle k de f g, Indk (γN ) = 1 si k ∈ {−N, . . . , N } et 0 sinon. Le théorème des
+résidus donne donc
+                          Z                             N
+                                                        X                     N
+                                                                              X
+                                  f (z)g(z)dz = 2iπ            resn (f g) =          f (n).
+                           γN                           n=−N                  n=−N
+
+
+   (4) Observons que
+         Z
+                                                          f (z)                  b
+                 f (z)g(z)dz ⩽ 2ε          sup                      ⩽ 2ε                  →N →+∞ 0.
+          γ2,N                        z∈γ2,N ([−ε,ε])   e2iπz − 1          1 + (N + 1/2)2
+
+Pour obtenir la deuxième inégalité, nous avons utilisé notre hypothèse sur f et que pour tout
+t ∈ [−ε, ε],
+                                        1                 1
+                  e2iπγ2 (t) = e2iπ(N + 2 +it) = e2iπ(N + 2 ) e−2πt = −e−2πt ∈ R .            −
+                              R
+De même on montre que       γ4,N f (z)g(z)dz → 0 quand N → +∞.
+                                 R +∞
+   (5) Justifions l’existence de −∞ f (t − iε)g(t − iε)dt. Pour ϵ fixé, la fonction t 7→ |e2iπ(t−iε) − 1|
+est périodique et ne s’annule pas et donc admet un minimum c > 0. On a donc
+
+                                                      f (t − iε)         b
+                           |f (t − iε)g(t − iε)| = | 2iπ(t−iε)    |≤
+                                                    e          −1    c(1 + t2 )
+
+qui est intégrable.
+   On a donc
+                                           Z +∞                                Z +∞
+                                                                                          f (t − iε)
+                   Z
+             lim         f (z)g(z)dz =             f (t − iε)g(t − iε)dt =                               dt.
+          N →+∞ γ1,N                         −∞                                 −∞      e2iπ(t−iε) − 1

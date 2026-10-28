@@ -1,0 +1,56 @@
+IX.7. CALCUL DIFFÉRENTIEL SUR LES SOUS-VARIÉTÉS                                                  163
+
+    Définition IX.7.15
+  Soit φ : S1 → S2 une application continue entre les sous-variétés S1 et S2 et p un point
+  de S1 où elle est différentiable. Alors il existe une application linéaire
+
+                                    dφp : Tp S1 −→ Tφ(p) S2
+
+  caractérisée par l’une des propriétés suivantes :
+     1. si ⃗v ∈ Tp S1 s’écrit ⃗v = dxq (w),
+                                        ⃗ où x : U → S1 est un paramétrage local en p tel
+        que x(q) = p avec w  ⃗ ∈ Rm , alors dφp (⃗v ) = d(φ ◦ x)q (w).
+                                                                   ⃗
+     2. si ⃗v ∈ Tp S1 s’écrit ⃗v = α′ (0), où α : I → S1 est une courbe paramétrée de classe C 1
+        d’un intervalle ouvert I contenant 0 dans S1 telle que α(0) = p, alors dφp (⃗v ) = β ′ (0)
+        où β = φ ◦ α : I → S2 .
+  L’application linéaire dφp est appelée la différentielle de φ au point p.
+
+
+
+  Remarques IX.7.16 — Plaçons-nous dans le cas où S2 = RN2 .
+  1. Si S1 est un ouvert de RN , on a pour tout p ∈ S1 , Tp S1 = RN et l’on retrouve la
+  définition usuelle de dφ.
+  2. Si φ est la restriction d’une fonction différentiable F définie sur un voisinage ouvert V de
+  S1 dans RN1 , dφp est la restriction de dFp à Tp S1 .
+  3. Si x : U → S1 est un paramétrage local en p avec x(q) = p, l’application linéaire
+  dφp : Tp S1 → RN2 est caractérisée par la propriété suivante
+
+                           φ(x(q + h)) = φ(p) + dφp (dxq (h)) + o(h)
+
+ (comme fonction de h définie dans un voisinage approprié de q dans Rm ).
+
+
+  Les différentielles se composent de la manière habituelle.
+
+    Proposition IX.7.17
+  Soient S1 , S2 et S3 des sous-variétés (respectivement de RN1 , RN2 et RN3 ) et supposons
+  que les applications
+                             φ1 : S1 → S2 ,       φ2 : S2 → S3 ,
+  sont telles que φ1 est différentiable en p, et φ2 différentiable en φ1 (p). Alors φ2 ◦ φ1 est
+  différentiable en p, et
+                               d(φ2 ◦ φ1 )p = d(φ2 )φ1 (p) ◦ d(φ1 )p .
+
+
+
+
+                              α                            φ
+                                                  α0 (0)                    β 0 (0)
+                      0
+                                           α(0)                      β(0)
+                       I
+
+
+
+
+                                           Différentielle

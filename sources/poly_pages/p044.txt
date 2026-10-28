@@ -1,0 +1,53 @@
+II.3. INDICE D’UN LACET                                                                             41
+
+
+
+
+                             Lacet d’indice 2 par rapport à l’origine.
+
+
+
+On vérifie que
+                                          f′   (γ − z0 )′
+                                             =            ,
+                                          f     γ − z0
+sauf aux points où γ n’est pas C 1 , mais ces points sont en nombre fini. On a donc
+                                         f (t)   γ(t) − z0
+                                               =           .
+                                         f (0)   γ(0) − z0
+
+Comme f (0) = 1 et γ(0) = γ(1), on a f (1) = 1 et donc e2iπ Indz0 (γ) = 1, ce qui termine la
+démonstration du premier point. Ensuite, on vérifie facilement par le théorème de continuité
+                                                       1
+                                                          R 1 γ ′ (t)
+d’une fonction définie par une intégrale que z0 7→ 2iπ     0 γ(t)−z0 dt est continue. Etant à valeurs
+entières, elle est constante sur les composantes connexes de son ensemble de définition. Nous
+laissons la dernière assertion en exercice (facile) au lecteur.
+
+
+    Géométriquement parlant, l’indice de γ en z0 compte algébriquement le nombre de tours que
+fait γ autour de z0 .
+
+   Exemple II.3.3 — Soit D un disque (ouvert) de C et C = ∂D le bord de ce disque. On
+   suppose C parcouru dans le sens trigonométrique. La formule intégrale de Cauchy pour
+   f ≡ 1 donne alors
+                                       Indz0 (C) = 1,
+   pour tout z0 ∈ D.
+   Si z0 ∈ C\ D̄, en notant a le centre et r le rayon de D, le développement en série géométrique
+              1
+   de θ 7→    reiθ
+                    donne
+           1+ a−z
+                 0
+                                          Indz0 (C) = 0.
+
+     Proposition II.3.4
+   L’indice est invariant par homotopie de lacets. Plus précisément, s’il existe une homotopie
+   dans C \ {z0 } entre deux lacets γ0 et γ1 , alors Indz0 (γ0 ) = Indz0 (γ1 ).
+
+
+Démonstration. C’est une conséquence immédiate du théorème II.2.1. Il est bien sûr crucial
+qu’aucun des lacets γs de l’homotopie ne passe par z0 .
+
+   Remarque II.3.5 — Soit γ : [0, 1] → C une application continue, vérifiant γ(0) = γ(1).
+   Supposons d’autre part que cette courbe est simple, c’est-à-dire que si γ(x) = γ(y), alors

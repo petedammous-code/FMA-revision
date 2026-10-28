@@ -1,0 +1,63 @@
+104                                CHAPITRE V. CALCUL DIFFÉRENTIEL DANS LES E.V.N.
+
+Notons [u1 ; v1 ] un intervalle sur lequel cette inégalité est vérifiée, et notons m1 = u1 +v
+                                                                                           2
+                                                                                             1
+                                                                                               et
+réitérons le procédé. On construit ainsi une suite d’intervalles emboîtés [uk ; vk ] avec
+
+                                                              M                     v−u
+                 ∥f (vk ) − f (uk )∥F − (g(vk ) − g(uk )) ≥        et   vk − uk =       .
+                                                              2k                     2k
+Alors uk et vk convergent vers un même point w, et l’on a uk ≤ w ≤ vk et
+
+      M
+         ≤ ∥f (vk ) − f (w)∥F − (g(vk ) − g(w)) + ∥f (w) − f (uk )∥F − (g(w) − g(uk ))
+      2k
+         ≤ ∥dfw (vk − w)∥F + o(vk − w) − g ′ (w)(vk − w) + o(vk − w)
+              + ∥dfw (w − uk )∥F + o(w − uk ) − g ′ (w)(w − uk ) + o(w − uk )
+          ≤ ∥dfw ∥ (|vk − w| + |w − uk |) − g ′ (w) (|vk − w| + |w − uk |) + o(vk − w) + o(w − uk )
+          ≤ ∥dfw ∥ − g ′ (w) (vk − uk ) + o(vk − uk )
+                            
+
+
+En divisant par vk − uk = v−u 2k
+                                               M
+                                 , on obtient v−u ≤ (∥dfw ∥ − g ′ (w)) + o(1) et ceci donne une
+contradiction avec l’hypothèse.
+
+
+   Remarque V.4.2 — Dans le théorème précédent, on peut affaiblir les hypothèses en
+   supposant seulement que pour tout t ∈ ]a ; b[, sauf peut-être un nombre dénombrable de
+   points, f et g sont différentiables et ∥f ′ (t)∥F ≤ g ′ (t) (voir [4]).
+
+       Corollaire V.4.3
+   Soient a et b deux réels avec a < b, et F un espace vectoriel normé. Soit f : [a ; b] → F
+   une application continue sur [a ; b] et différentiable sur ]a ; b[. Supposons que pour tout
+   t ∈ ]a ; b[, ∥f ′ (t)∥F ≤ k, pour une certaine constante k. Alors ∥f (b) − f (a)∥F ≤ k(b − a).
+
+      Nous énonçons maintenant une version du théorème des accroissements finis.
+
+       Théorème V.4.4 — Théorème des accroissements finis
+   Soient E et F des espaces vectoriels normés, U un ouvert de E et f : U → F une application
+   différentiable sur U. Soient a et b des points de U. Si le segment [a, b] = ta + (1 − t)b; t ∈
+   [0, 1] est contenu dans U, alors
+
+                           ∥f (b) − f (a)∥F ≤ sup ∥dfta+(1−t)b ∥ × ∥b − a∥E .
+                                               t∈[0,1]
+
+   En particulier, si U est convexe, et que sup ∥dfx ∥ ≤ k pour une constante k, alors quels
+                                                 x∈U
+   que soient a et b dans U,
+                                     ∥f (b) − f (a)∥F ≤ k ∥b − a∥E .
+
+
+Démonstration. On applique le corollaire ci-dessus à h(t) = f ((1 − t)a + tb), en constatant que
+
+                                       h′ (t) = df(1−t)a+tb (b − a).
+
+
+
+
+       Corollaire V.4.5
+   Si U est connexe, et que dfx est nulle pour tout x ∈ U, alors f est constante sur U.

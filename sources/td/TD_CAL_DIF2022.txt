@@ -1,0 +1,206 @@
+  FMA 41031 EP                                                                                2026-2027
+
+                                Exercices de calcul différentiel
+
+
+Exercice 1. Soit Φ : Mm (R) → Mm (R), A 7→ An (n ⩾ 2 entier positif). Donner un
+argument pour justifier le fait que Φ est C ∞ et calculer sa différentielle et sa différentielle
+seconde.
+
+
+Exercice 2 (Variante utile du TAF). Soit U un ouvert convexe d’un espace de Banach
+E et soit f : U → F une application de classe C 1 à valeurs dans un espace de Banach F .
+(1) Montrer que quels que soient a, b et c dans U, on a
+                                                                                   !
+                ∥f (b) − f (a) − dfc (b − a)∥F ⩽          sup ∥dfu − dfc ∥             ∥b − a∥E ,
+                                                         u∈[a,b]
+
+    où [a, b] = {ta + (1 − t)b|t ∈ [0; 1]} ⊂ U.
+
+
+Exercice 3. On rappelleP    que ℓ1 (R) est l’espace des suites réelles (x = xi )i∈N sommables,
+muni de la norme ∥x∥ = i∈N |xi |, et que c’est un espace de Banach. Soit f une fonction
+de classe C 1 sur R, à valeurs réelles, telle que f (0) = 0. On définit
+                  F : ℓ1 (R) −→ ℓ1 (R),          x = (xi )i∈N 7→ F (x) = (f (xi ))i∈N .
+Montrer que F est bien définie, de classe C 1 et calculer sa différentielle en tout point.
+
+
+Exercice 4. Soit E = C 1 ([0, 1], R2 ), c’est-à-dire l’espace des restrictions à [0, 1] des
+fonctions de classe C 1 définies sur un intervalle ouvert contenant [0, 1], à valeurs dans R2 .
+On définit                                      Z 1
+                        T : E −→ R,         f 7→     det(f (t), f ′ (t)) dt.
+                                                         0
+Montrer que T est de classe C 1 et calculer sa différentielle en tout point.
+
+
+Exercice 5. Soit f (x, y) une application de classe C p de [0 ; 1] × R dans R . Montrer que
+l’application                                         Z                 1
+                          F : C 0 ([0 ; 1], R) −→ R,         u 7→           f (t, u(t))dt
+                                                                    0
+est de classe C p , sa différentielle k-ième étant donnée par
+                       Z 1 k
+                          ∂ f
+  k
+d Fu (h1 , ..., hk ) =        k
+                                (t, u(t)) h1 (t) . . . hk (t) dt, (h1 , . . . , hk ∈ E = C 0 ([0 ; 1], R)).
+                        0 ∂y
+
+
+Exercice 6. Une variante astucieuse du théorème de Picard. Soit (X, d) un espace
+métrique complet, et T : X → X une application telle qu’il existe n ∈ N× avec T n
+contractante. Montrer que T admet un unique point fixe x et que pour tout x0 ∈ X, x
+est limite de la suite T k (x0 ) k lorsque k tend vers l’infini.
+                                                     1
+2
+
+Exercice 7. Soient E et F des espaces de Banach, U un ouvert de E et f : U → F une
+application de classe C 1 . Supposons qu’il existe un point a ∈ U tel que dfa : E → F soit
+surjective et supposons qu’il existe un supplémentaire fermé E2 de E1 = ker dfa dans E.
+Montrer que f (U) est un voisinage de f (a).
+
+
+Exercice 8. Soit F = C 0 ([0 ; 1]; R) muni de la norme
+                                      ∥f ∥0 = sup |f (t)|
+                                               t∈[0 ;1]
+
+et soit E = C 1 ([0 ; 1]; R) muni de la norme ∥f ∥1 = ∥f ∥0 + ∥f ′ ∥0 . On rappelle que ce sont
+des espaces de Banach. On définit
+                    Ψ : E → F,      f 7→ Ψ(f ),     Ψ(f )(t) = f ′ (t) + tf (t)2
+Montrer que Ψ est de classe C 1 . Montrer que dΨ0 = dtd et que cette application linéaire
+de E dans F est surjective. Trouver un supplémentaire fermé E2 dans E de E1 = ker dΨ0 .
+Utiliser l’exercice précédent pour en déduire qu’il existe ϵ > 0 tel que si g ∈ BF (0, ϵ), il
+existe f ∈ E telle que pour tout t ∈ [0 ; 1], f ′ (t) + tf (t)2 = g(t).
+
+
+Exercice 9. Soient a et b deux réels vérifiant a < b. Montrer que, pour ε < 0 petit,
+l’équation (x − a)(x − b) + εx3 = 0 admet trois racines réelles distinctes xa (ε) < xb (ε) <
+xc (ε) et donner un développement limité à l’ordre 1 de xa et xb .
+    En déduire un développement asymptotique lorsque ε tend vers 0, arrêté au terme en
+O(ε2 ), de l’intégrale elliptique
+                                    Z xb (−ε)
+                                                       dx
+                             I(ε) =           p                     .
+                                     xa (−ε)   (x − a)(b − x) + εx3
+
+   Indication : poser u = 12 (xa (−ε) + xb (−ε)), v = 21 (xb (−ε) − xa (−ε)), et faire un chan-
+gement de variable x = u + v sin(t).
+   Commentaire (F. Rouvière) : l’intégrale I(ε) a joué un rôle capital dans la physique
+du XX e siècle ! Le terme en ε de son développement rend compte d’un déplacement du
+périhélie de Mercure de 43 secondes d’arc par siècle, prévu par le théorie de la relativité
+générale. Ce phénomène, constaté depuis longtemps par l’observation, restait inexpliqué
+par la théorie classique de la gravitation de Newton (qui correspond au cas où ε = 0). Il
+a constitué un test décisif en faveur de la Relativité Générale, et de loin ≪ la plus forte
+expérience émotionnelle de la vie scientifique d’Einstein, peut-être de toute sa vie ≫, selon
+son biographe Abraham Pais.
+
+
+Exercice 10. Soit A0 ∈ Mn (R) une matrice admettant n valeurs propres distinctes
+λ1 (0), λ2 (0) . . . , λn (0).
+   (1) Montrer qu’il existe un voisinage U de A0 dans Mn (R) et des fonctions λi : U → R,
+i = 1, . . . , n de classe C ∞ tels que pour tout A ∈ U, λ1 (A), λ2 (A), . . . , λn (A) soient les
+valeurs propres de A et restent distinctes.
+   (2) On fixe i. Soit vi (0) un vecteur propre de A0 pour la valeur propre λi (0). Montrer
+que quitte à restreindre le voisinage U de A0 de la question précédente, il existe une
+fonction vi définie sur U à valeurs dans Rn et de classe C ∞ telle que vi (A) soit un vecteur
+propre non nul de A pour la valeur propre λi (A).
+                                                                                                               3
+
+Exercice 11. Soit f ∈ C 1 (R, R). On suppose qu’il existe une constante C telle que
+                                   (
+                                    |f (x) − f (y)| ⩽ C|x − y|.
+                    (∀x, y ∈ R),                                    .
+                                    |f ′ (x) − f ′ (y)| ⩽ C|x − y|,
+On considère l’équation différentielle sur [0, 1] avec condition aux bords :
+                                 (
+                                   u′′ − λf (u) = 0 sur ]0, 1[,
+                                   u(0) = u(1) = 0
+Montrer qu’il existe un intervalle ouvert I contenant 0 tel que pour tout λ ∈ I, l’équation
+ci-dessus admet une solution uλ ∈ C 2 ([0, 1], R).
+
+
+Exercice 12. Théorème du rang constant.
+  Soit f : U → Rm une application C p d’un ouvert U de Rn dans Rm . Soit a ∈ U.
+Démontrer les assertions suivantes, dont la dernière est appelée théorème de rang constant.
+(1) Si f est une immersion en a (i.e. si dfa est injective) alors il existe un voisinage ouvert
+    U1 de a dans U, un voisinage ouvert W1 de f (a) dans Rm et Ψ : W1 → W2 ⊂
+    Rm un difféomorphisme de W1 sur un ouvert W2 de Rm tels que f (U1 ) ⊂ W1 et
+    Ψ ◦ f (x1 , . . . , xn ) = (x1 , . . . , xn , 0, . . . , 0) pour tout x = (x1 , . . . , xn ) ∈ U1 . Autrement
+    dit, à un changement de variable au but près, toute immersion est localement égale à
+    l’injection canonique de Rn dans Rm .
+(2) Si f est une submersion en a (i.e. si est dfa surjective), alors il existe un voisinage
+    ouvert U1 de a dans U, un ouvert U2 de Rn et un difféomorphisme Φ : U2 → U1 tels
+    que
+                                       f ◦ Φ(x1 , . . . , xn )=(x1 , . . . , xm )
+    pour tout x = (x1 , . . . , xn ) ∈ U2 . Autrement dit, à un changement de variable à la
+    source près, toute submersion est égale à la projection canonique de Rn dans Rm .
+(3) Posons r = rang(dfa ). Supposons que dfx soit de rang r pour tout x dans un voisinage
+    de a. Alors il existe
+     (a) un difféomorphisme Φ : U2 → U1 d’un ouvert U2 de Rn sur un voisinage ouvert
+         U1 de a dans U,
+     (b) un difféomorphisme Ψ : W1 → W2 d’un voisinage ouvert W1 de f (a) dans Rm
+         sur un ouvert W2 de Rm ,
+    vérifiant f (U1 ) ⊂ W1 et
+                Ψ ◦ f ◦ Φ : U2 → W2 ,               (x1 , . . . , xn ) 7→ (x1 , . . . , xr , 0, . . . , 0).
+    pour tout x = (x1 , . . . , xn ) ∈ U2 .
+
+
+
+Exercice 13 (Calcul des variations - Equation d’Euler-Lagrange). Soit (V, ⟨. , .⟩) un es-
+pace de Hilbert de dimension finie dont la norme est notée ∥.∥V . Soit E = C 1 ([0; 1]; V ),
+muni de la norme
+                        ∥γ∥E = sup ∥γ(t)∥V + sup ∥γ ′ (t)∥V .
+                                          t∈[0;1]                 t∈[0;1]
+
+Soit I un intervalle ouvert contenant [0, 1] et
+                          L : I × V × V −→ R,                   (u, q, v) 7→ L(u, q, v)
+4
+
+une application de classe C 1 . (On a pris des noms de variables proches de celles des
+physiciens ; on peut penser à la variable q comme à une position, et à la variable v comme
+une vitesse. Les physiciens, qui n’ont peur de rien, utilisent même la notation q̇ pour cette
+variable. La variable u est elle dans cet esprit une variable de temps, la variable t étant
+réservée dans ce problème à la fonction γ. On ne saurait trop conseiller de choisir des
+noms de variables différents pour toutes les fonctions intervenant dans un problème, c’est
+peut-être lourd mais c’est prudent).
+   On fixe a, b dans V et l’on note Ea,b le sous-espace des γ ∈ E tel que γ(0) = a, γ(1) = b
+(espaces des courbes à extrémités fixées a et b dans V ).
+(1) Rappeler pourquoi Ea,b est un espace complet. Montrer que c’est un espace affine d’es-
+    pace vectoriel sous-jacent E0,0 . Passer en revue rapidement le cours pour se convaincre
+    que le cadre naturel du calcul différentiel est en fait naturellement celui des espaces
+    affines associés à des espaces vectoriels normés.
+On définit                                        Z 1
+                       L̂ : E → R,       L̂(γ) =         L(t, γ(t), γ ′ (t)) dt
+                                                    0
+
+(2) Montrer que L̂ est de classe C 1 et calculer dL̂γ pour γ ∈ E.
+(3) Soit B : [0; 1] → V une fonction continue telle que pour toute fonction h ∈ C 1 ([0; 1]; V )
+    vérifiant h(0) = h(1) = 0, on a
+                                   Z 1
+                                       ⟨B(t), h′ (t)⟩ dt = 0.
+                                     0
+    Montrer que B est constante (Lemme de du Bois-Raymond).
+(4) Soit A, B : [0; 1] → V des fonctions continues telles que pour toute fonction h ∈
+    C 1 ([0; 1]; V ) vérifiant h(0) = h(1) = 0, on a
+                               Z 1
+                                   (⟨A(t), h(t)⟩ + ⟨B(t), h′ (t)⟩) dt = 0.
+                            0
+    Montrer que B est différentiable et B ′ = A.
+(5) Montrer que si γ est un point critique de la restriction de L̂ à Ea,b , alors on a pour
+    tout t ∈ [0; 1],
+                                                 
+                     d         ∂L            ′       ∂L
+                          t 7→    (t, γ(t), γ (t)) =    (t, γ(t), γ ′ (t)).
+                     dt        ∂v                    ∂q
+(6) Montrer que si L ne dépend pas de la première variable u et que γ est une solution
+    de l’équation d’Euler-Lagrange de classe C 2 , alors la fonction
+                                 ∂L
+                         H(t) =     (γ(t), γ ′ (t)) · γ ′ (t) − L(γ(t), γ ′ (t))
+                                 ∂v
+    est constante.
+(7) On suppose ici V = Rn muni du produit scalaire usuel et de la norme qui en découle.
+    On suppose que L = T − U , où T ne dépend que de v, T (v) = 12 ∥v∥2 (on reconnaı̂t
+    l’énergie cinétique), et U ne dépend que de q (c’est un ≪ potentiel ≫). Montrer que
+    l’équation d’Euler-Lagrange (E.L) se réduit alors à l’équation de Newton
+                                     γ ′′ (t) = −∇U (γ(t)),
+    où ∇U désigne le gradient de U .
+

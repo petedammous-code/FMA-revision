@@ -1,0 +1,76 @@
+                                                                                               223
+
+                                              ′
+   (d) On considère la fonction F : z 7→ zff (z)
+                                              (z)
+                                                  . On découpe l’intégrale de F sur ∂Q comme
+       précédemment (on utilise les notations de 1.b)) :
+                           Z             Z           Z        Z       Z    
+                         1             1
+       (4)                     F =                F+        F+      F+     F .
+                       2iπ ∂Q        2iπ       γ1       γ̄2     γ̄1     γ2
+
+                   ′                                                            ′
+       Comme ff est Λ-périodique, on voit que F (z + ωi ) = F (z) + ωi ff (z)
+                                                                          (z)
+                                                                              , pour i = 1, 2,
+       donc
+                                           f′                               f′
+                  Z       Z            Z        Z        Z            Z
+       (5)            F+       F = −ω2        ,     F+        F = −ω1           .
+                   γ1      γ̄1          γ1 f     γ2       γ̄2           γ2 f
+
+                                                    1
+                                                       R
+        D’autre part, par le théorème des résidus, 2iπ   ∂Q F est la somme des résidus aux pôles
+        de F à l’intérieur de Q. Par le principe de l’argument, z ∈ Q est un pôle de F si et
+        seulement si c’est un zéro de f ou un pôle de f , et son résidu est alors ±m(z)z — le
+        signe + en un zéro, le signe − en un pôle — où m(z) est la multiplicité de z comme
+        zéro ou pôle de f . On déduit de (4)-(5) que
+                                     Z
+                                   1           X             X
+                                         F =       m(z)z −        m(z)z
+                                  2iπ ∂Q
+                                                  z∈Z         z∈P
+
+                                           f′                      f′
+                                     Z                      Z           
+                                1                          1
+                          =−                  (z)dz ω1 −              (z)dz ω2 .
+                               2iπ      γ2 f              2iπ   γ1 f
+                                                                          R ′         
+                                                                        1      f
+        Pour conclure, il suffit donc de montrer que pour i = 1, 2, 2iπ     γi f (z)dz   est entier,
+                  R f′
+        i.e., exp( γ1 f (z)dz) = 1. Pour cela on raisonne comme pour l’indice d’un lacet. On
+        définit la fonction
+                                                           f′
+                                                   Z t                    
+                             Γ : [0, 1] ∋ t 7→ exp      ω1 (z0 + uω1 ) du .
+                                                     0     f
+               ′           ′
+        On a ΓΓ (t) = ω1 ff (z0 + tω1 ), qui est la dérivée logarithmique de t 7→ f (z0 + tω1 ), et
+        donc
+                                              Γ(1)    f (z0 + ω1 )
+                                    Γ(1) =          =              = 1,
+                                              Γ(0)       f (z0 )
+        car f est Λ-périodique. On déduit que
+
+                                            f′
+                                      Z            
+                                  exp          (z)dz = Γ(1) = 1,
+                                         γ1 f
+
+       comme souhaité.
+2. (a) En développant le déterminant, on voit que f (z) = α℘′ (z)+β℘(z)+γ, avec α, β, γ ∈ C,
+       où α = ℘(u2 ) − ℘(u1 ) ̸= 0. En particulier, f est elliptique pour Λ, et ses pôles sont
+       contenus dans Λ (comme pour ℘ et ℘′ ). En fait, comme α =     ̸ 0, on voit que pour tout
+       λ ∈ Λ, f a un pôle de multiplicité 3 en λ (comme ℘′ ). Comme en 1., on choisit alors
+       un z0 ∈ C tel que 0 soit le seul pôle de f dans l’intérieur de Q = Qz0 , et tel que ∂Q
+       ne contienne pas de zéro de f . Quitte à remplacer u1 et u2 par u1 + λ1 et u2 + λ2 ,
+       avec λ1 , λ2 ∈ Λ bien choisis, on peut supposer que u1 , u2 ∈ Q. De plus, u1 , u2 sont
+       clairement des zéros de f , et u1 ̸= u2 (car ℘(u1 ) ̸= ℘(u2 )). Par les questions 1.c) et
+       1.d), on déduit que f possède un troisième zéro u3 ∈ Q, compté avec multiplicité (si
+       u3 ≡ ±u1 , c’est un zéro double, et la droite est tangente à la cubique en ce point),
+       satisfaisant u1 + u2 + u3 ∈ Λ. En résumé, les zéros de f sont exactement les nombres
+       de la forme u1 + λ1 , u2 + λ2 , et −(u1 + u2 ) + λ3 , avec λi ∈ Λ, i = 1, 2, 3.

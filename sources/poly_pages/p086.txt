@@ -1,0 +1,38 @@
+IV.4. APPLICATIONS PHYSIQUES                                                                     83
+
+
+
+
+                                    Écoulement dans un coin.
+
+
+
+    Par exemple, donnons nous α ∈ ]0, 1[. Pour déterminer le champ de vitesses d’un fluide
+incompressible, irrotationnel, dans un coin
+
+                         Kα := {z = r eiθ ∈ C : r > 0,         0 ≤ θ ≤ 2 π α},
+
+on considère la transformation holomorphe
+
+                                         f (z) := z 1/(2α) ,
+
+qui envoie K  α sur le demi-plan H, ce qui nous donne comme potentiel des vitesses Φ(z) =
+λ ℜe z 1/(2α) pour l’écoulement d’un fluide dans un coin. Par exemple, pour un quart de plan
+(α = 1/4), on retrouve Φ(z) = λ ℜe(z 2 ).
+    D’autres transformations conformes sont utilisées dans ce contexte. Par exemple, la transforma-
+tion de Joukovski (1910) qui a été utilisée pour déterminer les profils des vitesses d’un écoulement
+d’un fluide autour d’un obstacle. Cette transformation conforme est donnée explicitement par
+                                                         
+                                                 1      1
+                                        f (z) :=     z+     .
+                                                 2      z
+
+
+
+
+                     Écoulement laminaire autour d’un obstacle circulaire.
+
+
+    On vérifie que l’image par f du cercle de centre 0 et de rayon 1 est le segment [−1, 1] de C
+(parcouru deux fois). Le potentiel des vitesses associé à un écoulement plan uniforme ⃗v ≡ ⃗v0
+dans la direction de l’axe des x, est donné par Φ0 (z) = λ ℜez. On obtient donc le potentiel des

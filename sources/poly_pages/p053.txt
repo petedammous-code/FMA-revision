@@ -1,0 +1,63 @@
+50                                                                 CHAPITRE II. FORMULE DES RÉSIDUS
+
+II.7      Exercices
+
+
+
+     Exercice II.7.1 — Déterminer si les fonctions suivantes de la variable complexe z sont
+     méromorphes sur C et déterminer leurs pôles éventuels
+
+                       z2                     1 − cos z                                                 1
+          f (z) :=          ,       g(z) :=             ,          h(z) := sin(1/z),      k(z) :=            .
+                     z4 + 1                      z2                                                   cosh z
+
+
+     Exercice II.7.2 — Soit f : C → C une fonction holomorphe. Montrer que z 7→ f (1/z) est
+     méromorphe en 0 si et seulement si f est une fonction polynomiale.
+
+
+     Exercice II.7.3 — Déterminer les pôles et résidus des fonctions suivantes
+
+                                      z2                                                   sin z
+                     f (z) :=                    ,     g(z) := cot z,          h(z) :=            .
+                                (z − 2)(z 2 + 1)                                         (z + 2)2
+
+
+     Exercice II.7.4 — Soit f : D(0, 1) \ {0} → C une fonction holomorphe.
+     1) Soit g une fonction holomorphe sur D(0, 1) \ {0}. Vérifier que
+                                              Z
+                                           1
+                                    r 7→              g(z) dz,
+                                          2iπ ∂D(0,r)
+
+     ne dépend pas de r ∈ ]0, 1[.
+     2) Soit z ∈ D(0, 1) \ {0}. Montrer que la fonction g définie sur D(0, 1) \ {0, z} par
+
+                                                         f (z) − f (ζ)
+                                               g(ζ) :=                 ,
+                                                             z−ζ
+
+     se prolonge en une fonction holomorphe sur D(0, 1) \ {0}.
+     3) En utilisant les questions précédentes, montrer que
+                                     Z                      Z
+                                  1          f (ζ)       1          f (ζ)
+                         f (z) =                   dζ −                   dζ,
+                                 2iπ ∂D(0,r) ζ − z      2iπ ∂D(0,s) ζ − z
+
+     pour tout 0 < s < |z| < r < 1.
+     4) En déduire que f admet un développement en série de Laurent
+                                               X
+                                       f (z) =   an z n
+                                                             n∈Z
+
+     dans D(0, 1) \ {0} avec                             Z
+                                                  1                 f (z)
+                                            an =                      n+1
+                                                                          dz
+                                                 2iπ        ∂D(0,r) z
+
+     cette quantité ne dépendant pas de r ∈ ]0, 1[ d’après la question 1).
+     5) Montrer que f possède un prolongement holomorphe dans D(0, 1) si et seulement si
+     |f (z)| reste borné quand |z| tend vers 0.
+     6) Montrer que f est méromorphe, non holomorphe, dans D(0, 1) si et seulement si |f (z)|
+     tend vers +∞ quand |z| tend vers 0.

@@ -1,0 +1,70 @@
+III.6. QUELQUES EXEMPLES                                                                        71
+
+
+  On reconnait dans le membre de droite la fonction π cot(πz) de l’exemple précédent, et
+  donc
+                             F ′ (z)               sin(πz)′
+                                     = π cot(πz) =          .
+                             F (z)                 sin(πz)
+  On en déduit que F (z) est égale à sin(πz) à une constante multiplicative près. Cette
+  constante est 1 comme on le voit en comparant les dérivées en 0. Ceci montre (III.6.3).
+
+
+  Exemple III.6.4 : Étude de la fonction Γ — La fonction Γ est définie, pour tout z ∈ C
+  tel que ℜe(z) > 0, par                 Z          ∞
+                                      Γ(z) :=           e−t tz−1 dt.
+                                                0
+  Nous avons déjà vu à l’exemple I.9.2 que Γ est holomorphe sur le demi-plan ℜe(z) > 0.
+  On peut aussi le voir directement : les théorèmes usuels sur les fonctions définies par des
+  intégrales montrent que Γ est de classe C 1 comme fonction de deux variables réelles, et la
+  dérivation sous l’intégrale qu’elle annule l’opérateur ∂∂z̄ .
+  On laisse le soin au lecteur de montrer que
+
+                                         Γ(z + 1) = z Γ(z),
+
+  pour tout ℜe(z) > 0 et en particulier Γ(n + 1) = n! pour tout n ∈ N. On peut se servir de
+  cette formule pour définir Γ comme une fonction méromorphe sur le demi-plan ℜe(z) > −1
+  avec pour seul pôle {0}, puis par une récurrence simple, comme fonction méromorphe sur
+  C avec pour pôles les entiers négatifs ou nuls.
+  Donnons maintenant une expression de Γ sous forme de produit sur C \ (−N). On définit la
+  suite de fonctions
+                                              t n z−1
+                                               
+                               fn (t) := 1 −      t    1[0,n] (t),
+                                              n
+  dont on vérifie d’une part qu’elle converge simplement vers la fonction t 7→ e−t tz−1 quand
+  n tend vers +∞ et d’autre part que
+
+                                       |fn (t)| ≤ e−t tℜe(z)−1 ,
+
+  sur [0, ∞[. En appliquant le théorème de convergence dominée, on conclut que
+
+                                                    t n z−1
+                                          Z n       
+                             Γ(z) = lim        1−       t   dt,
+                                     n→+∞ 0        n
+
+  pourvu que ℜe(z) > 0.
+  Un changement de variable nous permet d’écrire que
+
+                              t n z−1
+                     Z n                      Z 1
+                                              z
+                          1−       t   dt = n       (1 − u)n uz−1 du,
+                      0       n                   0
+
+  et, en utilisant n intégrations par parties, on démontre que
+
+                                   t n z−1
+                         Z n        
+                                                              n!
+                               1−       t    dt = nz                        .
+                          0        n                 z(z + 1) . . . (z + n)
+
+  Finalement, on conclut que pour tout z tel que ℜe(z) > 0,
+                                                            n
+                                 1           −z
+                                                Y    z
+                                    = lim z n      1+    .
+                                Γ(z) n→+∞             k
+                                                           k=1

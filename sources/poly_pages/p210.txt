@@ -1,0 +1,75 @@
+                                                                                                                                          207
+
+on obtient bien
+                                                            +∞
+                                                            X                    +∞
+                                                                                 X
+                                                                  f (n) =                 fˆ(n).
+                                                        n=−∞                   n=−∞
+
+On notera que le résultat ne dépend pas de ε, qui n’intervient plus dans l’énoncé final.
+
+   Partie B.
+   (1) Pour R > 0, on considère les chemins
+
+                                          γ1 (y)       =y                            y ∈ [−R,  R]
+                                                                                     y ∈ 0, t−1 u
+                                                                                         
+                                          γ2 (y)       = R + iy
+                                          γ3 (y)       = −y + it−1 u                 y ∈ [−R, R] 
+                                          γ4 (y)       = −R − iy                     y ∈ −t−1 u, 0 .
+   La fonction ft est holomorphe. donc en appliquant le théorème des résidus au rectangle de
+sommets −R, R, R + t−1 iu, −R + t−1 iu on obtient
+        
+
+                           Z                       Z                       Z                       Z
+                                 ft (z)dz +                 ft (z)dz +           ft (z)dz +             ft (z)dz = 0
+                            γ1                         γ2                   γ3                     γ4
+                                                            R
+     Comme dans les questions précédentes, on trouve γ2 f (z)dz → 0 quand R → +∞ et
+R
+  γ4 f (z)dz → 0 quand R → +∞. En effet Supposons u > 0 (le cas u < 0 s’en déduit par parité
+de ft , et le cas u = 0 est immédiat). On a
+                                Z
+                                              u
+                                    f (z)dz ⩽      sup |f (R + iy)|
+                                 γ2           t y∈[0,t−1 u]
+                               u                       2  u −πt(R2 −u2 /t2 )
+                        =           sup      e−πt(R+iy) =   e                →R→+∞ 0,
+                               t y∈[0,t−1 u]              t
+et de même pour γ4 . D’autre part
+        Z                      Z R                                    Z +∞                                  Z +∞
+                                         −πty 2                                      −πty 2         1             2     1
+               f (z)dz =              e            dy →R→+∞                      e            dy = √           e−v dv = √ .
+          γ1                     −R                                       −∞                         πt     −∞           t
+                                                                                  √
+   Où l’on a utilisé le changement de variable v =                                    πty
+   La dernière intégrale devient quand à elle :
+               Z                           Z R                         2
+                                                                                          Z R
+                                                       −πt(y+it−1 u)                                    2     −1 uy−t−2 u2
+                      f (z)dz = −                  e                       dy = −               e−πt(y +2it                  ) dy
+                 γ3                           −R                                           −R
+                                                        Z R
+                                           πt−1 u2                    2
+                                  = −e                           e−πty e−2iπuy dy
+                                                            −R
+                                                                    Z +∞
+                                                            −1 u2                     2                         −1 u2
+                                  →R→+∞ −eπt                                e−πty e−2iπuy dy = −eπt                     fˆ(u).
+                                                                    −∞
+                                           2
+   On en déduit donc que fˆt (u) = √1t e−πu /t .
+                                                                            b
+    (2) Pour tout t > 0, et pour tout a > 0 il existe b tel que ft (z) ⩽ 1+ℜe(z) 2 pour tout z ∈ C
+
+tel que −a < ℑ(z) < a. On peut donc appliquer la formule de poisson démontrée précédemment
+(par exemple pour a = 1 ). On obtient alors
+
+                      +∞                       +∞                     +∞                        +∞                                   
+                      X
+                                −πn2 t
+                                               X                      X                         X    1     2     1                   1
+        θ(t) =              e             =              ft (n) =                fˆt (n) =           √ e−πn /t = √ θ
+                   n=−∞                       n=−∞                   n=−∞                       n=−∞
+                                                                                                      t           t                  t

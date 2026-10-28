@@ -1,0 +1,55 @@
+VII.3. TEMPS DE VIE DES SOLUTIONS. FLOT GLOBAL                                                          135
+
+     Théorème VII.3.5
+   Soit U un ouvert d’un espace de Banach E. Soit X : U −→ E un champ de vecteurs qui ne
+   dépend pas du temps et lipschitzien. Soient x0 ∈ U et α la courbe intégrale maximale de
+   condition initiale x0 définie sur l’intervalle J(x0 ). Soit t1 ∈ J(x0 ). Alors la courbe intégrale
+
+                             β : J(x0 ) − t1 → U,        t 7→ β(t) = α(t + t1 )
+
+   est la courbe intégrale maximale de X de condition initiale x1 = α(t1 ).
+
+
+   Remarque VII.3.6 — Reformulons le théorème VII.3.5, en posant pour tout (t, x) ∈ D0 ,
+
+                                         Ft · x = αx (t) = F (t, x).
+
+   où αx la courbe intégrale maximale de X de condition initiale x. On a alors, lorsque (t, x)
+   et (s, Ft · x) sont dans D0 ,
+
+   (VII.3.1)                              Fs · (Ft · x) = Ft+s · x.
+
+   Si D0 = R × U, Ft est défini pour tout t ∈ R, et t 7→ Ft est un morphisme de groupes de
+   (R, +) dans le groupe des bijections de U.
+
+
+   En général, lorsque le champ de vecteurs X : I × U → E dépend du temps, on a le résultat
+plus général suivant :
+
+     Théorème VII.3.7
+   Soit (t0 , x) ∈ I × U. Supposons que s et s + t soient dans Jt0 (x). On a alors
+
+                                F (t0 , s + t, x) = F (s, s + t, F (t0 , s, x)).
+
+
+Démonstration. Les applications t 7→ F (t0 , s + t, x) et t 7→ F (s, s + t, F (t0 , s, x)) vérifient la même
+équation différentielle avec même condition initiale (0, F (t0 , s, x)).
+
+     Corollaire VII.3.8
+   En remplaçant t0 par s, s par t et t par s − t, on obtient
+
+   (VII.3.2)                       F (s, s, x) = x = F (t, s, F (s, t, x))
+
+   ou encore, F (s, t, x) = y ⇐⇒ F (t, s, y) = x.
+
+     Théorème VII.3.9
+   Soit U un ouvert d’un espace de Banach E. Soit X : I × U −→ E un champ de vecteurs
+   dépendant du temps. Supposons que X soit localement lipschitzien en la seconde variable.
+   Alors :
+      a. D est un ouvert de I × I × U.
+      b. Si X est de classe C p , F est de classe C p sur D.
+
+
+Démonstration. Fixons (τ0 , x0 ) ∈ I × U, posons J := Jτ0 (x0 ), et notons A l’ensemble des s ∈ J
+tels que (τ0 , s, x0 ) admette dans D un voisinage produit O × U ′ , où O est un ouvert de I × I et
+U ′ un ouvert de U, sur lequel F est de classe C p .

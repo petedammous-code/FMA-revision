@@ -1,0 +1,707 @@
+
+
+======== [PDF page 118 | page imprimée 115] ========
+                                                                                               Chapitre   VI
+Inversion locale et fonctions implicites
+
+
+VI.1      Théorème de point fixe de Banach
+
+
+    Le théorème de point fixe de S. Banach (également attribué à E. Picard) a de nombreuses
+applications, en particulier le théorème des fonctions implicites et le théorème de Cauchy-Lipschitz
+d’existence et d’unicité de solutions d’équations différentielles. Nous donnons ici la démonstration
+d’une version avec paramètre.
+
+    Soient (X, dX ) et (Y, dY ) des espaces métriques. Rappelons qu’une application T : X → Y
+est dite lipschitzienne s’il existe une constante réelle positive a telle quels que soient x, y ∈ X,
+                                        dY (T (x), T (y)) ≤ a dX (x, y).
+On dit alors que T est a-lipschitzienne. Une application lipschitzienne est en particulier continue.
+Si (Y, dY ) = (X, dX ) et que la constante a est strictement plus petite que 1, on dit que T : X → X
+est contractante.
+
+       Théorème VI.1.1 — Point fixe de Banach
+   Soient (X, d) un espace métrique complet, a ∈ [0 ; 1[ et
+
+                                                  T : X→X
+
+   une application a-lipschitzienne. Alors T admet un unique point fixe x ∈ X.
+
+
+Démonstration. En effet, soit x0 ∈ X. Montrons que la suite (xn )n∈N définie par récurrence par
+xn+1 = T (xn ) est de Cauchy. Quels que soient m, n ∈ N, n ≥ m,
+                  d(xn , xm ) = d(T m (T n−m (x0 )), T m (x0 )) ≤ am d(T n−m (x0 ), x0 ).
+Or on a aussi
+                                        n−m
+                                        X                                   n−m
+                                                                            X
+                d(T n−m (x0 ), x0 ) ≤         d(T j (x0 ), T j−1 (x0 )) ≤         aj−1 d(T (x0 ), x0 )
+                                        j=1                                 j=1
+                                        1 − an−m                          1
+                                  ≤                  d(T (x0 ), x0 ) ≤       d(T (x0 ), x0 ).
+                                          1−a                            1−a
+D’où
+                                                 am
+                                    d(xn , xm ) ≤    d(T (x0 ), x0 ),
+                                                1−a
+ce qui montre que la suite (xn )n∈N est de Cauchy. Comme X est complet, cette suite est convergente.
+Appelons x sa limite. Par continuité de T , on a
+                                 T (x) = lim T (xn ) = lim xn+1 = x,
+                                              n→∞             n→∞
+
+
+                                                        115
+
+
+======== [PDF page 119 | page imprimée 116] ========
+116                      CHAPITRE VI. INVERSION LOCALE ET FONCTIONS IMPLICITES
+
+ce qui montre que x est un point fixe de T . Ce point fixe est clairement unique, car si x1 ̸= x est
+un autre point fixe,
+                                 d(x1 , x) = d(T (x1 ), T (x)) ≤ a d(x1 , x),
+
+ce qui est impossible.
+
+
+
+    Donnons maintenant une première version à paramètre, établissant la continuité du point fixe
+en fonction du paramètre.
+
+       Théorème VI.1.2 — Point fixe de Banach à paramètre I
+   Soient Λ un espace topologique, (X, d) un espace métrique complet et
+
+                                              g : Λ×X →X
+
+   une application continue. Soit a ∈ [0 ; 1[. On suppose que pour tout λ ∈ Λ, l’application
+
+                                       gλ : X → X,       x 7→ g(λ, x)
+
+   est a-lipschitzienne. Alors, pour tout λ ∈ Λ, l’application gλ admet un unique point fixe
+   φ(λ) et l’application Λ → X, λ 7→ φ(λ) est continue.
+
+
+
+Démonstration. D’après le théorème précédent, quel que soit λ ∈ Λ, gλ admet un unique point
+fixe φ(λ). On a, quels que soient λ1 , λ2 ∈ Λ,
+
+           d(φ(λ1 ), φ(λ2 )) = d(g(λ1 , φ(λ1 )), g(λ2 , φ(λ2 )))
+                             ≤ d(g(λ1 , φ(λ1 )), g(λ2 , φ(λ1 ))) + d(g(λ2 , φ(λ1 )), g(λ2 , φ(λ2 )))
+                             ≤ d(g(λ1 , φ(λ1 )), g(λ2 , φ(λ1 ))) + a d(φ(λ1 ), φ(λ2 ))),
+
+d’où
+                       (1 − a) d(φ(λ1 ), φ(λ2 )) ≤ d(g(λ1 , φ(λ1 )), g(λ2 , φ(λ1 ))).
+
+De la continuité de λ 7→ g(λ, x) pour x fixé, on déduit la continuité de λ 7→ φ(λ).
+
+
+
+    Donnons enfin une version établissant la différentiabilité de λ 7→ φ(λ). Ceci demande bien sûr
+quelques hypothèses supplémentaires. Il est utile de définir la différentiabilité d’une fonction, ou
+son caractère C p sur des parties d’un espace vectoriel normé autres que des ouverts. La définition
+suivante est commode :
+
+       Définition VI.1.3
+   On dit qu’une application f définie sur une partie X d’un espace vectoriel normé E
+   et à valeurs dans un espace vectoriel normé F est différentiable (resp. de classe C p ,
+   p ∈ N ∪ {+∞}), s’il existe un voisinage ouvert U de X dans E et une application g
+   différentiable (resp. de classe C p ) de l’ouvert U à valeurs dans F telle que f soit la
+   restriction de g à X.
+
+
+======== [PDF page 120 | page imprimée 117] ========
+VI.1. THÉORÈME DE POINT FIXE DE BANACH                                                           117
+
+     Théorème VI.1.4 — Point fixe de Banach à paramètre II
+   Soient Λ un ouvert d’un espace de Banach E, X un fermé convexe d’un espace de Banach
+   F et
+                                      g : Λ×X →X
+   une application de classe C p , p ∈ (N \ {0}) ∪ {+∞}. Soit a ∈ [0 ; 1[. On suppose que
+
+                            ∂g
+                               (λ, x) ≤ a         pour tout (λ, x) ∈ Λ × X.
+                            ∂x
+   Alors, pour tout λ ∈ Λ, l’application gλ : x 7→ g(λ, x) admet un unique point fixe φ(λ) et
+   l’application Λ → X, λ 7→ φ(λ) est de classe C p et
+                                             ∂g          −1 ∂g
+                          dφλ =       IdF −      (λ, φ(λ))   ◦    (λ, φ(λ)).
+                                              ∂x               ∂λ
+
+Démonstration. Fixons λ ∈ Λ et posons
+                     ∂g                                      ∂g
+                A :=    (λ, φ(λ)) ∈ L(F ),            B :=      (λ, φ(λ)) ∈ L(E; F ).
+                     ∂x                                      ∂λ
+    Étape 0 : gλ est a-lipschitzienne sur X. C’est ici que sert la convexité de X : pour x1 , x2 ∈ X,
+le segment [x1 , x2 ] est contenu dans X, et l’inégalité des accroissements finis jointe à l’hypothèse
+∥∂g/∂x∥ ≤ a sur Λ × X donne ∥g(λ, x1 ) − g(λ, x2 )∥ ≤ a∥x1 − x2 ∥. Un fermé d’un espace de
+Banach est un espace métrique complet, et la version I donne déjà l’existence et l’unicité de φ(λ).
+   Étape 1 : IdF −A est inversible.
+                                 P Par hypothèse ∥A∥ ≤ a < 1. Un opérateur IdF −A avec
+∥A∥ < 1 est inversible, d’inverse n≥0 An , de norme ≤ (1 − a)−1 (exercice VI.1.5).
+   Étape 2 : φ est localement lipschitzienne. Fixons ρ > 0 tel que B̄(λ, ρ) ⊂ Λ et posons
+γ(h) = φ(λ + h) − φ(λ) pour ∥h∥E ≤ ρ. En insérant un terme intermédiaire,
+                                                                               
+        γ(h) = g(λ + h, φ(λ + h)) − g(λ + h, φ(λ)) + g(λ + h, φ(λ)) − g(λ, φ(λ)) .
+Le premier terme est de norme ≤ a∥γ(h)∥, car gλ+h est a-lipschitzienne avec la même constante a ;
+le second est de norme ≤ C∥h∥ par l’inégalité des accroissements finis appliquée à µ 7→ g(µ, φ(λ)),
+                       ∂g
+où C := supµ∈B̄(λ,ρ) ∥ ∂λ (µ, φ(λ))∥ est fini par continuité sur le compact B̄(λ, ρ) en dimension
+finie, ou quitte à diminuer ρ dans le cas général ; il ne dépend en tout cas pas de h. D’où
+                                                     C
+(VI.1.1)                             ∥γ(h)∥F ≤            ∥h∥E .
+                                                   1−a
+On retrouve au passage la continuité de φ.
+   Étape 3 : différentiabilité. Comme g est de classe C 1 et que φ(λ) + γ(h) = φ(λ + h),
+                                                                                     
+     γ(h) = g λ + h, φ(λ) + γ(h) − g λ, φ(λ) = A(γ(h)) + B(h) + o ∥h∥E + ∥γ(h)∥F .
+Par (VI.1.1), ∥γ(h)∥F = O(∥h∥E ), donc le reste est un o(∥h∥E ) et
+                                  (IdF −A) γ(h) = B h + o(∥h∥).
+En composant par (IdF −A)−1 , dont la norme est majorée par (1 − a)−1 ,
+                         φ(λ + h) − φ(λ) = (IdF −A)−1 ◦ B (h) + o(∥h∥).
+Ainsi φ est différentiable en λ, avec dφλ = (IdF −A)−1 ◦ B.
+    Étape 4 : régularité C p . Par récurrence sur k. On sait φ de classe C 0 . Supposons-la C k−1 ,
+                                                   ∂g ∂g
+avec 1 ≤ k ≤ p. Alors λ 7→ (λ, φ(λ)) est C k−1 et ∂x , ∂λ sont C p−1 , donc λ 7→ A(λ) et λ 7→ B(λ)
+sont C k−1 . L’application L 7→ (IdF −L)−1 est C ∞ sur la boule ∥L∥ < 1 (exercice VI.1.5) et la
+composition L(F ) × L(E; F ) → L(E; F ) est bilinéaire continue. Donc λ 7→ dφλ est C k−1 , et φ
+est C k .
+
+
+======== [PDF page 121 | page imprimée 118] ========
+118                      CHAPITRE VI. INVERSION LOCALE ET FONCTIONS IMPLICITES
+
+
+   Exercice VI.1.5 — Soit E un espace de Banach et soit a ∈ [0; 1[. Montrer que pour tout
+   L ∈ L(E) tel que ∥L∥ ≤ a, IdE −L est inversible, et que son inverse est borné, de norme
+   plus petite que (1 − a)−1 . Montrer que l’application
+
+                                BL(E) (0, a) → L(E),     L 7→ (Id −L)−1
+
+   est de classe C ∞ .
+
+
+VI.2        Théorème des fonctions implicites
+
+
+      Nous renvoyons à la section V.3.4 pour les notations concernant les différentielles partielles.
+
+       Théorème VI.2.1 — Fonctions implicites
+   Soient E, F et G trois espaces de Banach, U un ouvert de E, V un ouvert de F , f une
+   application de classe C p , p ≥ 1, de U × V dans G et (x0 , y0 ) un point de U × V tel que
+                               ∂f
+   la différentielle partielle    (x0 , y0 ) soit un isomorphisme bicontinu de F dans G. Alors il
+                               ∂y
+   existe un ouvert U0 de U contenant x0 , un ouvert V0 de V contenant y0 et une application
+   φ de classe C p , définie sur U0 à valeurs dans V0 telle que :
+
+          φ(x0 ) = y0 et ∀(x, y) ∈ U0 × V0 , f (x, y) = f (x0 , y0 ) si et seulement si y = φ(x).
+
+   La différentielle de φ est donnée par
+                                                       −1
+                                            ∂f                ∂f
+                              dφx = −          (x, φ(x))    ◦    (x, φ(x)).
+                                            ∂y                ∂x
+
+   En outre, si U0 est connexe, il existe au plus une application continue φ : U0 → V0 vérifiant
+   φ(x0 ) = y0 et f (x, φ(x)) = f (x0 , y0 ) pour tout x ∈ U0 .
+
+
+Démonstration. On applique le théorème de point fixe de Banach en écrivant l’équation f (x, y) =
+f (x0 , y0 ) sous la forme y = g(x, y), où
+                                                       −1
+                                           ∂f
+                          g(x, y) = y −       (x0 , y0 )    (f (x, y) − f (x0 , y0 )).
+                                           ∂y
+L’application g : U × V → F est de classe C p , g(x0 , y0 ) = y0 et
+                                                          −1
+                       ∂g                     ∂f               ∂f
+                          (x0 , y0 ) = Id −      (x0 , y0 )       (x0 , y0 ) = 0.
+                       ∂y                     ∂y               ∂y
+                      ∂g                                                                             ∂g   1
+Par continuité de         , il existe r0 > 0 et s > 0 tels que B̄(x0 , r0 ) × B̄(y0 , s) ⊂ U × V et ∥ ∥ ≤
+                      ∂y                                                                             ∂y   2
+                                                                 ∂f
+sur B̄(x0 , r0 ) × B̄(y0 , s). On peut aussi supposer que ∥ ∥ est bornée sur B̄(x0 , r0 ) × B̄(y0 , s),
+                                                                 ∂x
+           ∂f
+disons ∥ ∥ ≤ M .
+           ∂x
+     Pour tout x ∈ U, gx désigne l’application y 7→ g(x, y) de V dans F . Pour tout (x, y) ∈
+                                        ∂g
+B̄(x0 , r0 ) × B̄(y0 , s), d(gx )y =       (x, y) et d’après l’inégalité des accroissements finis, gx est
+                                        ∂y
+1
+  -lipschitzienne. Soient r ≤ r0 , x ∈ B̄(x0 , r) et y ∈ B̄(y0 , s). On a
+2
+              ∥gx (y) − y0 ∥ = ∥gx (y) − gx0 (y0 )∥ ≤ ∥gx (y) − gx (y0 )∥ + ∥gx (y0 ) − gx0 (y0 )∥
+
+
+======== [PDF page 122 | page imprimée 119] ========
+VI.3. THÉORÈMES D’INVERSION LOCALE ET GLOBALE                                                           119
+
+                                    −1                                                  −1
+       1                ∂f                                             s      ∂f
+      ≤ ∥y − y0 ∥ + ∥      (x0 , y0 )    (f (x, y0 ) − f (x0 , y0 ))∥ ≤ + ∥      (x0 , y0 )    ∥ M r.
+       2                ∂y                                             2      ∂y
+                                               
+                                  s
+Prenons r = min r0 ,                      −1 , de sorte que pour tout x ∈ B(x0 , r), gx (B̄(y0 , s)) ⊂
+                                               
+                            
+                        2M ∥ ∂f
+                              ∂y (x0 , y0 )   ∥
+B̄(y0 , s).
+    Le théorème du point fixe VI.1.4 s’applique à
+
+                                  g : B(x0 , r) × B̄(y0 , s) → B̄(y0 , s).
+
+On en déduit que gx a un unique point fixe φ(x), et que x 7→ φ(x) est de classe C p de B(x0 , r)
+dans B̄(y0 , s). De plus φ(x0 ) = y0 par unicité.
+    On pose donc U0 = B(x0 , r) et V0 = B(y0 , s) (l’unicité du point fixe dans B̄(y0 , s) la donne
+a fortiori dans B(y0 , s)), ce qui achève la démonstration de la première assertion. Le théorème
+VI.1.4 donne aussi la différentielle de φ. Avec les notations de ce théorème,
+                                                ∂g          −1 ∂g
+                             dφx =       IdF −      (x, φ(x))   ◦    (x, φ(x)).
+                                                 ∂y               ∂x
+
+Calculons ceci, compte tenu du fait que
+                                                                 −1
+                           ∂g                        ∂f                 ∂f
+                              (x, φ(x)) = −             (x0 , y0 )    ◦    (x, φ(x)),
+                           ∂x                        ∂y                 ∂x
+                                                                        −1
+                        ∂g                               ∂f                        ∂f
+                           (x, φ(x)) = IdF −                (x0 , y0 )         ◦      (x, φ(x)).
+                        ∂y                               ∂y                        ∂y
+La seconde identité se lit
+                                                                        −1
+                             ∂g                          ∂f                        ∂f
+                        IdF − (x, φ(x)) =                   (x0 , y0 )         ◦      (x, φ(x)),
+                             ∂y                          ∂y                        ∂y
+
+dont l’inverse est                                  −1
+                                         ∂f                ∂f
+                                            (x, φ(x))    ◦    (x0 , y0 ).
+                                         ∂y                ∂y
+Ceci donne bien                                           −1
+                                               ∂f                ∂f
+                              dφx = −             (x, φ(x))    ◦    (x, φ(x)).
+                                               ∂y                ∂x
+
+
+
+
+VI.3          Théorèmes d’inversion locale et globale
+
+
+   L’énoncé du théorème d’inversion locale fait appel à la notion de C k -difféomorphisme entre
+ouverts d’espaces de Banach.
+
+      Définition VI.3.1
+    Soit f une application de U dans V, où U est un ouvert d’un espace de Banach E et V un
+    ouvert d’un espace de Banach F . On dit que f est un C k -difféomorphisme si f est une
+    bijection de U dans V, de classe C k , ainsi que f −1 .
+
+
+======== [PDF page 123 | page imprimée 120] ========
+120                   CHAPITRE VI. INVERSION LOCALE ET FONCTIONS IMPLICITES
+
+   Le théorème d’inversion locale est l’énoncé suivant, que nous déduisons du théorème des
+fonctions implicites.
+
+       Théorème VI.3.2 — Théorème d’inversion locale
+   Soit f une application de U dans F , où U est un ouvert d’un espace de Banach réel et
+   F un espace de Banach et soit x0 un point de U. Si f est de classe C k , k ≥ 1 et si la
+   différentielle de f au point x0 est un isomorphisme bicontinu, alors il existe un voisinage
+   ouvert U0 de x0 dans U et un voisinage ouvert V0 de f (x0 ) tels que f se restreigne en un
+   C k -difféomorphisme de U0 dans V0 .
+
+
+Démonstration. On considère g : F × U → F , g(y, x) = f (x) − y. Par construction g(y, x) =
+0 équivaut à f (x) = y. L’application g est de classe C k et l’on a g(f (x), x) = 0. De plus
+∂g
+   (f (x0 ), x0 ) = dfx0 est un isomorphisme, et donc, par le théorème des fonctions implicites, il
+∂x
+existe un voisinage ouvert V0 × U1 de (f (x0 ), x0 ) dans F × U et une application φ : V0 → U1 de
+classe C k tels que
+                                                        
+                           (y, x) ∈ V0 × U1 | f (x) = y = (y, φ(y)) | y ∈ V0 .
+On pose alors U0 = φ(V0 ). C’est un ouvert : en effet U0 = U1 ∩ f −1 (V0 ), car si x ∈ U1 vérifie
+f (x) ∈ V0 alors (f (x), x) appartient à l’ensemble ci-dessus, donc x = φ(f (x)) ; réciproquement
+φ(y) ∈ U1 et f (φ(y)) = y ∈ V0 . C’est donc un voisinage ouvert de x0 dans U, et f induit une
+bijection de U0 dans V0 d’inverse φ de classe C k .
+
+
+      On en déduit immédiatement un énoncé global.
+
+       Corollaire VI.3.3 — Théorème d’inversion globale
+   Soit f une application de classe C k de U dans F , où U est un ouvert d’un espace de Banach
+   réel et F un espace de Banach. Si f est injective et si pour tout x de U la différentielle dfx
+   de f au point x est un isomorphisme bicontinu, alors f (U) est un ouvert et la bijection
+   réciproque, de f (U) dans U, est de classe C k .
+
+
+    Voici une application importante du théorème d’inversion locale, qui utilise aussi la formule
+de Taylor à l’ordre deux (théorème V.5.11) : au voisinage d’un point critique où la différentielle
+seconde est non dégénérée, une fonction coïncide, à un changement de variables près, avec la
+forme quadratique qu’elle définit. L’inversion locale y sert deux fois : pour construire la racine
+carrée lisse de la question 3, puis pour inverser le changement de variables de la question 4.
+
+   Exercice VI.3.4 : Lemme de Morse — Soit U un ouvert de Rm et soit f : U → R une
+   fonction de classe C ∞ . Soit a ∈ U un point critique de f , c’est-à-dire tel que dfa = 0. On
+   suppose que la forme bilinéaire symétrique d2 fa est non dégénérée, de signature (r, s), avec
+   r + s = m.
+   On note Mm (R) l’espace des matrices carrées réelles de taille m, Symm et ASymm les
+   sous-espaces des matrices symétriques et antisymétriques, et l’on pose
+                                                  
+                                            Ir   0
+                                    Ir,s =            ∈ Symm .
+                                             0 −Is
+   On identifie Rm à l’espace des matrices colonnes, de sorte qu’une forme bilinéaire symétrique
+   de matrice S dans la base canonique s’écrit (h, k) 7→ t hSk.
+   Le but de l’exercice est de montrer qu’il existe un voisinage ouvert W de 0 dans Rm et un
+   C ∞ -difféomorphisme ψ de W sur un voisinage ouvert de a dans U, vérifiant ψ(0) = a, tel
+
+
+======== [PDF page 124 | page imprimée 121] ========
+VI.4. EXERCICES                                                                                121
+
+
+  que
+                                r
+                                X      m
+                                       X
+                                   2
+                                         h2i ,
+                     
+               f ψ(h) = f (a) +   hi −                           h = (h1 , . . . , hm ) ∈ W.
+                                   i=1        i=r+1
+
+    1. Montrer que l’on peut se ramener au cas où a = 0, f (0) = 0 et où la matrice de d2 f0
+       dans la base canonique est 2Ir,s (le facteur 2 n’est là que pour simplifier la question
+       suivante). On suppose désormais que c’est le cas, et l’on fixe une boule ouverte U0 ⊂ U
+       centrée en 0.
+    2. À l’aide de la formule de Taylor avec reste intégral V.5.11, montrer qu’il existe une
+       application B : U0 → Symm de classe C ∞ telle que
+
+                            f (x) = t xB(x)x (x ∈ U0 ),              B(0) = Ir,s .
+
+    3. On considère
+                            g : Mm (R) → Symm ,                 g(C) = t C Ir,s C.
+        Calculer dgIm et montrer que
+
+                Mm (R) = E ⊕ ker dgIm ,         E := {X ∈ Mm (R) ; Ir,s X ∈ Symm }.
+
+        En déduire qu’il existe un voisinage ouvert Y de Ir,s dans Symm et une application
+        η : Y → GL(m, R) de classe C ∞ telles que
+
+                        η(Ir,s ) = Im    et        S = t η(S) Ir,s η(S) (S ∈ Y).
+                                    
+    4. On pose φ(x) = η B(x) x, pour x assez proche de 0. Montrer que f (x) =
+       t φ(x) I
+               r,s φ(x), puis que dφ0 = IdRm . Conclure.
+
+
+
+
+VI.4    Exercices
+
+
+  Exercice VI.4.1 : Une variante astucieuse du théorème de Picard — Soit (X, d) un
+  espace métrique complet, et T : X → X une application telle qu’il existe n ∈ N× avec T n
+  contractante. Montrer que T admet un unique point fixe x et que pour tout x0 ∈ X, x est
+  limite de la suite T k (x0 ) k lorsque k tend vers l’infini.
+
+
+
+  Exercice VI.4.2 : La méthode de Newton — Dans cet exercice, nous élargissons le cadre
+  classique de la méthode de Newton aux espaces de Banach.
+  Soit U un ouvert convexe d’un espace de Banach E et soit f : U → F une application de
+  classe C 1 à valeurs dans un espace de Banach F .
+  1. (Question préliminaire) Montrer que quels que soient a, b et c dans U, on a
+                                                                  !
+                ∥f (b) − f (a) − dfc (b − a)∥F ≤       sup ∥dfu − dfc ∥        ∥b − a∥E ,
+                                                      u∈[a,b]
+
+  où [a, b] = {ta + (1 − t)b|t ∈ [0; 1]} ⊂ U.
+  On suppose qu’en un point x0 ∈ U, la différentielle dfx0 : E → F soit un isomorphisme
+  entre espaces de Banach. On suppose aussi qu’il existe une constante M > 0 telle que quels
+
+
+======== [PDF page 125 | page imprimée 122] ========
+122                   CHAPITRE VI. INVERSION LOCALE ET FONCTIONS IMPLICITES
+
+
+  que soient a et b dans U , ∥dfb − dfa ∥ ≤ M ∥b − a∥E .
+  2. Montrer qu’il existe δ > 0 tel que dfx0 +r : E → F reste un isomorphisme pour tout r tel
+  que ∥r∥E < δ. On pose g(r) = dfx−1  0 +r
+                                           : F → E. Montrer que quels que soient r et r′ dans
+  BE (0, δ),
+                      ∥g(r) − g(r′ )∥ ≤ M × ∥g(r)∥ × ∥g(r′ )∥ × ∥r − r′ ∥E .
+  3. Posons C = ∥g(0)∥ = ∥dfx−1
+                              0
+                                ∥. On suppose en outre que δ < (2M C)−1 . Montrer que quel
+  que soit r dans BE (0, δ),
+                                               C
+                                ∥g(r)∥ ≤               ≤ 2C.
+                                         1 − M C∥r∥E
+  Posons maintenant, pour tout r ∈ BE (0, δ), R(r) = f (x0 ) − f (x0 + r) + dfx0 +r (r), et
+  définissons ϕ : BE (0, δ) → E en posant
+
+                 ϕ(r) = dfx−1
+                            0 +r
+                                 (f (x0 ) − R(r)) = dfx−1
+                                                        0 +r
+                                                             (f (x0 + r) − dfx0 +r (r)) .
+
+  4. Montrer que quels que soient r et r′ dans BE (0, δ),
+
+                     ∥R(r) − R(r′ )∥F ≤ M ∥r − r′ ∥2E + ∥r′ ∥E × ∥r − r′ ∥E .
+                                                                           
+
+
+  puis que
+
+               ∥ϕ(r) − ϕ(r′ )∥E ≤2CM ∥r − r′ ∥2E + ∥r′ ∥E × ∥r − r′ ∥E
+                                                                       
+
+                                 + 4C 2 M × ∥f (x0 )∥F + M ∥r′ ∥2E × ∥r − r′ ∥E .
+                                                                  
+
+
+  5. En déduire que si δ et ∥f (x0 )∥F , sont assez petits, il existe une constante 0 < K < 1
+  indépendante de r et r′ dans BE (0, δ) telle que
+
+                                 ∥ϕ(r) − ϕ(r′ )∥E ≤ K × ∥r − r′ ∥E .
+
+  En déduire que si de plus C ∥f (x0 )∥F ≤ (1 − K)δ, on a alors
+
+                                             ∥ϕ(r)∥E ≤ δ.
+
+  En d’autres termes, si δ et ∥f (x0 )∥F , sont assez petits, ϕ est une contraction de BE (0, δ)
+  dans elle-même.
+  6. On pose xn = x0 + rn , où (rn )n est la suite définie par récurrence en posant r0 = 0 et
+  rn+1 = ϕ(rn ). Montrer que la suite (xn )n vérifie
+
+                                      xn+1 = xn − dfx−1
+                                                      n
+                                                        (f (xn ))
+
+  et converge vers une limite z vérifiant f (z) = 0.
+  7. Evaluer la vitesse de convergence.
+
+
+  Exercice VI.4.3 : Perturbation des racines et périhélie de Mercure —
+  Soient a et b deux réels vérifiant a < b, et pour ε ∈ R posons
+
+                                    Pε (x) = (x − a)(b − x) + εx3 .
+
+      1. Montrer que pour ε > 0 assez petit, Pε admet trois racines réelles distinctes xa (ε) <
+         xb (ε) < xc (ε), que ε 7→ xa (ε) et ε 7→ xb (ε) sont de classe C ∞ au voisinage de 0 avec
+         xa (0) = a et xb (0) = b, et que xc (ε) ∼ 1/ε lorsque ε tend vers 0+ .
+      2. Donner un développement limité à l’ordre 1 en 0 de xa et de xb . Que dit-il de la
+
+
+======== [PDF page 126 | page imprimée 123] ========
+VI.4. EXERCICES                                                                                   123
+
+
+        position des deux racines perturbées par rapport à a et b ?
+     3. En utilisant la relation entre les coefficients et les racines de Pε , montrer que
+                                                                               
+                     Pε (x) = x − xa (ε) xb (ε) − x 1 − ε x + xa (ε) + xb (ε) ,
+
+        puis que Pε > 0 sur ]xa (ε) ; xb (ε)[. L’intégrale elliptique
+                                                    Z xb (ε)
+                                                              dx
+                                           I(ε) =           p
+                                                     xa (ε)  Pε (x)
+
+        est donc bien définie, Pε ne s’annulant qu’à l’ordre 1 aux deux bornes.
+                                                                            1
+                                                                                               
+     4. On admet que le changement      de variable x = u + v sin t, où u = 2 x a (ε) + x b (ε)  et
+            1
+                             
+        v = 2 xb (ε) − xa (ε) , transforme cette intégrale en
+                                          Z π/2
+                                                                        − 1
+                                 I(ε) =           1 − ε(3u + v sin t)      2
+                                                                               dt.
+                                           −π/2
+
+        À l’aide de la formule de Taylor appliquée à s 7→ (1 − s)−1/2 , et en prenant garde à
+        l’uniformité en t, en déduire le développement asymptotique
+
+                                                    3π(a + b)
+                                    I(ε) = π +                ε + O(ε2 ).
+                                                        4
+
+  Remarque VI.4.4 : Le périhélie de Mercure —
+  Cet exercice est le calcul par lequel Einstein a testé la relativité générale, en novembre 1915.
+  Notons r la distance d’une planète au Soleil et φ son angle polaire, et posons x = 1/r. La
+  conservation de l’énergie et du moment cinétique L donne, dans les deux théories,
+                       dx 2       2GM                                        2GM
+                                =C+    2
+                                         x − x2 + |{z}
+                                                  ε x3 ,                ε=         .
+                        dφ       |   L{z      } Einstein                        c2
+                                       Newton
+
+  Le terme cubique est toute la différence entre les deux théories ; il vient de la métrique
+  de Schwarzschild, et ε n’est autre que le rayon de Schwarzschild du Soleil, soit 2,95 km.
+  Le trinôme newtonien s’annule aux deux points de rebroussement radial, l’aphélie et le
+  périhélie : écrit avec ses racines a = 1/rmax et b = 1/rmin , c’est exactement (x − a)(b − x),
+  et l’on retrouve le Pε ci-dessus.
+  L’intégrale I(ε) est alors l’angle balayé par la planète entre son aphélie et son périhélie ;
+  l’angle entre deux périhélies consécutifs vaut 2I(ε). Pour ε = 0 on trouve I(0) = π : l’orbite
+  se referme, c’est l’ellipse de Kepler. Pour ε > 0, le développement de la question 4 donne
+  une avance du périhélie, par révolution, de
+                                                    3π             6πGM
+                             ∆ϖ = 2I(ε) − 2π ≃         (a + b) ε =       ,
+                                                     2              c2 p
+                        1     1
+  puisque a + b = rmin     + rmax = p2 , où p désigne le paramètre de l’ellipse. Pour Mercure,
+  p = 0,371 ua, de sorte que le petit paramètre ε(a + b) vaut 1,1 · 10−7 : le premier ordre
+  suffit très largement. On obtient 0,104′′ par révolution, soit, à raison de 415 révolutions par
+  siècle, 43′′ par siècle.
+  Ce chiffre était connu depuis Le Verrier (1859). Sur les quelque 5600′′ par siècle d’avance
+  observée, la précession des équinoxes en explique environ 5025′′ et l’attraction des autres
+
+
+======== [PDF page 127 | page imprimée 124] ========
+124                       CHAPITRE VI. INVERSION LOCALE ET FONCTIONS IMPLICITES
+
+
+  planètes environ 532′′ ; restait un résidu d’une quarantaine de secondes d’arc que la méca-
+  nique newtonienne ne savait pas rendre, et pour lequel Le Verrier était allé jusqu’à postuler
+  une planète intérieure, Vulcain, qu’on n’a jamais trouvée. Einstein fit ce calcul avant même
+  d’avoir la forme définitive de ses équations de champ ; la théorie ne comportait aucun
+  paramètre ajustable et le résultat tomba juste. Ce fut, selon son biographe Abraham Pais,
+  « la plus forte expérience émotionnelle de la vie scientifique d’Einstein, peut-être de toute
+  sa vie ». L’éclipse de 1919 a rendu la relativité célèbre ; c’est le périhélie de Mercure qui en
+  avait d’abord convaincu son auteur.
+  Un dernier mot sur la troisième racine, dont le calcul se débarrasse si vite : xc (ε) ∼ 1/ε
+  correspond à r ∼ ε, c’est-à-dire à l’horizon de Schwarzschild — hors de propos pour Mercure,
+  dont le périhélie est à 46 millions de kilomètres. C’est pourtant elle qui empêche l’orbite de
+  se refermer, et son départ à l’infini quand ε → 0 qui fait dégénérer la cubique en trinôme et
+  restitue Kepler.
+
+
+
+  Exercice VI.4.5 — Soient E et F des espaces de Banach, U un ouvert de E et f : U → F
+  une application de classe C 1 . Supposons qu’il existe un point a ∈ U tel que dfa : E → F
+  soit surjective et supposons qu’il existe un supplémentaire fermé E2 de E1 = ker dfa dans
+  E. Montrer que f (U) contient un voisinage ouvert de f (a).
+
+
+
+
+  Exercice VI.4.6 —           Soit E = C 1 ([0 ; 1]; R) muni de la norme ∥f ∥1 = sup |f (t)| +
+                                                                                         t∈[0 ;1]
+               ′
+      sup    |f (t)| et soit F = C 0 ([0 ; 1]; R) muni de la norme ∥f ∥0 =     sup |f (t)|. On rappelle
+  t∈[0 ;1]                                                                   t∈[0 ;1]
+  que ce sont des espaces de Banach. On définit
+
+                          Ψ : E → F,     f 7→ Ψ(f ),   Ψ(f )(t) = f ′ (t) + tf (t)2 .
+
+  Montrer que Ψ est de classe C 1 . Montrer que dΨ0 = dt        d
+                                                                  et que cette application linéaire
+  de E dans F est surjective. Trouver un supplémentaire fermé E2 dans E de E1 = ker dΨ0 .
+  Utiliser l’exercice précédent pour en déduire qu’il existe ϵ > 0 tel que si g ∈ BF (0, ϵ), il
+  existe f ∈ E telle que pour tout t ∈ [0 ; 1], f ′ (t) + tf (t)2 = g(t).
+
+
+  Exercice VI.4.7 — Soit A0 ∈ Mn (R) une matrice admettant n valeurs propres distinctes
+  λ1 (0), λ2 (0) . . . , λn (0).
+  (1) Montrer qu’il existe un voisinage U de A0 dans Mn (R) et des fonctions λi : U → R,
+  i = 1, . . . , n de classe C ∞ tels que pour tout A ∈ U, λ1 (A), λ2 (A), . . . , λn (A) soient les
+  valeurs propres de A et restent distinctes.
+  (2) On fixe i. Soit vi (0) un vecteur propre de A0 pour la valeur propre λi (0). Montrer que
+  quitte à restreindre le voisinage U de A0 de la question précédente, il existe une fonction vi
+  définie sur U à valeurs dans Rn et de classe C ∞ telle que vi (A) soit un vecteur propre non
+  nul de A pour la valeur propre λi (A).
+
+
+  Exercice VI.4.8 — Soit f ∈ C 1 (R, R). On suppose qu’il existe une constante C telle que
+                                     (
+                                       |f (x) − f (y)| ≤ C|x − y|,
+                     (∀x, y ∈ R),
+                                       |f ′ (x) − f ′ (y)| ≤ C|x − y|.
+
+
+======== [PDF page 128 | page imprimée 125] ========
+VI.4. EXERCICES                                                                                                      125
+
+
+   On considère l’équation différentielle sur [0, 1] avec condition aux bords :
+                                 (
+                                   u′′ − λf (u) = 0 sur ]0, 1[,
+                                   u(0) = u(1) = 0.
+
+   Montrer qu’il existe un intervalle ouvert I contenant 0 tel que pour tout λ ∈ I, l’équation
+   ci-dessus admet une solution uλ ∈ C 2 ([0, 1], R).
+
+    Le théorème du rang constant, objet de l’exercice suivant, est une conséquence importante
+du théorème d’inversion locale : il dit qu’une application de rang localement constant est, à des
+changements de variables près à la source et au but, une application linéaire. Les deux premières
+questions en traitent les cas extrêmes, celui des immersions et celui des submersions ; la troisième
+est le cas général.
+
+   Exercice VI.4.9 : Théorème du rang constant —
+   Soit f : U → Rm une application C p d’un ouvert U de Rn dans Rm . Soit a ∈ U. Démontrer
+   les assertions suivantes, dont la dernière est appelée théorème de rang constant.
+  Rappel. Le théorème du rang de l’algèbre linéaire affirme que si A est une matrice réelle
+  à m lignes et n colonnes et de rang r, il existe des matrices inversibles U et V , de tailles
+  m × m et n × n, telles que                          
+                                                 Ir 0
+                                     U AV =              .
+                                                  0 0
+   L’exercice en établit la version locale, les changements de base étant remplacés par des
+   changements de coordonnées. On n’en utilisera ci-dessous que la forme affaiblie suivante :
+   quitte à permuter les coordonnées à la source et au but et à composer par des translations,
+   on peut supposer que a = 0, que f (a) = 0, et que le bloc r × r supérieur gauche de la
+   matrice jacobienne de f en 0 est inversible.
+
+      1. Si f est une immersion en a (i.e. si dfa est injective) alors il existe un voisinage
+         ouvert U1 de a dans U, un voisinage ouvert W1 de f (a) dans Rm et Ψ : W1 → W2 ⊂
+         Rm un difféomorphisme de W1 sur un ouvert W2 de Rm tels que f (U1 ) ⊂ W1 et
+         Ψ ◦ f (x1 , . . . , xn ) = (x1 , . . . , xn , 0, . . . , 0) pour tout x = (x1 , . . . , xn ) ∈ U1 . Autrement
+         dit, à un changement de variable au but près, toute immersion est localement égale à
+         l’injection canonique de Rn dans Rm .
+      2. Si f est une submersion en a (i.e. si dfa est surjective), alors il existe un voisinage
+         ouvert U1 de a dans U, un ouvert U2 de Rn et un difféomorphisme Φ : U2 → U1 tels
+         que
+                                  f ◦ Φ(x1 , . . . , xn ) = (x1 , . . . , xm )
+         pour tout x = (x1 , . . . , xn ) ∈ U2 . Autrement dit, à un changement de variable à la
+         source près, toute submersion est égale à la projection canonique de Rn dans Rm .
+      3. Posons r = rang(dfa ). Supposons que dfx soit de rang r pour tout x dans un voisinage
+         de a. Alors il existe
+          (a) un difféomorphisme Φ : U2 → U1 d’un ouvert U2 de Rn sur un voisinage ouvert
+              U1 de a dans U ,
+          (b) un difféomorphisme Ψ : W1 → W2 d’un voisinage ouvert W1 de f (a) dans Rm
+              sur un ouvert W2 de Rm ,
+         vérifiant f (U1 ) ⊂ W1 et
+
+                       Ψ ◦ f ◦ Φ : U2 → W2 ,             (x1 , . . . , xn ) 7→ (x1 , . . . , xr , 0, . . . , 0).
+
+
+======== [PDF page 129 | page imprimée 126] ========
+126                  CHAPITRE VI. INVERSION LOCALE ET FONCTIONS IMPLICITES
+
+
+      pour tout x = (x1 , . . . , xn ) ∈ U2 .
+      Indication. La normalisation du rappel ci-dessus étant effectuée, on posera
+                                                                            
+                            Θ(x) = f1 (x), . . . , fr (x), xr+1 , . . . , xn .
+
+      Vérifier que dΘ0 est inversible, de sorte que Θ induit un difféomorphisme d’un voisinage
+      ouvert U1 de 0 sur un ouvert U2 de Rn . Poser Φ = Θ−1 et g = f ◦ Φ, puis montrer que
+                                                                                  
+                                                                           Ir  0
+                 g(y) = y1 , . . . , yr , gr+1 (y), . . . , gm (y) , dgy =           ,
+                                                                             ∗ B(y)
+
+      où B(y) est une matrice de taille (m − r) × (n − r). L’hypothèse de rang constant n’est
+      pas encore intervenue : c’est elle qui entraîne B ≡ 0, c’est-à-dire que gr+1 , . . . , gm ne
+      dépendent pas de yr+1 , . . . , yn . Il reste alors à redresser au but.

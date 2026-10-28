@@ -1,0 +1,57 @@
+20                                                      CHAPITRE I. FONCTIONS HOLOMORPHES
+
+Démonstration. Il suffit de faire z = z0 dans la formule intégrale de Cauchy et de paramétrer Γ
+par ω = z0 + r eiθ , θ ∈ [0, 2π], de sorte que dω = i r eiθ dθ et ω − z0 = r eiθ :
+                                 Z 2π                                     Z 2π
+                            1           f (z0 + r eiθ )               1
+                 f (z0 ) =                      iθ
+                                                        i r eiθ dθ =             f (z0 + r eiθ ) dθ.
+                           2iπ    0          re                      2π    0
+
+La majoration en découle immédiatement.
+
+
+    Cette formule, apparemment anodine, est le point de départ du principe du maximum
+(paragraphe I.12).
+   Comme nous allons maintenant le voir, la formule intégrale de Cauchy a de très nombreuses
+conséquences dont certaines sont assez surprenantes.
+
+
+I.7      Fonctions holomorphes vs fonctions analytiques
+
+
+    Nous nous intéressons aux fonctions analytiques, i.e. les fonctions qui sont développables en
+séries entières, et nous démontrons que l’ensemble de ces fonctions coïncide avec l’ensemble des
+fonctions holomorphes.
+
+       Définition I.7.1
+     Une fonction f est analytique sur Ω si, pour tout z0 ∈ Ω, la fonction f admet un dévelop-
+     pement en série entière de la forme
+                                              X
+                                      f (z) =    an (z − z0 )n ,
+                                                    n≥0
+
+     qui est convergente dans un voisinage de z0 (le rayon de convergence de la série est
+     strictement positif).
+
+
+     Remarque I.7.2 — Supposons que la série entière
+                                         X
+                                 f (z) =     an (z − z0 )n ,
+                                                    n≥0
+
+     ait un rayon de convergence ρ > 0. Alors f est analytique sur D(z0 , ρ) : en tout point
+     ω ∈ D(z0 , ρ), f (z) est développable en série entière avec un rayon de convergence au moins
+     égal à ρ − |ω − z0 |.
+
+
+     Exercice I.7.3 — Démontrer l’assertion de la remarque ci-dessus.
+
+   Le résultat suivant montre que les fonctions holomorphes et les fonctions analytiques ne
+forment qu’une seule et même catégorie.
+
+       Théorème I.7.4
+     Une fonction est holomorphe sur Ω si et seulement si elle est analytique sur Ω.
+
+   En particulier, les fonctions holomorphes sont de classe C ∞ , alors que leur définition ne leur
+demandait a priori que d’être de classe C 1 .

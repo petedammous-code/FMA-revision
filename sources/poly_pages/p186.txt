@@ -1,0 +1,62 @@
+                                                                                                        183
+
+                            1
+   On calcule le résidu de 1+z 2 en i et −i par
+
+                                                                     
+                                        1      1         1   1
+                                             =             −              .
+                                      1 + z2   2i       z−i z+i
+
+                                                        1
+4. Le même argument d’ouvert étoilé montre que 1+z        2 admet une primitive sur C \ [−i∞, i]
+                                                                                            1
+                                                                                      R
+   (étoilé en 2i). On prend par exemple la primitive h qui s’annule en 2i. On a h(z) = γz 1+ω 2 dω
+
+   où γz est le segment [2i, z], mais remarquons que si ℜe(z) > 0, on peut prendre comme
+   chemin γz n’importe quel chemin qui joint 2i à z en restant dans le demi-plan ℜez > 0 (en
+   dehors de son point de départ 2i) car un tel chemin est homotope au segment [2i, z]. Idem
+   pour z avec ℜe(z) < 0 par symétrie.
+   On constate que si z ∈] − i∞, −i[, on peut définir un candidat pour h(z) soit en prenant
+   des chemins γz qui restent dans le demi-plan ℜe(z) > 0 en dehors de leur point de départ
+   2i et d’arrivée z, soit en prenant des chemins qui restent dans le demi-plan ℜe(z) < 0. Il
+   s’agit de Rvoir que les deux donnent la même valeur. De manière équivalente, il s’agit de
+                  1
+   voir que γ 1+ω   2 dω = 0 sur tout lacet simple partant de 2i et faisant un tour autour du
+
+   segment [−i, i]. Mais le calcul de cette intégrale par la formule de résidus donne bien 0 car
+   les résidus en i et −i sont opposés.
+
+
+Exercice 4.
+1. Le champ sur le cercle est tangent à celui-ci et de norme 1. La trajectoire voulue est celle qui
+   parcourt le cercle à vitesse 1, soit α(t) = (cos(t+θ0 ), sin(t+θ0 )) si (x0 , y0 ) = (cos(θ0 ), sin(θ0 )).
+   Vérifions que α est bien la courbe intégrale cherchée : on a α(0) = (cos(θ0 ), sin(θ0 )) = (x0 , y0 )
+   et α′ (t) = (− sin(t + θ0 ), cos(t + θ0 )) = X(cos(t + θ0 ), sin(t + θ0 )) = X(α(t)).
+2. Heuristiquement, on parcourt maintenant le cercle unité dans le sens trigonométrique avec
+   une vitesse (algébrique) r. La trajectoire est obtenue en intégrant la vitesse angulaire :
+   notons θ la solution maximale de l’équation différentielle scalaire θ′ (t) = r(θ(t)), θ(0) = θ0 ,
+   qui existe et est unique d’après le théorème de Cauchy-Lipschitz, r étant de classe C 1 .
+   Posons
+                                               β(t) = eiθ(t) .
+
+   On a bien β(0) = eiθ0 et β ′ (t) = iθ′ (t)eiθ(t) = i r(θ(t)) eiθ(t) = X(β(t)). Par unicité dans le
+   théorème de Cauchy-Lipschitz, α et β coïncident : la courbe intégrale α reste donc dans
+   C(0, 1).
+3. La trajectoire reste bornée, donc le lemme des bouts implique que l’intervalle de définition
+   de α est R.
+4. La fonction r ne s’annule pas. On ne perd pas de généralité à la prendre strictement
+   positive. Comme elle est continue sur le compact C(0, 1), elle atteint ses bornes, donc son
+   inf, que l’on note ϵ. On avance donc sur le cercle à vitesse au moins égale à ϵ, on aura donc
+   fait un tour complet en un temps T ≤ 2π/ϵ, c’est-à-dire α(T ) = α(0) = eiθ0 . La courbe
+   β(t) = α(t + T ) vérifie la même équation différentielle que α, avec même condition initiale,
+   donc α(t + T ) = α(t).
+
+
+Exercice 5.
+1. On dérive r ◦ r(x) = r(x) ce qui donne drr(x) ◦ drx = drx . Comme 0 ∈ X, il existe y ∈ V
+   tel que r(y) = 0 et donc r(0) = r(r(y)) = r(y) = 0. En évaluant en 0 on trouve donc
+   dr0 ◦ dr0 = dr0 , soit p2 = p. L’application linéaire p de Rn dans Rn est un projecteur.
+2. Pour tout x ∈ V, h◦r(x) = p(r(x))+r(r(x))−r(x) = p(r(x)) et p◦h(x) = p(p(x)+r(x)−x) =
+   p(p(x)) + p(r(x)) − p(x) = p(r(x)).

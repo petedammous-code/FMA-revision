@@ -1,0 +1,47 @@
+76                                                              CHAPITRE IV. APPLICATIONS
+
+sont les images des droites verticales et horizontales
+
+                                     ℜe(z) = c et ℑm(z) = c′ ,
+
+par la réciproque f −1 de f qui est une fonction holomorphe au voisinage de f (z0 ) d’après la
+proposition I.4.4. Le résultat précédent montre que ces lignes de niveau sont des courbes dont les
+tangentes sont orthogonales aux points où elles se coupent.
+                                                                              
+     Exemple IV.1.2 — Dans le cas où f (z) = argtanh z = 12 log          1+z
+                                                                         1−z       et f −1 (z) = tanh(z),
+     on obtient la Figure IV.2.
+
+
+
+
+                             Lignes de niveau de la fonction argtanh.
+
+
+
+    Le lecteur féru d’électromagnétisme reconnaîtra sur la Figure IV.2 les équipotentielles (en
+vert) et les lignes du champ magnétique (en bleu) crées par deux fils infinis parallèles, contenus
+dans un plan normal au plan des lignes de champs, parcourus par des courants d’intensités égales
+et constantes de sens opposés. Cette propriété bien connue d’orthogonalité entre lignes de champs
+et équipotentielles, dans le cas plan, reflète la nature conforme des applications holomorphes.
+Cette observation est intimement liée au fait que le potentiel est une fonction harmonique et au
+lien entre fonctions harmoniques réelles et les parties réelles de fonctions holomorphes.
+
+
+IV.2       Fonctions harmoniques
+
+
+      Définition IV.2.1
+     Une fonction f : Ω → C est dite harmonique si elle est de classe C 2 sur Ω et si
+
+                                     ∂2f   ∂2f      ∂2f         ∂2f
+                            ∆ f :=       +      = 4        = 4        = 0.
+                                     ∂x2   ∂y 2     ∂z∂ z̄     ∂ z̄∂z
+
+    Clairement, si f est une fonction holomorphe, f et f¯ sont des fonctions harmoniques et par
+conséquent, ℜef et ℑmf sont aussi des fonctions harmoniques. Le résultat ci-dessous montre que
+ce sont essentiellement les seuls exemples.
+
+      Théorème IV.2.2
+     Toute fonction harmonique h : Ω → C, définie sur un ouvert Ω simplement connexe, s’écrit
+     sous la forme h = f + ḡ où f, g ∈ Hol(Ω).

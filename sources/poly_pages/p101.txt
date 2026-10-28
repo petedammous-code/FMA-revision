@@ -1,0 +1,53 @@
+98                                 CHAPITRE V. CALCUL DIFFÉRENTIEL DANS LES E.V.N.
+
+V.3        Applications différentiables, différentielle
+
+
+V.3.1       Définition de la différentielle
+
+     Soit f : U → R une fonction définie sur un ouvert U d’un espace vectoriel normé E contenant
+0. On écrit f (x) = o(x) si pour tout ϵ > 0, il existe δ > 0 tel que pour tout x ∈ BE (0, δ) ∩ U,
+|f (x)| < ϵ ∥x∥E .
+
+       Définition V.3.1
+     Soient E et F des espaces vectoriels normés et U un ouvert de E. On dit que l’application
+     f : U → F est différentiable en a ∈ U s’il existe une application linéaire continue,
+     dfa : E → F telle que
+
+     (V.3.1)                      ∥f (a + h) − f (a) − dfa (h)∥F = o(h).
+
+     Il est facile de voir que cette application linéaire est unique. On appelle dfa la différentielle
+     de f au point a.
+     On dit que f est différentiable sur U si elle est différentiable en tout point de U .
+     On dit que f est de classe C 1 sur U si elle est différentiable en tout point de U et si
+     l’application
+                                     df : U −→ L(E; F ),       a 7→ dfa
+     est continue.
+
+    Fixons h ∈ E. Pour ϵ > 0 assez petit, a + th ∈ U pour tout t ∈ ]−ϵ ; ϵ[ car U est ouvert, et si
+dfa existe, on a
+                                              f (a + th) − f (a)
+                                dfa (h) = lim                    ,
+                                          t→0          t
+ce qui montre au passage l’unicité de dfa .
+
+     Remarque V.3.2 — Dans la définition de la différentielle, il est exigé que dfa : E → F
+     soit continue. Ceci entraîne la continuité de f en a. Alternativement, on peut exiger la
+     continuité en a dans la définition de la différentiabilité. Une application linéaire dfa vérifiant
+     (V.3.1) est alors nécessairement continue. Rappelons qu’en dimension finie, une application
+     linéaire est toujours continue.
+
+
+     Remarque V.3.3 — La définition de la différentielle dépend des normes choisies sur E
+     et F . Remplaçons ∥ ∥E et ∥ ∥F par des normes équivalentes. L’ouvert U reste ouvert pour
+     la nouvelle topologie, et il n’est pas difficile de vérifier que si f est différentiable avec
+     les anciennes normes, elle l’est encore avec la même différentielle dfa pour les nouvelles
+     normes. En particulier, comme en dimension finie, toute les normes sont équivalentes, la
+     différentiation ne dépend pas des normes.
+
+
+     Exemple V.3.4 — Soit f : U → F une application d’un ouvert U de R dans un espace
+     vectoriel normé F , que l’on suppose différentiable au point a ∈ U. Alors dfa ∈ L(R, F ).
+     Comme L(R, F ) est canoniquement isomorphe à F (cf. exercice V.1.2), on peut identifier dfa
+     avec un vecteur de F (le vecteur tangent de f en a, donné par dfa (1)). On note couramment
+     f ′ (a) le vecteur dfa (1).

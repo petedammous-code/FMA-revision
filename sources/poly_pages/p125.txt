@@ -1,0 +1,71 @@
+122                   CHAPITRE VI. INVERSION LOCALE ET FONCTIONS IMPLICITES
+
+
+  que soient a et b dans U , ∥dfb − dfa ∥ ≤ M ∥b − a∥E .
+  2. Montrer qu’il existe δ > 0 tel que dfx0 +r : E → F reste un isomorphisme pour tout r tel
+  que ∥r∥E < δ. On pose g(r) = dfx−1  0 +r
+                                           : F → E. Montrer que quels que soient r et r′ dans
+  BE (0, δ),
+                      ∥g(r) − g(r′ )∥ ≤ M × ∥g(r)∥ × ∥g(r′ )∥ × ∥r − r′ ∥E .
+  3. Posons C = ∥g(0)∥ = ∥dfx−1
+                              0
+                                ∥. On suppose en outre que δ < (2M C)−1 . Montrer que quel
+  que soit r dans BE (0, δ),
+                                               C
+                                ∥g(r)∥ ≤               ≤ 2C.
+                                         1 − M C∥r∥E
+  Posons maintenant, pour tout r ∈ BE (0, δ), R(r) = f (x0 ) − f (x0 + r) + dfx0 +r (r), et
+  définissons ϕ : BE (0, δ) → E en posant
+
+                 ϕ(r) = dfx−1
+                            0 +r
+                                 (f (x0 ) − R(r)) = dfx−1
+                                                        0 +r
+                                                             (f (x0 + r) − dfx0 +r (r)) .
+
+  4. Montrer que quels que soient r et r′ dans BE (0, δ),
+
+                     ∥R(r) − R(r′ )∥F ≤ M ∥r − r′ ∥2E + ∥r′ ∥E × ∥r − r′ ∥E .
+                                                                           
+
+
+  puis que
+
+               ∥ϕ(r) − ϕ(r′ )∥E ≤2CM ∥r − r′ ∥2E + ∥r′ ∥E × ∥r − r′ ∥E
+                                                                       
+
+                                 + 4C 2 M × ∥f (x0 )∥F + M ∥r′ ∥2E × ∥r − r′ ∥E .
+                                                                  
+
+
+  5. En déduire que si δ et ∥f (x0 )∥F , sont assez petits, il existe une constante 0 < K < 1
+  indépendante de r et r′ dans BE (0, δ) telle que
+
+                                 ∥ϕ(r) − ϕ(r′ )∥E ≤ K × ∥r − r′ ∥E .
+
+  En déduire que si de plus C ∥f (x0 )∥F ≤ (1 − K)δ, on a alors
+
+                                             ∥ϕ(r)∥E ≤ δ.
+
+  En d’autres termes, si δ et ∥f (x0 )∥F , sont assez petits, ϕ est une contraction de BE (0, δ)
+  dans elle-même.
+  6. On pose xn = x0 + rn , où (rn )n est la suite définie par récurrence en posant r0 = 0 et
+  rn+1 = ϕ(rn ). Montrer que la suite (xn )n vérifie
+
+                                      xn+1 = xn − dfx−1
+                                                      n
+                                                        (f (xn ))
+
+  et converge vers une limite z vérifiant f (z) = 0.
+  7. Evaluer la vitesse de convergence.
+
+
+  Exercice VI.4.3 : Perturbation des racines et périhélie de Mercure —
+  Soient a et b deux réels vérifiant a < b, et pour ε ∈ R posons
+
+                                    Pε (x) = (x − a)(b − x) + εx3 .
+
+      1. Montrer que pour ε > 0 assez petit, Pε admet trois racines réelles distinctes xa (ε) <
+         xb (ε) < xc (ε), que ε 7→ xa (ε) et ε 7→ xb (ε) sont de classe C ∞ au voisinage de 0 avec
+         xa (0) = a et xb (0) = b, et que xc (ε) ∼ 1/ε lorsque ε tend vers 0+ .
+      2. Donner un développement limité à l’ordre 1 en 0 de xa et de xb . Que dit-il de la

@@ -1,0 +1,61 @@
+                                                                                                                                                    193
+
+      3. Montrer que pour t ∈ [0, α[, φt (B n ) est fermé dans B n , et conclure que φt (B n ) = B n .
+                               R
+      4. Soit P : [0, 1] ∋ t 7→ B n det dφt (x) dLeb(x). Montrer que P est polynomiale.
+      5. Montrer que P est constante, égale à Leb(B n ) (on pourra étudier P |[0,α[ ).
+         Indication : on rappelle la formule du changement de variables : étant donnés deux ouverts
+         U, V de Rn , ψ : U → V un C 1 -difféomorphisme, et θ ∈ L1 (V ), alors θ ◦ ψ ∈ L1 (U ), et l’on a
+                               Z                   Z
+                                   θ(y) dLeb(y) =     θ ◦ ψ(x)| det dψ(x)| dLeb(x).
+                                           V                                 U
+
+
+      6. En utilisant les questions (1) et (5), conclure à une contradiction.
+
+      Exercice 4.
+   On se donne une fonction holomorphe f : U → C, définie sur un ouvert U ⊂ C, et on suppose
+que 0 ∈ U . On veut résoudre l’équation différentielle
+
+(⋆)                                                    x′ (z) = f (x(z)),                x(0) = 0,
+
+pour x : V ∋ z 7→ x(z) ∈ C fonction holomorphe, définie sur un ouvert V contenant 0 à déterminer.
+      1. Montrer qu’il existe une solution x : I → C à (⋆) définie sur un intervalle I ⊂ R contenant
+         0, de classe C ∞ , et que cette solution est unique en un certain sens.
+      2. Soit V P un ouvert de C contenant 0 et x : V → C une fonction holomorphe ; on note
+         x(z) = n∈N xn z n son développement en série entière en 0.
+          (a) Montrer que pour tout entier k > 0, la puissance k-ième de x admet le développement
+              suivant en série entière :
+                                                 X
+                                         x(z)k =     Pk,n (x0 , . . . , xn )z n ,
+                                                                              n∈N
+
+               où                                                                            X
+                                                    Pk,n (x0 , . . . , xn ) =                                xn1 . . . xnk .
+                                                                                      (n1 ,...,nk )∈Nk ,
+                                                                                       n1 +...+nk =n
+
+          (b) Vérifier que si x0 = 0, alors Pk,n ne dépend que des variables x1 , . . . , xn−k+1 , et que
+              en particulier Pk,n est identiquement nul si k > n.
+      3. On se donne une fonction holomorphe x : V → C définie sur un ouvert V de C contenant
+         0 et telle que x(0) = 0 ; quitte
+                                     P à restreindre  V , on suppose x(V ) ⊂ U , de sorte que f ◦ x
+         soit définie. Notons f (z) = k∈N fk z (resp. x(z) = n∈N xn z n ) le développement en série
+                                               k
+                                                             P
+         entière de f (resp. celui de x) en 0.
+         Montrer que pour tout n ≥ 0, il existe un polynôme Qn (u0 , u1 , . . . , un , v1 , . . . , vn ) en les
+         variables u0 , . . . , un , v1 , . . . , vn à coefficients positifs 1 , et qui ne dépend ni de f ni de x, de
+         sorte que le développement en série entière de f ◦ x en 0 s’écrit
+                                                         X
+                                          f ◦ x(z) =         Qn (f0 , . . . , fn , x1 , . . . , xn )z n .
+                                                                     n≥0
+
+        Indication : on pourra commencer par des calculs formels, et on justifiera ensuite la
+        convergence des séries mises en jeu.
+   1. i.e. Qn est défini par une formule du type
+                                                                                     X
+                    Qn (u0 , u1 , . . . , un , v1 , . . . , vn ) =                                           ci,j ui00 . . . uinn v1j1 . . . vnjn
+                                                                     (i,j)=(i0 ,...,in ,j1 ,...,jn )∈N2n+1
+
+avec les ci,j réels positifs, nuls sauf un nombre fini.

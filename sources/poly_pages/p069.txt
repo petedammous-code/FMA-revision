@@ -1,0 +1,56 @@
+66                                            CHAPITRE III. SUITES, SÉRIES ET PRODUITS
+
+
+     dénombrable dense, puis recouvrement fini d’un compact.
+     C’est aussi ce qui montre où est le contenu proprement complexe de l’énoncé. Pour des
+     fonctions continues quelconques, être localement uniformément bornée n’entraîne nullement
+     l’équicontinuité : la suite fn (x) = sin(nx) sur R est bornée par 1 et n’admet aucune
+     sous-suite uniformément convergente sur un intervalle. L’holomorphie, via les inégalités
+     de Cauchy, fait passer gratuitement d’un contrôle de f à un contrôle de f ′ , donc de la
+     borne à l’équicontinuité. Le théorème de Weierstrass assure enfin que la limite est encore
+     holomorphe, ce qu’Ascoli seul ne donne pas.
+
+
+III.4      Le théorème de représentation conforme de Riemann
+
+
+    Nous allons maintenant montrer que tout ouvert Ω de C qui est simplement connexe est soit
+C tout entier, soit l’image par un biholomorphisme du disque unité, en utilisant le théorème
+III.3.4 de Montel.
+   Dans ce contexte, on utilise la terminologie de « transformation conforme » pour ce biholo-
+morphisme, et on dit que Ω est conformément équivalent au disque unité D = D(0, 1).
+
+       Théorème III.4.1 — Représentation conforme de Riemann
+     Tout ouvert connexe et simplement connexe Ω de C, qui est distinct de C, est conformément
+     équivalent au disque unité D. Autrement dit, il existe un biholomorphisme h de Ω dans D.
+
+
+Démonstration. Posons
+
+                        Σ = {f ∈ Hol(Ω) : f (Ω) ⊂ D, et f est injective}.
+
+Commençons par montrer que Σ ̸= ∅. Soit ω0 ∈ C \ Ω. Comme Ω est simplement connexe
+et comme z − ω0 ̸= 0 pour tout z ∈ Ω, il existe φ ∈ Hol(Ω), telle que pour tout z ∈ Ω,
+on ait φ(z)2 = z − ω0 . En effet, d’après la proposition II.9.3, il existe u ∈ Hol(Ω) telle que
+exp(u(z)) = z − ω0 pour tout z ∈ Ω et il suffit de poser φ := exp(u/2). De plus, si z, z ′ ∈ Ω
+vérifient φ(z) = φ(z ′ ), alors φ(z)2 = φ(z ′ )2 et donc z = z ′ , c’est-à-dire que φ est injective. Par
+ailleurs, si φ(z) = −φ(z ′ ), on a de la même manière z = z ′ , ce qui est impossible. Soit a ∈ φ(Ω),
+comme φ est une application ouverte, il existe D(a, r) ⊂ φ(Ω) où 0 < r < |a| et par ce que l’on
+vient de voir, D(−a, r) ∩ φ(Ω) = ∅. Posons ψ = r/(φ + a). Pour tout z ∈ Ω, on a |φ(z) + a| ≥ r
+et donc |ψ(z)| ≤ 1. De plus ψ est injective, comme composée de l’application injective φ et d’une
+homographie. Comme ψ est non-constante, on a ψ(Ω) ⊂ D d’après le principe du maximum I.12.1,
+c’est-à-dire que ψ ∈ Σ. On a donc bien montré que Σ ̸= ∅.
+    Considérons donc ψ ∈ Σ qui est non-surjective. Rappelons que les automorphismes de D ont
+été déterminés dans la Proposition I.13.3 , et que dans l’exercice qui précède, nous avons introduit
+les automorphismes
+                                                    z−α
+                                         fα : z 7→
+                                                    1 − ᾱz
+de D, où α ∈ D.
+   Fixons z0 ∈ Ω. Quitte à composer par un de ces automorphismes, on peut supposer que
+ψ(z0 ) = 0, ce que nous faisons. C’est-à-dire que l’on pose
+
+                                     Σz0 = {f ∈ Σ |f (z0 ) = 0},
+
+on a établi que Σz0 est non-vide, et l’on considère alors ψ ∈ Σz0 qui est non-surjective. Montrons
+qu’il existe alors ψ1 ∈ Σz0 telle que |ψ1′ (z0 )| > |ψ ′ (z0 )|. Prenons α ∈ D \ ψ(Ω). Puisque fα est

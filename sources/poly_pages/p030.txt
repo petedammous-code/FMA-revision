@@ -1,0 +1,55 @@
+I.11. PRINCIPE DES ZÉROS ISOLÉS. PROLONGEMENT ANALYTIQUE                                                27
+
+
+       4. Montrer que h(C), l’image de C par h, est dense dans C.
+   Soit f une fonction holomorphe qui est définie sur C.
+       5. On suppose qu’il existe deux réels a, b > 0 et un entier m ∈ N tels que
+
+                                               |f (z)| ≤ a + b|z|m ,
+
+         pour tout z ∈ C. Montrer que f est un polynôme de degré ≤ m.
+
+   Ainsi les polynômes s’annulent sur C, mais pas très souvent... C’est un phénomène, qui se
+généralise aux fonctions holomorphes comme nous allons le voir dans la section suivante.
+
+
+I.11      Principe des zéros isolés. Prolongement analytique
+
+
+     Théorème I.11.1 — Principe des zéros isolés (Riemann 1851, Weierstrass 1877)
+   Soit Ω un ouvert connexe et f une fonction holomorphe sur Ω non identiquement nulle.
+   Alors, les zéros de f sont isolés. C’est-à-dire que, si f (z0 ) = 0, il existe ϵ > 0 tel que, pour
+   tout z ∈ Ω ∩ (D(z0 , ϵ) \ {z0 }), f (z) ̸= 0.
+
+
+Démonstration. L’ensemble
+
+                                U := {z ∈ Ω : f (n) (z) = 0, ∀n ≥ 0},
+
+est fermé (comme intersection de fermés) et ouvert (car f est somme de sa série de Taylor au
+voisinage de tout point, donc identiquement nulle en un voisinage d’un point de U ). Comme f
+est non identiquement nulle, U =  ̸ Ω de sorte que U = ∅ (c’est là que nous utilisons la connexité
+de Ω). Conclusion, pour tout z0 ∈ Ω, il existe un entier n ≥ 0 tel que f (n) (z0 ) ̸= 0. Soit z0 un
+zéro de f . Soit N le plus petit entier tel que f (N ) (z0 ) ̸= 0. On peut alors écrire au voisinage de z0
+                                                                               !
+                                                        X
+                                           N                             n−N
+                          f (z) = (z − z0 )      aN +         an (z − z0 )         ,
+                                                        n>N
+
+
+ce qui permet de conclure facilement que f ne s’annule pas dans un voisinage épointé de z0 .
+
+
+     Définition I.11.2
+   Soient Ω un ouvert connexe, f une fonction holomorphe sur Ω non identiquement nulle, et
+   z0 un zéro de f . La démonstration ci-dessus montre que l’entier
+
+                                m(z0 ) := min{n ≥ 0 : f (n) (z0 ) ̸= 0}
+
+   est bien défini, et m(z0 ) ≥ 1 puisque f (z0 ) = 0. On l’appelle la multiplicité (ou l’ordre) du
+   zéro z0 . De manière équivalente, m(z0 ) est l’unique entier m ≥ 1 tel que l’on puisse écrire
+
+                                         f (z) = (z − z0 )m h(z)
+
+   au voisinage de z0 , avec h holomorphe et h(z0 ) ̸= 0. Un zéro de multiplicité 1 est dit simple.

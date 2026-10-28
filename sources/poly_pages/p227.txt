@@ -1,0 +1,76 @@
+224                                        ANNEXE A. SUJETS D’EXAMEN ET PROBLÈMES
+
+      (b) D’après la question précédente, f (u3 ) = 0 ; en particulier, les vecteurs (xi , yi ), i = 1, 2, 3
+          sont colinéaires, donc ils appartiennent à une même droite affine a0 X + a1 Y + b = 0.
+          En écrivant a0 xi + a1 yi + b = 0, i = 1, 2, et comme x1 ̸= x2 par hypothèse, on voit
+          que a1 ̸= 0. Quitte à diviser par a1 , on peut supposer que l’équation est de la forme
+          Y = aX + b. Des équations ℘′ (u1 ) = a℘(u1 ) + b et ℘′ (u2 ) = a℘(u2 ) + b on déduit
+                                ′ (u )−℘′ (u )
+          facilement que a = ℘℘(u   1       2
+                                    1 )−℘(u2 )
+                                               .
+          De plus, grâce à l’équation différentielle satisfaite par la fonction de Weierstrass ℘
+          rappelée dans l’énoncé, les trois points (xi , yi ), i = 1, 2, 3 appartiennent également à la
+          cubique d’équation Y 2 = 4X 3 − 60E4 X − 140E6 .
+      (c) Pour i = 1, 2, 3, en injectant l’équation yi = axi + b dans l’équation cubique yi2 =
+          4x3i − 60E4 xi − 140E6 , on voit que xi est un zéro d’un polynôme de degré de la forme
+                  2
+          X 3 − a4 X 2 + ā1 X + ā0 . En particulier, les relations coefficients racines entraînent que
+                             2
+          x1 + x2 + x3 = a4 , i.e.,
+                                                                                     2
+                                                               ℘′ (u1 ) − ℘′ (u2 )
+                                                           
+                                                   1
+               ℘(u1 + u2 ) = ℘(−(u1 + u2 )) = x3 =                                        − ℘(u1 ) − ℘(u2 ),
+                                                   4           ℘(u1 ) − ℘(u2 )
+         où on a utilisé la parité de la fonction de Weierstrass ℘.
+  3. (a) Soit Log la détermination principale du logarithme, définie sur C\R− . Pour z ∈ D(0, 1),
+         on a
+                                                     +∞
+                                                     X   (−1)k+1 k
+                                       Log(1 + z) =              z .
+                                                            k
+                                                          k=1
+          Fixons un compact K ⊂ C. Comme le réseau Λ est discret, pour tout R > 0, le disque
+          D(0, R) contient un nombre fini de points de Λ. De plus, par compacité de K, il existe
+          R > 0 tel que pour tout z ∈ K, et tout λ ∈ Λ avec |λ| ≥ R, on a
+
+                                        z2                                     z2
+                                                                               
+               z                   z                           z        z
+          1 − ∈ D(1, 1), exp         +        ∈ D(1, 1),     1−     exp     +       ∈ D(1, 1).
+               λ                   λ 2λ2                        λ         λ 2λ2
+          On déduit (voir l’exercice II.9.4 du cours) que sauf pour un ensemble fini Λ∗ ⊂ Λ, on a
+          pour tout z ∈ K et pour tout λ ∈ Λ \ Λ∗ :
+
+                                                  z2                              z2
+                                                                               
+                                 z         z                       z       z
+                     Log     1−      exp       +         = Log 1 −      +       +
+                                 λ          λ 2λ2                    λ        λ 2λ2
+                                       +∞                           +∞
+                                z2           zk           z2             zk
+                                                            
+                          z            X             z              X
+                     =− − 2 −                    +     +       = −          .
+                          λ 2λ              kλk      λ 2λ2              kλk
+                                         k=3                               k=3
+
+          En particulier, il existe C > 0 tel que pour tout z ∈ K et pour tout λ ∈ Λ \ Λ∗ ,
+
+                                                            z2
+                                                            
+                                              z       z               C
+                                  Log    1−      exp     + 2       ≤       .
+                                              λ        λ 2λ           |λ|3
+          On conclut que le produit infini définissant θ converge uniformémement sur tout
+          compact de C. De plus (voir le théorème III.5.1 du cours), θ(z) = 0 si et seulement l’un
+          des facteurs est nul, i.e., si et seulement si z ∈ Λ. De plus, pour tout λ ∈ Λ, il existe
+          un unique facteur dans le produit infini définissant θ dont λ soit zéro, de multiplicité
+          1, donc la multiplicité de λ comme zéro de θ est aussi 1.
+      (b) Soit λ ∈ Λ. D’après la question précédente, θ et θ(· + λ) ont même ensemble de zéros
+          Λ, et pour chaque λ′ ∈ Λ, λ′ est de multiplicité 1 pour chacune de ces fonctions. On
+          déduit que la fonction méromorphe z 7→ θ(z+λ) θ(z) se prolonge holomorphiquement à C
+          tout entier, et ne s’y annule jamais. Comme C est simplement connexe, on déduit
+          (proposition II.9.3 du cours) qu’elle admet un logarithme complexe hλ .

@@ -1,0 +1,63 @@
+154                                                             CHAPITRE IX. SOUS-VARIÉTÉS
+
+                                                     z
+
+
+
+
+                                                                         y
+
+
+
+
+                              x
+
+
+                                                        2
+                                                 P
+                                  Ellipsoïde :    i ai xi = 1, ai > 0
+
+
+
+                                                         z
+
+
+
+
+                                                         0
+
+
+
+
+                     x
+
+                                                                             y
+
+
+
+
+                         Hyperboloïde à une nappe : x2 + y 2 − z 2 = 1
+
+
+  Exemple IX.4.3 — Plus généralement, toutes les quadriques de RN , c’est-à-dire les
+  sous-ensembles de RN définis par une équation de la forme
+                                                     7
+                                           N
+                                           X
+                                                 ai x2i = 1 ,
+                                           i=1
+
+  où les ai sont dans R et non-tous nuls, sont des sous-variétés de RN .
+
+
+  Exemple IX.4.4 : Le tore — Soit S le tore d’axe D = {x = y = 0} dont les distances
+  respectivement minimale et maximale à l’axe   p sont a − r et a + r, où a et r sont deux réels
+  tels que 0 < r < a, défini par l’équation ( x2 + y 2 − a)2 + z 2 = r2 . Comme 0 < r < a, le
+                 p pas l’axe : S ∩ D = ∅. On a donc S = f ({r }) où f : R \ D → R,
+  tore ne rencontre                                10               −1    2             3
+
+  f (x, y, z) = ( x2 + y 2 − a)2 + z 2 . La fonction f est différentiable sur l’ouvert R3 \ D et
+                      p                                      p
+   ∂f              2x( x2 + y 2 − a)      ∂f              2y( x2 + y 2 − a)      ∂f
+       (x, y, z) =    p               ,       (x, y, z) =    p              ,       (x, y, z) = 2z.
+   ∂x                   x2 + y 2           ∂y                   x2 + y 2         ∂z

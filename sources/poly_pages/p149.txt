@@ -1,0 +1,24 @@
+146                                                 CHAPITRE VIII. CALCUL DES VARIATIONS
+
+ 13. On pose
+                                                                                      ∂L
+                  Φ : I × V × V → I × V × L(V ; R),             (u, q, v) 7→ (u, q,      (u, q, v)).
+                                                                                      ∂v
+      Montrer qu’en tout point (u0 , q0 , v0 ) de I × V × V , dΦ(u0 ,q0 ,v0 ) est un isomorphisme. En
+      déduire que si l’on pose p = ∂L ∂v (u, q, v) ∈ L(V ; R), on peut localement autour de ce point
+      (u0 , q0 , v0 ) exprimer v comme une fonction de classe C 1 de (u, q, p) ∈ I × V × L(V ; R) :
+
+                                                 v = g(u, q, p).
+
+ 14. En remplaçant (u, q, v) par (t, γ(t), γ ′ (t)) et p par p(t) = ∂L              ′
+                                                                      ∂v (t, γ(t), γ (t)), réécrire localement
+     l’équation d’Euler-Lagrange sous la forme d’un système
+                                 (
+                                   γ ′ (t) = g(t, γ(t), p(t))
+                                   p′ (t) = ∂L∂q (t, γ(t), g(t, γ(t), p(t))).
+
+     et vérifier que les hypothèses du théorème de Cauchy-Lipschitz sont satisfaites pour celui-ci.
+     Remarquez au passage qu’une solution γ de l’équation d’Euler-Lagrange est C 2 .
+ 15. En déduire que si on se donne (t0 , q0 , v0 ) ∈]0; 1[×V × V , il existe un intervalle ouvert
+     J ⊂ ]0, 1[ contenant t0 tel qu’il existe une unique courbe γ : J → V vérifiant l’équation
+     d’Euler-Lagrange avec γ(t0 ) = q0 et γ ′ (t0 ) = v0 .

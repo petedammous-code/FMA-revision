@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FMA — Analyse complexe & calcul différentiel</title>
+<meta name="description" content="Site d'apprentissage interactif pour le cours FMA 41031 (École polytechnique) : cours, réflexes, problèmes inconnus, flashcards.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='14' fill='%232457d6'/%3E%3Ctext x='16' y='21' font-size='14' text-anchor='middle' fill='white' font-family='serif' font-style='italic'%3E%E2%88%AE%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="vendor/katex/katex.min.css">
+<link rel="stylesheet" href="css/style.css">
+<script>try{var t=localStorage.getItem('fma:theme');if(t)document.documentElement.dataset.theme=t;}catch(e){}</script>
+</head>
+<body>
+<a class="skip" href="#main">Aller au contenu</a>
+<header class="topbar">
+  <button class="nav-toggle" id="navToggle" aria-label="Menu" aria-expanded="false">☰</button>
+  <a class="brand" href="#/">FMA <span class="brand-sub">Analyse complexe & calcul différentiel</span></a>
+  <nav class="modes" aria-label="Modes">
+    <a href="#/cours" data-route="cours">Cours</a>
+    <a href="#/reflexes" data-route="reflexes">Réflexes</a>
+    <a href="#/probleme" data-route="probleme">Problème inconnu</a>
+    <a href="#/flashcards" data-route="flashcards">Flashcards</a>
+  </nav>
+  <div class="topbar-right">
+    <input id="search" type="search" placeholder="Rechercher une fiche… (/)" aria-label="Rechercher" autocomplete="off">
+    <button id="themeToggle" class="icon-btn" title="Thème clair/sombre" aria-label="Changer de thème">◐</button>
+  </div>
+</header>
+<div class="layout">
+  <aside class="sidebar" id="sidebar" aria-label="Navigation du cours"></aside>
+  <main id="main" class="main" tabindex="-1"><div class="loading">Chargement…</div></main>
+</div>
+<div id="searchResults" class="search-results" hidden></div>
+<footer class="footer">Site d'entraînement construit sur le polycopié FMA 41031 (D. Renard, 2026). Les numéros de pages renvoient au poly imprimé. Progression enregistrée localement dans ce navigateur.</footer>
+<script src="vendor/katex/katex.min.js"></script>
+<script src="vendor/marked.min.js"></script>
+<script src="data/content.js"></script>
+<script src="js/render.js"></script>
+<script src="js/vizkit.js"></script>
+<script src="data/viz.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

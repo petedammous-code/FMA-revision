@@ -1,0 +1,68 @@
+18                                                       CHAPITRE I. FONCTIONS HOLOMORPHES
+
+I.6      La formule intégrale de Cauchy
+
+
+   La formule intégrale de Cauchy est une des formules les plus importantes – et certainement
+une des formules aux conséquences les plus surprenantes – de la théorie des fonctions holomorphes.
+
+      Théorème I.6.1 — Cauchy (1825–1831)
+     Soit z0 ∈ Ω et r > 0. On suppose que D̄(z0 , r) ⊂ Ω et l’on note Γ := C(z0 , r) le bord de ce
+     disque (que l’on suppose orienté positivement i.e. parcouru dans le sens trigonométrique).
+     Soit f ∈ Hol(Ω). Alors,                       Z
+                                               1      f (ω)
+                                      f (z) =               dω,
+                                              2iπ Γ ω − z
+     pour tout z ∈ D(z0 , r).
+
+
+
+Démonstration. Il est clair que le théorème est une conséquence des deux formules suivantes
+
+                            f (ω) − f (z)
+                        Z                                                     Z
+                                                                                   dω
+                                          dω = 0               et                     = 2iπ.
+                          Γ     ω−z                                             Γ ω−z
+
+
+Quitte à changer ω en z0 + r ω, on peut supposer que z0 = 0 et que r = 1.
+
+Étape 1. Calcul de la seconde intégrale. On pose ω := eiθ puis
+
+                                             Z 2π                        Z 2π
+                                                    ieiθ dθ
+                                Z
+                                    dω                                               dθ
+                                       =                    =i                               .
+                                 Γ ω−z         0    eiθ − z               0       1 − z e−iθ
+
+Comme |z| < 1, on a un développement en série normalement convergente pour θ ∈ [0, 2π]
+
+                                               1        X
+                                                      =   z n e−inθ ,
+                                           1 − z e−iθ
+                                                              n≥0
+
+
+que l’on peut donc intégrer terme à terme pour trouver
+
+                                Z 2π                    ∞           Z 2π
+                                          dθ          X
+                            i                     = i   zn                    e−inθ dθ = 2iπ,
+                                 0     1 − z e−iθ                    0
+                                                        n=0
+
+
+ce qui démontre la formule espérée.
+
+Étape 2. Calcul de la première intégrale. Pour tout t ∈ [0, 1[, on pose
+
+                                                       f (ω) − f (z)
+                                                    Z
+                                          I(t) :=                    dω,
+                                                    Γt     ω−z
+
+où Γt := C(tz, 1 − t), i.e. on rétracte continûment le cercle Γ0 = C(0, 1) sur le point z (c’est un
+cas particulier d’homotopie de lacets, notion sur laquelle nous reviendrons). On suppose bien
+entendu que Γt est parcouru dans le sens trigonométrique.

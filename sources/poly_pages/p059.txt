@@ -1,0 +1,52 @@
+56                                                     CHAPITRE II. FORMULE DES RÉSIDUS
+
+   Cet énoncé permet de construire de nombreuses fonctions holomorphes. En particulier, nous
+pouvons définir le logarithme complexe d’une fonction holomorphe h sur un ouvert Ω ne s’annulant
+pas.
+
+       Définition II.9.2
+     Soit h ∈ Hol(Ω) ne s’annulant pas. On appelle logarithme de h et l’on note Log(h) toute
+     primitive holomorphe—lorsqu’elle existe—de la fonction h′ /h qui vérifie de plus eLog(h) = h.
+
+    Cette dernière normalisation est toujours réalisable sur un ouvert connexe : si F est une
+primitive de h′ /h, la fonction h e−F a une dérivée nulle, donc est une constante C ̸= 0, et il suffit
+de remplacer F par F + c où c est un nombre complexe tel que ec = C. Un logarithme complexe
+sur un ouvert connexe est donc bien défini à addition d’un multiple entier de 2iπ près. Le résultat
+qui suit est un corollaire immédiat du théorème d’existence de primitives.
+
+       Proposition II.9.3
+     Si Ω est un ouvert simplement connexe et si, h ∈ Hol(Ω) ne s’annule pas, alors la fonction
+     h admet un logarithme complexe.
+
+    En particulier, on peut définir z 7→ Log(z) sur l’ouvert Ω = C \ R− , obtenu en pratiquant la
+coupure R− , comme étant la primitive de z 7→ 1/z s’annulant en z = 1 ; cette fonction coïncide
+avec le logarithme usuel sur R×  + (noté log). On dira que c’est la détermination principale du
+logarithme complexe.
+
+     Exercice II.9.4 — Démontrer les propriétés suivantes de la détermination principale du
+     logarithme complexe sur C \ R− :
+     (i) exp(Log(z)) = z pour tout z ∈ C \ R− , Log(exp z) = z pour tout z tel que −π <
+     ℑm(z) < π.
+     (ii) Log(z) = log(r) + iArg(z), pour tout z = reiθ ∈ C \ R− , l’argument Arg(z) = θ étant
+     ici dans ] − π, π[.
+     (iii) Log(z1 ) + Log(z2 ) = Log(z1 z2 ) mod 2iπ, quels que soient z1 , z2 ∈ C \ R− tels que
+     z 1 z2 ∈ C \ R − .
+
+   Soit h une fonction holomorphe et Log(h) un logarithme de h. Pour tout α ∈ C, on peut
+maintenant définir
+                                   hα (z) := eα Log(h(z)) .
+Dans le cas de la détermination principale du logarithme, ceci permet par exemple de définir la
+                                                   √
+détermination principale de la racine carrée z 7→ z sur C \ R− qui prolonge la racine usuelle
+définie sur R×
+             + . Comme c’est déjà le cas pour la fonction logarithme, on ne peut pas prolonger la
+racine carrée en une fonction holomorphe sur tout le plan complexe (exercice).
+     Dans le cas particulier où h(z) = z, on définit ainsi, pour tout α ∈ C, la fonction z 7→ z α par
+                                           z α := eα Log(z) ,
+sur C \ R− . On vérifie que l’on a là une fonction holomorphe sur C \ R− . On vérifie aussi que la
+fonction
+                                              α 7→ z α ,
+est quant à elle holomorphe sur C.
+
+     Exercice II.9.5 — On note Ω := C \ [0, 1]. Montrer qu’il existe deux fonctions holomorphes
+     définies sur Ω et dont le carré est égal à z 7→ z (z − 1).

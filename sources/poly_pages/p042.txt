@@ -1,0 +1,65 @@
+II.2. INVARIANCE PAR HOMOTOPIE                                                                                                                            39
+
+
+             t
+                         vopp
+
+                                                                                                                                                  v
+                 K0, 2   K1, 2   K2, 2                                                                                   1, 0
+                                                                                                                                 2, 0
+
+                                                                                                                                0, 0
+                                                                                                                                    0(0)
+         0       K0, 1   K1, 1   K2, 1             1                                                                                                       1(0)
+                                                                                                                                0
+                                                                                                                  0, 1
+                                                                                                    2, 1                                   0, 2   1, 2
+                                                                                                           1, 1
+                 K0, 0   K1, 0   K2, 0
+                                                                                                                                                   2, 2
+                                                            s                        zoom sur v
+                                                                                       v(23 )
+                                                                                                                          1
+                          v                                                 v(13 )
+
+                                                                                 v(0)             v(1)
+
+                                         v : continu, non régulier
+                                         chemin affine par morceaux qui le remplace (dans la preuve)
+
+Grillage orienté du carré K = [0, 1]2 (à gauche, n = 3) et de son image par l’homotopie γ (à
+                                                   (n)
+droite) : les quadrilatères curvilignes Γi,j = γ(Ki,j ), le chemin v = γ(·, 0) = γ(·, 1) (continu mais
+a priori non régulier, en noir) et le chemin affine par morceaux qui le remplace dans la preuve (en
+orange).
+
+
+
+     Corollaire II.2.2
+   On suppose Ω simplement connexe. Alors, pour tout lacet γ de Ω et pour toute fonction
+   holomorphe f ∈ Hol(Ω), on a      Z
+                                                           f (z) dz = 0.
+                                                       γ
+
+
+
+Démonstration. Considérer une homotopie de lacets entre le lacet γ et un lacet constant et
+appliquer le théorème précédent.
+
+   Remarque II.2.3 — Il peut être intéressant de faire le lien entre le résultat du Corol-
+   laire II.2.2 et le Théorème de la divergence (Formule de Green-Riemann) qui est d’un usage
+   fréquent en physique. Si f ∈ C 1 (Ω; C), on peut décomposer f = P + iQ où P et Q sont
+   deux fonctions à valeurs réelles. Supposons que Γ est le bord (orienté positivement) d’un
+   domaine compact U ⊂ Ω. Dans ce cas
+                          Z           Z                   Z
+                            f (z)dz = (P dx − Qdy) + i (Qdx + P dy).
+                           Γ                  Γ                                 Γ
+
+   Le Théorème de Green-Riemann nous donne alors
+             Z               Z                    Z          
+                                 ∂Q ∂P                  ∂P   ∂Q
+                 f (z)dz = −        +      dxdy + i        −      dxdy.
+               Γ              U  ∂x   ∂y             U  ∂x   ∂y
+
+   Supposons maintenant que f est une fonction holomorphe, les conditions de Cauchy réelles
+   nous assurent justement que les deux membres de droite sont nuls. On retrouve donc le fait

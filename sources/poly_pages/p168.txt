@@ -1,0 +1,54 @@
+IX.7. CALCUL DIFFÉRENTIEL SUR LES SOUS-VARIÉTÉS                                                    165
+
+IX.7.4     Difféomorphisme local. Inversion locale
+
+    Ayant défini les applications différentiables entre sous-variétés et leur différentielles, on peut
+étendre certaines notions du calcul différentiel. Commençons par la notion de difféomorphisme.
+
+     Définition IX.7.24
+   Soient S1 et S2 deux sous-variétés (respectivement de RN1 et RN2 ) de classe au moins
+   C k et soit
+                                      φ : S1 −→ S2
+   une application de S1 dans S2 . On dit que φ est un C k -difféomorphisme si c’est un
+   homéomorphisme et si φ et φ−1 sont de classe C k . On dit alors que S1 et S2 sont
+   C k -difféomorphes.
+
+
+
+    Un des problèmes fondamentaux de la topologie différentielle est la classification des variétés
+à difféomorphisme près. Un résultat important de H.Whitney (1936) nous dit que toute variété
+différentiable abstraite de dimension m est difféomorphe à une sous-variété de R2m , de sorte que
+le problème se ramène à celui de la classification des sous-variétés. C’est d’ailleurs dans cet article
+de 1936 que la définition rigoureuse des variétés abstraites apparaît pour la première fois, même
+si des notions approximatives étaient utilisées depuis Riemann, en particulier dans les travaux de
+H. Weyl et en relativité générale.
+   Voici quelques résultats de classification. Nous n’explicitons pas tous les termes employés.
+     Dimension 1. À difféomorphisme près, il n’existe que deux variétés connexes de dimension
+1 : le cercle S1 dans le cas compact, la droite R dans le cas non compact.
+    Dimension 2. La classification des variétés compactes connexes orientables de dimension 2
+est donnée par la liste suivante : la sphère S2 , le tore à g trous, g ≥ 1. Les variétés compactes
+connexes non orientables sont obtenues en recollant des plans projectifs à ces dernières. Le cas
+non compact est plus compliqué, car on peut avoir une infinité de trous, ainsi que des « pointes ».
+   Dimension 3. Le mathématicien G. Perelman a montré récemment que la seule variété
+compacte de dimension 3 connexe et simplement connexe (c’est-à-dire que tout lacet y est
+homotope à un lacet constant) est la sphère S3 , résolvant ainsi la célèbre conjecture de Poincaré.
+
+
+
+     Proposition IX.7.25
+   Soient S1 et S2 deux sous-variétés (respectivement de RN1 et RN2 ) et soit
+
+                                           φ : S1 −→ S2
+
+   un difféomorphisme. Alors pour tout p ∈ S1 ,
+
+                                      dφp : Tp S1 −→ Tφ(p) S2
+
+   est un isomorphisme, d’inverse
+
+                                  d(φ−1 )φ(p) : Tφ(p) S2 −→ Tp S1 .
+
+   En particulier, les dimensions de S1 et S2 sont les mêmes.
+
+
+Démonstration. C’est évident par la formule de composition des différentielles.

@@ -1,0 +1,67 @@
+196                                        ANNEXE A. SUJETS D’EXAMEN ET PROBLÈMES
+                                                             √
+  4. Soit f ∈ H. On considère la fonction g(z) := C1 f (z/ b) qui vérifie l’hypothèse de l’énoncé
+     avec a := c/b. D’après la question (3), on en déduit qu’il existe C ′ > 0, b′ , c′ > 0 tels que
+     pour tous ξ, η ∈ R,
+                                                           ′ 2  ′ 2
+                                     |ĝ(ξ + iη)| ≤ C ′ e−b ξ +c η .
+                                                 √   √
+     Or on voit par une dilatation que ĝ(z) = Cb fˆ( bz), ce qui permet de conclure.
+
+      Exercice 2.
+  1. Soit f ∈ E(Λ), f non-constante.
+        (a) On note
+                                   Izj := {z + tωj : t ∈ [0, 1]},    Jz := Iz1 ∪ Iz2 .
+            Comme f est méromorphe, l’ensemble de ses pôles est également localement fini. Par le
+            principe des des zéros isolés (f étant holomorphe sur C privé de ses pôles), l’ensemble
+            des zéros de f est également localement fini. Soit K := ∪t∈[−1,0] Jt(ω1 +ω2 ) . L’ensemble
+            K est compact, donc contient un nombre fini de zéros et pôles de f .
+        (b) Par ailleurs, les ensembles {Jt(ω1 +ω2 ) }t∈[−1,0] forment une partition de K — c’est ici
+            qu’intervient l’indépendance sur R de ω1 et ω2 , qui interdit à deux de ces translatés de se
+            rencontrer —, donc il existe un ensemble fini S ⊂ [−1, 0] tel que pour tout t ∈ [−1, 0]\S,
+            l’ensemble Jt(ω1 +ω2 ) ne contient ni zéro ni pôle de f . On fixe t0 ∈ [−1, 0] \ S et on pose
+            z0 := t0 (ω1 + ω2 ).
+            Par Λ-périodicité de f , on déduit que ∂Qz0 ne contient ni zéro ni pôle de f .
+        (c) On définit les chemins
+             — γ1 : [0, 1] → C, t 7→ z0 + tω1 ;
+             — γ̄2 : [0, 1] → C, t 7→ z0 + ω1 + tω2 ;
+             — γ̄1 : [0, 1] → C, t 7→ z0 + (1 − t)ω1 + ω2 ;
+             — γ2 : [0, 1] → C, t 7→ z0 + (1 − t)ω2 .
+            Par la formule des résidus sur le contour ∂Qz0 (positivement orienté), et comme
+            Indz (∂Qz0 ) = 1 pour tout z ∈ Pz0 , on a
+                                        Z
+                   X                 1
+                        resz (f ) =           f (z)dz
+                                    2iπ ∂Qz0
+                  z∈Pz0
+                                        Z             Z              Z              Z          
+                                     1
+                                  =          f (z)dz +      f (z)dz +      f (z)dz +     f (z)dz .
+                                    2iπ   γ1            γ̄2            γ̄1            γ2
+
+            En faisant le changement de variables z ← z−ω1 dans la seconde intégrale, et z ← z−ω2
+            dans
+            R                 R intégrale, et parPΛ-périodicité de f , on déduit que pour i = 1, 2,
+                    la troisième
+             γ̄i f (z)dz =  −  γi f (z)dz, et donc z∈Pz resz (f ) = 0, par la formule précédente.
+                                                         0
+        (d) Si z ∈ Zz0 ∪ Pz0 est un zéro ou un pôle, on note m(z) ≥ 1 sa multiplicité.
+                          ′
+            La fonction ff est méromorphe comme quotient de fonctions méromorphes (f ̸= 0) et
+            Λ-périodique donc elliptique pour Λ. Par construction, le bord ∂Qz0 de Qz0 ne contient
+                                                                                ′
+            ni zéro ni pôle de f ; ces derniers sont précisément les pôles de ff , donc par la question
+            précédente, en notant Zz0 , resp. Pz0 les zéros, resp. pôles de f à l’intérieur de Qz0 ,
+                                      ′
+            on a z∈Zz ∪Pz resz ( ff ) = 0. D’autre part, le théorème des résidus et le principe de
+                  P
+                        0    0
+            l’argument (lemme II.8.1) donnent
+                                     f′                   f′ 
+                             Z
+                          1                  X                   X              X
+                                        =            resz      =      m(z) −         m(z).
+                         2iπ ∂Qz0 f                       f
+                                          z∈Zz0 ∪Pz0                z∈Zz0          z∈Pz0
+                             P                P
+            On déduit que      z∈Zz0 m(z) −      z∈Pz0 m(z) = 0.

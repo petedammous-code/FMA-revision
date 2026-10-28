@@ -1,0 +1,57 @@
+120                   CHAPITRE VI. INVERSION LOCALE ET FONCTIONS IMPLICITES
+
+   Le théorème d’inversion locale est l’énoncé suivant, que nous déduisons du théorème des
+fonctions implicites.
+
+       Théorème VI.3.2 — Théorème d’inversion locale
+   Soit f une application de U dans F , où U est un ouvert d’un espace de Banach réel et
+   F un espace de Banach et soit x0 un point de U. Si f est de classe C k , k ≥ 1 et si la
+   différentielle de f au point x0 est un isomorphisme bicontinu, alors il existe un voisinage
+   ouvert U0 de x0 dans U et un voisinage ouvert V0 de f (x0 ) tels que f se restreigne en un
+   C k -difféomorphisme de U0 dans V0 .
+
+
+Démonstration. On considère g : F × U → F , g(y, x) = f (x) − y. Par construction g(y, x) =
+0 équivaut à f (x) = y. L’application g est de classe C k et l’on a g(f (x), x) = 0. De plus
+∂g
+   (f (x0 ), x0 ) = dfx0 est un isomorphisme, et donc, par le théorème des fonctions implicites, il
+∂x
+existe un voisinage ouvert V0 × U1 de (f (x0 ), x0 ) dans F × U et une application φ : V0 → U1 de
+classe C k tels que
+                                                        
+                           (y, x) ∈ V0 × U1 | f (x) = y = (y, φ(y)) | y ∈ V0 .
+On pose alors U0 = φ(V0 ). C’est un ouvert : en effet U0 = U1 ∩ f −1 (V0 ), car si x ∈ U1 vérifie
+f (x) ∈ V0 alors (f (x), x) appartient à l’ensemble ci-dessus, donc x = φ(f (x)) ; réciproquement
+φ(y) ∈ U1 et f (φ(y)) = y ∈ V0 . C’est donc un voisinage ouvert de x0 dans U, et f induit une
+bijection de U0 dans V0 d’inverse φ de classe C k .
+
+
+      On en déduit immédiatement un énoncé global.
+
+       Corollaire VI.3.3 — Théorème d’inversion globale
+   Soit f une application de classe C k de U dans F , où U est un ouvert d’un espace de Banach
+   réel et F un espace de Banach. Si f est injective et si pour tout x de U la différentielle dfx
+   de f au point x est un isomorphisme bicontinu, alors f (U) est un ouvert et la bijection
+   réciproque, de f (U) dans U, est de classe C k .
+
+
+    Voici une application importante du théorème d’inversion locale, qui utilise aussi la formule
+de Taylor à l’ordre deux (théorème V.5.11) : au voisinage d’un point critique où la différentielle
+seconde est non dégénérée, une fonction coïncide, à un changement de variables près, avec la
+forme quadratique qu’elle définit. L’inversion locale y sert deux fois : pour construire la racine
+carrée lisse de la question 3, puis pour inverser le changement de variables de la question 4.
+
+   Exercice VI.3.4 : Lemme de Morse — Soit U un ouvert de Rm et soit f : U → R une
+   fonction de classe C ∞ . Soit a ∈ U un point critique de f , c’est-à-dire tel que dfa = 0. On
+   suppose que la forme bilinéaire symétrique d2 fa est non dégénérée, de signature (r, s), avec
+   r + s = m.
+   On note Mm (R) l’espace des matrices carrées réelles de taille m, Symm et ASymm les
+   sous-espaces des matrices symétriques et antisymétriques, et l’on pose
+                                                  
+                                            Ir   0
+                                    Ir,s =            ∈ Symm .
+                                             0 −Is
+   On identifie Rm à l’espace des matrices colonnes, de sorte qu’une forme bilinéaire symétrique
+   de matrice S dans la base canonique s’écrit (h, k) 7→ t hSk.
+   Le but de l’exercice est de montrer qu’il existe un voisinage ouvert W de 0 dans Rm et un
+   C ∞ -difféomorphisme ψ de W sur un voisinage ouvert de a dans U, vérifiant ψ(0) = a, tel

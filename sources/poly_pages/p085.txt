@@ -1,0 +1,53 @@
+82                                                              CHAPITRE IV. APPLICATIONS
+
+En regroupant ces résultats et en multipliant par 4, le Laplacien devient :
+
+                                  ∂2f           ∂h     ∂ h̄                         2
+                ∆(f ◦ h)(z) = 4          (h(z))    (z)      (z) = (∆f )(h(z)) h′ (z) .
+                                  ∂z∂ z̄        ∂z     ∂ z̄
+La fonction f étant harmonique, on a (∆f )(h(z)) = 0, et l’on conclut que ∆(f ◦ h)(z) = 0.
+    Maintenant, si l’on souhaite déterminer des fonctions harmoniques sur un domaine donné, le
+théorème de représentation conforme de Riemann ramène l’étude au cas du demi-plan de Poincaré
+(en vertu de la remarque III.4.2 pour passer du disque unité au demi-plan de Poincaré).
+     Ce résultat permet en théorie de ramener la recherche d’une fonction harmonique définie
+dans un ouvert donné, à la détermination d’une fonction harmonique dans un demi-plan ou un
+plan, grâce à une transformation conforme. Précisément, si l’on cherche une fonction f qui est
+harmonique sur un ouvert simplement connexe Ω et qui vérifie certaines conditions au bord de Ω,
+il « suffit » de trouver une application biholomorphe h de Ω sur C ou sur H pour se ramener à la
+recherche d’une fonction harmonique sur H ou C. Nous donnons dans les paragraphes qui suivent
+quelques exemples précis.
+
+
+IV.4.1     Écoulement d’un fluide parfait incompressible, irrotationnel
+   Considérons un fluide parfait irrotationnel et incompressible s’écoulant sans frottement dans
+Ω, un domaine du plan simplement connexe. Le champ des vitesses ⃗v satisfait
+
+                                             rot ⃗v = 0,
+
+(i.e. le fluide est irrotationnel), donc il s’écrit ⃗v = ∇Φ pour un certain potentiel des vitesses Φ,
+de sorte que la connaissance du potentiel des vitesses Φ nous permet de retrouver le champ de
+vitesses ⃗v . Comme le champ des vitesses est à divergence nulle (i.e. le fluide est incompressible),
+on en déduit que
+                                          div(∇Φ) = ∆Φ = 0,
+autrement dit, le potentiel des vitesses Φ est une fonction harmonique. Remarquons que la
+composante normale de ⃗v doit être nulle au bord du domaine si l’on suppose que le bord du
+domaine est étanche. Ceci se traduit par le fait que la dérivée normale de Φ doit être nulle au
+bord du domaine. Il nous faut donc trouver une fonction harmonique dans le domaine, dont la
+dérivée normale est nulle au bord du domaine.
+    Le Théorème de Riemann nous incite à nous intéresser d’abord au domaine Ω = H et au cas
+où le potentiel des vitesses Φ0 vérifie |∇Φ0 | ∈ L∞ (H̄) (i.e. la vitesse est bornée pour des raisons
+physiques !). Dans ce cas, la composante normale vy du champ des vitesses est une fonction
+harmonique, bornée et nulle sur le bord de H, elle est donc identiquement nulle. (Ce n’est pas tout
+à fait le principe du maximum : sur un ouvert non borné il faut aussi l’hypothèse de bornitude,
+via un argument de type Phragmén–Lindelöf, ou passer au disque par une homographie.) Donc,
+
+                                          ∂y Φ0 = vy ≡ 0,
+
+dans H ce qui montre que Φ0 ne dépend que de la variable x = ℜez. Enfin, dans ce cas
+∆Φ = ∂x2 Φ0 = 0 de sorte
+                                  Φ0 (z) = λ ℜez,
+pour une constante λ ∈ R (la vitesse de l’écoulement uniforme est alors ⃗v = (λ, 0)).
+    Pour un domaine Ω général, il « suffit » de trouver une fonction holomorphe f envoyant Ω
+sur H pour connaître le potentiel des vitesses Φ = Φ0 ◦ f dans Ω. On remarquera que f étant
+une transformation conforme, elle préserve le fait que la dérivée normale de Φ0 ◦ f est nulle sur le
+bord de Ω.

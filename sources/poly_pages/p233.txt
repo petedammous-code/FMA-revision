@@ -1,0 +1,9 @@
+230                                    ANNEXE A. SUJETS D’EXAMEN ET PROBLÈMES
+
+          G(C) ∩ S 1 est un ouvert non-vide de S 1 , qui doit donc contenir des racines 2n -ièmes
+          de l’unité, pour certains n, ce qui n’est pas possible.
+      (g) Puisque G(C) est un ouvert connexe, on conclut que soit |G(z)| < 1 pour tout z, soit
+          |G(z)| > 1. Dans le premier cas, G est une fonction entière bornée, et le théorème
+          de Liouville entraîne qu’elle est constante. Dans le deuxième cas, la fonction 1/G est
+          entière et bornée, et donc constante. Dans les deux cas on aboutit à une contradiction,
+          puisque G n’est pas constante.

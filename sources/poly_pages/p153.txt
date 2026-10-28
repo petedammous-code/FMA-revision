@@ -1,0 +1,51 @@
+150                                                         CHAPITRE IX. SOUS-VARIÉTÉS
+
+
+  Exercice IX.2.10 — Montrer que le cercle C(a, r) de centre a et de rayon r dans R2 est
+  une sous-variété de R2 .
+
+   Nous verrons bientôt de nombreux autres exemples de sous-variétés. Voici maintenant quelques
+exemples d’ensembles qui ne sont pas des sous-variétés :
+
+  Exemple IX.2.11 — S = [0 ; +∞[. Tout voisinage ouvert connexe de 0 est de la forme
+  [0 ; a[, a > 0, qui n’est jamais homéomorphe à un ouvert connexe de Rm . C’est évident si
+  m = 0. Pour m = 1, on remarque que [0 ; a[ \ {0} est connexe, alors qu’un intervalle ouvert
+  privé d’un de ses points a deux composantes connexes. Pour m ≥ 2, [0 ; a[ \ {b} a deux
+  composantes connexes pour tout b ∈ ]0 ; a[, alors qu’un ouvert connexe de Rm privé d’un
+  de ses points reste connexe.
+
+
+  Exemple IX.2.12 — S = (R × {0}) ∪ ({0} × R). Tout voisinage connexe de (0, 0) dans
+  S est encore homéomorphe à S . Or S \ {(0, 0)} possède 4 composantes connexes, ce qui
+  montre que S ne peut être homéomorphe à un ouvert de Rm : un tel ouvert connexe privé
+  d’un point a au plus deux composantes connexes.
+
+
+  Exercice IX.2.13 — S = {(t2 , t3 ) ∈ R2 , t ∈ R}. Le point (0, 0) est un point de
+  rebroussement de première espèce. Montrer que l’on ne peut pas trouver de paramétrage
+  local en ce point qui vérifie le point 3 de la définition.
+
+
+
+
+                                        Point singulier
+
+
+
+
+  Exemple IX.2.14 — Voici un contre-exemple où le paramétrage x : t ∈ R 7→ (t3 − 4t, t2 − 4)
+  est une immersion en tout point, mais l’image n’est pas une sous-variété de R2 à cause du
+  point multiple en (0, 0).
+
+
+
+
+                                        Point multiple
+
+
+
+                                                                                  3t      3t2
+  Exemple IX.2.15 — Dans cet exemple, le paramétrage x : t ∈ ]−1 ; +∞[ 7→ ( 1+t      3 , 1+t3 )
+  est une immersion en tout point, et de plus injectif. Néanmoins, l’image n’est pas une
+  sous-variété à cause du point (0, 0) qui n’admet pas de paramétrage local satisfaisant la
+  condition 2 de la définition.

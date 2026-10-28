@@ -1,0 +1,55 @@
+I.12. PROPRIÉTÉ DE LA MOYENNE ET PRINCIPE DU MAXIMUM.                                               31
+
+     Corollaire I.12.2
+   Soit Ω un ouvert connexe non vide de C et supposons que son adhérence Ω soit bornée,
+   donc compacte. Soit f : Ω → C continue et holomorphe sur Ω. On a alors supΩ |f | < +∞
+   par compacité de Ω (et de plus ce sup est atteint). Le principe du maximum implique que
+   ce sup est atteint sur le bord du domaine ∂Ω = Ω \ Ω :
+
+                                          sup |f | = sup |f |.
+                                           Ω          ∂Ω
+
+
+
+
+Démonstration. Le sup est atteint, et s’il l’est sur le bord, on a la conclusion voulue. S’il l’est sur
+Ω, le principe du maximum dit que f est constante, et la conclusion voulue est aussi valide.
+
+
+
+   L’exercice suivant montre que si Ω est connexe, Hol(Ω) est une algèbre intègre, ce qui est rare
+pour une algèbre de fonctions.
+
+   Exercice I.12.3 — Soit D := {z ∈ C : |z| < 1} le disque unité ouvert et D̄ son adhérence.
+      1. Montrer que si le produit de deux fonctions holomorphes sur D est nul, l’une des
+         deux fonctions est nulle.
+      2. Soient f, g deux fonctions continues sur D̄, holomorphes sur D. Montrer que si f g est
+         nulle sur le cercle ∂ D̄ = D̄ \ D, alors f ou g est nulle sur D̄.
+      3. Généraliser à un ouvert connexe (borné) Ω quelconque.
+
+
+   Exercice I.12.4 — Soit P ∈ C[X] un polynôme de degré d ≥ 1. Pour r > 0, on pose
+   M (r) := sup|z|=r |P (z)|. Montrer que pour tout 0 < r ≤ R, on a
+
+                                           M (R)   M (r)
+                                              d
+                                                 ≤       .
+                                            R       rd
+
+   Exercice I.12.5 : Théorème des trois cercles d’Hadamard — Soient 0 < r < R, Ω ⊂ C
+   un ouvert connexe contenant la couronne C := {z ∈ C : r ≤ |z| ≤ R} et f ∈ Hol(Ω). Pour
+   tout ρ ∈ [r, R], on pose
+                                     M (ρ) := sup |f (z)|.
+                                                   |z|=ρ
+
+      1. Montrer que pour tout ρ ∈ [r, R] et tous p, q ∈ Z avec q > 0, on a
+
+                                 ρp M (ρ)q ≤ max {rp M (r)q , Rp M (R)q } .
+
+      2. En déduire que pour tout ρ ∈ [r, R] et tout α ∈ R, on a
+
+                                  ρα M (ρ) ≤ max {rα M (r), Rα M (R)} .
+
+      3. En déduire que pour tout t ∈ [0, 1], on a
+
+                                      M (rt R1−t ) ≤ M (r)t M (R)1−t .

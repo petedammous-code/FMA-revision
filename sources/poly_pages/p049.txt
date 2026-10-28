@@ -1,0 +1,61 @@
+46                                                              CHAPITRE II. FORMULE DES RÉSIDUS
+
+   Le lien entre l’intégration sur un chemin fermé et le résidu d’une fonction méromorphe est
+donné par l’énoncé suivant :
+
+       Proposition II.4.11
+     Soit z0 ∈ Ω un pôle de la fonction méromorphe f . Alors, pour tout r > 0 assez petit, on a
+                                                   Z
+                                                 1
+                                   resz0 (f ) =              f (z) dz,
+                                                2iπ C(z0 ,r)
+
+     où C(z0 , r) désigne le cercle de centre z0 et de rayon r, que l’on suppose parcouru dans le
+     sens trigonométrique.
+
+
+Démonstration. Le développement de Laurent de f en z0
+                                                         X
+                                           f (z) =           an (z − z0 )n ,
+                                                     n≥−m
+
+
+est normalement convergent sur C(z0 , r) pourvu que r > 0 soit assez petit. Par conséquent, on
+peut intégrer terme à terme cette série. Or, on a
+                             Z                                       Z 2π
+                                         (z − z0 )n dz = i r1+n             ei(1+n)θ dθ,
+                              C(z0 ,r)                                0
+
+
+qui vaut 0 si n ̸= −1 et 2iπ sinon. Conclusion, on a
+                                                                                        
+                        Z                            Z              X
+                                    f (z) dz =                            an (z − z0 )n  dz
+                         C(z0 ,r)                    C(z0 ,r)       n≥−m
+                                                                Z                            !
+                                                     X
+                                                                                     n
+                                               =                           an (z − z0 ) dz
+                                                     n≥−m       C(z0 ,r)
+                                               = 2iπ a−1 ,
+
+ce qui termine la démonstration.
+
+
+     Remarque II.4.12 — Soit z0 ∈ Ω. Si f est une fonction holomorphe au voisinage de z0
+     et si g est une fonction méromorphe admettant un pôle simple en z0 , alors le résidu du
+     produit f g en z0 est donné par la formule :
+
+                                           resz0 (f g) = f (z0 ) resz0 (g).
+                                                                a−1
+     En effet, le développement de Laurent de g s’écrit g(z) = z−z 0
+                                                                     + h(z) où h est holomorphe
+     en z0 . Le développement de Taylor de f en z0 s’écrit f (z) = f (z0 ) + (z − z0 )f˜(z) avec f˜
+     holomorphe en z0 . Le produit donne alors :
+
+                                              f (z0 )a−1
+                             f (z)g(z) =                 + a−1 f˜(z) + f (z)h(z).
+                                                z − z0
+
+     La fonction z 7→ a−1 f˜(z) + f (z)h(z) étant holomorphe en z0 , le résidu de f g en z0 est bien
+     f (z0 )a−1 .

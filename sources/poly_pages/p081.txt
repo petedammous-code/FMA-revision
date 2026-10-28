@@ -1,0 +1,61 @@
+78                                                                         CHAPITRE IV. APPLICATIONS
+
+nombreux phénomènes physiques, notamment dans la modélisation des interfaces entre fluides de
+densités différentes.
+    A. Enneper et K. Weierstrass ont montré en 1866 que toutes les surfaces minimales pouvaient
+se paramétrer, du moins localement par
+                       Z                      Z                 Z             !
+                                   2                   2
+              z 7→ ℜe        (1 − g ) f dw, i    (1 + g ) f dw,        2g f dw ,
+                             [z0 ,z]                  [z0 ,z]                   [z0 ,z]
+
+où f et g sont holomorphes sur l’ouvert Ω ⊂ C où l’on travaille. On autorise plus généralement g
+à être méromorphe, pourvu que f s’annule à l’ordre 2m en tout pôle d’ordre m de g, de sorte
+que les trois intégrandes restent holomorphes. Dans les exemples donnés plus bas, f et g sont
+méromorphes sur la sphère de Riemann et Ω est obtenu en retirant leurs pôles : les points ainsi
+retirés sont les bouts de la surface.
+
+     Remarque IV.3.1 : Esquisse de la démonstration — Nous admettons le seul point qui
+     relève de la géométrie différentielle des surfaces, et non de ce cours : toute surface admet
+     localement un paramétrage conforme X : Ω → R3 , où Ω est un ouvert de C ≃ R2 , c’est-à-dire
+     vérifiant |Xu | = |Xv | et ⟨Xu , Xv ⟩ = 0 (avec z = u + iv) ; et pour un tel paramétrage,
+
+                                               ∆X = 2 |Xu |2 H N,
+
+     où H désigne la courbure moyenne de la surface et N sa normale unitaire. Ainsi, la surface
+     est minimale, c’est-à-dire H ≡ 0, si et seulement si les trois fonctions coordonnées de X
+     sont harmoniques. Tout le reste relève des outils de ce cours.
+     Posons
+                                       ∂X
+                                φ := 2      = Xu − iXv : Ω → C3 .
+                                        ∂z
+                ∂
+     Comme ∂∂z̄ ∂z = 14 ∆, la fonction φ est holomorphe si et seulement si X est harmonique. Par
+     ailleurs,
+                         φ · φ := φ21 + φ22 + φ23 = |Xu |2 − |Xv |2 − 2i ⟨Xu , Xv ⟩
+     — il s’agit ici de la forme bilinéaire de C3 et non du produit hermitien —, de sorte que le
+     paramétrage est conforme si et seulement si φ·φ = 0. Enfin ℜe (φ dz) = Xu du+Xv dv = dX,
+     d’où                                                Z
+                                     X(z) = X(z0 ) + ℜe       φ dw.
+                                                                 [z0 ,z]
+
+     Les surfaces minimales conformément paramétrées correspondent donc exactement aux
+     applications holomorphes φ : Ω → C3 \ {0} à valeurs dans la quadrique
+
+                                       Q = {w ∈ C3 : w12 + w22 + w32 = 0}.
+
+     Il ne reste plus qu’à paramétrer   Q, et c’est là que f et g apparaissent. D’une part, si
+     φ = (1 − g 2 )f, i(1 + g 2 )f, 2gf , alors
+
+                             φ · φ = f 2 (1 − g 2 )2 − (1 + g 2 )2 + 4g 2 = 0.
+                                                                        
+
+
+     D’autre part, soit φ holomorphe à valeurs dans Q. Si φ1 − iφ2 est identiquement nulle,
+     alors φ1 = iφ2 et φ3 = 0, et la surface est contenue dans un plan. Sinon, posons
+                                                                          φ3
+                                   f := 12 (φ1 − iφ2 ),         g :=            .
+                                                                       φ1 − iφ2
+
+     La relation φ21 +φ22 = −φ23 , c’est-à-dire (φ1 −iφ2 )(φ1 +iφ2 ) = −φ23 , donne φ1 +iφ2 = −2f g 2 ,
+     et en recombinant, on retrouve bien φ1 = f (1 − g 2 ), φ2 = if (1 + g 2 ) et φ3 = 2f g.

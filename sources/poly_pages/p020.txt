@@ -1,0 +1,60 @@
+I.5. INTÉGRATION LE LONG D’UN CHEMIN                                                                                      17
+
+Démonstration. Il suffit d’écrire
+         Z b                       Z b                                         Z b
+             f (γ(t)) γ ′ (t) dt ≤     |f (γ(t))| |γ ′ (t)| dt ≤ sup |f (γ(t))|      |γ ′ (t)| dt.
+               a                             a                                   t∈[a,b]              a
+
+
+
+
+      Comme l’intégrale elle-même, la longueur L(γ) ne dépend pas du paramétrage choisi.
+
+     Remarque I.5.8 — La première propriété nous dit que la valeur de l’intégrale ne dépend
+     pas du paramétrage du chemin, mais seulement du sens de parcours. Ceci explique certains
+     abus de notations, par exemple dans l’exemple
+                                           R        I.5.5, on note RΓ = C(z0 , r) le cercle de centre
+     z0 et de rayon r, et on écrit souvent Γ f (z) dz plutôt que γ f (z) dz. Il faut comprendre
+     que l’on a choisi un paramétrage du cercle (par exemple γ) qui le parcourt dans le sens
+     trigonométrique.
+
+   Voici un premier résultat sur les intégrales le long de chemins qui fait intervenir la notion de
+fonction holomorphe.
+
+       Théorème I.5.9
+      Soit f : Ω → C continue et γ : [a, b] → Ω un chemin de Ω. On suppose que f admet une
+      primitive holomorphe F sur Ω, c’est-à-dire que F ∈ Hol(Ω) et que f = F ′ .
+      Alors                       Z
+                                      f (z) dz = F (γ(b)) − F (γ(a)).
+                                            γ
+                                                          Z
+      En particulier, si γ est un lacet, on a                  f (z) dz = 0.
+                                                           γ
+
+
+      Commençons par un simple calcul valable pour toutes les fonctions.
+
+       Lemme I.5.10
+      Soit f : Ω → C une fonction de classe C 1 et γ un chemin de classe C 1 de Ω. Alors
+
+                                  d (f ◦ γ)       ∂f                  ∂f
+                                            (t) =    (γ(t)) γ ′ (t) +      (γ(t)) γ̄ ′ (t).
+                                      dt          ∂z                  ∂ z̄
+      En particulier, si f est holomorphe, on a
+
+                                                 d (f ◦ γ)
+                                                           (t) = f ′ (γ(t))γ ′ (t).
+                                                     dt
+
+
+Démonstration. La démonstration utilise le lemme I.2.9. Les détails sont laissés en exercice au
+lecteur.
+
+Démonstration. (du Théorème I.5.9) On suppose pour simplifier que γ est un chemin de classe
+C 1 (le cas général où γ n’est que C 1 par morceaux se traite en décomposant γ en chemins de
+classe C 1 ). En appliquant la formule du lemme ci-dessus, on voit facilement que
+ Z                 Z b                           Z b                            Z b
+      f (z) dz =         f (γ(t)) γ ′ (t) dt =         F ′ (γ(t))γ ′ (t) dt =         (F ◦ γ)′ (t) dt = F (γ(b)) − F (γ(a)).
+  γ                 a                              a                             a
+
+Ce qui termine la démonstration de la formule.

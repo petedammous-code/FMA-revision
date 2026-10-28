@@ -1,0 +1,55 @@
+VII.4. EXERCICES                                                                                      137
+
+Démonstration. Pour tout x ∈ K, il existe un flot local en (0, x), et donc un intervalle J ouvert
+contenant 0, un voisinage ouvert Ux de x dans U tels que pour tout y ∈ Ux , il existe une unique
+courbe intégrale αy définie sur J de condition initiale (0, y). La partie compacte K est recouverte
+par les ouverts Ux , et par compacité, on peut extraire un sous-recouvrement fini : K ⊂ ni=1 Uxi .
+                                                                                                   S
+Soit ϵ > 0 tel que ]−2ϵ ; 2ϵ[ soit inclus dans tous les J0 (xi ), i = 1, . . . , n. Ainsi, pour tout y dans
+K, il existe une courbe intégrale αy définie sur ]−2ϵ ; 2ϵ[ de condition initiale (0, y), autrement
+dit ]−2ϵ ; 2ϵ[ ⊂ J0 (y).
+    Soit b = sup Jτ0 (x0 ) comme dans l’énoncé et supposons b < +∞. Alors b − ϵ ∈ Jτ0 (x0 ).
+Considérons la courbe intégrale β de condition initiale (0, y0 ) = ατ0 ,x0 (b − ϵ). Par hypothèse,
+y0 ∈ K, et donc β définie au moins sur ]−2ϵ ; 2ϵ[ et t 7→ β(t + b − ϵ) est une courbe intégrale
+définie au moins sur ]b − 3ϵ ; b + ϵ[ qui coïncide avec ατ0 ,x0 sur ]b − 3ϵ ; b[ car elles ont même valeur
+en b − ϵ. On peut alors prolonger ατ0 ,x0 au-delà de b, ce qui est contradictoire avec la définition
+de b.
+
+
+VII.4      Exercices
+
+
+   Exercice VII.4.1 : Le lemme de Gronwall — Soient T > 0 et u : [0, T ] → R+ continue et
+   telle qu’il existe a, b : [0, T ] → R+ continues pour lesquelles
+                                         Z t
+                         u(t) ≤ b(t) +         a(s)u(s)ds,      pour tout t ∈ [0, T ].
+                                          0
+
+   Montrer que pour tout t ∈ [0, T ], on a
+                                              Z t                  Z t             
+                           u(t) ≤ b(t) +            b(s)a(s) exp          a(τ )dτ       ds.
+                                               0                     s
+                                               Rt
+   Indication : On pourra poser v(t) :=            0 a(s)u(s)ds, pour t ∈ [0, T ].
+
+
+   Exercice VII.4.2 — Soient I un intervalle ouvert et u : I → Rn une fonction dérivable.
+   Supposons qu’il existe t0 ∈ I tel que u(t0 ) = 0 et k ≥ 0 telle que
+
+                                ∥u′ (t)∥ ≤ k∥u(t)∥,          pour tout t ∈ I.
+
+      1. Montrer qu’il existe h > 0 tel que u ≡ 0 sur [t0 − h, t0 + h], puis en déduire que u ≡ 0
+         sur I.
+   Soient U ⊂ R × Rn un ouvert et f : U → Rn continue qui est k-lipschitizenne en la
+   deuxième variable, avec k ≥ 0.
+      2. Soit (t0 , x) ∈ U . Déduire de la question précédente que l’équation différentielle
+
+                                               (E ) :        y ′ = f (t, y)
+
+         admet au plus une solution définie sur un intervalle ouvert I contenant t0 et de
+         condition initiale y(t0 ) = x.
+      3. Soient (t0 , x1 ), (t0 , x2 ) ∈ U et soient y1 et y2 deux solutions de (E ) définies sur
+         un intervalle I contenant t0 et de conditions initiales respectives y1 (t0 ) = x1 et
+         y2 (t0 ) = x2 . Montrer que pour tout t ∈ I, on a
+
+                                 ∥y1 (t) − y2 (t)∥ ≤ ∥x1 − x2 ∥ exp(k|t − t0 |).

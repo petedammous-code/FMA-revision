@@ -1,0 +1,48 @@
+36                                                              CHAPITRE II. FORMULE DES RÉSIDUS
+
+
+     Dans la définition ci-dessus de l’homotopie entre chemins, remarquons que l’on n’exige pas
+     que t 7→ γ(s, t) soit un chemin pour tout s ∈ [0, 1], (c’est-à-dire C 1 par morceaux). Mais
+     dans le cas des lacets, on exige la condition γ(s, 0) = γ(s, 1).
+
+
+       Lemme II.1.3
+     La relation « il existe une homotopie de lacets entre γ0 et γ1 » est une relation d’équivalence
+     sur l’ensemble des lacets de Ω.
+
+Démonstration. La réflexivité est claire. Pour la symétrie, on observe que si γ est une homotopie
+de lacets entre γ0 et γ1 , alors, γ(1 − s, t) est une homotopie de lacets entre γ1 et γ0 .
+    Passons à la transitivité. On a donc trois lacets γ1 , γ2 et γ3 , et des homotopies de lacets
+γi,i+1 (s, t) entre γi et γi+1 , pour i = 1, 2. On définit alors
+                                                                 si s ≤ 1/2
+                                          (
+                                             γ1,2 (2s, t)
+                               γ(s, t) :=
+                                             γ2,3 (2s − 1, t)    si s ≥ 1/2,
+qui est une homotopie de lacets entre γ1 et γ3 .
+
+     Remarque II.1.4 — Donnons-nous un point z0 ∈ Ω d’un ouvert connexe. On peut définir
+     l’ensemble π1 (Ω) des classes d’équivalence d’homotopie de lacets de point de base z0 . On
+     peut montrer que la composition des lacets définit une structure de groupe sur π1 (Ω). C’est
+     le groupe fondamental de Poincaré de Ω. Comme on le voit, on peut le définir pour des
+     espaces beaucoup plus généraux que Ω. En ces termes, dire que l’ensemble connexe Ω est
+     simplement connexe, c’est dire que ce groupe est réduit à l’élément neutre. En particulier
+     π1 (C) est réduit à l’élément neutre. Le lecteur intéressé pourra démontrer que π1 (C \ {0})
+     est isomorphe à (Z, +) et (plus difficile) que π1 (C \ {−1, +1}) est isomorphe au groupe
+     libre à deux générateurs a .
+        a. Le groupe libre à deux générateurs x et y se compose du mot vide e, qui joue le rôle d’élément
+     neutre, et de tous les « mots » formés à partir des symboles x, x−1 , y et y −1 et dans lesquels n’apparaissent
+     pas les séquences xx−1 , x−1 x, yy −1 ou y −1 y (on dit que ces mots sont réduits). La « loi de composition
+     interne » est la concaténation de deux mots, étant entendu que les séquences xx−1 , x−1 x, yy −1 ou y −1 y qui
+     apparaissent sont simplifiées, de sorte que le résultat est encore un mot réduit. Par exemple la concaténation
+     de xyx−1 y et de y −1 xyx−1 est xy yx−1 , et la concaténation d’un mot avec e est le mot lui-même
+
+
+
+
+        Les courbes C0 et C1 sont homotopes. Les courbes C̃ et C0 ne sont pas homotopes.
+
+
+    Donnons un exemple simple et utile d’ouvert simplement connexe. Rappelons que Ω est dit
+étoilé s’il existe ω ∈ Ω tel que pour tout z ∈ Ω le segment [ω, z] est contenu dans Ω. On dit alors
+que Ω est étoilé en ω. En particulier, un ouvert convexe est étoilé.

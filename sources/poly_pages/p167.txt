@@ -1,0 +1,53 @@
+164                                                          CHAPITRE IX. SOUS-VARIÉTÉS
+
+Démonstration. Ceci résulte facilement des formules habituelles du calcul différentiel et de la
+définition IX.7.15.
+
+  Notations IX.7.18 — Soient S1 et S2 deux sous-variétés (respectivement de RN1 et RN2 ).
+  On note C r (W1 , S2 ) l’espace des applications de classe C r d’un ouvert W1 de S1 dans S2 .
+
+
+
+  Exercice IX.7.19 — Soit S une sous-variété de RN de classe C ∞ .
+      1. Montrer que l’inclusion i : S → RN est de classe C ∞ .
+      2. Montrer que les applications constantes S → RN2 sont de classe C ∞ .
+      3. Montrer que l’application identique IdS : S → S est de classe C ∞ .
+      4. Soit V un ouvert de RN contenant S . Montrer que la restriction à S d’une fonction
+         de classe C r sur V est de classe C r .
+
+
+
+  Exemple IX.7.20 — Soit S une sous-variété de RN de classe C ∞ . Soit P un hyperplan
+  de RN passant par le point p0 ∈ RN , et soit a ∈ RN un vecteur normal unitaire à P en p0
+  (c’est-à-dire ⟨x − p0 , a⟩ = 0 pour tout x ∈ P et ∥a∥ = 1). La fonction hauteur
+
+                                 h : S → R,     p 7→ ⟨p − p0 , a⟩
+
+  est de classe C ∞ car c’est la restriction d’une fonction C ∞ définie sur l’espace RN . Sa
+  différentielle en p ∈ S est donnée par :
+
+                                 dhp : Tp S → R,     v 7→ ⟨v, a⟩.
+
+
+
+  Exemple IX.7.21 — Soit S une sous-variété de RN de classe C ∞ . Soit p0 ∈ RN . La
+  fonction distance au carré
+
+                        f : S → R,     p 7→ ⟨p − p0 , p − p0 ⟩ = ∥p − p0 ∥2
+
+  est de classe C ∞ car c’est la restriction d’une fonction C ∞ définie sur l’espace RN . Sa
+  différentielle en p ∈ S est donnée par
+
+                              dfp : Tp S → R,    v 7→ 2⟨v, p − p0 ⟩.
+
+
+
+  Exemple IX.7.22 — Soit S une sous-variété de RN de classe C ∞ . Soit p0 ∈ RN \ S . La
+  fonction distance
+                            f : S → R, p 7→ ∥p − p0 ∥
+  est de classe C ∞ car c’est la restriction d’une fonction C ∞ définie sur l’espace RN \ {p0 }.
+
+
+
+  Exercice IX.7.23 — Calculer la différentielle en un point p ∈ S de la fonction distance
+  de l’exemple précédent.

@@ -1,0 +1,54 @@
+140                                       CHAPITRE VII. EQUATIONS DIFFÉRENTIELLES
+
+
+  Montrer qu’il existe un intervalle J de R contenant [−∥A∥−1 ; ∥A∥−1 ] tel qu’il existe une
+  solution de classe C ∞ de l’équation différentielle ci-dessus avec α(0) = In , et que sur
+  l’intervalle [−∥A∥−1 ; ∥A∥−1 ], on a α(t) = (In + tA)−1 .
+
+
+  Exercice VII.4.8 —
+       1. Calculer la différentielle de A 7→ det(A) d’abord pour A ∈ GLn (R) puis plus généra-
+          lement pour A ∈ Mn (R).
+       2. En déduire que si t 7→ A(t) est de classe C 1 à valeurs dans GLn (R), alors
+
+                             d
+                                [t 7→ det(A(t))] = det(A(t)) Tr(A(t)−1 A′ (t))
+                             dt
+
+       3. Considérons un champ de vecteurs C 1 indépendant du temps sur un ouvert U de
+          Rn . Soit F son flot, que l’on suppose défini sur R × U. On pose Ft (x) = F (t, x). On
+          cherche une condition pour que les difféomorphismes Ft de U préservent le volume.
+          Cette propriété est équivalente à gx (t) = det(d(Ft )x ) = 1 pour tout t ∈ R et x ∈ U.
+          Montrer qu’une condition nécessaire et suffisante est Tr dXx = 0 pour tout x ∈ U .
+
+
+  Exercice VII.4.9 : Redressement d’un champ de vecteurs — Soit X un champ de
+  vecteurs de classe C ∞ sur un ouvert S de RN . Supposons que X(p0 ) ̸= 0 en un point p0
+  de S . Montrer qu’il existe un difféomorphisme ϕ : U → U ′ ⊂ S d’un ouvert U contenant
+  0 de RN sur un ouvert U ′ de S contenant p0 tel que ϕ(0) = p0 et
+
+                                    ∂ϕ
+                        X(ϕ(x)) =       (x),     (x = (x1 , x2 , . . . , xn ) ∈ U).
+                                    ∂x1
+
+
+  Exercice VII.4.10 — Soit ϕ : U → U ′ un difféomorphisme entre deux ouverts de
+  Rn . Soit X un champ de vecteurs de classe C ∞ sur U et F : D → U son flot. Posons
+  ϕ∗ X(p) := dϕϕ−1 (p) (X(ϕ−1 (p))). Montrer que le flot du champ de vecteurs ϕ∗ X sur U ′ est
+  donné par
+                                 ϕ ◦ F ◦ (IdR ×ϕ−1 ) : D′ → U ′ ,
+  où
+                             D′ = {(t, p) ∈ R × U ′ |(t, ϕ−1 (p)) ∈ D}.
+
+
+  Exercice VII.4.11 : S — it X un champ de vecteurs (ne dépendant pas du temps) de
+  classe C 1 sur un ouvert U de RN . Soit f : U → R une fonction de classe C 1 . On rappelle
+  que le gradient de f au point a ∈ U est le vecteur ∇f (a) ∈ RN tel que pour tout h ∈ RN ,
+  dfa (h) = ⟨∇f (a), h⟩ (le produit scalaire usuel de RN ).
+      (1) Montrer que la fonction f est constante sur les courbes intégrales du champ de
+          vecteurs X si et seulement si le gradient de f en tout point a ∈ U est orthogonal au
+          vecteur X(a).
+  Soit X le champ de vecteurs défini sur R2 par X(x, y) = (y − y 5 , x).
+      (2) Montrer que la fonction f : (x, y) 7→ 3x2 − 3y 2 + y 6 est constante sur les courbes
+          intégrales de X.
+      (3) Quelles sont les courbes intégrales constantes de X ?

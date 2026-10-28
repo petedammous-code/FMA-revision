@@ -1,0 +1,66 @@
+200                                          ANNEXE A. SUJETS D’EXAMEN ET PROBLÈMES
+
+      Exercice 4.
+
+  1. C’est une conséquence immédiate du théorème de Cauchy-Lipschitz, et du fait que la
+     fonction f , qui est holomorphe, est de classe C ∞ . Deux solutions coïncident sur l’intersection
+     de leur domaine de définition.
+  2. (a) On raisonne par récurrence sur n > 0. Supposons que l’on ait
+                                                       X
+                                              x(z)k =       Pk,n z n
+                                                                n∈N
+
+            avec                                          X
+                                            Pk,n =                    xn1 . . . xnk .
+                                                      n1 +...+nk =n
+
+            En utilisant la formule de Cauchy pour le produit de deux séries, nous obtenons
+                                                                       
+                                           X      Xn
+                                 x(z)k+1 =             Pk,n−nk+1 xnk+1  z n
+                                                 n∈N     nk+1 =0
+
+            et on conclut la récurrence en remarquant que
+                                            n
+                                            X
+                                                     Pk,n−nk+1 xnk+1 = Pk+1,n .
+                                           nk+1 =0
+
+      (b) Maintenant, si x0 = 0, les seuls termes contribuant dans Pk,n = Pk,n (0, x1 . . . , xn ) ont
+          un ni ≥ 1, et donc Pk,n est un polynôme à coefficients entiers positifs en les variables
+          x1 , . . . , xn−k+1 . En particulier, Pk,n est identiquement nul si k > n. Notons aussi que
+          P0,n est identiquement nul pour n > 0, tandis que P0,0 = 1 (produit vide).
+  3. On écrit maintenant formellement
+                                                             !                       !
+                                       X        X                     X X
+                                                           n
+     (3)               f (x(z)) = f0 +    fk        Pk,n z     = f0 +         Pk,n fk z n .
+                                     k>0        n>0                           n>0     k>0
+                         P
+       La somme Qn = k≥0 Pk,n fk est finie, car seuls les termes k ≤ n contribuent, c’est donc
+       un polynôme à coefficients entiers positifs en les variables x1 , . . . , xn , f1 , . . . , fn .
+       On peut échanger les deux sommes dans (3) pour |z| suffisamment petit car les séries en
+       question sont absolument convergentes. En effet, soit r > 0 tel que les domaines de définition
+       U et V de f et x contiennent le disque fermé D(0, r). On note M := supx∈D(0,r) |f (x)| et
+       N := supz∈D(0,r) |x(z)|. Les estimations de Cauchy donnent
+
+                                                                M
+                                                      |fk | ≤
+                                                                rk
+       et on a par ailleurs
+                                                       X
+                                   |Pk,n | ≤                          |xn1 | . . . |xnk |
+                                               n1 +...+nk =n, ni ≥1
+                                                       X          Nk
+                                           ≤
+                                                                  rn
+                                             n1 +...+nk =n, ni ≥1
+
+                                               n − 1 Nk           k n Nk
+                                                                  
+                                           =                   =
+                                               k − 1 rn           n k rn
+                                               k
+                                               n N
+                                           ≤            .
+                                               k rn

@@ -1,0 +1,66 @@
+180                                      ANNEXE A. SUJETS D’EXAMEN ET PROBLÈMES
+
+      MAT431                                                                                 2022
+
+
+                           Analyse complexe et calcul différentiel
+
+                              Contrôle classant du 14 novembre 2022
+
+
+
+   Exercice 1. Soit f : D̄(0, 1) → C continue et holomorphe sur D(0, 1). On suppose que |f | est
+une fonction constante sur C(0, 1). Montrer que f s’annule (en au moins un point) dans D(0, 1)
+ou bien est constante.
+
+   Exercice 2. Soit R un nombre réel, R > 1. Soit f une fonction méromorphe sur le disque
+D = D(0, R), avec un seul pôle simple en ξ0 ∈ D, |ξ0 | = 1.
+
+  1. Quel est le rayon de convergence de la série de Taylor de f en 0.
+                                                                   α
+  2. Montrer que pour α bien choisi, la fonction g : z 7→ f (z) − z−ξ 0
+                                                                        se prolonge en une fonction
+     holomorphe sur D.
+  3. Soit g(z) = n∈N bn z n le développement en série entière de g en 0. Montrer que la suite
+                  P
+     (bn )n∈N est de limite 0 lorsque n tend vers +∞.
+  4. Soit f (z) = n∈N an z n le développement en série entière de f en 0. Montrer que an est
+                   P
+     non nul à partir d’un certain rang et que limn→∞ an+1        −1
+                                                          an = ξ0 .
+
+
+      Exercice 3. Soit X = {z ∈ C | ℜe(z) = 0, |ℑm(z)| ≥ 1} et soit Ω = C \ X (faire un dessin).
+
+  1. Montrer qu’il existe une unique fonction f holomorphe sur Ω telle que f (0) = 0, et
+     f ′ (z) = 1+z
+                1
+                   2 sur Ω.
+
+  2. Calculer le développement en série de f en 0. Quel est le rayon de convergence de cette
+     série ?
+                          1
+  3. La fonction z 7→ 1+z   2 admet-elle une primitive sur C \ {−i, i} ?
+                                   1
+  4. Montrer que la fonction z 7→ 1+z 2 admet une primitive sur C \ [−i, i].
+
+
+
+
+      Exercice 4.
+  1. On considère le champ de vecteurs sur R2 défini par
+
+                          X(x, y) = (−y + x(x2 + y 2 − 1), x + y(x2 + y 2 − 1)).
+
+     Dessiner l’allure le champ de vecteurs X sur le cercle C(0, 1). En déduire explicitement la
+     courbe intégrale α du champ X de condition initiale α(0) = (x0 , y0 ) avec (x0 , y0 ) ∈ C(0, 1).
+  2. On suppose maintenant plus généralement que l’on a un champ de vecteurs X de classe
+     C 1 sur R2 qui est tangent au cercle unité. C’est-à-dire que si (x, y) ∈ C(0, 1), on peut
+     écrire X(x, y) = r(x, y)(−y, x) où r : C(0, 1) → R est une fonction de classe C 1 . Par
+     commodité, on peut identifier R2 à C de la manière usuelle (x, y) ↔ z = x + iy, de sorte
+     que la multiplication par i est la rotation d’angle π2 . On réécrit la condition ci-dessus
+     X(eiθ ) = r(θ)ieiθ , pour tout θ dans R.
+     Montrer que la courbe intégrale α du champ X de condition initiale α(0) = eiθ0 reste dans
+     C(0, 1).
+  3. Quel est l’intervalle de définition maximal de cette courbe intégrale.
+  4. On suppose de plus que r ne s’annule pas. Montrer que α est périodique.

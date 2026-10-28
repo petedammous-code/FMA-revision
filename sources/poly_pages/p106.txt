@@ -1,0 +1,70 @@
+V.4. THÉORÈMES DE LA MOYENNE                                                                                  103
+
+et tout j = 1, . . . n, on peut définir f[i] j et fj [i] . Il est facile de voir que ces deux fonctions définies
+sur un ouvert de R et à valeurs dans R coïncident, et nous noterons plus commodément fi,j cette
+                                                                                   ′         ∂fj
+fonction. Si f est différentiable en a, les fi,j sont dérivables en ai , fi,j        (ai ) =     (a) (il y a là un
+                                                                                             ∂xi
+                                        ∂f
+léger abus de notations. En effet ∂xji (a) est définie comme une application linéaire de R dans
+R. On identifie ici naturellement une telle application linéaire et un nombre réel comme dans
+l’exercice V.1.2) et
+                                               X         X              ∂fj
+(V.3.4)                            dfa =                         ιj ◦       (a) ◦ pi .
+                                                                        ∂xi
+                                           i=1,...,m j=1,...,n
+
+Autrement dit, l’application linéaire dfa est représentée dans les bases canoniques de Rm et Rn par
+                                       ∂f
+la matrice à n lignes et m colonnes ( ∂xji (a))j,i . On appelle cette matrice la matrice jacobienne
+de f en a. L’équation (V.3.4) s’écrit alors
+                                                                                       h 
+                                               ∂f1       ∂f1                    ∂f1
+                                           
+                                                                                            1
+                                                   (a)       (a) . .                (a)  h 
+                                              ∂x1       ∂x2                    ∂xm        2
+                                                                                       
+                                              .           .     . .              .        .
+                                             
+                                                                                            
+                    dfa (h1 , . . . , hm ) =                                               
+                                              .           .     . .              .      . 
+                                              ∂f                               ∂fn     
+                                                                                        
+                                                 n                                         . 
+                                                   (a)       .           . .        (a)
+                                               ∂x1                              ∂xm       hm
+
+où l’on identifie un élément de Rn et le « vecteur colonne » (c’est-à-dire une matrice à n lignes et
+une colonne) qui lui est associé.
+   Si n = m le déterminant de la matrice jacobienne, noté Jac(f )(a), s’appelle le déterminant
+jacobien, ou simplement jacobien, de f en a.
+
+
+V.4       Théorèmes de la moyenne
+
+
+V.4.1      Théorème des accroissements finis
+    Le but de cette section est d’énoncer des résultats généralisant le théorème des accroissements
+finis pour les fonctions de la variable réelle à valeurs réelles. Commençons par un résultat sur les
+fonctions de la variable réelle à valeurs dans un espace vectoriel normé.
+
+     Théorème V.4.1
+   Soient a et b deux réels avec a < b, et F un espace vectoriel normé. Soient f : [a ; b] → F et
+   g : [a ; b] → R deux applications continues sur [a ; b] et différentiables sur ]a ; b[. Supposons
+   que pour tout t ∈ ]a ; b[, ∥f ′ (t)∥F ≤ g ′ (t). Alors ∥f (b) − f (a)∥F ≤ g(b) − g(a).
+
+
+Démonstration. Nous allons montrer que pour tout u, v tels que a < u < v < b, ∥f (v) − f (u)∥F ≤
+g(v)−g(u). Le résultat s’en déduit par continuité en faisant tendre u vers a et v vers b. Raisonnons
+par l’absurde en supposant que
+
+                                ∥f (v) − f (u)∥F − (g(v) − g(u)) = M > 0.
+
+Posons m = u+v
+            2 . L’inégalité triangulaire montre que l’on a nécessairement
+
+                                                 M                                                      M
+     ∥f (v) − f (m)∥F − (g(v) − g(m)) ≥                  ou ∥f (m) − f (u)∥F − (g(m) − g(u)) ≥            .
+                                                 2                                                      2

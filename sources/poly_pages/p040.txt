@@ -1,0 +1,62 @@
+II.2. INVARIANCE PAR HOMOTOPIE                                                                 37
+
+       Proposition II.1.5
+   Un ouvert étoilé est simplement connexe.
+
+
+Démonstration. Supposons Ω étoilé en ω. Soit γ0 un lacet de Ω. On vérifie que
+
+                                     γ(s, t) := s ω + (1 − s) γ0 (t),
+
+est une homotopie de lacets entre γ0 et le lacet constant de valeur ω.
+
+
+II.2      Invariance par homotopie de l’intégrale sur un lacet d’une
+          fonction holomorphe
+
+
+       Théorème II.2.1
+   Soient Ω un ouvert de C, γ une homotopie de lacets entre γ0 et γ1 dans Ω, et f ∈ Hol(Ω),
+   alors                          Z             Z
+                                     f (z) dz =   f (z) dz.
+                                           γ0                γ1
+
+
+
+Démonstration. Cette démonstration est technique : on pourra se contenter, en première lecture,
+de comprendre l’idée du « grillage » de la surface γ(K) exposée plus loin, et admettre les détails
+(choix du pas n, remplacement des chemins par des chemins affines par morceaux, etc.).
+                       (n)
+   Soit n > 0 et Ki,j le carré plein
+                                                                 
+                                    (n)             i i+1     j j+1
+                                   Ki,j :=           ,     ×   ,      .
+                                                    n n       n n
+
+On a
+                                                                         (n)
+                                                              [
+                                     K := [0, 1]2 =                    Ki,j .
+                                                           0≤i,j≤n−1
+
+                             (n)     (n)                                    (n)
+On note C := ∂K, et Ci,j := ∂Ki,j les bords de K et de Ki,j , pour tous 0 ≤ i, j ≤ n − 1. On
+considère ces bords comme des lacets orientés dans le sens direct. Soit
+
+                                                     γ : K → Ω,
+
+une homotopie entre γ0 et γ1 . On note v le chemin v(s) := γ(s, 0) = γ(s, 1).
+   On décompose l’arc image Γ = γ(C) de la manière suivante
+
+                                         Γ = γ0opp ∨ v ∨ γ1 ∨ v opp .
+
+On déduit la formule — du moins, dans le cas où v est également de classe C 1 par morceaux—,
+de l’intégrale de f le long de Γ
+                 Z               Z          Z          Z           Z
+(II.2.1)            f (z)dz = −    f (z)dz + f (z)dz +    f (z)dz − f (z)dz.
+                   Γ                γ0                 v               γ1         v
+
+
+   L’idée est maintenant, grâce à la compacité de K, de « grillager » la surface γ(K) en une
+réunion finie de surfaces contenues dans des ouverts assez petits dans lesquels f (z) dz a une
+primitive holomorphe grâce au Corollaire I.7.6. L’intégrale de f le long de Γ sera alors la somme

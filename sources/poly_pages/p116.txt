@@ -1,0 +1,36 @@
+V.6. EXERCICES                                                                                                113
+
+
+  Exercice V.6.4 — On rappelle quePℓ1 (R) est l’espace des suites réelles (x = xi )i∈N
+  sommables, muni de la norme ∥x∥ = i∈N |xi |, et que c’est un espace de Banach. Soit f
+  une fonction de classe C 1 sur R, à valeurs réelles, telle que f (0) = 0. On définit
+
+                    F : ℓ1 (R) −→ ℓ1 (R),          x = (xi )i∈N 7→ F (x) = (f (xi ))i∈N .
+
+  Montrer que F est bien définie, de classe C 1 et calculer sa différentielle en tout point.
+
+
+  Exercice V.6.5 — Soit E = C 1 ([0, 1], R2 ), c’est-à-dire l’espace des restrictions à [0, 1] des
+  fonctions de classe C 1 définies sur un intervalle ouvert contenant [0, 1], à valeurs dans R2 .
+  On définit                                     Z            1
+                             T : E −→ R,          f 7→            det(f (t), f ′ (t)) dt.
+                                                          0
+
+  Montrer que T est de classe C 1 et calculer sa différentielle en tout point.
+
+
+  Exercice V.6.6 — Soit f une application continue de [0 ; 1] × R dans R de classe C p sur
+  ]0 ; 1[ × R. Montrer que l’application
+                                                                       Z 1
+                            F : C ([0 ; 1], R) −→ R,
+                                   0
+                                                              u 7→           f (t, u(t))dt
+                                                                        0
+
+  est de classe C p , sa différentielle k-ième étant donnée par
+                            Z 1 k
+                               ∂ f
+      k
+     d Fu (h1 , ..., hk ) =       k
+                                    (t, u(t)) h1 (t) . . . hk (t) dt, (h1 , . . . , hk ∈ C 0 ([0 ; 1], R)).
+                             0 ∂y

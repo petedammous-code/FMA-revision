@@ -1,0 +1,59 @@
+IV.4. APPLICATIONS PHYSIQUES                                                                          81
+
+
+
+
+                                      Arena Stadium à Munich.
+
+
+
+IV.4      Applications physiques
+
+
+    Certains problèmes de physique se ramènent à la recherche de fonctions harmoniques. Il
+se trouve que dans plusieurs modèles physiques, nombre de régimes stationnaires sont définis
+par l’équation ∆f = 0 : les champs magnétiques ou électriques en électrostatique (Maxwell), le
+potentiel des vitesses d’un fluide parfait, le champ de gravitation classique, . . .
+    Rappelons que, si f est une fonction holomorphe, alors ℜef est une fonction harmonique. De
+plus, la composée de fonctions holomorphes est une fonction holomorphe et l’on vérifie aussi que
+la composée f ◦ h d’une fonction harmonique f et d’une fonction holomorphe h est harmonique
+(là où f ◦ h est bien définie).
+   Pour démontrer ce résultat, on reprend l’expression du Laplacien en coordonnées complexes,
+                                                      ∂2
+                                             ∆=4            .
+                                                     ∂z∂ z̄
+En appliquant la règle de composition établie dans le lemme I.2.9 pour l’opérateur ∂∂z̄ , on obtient
+pour tout z :
+                        ∂(f ◦ h)       ∂f        ∂h          ∂f          ∂ h̄
+                                 (z) =    (h(z))       (z) +      (h(z))      (z).
+                          ∂ z̄         ∂z        ∂ z̄        ∂ z̄        ∂ z̄
+La fonction h étant supposée holomorphe, on a ∂h  ∂ z̄ (z) = 0. L’expression se simplifie donc en :
+
+                                   ∂(f ◦ h)       ∂f          ∂ h̄
+                                            (z) =      (h(z))      (z).
+                                     ∂ z̄         ∂ z̄        ∂ z̄
+                                    ∂
+On applique ensuite l’opérateur ∂z     à cette égalité. Par la règle du produit, on a :
+                ∂ 2 (f ◦ h)
+                                                                                    
+                                   ∂ ∂f             ∂ h̄        ∂f          ∂ ∂ h̄
+                            (z) =          (h(z))        (z) +       (h(z))         (z) .
+                   ∂z∂ z̄         ∂z ∂ z̄           ∂ z̄        ∂ z̄        ∂z ∂ z̄
+
+D’une part, puisque h est holomorphe, on a ∂∂zh̄ = ∂h
+                                                           
+                                                       ∂ z̄ = 0. Par le théorème de Schwarz, le second
+terme s’annule :                                               
+                                  ∂ ∂ h̄            ∂ ∂ h̄
+                                           (z) =              (z) = 0.
+                                  ∂z ∂ z̄          ∂ z̄ ∂z
+                                                                                          ∂
+D’autre part, en appliquant à nouveau la règle de composition pour l’opérateur ∂z           à la fonction
+∂f                                      ∂ h̄
+∂ z̄ ◦ h, et en utilisant le fait que ∂z (z) = 0, on obtient :
+
+                                  ∂2f                  ∂2f                  ∂2f
+                          
+            ∂ ∂f                               ∂h                ∂ h̄                     ∂h
+                    (h(z)) =            (h(z))    (z) + 2 (h(z))      (z) =        (h(z))    (z).
+           ∂z ∂ z̄               ∂z∂ z̄        ∂z      ∂ z̄      ∂z         ∂z∂ z̄        ∂z

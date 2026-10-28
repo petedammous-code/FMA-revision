@@ -1,0 +1,72 @@
+                                                                                                               189
+
+La dernière inégalité provient de la majoration
+
+                                        1         1    1      1     1     1     1
+           (∀ω ∈ C(0, R)),                    =          ≤            ≤           .
+                                    (ω − tz)ω   ω − tz R   R − t|z| R   R − |z| R
+                                                                            R1
+   C2. Posons G(t) = f (tz). On a donc G′ (t) = zf ′ (tz) et                     ′
+                                                                              0 G (t) dt = G(1) − G(0) donne
+                                                             Z 1
+                                        f (z) − f (0) =            zf ′ (tz) dt.
+                                                              0
+
+Donc                                                         Z 1
+                                                   ′
+                          |f (z) − f (0) − zf (0)| = |              z(f ′ (tz) − f ′ (0)) dt|
+                                                              0
+La majoration obtenue à la question précédente implique donc que
+
+                                                   (supC(0,R) |f ′ |) × |z|2
+                                                                                               Z 1
+                                               ′
+                        |f (z) − f (0) − zf (0)| ≤                                                   t dt
+                                                          R − |z|                               0
+
+Si l’on suppose de plus que |f ′ (ω)| ≤ 2|f ′ (0)| pour tout ω ∈ D̄ comme dans l’énoncé, on obtient.
+
+                                                                       |f ′ (0)||z|2
+                                    |f (z) − f (0) − zf ′ (0)| ≤
+                                                                         R − |z|
+
+On en déduit par l’inégalité triangulaire que
+
+                                                                           |z|2
+                                                                                      
+                                                         ′
+                                |f (z) − f (0)| ≥ |f (0)| |z| −                            .
+                                                                          R − |z|
+
+                         ρ      2
+   C3. Posons h(ρ) = ρ − R−ρ . On a donc
+
+                      2ρ(R − ρ) + ρ2   R2 − 2Rρ + ρ2 − 2ρR + 2ρ2 − ρ2   R2 − 4Rρ + 2ρ2
+       h′ (ρ) = 1 −                  =                                =
+                         (R − ρ)2                (R − ρ)2                  (R − ρ)2
+
+Cette dérivée s’annule sur [0, R] en
+                                           √
+                                               16R2 − 4 × 2R2
+                                                                       
+                                    4R −                            1
+                            ρ0 =                              =R 1− √     .
+                                                  4                   2
+
+On voit facilement que ce point est celui où h est maximale sur [0, R] et
+                                                     √
+                                      h(ρ0 ) = (3 − 2 2)R.
+
+On obtient donc pour ce choix :
+                                       1                                                √
+                      (∀z ∈ C(0, R(1 − √ ),            |f (z) − f (0)| ≥ |f ′ (0)|(3 − 2 2)R.
+                                        2
+                                                                    √
+      C4. On conclut en utilisant la partie B si m = |f ′ (0)|(3 − 2 2)R est non nul (dans ce cas
+f ′ (0) est non nul et f est holomorphe non constante, son image est donc ouverte d’après la partie
+A). Si m est nul, la conclusion est évidente.
+    D1. La fonction µα,λ est définie et holomorphe sur D(0, |α|−1 ) et |α|−1 > 1. Comme |µα,λ | = 1
+sur C(0, 1) et µα,λ (D) = D, on a µα,λ (D̄) = D̄. Ainsi U := µα,λ (D(0, |α|−1 )) est un ouvert (cf.
+partie A) qui contient D̄. On sait que f est définie sur un ouvert V qui contient D̄. On en déduit
+que f ◦ µα,λ est définie sur µ−1
+                              α,λ (U ∩ V), qui contient D̄.

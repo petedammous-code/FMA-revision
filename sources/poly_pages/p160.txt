@@ -1,0 +1,54 @@
+IX.6. CHANGEMENTS DE PARAMÉTRAGE                                                                  157
+
+    Soit A un isomorphisme linéaire de l’espace ambiant RN dans lui-même. Il est évident qu’avec
+les notations de la proposition, l’ensemble
+
+                          S = A(Graphe(f )) = {A((u, f (u))); u ∈ U }
+
+est encore une sous-variété de RN (c’est un cas particulier de l’exemple IX.2.8). Comme la
+définition d’une sous-variété est de nature locale, on obtient
+
+     Proposition IX.5.2
+   Soit S une partie de RN et supposons que pour tout point p de S , il existe un voisinage
+   ouvert V de p dans RN , un isomorphisme linéaire A : RN → RN , un ouvert U de Rm et
+   une application f : U → RN −m de classe C k tels que
+
+                                  V ∩ S = V ∩ {A((u, f (u))); u ∈ U}.
+
+   Alors S est une sous-variété de dimension m de RN .
+
+   Réciproquement, une sous-variété peut-être vue localement comme un graphe, « à un isomor-
+phisme linéaire près » de l’espace ambiant RN .
+
+     Proposition IX.5.3
+   Soit S une sous-variété de dimension m de classe C k de RN . Alors pour tout point p de
+   S , il existe un voisinage ouvert V de p dans RN , un isomorphisme linéaire A : RN → RN ,
+   un ouvert U de Rm et une application f : U → RN −m de classe C k telle que
+
+                                  V ∩ S = V ∩ {A((u, f (u))); u ∈ U}.
+
+                              ∼
+Démonstration. Soit x : U → V ∩ S un paramétrage local en p. Soit q = x−1 (p). Soit A un
+isomorphisme linéaire de RN dans lui-même tel que A−1 (dxq (Rm )) = Rm × {0} ⊂ RN . Alors
+d(A−1 ◦ x)q = A−1 ◦ dxq est un isomorphisme linéaire de Rm dans Rm × {0}. Ecrivons A−1 ◦ x
+sous la forme A−1 ◦ x(u) = (i(u), j(u)), i(u) ∈ Rm , j(u) ∈ RN −m . Par construction, djq = 0 et
+diq est un isomorphisme de Rm dans Rm . Le théorème d’inversion locale donne l’existence d’un
+ouvert U ′ de Rm contenant q (que l’on suppose inclus dans U) et d’un ouvert U1 de Rm tels que i
+réalise un difféomorphisme de U ′ sur U1 . Soit Φ : U1 → U ′ son inverse. Soit u1 ∈ U1 et posons
+u = Φ(u1 ) (et donc u1 = i(u)). On a alors
+
+                  A−1 ◦ x ◦ Φ(u1 ) = A−1 ◦ x(u) = (i(u), j(u)) = (u1 , j ◦ Φ(u1 )).
+
+Posons f = j ◦ Φ : U1 → RN −m . Alors x(U ′ ) = {A(u1 , f (u1 )); (u1 ∈ U1 )}. Comme x(U ′ ) est un
+ouvert de S , il est de la forme V ∩ S pour un ouvert V de RN , ce qui est l’énoncé voulu.
+
+   Remarque IX.5.4 — Les deux propositions qui précèdent fournissent une autre définition
+   d’une sous-variété de dimension m de RN : c’est une partie S de RN vérifiant les hypothèses
+   de la proposition IX.5.2.
+
+
+IX.6      Changements de paramétrage
+
+
+   Une sous-variété n’a pas de paramétrages privilégiés. Les objets ou les propriétés (différentielles,
+champs de vecteurs, etc) que nous allons étudier ne dépendent pas d’un choix de paramétrage

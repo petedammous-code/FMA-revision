@@ -1,0 +1,36 @@
+VII.2. THÉORÈME DE CAUCHY-LIPSCHITZ                                                                  129
+
+
+  particulier le théorème s’applique dès que X est de classe C 1 : soit x1 ∈ U et t1 ∈ I. Par
+  continuité de (t, x) 7→ dX(t,x) , il existe un voisinage ]t1 − a ; t1 + a[ × B(x1 , b) de (t1 , x1 )
+  contenu dans I × U , et une constante k ≥ 0 telle que ∥dX(t,x) ∥ ≤ k pour tout (t, x) dans
+  ]t1 − a ; t1 + a[ × B(x1 , b) Le théorème des accroissements finis implique alors que X est
+  k-lipschitzien sur ]t1 − a ; t1 + a[ × B(x1 , b) et en particulier k-lipschitzien en la seconde
+  variable.
+
+   Remarque VII.2.3 — La complication apparente de l’énoncé vient de ce que l’on souhaite
+   l’existence d’une solution dont la taille du domaine de définition, en l’occurence 2ϵ, soit
+   indépendante de t0 et x. Cela aura son importance ultérieurement, lorsqu’on considérera
+   les solutions de manière collective.
+
+   Remarque VII.2.4 — On veut parfois obtenir l’existence des solutions sur un intervalle
+   de définition ]τ0 − ϵ′ ; τ0 + ϵ′ [ centré en τ0 plutôt qu’en t0 . Cela n’offre pas de difficulté
+   supplémentaire, car si |t0 − τ0 | ≤ ϵ/2, on a ]τ0 − ϵ/2 ; τ0 + ϵ/2[ ⊂ ]t0 − ϵ ; t0 + ϵ[.
+
+
+   Remarque VII.2.5 — Un théorème de Peano affirme qu’il suffit que X soit continue
+   pour qu’il existe une solution. Mais elle n’est alors pas nécessairement unique comme le
+   montre l’exemple α′ (t) = 2|α(t)|1/2 , α(0) = 0 : on a alors deux solutions, α1 (t) = 0 et
+   α2 (t) = signe(t)t2 . Cet exemple montre aussi que le théorème n’est pas vrai pour des
+   équations implicites f (t, α(t), α′ (t)) = 0, puisque l’équation α′ (t)2 − 4α(t) = 0 possède deux
+   solutions telles que α(0) = 0.
+
+
+   Remarque VII.2.6 — Un cas particulier important est celui où le champ de vecteurs ne
+   dépend pas du temps, c’est-à-dire X : U → E, continue (et localement lipschitzienne dans
+   l’énoncé du théorème). Dans la théorie des équations différentielles, on parle d’équations
+   autonomes.
+
+    La démonstration du théorème de Cauchy-Lipschitz, puis celle de sa version à paramètres,
+reposent l’une et l’autre sur les mêmes estimations élémentaires relatives à l’opérateur intégral
+associé au champ de vecteurs établies dans le lemme suivant.

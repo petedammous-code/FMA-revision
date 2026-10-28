@@ -1,0 +1,57 @@
+112                                  CHAPITRE V. CALCUL DIFFÉRENTIEL DANS LES E.V.N.
+
+Démonstration. Pour p = 1, c’est la définition de la différentielle en a. On raisonne par récurrence
+en supposant p ≥ 2 et le résultat vrai pour p − 1. Considérons l’application
+                                                              d2 fa (h, h)         dp fa (h, h, . . . , h)
+          h 7→ g(h) = f (a + h) − f (a) − dfa (h) −                        − ··· −                         .
+                                                                   2!                       p!
+Calculons sa différentielle, et pour cela, pour j = 1, . . . , p, calculons la différentielle de h 7→
+ϕ(h) = dj fa (h, . . . , h). Comme dj fa est une application j-linéaire symétrique, on obtient, pour
+tout k ∈ E,
+
+            dϕh (k) = dj fa (k, h, . . . , h) + dj fa (h, k, h, . . . , h) + · · · + dj fa (h, h, . . . , k)
+                     = j dj fa (k, h, . . . , h).
+
+On en déduit
+                                                 d2 fa (k, h)              dp fa (k, h, . . . , h)
+               dgh : k 7→dfa+h (k) − dfa (k) − 2              − ··· − p                            ,
+                                                       2!                           p!
+                                                                       dp fa (k, h, . . . , h)
+                         =dfa+h (k) − dfa (k) − d2 fa (k, h) − · · · −                         .
+                                                                             (p − 1)!
+
+En appliquant l’hypothèse de récurrence à df , on obtient ∥dgh ∥ = o(∥h∥p−1
+                                                                        E ). C’est-à-dire que
+pour tout ϵ > 0, il existe η > 0 tel que si ∥h∥E ≤ η, alors ∥dgh ∥ ≤ ϵ ∥h∥p−1
+                                                                          E . En utilisant le
+théorème des accroissements finis, on en déduit
+
+                                   ∥g(h)∥F = ∥g(h) − g(0)∥F ≤ ϵ ∥h∥pE ,
+
+c’est-à-dire g(h) = o(∥h∥pE ).
+
+
+V.6      Exercices
+
+
+   Exercice V.6.1 — Soit E un espace de Hilbert. Montrer que
+                                                                              x
+                                      f : E \ {0} −→ E,            x 7→
+                                                                            ∥x∥E
+
+   est différentiable et calculer sa différentielle en tout point.
+
+
+   Exercice V.6.2 — Soit Φ : Mm (R) → Mm (R), A 7→ An (n ≥ 2 entier positif). Donner un
+   argument pour justifier le fait que Φ est C ∞ et calculer sa différentielle et sa différentielle
+   seconde.
+
+   Exercice V.6.3 : Une variante utile du théorème des accroissements finis — Soit U un
+   ouvert convexe d’un espace de Banach E et soit f : U → F une application de classe C 1 à
+   valeurs dans un espace de Banach F .
+      1. Montrer que quels que soient a, b et c dans U, on a
+                                                                                        !
+                      ∥f (b) − f (a) − dfc (b − a)∥F ≤             sup ∥dfu − dfc ∥         ∥b − a∥E ,
+                                                                  u∈[a,b]
+
+         où [a, b] = {ta + (1 − t)b|t ∈ [0; 1]} ⊂ U.

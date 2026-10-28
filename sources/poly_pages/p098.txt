@@ -1,0 +1,56 @@
+V.2. THÉORÈME DE L’APPLICATION OUVERTE ET COROLLAIRES                                                           95
+
+   Pour cela, posons pour toute f ∈ L(E1 , E2 ; F ),
+
+                               Φ(f )(x)(y) = f (x, y),      (x ∈ E1 , y ∈ E2 )
+
+On vérifie immédiatement que pour tout x ∈ E1 , y 7→ Φ(f )(x)(y) est une application linéaire de
+E2 dans F . Comme par définition
+
+                     ∥f (x, y)∥F ≤ ∥f ∥ × ∥x∥E1 × ∥y∥E2 ,            (x ∈ E1 , y ∈ E2 ),
+
+il est clair que pour tout x ∈ E1 , Φ(f )(x) est continue, donc Φ(f )(x) ∈ L(E2 ; F ). De même, on
+vérifie que x 7→ Φ(f )(x) est linéaire de E1 dans L(E2 ; F ). Comme
+
+          ∥Φ(f )(x)∥ =       sup        ∥Φ(f )(x)(y)∥F =      sup    ∥f (x, y)∥F ≤ ∥f ∥ × ∥x∥E1 ,
+                          y∈BE2 (0,1)                      y∈BE2 (0,1)
+
+l’application Φ(f ) : x 7→ Φ(f )(x) est linéaire continue de E1 dans L(E2 ; F ), de norme au plus ∥f ∥.
+Ainsi, l’application qui à f associe Φ(f ) est bien définie de L(E1 , E2 ; F ) dans L(E1 , L(E2 ; F )).
+Bien entendu, elle est linéaire, et la majoration
+
+                                 ∥Φ(f )(x)∥ ≤ ∥f ∥ × ∥x∥E1 ,        (x ∈ E1 )
+
+obtenue ci-dessus implique que ∥Φ(f )∥ ≤ ∥f ∥. On en déduit que Φ est continue, de norme au
+plus 1.
+   Nous allons maintenant définir une application qui est l’inverse de Φ. Posons, pour tout
+g ∈ L(E1 ; L(E2 ; F )),
+                        Ψ(g)(x, y) = g(x)(y),    (x ∈ E1 , y ∈ E2 ).
+L’application Ψ(g) est évidemment bilinéaire. Comme ∥g(x)∥ ≤ ∥g∥ × ∥x∥E1 , on a
+
+  ∥Ψ(g)(x, y)∥F = ∥g(x)(y)∥F ≤ ∥g(x)∥ × ∥y∥E2 ≤ ∥g∥ × ∥x∥E1 × ∥y∥E2 ,                   (x ∈ E1 , y ∈ E2 ).
+
+Ceci montre que Ψ(g) est bilinéaire continue, de norme au plus ∥g∥. Comme g 7→ Ψ(g) est
+linéaire, Ψ est une application linéaire de L(E1 ; L(E2 ; F )) dans L(E1 , E2 ; F ), qui s’avère donc
+être continue et de norme au plus 1.
+    Comme par construction, Φ et Ψ sont inverses l’une de l’autre, Φ est un isomorphisme linéaire
+entre L(E1 , E2 ; F ) et L(E1 ; L(E2 ; F )) d’inverse Ψ, ces deux applications linéaires étant continues
+de norme au plus 1. Montrons maintenant que ce sont des isométries. On a Ψ ◦ Φ = IdL(E1 ,E2 ;F ) .
+Pour tout f ∈ L(E1 , E2 ; F ) ,
+
+                  ∥f ∥ = ∥Ψ ◦ Φ(f )∥ ≤ ∥Ψ∥ × ∥Φ(f )∥ ≤ ∥Ψ∥ × ∥Φ∥ × ∥f ∥ ≤ ∥f ∥.
+
+On en conclut que ∥Φ(f )∥ = ∥f ∥, ce qui prouve que Φ (et donc Ψ) est une isométrie.
+
+   Exercice V.1.4 — Soit f ∈ L(E ⊗m ; F ) := L(E, E, . . . , E; F ) (m facteurs E) une appli-
+   cation m-linéaire symétrique, c’est-à-dire que pour toute permutation σ ∈ Sm , et tous
+   v1 , . . . , vm ∈ E, on a f (v1 , . . . , vm ) = f (vσ(1) , . . . , vσ(m) ). Montrer que f est entièrement
+   déterminée par ses valeurs sur les éléments de la forme (v, . . . , v), v ∈ E.
+
+
+V.2      Théorème de l’application ouverte et corollaires
+
+
+V.2.1     Théorème de Baire
+    Un résultat important concernant les espaces métriques complets et que nous utiliserons dans
+la démonstration du théorème de l’application ouverte est le théorème de Baire.

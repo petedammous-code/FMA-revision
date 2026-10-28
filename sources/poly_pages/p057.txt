@@ -1,0 +1,57 @@
+54                                                         CHAPITRE II. FORMULE DES RÉSIDUS
+
+       Théorème II.8.4 — Théorème de Rouché (1862)
+     Soient f et g deux fonctions méromorphes sur un ouvert Ω de C, et U un ouvert tel que
+     U ⊂ Ω. On suppose que le bord Γ de U est un lacet orienté positivement, ne contenant ni
+     pôle ni zéro des fonctions f et g, et que
+
+                           |f (z) − g(z)| < |g(z)|,        pour tout      z ∈ Γ.
+
+     Alors
+                              Z(f, U ) − P (f, U ) = Z(g, U ) − P (g, U ),
+     où Z(f, U ) et P (f, U ) (respectivement Z(g, U ) et P (g, U )) sont le nombre de zéros et de
+     pôles de f (respectivement de g) dans U (les zéros et pôles étant comptés avec multiplicité).
+
+
+Démonstration. Posons h = f /g : c’est une fonction méromorphe sur Ω. Remarquons que
+l’hypothèse implique que g ne s’annule pas sur Γ, et celle-ci se réécrit
+
+                                      |1 − h(z)| < 1,      (∀z ∈ Γ).
+
+La fonction h est holomorphe dans un voisinage de Γ et h(Γ) ⊂ D(1, 1) est une courbe fermée.
+Comme 0 ∈  / D(1, 1) et que D(1, 1), étant convexe, est simplement connexe, l’indice de 0 par
+rapport au lacet h(Γ) est nul (corollaire II.2.2 appliqué à z 7→ 1/z dans D(1, 1)). On a
+                                      Z ′                Z ′
+                                                             f (z)g(z) − f (z)g ′ (z)
+                 Z
+              1        dz         1       h (z)        1
+                          =0=                   dz =                                  dz
+             2iπ h(Γ) z          2iπ Γ h(z)           2iπ Γ        f (z)g(z)
+                                      Z ′                Z ′
+                                  1      f (z)        1     g (z)
+                              =                 dz −              dz
+                                 2iπ Γ f (z)         2iπ Γ g(z)
+Il suffit maintenant d’appliquer le principe de l’argument pour conclure.
+
+    Le Théorème de Rouché permet de donner une démonstration du théorème fondamental de
+l’algèbre. En effet, si P ∈ C[X] est un polynôme de degré n ≥ 1, on note
+
+                                f (z) := P (z)        et     g(z) = an z n ,
+
+où an est le coefficient du terme de plus haut degré de P . Si R > 0 est choisi assez grand,
+
+                                        |f (z) − g(z)| < |g(z)|,
+
+sur C(0, R). Le théorème de Rouché nous assure que f et g ont le même nombre de zéros (comptés
+en tenant compte de la multiplicité des zéros) dans D(0, R). Donc P a n zéros dans D(0, R).
+     Le lecteur trouvera dans les exercices suivants d’autres applications du Théorème de Rouché.
+
+
+     Exercice II.8.5 — On note D := {z ∈ C : |z| < 1} le disque unité ouvert dans C, D̄ son
+     adhérence et C := ∂D.
+     1) Soit f une fonction holomorphe sur un ouvert Ω qui contient D̄. On suppose que |f (z)| < 1
+     sur C. Montrer que f (D) ⊂ D et que f a un unique point fixe dans D.
+     2) Déterminer le nombre de racines de P (z) = z 7 − 2z 5 + 6z 3 − z − 1 dans D.
+     3) Déterminer le nombre de racines de Q(z) = z 4 − 6z + 3 dans l’anneau
+
+                                        {z ∈ C : 1 < |z| < 2}.

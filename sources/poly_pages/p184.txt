@@ -1,0 +1,52 @@
+                                                                                                                     181
+
+    Exercice 5. Soit V un ouvert de Rn et r : V → V une application de classe C 1 vérifiant
+r ◦ r = r. On note X l’image de r dans V et l’on fixe un point x0 ∈ X. On suppose sans perte de
+généralité pour le problème qui suit que x0 = 0 ∈ X ⊂ V.
+   1. On note p = dr0 . Montrer que p ◦ p = p.
+   2. On pose h(x) = p(x) + r(x) − x. Montrer que h ◦ r = p ◦ h.
+   3. Montrer que h est un difféomorphisme local en 0. En déduire l’existence d’un ouvert V0 ⊂ V
+      contenant 0 où l’on peut ecrire r = h−1 ◦ p ◦ h. En déduire que X ∩ V0 est l’image par h−1
+      d’un ouvert d’un sous-espace vectoriel de Rn .
+
+   Exercice 6. On munit Rp du produit scalaire ⟨. , .⟩ usuel. Soit X un champ de vecteurs ne
+dépendant pas du temps et de classe C 1 sur un ouvert V de Rp . On appelle intégrale première de
+X une fonction F : V → R de classe C 1 telle que ⟨∇F (x), X(x)⟩ = 0 pour tout x ∈ V.
+   1. Montrer que F est une intégrale première de X si et seulement si F est constante sur les
+      courbes intégrales de X.
+    On suppose p = n + 1 et V = U × R où U est un ouvert de Rn . On note x = (x1 , . . . xn ) la
+variable dans U et z la variable sur le dernier facteur R.
+   2. (Cours) Rappeler la condition pour que l’équation F (x1 , . . . , xn , z) = 0 définisse implicite-
+      ment z comme une fonction u de x = (x1 , . . . xn ) (localement), ce que l’on écrit z = u(x),
+                ∂u
+      et donner ∂xi
+                    (x) en fonction des dérivées partielles de F .
+    Soient ai : Rn+1 → R, i = 1, . . . , n, et b : Rn+1 → R des fonctions de classe C 1 . On considère
+l’équation aux dérivées partielles
+                              n
+                              X                                   ∂u
+                      (E)           ai (x1 , . . . , xn , u(x))       (x) = b(x1 , . . . , xn , u(x))
+                                                                  ∂xi
+                              i=1
+
+d’inconnue u : U → R, x = (x1 , x2 , . . . xn ) 7→ u(x1 , x2 , . . . xn ) où U est un ouvert de Rn .
+   3. Supposons que F : U × R → R, (x1 , . . . , xn , z) 7→ F (x1 , . . . , xn , z) soit une intégrale
+      première du champ de vecteurs :
+                 X : U × R → Rn × R,               (x1 , . . . , xn , z) 7→ (a1 (x, z), . . . an (x, z), b(x, z)).
+      et que F (x, z) = 0 définisse implicitement z comme fonction de x, z = u(x). Montrer que u
+      est alors solution de (E).
+   On particularise l’équation (E) en prenant n = 2, a1 = a : R → R ne dépend pas des n
+premières variables, a2 est constante égale à 1, et b = 0. L’équation devient :
+                                                     ∂u               ∂u
+                            (E1 ) a(u(x1 , x2 ))         (x1 , x2 ) +     (x1 , x2 ) = 0.
+                                                     ∂x1              ∂x2
+On se donne aussi une fonction f : R → R de classe C 1 .
+   4. Ecrire explicitement le champ de vecteurs X de la question précédente dans ce cas et
+      déterminer la courbe intégrale t 7→ α(t) = (α1 (t), α2 (t), α3 (t)) de condition initiale α(0) =
+      (s, 0, f (s)).
+   5. En partant de la solution α trouvée à la question précédente et en « éliminant les variables
+      t et s », trouver une fonction F telle que F (α1 (t), α2 (t), α3 (t)) = 0 vérifiant les conditions
+      de la question (2) en (x1 , 0, f (x1 )) (en particulier on veut F (x1 , 0, f (x1 )) = 0). On note
+      u(x1 , x2 ) la fonction implicite donnant z.
+   6. Vérifier que u est solution de (E1 ) avec la condition initiale u(x1 , 0) = f (x1 ).
+   7. Calculer u lorsque a(x) = x et f (x) = 1 − x.

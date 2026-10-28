@@ -1,0 +1,75 @@
+68                                                 CHAPITRE III. SUITES, SÉRIES ET PRODUITS
+
+       Théorème III.5.1
+          P
+     Soit n≥0 fn une série de fonctions holomorphes, définies sur un ouvert Ω et qui converge
+     localement normalement. Posons gn = 1 + fn . Alors, la suite (Gn )n≥0 définie par
+                                             n
+                                             Y                n
+                                                              Y
+                                 Gn (z) :=         gj (z) =       (1 + fj (z)),
+                                             j=0              j=0
+
+     convergeQlocalement uniformément vers une fonction holomorphe G sur Ω. On note alors
+     G(z) = ∞   j=0 (1 + fj (z)). La fonction G s’annule en un point exactement lorsque l’un des
+     facteurs du produit infini s’annule en ce point, ce qui n’arrive que pour un nombre fini de
+     facteurs, et l’ordre de ce zéro de G est la somme des ordres de ce zéro pour ces facteurs.
+     On a alors
+                                              G′    X g′
+                                                         n
+                                                  =        ,
+                                              G         gn
+                                                       n∈N
+
+     la convergence de la série étant uniforme sur tout compact de Ω (i.e. pour un compact K
+     fixé, à partir d’un certain rang n0 , la fonction gn ne s’annule plus sur K et on a convergence
+                                    ′
+     uniforme de la série n∈N ggnn sur ce compact).
+                            P
+
+
+
+     Remarque III.5.2 — On veut éviter pour diverses raisons de considérer des produits infinis
+     qui s’annulent sans que l’un des facteurs s’annule, ou bien des zéros d’ordre infini. Les
+     hypothèses du théorème garantissent ceci.
+
+Démonstration. Étant donné un compact K ⊂ Ω, il existe un entier m ∈ N tel que supz∈K |fn (z)| <
+1/2, pour tout n ≥ m. On peut utiliser le fait qu’il existe une constante C > 0 telle que
+| Log(1 + ω)| ≤ C |ω| pour tout ω ∈ D(0, 1/2) et appliquer le résultat du Théorème III.1.5 pour
+montrer que la série
+                                       X∞
+                                           Log(1 + fj ),
+                                             j=m
+
+converge uniformément
+            Qn              sur K vers
+                                    Pn une fonction holomorphe. On en déduit que la suite de
+fonctions j=m (1 + fj ) = exp( j=m Log(1 + fj )) converge uniformément sur K vers une
+     P holomorphe, lorsque n tend vers +∞, la limite étant la fonction holomorphe G̃ =
+fonction
+exp( +∞  j=m Log(1 + fj )) (qui remarquons-le, ne s’annule pas).
+    On multiplie ensuite par le produit fini m−1
+                                               Q
+                                                  j=0 (1 + fj ) pour avoir la conclusion voulue sur G.
+L’assertion sur les zéros est immédiate d’après la remarque ci-dessus, car sur le compact K, les
+zéros de G proviennent nécessairement du produit fini.
+    Posons G̃n = nk=m gk . Pour k ≥ m onP
+                   Q
+                                               a |fk | < 1/2 sur K, donc |gk | > 1/2 et aucun des G̃n
+ne s’annule sur K. Mieux, en notant M = k≥m ∥fk ∥∞,K < +∞ et C la constante ci-dessus, on
+             Pn
+a |G̃n | = e k=m Log(1+fk ) ≥ e−CM > 0 sur K, uniformément en n ; il en va de même de G̃.
+    On a alors, encore par le théorème III.1.5, convergence uniforme sur K de G̃′n = nk=m gk′ j̸=k gj
+                                                                                       P        Q
+                                                       ′          g′         ′
+vers G̃′ et donc convergence uniforme sur K de G̃        = nk=m gkk vers G̃G̃ . Ceci montre la dernière
+                                                       n
+                                                           P
+                                                     G̃n
+assertion.
+
+
+III.6      Quelques exemples
+
+
+     On commence avec une formule célèbre, due à Euler.

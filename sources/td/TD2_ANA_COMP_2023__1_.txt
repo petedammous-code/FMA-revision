@@ -1,0 +1,380 @@
+FMA 410431 EP                                                                       2026-2027
+                            Exercices d’analyse complexe (suite)
+
+Sauf précision contraire, Ω désigne un ouvert non-vide de C.
+
+Singularité ponctuelle
+Exercice 1. Soit f : D(0, 1) \ {0} → C une fonction holomorphe.
+(1) Soit g une fonction holomorphe sur D(0, 1) \ {0}. Vérifier que
+                                           Z
+                                        1
+                                  r 7→              g(z) dz,
+                                       2iπ ∂D(0,r)
+    ne dépend pas de r ∈ ]0, 1[.
+(2) Soit z ∈ D(0, 1) \ {0}. Montrer que la fonction g définie sur D(0, 1) \ {0, z} par
+                                                 f (z) − f (ζ)
+                                       g(ζ) :=                 ,
+                                                     z−ζ
+    se prolonge en une fonction holomorphe sur D(0, 1) \ {0}.
+(3) En utilisant les questions précédentes, montrer que
+                                   Z                           Z
+                               1             f (ζ)        1          f (ζ)
+                      f (z) =                      dζ −                    dζ,
+                              2iπ ∂D(0,r) ζ − z          2iπ ∂D(0,s) ζ − z
+    pour tout 0 < s < |z| < r < 1.
+(4) En déduire que f admet un développement en série de Laurent
+                                               X
+                                       f (z) =   an z n
+                                                 n∈Z
+    dans D(0, 1) \ {0} avec                     Z
+                                            1            f (z)
+                                     an =                      dz
+                                          2iπ ∂D(0,r) z n+1
+    où l’on prend r > |z| si n ⩾ 0 et r < |z| si n < 0.
+(5) Montrer que f possède un prolongement holomorphe dans D(0, 1) si et seulement si |f (z)|
+    reste borné quand |z| tend vers 0.
+(6) Montrer que f est méromorphe, non holomorphe, dans D(0, 1) si et seulement si |f (z)| tend
+    vers +∞ quand |z| tend vers 0.
+(7) Soit ϵ > 0. On suppose qu’il existe a ∈ C et r > 0 tels que D(a, r) n’intersecte pas l’image
+    de D(0, ϵ) \ {0} par f . Montrer que la fonction g définie sur D(0, ϵ) − {0} par
+                                                      1
+                                         g(z) :=            ,
+                                                  f (z) − a
+    se prolonge en une fonction holomorphe en 0.
+(8) On suppose que f n’est pas méromorphe en 0 (on dit alors que f admet une singularité
+    essentielle en 0). Montrer que, pour tout ϵ > 0, l’image de D(0, ϵ) \ {0} par f est dense dans
+    C.
+       Remarque : En fait, un théorème (difficile !) de E. Picard dit que l’image de tout disque
+    D(0, ϵ) \ {0} par f est soit C tout entier, soit C privé d’un seul point.
+
+
+
+
+                                                 1
+2
+
+
+Automorphismes de C
+Exercice 2 (Automorphismes de C). Soit f : C → C un automorphisme de C, c’est-à-dire
+une bijection holomorphe de C dans lui-même dont la réciproque f −1 est aussi holomorphe. On
+suppose f (0) = 0. Montrer en utilisant la question (8) de l’exercice 1 que z 7→ g(z) = f ( z1 ) est
+méromorphe en 0 et en déduire que f est de la forme z 7→ az pour un certain a ∈ C× . Quelle
+est la forme générale d’un automorphisme de C ?
+
+
+
+Calculs d’intégrales par la formule des résidus
+Exercice 3. Pour tout n ∈ N, calculer
+                                             1 n dz
+                                      Z       
+                                         z+         ,
+                                       Γ     z    z
+où Γ désigne le cercle de centre 0 et de rayon 1 parcouru dans le sens direct. En déduire la valeur
+de                                           Z   2π
+                                                      (cos x)n dx.
+                                             0
+
+
+
+Exercice 4. Pour tout n, m ∈ N tels que m ⩾ n + 2, calculer
+                                         Z +∞
+                                                xn
+                                 In,m :=              dx.
+                                          0   1 + xm
+
+
+Exercice 5. Calculer                 Z 2π
+                                                          dt
+                                                                  .
+                                       0    a2 cos2 t + b2 sin2 t
+On pourra utiliser la formule des résidus en prenant une ellipse comme lacet.
+
+
+
+Principe de réflexion de Schwarz
+Exercice 6 (Principe de réflexion de Schwarz).
+    Soit D le disque unité. Notons D+ = {z ∈ D| ℑm(z) ⩾ 0} le demi-disque supérieur et
+   −
+D = {z ∈ D| ℑm(z) ⩽ 0} le demi-disque inférieur.
+    (1) On suppose que f : D → C est continue sur D et holomorphe sur D\] − 1, 1[. Montrer que
+f est holomorphe sur D.
+    (2) Soit f : D+ → C une fonction continue holomorphe sur D+ \] − 1, 1[ et prenant des valeurs
+réelles sur ] − 1, 1[. On définit F sur D par F (z) = f (z) si z ∈ D+ et f (z) = f (z̄) si z ∈ D− .
+Montrer que F est holomorphe sur D.
+    (3) Généraliser l’énoncé (1) à un ouvert Ω rencontrant R quelconque et (2) à un ouvert Ω
+rencontrant R et stable par conjugaison complexe.
+
+
+
+Théorème de Rouché
+Exercice 7. On note D := {z ∈ C : |z| < 1} le disque unité ouvert dans C, D̄ son adhérence
+et C := ∂D.
+
+(1) Soit f une fonction holomorphe sur un ouvert Ω qui contient D̄. On suppose que |f (z)| < 1
+    sur C. Montrer que f (D) ⊂ D et que f a un unique point fixe dans D.
+(2) Déterminer le nombre de racines de P (z) = z 7 − 2z 5 + 6z 3 − z − 1 dans D.
+                                                                                                           3
+
+
+(3) Déterminer le nombre de racines de Q(z) = z 4 − 6z + 3 dans l’anneau
+                                      {z ∈ C : 1 < |z| < 2}.
+
+
+Exercice 8. Soit n ∈ N − {0}.
+(1) Montrer que
+                                        | sin z| < |z cos z|,
+    pour tout z = x + iy tel que max(|x|, |y|) = n π.
+(2) En déduire que toutes les solutions de tan z = z sont réelles.
+
+
+
+Logarithme complexe et applications
+Exercice 9. On note Ω := C − [0, 1]. Montrer qu’il existe deux fonctions holomorphes définies
+sur Ω et dont le carré est égal à z 7→ z (z − 1).
+
+
+Exercice 10. (1) Soit α ∈ C. Montrer que la fonction x 7→ xα définie sur ]0, +∞[ se prolonge
+    de manière unique en une fonction fα holomorphe sur C− ] − ∞, 0].
+(2) Déterminer le développement en série entière de fα en 1 et la dérivée de fα .
+(3) Pour quels α peut-on prolonger fα à C∗ , à C ?
+
+
+
+Noyau de Bergman
+Exercice 11. Soit D = D(0, 1) le disque unité ouvert. On note Hol2 (D) l’espace des fonctions
+holomorphes et de carré sommable sur D. Cet espace s’injecte dans L2 (D).
+   (1) Montrer que l’image de Hol2 (D) dans L2 (D) est un sous-espace fermé. On pourra utiliser
+l’exercice sur la formule de la moyenne.
+   (2) En déduire que pour tout y ∈ D, il existe une fonction holomorphe gy sur D telle que
+pour tout f ∈ Hol2 (D),                    Z
+                                      f (y) =       gy (z)f (z) dz
+                                                D
+                                                                     X
+  (3) On considére le développement en série entière gy (z) =          an (y)z n . Que donne l’identité
+                                                                     n∈N
+précédente appliquée à la fonction z 7→ z n ?
+   (4) En déduire que pour tout f ∈ Hol2 (D), pour tout z ∈ D,
+                                            Z
+                                          1       f (x + iy)
+                                  f (z) =                      dxdy.
+                                          π D (1 − (x − iy)z)2
+                                        q
+                                                                                    2
+   (5) Montrer que la famille {z 7→ n+1         n
+                                           π z }n⩾0 est une base hilbertienne de Hol (D).
+
+
+
+
+Fonctions elliptiques. La fonction ℘ de Weierstrass.
+Exercice 12. Soit Λ ⊂ C un réseau i.e. un sous-groupe discret de la forme Zω1 ⊕ Zω2 où ω1
+et ω2 sont linéairement indépendants sur R. On rappelle, ou on admet, ou on le démontre que
+pour tout entier k ⩾ 3 la série
+                                            X      1
+                                                  |λ|k
+                                            λ∈Λ\{0}
+est convergente.
+4
+
+
+(1) Soit f une fonction holomorphe sur C qui est Λ-périodique i.e. satisfait
+                                          f (z + λ) = f (z),
+    pour tout λ ∈ Λ. Montrer que f est constante.
+(2) Montrer que la série
+                                   1      X          1     1
+                           ℘(z) = 2 +                     −    ,
+                                   z              (z + λ)2 λ2
+                                            λ∈Λ\{0}
+
+    définit une fonction méromorphe Λ-périodique sur C et paire dont on précisera les pôles.
+    Pour établir la périodicité, on calculera ℘′ (z).
+(3) Pour tout entier k ⩾ 3, on pose
+                                                       X 1
+                                          Ek (Λ) =          .
+                                                         λk
+                                                   λ∈Λ\{0}
+
+    Etablir que
+                                               ∞
+                                1       1   X
+                                    2
+                                      − 2 =   (k + 1)λ−k−2 (−1)k z k
+                            (z + λ)    λ
+                                               k=1
+    en déduire le développement en série de Laurent de ℘(z) au voisinage de 0 en fonction des
+    Ek (Λ). Remarquer que les Ek avec k impair sont nuls.
+(4) Montrer que
+                           ℘′ (z)2 = 4℘(z)3 − 60E4 (Λ)℘(z) − 140E6 (Λ).
+
+
+
+
+Fonction Γ
+Exercice 13 (Formule des compléments et intégrale de Gauss). On rappelle les deux formules
+suivantes, établies dans le cours :
+— Le développement en produit infini du sinus (Euler) :
+                                        +∞
+                                        Y       z2
+                                                    
+                          sin(πz) = πz       1− 2 ,            ∀z ∈ C.
+                                                 n
+                                            n=1
+
+— La définition de la fonction Γ par le produit de Weierstrass :
+                                    +∞
+                               e−γz Y       z −1 z/n
+                       Γ(z) =            1+        e , ∀z ∈ C \ (−N).
+                                z            n
+                                    n=1
+
+(1) En calculant le produit Γ(z)Γ(−z), démontrer la formule des compléments :
+                                               π
+                            Γ(z)Γ(1 − z) =          , ∀z ∈ C \ Z.
+                                            sin(πz)
+(2) En déduire la valeur de Γ(1/2).
+(3) À l’aide d’un changement de variable, en déduire la valeur de l’intégrale de Gauss :
+                                           Z +∞
+                                                     2
+                                      I=          e−x dx.
+                                               −∞
+                                                                                                       5
+
+
+Suites et séries de fonctions holomorphes
+Exercice 14. Soit (fn )n⩾0 une suite de fonctions holomorphes sur un ouvert Ω. On suppose
+que la suite converge simplement vers une fonction f et que pour tout compact K ⊂ Ω, il existe
+une constante C(K) telle que
+                                     sup |fn (z)| ⩽ C(K),
+                                            K
+pour tout n ∈ N.
+
+(1) Montrer que f est holomorphe.
+(2) Montrer que, pour tout k ∈ N et pour tout compact K ⊂ Ω, il existe une constante C(k, K)
+    telle que
+                                   sup |fn(k) (z)| ⩽ C(k, K),
+                                        K
+    pour tout n ∈ N.
+
+
+
+Dynamique holomorphe
+Exercice 15. Soient Ω un ouvert connexe borné de C et f : Ω → Ω holomorphe. Supposons
+qu’il existe a ∈ Ω, tel que f (a) = a, et posons pour n ∈ N∗ , fn = f ◦ ... ◦ f la n-ième itérée de f
+et f 0 = idΩ .
+(1) Montrer que |f ′ (a)| ⩽ 1.
+(2) Montrer que si f ′ (a) = 1, alors pour tout z ∈ D, f (z) = z.
+(3) Montrer que lorsque |f ′ (a)| = 1, f est un automorphisme holomorphe de Ω.
+(4) Lorsque |f ′ (a)| < 1, montrer que la suite (fn )n∈N∗ converge uniformément sur tout compact
+    de Ω vers la fonction constante égale à a.
+
+
+Exercice 16. Soient Ω ⊂ C un ouvert connexe borné contenant 0 et f : Ω → Ω holomorphe.
+Supposons que f (0) = 0 et supposons que f ′ (0) = λ satisfait 0 < |λ| < 1. Notons encore
+f n = f ◦ ... ◦ f .
+(1) Montrer que si on prend c ∈ R+ , tel que 0 < c2 < |λ| < c < 1, il existe r > 0, tel que
+    Dr = D(0, r) ⊂ Ω et tel que |f n (z)| ⩽ cn |z| pour n ⩾ 1 et z ∈ Dr ,
+(2) Quitte à prendre r′ < r, montrer qu’il existe k > 0, tel que |f (z) − λz| ⩽ k|z|2 , pour tout
+    z ∈ Dr ,
+(3) Pour n ⩾ 1, posons φn := fn /λn . Montrer que
+                                                     n
+                                                kr2 c2
+                         |φn+1 (z) − φn (z)| ⩽              pour tout z ∈ Dr .
+                                                |λ| |λ|
+(4) Montrer qu’il existe φ : Dr → C holomorphe telle que (φn )n⩾1 converge uniformément sur
+    tout compact de Dr vers φ, φ′ (0) = 1 et telle que φ ◦ f = λφ sur Dr .
+(5) Supposons que f est holomorphe sur C et posons A = {z ∈ C / (f n (z))n⩾0 converge vers 0}
+    le bassin d’attraction de 0 de f . Montrer que A est ouvert et que l’on peut prolonger φ à A
+    de manière à ce que φ(A) = C et
+                                         φ ◦ f = λφ    sur A.
+
+
+Exercice 17. Soient Ω ⊂ C un ouvert connexe borné contenant 0 et f : Ω → Ω holomorphe
+telle que f (0) = 0. Posons λ = f ′ (0) et supposons que |λ| = 1.
+(1) On pose ϕn (z) = n1 0⩽j⩽n−1 λ−j f j (z). Montrer que |ϕn ◦ f (z) − λϕn (z)| ⩽ 2c
+                            P
+                                                                                       n où c =
+     supz∈Ω |z|. En déduire qu’il existe ϕ : Ω → C non-constante et injective au voisinage de 0
+     telle que ϕ ◦ f = λ · ϕ sur Ω (on dit que f est linéarisable en 0).
+6
+
+
+Exercice 18. Soit f : C → C définie par f (z) = z 2 + λz où λ = e2iπθ avec θ = k⩾1 2−qk et
+                                                                                     P
+log(qk+1 ) ⩾ k2qk pour k ⩾ 1. Supposons que f est linéarisable en 0 à l’aide de ϕ et considérons
+δ > 0, tel que Dδ ⊂ ϕ(Dr ).
+(1) Montrer que les points fixes 0, z2 , z3 , ..., z2n de f n vérifient
+                                                                    n
+                                                    Y
+                                 |1 − λn | =             |zj | ⩾ δ 2 −1 .
+                                                2⩽j⩽2n
+                                     q 
+(2) En déduire que la suite qk+1 /22 k k∈N∗ est bornée.
+(3) Montrer que f n’est bornée sur aucun voisinage de 0.
+
+
+
+Théorème de représentation conforme
+Exercice 19. Soit Ω un ouvert connexe borné de C dont la frontière ∂Ω est de classe C 1 .
+Supposons qu’il existe une suite d’automorphismes φn : Ω → Ω, un point a ∈ Ω et un point
+η ∈ ∂Ω tels que (φn (a))n∈N converge vers η. Montrer qu’il existe une bijection holomorphe entre
+Ω et le disque unité D(0, 1).
+
+
+
+Fonctions conformes et harmoniques
+Exercice 20 (Transformation de Joukovski et Aérodynamique). En mécanique des fluides bidi-
+mensionnelle, le vecteur vitesse s’écrit ⃗v = (vx , vy ). L’écoulement étant irrotationnel (rot ⃗v = 0),
+il dérive d’un potentiel des vitesses Φ tel que vx = ∂Φ                 ∂Φ
+                                                            ∂x et vy = ∂y . L’écoulement étant incom-
+pressible (div ⃗v = 0), ce potentiel est harmonique (∆Φ = 0). Le domaine étant simplement
+connexe (à l’extérieur des obstacles), on peut associer à Φ une fonction conjuguée Ψ (la fonc-
+tion de courant) telle que le potentiel complexe G = Φ + iΨ soit holomorphe. Les équations de
+Cauchy-Riemann imposent ∂Φ             ∂Ψ     ∂Φ         ∂Ψ
+                               ∂x = ∂y et ∂y = − ∂x . La dérivée complexe de G peut s’évaluer
+par rapport à la variable réelle x :
+                                             ∂Φ       ∂Ψ
+                                    G′ (z) =     +i         = vx − ivy .
+                                             ∂x       ∂x
+La vitesse complexe est simplement l’affixe du vecteur vitesse dans le plan complexe, soit v =
+vx + ivy . On obtient donc l’identité fondamentale : v = G′ (z).
+   On considère la transformation de Joukovski définie sur C∗ par :
+                                                              
+                                                  1          1
+                                          J(z) =        z+       .
+                                                  2          z
+(1) Soit R > 1. Déterminer l’image par J du cercle CR de centre 0 et de rayon R. Préciser la
+    nature géométrique de cette image.
+(2) Déterminer l’image par J du cercle unité C1 .
+(3) On s’intéresse à l’écoulement plan, irrotationnel et incompressible d’un fluide parfait. Le
+    potentiel complexe d’un écoulement uniforme de vitesse V0 > 0 faisant un angle d’incidence
+    α avec l’axe réel, autour d’un cylindre de rayon 1 (le cercle C1 ), est donné par :
+                                                             
+                                                   −iα   1 iα
+                                    F (z) = V0 ze      + e      .
+                                                         z
+    La transformation w = J(z) réalise un biholomorphisme entre l’extérieur du disque unité
+    C \ D(0, 1) et l’extérieur de la plaque plane C \ [−1, 1]. Exprimer la fonction réciproque z(w)
+    sur ce domaine.
+(4) En déduire le potentiel complexe G(w) = F (z(w)) de l’écoulement autour de la plaque plane
+    [−1, 1].
+(5) Calculer le champ des vitesses complexe v(w) = G′ (w). Que se passe-t-il aux extrémités de
+    la plaque (w = ±1) si l’angle d’incidence α est non nul ?
+                                                                                                     7
+
+
+Exercice 21 (Problème de Dirichlet et Fonctions Harmoniques). On s’intéresse à la distribution
+de température stationnaire T (x, y) dans une plaque modélisée par le demi-plan supérieur H =
+{z = x + iy ∈ C | y > 0}. En régime stationnaire, l’équation de la chaleur se réduit à l’équation
+de Laplace : la fonction T est harmonique (∆T = 0).
+   On impose les conditions aux limites (températures fixées) suivantes sur le bord de la plaque
+(l’axe réel) :
+                T (x, 0) = T1   pour x > 0,       et     T (x, 0) = T0   pour x < 0.
+(1) Rappeler pourquoi la partie imaginaire d’une fonction holomorphe est une fonction harmo-
+    nique.
+(2) On considère la détermination principale du logarithme complexe Log(z) sur C \ R− . Quelle
+    est sa partie imaginaire ? Déterminer les limites de cette partie imaginaire lorsque z ∈ H
+    tend vers un réel x > 0, puis vers un réel x < 0.
+(3) En cherchant T sous la forme A ℑm(Log(z))+B, déterminer la solution T (x, y) du problème
+    de Dirichlet en fonction de T0 , T1 et de Arg(z).
+(4) Quelle est la forme géométrique des isothermes (les courbes où la température est constante) ?
+

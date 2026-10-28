@@ -1,0 +1,84 @@
+                                                                                                197
+
+                                        P
+    (e) Montrons à présent que z∈Pz m(z) ≥ 2. La fonction f est une fonction elliptique
+                                                0
+        pour Λ non-constante, donc pas holomorphe (par le théorème de Liouville, et Λ-
+        périodicité) ; en particulier, f a au moins un pôle dans C, donc à l’intérieur de Qz0 ,
+        comme C = Qz0 + Λ, que f n’a pas              P de pôle sur ∂Qz0 , et que f est Λ-périodique.
+        En d’autres termes, #Pz0 ≥ 1. Si z∈Pz m(z) = 1, alors f a un unique pôle z∗
+                                                            0
+        dans
+        P    Q z 0 , de   multiplicité      m(z ∗ ) =  1. Mais  alors son résidu est non-nul, et donc
+          z∈Pz  res  z (f ) = res z∗ (f ) ̸
+                                          =  0, ce  qui contredit le résultat de la question (1c).
+               0
+    (f) Soit w ∈ C. On cherche à résoudre l’équation g(z) = 0, où g := f − w. La fonction g est
+        elliptique pour Λ, et ses pôles sont les mêmes que ceux de f . Comme précédemment,
+        on fixe z0 ∈ C tel que le bord ∂Qz0 de Qz0 ne contienne ni zéro ni pôle de g. On
+        note Zz0 , resp. Pz0 l’ensemble des zéros, resp. pôles de g à l’intérieur de Qz0 . Comme
+        C = Qz0 + Λ, et queP   g est Λ-périodique,
+                                              P non-constante (car f non-constante), par la
+        question (1e), on a z∈Zz m(z) = z∈Pz m(z) ≥ 2 ; en particulier, Zz0 ̸= ∅, donc
+                                     0               0
+        g s’annule en un point zw ∈ Qz0 , et alors f (zw ) = w. On conclut que f est bien
+        surjective.
+2. Montrons que { ω21 , ω22 , ω1 +ω                     ′
+                                 2 } sont des zéros de ℘ (z). La fonction ℘ est paire (cf. rappel),
+                                   2
+
+         ′
+   donc ℘ est impaire, et Λ-périodique, et alors
+                              ω1       ω1             ω1        ω1 
+                         ℘′        = ℘′    − ω1 = ℘′ −      = −℘′
+                                               
+                                                                       ,
+                              2         2              2          2
+
+   d’où ℘′ ( ω21 ) = 0. On montre de même que ℘′ ( ω22 ) = ℘′ ( ω1 +ω
+                                                                   2 ) = 0.
+                                                                     2
+
+
+3. (a) En dérivant terme P     à terme le développement en série de Laurent au voisinage de 0,
+                  ′ (z) = −2 +   +∞         2k−1 , donc 0 est un pôle de ℘′ de multiplicité trois, et
+        on
+        P    a  ℘         z3     k=1 2kak z
+           z∈Pz0 m(z) = m(0) = 3.
+                                             P
+    (b) Par la question (1d), on a donc z∈Zz m(z) = 3.
+                                                      0
+
+        Comme Qz0 + Λ = C, il existe λ1 , λ2 , λ3 ∈ Λ tels que ω1′ := ω21 + λ1 , ω2′ := ω22 + λ2 , et
+        ω3′ := ω1 +ω
+                  2
+                    2
+                      + λ3 soient trois points (distincts) dans Qz0 . Par Λ-périodicité de ℘′ et ce
+        qui précède, ce sont trois zéros distincts de ℘′P                   Qz0 (par construction,
+                                                          , à l’intérieur deP
+                                             ′
+        ∂Qz0 ne contient pas de zéro de ℘ ). Donc 3 = z∈Zz m(z) ≥ z∈{ω′ ,ω′ ,ω′ } m(z) ≥ 3.
+                                                                  0              1 2 3
+        On déduit que {ω1′ , ω2′ , ω3′ } sont exactement les zéros de ℘′ dans Qz0 (et ils sont
+        simples) ; par Λ-périodicité, l’ensemble des zéros de ℘′ est bien
+                                                                             
+                                                              ω1 ω2 ω1 + ω2
+                               {ω1′ , ω2′ , ω3′ } + Λ =         , ,               + Λ.
+                                                              2 2      2
+
+4. Soit w ∈ C. On pose f := ℘−w. La fonction f a les mêmes pôles que ℘, donc est holomorphe
+   sur C \ Λ, non-constante ; on peut donc choisir z0 tel que f n’ait ni zéro ni pôle sur le bord
+   ∂Qz0 , et un unique pôle, en 0, dans Qz0 . Par le développement en série de Laurent de ℘
+   rappelé dans l’énoncé, ce pôle est double. Notons Zz0 l’ensemble des zéros de f à l’intérieur
+   de Qz0 . Par la question (1d), on a
+                                          X
+  (1)                                           m(z) = m(0) = 2.
+                                        z∈Zz0
+
+
+   En particulier, f possède au moins un zéro zw à l’intérieur de Qz0 , et alors ℘(zw ) = w.
+   Par parité de ℘, −zw satisfait également ℘(−zw ) = w. Si −zw ∈ / zw + Λ, alors il existe un
+   unique λw ∈ Λ tel que Zz0 = {zw , −zw + λw }, ces deux zéros étant nécessairement simples,
+   par (1). On a bien dans ce cas
+
+                        {℘ = w} = {zw , −zw + λw } + Λ = {zw , −zw } + Λ.

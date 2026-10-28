@@ -1,0 +1,65 @@
+106                                     CHAPITRE V. CALCUL DIFFÉRENTIEL DANS LES E.V.N.
+
+V.5        Classe C k et différentielles d’ordre supérieur
+
+
+V.5.1       Définitions
+   Soient E et F des espaces vectoriels normés et U un ouvert de E. On définit, pour une
+application f : U → F , le fait d’être de classe C k , k ∈ N ∪ {∞}, par récurrence.
+      Classe C 0 : f est continue.
+      Classe C 1 : f est différentiable en tout point x ∈ U et l’application
+
+                                           df : U → L(E, F ),            x 7→ dfx
+
+est continue.
+      Classe C k , k ∈ N \ {0, 1} : f est différentiable en tout point x ∈ U et df est de classe C k−1 .
+      Classe C ∞ : f est de classe C k pour tout k ∈ N.
+
+    Les espaces L(E; F ), L(E; L(E; F )), L(E; L(E; L(E; F ))), etc, sont des espaces vectoriels
+normés. Ainsi les questions de continuité et de différentiabilité successive de f , df , d(df ), etc,
+rentrent-elles bien dans le cadre de notre étude.
+
+
+V.5.2       Condition suffisante sur les dérivées partielles
+   Replaçons nous dans le cadre de la section V.3.4 : E = E1 × · · · × Em est un produit d’espaces
+vectoriels normés, U est un ouvert de E et f : U → F une application de U à valeurs dans un
+                                                                                       ∂f
+espace vectoriel normé F . Nous avons défini la notion de dérivée partielles (notée       ). Nous
+                                                                                      ∂xi
+avons alors le résultat suivant, qui complète la proposition V.3.17.
+
+       Proposition V.5.1
+   Avec les notations ci-dessus, pour que f soit de classe C 1 sur U, il faut et il suffit que f
+                                    ∂f
+   admette des dérivées partielles      en tout point de U, et que celles-ci soient continues.
+                                    ∂xi
+   Pour que f soit différentiable au point a, il suffit que les dérivées partielles existent en tout
+   point x dans un voisinage de a et qu’elles soient continues en a.
+
+
+Démonstration. On a déjà vu que la condition était nécessaire (Proposition V.3.17). D’après la
+formule (V.3.3), il suffit de montrer la seconde assertion pour conclure la démonstration. Soit
+a = (a1 , . . . , am ) ∈ U. Posons
+                                                                            m
+                                                                            X ∂f
+                     g : U −→ F,              g(x) = f (x) − f (a) −                    (a)(xk − ak ).
+                                                                                  ∂xk
+                                                                            k=1
+
+                                          ∂g         ∂f        ∂f
+On a alors pour tout k = 1, . . . , m, ∂x   k
+                                              (x) = ∂x k
+                                                         (x) − ∂xk
+                                                                   (a), et puisque les différentielles
+partielles sont continues en a, pour tout ϵ > 0, il existe δ > 0 tel que pour tout x ∈ BE (a, δ),
+   ∂g
+∥ ∂x k
+       (x)∥ ≤ ϵ. Il résulte du théorème des accroissements finis que l’on a
+                            m
+                            X
+                ∥g(x)∥ ≤          ∥g(x1 , . . . xk , ak+1 , . . . , am ) − g(x1 , . . . xk−1 , ak , . . . , am )∥
+                            k=1
+                            m
+                            X
+                        ≤         ϵ∥xk − ak ∥ = ϵ∥x − a∥.
+                            k=1

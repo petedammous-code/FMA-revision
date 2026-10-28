@@ -1,0 +1,228 @@
+  FMA 41031 EP                                                                     2026-2027
+
+                       Exercices sur les équations différentielles
+
+Exercice 1 (Le lemme de Gronwall). Soient T > 0 et u : [0, T ] → R+ continue et telle
+qu’il existe a, b : [0, T ] → R+ continues pour lesquelles
+                                     Z t
+                       u(t) ⩽ b(t) +     a(s)u(s)ds, pour tout t ∈ [0, T ].
+                                      0
+
+Montrer que pour tout t ∈ [0, T ], on a
+                                    Z t              Z t        
+                    u(t) ⩽ b(t) +       b(s)a(s) exp      a(τ )dτ ds.
+                                          0                    s
+                                              Rt
+Indication : On pourra poser v(t) := 0 a(s)u(s)ds, pour t ∈ [0, T ].
+  Nous verrons dans les deux exercices suivants des applications du lemme de Gronwall.
+
+
+Exercice 2. Soient I un intervalle ouvert et u : I → Rn une fonction dérivable. Supposons
+qu’il existe t0 ∈ I tel que u(t0 ) = 0 et k ⩾ 0 telle que pour tout t ∈ I, ∥u′ (t)∥ ⩽ k∥u(t)∥.
+(1) Montrer qu’il existe h > 0 tel que u ≡ 0 sur [t0 − h, t0 + h], puis en déduire que u ≡ 0
+    sur I.
+  Soient U ⊂ R × Rn un ouvert et f : U → Rn continue qui est k-lipschitizenne en la
+deuxième variable, avec k ⩾ 0.
+(2) Soit (t0 , x) ∈ U . Déduire de la question précédente que l’équation différentielle
+                                      (E ) :       y ′ = f (t, y)
+    admet au plus une solution définie sur un intervalle ouvert I contenant t0 et de condi-
+    tion initiale y(t0 ) = x.
+(3) Soient (t0 , x1 ), (t0 , x2 ) ∈ U et soient y1 et y2 deux solutions de (E ) définies sur un
+    intervalle I contenant t0 et de conditions initiales respectives y1 (t0 ) = x1 et y2 (t0 ) = x2 .
+    Montrer que pour tout t ∈ I, on a
+                          ∥y1 (t) − y2 (t)∥ ⩽ ∥x1 − x2 ∥ exp(k|t − t0 |).
+
+
+Exercice 3. Soit X : Rn → Rn un champ de vecteurs de classe C 1 . On dit que X est
+complet si ses courbes intégrales sont toutes définies sur R.
+
+(1) On suppose que pour tout x ∈ Rn , ∥X(x)∥ ⩽ A∥x∥+B pour deux constantes positives
+    A et B. Montrer que pour tout t dans l’intervalle de définition d’une courbe intégrale
+    α de condition initiale α(0) = x0 , α(t) reste dans une boule de centre x0 dont on
+    donnera le rayon en fonction de t, A, B et x0 . En déduire que X est complet.
+(2) On multiplie le champ de vecteurs X par une fonction à valeurs réelles strictement
+    positives g : Rn → R×+ de classe C , pour obtenir un nouveau champ
+                                       1
+
+
+                                Y : Rn → Rn ,          x 7→ g(x)X(x).
+       Montrer que les courbes intégales de Y ont les mêmes images que les courbes
+    intégrales de X. Montrer qu’en choisissant bien g, on peut rendre Y complet.
+                                                   1
+2
+
+Exercice 4. Soit Mn (K) l’algèbre sur K desp matrices carrés n × n à coefficients dans
+K = R ou C, munie de la norme ∥X∥ = Tr (t XX). Soit X un élément de Mn (K).
+                                                                   +∞
+                                                                   X   Xn
+L’exponentielle de X, notée exp X, désigne la somme de la série        , normalement
+                                                                   n=0
+                                                                       n!
+convergente dans l’espace de Banach Mn (K).
+
+(1) Quels que soient X et Y dans Mn (K), quels que soient t, s dans K, montrer les
+    propriétés suivantes de l’exponentielle.
+
+      (i) Si X et Y commutent, alors exp X exp Y = exp(X + Y ).
+     (ii) L’exponentielle est à valeurs dans GL(n, K) et (exp X)−1 = exp(−X).
+    (iii) exp(sX) exp(tX) = exp((s + t)X).
+    (iv) L’application R → GL(n, K), t 7→ exp(tX) est l’unique solution différentiable de
+          l’équation différentielle du premier ordre a′ (t) = X a(t) avec la condition initiale
+          a(0) = In .
+
+  Remarque. On peut reformuler (iii) en disant que t 7→ exp tX est un morphisme de
+groupes (continu) de R dans GL(n, K). On appelle un tel morphisme un sous-groupe à
+un paramètre de GL(n, K).
+
+(2) Montrer qu’un morphisme de groupe continu ϕ : R → GL(n, K) est de classe C ∞ . En
+    déduire que tout sous-groupe à un paramètre de GL(n, K) est de la forme t 7→ exp tX
+    pour un certain X dans Mn (K). On pourra commencer par remarquer que pour tout
+    s, x ∈ R,
+                             Z x+s                 Z s
+                                   ϕ(u) du = ϕ(x)      ϕ(u) du.
+                                x                         0
+
+(3) Montrer que l’application exp de Mn (K) dans lui-même est de classe C ∞ . On pourra
+    appliquer les théorèmes du cours sur le flot du champs de vecteur (ne dépendant pas
+    du temps) sur Mn (K) × Mn (K) : Y(A, B) = (BA, 0).
+(4) Calculer la différentielle de exp en 0. En déduire qu’il existe un voisinage U de 0 dans
+    Mn (K) et un voisinage V de Id dans GL(n, K) tels que exp réalise un difféomorphisme
+    de U sur V. On note Log son inverse.
+(5) Montrer qu’il existe un voisinage ouvert V ′ de Id dans GL(n, K) tel que le seul sous-
+    groupe de GL(n, K) inclus dans V ′ soit le sous-groupe trivial {In }.
+
+
+Exercice 5. Soit U un ouvert de RN contenant 0 et soient X1 , . . . , XN des champs de
+vecteurs sur U de classe C ∞ . Pour tout a = (a1 , . . . , aN ) ∈ RN , on pose
+                                                N
+                                                X
+                                     Xa (x) =         ai Xi (x).
+                                                i=1
+
+Ceci définit un champ de vecteurs sur U. On note t 7→ αa (t) la courbe intégrale du champ
+de vecteurs Xa qui passe par 0 à t = 0 et l’on définit ϕ par ϕ(t, a) = αa (t).
+
+(1) Montrer que l’on a la relation d’homogénéité, (∀λ ∈ R), ϕ(λt, a) = ϕ(t, λa), ceci pour
+    tout t suffisamment petit de sorte que les deux termes soient définis.
+(2) En déduire qu’il existe η > 0 tel que si ∥a∥ < η, alors la courbe intégrale αa est définie
+    sur [−1; 1].
+                                                                                              3
+
+(3) Pour tout a ∈ B(0, η), on pose Φ(a) = αa (1) = ϕ(1, a). On suppose que les vecteurs
+    X1 (0), . . . , XN (0) forment une base de RN . Montrer que Φ est un difféomorphisme
+    local en 0.
+
+
+Exercice 6. Soit A : R → Mn (R) de classe C 1 et soit t 7→ α(t),            I → Mn (R) une
+solution de l’équation différentielle
+                                      α′ (t) = A(t)α(t).
+On suppose que pour tout t, la matrice A(t) est antisymétrique. Montrer que si α(t0 ) est
+une matrice orthogonale pour un certain t0 , alors α(t) est orthogonale pour tout t.
+
+
+Exercice 7. Soit A ∈ Mn (R). Considérons l’équation différentielle α′ (t) = −α(t)Aα(t).
+Montrer qu’il existe un intervalle J de R contenant ] − ∥A∥−1 ; ∥A∥−1 [ tel qu’il existe
+une solution de classe C ∞ de l’équation différentielle ci-dessus avec α(0) = In , et que sur
+l’intervalle ] − ∥A∥−1 ; ∥A∥−1 [, on a α(t) = (In + tA)−1 .
+
+
+Exercice 8. (1) Calculer la différentielle de A 7→ det(A) d’abord pour A ∈ GLn (R) puis
+    plus généralement pour A ∈ Mn (R).
+(2) En déduire que si t 7→ A(t) est de classe C 1 à valeurs dans GLn (R), alors
+                       d
+                          [t 7→ det(A(t))] = det(A(t)) Tr (A(t)−1 A′ (t))
+                      dt
+(3) Considérons un champ de vecteurs C 1 indépendant du temps sur un ouvert U de
+    Rn . Soit F son flot, que l’on suppose défini sur R × U. On pose Ft (x) = F (t, x). On
+    cherche une condition pour que les difféomorphismes Ft de U préservent le volume.
+    Cette propriété est équivalente à gx (t) = det(d(Ft )x ) = 1 pour tout t ∈ R et x ∈ U.
+    Montrer qu’une condition nécessaire et suffisante est Tr dXx = 0 pour tout x ∈ U.
+
+
+Exercice 9. Soit ϕ : U → U ′ un difféomorphisme entre deux ouverts de Rn . Soit X un
+champ de vecteurs de classe C ∞ sur U et F : D → U son flot. On définit un champ de
+vecteurs ϕ∗ X sur U ′ en posant
+                     (ϕ∗ X)(y) := dϕϕ−1 (y) (X(ϕ−1 (y))),     (y ∈ U ′ ).
+Montrer que le flot du champ de vecteurs ϕ∗ X sur U ′ est donné par
+                              ϕ ◦ F ◦ (IdR × ϕ−1 ) : D′ → U ′ ,
+où
+                          D′ = {(t, p) ∈ R × U ′ |(t, ϕ−1 (p)) ∈ D}.
+
+
+Exercice 10 (Redressement d’un champ de vecteurs). Soit X un champ de vecteurs de
+classe C ∞ sur un ouvert V de RN . Supposons que X(p0 ) ̸= 0 en un point p0 de V .
+Montrer qu’il existe un difféomorphisme ϕ : U → V ′ ⊂ V d’un ouvert V contenant 0 de
+RN sur un ouvert V ′ de V contenant p0 tel que ϕ(0) = p0 et
+                                ∂ϕ
+                   X(ϕ(x)) =        (x),    (x = (x1 , x2 , . . . , xn ) ∈ U).
+                                ∂x1
+4
+
+Exercice 11. Soit X un champ de vecteurs (ne dépendant pas du temps) de classe C 1
+sur un ouvert U de RN . Soit f : U → R une fonction de classe C 1 . On rappelle que le
+gradient de f au point a ∈ U est le vecteur ∇f (a) ∈ RN tel que pour tout h ∈ RN ,
+dfa (h) = ⟨∇f (a), h⟩ (le produit scalaire usuel de RN ).
+(1) Montrer que la fonction f est constante sur les courbes intégrales du champ de vecteurs
+    X si et seulement si le gradient de f en tout point a ∈ U est orthogonal au vecteur
+    X(a).
+    Soit X le champ de vecteurs défini sur R2 par X(x, y) = (y − y 5 , x).
+(2) Montrer que la fonction f : (x, y) 7→ 3x2 − 3y 2 + y 6 est constante sur les courbes
+    intégrales de X.
+(3) Quelles sont les courbes intégrales constantes de X ?
+(4) Tracez l’allure des courbes intégrales de X.
+
+
+Exercice 12 (Equation de transport). Soient A : R × Rn → Rn de classe C 1 telle que
+sup(t,x)∈R×Rn ∥A(t, x)∥ < +∞ et f0 : Rn → R également de classe C 1 . On considère
+l’équation aux dérivées partielles dite “équation de transport” :
+                                ∂f          ∂f
+                                   (t, x) +     (t, x)(A(t, x)) = 0,
+                                ∂t          ∂x
+avec la condition f (0, ·) = f0 sur Rn , d’inconnue f : R × Rn → R.
+(1) Soit f une solution de classe C 1 sur R × Rn , de donnée f0 . Trouver une formule pour
+    f en fonction de f0 et du flot associé à A ; justifier le nom d’équation de transport.
+(2) Montrer que l’équation de transport admet une unique solution de classe C 1 sur R×Rn ,
+    de donnée f0 .
+
+
+Exercice 13. La surface d’un fluide unidimensionnel est décrite par une fonction u(t, x)
+qui est la hauteur de fluide au temps t et au point x ∈ R. Dans une limite de petite
+amplitude, la dynamique de la vague est régie par l’équation de Korteweg-de-Vries (1895) :
+                             ∂t u + ∂x (∂xx u + up ) = 0, p ∈ {2, 3}
+où la valeur de p dépend du fluide. On cherche des solutions correspondant à la propagation
+sans déformation d’une vague
+                                       u(t, x) = Q(x − t).
+    1) Montrez qu’une condition suffisante est que le profil Q vérifie le système dynamique
+                                  Q′′ − Q + Qp = 0, x ∈ R.
+    2) On se propose de décrire toutes les solutions de
+                  (∗) Q′′ − Q + Qp = 0, Q(0) = a, Q′ (0) = b, Q = Q(t)
+pour p ∈ {2, 3}. Expliquez pourquoi il suffit d’étudier les solutions pour t > 0 et montrez
+que pour tout (a, b) ∈ R, il existe une unique solution maximale sur [0, T ), T = T (a, b).
+  3) Décrire toutes les solutions stationnaires en temps (points d’arrêt du système dyna-
+mique).
+  4) Montrez que l’énergie mécanique totale
+                                     1         1        1
+                             E(t) = (Q′ )2 − Q2 +           Qp+1
+                                     2         2      p+1
+                                                                                               5
+
+est conservée le long des trajectoires.
+   5) On suppose p = 3. Tracez dans le plan (Q, Q′ ) = (x, y) les lignes de niveau de
+                                 1                       1        1
+                      E(x, y) = y 2 − f (x), f (x) = x2 −             xp+1 .
+                                 2                       2      p+1
+En déduire que toutes les solutions sont globales en temps.
+   6) Montrez que les trajectoires sont périodiques en temps pour E ̸= 0. On pourra tracer
+le “portrait de phase”, c’est-à-dire tracer les trajectoires dans le plan (Q, Q′ ) en indiquant
+le sens de parcours.
+   7) Montrez que la solution pour E = 0 est “homocline” i.e.
+                                     lim (Q(t), Q′ (t)) = 0.
+                                   t→±∞
+                                                                             1
+Calculez Q(t) (on pourra introduire le changement de variable y =            p−1   ).
+                                                                         Q    2
+
+  8) Reprendre l’étude pour p = 2. On montrera en particulier que toutes les solutions
+avec E > 0 explosent en temps fini.
+  9) Discuter la stabilité de la solution homocline.
+

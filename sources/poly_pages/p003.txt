@@ -1,0 +1,25 @@
+iv                                                                          TABLE DES MATIÈRES
+
+     IX.4     Sous-variétés définies par des équations . . . . . . . . . . . . . . . . . . . . .      152
+     IX.5     Sous-variétés définies par des graphes . . . . . . . . . . . . . . . . . . . . . .      156
+     IX.6     Changements de paramétrage . . . . . . . . . . . . . . . . . . . . . . . . . . .        157
+     IX.7     Calcul différentiel sur les sous-variétés . . . . . . . . . . . . . . . . . . . . . .   159
+          IX.7.1 Applications différentiables sur les sous-variétés . . . . . . . . . . . . . . .     159
+          IX.7.2 Espace tangent . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .     160
+          IX.7.3 Différentielle d’une application différentiable . . . . . . . . . . . . . . . . .    162
+          IX.7.4 Difféomorphisme local. Inversion locale . . . . . . . . . . . . . . . . . . . .      165
+          IX.7.5 Points critiques. Maxima et minima locaux . . . . . . . . . . . . . . . . .          167
+          IX.7.6 Hessienne . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .    169
+     IX.8     Equations différentielles sur les sous-variétés . . . . . . . . . . . . . . . . . . .   171
+          IX.8.1 Champs tangents à une sous-variété . . . . . . . . . . . . . . . . . . . . .         171
+     IX.9     Exercices . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .   175
+
+Annexe                                                                                                178
+
+A       Sujets d’examen et problèmes                                                                  179
+
+Index                                                                                                 239
+
+Bibliographie                                                                                         240
+
+Bibliographie                                                                                         241

@@ -1,0 +1,68 @@
+110                                CHAPITRE V. CALCUL DIFFÉRENTIEL DANS LES E.V.N.
+
+    Montrons maintenant que Ψ est différentiable, la différentielle en un point étant donnée par
+la formule de l’énoncé. On reprend les mêmes notations que ci-dessus. Il s’agit de montrer que
+pour f = f0 + g proche de f0 ,
+
+                                    ∥f −1 − f0−1 + f0−1 gf0−1 ∥ = o(g).
+
+Or, on a vu que                                                       
+                                                             X
+                                        f −1 − f0−1 =             hn  f0−1 ,
+                                                             n≥1
+
+d’où
+                                                                                                   
+                                         X                                           X
+         f −1 − f0−1 + f0−1 gf0−1 =           hn  f0−1 + f0−1 gf0−1 =                  hn  + f0−1 g  f0−1
+                                         n≥1                                         n≥1
+                                                             
+                                                      X
+                                               =           hn  f0−1 .
+                                                      n≥2
+
+Ainsi
+                                                                              
+                                            X                          X                           ∥h∥2
+        ∥f −1 − f0−1 + f0−1 gf0−1 ∥ = ∥        hn  f0−1 ∥ ≤             ∥h∥n  ∥f0−1 ∥ =              ∥f0−1 ∥.
+                                                                                                 1 − ∥h∥
+                                          n≥2                        n≥2
+
+
+   Le terme de droite est bien un o(h), donc un o(g). Ceci montre que Ψ est différentiable en f0 ,
+de différentielle
+                          dΨf0 (g) = −f0−1 ◦ g ◦ f0−1 , (g ∈ L(E; F )).
+    L’application f 7→ dΨf est la composée de f 7→ f −1 , dont on a vu qu’elle est continue, de
+h 7→ (−h, h) de L(F ; E) dans L(F ; E) × L(F ; E), qui est linéaire continue, et de
+
+                         L × R : L(F ; E) × L(F ; E) → L(L(E; F ); L(F ; E)),
+
+                 (h1 , h2 ) 7→ L × R(h1 , h2 ) : L(E; F ) → L(F ; E),            g 7→ h1 ◦ g ◦ h2 ,
+qui est bilinéaire continue (car ∥L × R(h1 , h2 )∥ ≤ ∥h1 ∥ ∥h2 ∥), donc continue.
+    Elle est donc continue, ce qui montre que Ψ est de classe C 1 . Par récurrence, on montre que
+si Ψ est de classe C k , elle est de classe C k+1 ; elle est donc de classe C ∞ .
+
+V.5.5      Formule de Taylor
+   La formule de Taylor généralise le théorème fondamental du calcul infinitésimal V.4.7. Com-
+mençons par un lemme dont la démonstration est évidente.
+
+       Lemme V.5.9
+   Soit f une fonction d’un intervalle ouvert I contenant 0 et 1, à valeurs dans un espace de
+   Banach F et de classe C p+1 . On a alors
+
+                                    f ′′ (0)
+                                                                 Z 1
+                             ′                       f (p) (0)       (1 − t)p (p+1)
+            f (1) − f (0) − f (0) −          − ··· −           =             f      (t) dt.
+                                       2!               p!        0     p!
+
+
+Démonstration. Il suffit d’appliquer le théorème fondamental du calcul infinitésimal V.4.7 à la
+                          k                                                  p
+fonction g(t) = pk=0 (1−t)   (k) (t) = f (t) + (1 − t)f ′ (t) + · · · + (1−t) f (p) (t) qui est de classe C 1 ,
+               P
+                        k! f                                              p!
+                                    p
+en remarquant que g ′ (t) = (1−t)
+                              p! f
+                                   (p+1) (t).

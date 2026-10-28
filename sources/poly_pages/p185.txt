@@ -1,0 +1,71 @@
+182                                              ANNEXE A. SUJETS D’EXAMEN ET PROBLÈMES
+
+      Correction.
+
+     Exercice 1. Soit k la valeur de |f | sur C(0, 1). Si k = 0, alors d’après le principe du
+maximum, |f | est identiquement nulle et la conclusion voulue est vraie. Supposons k > 0, et
+supposons que f ne s’annule pas sur D(0, 1). Alors g = f1 est continue sur D̄(0, 1) et holomorphe
+sur D(0, 1). D’après le principe du maximum, supD̄(0,1) |g| = supC(0,1) |g| = k1 . On a donc
+inf D̄(0,1) |f | = k = supD̄(0,1) |f | (la dernière égalité en vertu du principe du maximum) d’où |f |
+est constante égale à k sur D̄(0, 1) ; comme D(0, 1) est connexe, f est elle-même constante, de
+module k.
+
+      Exercice 2.
+   1. D’après le cours, le rayon de convergence est au moins égal à |ξ0 | = 1, et il ne peut être
+      plus grand, sinon f se prolongerait en ξ0 , ce qui n’est pas le cas par hypothèse.
+   2. En considérant le développement en série de Laurent de f en ξ0 , on voit que si l’on prend
+      α = Resξ0 (f ), g est holomorphe en ξ0 .
+   3. La
+      P fonction    g étant maintenant holomorphe sur D, le rayon de convergence de la série
+                n
+        n∈N bn z est au moins égal à R. On sait que ce rayon est
+
+                                       ρ = sup{r > 0 |(bn rn )n∈N est bornée}.
+
+      Donc pour r ∈]1, R[ fixé, il existe une constante M > 0 telle que |bn rn | ≤ M , on en déduit
+      que limn→∞ bn = 0.
+   4. On a pour tout z ∈ D(0, 1)
+                    X                          α      X          α       1        X
+          g(z) =          bn z n = f (z) −          =   an z n +                =   (an + αξ0−n−1 )z n
+                                             z − ξ0              ξ0 1 − (z/ξ0 )
+                    n∈N                               n∈N                        n∈N
+
+       On a donc an = bn − αξ0−n−1 et comme limn→∞ bn = 0 et |ξ0 | = 1, on a limn→∞ |an | =
+       |α| ̸= 0, la non-nullité de α venant de ce que ξ0 est un pôle simple. On en déduit que an est
+       non nul à partir d’un certain rang. De plus
+
+                                         an+1   bn+1 − αξ0−n−2
+                                              =         −n−1 −  −−→ ξ0−1 .
+                                          an     bn − αξ0      n→∞
+
+
+
+      Exercice 3.
+   1. L’unicité est évidente car Ω est connexe. ROn remarque aussi que Ω est étoilé en 0, la fonction
+                                                       1
+      f cherchée est donc donnée par z 7→ [0,z] 1+ω      2 dω. On paramètre le segment [0, z] par
+
+      γ(t) = tz, t ∈ [0, 1] et donc
+                                                  Z 1
+                                                         1
+                                          f (z) =          2 2
+                                                               z dt.
+                                                   0 1+t z
+                               1       P∞         n 2n et par intégration terme à terme f (z) =
+   2. On a sur D(0, 1), 1+z       2 =    n=0 (−1) z
+      P∞ (−1)n 2n+1
+         n=0 2n+1 z      . Le rayon de convergence est 1.
+   3. Non. Supposons que ce soit le cas, et appellons g cette primitive. Soit γ : [0, 2π] → C,
+      t 7→ eit + i. On a alors d’une part :
+                      Z
+                             1
+                                 2
+                                   dω = g(γ(2π)) − g(γ(0)) = g(1 + i) − g(1 + i) = 0,
+                       γ 1+ω
+
+       et d’autre part le théorème des résidus donne
+                                            Z
+                                                 1
+                                                   2
+                                                     dω = π
+                                             γ 1+ω

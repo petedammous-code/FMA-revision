@@ -1,0 +1,59 @@
+                                                                                                      217
+
+f (x′ ) = f (z), c’est -à-dire Sz ∩ U = {x}. Ainsi Sz est discret. On a donc Sz discret et compact
+donc fini.
+    4. D’abord, la fonction x 7→ −(dfx )−1 (f (x) − f (z)) est de classe C 1 par hypothèse. On peut
+donc appliquer le théorème de Cauchy-Lipschitz : toute solution maximale est définie sur un
+intervalle ]a, b[ avec a ∈ [−∞, 0[ et b ∈]0, +∞]. Posons F (t) := ∥f (x(t)) − f (z)∥2 . On a
+
+                   F ′ (t) = 2 f (x(t)) − f (z) , dfx(t) x′ (t)
+                                                               
+
+                        = −2 f (x(t)) − f (z) , dfx(t) ◦ (dfx(t) )−1 (f (x(t)) − f (z))
+                        = −2F (t).
+
+Ainsi onpa F (t) = F (0) exp(−2t) ∈ [0, F (0)] dèsp
+                                                  lors que x(t) est bien définie, et donc f (x(t)) ∈
+                                     −1
+B̄(f (z), F (0)), ou encore x(t) ∈ f (B̄(f (z), F (0))), qui est compact puisque f est propre.
+Ainsi x est bornée en temps positifs et le lemme des bouts implique que b = +∞.
+   5. Posons y(t) := f (x(t)) − f (z), pour tout t ∈ I. On a y ′ (t) = −y(t), d’où y(t) = y(0) exp(−t)
+avec y(0) = f (x0 ) − f (z) et limt→+∞ y(t) = 0.
+    6. D’après le théorème d’inversion locale, il existe δi > 0 tel que f induise un difféomorphisme
+de B(zi , δi ) sur son image, qui est un voisinage ouvert V de f (zi ) = f (z). Notons φ l’inverse de
+cette restriction, et quitte à diminuer δi , supposons y(0) = f (x0 ) − f (z) assez petit pour que le
+segment {f (z) + sy(0) ; s ∈ [0 ; 1]} soit contenu dans V — c’est ici, et seulement ici, que sert
+l’hypothèse x0 ∈ B(zi , δi ). Posons alors, pour t ≥ 0,
+
+                                      h(t) := φ f (z) + y(0)e−t .
+                                                                
+
+
+C’est une fonction de classe C 1 à valeurs dans B(zi , δi ), qui vérifie h(0) = φ(f(x0 )) = x0 et, en
+dérivant f (h(t)) = f (z) + y(0)e−t , dfh(t) (h′ (t)) = −y(0)e−t = − f (h(t)) − f (z) : c’est donc une
+solution de (Ez ) de condition initiale x0 . Par unicité dans le théorème de Cauchy-Lipschitz, x = h
+sur [0 ; +∞[, et
+                              x(t) = h(t) → φ(f (z)) = zi (t → +∞).
+
+   7. Soit x0 ∈ Rn . On a montré dans la question 4 que x([0, +∞[) est contenu dans un compact
+K de Rn . Prenons une suite (tn )n quelconque qui tend vers +∞. Quitte à extraire une sous-suite,
+on peut supposer que (x(tn ))n converge lorsque n → ∞.
+    On a vu aussi que F (t) = ∥f (x(t)) − f (z)∥2 , alors F (t) = F (0) exp(−2t), de sorte que
+F (t) → 0, lorsque t → +∞, c’est-à-dire qu’il existe 1 ≤ i ≤ m tel que x(tn ) → zi , lorsque
+n → +∞. Il existe donc n ≥ 1 tel que x(tn ) ∈ B(zi , δi ). D’après la question précédente, la solution
+maximale xtn de l’équation (Ez ) de condition initiale (tn , x(tn )) satisfait limt→∞ xtn (t) = zi . Mais,
+par unicité de la solution maximale à condition initiale donnée, cette solution n’est autre que
+t 7→ x(t + tn ) et donc on a limt→+∞ x(t) = limt→+∞ x(t + tn ) = zi , comme attendu.
+    8. Le fait que Ai soit bien défini vient de l’unicité de la solution maximale à condition initiale
+donnée. Supposons x0 ∈ Ai . Alors il existe t0 ≥ 0 tel que x(t0 ) ∈ B(zi , δi /2). D’après le théorème
+de Cauchy-Lipschitz, la solution maximale dépend continûment de la condition initiale donc il
+existe η > 0 tel que pour tout y0 ∈ B(x0 , η), la solution maximale y de (Ez ) de condition initiale
+y(0) = y0 vérifie |y(t0 ) − x(t0 )| < δi /2, et donc y(t0 ) ∈ B(zi , δi ). D’après ce qu’on a vu, on a donc
+y(t) → zi , lorsque t → +∞, i.e. B(x0 , η) ⊂ Ai et Ai est bien ouvert.
+    9. Pour conclure, on remarque qu’on a montré que Rn = i Ai et que les Ai sont des ouverts
+                                                                      S
+disjoints, puisque les zi sont deux à deux distincts (unicité de la limite). Chacun est non vide,
+puisque zi ∈ Ai : les Ai forment donc une partition de Rn en ouverts non vides, et par connexité
+de Rn il n’y en a qu’un seul, c’est-à-dire m = 1. Comme ceci est vrai pour z quelconque, on a
+bien montré que f est injective. On a déjà montré que f est surjective, elle est donc bijective et
+le théorème d’inversion locale permet de conclure : f est un C 2 difféomorphisme.

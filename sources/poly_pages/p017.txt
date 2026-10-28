@@ -1,0 +1,54 @@
+14                                                CHAPITRE I. FONCTIONS HOLOMORPHES
+
+       Proposition I.4.4
+     Soit f ∈ Hol(Ω) et z0 ∈ Ω tel que f ′ (z0 ) ̸= 0. Alors, il existe un ouvert Ω1 ⊂ Ω contenant
+     z0 tel que :
+       (i) le sous-ensemble Ω2 := f (Ω1 ) est un ouvert de C ;
+
+      (ii) la restriction de f à Ω1 est une application biholomorphe de Ω1 sur Ω2 .
+
+
+Démonstration. Par hypothèse, la jacobienne de la fonction f au point z0 est une similitude
+de rapport non nul, c’est donc un isomorphisme. Le théorème d’inversion locale nous permet
+d’affirmer qu’il existe un ouvert Ω1 ⊂ Ω contenant z0 tel que le sous ensemble Ω2 := f (Ω1 ) est
+un ouvert de C et tel que la restriction de f à Ω1 est un C 1 -difféomorphisme de Ω1 sur Ω2 ,
+c’est-à-dire une bijection de Ω1 sur Ω2 dont la réciproque f −1 est une fonction de classe C 1 (au
+sens réel, comme fonction des deux variables x et y).
+    En particulier, pour tout z ∈ Ω1 , la matrice jacobienne de f −1 en f (z) est l’inverse de la
+matrice jacobienne de f en z (ce qui impose d’ailleurs que f ′ (z) ̸= 0 pour tout z ∈ Ω1 ). C’est donc,
+elle aussi, la matrice d’une similitude directe, à savoir celle de la multiplication par 1/f ′ (z), ce
+qui, d’après la proposition I.2.3, prouve que la fonction f −1 est holomorphe. Sa dérivée complexe
+est alors donnée par
+                                                       1
+                                         (f −1 )′ = ′       .
+                                                   f ◦ f −1
+
+
+
+    Une application intéressante du résultat que nous venons tout juste de démontrer est la
+suivante :
+
+       Corollaire I.4.5
+     L’exponentielle complexe z 7→ ez est un biholomorphisme local, dont l’image est C× :=
+     C\{0}. En particulier, pour tout point z0 ∈ C× , on peut définir localement (par exemple sur
+     un disque D(z0 , r) assez petit contenu dans C× ) un « logarithme complexe » z 7→ Log(z)
+     (dépendant du choix d’un antécédent de z0 par exp) holomorphe.
+
+
+Démonstration. Comme C× est connexe par arcs (donc connexe), il suffit de démontrer que Ω,
+l’image de C par l’application exponentielle, est à la fois non vide (facile), ouvert et fermé dans
+C× .
+   Remarquons d’abord que ez e−z = e0 = 1 : l’exponentielle ne s’annule donc pas et Ω est bien
+contenu dans C× . De plus 1 = e0 ∈ Ω, qui est ainsi non vide.
+    Étant donné que la dérivée de la fonction exponentielle ne s’annule jamais, Ω est d’après le
+théorème d’inversion locale un voisinage ouvert de chacun de ses points. Donc Ω est un ouvert de
+C× .
+     La relation
+                                           ez1 +z2 = ez1 ez2
+implique en particulier que Ω est un sous-groupe (multiplicatif) de C× .
+   Supposons maintenant que z ∈ C× \ Ω. Alors z Ω := {z w : w ∈ Ω} ⊂ C× \ Ω car si
+z0 ∈ z Ω ∩ Ω, on peut écrire z0 = z u = v avec u, v ∈ Ω et donc z = v/u ∈ Ω, ce qui nous
+donne une contradiction. Mais z Ω est un sous-ensemble ouvert (tout comme Ω) de sorte que le
+complémentaire de Ω,                            [
+                                    C× \ Ω =        z Ω,
+                                                   z∈C× \Ω

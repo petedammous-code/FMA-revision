@@ -1,0 +1,63 @@
+                                                                                                       215
+
+.
+
+                                                                                              ̸ 0:
+    Exercice 2. 1. Si ω = 0, ϕ0 est l’identité et il n’y a rien à démontrer. Supposons donc ω =
+le seul pôle de ϕω est ω̄ −1 , qui est de module > 1. La fonction ϕω est donc holomorphe sur
+D(0, |ω −1 |) qui contient D̄. En vertu du principe du maximum,
+
+                                                                  eit − ω
+                                   sup |ϕω | = sup |ϕω | = sup            it
+                                                                             .
+                                    D̄            C           t∈R 1 − ω̄e
+
+Mais
+                             eit − ω    eit (1 − ωe−it )               (1 − ω̄eit )
+                                      =                  = eit                      =1
+                            1 − ω̄eit       1 − ω̄eit                   1 − ω̄eit
+Donc supD̄ |ϕω | = 1 et toujours d’après le principe du maximum, si ce sup est atteint sur D, alors
+ϕω doit être constante, ce qui n’est pas le cas. On en déduit que |ϕω (z)| < 1 si z ∈ D, ou de
+manière équivalente ϕω (D) ⊂ D.
+   2. On a pour tout z ∈ D, |1 − ȳn z| ≥ 1 − |ȳn z| ≥ 1 − |z| (inégalité triangulaire), d’où l’inégalité
+voulue par passage à l’inverse. Ensuite
+                                         |yn | z − yn       |yn |(yn − z) − yn (1 − ȳn z)
+                   |Fn (z) − 1| = −                    −1 =
+                                          yn 1 − ȳn z               yn (1 − ȳn z)
+
+        |yn |yn − |yn |z − yn + |yn |2 z)   (|yn | − 1)yn + |yn |z(|yn | − 1)   (|yn | − 1)(yn + |yn |z)
+    =                                     =                                   =
+                 yn (1 − ȳn z)                       yn (1 − ȳn z)                  yn (1 − ȳn z)
+                                          |yn |      1                                 1
+                    = (1 − |yn |) 1 +           z           ≤ (1 − |yn |)(1 + |z|)           ,
+                                           yn     1 − ȳn z                        (1 − |z|)
+ce qui est l’inégalité demandée.
+   Soit K un compact de D. Il existe r < 1 tel que K ⊂ D(0, r) et donc |z| ≤ r pour tout z ∈ K.
+On a donc, par hypothèse sur la suite (yn )n∈ N ,
+                  ∞                      ∞                                ∞
+                  X                      X               1 + |z|   1+r X
+                        |Fn (z) − 1| ≤       (1 − |yn |)         ≤       (1 − |yn |) < +∞
+                                                         1 − |z|   1−r
+                  n=0                    n=0                             n=0
+
+Ainsi, les hypothèses du théorème sur les produits infini de fonctions holomorphes sont vérifiées
+et l’on en déduit que F est une fonction holomorphe sur D, bien définie, dont les zéros sont
+exactement les zéros des Fn (comptés avec leur multiplicité) c’est-à-dire les zéros des ϕyn , soit
+encore les valeurs prises par la suite (comptées avec leur multiplicité). Notons que comme
+limn∞ |yn | = 1, chaque valeur prise par la suite n’est prise qu’un nombre fini de fois.
+   4. On a vu en 1. que |ϕω (z)| < 1 pour tout z dans D. On a donc aussi |Fn (z)| < 1 pour tout
+n ∈ N et tout z ∈ D, et ainsi
+                                         N
+                                         Y
+                                            Fn (z) < 1.
+                                                  n=0
+
+En passant à la limite lorsque N tend vers l’infini, on obtient |F (z)| ≤ 1 pour tout z ∈ D. Si la
+valeur 1 est atteinte, le principe du maximum nous dit que F est constante. Comme elle s’annule,
+par exemple en y0 , alors F est identiquement nulle, or ce n’est pas le cas, car les valeurs de la
+suite (yn )n∈N ne remplissent pas le disque (pour une raison de cardinalité) Donc on a |F (z)| < 1
+pour tout z ∈ D.
+
+    Exercice 3. 1. La suite (fn )n∈N est uniformément bornée, puisqu’elle est à valeurs dans Ω qui
+est bornée. Le théorème de Montel donne l’existence d’une sous-suite localement uniformément
+convergente, de limite, disons f dans Hol(Ω) et à valeurs dans Ω. On a f (a) = b par passage à

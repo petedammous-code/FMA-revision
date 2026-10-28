@@ -1,0 +1,61 @@
+232                                          ANNEXE A. SUJETS D’EXAMEN ET PROBLÈMES
+
+  2. Si q = (qj )j∈Z est une suite d’éléments de Λ, et si ε est un nombre réel > 0, on dit que
+     que q est une ε-pseudo-orbite de φ dans Λ, ou plus simplement une ε-pseudo-orbite, si on a
+     ∥qj+1 − φ(qj )∥ ≤ ε pour tout j ∈ Z.
+
+       (a) Soit η un nombre réel > 0. Vérifier qu’il existe ε0 > 0 tel que pour toute ε0 -pseudo-
+                                                   +                         −
+           orbite q = (qj )j∈Z , on ait ∥Pq+j+1 − Pφ(qj)
+                                                         ∥ < η et ∥Pq−j+1 − Pφ(qj)
+                                                                                   ∥ < η.
+
+      Dans la suite du problème, on fixe un nombre réel ε0 > 0 ayant la propriété ci-dessus, et on
+      fixe une ε-pseudo-orbite q = (qj )j∈Z pour le difféomorphisme φ, pour un certain 0 < ε < ε0 ,
+      ainsi qu’une famille (Nx )x∈Λ de normes sur Rn vérifiant les propriétés énoncées en 1.(e).
+
+       (b) Soit V = ℓ∞ (Z, Rn ) l’espace vectoriel des suites bornées (xj )j∈Z d’éléments de Rn ; on
+           munit V de la norme définie par ∥(xj )j∈Z ∥ = supj∈Z Nqj (xj ).
+           Fixons un élément g = (gj )j∈Z de V et définissons
+
+                                                      Φg : V → V
+
+           de la manière suivante : si x = (xj )j∈Z ∈ V, alors Φg (x) = (zj+ + zj− )j∈Z avec
+                                                           h               i
+                 z +                                                +
+                         = dφqj−1 (Pq+j−1 xj−1 ) + Pq+j gj + Pq+j − Pφ(q
+                   j                                                       ) dφqj−1 (xj−1 );
+                                                                        j−1h
+           (∗)                                                                              i
+                 z −    = dφ−1    −
+                                                 −    −1 P − g          −1 P − − P −
+                   j         qj (P φ(qj ) xj+1 )   dφ qj qj+1 j+1  + dφ qj    qj+1    φ(qj ) (xj+1 − dφqj (xj )).
+
+           Montrer que V est un espace de Banach et que si ε et η sont suffisamment petits, alors
+           l’application Φg est contractante.
+       (c) Soit Ψ : V → V l’application linéaire définie par Ψ((xj )j∈Z ) = (dφqj−1 (xj−1 ))j∈Z .
+           Déduire de (b) que si ε est suffisamment petit, alors l’application Θ = IdV − Ψ est un
+           automorphisme de V (c’est-à-dire que Θ est continue, bijective, d’inverse continue).
+
+
+  3. Soit q = (qj )j∈Z une suite de points de Rn , et soit δ > 0. Si p = (pj )j∈Z est une suite de
+     points de Rn , on dit que p est une δ-filature de q (pour φ) si l’on a ∥pj − qj ∥ ≤ δ pour tout
+     j ∈ Z et si p est de plus une orbite de φ, c’est-à-dire vérifie pj+1 = φ(pj ) pour tout j ∈ Z.
+
+      Le but de cette question est de démontrer l’assertion suivante :
+
+                             Si δ > 0 est suffisamment petit, il existe ε > 0 tel que
+                        toute ε-pseudo-orbite de φ dans Λ admet une unique δ-filature.
+
+      Pour tout r > 0, notons B(r) la boule fermée de centre 0 et de rayon r dans l’espace normé
+      V. Fixons par ailleurs un nombre α ∈]0, 1[ vérifiant α∥Θ−1 ∥ < 12 , où ∥Θ−1 ∥ est la norme
+      d’opérateur de l’application Θ−1 : V → V définie en 2(c).
+      Fixons un nombre ε > 0, ainsi qu’une ε-pseudo-orbite q = (qj )j∈Z de φ dans Λ.
+
+       (a) Soit r > 0 et soit F une application de B(r) dans V. On suppose que F est α-
+           lipschitzienne et vérifie ∥F (0)∥ ≤ α r. Démontrer que l’application G = Θ−1 ◦ F vérifie
+           G(B(r)) ⊂ B(r), puis qu’elle admet un unique point fixe x0 dans B(r), qui vérifie de
+           plus ∥x0 ∥ ≤ 2∥Θ−1 ∥∥F (0)∥.
+       (b) Pour tout j ∈ Z, définissons fj : Rn → Rn par fj (h) = φ(qj + h) − qj+1 − dφqj (h). Si
+           x = (xj )j∈Z est un élément de V, posons F (x) = (fj−1 (xj−1 ))j∈Z . Démontrer que x
+           est un point fixe de Θ−1 ◦ F si et seulement si la suite q + x est une orbite de φ.

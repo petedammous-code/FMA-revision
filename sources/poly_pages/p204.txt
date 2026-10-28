@@ -1,0 +1,66 @@
+                                                                                                     201
+
+                        2
+   Donc pour |z| < Nr+r suffisamment petit, on a
+
+                   X X                                   X  |z| n X n N k
+                                                 n
+                               |fk | |Pk,n ||z| ≤ M
+                                                            r            k rk
+                   n≥0 0≤k≤n                             n≥0       0≤k≤n
+                                                        X  |z|   N    n
+                                                     =M                +1     < +∞.
+                                                              r      r
+                                                         n≥0
+
+
+4. Si x satisfait (⋆), alors on a pour tout n ≥ 0
+
+                             (n + 1)xn+1 = Qn (f0 , f1 , . . . , fn , x1 , . . . , xn ).
+
+   Ceci donne x1 = f0 , et par récurrence sur n, que xn est un polynôme à coefficients positifs
+   ou nuls en les f0 , f1 , . . . , fn−1 . Il existe donc un voisinage W ⊂ V de 0 sur lequel (⋆) admet
+   au plus une solution.
+5. En supposant f ≪ g, on a pour tout n
+
+                      xn = Rn (f0 , f1 , . . . , fn−1 ) et yn = Rn (g0 , g1 , . . . , gn−1 ).
+
+   Comme les coefficients de Rn sont des réels positifs, on a yn ≥ 0 pour tout n et puisque
+   |fi | ≤ gi pour tout i, on obtient
+
+                    |xn | ≤ Rn (|f0 |, |f1 |, . . . , |fn−1 |) ≤ Rn (g0 , g1 , . . . , gn−1 ) = yn
+
+   et ceci montre que x ≪ y.
+6. Définissons x0 P= 0 et pour n > 0, xn := Rn (f0 , f1 , . . . , fn−1 ). On veut montrer que la série
+   entière x(z) = n≥0 xn z n admet un rayon de convergence strictement positif. Cela conclura
+   car par construction de Rn , on aura alors que les coefficients du développement de la série
+   entière f (x(z)) et de x′ (z) en 0 sont identiques, et que par conséquent ces deux fonctions
+   coïncident sur un voisinage de l’origine.
+   Pour montrer l’estimation sur le rayon de convergence du développement en série de x(z),
+   on utilise que celui de f a un rayon de convergence strictement positif, il existe donc a, b > 0
+                       n                                  n
+                                                                     P      n      a
+   tels que |fn | ≤ ab pour tout n. On pose gn = ab et g(z) =           gn z = 1−bz   . L’équation
+                   ′
+   différentielle y (z) = g(y(z)) avec condition initiale y(0) = 0 se résout explicitement par la
+   suite d’opérations
+                                                        a
+                                          y ′ (z) =
+                                                    1 − by(z)
+                                    Z
+                                         y ′ (u)(1 − by(u))du = az
+                                         [0,z]
+
+                                               b
+                                       y(z) − y(z)2 = az
+                                               2
+                                             2       2a
+                                   y(z)2 − y(z) + z = 0
+                                             b        b
+                                            1     √
+                                   y(z) = (1 − 1 − 2abz)
+                                            b
+   où on choisit la détermination de la racine carrée au voisinage de 1 qui vaut 1 en 1. Cette
+   fonction admet un développement en série entière de rayon strictement positif. Or f ≪ g,
+   donc x ≪ y d’après la question (5), et donc x admet un rayon de convergence strictement
+   positif également.

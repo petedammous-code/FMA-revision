@@ -1,0 +1,65 @@
+III.6. QUELQUES EXEMPLES                                                                         69
+
+                                                                             2
+  Exemple III.6.1 : Euler, 1740 — Considérons la fonction g : z 7→ sin2π(πz) . Elle est méro-
+  morphe sur C, avec pour pôles les nombres entiers (relatifs). Elle est périodique de période
+  1 et donc l’étude locale des pôles se réduit à l’étude en 0. On écrit sous la forme
+
+                                           π2            1
+                               g(z) =      2     = 2
+                                        sin (πz)  z (1 + z 2 g1 (z))
+
+  où g1 est une fonction holomorphe sur C. Ainsi (1 + z 2 g1 (z))−1 est holomorphe       dans
+  un voisinage de 0 et admet un développement en série de la forme 1 + n≥2 cn z n . Le
+                                                                             P
+                                            2
+  développement en série de Laurent de sin2π(πz) est donc de la forme z12 + n≥0 cn+2 z n . Par
+                                                                           P
+                                                              1
+  périodicité, la partie singulière au pôle n ∈ Z est donc (z−n) 2.
+                                                            1
+  Fixons R > 0. Pour tout n ∈ Z avec |n| > R, fn : z 7→ (z−n) 2 est holomorphe sur D(0, R) et
+                     1              P
+  ∥fn ∥D̄(0,R) ≤ (|n|−R)2 . La série |n|>R fn est donc normalement convergente sur D̄(0, R) et
+                                                                                      P
+  y définit une fonction holomorphe sur D(0, R) d’après le théorème III.1.4. La série n∈Z fn
+  définit donc une fonction méromorphe sur D(0, R)   Pavec pour pôles les n ∈ Z, |n| ≤ R. Ceci
+  étant valable pour tout R > 0, on a obtenu que n∈Z fn définit une fonction méromorphe
+  f sur C avec pour pôles les n ∈ Z.
+                                         2
+  Considérons la fonction h : z 7→ sin2π(πz) − n∈Z (z−n)1
+                                               P
+                                                          2 = g(z) − f (z). C’est une fonction
+
+  méromorphe sur C avec comme pôles éventuels les n ∈ Z, mais en chacun de ses points, la
+  partie singulière du développement de Laurent est en fait nulle. Cette fonction se prolonge
+  donc en une fonction holomorphe sur C. On va montrer en utilisant le théorème de Liouville
+  que cette fonction est nulle. Il s’agit donc de montrer qu’elle est bornée. Comme elle est
+  périodique de période 1, il suffit de montrer qu’elle est bornée dans la bande verticale
+  B = {z ∈ C| ℜe(z) ∈ [0, 1]}. Pour z ∈ B et pour tout n ∈ Z \ {−1, 0, 1},
+
+                  |z − n|2 ≥ |ℜe(z) − n|2 ≥ (|ℜe(z)| − |n|)2 ≥ (|n| − 1)2 > 0.
+                       P                  1
+  Comme la série         n∈Z\{−1,0,1} (|n|−1)2 converge, on a convergence uniforme de
+  P
+  Pn∈Z\{−1,0,1} fn sur B, et comme limz∈B→∞ fn (z) = 0 pour tout n, il en est de même de
+    n∈Z fn . On a aussi pour tout z ∈ C,
+
+      2| sin2 (πz)| = 2 sin(πz)sin(πz) = 2 sin(πz) sin(πz̄) = cos(π(z − z̄)) − cos(π(z + z̄))
+
+             = cos(2iπ ℑm(z)) − cos(2π ℜe(z)) = cosh(2πℑm(z)) − cos(2πℜe(z))
+  Or la fonction z 7→ − cos(2πℜe(z)) est bornée dans B et limz∈B→∞ | cosh(2πℑm(z))| = +∞.
+                             2
+  On a donc limz∈B→∞ | sin2π(πz) | = 0. On en déduit que h est bornée sur C et donc constante.
+  Cette constante est nulle puisqu’on a vu que limz∈B→∞ h = 0. On a donc établi la jolie
+  formule :
+                                       π2     X      1
+ (III.6.1)                             2    =             .
+                                    sin (πz) n∈Z (z − n)2
+
+
+  Exemple III.6.2 : Formule de la cotangente — La fonction
+
+                                                        cos(πz)
+                                   z 7→ π cot(πz) = π
+                                                        sin(πz)

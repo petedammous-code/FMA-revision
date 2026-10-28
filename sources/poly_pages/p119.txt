@@ -1,0 +1,52 @@
+116                      CHAPITRE VI. INVERSION LOCALE ET FONCTIONS IMPLICITES
+
+ce qui montre que x est un point fixe de T . Ce point fixe est clairement unique, car si x1 ̸= x est
+un autre point fixe,
+                                 d(x1 , x) = d(T (x1 ), T (x)) ≤ a d(x1 , x),
+
+ce qui est impossible.
+
+
+
+    Donnons maintenant une première version à paramètre, établissant la continuité du point fixe
+en fonction du paramètre.
+
+       Théorème VI.1.2 — Point fixe de Banach à paramètre I
+   Soient Λ un espace topologique, (X, d) un espace métrique complet et
+
+                                              g : Λ×X →X
+
+   une application continue. Soit a ∈ [0 ; 1[. On suppose que pour tout λ ∈ Λ, l’application
+
+                                       gλ : X → X,       x 7→ g(λ, x)
+
+   est a-lipschitzienne. Alors, pour tout λ ∈ Λ, l’application gλ admet un unique point fixe
+   φ(λ) et l’application Λ → X, λ 7→ φ(λ) est continue.
+
+
+
+Démonstration. D’après le théorème précédent, quel que soit λ ∈ Λ, gλ admet un unique point
+fixe φ(λ). On a, quels que soient λ1 , λ2 ∈ Λ,
+
+           d(φ(λ1 ), φ(λ2 )) = d(g(λ1 , φ(λ1 )), g(λ2 , φ(λ2 )))
+                             ≤ d(g(λ1 , φ(λ1 )), g(λ2 , φ(λ1 ))) + d(g(λ2 , φ(λ1 )), g(λ2 , φ(λ2 )))
+                             ≤ d(g(λ1 , φ(λ1 )), g(λ2 , φ(λ1 ))) + a d(φ(λ1 ), φ(λ2 ))),
+
+d’où
+                       (1 − a) d(φ(λ1 ), φ(λ2 )) ≤ d(g(λ1 , φ(λ1 )), g(λ2 , φ(λ1 ))).
+
+De la continuité de λ 7→ g(λ, x) pour x fixé, on déduit la continuité de λ 7→ φ(λ).
+
+
+
+    Donnons enfin une version établissant la différentiabilité de λ 7→ φ(λ). Ceci demande bien sûr
+quelques hypothèses supplémentaires. Il est utile de définir la différentiabilité d’une fonction, ou
+son caractère C p sur des parties d’un espace vectoriel normé autres que des ouverts. La définition
+suivante est commode :
+
+       Définition VI.1.3
+   On dit qu’une application f définie sur une partie X d’un espace vectoriel normé E
+   et à valeurs dans un espace vectoriel normé F est différentiable (resp. de classe C p ,
+   p ∈ N ∪ {+∞}), s’il existe un voisinage ouvert U de X dans E et une application g
+   différentiable (resp. de classe C p ) de l’ouvert U à valeurs dans F telle que f soit la
+   restriction de g à X.

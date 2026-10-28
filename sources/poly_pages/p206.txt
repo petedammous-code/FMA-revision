@@ -1,0 +1,70 @@
+                                                                                                          203
+
+ (6) Montrer que l’on a pour n ≥ 0
+               Z +∞                                            Z +∞
+                                    −2iπ(n+1)(t−iε)
+                      f (t − iε)e                       dt =           f (t)e−2iπ(n+1)t dt = fˆ(n + 1).
+                −∞                                              −∞
+
+     et trouver une formule analogue liant limN →+∞ γ3,N f (z)g(z)dz et les fˆ(n) pour n ≤ 0.
+                                                   R
+
+ (7) Conclure (formule de Poisson) que n∈Z f (n) = n∈Z fˆ(n) .
+                                        P           P
+
+
+                                          Partie B : Fonction θ
+
+                                                 −πn2 t et considérons la fonction f (z) = e−πz 2 t .
+                                          P+∞
+   Posons pour tout t > 0, θ(t) =          n=−∞ e                                   t
+                                   2
+ (1) Montrer que fˆt (u) = √1t e−πu /t . (On pourra intégrer la fonction ft le long du rectangle
+     dont les sommets sont les points −R, R, R + t−1 iu, −R + t−1 iu . Rappelons aussi que
+                                          
+     R +∞ −y2      √
+      −∞ e     dy = π.)
+ (2) En déduire que pour tour t > 0, θ(t) = √1t θ t−1 .
+                                                      
+
+
+                                     Partie C : Fonction ζ et L
+
+   Pour tout r ∈ R on note Ur := {s ∈ C | σ := ℜ(s) > r}. Sur U1 on considère la série de
+fonctions                                   X 1
+                                     ζ(s) =       .
+                                               ns
+                                                          n⩾1
+
+ (1) Montrer que cette série converge normalement sur tout ouvert U1+δ avec δ > 0.
+ (2) En déduire que ζ(s) est holomorphe sur U1 .
+ (3) On considère la fonction L définie sur U1 par L(s) = π −s/2 Γ(s/2)ζ(s). Montrer que pour
+     tout s ∈ U1 et pour tout n ∈ N∗ on a
+                                               Z +∞
+                               1 −s/2                    2
+                                 π    Γ(s/2) =       e−πn t t(s/2)−1 dt.
+                              ns                 0
+
+ (4) En déduire que pour tout s ∈ U1 on a
+                                               Z +∞                              
+                                                                       θ(t) − 1
+                                     L(s) =             t(s/2)−1                      dt.
+                                                0                         2
+
+ (5) En utilisant l’équation fonctionnelle de la fonction θ, montrer que pour tout s ∈ U1 on a
+                                                Z +∞ 
+                            1  1 1                                             
+                  L(s) =      − +                          t−(s+1)/2 + t(s/2)−1 (θ(t) − 1) dt.
+                           s−1 s 2                  1
+
+ (6) Montrer que la fonction définie par
+                                          Z +∞ 
+                                      1                                 
+                           g(s) =                   t−(s+1)/2 + t(s/2)−1 (θ(t) − 1) dt
+                                      2    1
+
+     est holomorphe sur C.
+ (7) En déduire que la L s’étend en une fonction méromorphe sur C, avec pour seuls pôles des
+     pôles d’ordre 1 en 0 et 1 . Montrer de plus que L vérifie
+
+                                      L(s) = L(1 − s) ∀s ∈ C\{0, 1}.

@@ -1,0 +1,59 @@
+V.4. THÉORÈMES DE LA MOYENNE                                                                           105
+
+Démonstration. Ceci découle directement du théorème si U est convexe. Le cas d’un ouvert U
+connexe s’en déduit en utilisant le fait qu’un espace vectoriel normé est localement convexe (tout
+point admet un voisinage convexe aussi petit que l’on souhaite). Ainsi, l’hypothèse implique
+que f est localement constante. Or une fonction localement constante sur un ouvert connexe est
+constante. Les détails sont laissés au lecteur.
+
+V.4.2     Théorème fondamental du calcul différentiel
+    Pour énoncer ce théorème, il faut disposer d’une théorie de l’intégration d’une fonction définie
+sur un intervalle [a ; b] de R et à valeurs dans un espace de Banach F . Une théorie de l’intégration
+à la Riemann suffit à nos besoins. Nous n’allons pas développer une telle théorie, mais simplement
+dire qu’on définit de manière évidente l’intégrale d’une fonction en escalier (par une somme), et
+par passage à la limite, on définit ensuite l’intégrale des fonctions réglées (limites uniformes de
+fonction en escalier) et c’est dans cette étape que l’hypothèse de complétude de l’espace F est
+indispensable. Les propriétés usuelles des intégrales sont évidentes (relations de Chasles, linéarité,
+etc). Les fonctions continues sont réglées, et on a
+                                      Z b
+                                     ∥    f (t) dt∥F ≤ (b − a) ∥f ∥0 .
+                                         a
+
+où ∥f ∥0 = supt∈[a ;b] ∥f (t)∥F .
+
+     Théorème V.4.6
+   Soit g : [a ; b] → F une application continue de l’intervalle [a ; b] à valeurs dans un espace
+   de Banach F . Soit t0 ∈ [a ; b]. Posons
+                                                      Z t
+                                             G(t) =         g(u) du.
+                                                       t0
+
+   Alors G : [a ; b] → F est continue sur [a ; b] et de classe C 1 sur ]a ; b[ et pour tout t ∈ ]a ; b[,
+   G′ (t) = g(t).
+
+
+Démonstration. On a d’après le relation de Chasles, et les propriétés de l’intégrale
+                                    Z t+h
+     ∥G(t + h) − G(t) − g(t)h∥ = ∥        (g(u) − g(t)) du∥ ≤ sup ∥g(u) − g(t)∥ × |h|
+                                             t                               u∈[t ;t+h]
+
+Or, quand h tend vers 0, supu∈[t ;t+h] ∥g(u) − g(t)∥ fait de même, et donc le terme de gauche est
+o(h).
+
+     Théorème V.4.7
+   Soient E un espace vectoriel normé, F un espace de Banach, et soit f : U → F une
+   application définie sur un ouvert U de E et de classe C 1 . Soient x ∈ U, y ∈ E, et supposons
+   que pour tout t ∈ [0 ; 1], x + ty ∈ U. On a alors
+                                                            Z 1
+                                    f (x + y) = f (x) +           dfx+ty (y) dt.
+                                                             0
+
+
+Démonstration. On pose g(t) = f (x + ty)R pour tout t ∈ [0 ; 1]. Pour tout t ∈ ]0 ; 1[, on a
+                                                   t
+g ′ (t) = dfx+ty (y). Définissons h(t) = f (x) + 0 dfx+sy (y) ds. D’après le théorème précédent, pour
+tout t ∈ ]0 ; 1[, h (t) = dfx+ty (y), et donc h (t) − g ′ (t) = 0. On en déduit que g − h est constante
+                    ′                           ′
+
+sur ]0 ; 1[, et par continuité, sur [0 ; 1]. Comme g(0) − h(0) = 0, on en déduit que h = g sur tout
+[0 ; 1].

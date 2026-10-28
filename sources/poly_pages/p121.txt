@@ -1,0 +1,66 @@
+118                      CHAPITRE VI. INVERSION LOCALE ET FONCTIONS IMPLICITES
+
+
+   Exercice VI.1.5 — Soit E un espace de Banach et soit a ∈ [0; 1[. Montrer que pour tout
+   L ∈ L(E) tel que ∥L∥ ≤ a, IdE −L est inversible, et que son inverse est borné, de norme
+   plus petite que (1 − a)−1 . Montrer que l’application
+
+                                BL(E) (0, a) → L(E),     L 7→ (Id −L)−1
+
+   est de classe C ∞ .
+
+
+VI.2        Théorème des fonctions implicites
+
+
+      Nous renvoyons à la section V.3.4 pour les notations concernant les différentielles partielles.
+
+       Théorème VI.2.1 — Fonctions implicites
+   Soient E, F et G trois espaces de Banach, U un ouvert de E, V un ouvert de F , f une
+   application de classe C p , p ≥ 1, de U × V dans G et (x0 , y0 ) un point de U × V tel que
+                               ∂f
+   la différentielle partielle    (x0 , y0 ) soit un isomorphisme bicontinu de F dans G. Alors il
+                               ∂y
+   existe un ouvert U0 de U contenant x0 , un ouvert V0 de V contenant y0 et une application
+   φ de classe C p , définie sur U0 à valeurs dans V0 telle que :
+
+          φ(x0 ) = y0 et ∀(x, y) ∈ U0 × V0 , f (x, y) = f (x0 , y0 ) si et seulement si y = φ(x).
+
+   La différentielle de φ est donnée par
+                                                       −1
+                                            ∂f                ∂f
+                              dφx = −          (x, φ(x))    ◦    (x, φ(x)).
+                                            ∂y                ∂x
+
+   En outre, si U0 est connexe, il existe au plus une application continue φ : U0 → V0 vérifiant
+   φ(x0 ) = y0 et f (x, φ(x)) = f (x0 , y0 ) pour tout x ∈ U0 .
+
+
+Démonstration. On applique le théorème de point fixe de Banach en écrivant l’équation f (x, y) =
+f (x0 , y0 ) sous la forme y = g(x, y), où
+                                                       −1
+                                           ∂f
+                          g(x, y) = y −       (x0 , y0 )    (f (x, y) − f (x0 , y0 )).
+                                           ∂y
+L’application g : U × V → F est de classe C p , g(x0 , y0 ) = y0 et
+                                                          −1
+                       ∂g                     ∂f               ∂f
+                          (x0 , y0 ) = Id −      (x0 , y0 )       (x0 , y0 ) = 0.
+                       ∂y                     ∂y               ∂y
+                      ∂g                                                                             ∂g   1
+Par continuité de         , il existe r0 > 0 et s > 0 tels que B̄(x0 , r0 ) × B̄(y0 , s) ⊂ U × V et ∥ ∥ ≤
+                      ∂y                                                                             ∂y   2
+                                                                 ∂f
+sur B̄(x0 , r0 ) × B̄(y0 , s). On peut aussi supposer que ∥ ∥ est bornée sur B̄(x0 , r0 ) × B̄(y0 , s),
+                                                                 ∂x
+           ∂f
+disons ∥ ∥ ≤ M .
+           ∂x
+     Pour tout x ∈ U, gx désigne l’application y 7→ g(x, y) de V dans F . Pour tout (x, y) ∈
+                                        ∂g
+B̄(x0 , r0 ) × B̄(y0 , s), d(gx )y =       (x, y) et d’après l’inégalité des accroissements finis, gx est
+                                        ∂y
+1
+  -lipschitzienne. Soient r ≤ r0 , x ∈ B̄(x0 , r) et y ∈ B̄(y0 , s). On a
+2
+              ∥gx (y) − y0 ∥ = ∥gx (y) − gx0 (y0 )∥ ≤ ∥gx (y) − gx (y0 )∥ + ∥gx (y0 ) − gx0 (y0 )∥

@@ -1,0 +1,52 @@
+134                                          CHAPITRE VII. EQUATIONS DIFFÉRENTIELLES
+
+VII.3        Temps de vie des solutions. Flot global
+
+
+   Nous nous intéressons maintenant au problème du prolongement des courbes intégrales d’un
+champ de vecteurs. Pour simplifier, nous nous plaçons dans le cas d’un champ de vecteurs sans
+dépendance en un paramètre λ (cf. Remarque VII.2.13) mais il n’y aurait pas de difficulté majeure
+supplémentaire à considérer le cas général.
+
+       Proposition VII.3.1
+   Soit U un ouvert d’un espace de Banach E. Soit X : I × U −→ E un champ de vecteurs
+   dépendant du temps. Supposons que X soit localement lipschitzien en la seconde variable
+   de sorte que le théorème VII.2.12 s’applique. Soient (τ0 , x0 ) ∈ I × U et α1 et α2 , définies
+   respectivement sur des intervalles ouverts J1 et J2 contenus dans I et contenant τ0 , des
+   courbes intégrales de X ayant même condition initiale (τ0 , x0 ). Alors elles coïncident sur
+   J1 ∩ J2 .
+
+
+Démonstration. L’ensemble A des points t de J1 ∩ J2 tels que α1 (t) = α2 (t) est fermé dans J1 ∩ J2
+par continuité. Il est ouvert d’après le théorème VII.2.12. Comme J1 ∩ J2 est un intervalle ouvert
+non vide, donc connexe, on a A = J1 ∩ J2 .
+
+   Remarque VII.3.2 — Quand le champ de vecteur X ne dépend pas du temps, on prend
+   bien sûr I = R dans la proposition VII.3.1.
+
+       Définition VII.3.3
+   Soit U un ouvert d’un espace de Banach E. Soit X : I × U −→ E un champ de vecteurs
+   dépendant du temps. Supposons que X soit localement lipschitzien en la seconde variable.
+   Soit (τ0 , x0 ) ∈ I × U. Définissons Jτ0 (x0 ) comme l’union de tous les intervalles ouverts
+   J contenant τ0 tels qu’il existe une courbe intégrale α : J → U de condition initiale
+   (τ0 , x0 ). La proposition montre qu’il existe une unique courbe intégrale ατ0 ,x0 de condition
+   initiale (τ0 , x0 ) définie sur Jτ0 (x0 ). On appelle cette courbe intégrale la courbe intégrale
+   maximale de X de condition initiale (τ0 , x0 ).
+
+      Ceci permet de définir le flot global de X.
+
+       Définition VII.3.4
+   Posons
+                              D = {(τ0 , t, x0 ) ∈ I × I × U | t ∈ Jτ0 (x0 )}.
+   L’application
+                                 F : D → U,      F (τ0 , t, x0 ) = ατ0 ,x0 (t)
+   où ατ0 ,x0 est la courbe intégrale maximale de X de condition initiale (τ0 , x0 ), définie sur
+   Jτ0 (x0 ), est appelée flot global de X, et D est son domaine de définition.
+   Pour tout τ0 ∈ I, on pose
+
+                                 Dτ0 = {(t, x0 ) ∈ I × U | t ∈ Jτ0 (x0 )}.
+
+    Dans le cas où le champ de vecteurs X est indépendant du temps, on peut simplifier les
+notations : on prend dans ce cas I = R, et l’on fixe τ0 = 0. On note alors simplement J(x0 ) pour
+J0 (x0 ), F (t, x0 ) pour F (0, t, x0 ), etc... Enonçons maintenant une propriété importante du flot
+dans ce cas. Si I est un intervalle de R et c ∈ R, on note I + c l’intervalle {t ∈ R; t − c ∈ I}.

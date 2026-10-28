@@ -1,0 +1,56 @@
+228                                        ANNEXE A. SUJETS D’EXAMEN ET PROBLÈMES
+
+  3. Soit f : Ω → C une fonction holomorphe. Si U ⊆ Ω est un ouvert tel que f est partout
+     non-nulle sur U , alors un calcul direct montre que (f |U )σ = (1/f |U )σ . On conclut par
+     le fait que, au voisinage d’un pôle, l’inverse d’une fonction méromorphe est une fonction
+     holomorphe.
+  4. On suppose que F est une famille non-normale de fonctions méromorphes sur un ouvert
+     connexe Ω.
+      (a) Par la réciproque du critère de normalité, la famille des σ-dérivées f σ , avec f ∈ F,
+          n’est pas localement uniformément bornée. Il existe donc w0 ∈ Ω tel que, pour tout
+          voisinage de w0 , la famille des f σ n’est pas uniformément bornée. On peut trouver ainsi
+          une suite de points wn ∈ Ω qui converge vers w0 , et des fn ∈ F, tels que fnσ (wn ) ≥ n.
+      (b) On suppose pour simplifier que w0 = 0 et wn ∈ D(0, 1) ⊆ Ω. Soit Mk = sup|z|≤1 fkσ (z)(1−
+          |z|). Alors, Mk ≥ fkσ (wk )(1 − |wk |). Puisque wk → 0 et fkσ (wk ) → +∞, on voit que
+          Mk → +∞.
+      (c) Soit |zk | ≤ 1 tel que le sup précédent est atteint. Notons que, nécessairement, |zk | < 1.
+          Ainsi, Mk = fkσ (zk )(1 − |zk |) ≤ fkσ (zk ) et ρk ≤ 1/Mk , qui converge vers 0.
+      (d) Si |z| < Mk , on a
+
+                                                                      1 − |zk |
+                             |zk + ρk z| ≤ |zk | + ρk |z| = |zk | +             |z| < 1,
+                                                                        Mk
+
+          et donc zk + ρk z ∈ D(0, 1) ⊆ Ω est bien dans le domaine de définition de fk .
+      (e) Pour la σ-dérivée de gk (z) = fk (zk + ρk z), on observe d’abord que, par définition de
+          zk , si |z| < Mk , on a
+
+          (6)                fkσ (zk )(1 − |zk |) ≥ fkσ (zk + ρk z)(1 − |zk + ρk z|),
+
+          puisque zk + ρk z ∈ D(0, 1) par le point précédent. On observe aussi que
+
+          (7)                                gkσ (z) = ρk fkσ (zk + ρk z).
+
+          De (6), et des définitions de Mk et ρk , on en déduit alors que pour |z| < Mk
+
+                                          1 − |zk |          1 − |zk |           1
+          (8)              gkσ (z) ≤                   ≤                    =         .
+                                       1 − |zk + ρk z|   1 − |zk | − ρk |z|   1 − |z|Mk
+
+          Nous allons maintenant appliquer le critère de normalité et procéder par une construc-
+          tion diagonale. Quitte à extraire une sous-suite et renuméroter, on peut d’abord sup-
+          poser que la suite des Mk est strictement croissante. Prenons la suite {gk |D(0,M1 ) }k≥1 .
+          L’inégalité (8) montre que les σ-dérivées de cette suite sont localement uniformé-
+          ment bornées. Par le critère de normalité, on peut donc en extraire une sous-suite
+          {gkn |D(0,M1 ) }n≥1 qui converge localement uniformément. Sans perte de généralité, on
+          peut suppose que k1 ≥ 2, et ensuite on peut renuméroter la sous-suite et supposer que
+          kn = n + 1. On répète l’argument avec {gk |D(0,M2 ) }k≥2 , et ainsi de suite. Cet argu-
+          ment diagonal aboutit à une nouvelle suite, renumérotée, de fonctions méromorphes
+          gk : D(0, Mk ) → C ∪ {∞}, de domaines croissants, et qui converge localement unifor-
+          mément. Puisque C = ∪k D(0, Mk ), la suite des gk converge localement uniformément
+          vers une fonction g : C → C ∪ {∞}.
+      (f) Pour conclure, on observe que par (7), on a gkσ (0) = 1. On en déduit, par passage à la
+          limite, que g σ (0) = 1, ce qui entraîne que g n’est pas constante par la définition de
+          σ-dérivée. En particulier, elle n’est pas constante et égale à ∞, et il s’agit donc d’une
+          fonction méromorphe. De même, pour z fixé, en prenant la limite de (8), on voit que
+          g σ (z) ≤ 1, puisque Mk → +∞.

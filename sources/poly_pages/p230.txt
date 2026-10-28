@@ -1,0 +1,54 @@
+                                                                                                   227
+
+           et donc E(Λ) ⊂ K(Λ). On conclut grâce à l’autre inclusion montrée en (4a).
+
+
+   Exercice 2.
+    Avant d’entamer la correction, signalons que la σ-dérivée est plus communément appelée
+dérivée sphérique, et que le critère de normalité est dû à Marty. Le point 4 de l’exercice est
+un lemme dû à Zalcman. Le théorème de normalité du point 5 est une version simplifiée d’un
+théorème célèbre de Montel (la condition de simple connexité n’est pas nécessaire). Enfin, l’exercice
+s’inscrit dans ce que l’on connaît comme principe de Bloch, qui suggère de manière heuristique une
+équivalence entre les assertions « toute fonction entière qui vérifie une propriété P est constante »
+et « toute famille de fonctions holomorphes sur un domaine et vérifiant la propriété P est normale ».
+Le lemme de Zalcman permet de rendre rigoureux cette heuristique. On peut démontrer que
+le théorème de Montel entraîne le grand théorème de Picard, qui affirme qu’au voisinage d’une
+singularité essentielle, toute fonction holomorphe prend toutes les valeurs complexes sauf peut-être
+une, et ceci un nombre infini de fois. Passons maintenant à la correction.
+
+
+  1. Soit fn : Ω → C une suite de fonctions méromorphes (resp. holomorphes), qui converge
+     localement uniformément.
+       (a) Que la limite est bien définie ne pose pas de difficulté. Par exemple, si pour un point
+           z les deux conditions de convergence sont satisfaites simultanément sur un voisinage
+           U de z, alors fn (z) est nécessairement une suite de nombres complexes non-nuls qui
+           converge vers une limite ℓ ∈ C, tandis que la suite 1/fn (z) converge aussi vers une
+           limite ℓ′ ∈ C. Nécessairement ℓ · ℓ′ = 1, et donc on a bien que ℓ′ = 1/ℓ.
+           Soit maintenant F = {z ∈ Ω | f (z) = ∞}. Voyons que F est un fermé de Ω. En effet,
+           soit z ∈ F . Il suffit de voir qu’il existe un voisinage ouvert U de z tel que F ∩ U est
+           fermé dans U . On peut prendre un voisinage U de z de manière à ce que 1/fn |U soit
+           une suite de fonctions holomorphes qui converge uniformément. Soit g la limite, qui
+           est une fonction holomorphe sur U s’annulant en z. Si g est identiquement nulle, alors
+           U ⊆ F , et donc U ∩ F = U est fermé dans U . Si g n’est pas identiquement nulle, par le
+           principe des zéros isolés on peut rétrécir U et supposer que z est le seul zéro de g sur U .
+           Alors, U ∩ F = {z} est un singleton, donc fermé dans U . Le même argument montre
+           que si C ⊆ F est une composante connexe, soit C est un singleton, soit C est un ouvert
+           de Ω. Si C est un ouvert non-vide de Ω, étant aussi un fermé, on conclut que C = Ω par
+           connexité de Ω, et donc F = Ω. Autrement, si C = {z}, on a vu que dans un voisinage
+           U de z, on a une suite de fonctions holomorphes 1/fn |U convergeant vers une fonction
+           holomorphe g. Alors, sur U , on a f |U = 1/g, qui est bien méromorphe. De manière
+           similaire, on voit que si z ̸∈ F , alors f est holomorphe au voisinage de z. Enfin, si toutes
+           les fonctions fn sont holomorphes et f ̸≡ ∞, voyons que f est en fait holomorphe.
+           Dans ce cas, on a prouvé que F est tout au plus discret. Si F =    ̸ ∅, soit z ∈ F , et U un
+           voisinage connexe de z tel que les fonctions gn = 1/fn |U sont holomorphes sur U et
+           convergent uniformément vers une fonction holomorphe g qui s’annule uniquement en
+           z sur U . Notons que les fonctions gn sont partout non-nulles sur U . Par le théorème
+           de Hurwitz, la limite g est soit partout non-nulle, soit identiquement nulle. Les deux
+           cas étant exclus, F est vide, et donc f |U = 1/g est holomorphe sur U .
+      (b) Prenons par exemple la couronne A = {z ∈ C | 1 < |z| < 2}. Soit fn : A → C la
+           fonction holomorphe définie par fn (z) = nz. La suite 1/fn converge uniformément
+           vers 0, puisque 1/|fn (z)| ≤ 1/n sur A. Ainsi, la limite de fn est constante égale ∞.
+  2. L’extension de la notion de convergence localement uniforme pour des fonctions méromorphes
+     fn : Ωn → C ∪ {∞}, de domaines croissants, est immédiate : pour tout z ∈ Ω, il existe un
+     voisinage U de z et n0 ≥ 1 tel que U ⊆ Ωn pour tout n ≥ n0 , et soit {fn |U }n≥n0 est une
+     suite de fonctions holomorphes qui converge uniformément, soit {1/fn |U }n≥n0 , soit les deux.

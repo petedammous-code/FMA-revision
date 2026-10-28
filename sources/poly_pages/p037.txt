@@ -1,0 +1,6 @@
+34                                                CHAPITRE I. FONCTIONS HOLOMORPHES
+
+
+     sur D(z0 , ϵ). D’après le théorème de l’application ouverte, l’image de h contient un disque
+     D(0, η) pour un certain η > 0 et f ne peut être injective car z 7→ z N , N ≥ 2 n’est injective
+     sur aucun disque centré en 0.

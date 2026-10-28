@@ -1,0 +1,62 @@
+6                                                   CHAPITRE I. FONCTIONS HOLOMORPHES
+
+I.2       Conditions de Cauchy réelles. C-dérivabilité
+
+
+    Identifions C à R2 grâce à l’application z 7→ (x, y) où
+
+                                     x = ℜe(z),     et y = ℑm(z).
+
+Autrement dit, z = x + iy. Ainsi, une fonction f : Ω → C comme ci-dessus peut être vue comme
+une fonction d’un ouvert Ω de R2 à valeurs dans R2 . Notons aussi
+
+                                         f (z) = P (z) + iQ(z),
+
+où P (z) = ℜe(f (z)) et Q(z) = ℑm(f (z)) et avec l’identification entre C et R2
+
+                                      f (x, y) = (P (x, y), Q(x, y)).
+
+    Rappelons que f est dite différentiable en un point (x, y) de Ω s’il existe une application
+linéaire df(x,y) : R2 → R2 , telle que :
+
+(I.2.1)               ∥f (x + h, y + k) − f (x, y) − df(x,y) (h, k)∥ = o(∥(h, k)∥).
+
+Ici, la norme est la norme euclidienne usuelle de R2 (mais toutes les normes sur R2 étant
+équivalentes, le choix d’une autre norme ne changerait pas la définition). Si (h, k) est de norme
+suffisamment petite, (x + h, y + k) est bien dans Ω. De plus remarquons que (I.2.1) caractérise
+df(x,y) , c’est-à-dire que l’application linéaire df(x,y) est bien définie, elle est appelée différentielle
+de f en (x, y).
+     Dans la base canonique de R2 , l’application linéaire df(x,y) est représentée par la matrice
+                                                              !
+                                        ∂P          ∂P
+                                        ∂x (x, y)   ∂y (x, y)
+(I.2.2)                                 ∂Q          ∂Q
+                                        ∂x (x, y)   ∂y (x, y)
+
+
+   La fonction f est dite de classe C 1 si elle est différentiable en tout point de Ω et si les dérivées
+           ∂P ∂P ∂Q ∂Q
+partielles   ,    ,     ,     sont des fonctions continues sur Ω.
+           ∂x ∂y ∂x ∂y
+   Reprenons l’identification entre C et R2 pour écrire z = x + iy, ω = s + it, et (I.2.1) sous la
+forme
+
+(I.2.3)                          |f (z + ω) − f (z) − dfz (ω)| = o(|ω|).
+
+On voit maintenant dfz comme une application R-linéaire de C dans C. Une question naturelle
+qui se pose alors est : à quelle condition sur dfz la fonction f est-elle C-dérivable en z ? Le lemme
+élémentaire suivant, de nature purement algébrique, va donner la réponse et, du même coup, la
+bonne manière d’écrire une différentielle en variable complexe.
+
+      Lemme I.2.1
+    Toute application R-linéaire L : C → C s’écrit de manière unique
+
+                                    L(ω) = a ω + b ω̄,       (ω ∈ C),
+
+    avec a, b ∈ C donnés par
+
+                           a = 21 L(1) − i L(i) ,        b = 12 L(1) + i L(i) .
+                                                                            
+
+
+    De plus, L est C-linéaire si et seulement si b = 0, et elle est alors la multiplication par a.

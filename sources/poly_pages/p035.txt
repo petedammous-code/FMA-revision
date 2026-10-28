@@ -1,0 +1,51 @@
+32                                                  CHAPITRE I. FONCTIONS HOLOMORPHES
+
+I.13       Le lemme de Schwarz et les automorphismes du disque unité
+
+
+    On note D = D(0, 1) le disque unité, D̄ son adhérence et on pose D× = D \ {0}. Le lemme de
+Schwarz et la classification des automorphismes du disque unité jouent un rôle important dans la
+preuve du théorème de représentation conforme de Riemann III.4.1. La démonstration du lemme
+est laissée au lecteur ; celle de la classification fait l’objet de l’exercice I.13.2.
+
+       Lemme I.13.1 — Schwarz
+     Soit f ∈ Hol(D) telle que f (D) ⊂ D̄(0, 1) et telle que f (0) = 0. Alors
+        1. |f (z)| ≤ |z| pour tout z ∈ D et |f ′ (0)| ≤ 1.
+        2. S’il existe z ∈ D× tel que |f (z)| = |z| ou que |f ′ (0)| = 1 alors f est une rotation,
+           c’est-à-dire qu’il existe θ ∈ R tel que f (z) = eiθ z pour tout z ∈ D.
+        3. Si f est un automorphisme de D (cf. Définition I.4.1) alors f est une rotation.
+        4. Si f n’est pas un automorphisme de D, alors |f (z)| < |z| pour tout z ∈ D \ {0}.
+
+
+     On peut maintenant déterminer tous les automorphismes holomorphes de D.
+
+     Exercice I.13.2 — Pour a ∈ D et z ∈ D on note
+                                                        z−a
+                                             fa (z) =          .
+                                                        1 − az
+     1) Montrer que fa (D) ⊂ D.
+     2) Montrer que fa est une bijection holomorphe de D dans lui-même.
+     3) En utilisant le point 3 du lemme de Schwarz, en déduire que si f est un automorphisme
+     holomorphe de D, alors il existe θ ∈ R et a ∈ D tels que
+                                                           z−a
+                                            f (z) = eiθ          .
+                                                          1 − az
+
+     Notons le résultat de cet exercice :
+
+       Proposition I.13.3
+     Les automorphismes holomorphes du disque unité sont les fonctions de la forme λ · fa , avec
+     a ∈ D et |λ| = 1.
+
+     En complément, on pourra traiter l’exercice suivant :
+
+     Exercice I.13.4 — Pour a ∈ D et θ ∈ R, on note
+                                                            z−a
+                                          fa,θ (z) = eiθ          .
+                                                           1 − az
+     On a vu dans l’exercice précédent que ce sont exactement les automorphismes du disque
+     unité D.
+     1) On sait que Authol (D) est un groupe pour la composition des applications. Le vérifier ici
+     directement en explicitant la loi de groupe, c’est-à-dire en calculant fa,θ ◦ fb,ω
+     2) Montrer que ce groupe Authol (D) agit transitivement sur le disque unité. Déterminer le
+     sous-groupe des éléments qui fixent l’origine.

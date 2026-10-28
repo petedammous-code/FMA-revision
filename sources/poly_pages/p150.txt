@@ -1,0 +1,47 @@
+                                                                                Chapitre      IX
+Sous-variétés
+
+   Dans tout ce qui suit, lorsqu’on parle d’une application ou d’une sous-variété de classe C k , on
+suppose que k est un entier au moins égal à 1, ou bien que k = +∞.
+
+
+IX.1     Immersions et submersions
+
+
+   Les notions d’immersion et de submersion sont au coeur de la théorie des sous-variétés.
+Rappelons rapidement les points importants.
+
+     Définition IX.1.1
+   Soit f : U → Rq une application différentiable définie sur un ouvert U de Rp . On dit que f
+   est une immersion (resp. une submersion) en a ∈ U si dfa est injective (resp. surjective)
+   de Rp dans Rq . On dit que f est une immersion (resp. une submersion) si c’est une
+   immersion (resp. une submersion) en tout point de U .
+
+
+   Le résultat qui suit est une conséquence du théorème d’inversion locale VI.3.2.
+
+     Proposition IX.1.2
+   Soit f : U → RN une application de classe C 1 définie sur un ouvert U de Rm . Soit a ∈ U
+   tel que dfa : Rm → RN soit injective. Alors il existe un voisinage ouvert U1 de a dans U
+   tel que la restriction de f à U1 soit une immersion en tout point, et de plus, f réalise un
+   homéomorphisme entre U1 et son image f (U1 ).
+
+
+Démonstration. Soit H un supplémentaire de l’image de dfa dans RN ,
+
+                                       RN = dfa (Rm ) ⊕ H.
+
+On étend f en une application F : U × H → RN en posant
+
+                                        F (q, t) = f (q) + t.
+
+La restriction de F à U × {0} coïncide avec f . D’autre part, F est différentiable, sa différentielle
+en un point (q, t) étant donnée par
+
+                         dFq,t : Rm × H −→ RN ,        (h, w) 7→ dfq (h) + w.
+
+Ainsi, il est clair que dF(a,0) est un isomorphisme de Rm × H dans RN , et le théorème d’inversion
+locale garantit l’existence d’un voisinage de (a, 0) dans U × H (que l’on peut prendre de la forme
+U1 × Y où U1 est un ouvert de U contenant a et Y un ouvert de H contenant 0) et d’un voisinage
+
+                                                147

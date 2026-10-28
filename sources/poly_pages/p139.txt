@@ -1,0 +1,52 @@
+136                                          CHAPITRE VII. EQUATIONS DIFFÉRENTIELLES
+
+    Il suffit de montrer que A = J, et ce pour tout choix de (τ0 , x0 ) : tout point (τ0 , t, x0 ) de D
+vérifie alors t ∈ J = A, donc possède un voisinage contenu dans D sur lequel F est de classe C p ,
+ce qui est exactement la conjonction de a. et b. Comme J est un intervalle, donc connexe, il suffit
+de vérifier que A est non vide, ouvert et fermé dans J.
+    A est non vide. Le théorème d’existence d’un flot local VII.2.12 en (τ0 , x0 ) fournit un tel
+voisinage de (τ0 , τ0 , x0 ) ; donc τ0 ∈ A.
+   A est ouvert dans J. Si O × U ′ convient pour s, il convient encore pour tout s′ assez proche
+de s, puisque O est ouvert et contient (τ0 , s).
+    A est fermé dans J. Soit b ∈ J adhérent à A et x1 = F (τ0 , b, x0 ). Soit (J1 , 2ϵ1 , U1 , F ) un flot
+local en (b, x1 ). L’application t 7→ F (τ0 , t, x0 ) étant continue et valant x1 en b, on peut choisir
+                  t2 ∈ A avec |t2 − b| < ϵ1 ,          t2 ∈ J1 ,      F (τ0 , t2 , x0 ) ∈ U1 ,
+puis un voisinage produit O2 ×U2 de (τ0 , t2 , x0 ) contenu dans D sur lequel F est de classe C p . Quitte
+à le restreindre, toujours par continuité de F , on peut supposer que (t, F (t0 , t, x)) ∈ J1 × U1
+pour tout (t0 , t, x) ∈ O2 × U2 . Pour un tel (t0 , t, x), la courbe intégrale de condition initiale
+(t, F (t0 , t, x)) est alors définie sur ]t − 2ϵ1 ; t + 2ϵ1 [, et la formule de composition VII.3.7
+                                                                         
+                            F (t0 , t + s, x) = F t, t + s, F (t0 , t, x) ,  |s| < 2ϵ1 ,
+montre que le membre de gauche est défini et de classe C p en (t0 , t, x, s). Posons
+                            O3 := {(t0 , t + s) : (t0 , t) ∈ O2 , |s| < 2ϵ1 },
+ouvert comme réunion des translatés O2 + (0, s). Alors O3 × U2 est contenu dans D, F y est de
+classe C p , et c’est un voisinage de (τ0 , b, x0 ) puisque (τ0 , t2 ) ∈ O2 et |b − t2 | < ϵ1 < 2ϵ1 . Donc
+b ∈ A.
+
+
+
+   Résumons en quelques formules certaines propriétés du flot F (s, t, x) d’un champ de vecteurs
+X(t, x) :
+
+                                     ∂F
+(VII.3.3)                               (s, t, x) = X(t, F (s, t, x)),
+                                     ∂t
+
+
+(VII.3.4)                                    F (t, t, x) = x,
+
+
+(VII.3.5)                                F (t, s, F (s, t, x)) = x.
+
+VII.3.1      Un critère de temps de vie infini (lemme des bouts)
+    Si une courbe intégrale d’un champ de vecteurs sur un ouvert U ne dépendant pas du temps
+n’a pas un temps de vie infini, c’est que cette courbe ne reste dans aucun compact de U (la
+solution « explose » lorsque on s’approche des bornes de l’intervalle de définition de cette courbe
+intégrale).
+
+      Théorème VII.3.10
+   Soit U un ouvert d’un espace de Banach E. Soit X : U −→ E un champ de vecteurs
+   qui ne dépend pas du temps et lipschitzien. Soit (τ0 , x0 ) ∈ R × U et soit ατ0 ,x0 la courbe
+   intégrale maximale de condition initiale (τ0 , x0 ), définie sur l’intervalle Jτ0 (x0 ). Soit b la
+   borne supérieure de Jτ0 (x0 ) et supposons que ατ0 ,x0 ([τ0 , b[) reste dans une partie compacte
+   K de U. Alors b = +∞. On a un énoncé analogue avec la borne inférieure de Jτ0 (x0 )

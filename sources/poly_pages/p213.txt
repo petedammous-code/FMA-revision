@@ -1,0 +1,88 @@
+210                                                ANNEXE A. SUJETS D’EXAMEN ET PROBLÈMES
+
+positifs on trouve bien
+                                  N                 N                                    
+                                  X 1               Y                1            1
+                                             ⩽                   1 + s + · · · + Ns
+                                        ns                          p           p
+                                  n=1               p=2
+                                                 p premier
+
+D’autre part, pour tout nombre premier p on a
+                                                  +∞
+                                    1      X 1        1            1
+                                      −s
+                                         =   ks
+                                                ⩾ 1 + s + · · · + Ns ,
+                                  1−p       p        p           p
+                                                  k=0
+
+on obtient que
+                          N                                              N                      
+                          Y             1            1                     Y                1
+                                    1 + s + · · · + Ns ⩽                                               .
+                                       p           p                                     1 − p−s
+                          p=2                                              p=2
+                       p premier                                        p premier
+
+Comme de plus 1−p1 −s ⩾ 1 pour tout nombre premier, on obtient bien le résultat annoncé.
+   (3) En faisant tendre N vers +∞ dans l’inégalité démontré dans la question précédente on
+obtient
+                                           +∞
+                                           Y        1
+                                 ζ(s) ⩽                  .
+                                                 1 − p−s
+                                                           p=2
+                                                        p premier
+
+Pour montrer que l’on a égalité on raisonne de façon analogue. Par le théorème fondamental de
+l’arithmétique, on obtient que pour tout N, M ∈ N avec N, M ⩾ 2 on a
+                              N                                             +∞
+                              Y                 1            1                X  1
+                                            1 + s + · · · + Ms            ⩽              = ζ(s).
+                                               p           p                        ns
+                             p=2                                              n=1
+                          p premier
+
+Il suffit alors de faire tendre M puis N vers +∞ pour obtenir
+                                                             +∞
+                                                             Y          1
+                                             ζ(s) ⩾                          ,
+                                                                     1 − p−s
+                                                           p=2
+                                                        p premier
+
+et donc il y a égalité.
+                                                        +∞
+                                                        Y           1
+      (4) La fonction ζ et la fonction z 7→                              sont toutes deux holomorphes sur U1 et
+                                                                 1 − p−s
+                                                      p=2
+                                                   p premier
+elles coïncident sur la demi droite R>1 . Par prolongement analytique, elles coïncident donc sur
+U1 .
+                                                                          +∞
+                                                                          Y        1
+     (5) Soit s ∈]1, +∞ [ . D’après les question précédentes, on a ζ(s) =               . D’autre
+                                                                                1 − p−s
+                                                                                                   p=2
+                                                                                                p premier
+part, ζ(s) ̸= 0 car ζ(s) > 1. On peut donc appliquer le logarithme à cette égalité, et par continuité
+du logarithme on obtient
+                                     
+                     +∞                     +∞                           +∞
+                                                                
+                        Y        1          X             1              X
+                                                                                 ln 1 − p−s .
+                                                                                             
+      ln ζ(s) = ln 
+                                   −s
+                                       =          ln         −s
+                                                                   = −
+                               1−p                     1−p
+                         p=2                            p=2                                      p=2
+                      p premier                      p premier                                p premier
+
+D’autre part, il existe B ∈ R tel que pour tout x ∈ [−1/2, 1/2]
+
+                                        x − x2 B ⩽ ln(1 + x) ⩽ x + x2 B.

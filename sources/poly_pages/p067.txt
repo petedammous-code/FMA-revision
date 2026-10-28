@@ -1,0 +1,54 @@
+64                                              CHAPITRE III. SUITES, SÉRIES ET PRODUITS
+
+       Définition III.3.1
+     Soit Ω un ouvert de C. Une famille de fonctions F ⊂ Hol(Ω) est localement uniformément
+     bornée si pour tout x ∈ Ω, il existe un voisinage Ux et une constante C > 0 (dépendant
+     évidemment du voisinage choisi) tels que |f (z)| ≤ C pour tout f ∈ F et tout z ∈ Ux .
+
+
+     Remarque III.3.2 — Comme dans la proposition III.1.2, on peut reformuler ceci en une
+     propriété sur les compacts : pour tout compact K ⊂ Ω, il existe une constante C = C(K) > 0
+     telle que |f (z)| ≤ C pour tout f ∈ F et tout z ∈ K.
+
+       Définition III.3.3
+     Soit Ω un ouvert de C. Une famille de fonctions F ⊂ Hol(Ω) est dite normale si toute suite
+     d’éléments de F admet une sous-suite qui converge localement uniformément sur Ω. On
+     n’exige pas que la limite fasse partie de la famille F.
+
+
+       Théorème III.3.4 — Montel
+     Soient Ω ⊂ C un ouvert et F ⊂ Hol(Ω) une famille de fonctions holomorphes sur Ω. Les
+     assertions suivantes sont équivalentes :
+        1. la famille F est localement uniformément bornée sur Ω,
+        2. la famille F est normale sur Ω.
+
+
+Démonstration. Commençons par montrer 2 =⇒ 1. On raisonne par l’absurde en supposant
+qu’il existe un compact K ⊂ Ω et une suite (zn )n de points de K et une suite (fn )n∈N d’éléments
+de F tels que lim supn→∞ |fn (zn )| = +∞. Soit (fnk )k∈N une suite extraite de (fn )n∈N telle que
+limk→∞ |fnk (znk )| = +∞. Quitte à extraire, par hypothèse, on peut supposer que (fnk )k converge
+uniformément sur K. Soit f sa limite.
+   Quitte à extraire à nouveau, on peut supposer que (znk )k est une suite convergente du compact
+K et soit z∞ sa limite. On a alors |f (z∞ )| = limn→+∞ |fnk (znk )| = +∞, ce qui est absurde.
+
+    Montrons maintenant 1 =⇒ 2. Soit (fn )n∈N une suite d’éléments de F. On veut extraire une
+sous-suite qui converge localement uniformément. Commençons par considérer un sous-ensemble
+dénombrable dense S := {yn , n ≥ 0} de Ω. Par une extraction diagonale, nous allons extraire
+une sous-suite qui converge simplement sur S. Puisque (fn (y0 ))n est bornée, il existe φ0 : N → N
+strictement croissante telle que (fφ0 (n) (y0 ))n converge vers une limite f (y0 ) ∈ C. Par récurrence,
+on voit qu’on peut construire pour tout p ≥ 1 une extractrice φp : N → N telle que pour tout
+0 ≤ k ≤ p, la suite (fφ0 ◦···◦φp (n) (yk ))n converge vers une limite f (yk ). On pose alors
+
+                                    fφ(n) := fφ0 ◦···◦φn (n) , n ≥ 0.
+
+La suite (fφ(n) )n est une suite extraite de (fn )n qui converge simplement sur S.
+    Soient z0 ∈ Ω et δ, r > 0 tels que K := D(z0 , r + δ) ⊂ Ω. Alors, pour tout z ∈ D̄(z0 , r),
+puisque le disque D̄(z, δ) est contenu dans K, on a d(z, ∂K) ≥ δ. Puisque K est compact dans Ω,
+il existe par hypothèse C(K) > 0 telle que |fn (w)| ≤ C(K) pour tout w ∈ K et tout n ≥ 0 et les
+inégalités de Cauchy donnent
+
+                                             sup|ζ−z|=δ |fn (ζ)|   C(K)
+                               |fn′ (z)| ≤                       ≤
+                                                     δ               δ
+pour tout z ∈ D̄(z0 , r) et tout n ≥ 0. Pour tous z, z ′ ∈ D̄(z0 , r), en appliquant le théorème des
+accroissements finis sur le segment [z, z ′ ] ⊂ D(z0 , r) aux parties réelles et imaginaires de fn , on

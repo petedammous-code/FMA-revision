@@ -1,0 +1,37 @@
+                                                                                            237
+
+   (b) Dire que x est un point fixe de Θ−1 ◦ F , c’est dire que l’on a F (x) = Θ(x). Si
+       x = (xj )j∈Z , alors Θ(x) est la suite (xj − dφqj−1 (xj−1 ))j∈Z , donc on a F (x) = Θ(x)
+       si et seulement si φ(qj−1 + xj−1 ) − qj − dφqj−1 (xj−1 ) = xj − dφqj−1 (xj−1 ) pour tout
+       j ∈ Z. Cela revient à dire que φ(qj−1 + xj−1 ) = qj + xj pour tout j ∈ Z, ce qui signifie
+       bien que q + x est une orbite de φ.
+   (c) Pour tout j ∈ Z, on a d(fj )0 = 0 par définition de fj .
+       Il existe donc un nombre r0 > 0 tel que pour tout j ∈ Z, on ait ∥d(fj )y ∥ ≤ α pour
+       tout y ∈ Rn vérifiant Nqj (y) ≤ r0 ; on utilise ici la compacité de Λ et la continuité de
+       (x, y) 7→ d(fj )y .
+       D’après le théorème des accroissements finis, la fonction F est alors α-lipschitzienne
+       dans B(r0 ).
+   (d) Utilisons la même fonction F que dans les deux questions précédentes. D’après 3(a), il
+       existe un unique point fixe x de Θ−1 ◦ F dans B(0, r0 ), qui vérifie de plus
+
+                                        ∥x∥ ≤ 2∥Θ−1 ∥∥F (0)∥.
+
+       Or on a                                                       
+                    ∥F (0)∥ = sup Nqj fj−1 (0) = sup Nqj φ(qj−1 ) − qj ≤ Kε,
+                               j∈Z                  j∈Z
+
+        puisque q est une ε-pseudo-orbite de φ. Si on applique cela avec r0 ≤ δ et si ε est
+        suffisamment petit pour qu’on ait ε ≤ αδ, on voit que q + x est une δ-filature de
+        l’ε-pseudo-orbite q : c’est ce qu’il fallait démontrer.
+4. Soit p ∈ Λ un point récurrent, et soit δ > 0. Soit ε > 0 donné par la question précédente
+   pour ce δ. Par récurrence de p, il existe un entier m ≥ 1 tel que ∥φm (p) − p∥ < ε.
+  Définissons une suite q = (qj )j∈Z de points de Λ en posant qj = φ r (p), où r est le reste de
+  la division euclidienne de j par m : autrement dit, on répète périodiquement le morceau
+  d’orbite p, φ(p), . . . , φm−1 (p). C’est une ε-pseudo-orbite : on a φ(qj ) = qj+1 pour tout j
+  non congru à −1 modulo m, et ∥φ(qj ) − qj+1 ∥ = ∥φm (p) − p∥ < ε sinon.
+  La question précédente fournit une unique δ-filature (pj )j∈Z de q, c’est-à-dire une orbite de
+  φ vérifiant ∥pj − qj ∥ ≤ δ pour tout j. Comme q est m-périodique, la suite décalée (pj+m )j∈Z
+  est encore une orbite de φ qui δ-file q ; par unicité, pj+m = pj pour tout j. Le point p0 est
+  donc un point périodique de φ, et ∥p0 − p∥ = ∥p0 − q0 ∥ ≤ δ.
+  Ceci valant pour tout δ > 0, le point p est adhérent à l’ensemble des points périodiques
+  de φ.

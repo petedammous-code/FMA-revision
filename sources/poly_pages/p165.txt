@@ -1,0 +1,60 @@
+162                                                             CHAPITRE IX. SOUS-VARIÉTÉS
+
+
+
+                                                  z
+
+
+
+
+                                                           y
+                                        x
+
+
+
+
+                                      Cône x2 + y 2 − z 2 = 0
+
+
+
+
+      Proposition IX.7.13
+   Si S = {(u, f (u))} est une sous-variété de RN définie par le graphe d’une application
+
+                                       f : U ⊂ Rm → RN −m
+
+   comme dans la section IX.5, alors l’espace tangent en p = (u, f (u)) est le graphe de dfu .
+   Si S est une sous-variété de RN définie par
+
+                                    S = {x ∈ RN | F (x) = 0},
+
+   où 0 est valeur régulière de F , alors pour tout p ∈ S , Tp S = ker dFp .
+
+
+
+
+   Exercice IX.7.14 — Démontrer la proposition.
+
+
+
+
+IX.7.3     Différentielle d’une application différentiable
+
+   Grâce à la notion d’espace tangent, nous allons définir la notion de différentielle d’une
+application entre sous-variétés. Soit φ : S1 → S2 une application continue entre les sous-variétés
+S1 et S2 (respectivement de RN1 et RN2 ).
+    Définissons maintenant la différentielle de l’application φ, en un point p ∈ S1 où elle est
+différentiable. Soit ⃗v un vecteur tangent à S1 en p. Par définition, ⃗v = α′ (0) où α : I → S1
+est une courbe paramétrée de classe C 1 d’un intervalle ouvert I contenant 0 dans S1 telle que
+α(0) = p. Considérons la courbe β = φ ◦ α : I → S2 . Elle vérifie β(0) = φ(p) et son vecteur
+tangent en φ(p), β ′ (0) est donc dans Tφ(p) S2 .
+                                                   11
+    Reprenons maintenant des éléments de la démonstration de la proposition IX.7.9. Le vecteur
+                                 ⃗ où x : U → S1 est un paramétrage local en p tel que x(q) = p
+tangent ⃗v = α′ (0) s’écrit dxq (w),
+et ceci pour un unique w   ⃗ ∈ Rm . Il est clair qu’avec ces notations, β ′ (0) = d(φ ◦ x)q (w),
+                                                                                             ⃗ ce qui
+              ′
+montre que β (0) ne dépend pas du choix de la courbe α, mais aussi que d(φ ◦ x)q (w)     ⃗ ne dépend
+pas du paramétrage choisi et que ⃗v 7→ β ′ (0) = d(φ ◦ x)q (w)
+                                                             ⃗ est linéaire.

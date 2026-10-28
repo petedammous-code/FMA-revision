@@ -1,0 +1,58 @@
+I.5. INTÉGRATION LE LONG D’UN CHEMIN                                                              15
+
+est un ouvert de C× (comme réunion d’ouverts de C× ). En particulier, son complémentaire Ω est
+donc un fermé de C× . Finalement, Ω est à la fois ouvert et fermé dans C× (et est non vide), c’est
+donc que Ω = C× .
+
+
+
+
+    Nous reviendrons un peu plus tard sur la question fondamentale de la définition globale du
+logarithme complexe (voir la Proposition II.9.3).
+
+  Remarque I.4.6 — Il est peut-être opportun de préciser ici la signification de l’adjectif
+  « local » dans un énoncé mathématique. Celui-ci concerne alors une propriété d’un espace
+  topologique X, et l’on veut dire que pour tout point x de X, il existe un voisinage de x tel
+  que la propriété en question y soit valide (mais celle-ci peut être en défaut sur l’espace X
+  en entier). Par exemple, une fonction numérique continue sur un espace topologique est
+  localement bornée (mais pas forcément bornée).
+
+
+
+
+I.5      Intégration le long d’un chemin
+
+
+      Commençons par rappeler la :
+
+       Définition I.5.1
+   Soit Ω un ouvert non vide de C. Un chemin γ (orienté) de Ω est une application continue
+   de classe C 1 par morceaux
+                                      γ : [a, b] −→ Ω,
+   où a < b. Si de plus γ(a) = γ(b), on dira que γ est un lacet. Le chemin opposé γ opp :
+   [a, b] → Ω est défini par
+                                  γ opp (t) := γ(a + b − t).
+
+
+   Remarque I.5.2 — Dans la définition de C 1 par morceaux, nous supposons que la dérivée
+   admet des limites à gauche et à droite en tout point de discontinuité. En particulier, cette
+   dérivée reste bornée.
+
+
+   Exemple I.5.3 — Le lacet γ(t) = z0 + r eit , pour t ∈ [0, 2π] est le cercle de centre z0 ∈ C
+   et de rayon r > 0, qui est parcouru dans le sens direct.
+
+    On dit que deux chemins γ1 : [a1 , b1 ] → Ω et γ2 : [a2 , b2 ] → Ω sont composables si γ1 (b1 ) =
+γ2 (a2 ). Auquel cas, on peut définir le chemin composé
+
+
+                                    γ1 ∨ γ2 : [a1 , b1 + b2 − a2 ] → Ω,
+
+
+par
+
+                                                            si t ∈ [a1 , b1 ]
+                                    (
+                                        γ1 (t)
+                   γ1 ∨ γ2 (t) :=
+                                        γ2 (t + a2 − b1 )   si t ∈ [b1 , b1 + b2 − a2 ].

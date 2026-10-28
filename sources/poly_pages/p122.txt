@@ -1,0 +1,64 @@
+VI.3. THÉORÈMES D’INVERSION LOCALE ET GLOBALE                                                           119
+
+                                    −1                                                  −1
+       1                ∂f                                             s      ∂f
+      ≤ ∥y − y0 ∥ + ∥      (x0 , y0 )    (f (x, y0 ) − f (x0 , y0 ))∥ ≤ + ∥      (x0 , y0 )    ∥ M r.
+       2                ∂y                                             2      ∂y
+                                               
+                                  s
+Prenons r = min r0 ,                      −1 , de sorte que pour tout x ∈ B(x0 , r), gx (B̄(y0 , s)) ⊂
+                                               
+                            
+                        2M ∥ ∂f
+                              ∂y (x0 , y0 )   ∥
+B̄(y0 , s).
+    Le théorème du point fixe VI.1.4 s’applique à
+
+                                  g : B(x0 , r) × B̄(y0 , s) → B̄(y0 , s).
+
+On en déduit que gx a un unique point fixe φ(x), et que x 7→ φ(x) est de classe C p de B(x0 , r)
+dans B̄(y0 , s). De plus φ(x0 ) = y0 par unicité.
+    On pose donc U0 = B(x0 , r) et V0 = B(y0 , s) (l’unicité du point fixe dans B̄(y0 , s) la donne
+a fortiori dans B(y0 , s)), ce qui achève la démonstration de la première assertion. Le théorème
+VI.1.4 donne aussi la différentielle de φ. Avec les notations de ce théorème,
+                                                ∂g          −1 ∂g
+                             dφx =       IdF −      (x, φ(x))   ◦    (x, φ(x)).
+                                                 ∂y               ∂x
+
+Calculons ceci, compte tenu du fait que
+                                                                 −1
+                           ∂g                        ∂f                 ∂f
+                              (x, φ(x)) = −             (x0 , y0 )    ◦    (x, φ(x)),
+                           ∂x                        ∂y                 ∂x
+                                                                        −1
+                        ∂g                               ∂f                        ∂f
+                           (x, φ(x)) = IdF −                (x0 , y0 )         ◦      (x, φ(x)).
+                        ∂y                               ∂y                        ∂y
+La seconde identité se lit
+                                                                        −1
+                             ∂g                          ∂f                        ∂f
+                        IdF − (x, φ(x)) =                   (x0 , y0 )         ◦      (x, φ(x)),
+                             ∂y                          ∂y                        ∂y
+
+dont l’inverse est                                  −1
+                                         ∂f                ∂f
+                                            (x, φ(x))    ◦    (x0 , y0 ).
+                                         ∂y                ∂y
+Ceci donne bien                                           −1
+                                               ∂f                ∂f
+                              dφx = −             (x, φ(x))    ◦    (x, φ(x)).
+                                               ∂y                ∂x
+
+
+
+
+VI.3          Théorèmes d’inversion locale et globale
+
+
+   L’énoncé du théorème d’inversion locale fait appel à la notion de C k -difféomorphisme entre
+ouverts d’espaces de Banach.
+
+      Définition VI.3.1
+    Soit f une application de U dans V, où U est un ouvert d’un espace de Banach E et V un
+    ouvert d’un espace de Banach F . On dit que f est un C k -difféomorphisme si f est une
+    bijection de U dans V, de classe C k , ainsi que f −1 .

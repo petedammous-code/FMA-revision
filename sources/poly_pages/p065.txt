@@ -1,0 +1,58 @@
+62                                             CHAPITRE III. SUITES, SÉRIES ET PRODUITS
+
+
+     Exercice III.1.6 : Formule du noyau de Bergman — Soit D = D(0, 1) le disque unité
+     ouvert. On note Hol2 (D) l’espace des fonctions holomorphes et de carré sommable sur D.
+     Cet espace s’injecte dans L2 (D).
+     1) Montrer que l’image de Hol2 (D) dans L2 (D) est un sous-espace fermé. On pourra utiliser
+     l’exercice I.7.8.
+     2) En déduire que pour tout y ∈ D, il existe une fonction holomorphe gy sur D telle que
+     pour tout f ∈ Hol2 (D),
+                                    Z
+                            f (y) =    gy (z) f (z) du dv,  (z = u + iv),
+                                     D
+                                                                  X
+     3) On considére le développement en série entière gy (z) =         an (y)z n . Que donne l’identité
+                                                                  n∈N
+     précédente appliquée à la fonction z 7→ z n ?
+     4) En déduire que pour tout f ∈ Hol2 (D), pour tout z ∈ D,
+                                           Z
+                                        1          f (u + iv)
+                                f (z) =                          du dv.
+                                        π D (1 − (u − iv)z)2
+                               n      q          o
+     5) Montrer que la famille z 7→ n+1  π   z n       est une base hilbertienne de Hol2 (D).
+                                                 n≥0
+
+
+
+
+III.2      Le théorème de Hurwitz
+
+
+    Nous allons maintenant montrer le théorème de Hurwitz, qui lie certaines propriétés de
+la limite d’une suite de fonctions holomorphes (annulation, injectivité) au comportement des
+éléments de la suite :
+
+       Théorème III.2.1 — Hurwitz (1889)
+     Soient Ω un ouvert connexe de C et (fn )n∈N une suite de fonctions holomorphes de Ω dans
+     C, localement uniformément convergente sur Ω et de limite f .
+        1. Si pour tout n ≥ 0, fn ne s’annule pas sur Ω, alors soit f ne s’annule pas sur Ω, soit
+           f ≡ 0 sur Ω,
+        2. Si pour tout n ≥ 0, fn est injective sur Ω, alors soit f est injective sur Ω, soit f est
+           constante sur Ω.
+
+Démonstration. Montrons d’abord le point 1. Le point 2 s’en déduira aisément. Supposons que
+f ̸≡ 0 sur Ω et soit z0 ∈ Ω. D’après le principe des zéros isolés, il existe r > 0 tel que pour tout
+z ∈ D(z0 , r) \ {z0 }, f (z) ̸= 0 (il se peut également que f (z0 ) ̸= 0 mais nous ne l’utiliserons pas).
+    Puisque |f | est continue sur C(z0 , r) et ne prend que des valeurs strictement positives, il existe
+ε > 0 tel que |f (z)| ≥ 2ε pour tout z ∈ C(z0 , r). Comme par ailleurs, (fn )n converge uniformément
+vers f sur C(z0 , r), il existe N ≥ 1 tel que pour tout n ≥ N , on ait |f (z) − fn (z)| ≤ ε pour tout
+z ∈ C(z0 , r). Ainsi,
+
+                         |fn (z)| ≥ ε , pour tout z ∈ C(z0 , r) et tout n ≥ N.
+
+Fixons z ∈ C(z0 , r) et n ≥ N . Alors on a
+                           1     1      |f (z) − fn (z)|   1
+                              −       =                  ≤ 2 sup |f − fn |
+                         f (z) fn (z)     |f (z)fn (z)|   2ε C(z0 ,r)

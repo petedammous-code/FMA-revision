@@ -1,0 +1,65 @@
+38                                                               CHAPITRE II. FORMULE DES RÉSIDUS
+
+                                                                         (n)
+des intégrales de f sur les bords des surfaces Γi,j = γ(Ki,j ) (on utilise ici la propriété d’additivité
+de l’intégrale sur une composée de chemins) et donc cette intégrale sera nulle en vertu du
+Théorème I.5.9. D’une certaine manière, on pourrait s’arrêter là, le reste n’étant que mise en
+forme technique de l’idée exposée. Expliquons malgré tout les détails.
+    On recouvre γ(K) par des disques ouverts Dα ⊂ Ω, α ∈ A, sur lesquels f admet une primitive
+holomorphe (voir le Corollaire I.7.6). Comme γ(K) est un compact—comme image d’un compact
+par une application continue—on peut choisir un nombre de Lebesgue δ > 0 du recouvrement.
+Par définition, on a
+
+                             ∀x ∈ γ(K),        ∃α ∈ A          tel que         D(x, δ) ⊂ Dα .
+
+Comme γ est continue, elle est uniformément continue sur le compact K (Théorème de Heine).
+Ceci permet de choisir n assez grand de sorte que pour tout x, y ∈ K contenus dans un carré de
+côté 1/n on ait |γ(x) − γ(y)| < δ. On a alors
+
+                                                                                          (n)
+                       ∀i, j ∈ {0, . . . , n − 1},   ∃α ∈ A         tel que          γ(Ki,j ) ⊂ Dα .
+
+On pourrait être tenté de prendre Γi,j comme étant le chemin image du bord orienté (dans le
+                  (n)
+sens direct) de Ci,j . Ceci est correct si l’on suppose de plus que γ est de classe C 1 . Mais, pour
+les applications, il est préférable de ne pas supposer que γ est de classe C 1 . L’idée est alors de
+remplacer les chemins intermédiaires par des chemins affines par morceaux.
+      On commence par remplacer γ(0, t), γ(1, t) par des chemins affines par morceaux, tout en
+restant dans les disques Dα dans chaque pas de la subdivision. Pour cela, on définit Γ−1,j
+comme le chemin orienté obtenu en composant le chemin γ restreint à {0} × [ nj , j+1           n ] avec le
+segment [γ(0, j+1
+                n  ), γ(0, j
+                           n )]. De même,   on définit     Γn,j comme l’opposé du chemin   orienté obtenu
+                                                  j j+1                          j+1        j
+en composant le chemin γ restreint à {1} × [ n , n ] avec le segment [γ(1, n ), γ(1, n )]. Enfin, on
+« grillage » en définissant Γi,j , pour i, j = 0, . . . , n − 1, comme étant le chemin orienté affine par
+morceaux dont l’image est un quadrilatère orienté de sommets γ( ni , nj ), γ( i+1      j      i+1 j+1
+                                                                                   n , n ), γ( n , n ) et
+       j+1
+γ( ni , n ).
+                                                         (n)
+   Comme le disque Dα qui contient γ(Ki,j ) est convexe, il contient Γi,j . Comme f a une
+primitive sur Dα , l’intégrale de f le long du lacet Γi,j est nulle. Par construction, les Γi,j , pour
+−1 ≤ i ≤ n et 0 ≤ j ≤ n − 1, grillagent γ(C) (remarquons que les bords de deux quadrilatères
+consécutifs ont un côté commun). Par additivité de l’intégrale, on a
+
+                                       Z                 n n−1
+                                                         X XZ
+                                            f (z) dz =                         f (z) dz
+                                        Γ                i=−1 j=0    Γi,j
+
+
+     car les contributions des côtés intérieurs se détruisent deux à deux et donc, grâce à la formule
+(II.2.1) 1
+                                  Z              Z             Z
+                             0=      f (z) dz =     f (z) dz −    f (z) dz,
+                                        Γ                 γ1                    γ0
+
+ce qui termine la démonstration.
+
+
+
+     On obtient le :
+
+  1. La formule (II.2.1) est maintenant valable ici car le chemin continu a été remplacé par un chemin affine par
+morceaux.

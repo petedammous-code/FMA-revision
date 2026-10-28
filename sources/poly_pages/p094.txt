@@ -1,0 +1,53 @@
+                                                                                                    91
+
+    Le calcul différentiel des « fonctions à plusieurs variables », c’est-à-dire des fonctions d’un
+ouvert de Rp à valeurs dans Rq , p, q ∈ N× , se généralise en remplaçant les espaces de dimension
+finie Rp et Rq par des espaces vectoriels réels normés, de dimension pouvant être infinie. Si les
+résultats en dimension finie ne dépendent pas pour l’essentiel du choix des normes sur Rp et Rq ,
+parce que toutes les normes sur un même espace Rp sont équivalentes, il n’en est pas de même
+en dimension infinie. En particulier, beaucoup d’énoncés se placent dans le cadre des espaces
+de Banach, c’est-à-dire des espaces vectoriels normés complets. Ceux-ci ont été étudiés dans le
+cours de tronc commun de la première année, et nous renvoyons à celui-ci pour que le lecteur se
+rafraîchisse les idées sur le sujet, si besoin est ([11], chapitre II et IV).
+    Dans le chapitre V, après quelques rappels sur les espaces vectoriels normés, en particulier les
+espaces de Banach, nous introduisons la notion de différentielle en un point d’une application
+f : U → F d’un ouvert U d’un espace vectoriel normé E et à valeurs dans un espace vectoriel
+normé F . Ceci permet d’introduire les notions d’application différentiable, puis de classe C 1 ,
+puis par la suite, les différentielles d’ordre supérieur et les applications de classe C p , p ≥ 1. On
+démontre dans ce cadre les principaux résultats du calcul différentiel : propriété de linéarité
+de la différentielle, formule pour la différentielle d’une application composée, théorème des
+accroissements finis, théorème fondamental du calcul différentiel, lemme de Schwarz, formule de
+Taylor, etc.
+    Le chapitre VI est consacré à la démonstration de trois théorèmes fondamentaux : le théorème
+de point fixe (attribué à S. Banach ou à E. Picard), le théorème des fonctions implicites et le
+théorème d’inversion locale. Ces deux derniers théorèmes sont essentiellement équivalents, au
+sens où l’on peut facilement démontrer l’un à partir de l’autre, et joueront un rôle crucial dans la
+théorie des sous-variétés de RN que nous développerons au chapitre suivant. Nous déduisons le
+théorème des fonctions implicites du théorème de point fixe. Une autre application de ce théorème
+est le théorème d’existence et d’unicité des solutions d’équations différentielles (théorème de
+Cauchy-Lipschitz), qui seront l’objet du chapitre VII. A cet effet, en vue des applications aux
+équations différentielles, nous démontrons une version « à paramètres » du théorème de Picard,
+où le point fixe dépend de manière différentiable des paramètres.
+    Le chapitre VII est consacré aux équations différentielles ordinaires. Celles-ci jouent (depuis I.
+Newton) un rôle essentiel dans la modélisation de systèmes physiques, mécaniques, chimiques,
+biologiques, économiques, etc, quand on veut décrire l’évolution déterministe d’un tel système ne
+dépendant que d’une variable (souvent cette variable est le temps, ce qui influe sur la terminologie,
+même lorsque ce n’est pas le cas). D’autres équations de la physique (équation des ondes, de la
+chaleur, de Navier-Stokes, de Schrödinger, etc) font intervenir plusieurs variables et l’on parle alors
+d’équations aux dérivées partielles. Le théorème principal de la théorie des équations différentielles
+ordinaires est le théorème de Cauchy-Lipschitz (et ses variantes), qui donne l’existence et l’unicité
+locale d’une solution, les conditions initiales étant fixées. L’idée que l’évolution de l’univers est
+déterminée par son état à un instant donné et les lois qui le régissent est une idée importante, qui
+a longtemps dominé la philosophie des sciences (jusqu’à l’avènement de la mécanique quantique).
+Mais d’autres limitations de ce résultat apparaissent indépendamment de la mécanique quantique.
+Il faut tout d’abord que les hypothèses du théorème de Cauchy-Lipschitz soient vérifiées, il
+existe sans cela des contre-exemples à l’existence ou l’unicité de la solution. Et même lorsque le
+théorème s’applique, les solutions exactes sont souvent impossibles à calculer. Depuis Poincaré,
+et son étude du problème des trois corps, on sait que les méthodes de résolution explicites
+ne permettent pas de comprendre les systèmes les plus intéressants, et depuis cette période,
+l’intérêt des mathématiciens s’est plutôt concentré sur les propriétés qualitatives, géométriques
+ou probabilistes, de ces équations. Nous ne poursuivons pas plus avant de manière systématique
+cette théorie des systèmes dynamiques qui pourra faire l’objet d’un cours plus avancé, nous nous
+bornerons ici à aborder ce vaste domaine par le biais de quelques exercices d’étude qualitative
+d’équations différentielles ordinaires. Nous adoptons un formalisme et une terminologie provenant
+d’une vision géométrique de la problématique : l’équation est la donnée d’un champ de vecteurs

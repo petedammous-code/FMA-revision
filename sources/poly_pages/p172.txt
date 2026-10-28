@@ -1,0 +1,57 @@
+IX.7. CALCUL DIFFÉRENTIEL SUR LES SOUS-VARIÉTÉS                                                              169
+
+autrement dit si la forme linéaire dgp s’annule sur ker dFp . Mais remarquons que si F (x) =
+(F1 (x), . . . , FN −m (x)), alors ker dFp est l’intersection des noyaux des formes linéaires d(F1 )p , . . . , d(FN −m )p .
+Un résultat standard d’algèbre linéaire (à faire absolument en exercice) nous dit que dgp s’annule
+sur l’intersection des ker d(Fi )p si et seulement si dgp est combinaison linéaire des d(Fi )p , i.e. s’il
+existe des réels w1 , . . . , wN −m tels que
+
+                                dgp = w1 d(F1 )p + . . . + wN −m d(FN −m )p .
+
+
+
+
+   Exercice IX.7.36 : Diagonalisation des matrices symétriques — Soit A un endomor-
+   phisme symétrique de l’espace euclidien RN , c’est-à-dire vérifiant
+
+                                     ⟨Av, w⟩ = ⟨v, Aw⟩,       (v, w ∈ RN ).
+
+   Considérons la fonction
+                                        f : SN −1 → R,      v 7→ ⟨Av, v⟩.
+   Montrer que v est un point critique de f si et seulement si Av = f (v)v. En déduire que A
+   admet un vecteur propre. Montrer que A est diagonalisable dans une base orthonormale de
+   RN .
+
+
+
+   Exercice IX.7.37 — Reprenons l’exemple IX.7.21. Soient S une hypersurface de RN de
+   classe C k , p0 ∈ RN et
+
+                            f : S → R,        p 7→ ⟨p − p0 , p − p0 ⟩ = ∥p − p0 ∥2 .
+
+   On suppose S compacte. Montrer qu’il existe une droite normale à S passant par p0
+   (c’est-à-dire qu’il existe un point p de S tel que p − p0 est orthogonal à Tp S ).
+   On suppose S connexe. Montrer que si toutes les droites normales à la surface S se
+   rencontrent en un point p0 , alors S est contenue dans une sphère.
+
+
+
+
+IX.7.6      Hessienne
+
+    Soient S1 et S2 deux sous-variétés (respectivement de RN1 et RN2 ) et
+
+                                                 f : S1 → S2
+
+une application de S1 dans S2 . On suppose S1 , S2 et f de classe au moins C 2 . On ne peut pas
+en général définir une notion de différentielle seconde de f . En effet, la différentielle première
+en un point p est une application linéaire de Tp S1 dans Tf (p) S2 . Comme Tp S1 dépend de p, on
+ne peut définir df comme une application de S dans un espace vectoriel fixe, et donc définir sa
+différentielle.
+    Si x : U → S1 est un paramétrage local de S1 en p, f ◦ x : U → RN2 admet une différentielle
+seconde en q = x−1 (p)
+
+                  q 7→ d(d(f ◦ x))q ,     U → L(Rm ; L(Rm ; RN2 )) ≃ L(Rm , Rm ; RN2 ).
+
+On pourrait être tenté d’utiliser ce fait pour définir malgré tout une différentielle seconde à f en p.
+Cet espoir est ruiné par le fait qu’une telle définition ne saurait être indépendante du paramétrage

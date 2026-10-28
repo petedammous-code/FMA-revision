@@ -1,0 +1,50 @@
+86                                                                   CHAPITRE IV. APPLICATIONS
+
+température en régime permanent
+
+                                         T+ − T−             T − ln R+ − T + ln R−
+                     Tcentrée (z) =               −
+                                                    ln |z| +                       .
+                                          +
+                                      ln R − ln R                ln R+ − ln R−
+Dans le cas général (i.e. quand les deux cercles définissant le bord de la couronne n’ont pas le
+même centre), on remarque que l’on peut toujours trouver une transformation homographique
+                                                        az + b
+                                              f (z) =          ,
+                                                        cz + d
+qui transforme la couronne excentrée en une couronne centrée, de rayons ρ− < ρ+ . La distribution
+de température en régime permanent sera alors donnée par Tcentrée ◦ f , où Tcentrée est calculée
+avec les rayons ρ± de la couronne image, et non avec R± : le rapport ρ+ /ρ− , qui est le module
+conforme de la couronne, diffère en général de R+ /R− .
+
+
+
+
+                         Transformation homographique de deux couronnes.
+
+                                                     5 z−3
+                                              z 7→    +
+                                                     3 z−2
+
+
+
+     Exercice IV.4.2 — Calculer le Laplacien en coordonnées polaires. Déterminer toutes les
+     fonctions harmoniques définies sur C× qui sont invariantes par rotation.
+
+
+     Exercice IV.4.3 : Problème de Dirichlet et Fonctions Harmoniques — On s’intéresse
+     à la distribution de température stationnaire T (x, y) dans une plaque modélisée par le
+     demi-plan supérieur H = {z = x + iy ∈ C | y > 0}. En régime stationnaire, l’équation de la
+     chaleur se réduit à l’équation de Laplace : la fonction T est harmonique (∆T = 0).
+     On impose les conditions aux limites (températures fixées) suivantes sur le bord de la plaque
+     (l’axe réel) :
+
+                  T (x, 0) = T1   pour x > 0,        et       T (x, 0) = T0   pour x < 0.
+
+        1. Rappeler pourquoi la partie imaginaire d’une fonction holomorphe est une fonction
+           harmonique.
+        2. On considère la détermination principale du logarithme complexe Log(z) sur C \ R− .
+           Quelle est sa partie imaginaire ? Déterminer les limites de cette partie imaginaire
+           lorsque z ∈ H tend vers un réel x > 0, puis vers un réel x < 0.
+        3. En cherchant T sous la forme A ℑm(Log(z)) + B, déterminer la solution T (x, y) du
+           problème de Dirichlet en fonction de T0 , T1 et de Arg(z).

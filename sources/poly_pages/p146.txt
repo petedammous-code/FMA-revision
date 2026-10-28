@@ -1,0 +1,48 @@
+                                                                                       Chapitre   VIII
+Calcul des variations. Equation
+d’Euler-Lagrange
+
+    Dans ce chapitre, nous donnons sous forme d’exercice quelques éléments de calcul des va-
+riations. Nous établissons l’équation d’Euler-Lagrange, puis des principes de conservation de
+certaines quantités lorsque le Lagrangien est invariant par un sous-groupe à un paramètre de
+difféomorphismes (théorème de Noether). Sous une hypothèse de régularité du Lagrangien, on
+réécrit localement l’équation d’Euler-Lagrange sous la forme d’une équation différentielle ordinaire
+satisfaisant les hypothèses du théorème de Cauchy-Lipschitz. On en déduit l’existence et l’unicité
+locale d’une solution.
+
+
+
+    Soit (V, ⟨. , .⟩) un espace de Hilbert de dimension finie dont la norme est notée ∥.∥V . On
+identifie systématiquement V et son dual L(V ; R) au moyen du produit scalaire : à une forme
+linéaire ℓ sur V correspond l’unique vecteur w ∈ V tel que ℓ(h) = ⟨w, h⟩ pour tout h ∈ V . Soit
+E = C 1 ([0; 1]; V ), muni de la norme
+
+                               ∥γ∥E = sup ∥γ(t)∥V + sup ∥γ ′ (t)∥V .
+                                        t∈[0;1]              t∈[0;1]
+
+
+Soit I un intervalle ouvert contenant [0, 1] et
+
+                          L : I × V × V −→ R,            (u, q, v) 7→ L(u, q, v)
+
+une application de classe C 1 . (On a pris des noms de variables proches de celles des physiciens ;
+on peut penser à la variable q comme à une position, et à la variable v comme une vitesse. Les
+physiciens, qui n’ont peur de rien, utilisent même la notation q̇ pour cette variable. La variable u
+est elle dans cet esprit une variable de temps, la variable t étant réservée dans ce problème à la
+fonction γ. On ne saurait trop conseiller de choisir des noms de variables différents pour toutes
+les fonctions intervenant dans un problème, c’est peut-être lourd mais c’est prudent).
+    On fixe a, b dans V et l’on note Ea,b le sous-espace des γ ∈ E tels que γ(0) = a, γ(1) = b
+(espaces des courbes à extrémités fixées a et b dans V ).
+
+   1. Rappeler pourquoi Ea,b est un espace complet. Montrer que c’est un espace affine d’espace
+      vectoriel sous-jacent E0,0 . Passer en revue rapidement le cours pour se convaincre que le
+      cadre naturel du calcul différentiel est en fait celui des espaces affines associés à des espaces
+      vectoriels normés.
+
+On définit                                              Z 1
+                          L̂ : E → R,         L̂(γ) =         L(t, γ(t), γ ′ (t)) dt
+                                                         0
+
+   2. Montrer que L̂ est de classe C 1 et calculer dL̂γ pour γ ∈ E.
+
+                                                  143

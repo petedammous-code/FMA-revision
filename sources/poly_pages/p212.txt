@@ -1,0 +1,73 @@
+                                                                                                    209
+
+   (7) D’après la question précédente on peut prolonger L en une fonction holomorphe sur
+C\{0, 1} en posant
+
+                                                  1  1
+                                       L(s) =       − + g(s)
+                                                 s−1 s
+    De plus, comme g est holomorphe, les seuls pôles de L ainsi définie sont des pôles d’ordre
+1 aux points s = 0 et s = 1 ; ce sont bien des pôles, les résidus valant respectivement −1 et
++1, qui sont non nuls. On utilisera à partir de maintenant la notations L pour désigner ce
+                                                1              −1
+prolongement méromorphe. D’autre part, on a (1−s)−1  = − 1s , (1−s)    1
+                                                                    = s−1 et g(1 − s) = g(s) pour
+tout s ∈ C\{0, 1} et donc
+
+                                   L(s) = L(1 − s) ∀s ∈ C\{0, 1}.
+
+    (8) Comme on a L(s) = π −s/2 Γ(s/2)ζ(s) pour tout s ∈ U1 on peut poser
+
+                                             π s/2 L(s)
+                                    ζ(s) =              , ∀s ∈ C\{0, 1}
+                                              Γ(s/2)
+
+    Remarquons que c’est bien défini car il a été vu en cours que la fonction Γ−1 est entière avec
+                                                                                           L(s)
+comme zéros l’ensemble −N. Comme la fonction L a un pôle simple en 0, la fonction s 7→ Γ(s/2)   se
+                                                                              −1
+prolonge holomorphiquement en 0, mais pas en 1 qui n’esdt pas un zéro de Γ . Donc la fonction
+            L(s)
+s 7→ π s/2 Γ(s/2) est une fonction méromorphe sur C avec un unique pôle d’ordre 1 en s = 1.
+    Partie D.
+   (1) Soit δ > 0. Notons fn (s) = −1  ns si n est premier et fn (s) = 0 sinon. Comme ci dessus,
+                                                                        X        X −1
+                            1
+on a sups∈U1+δ |fn (s)| ⩽ n1+δ , donc, comme précédemment, la série         fn =       converge
+                                                                                   ps
+                                                                            n⩾1       p=2
+normalement sur U1+δ .
+                                          +∞
+                                          Y           1
+    Pour la convergence du produit                         , le cours nous dit de considérer la série de
+                                                   1 − p−s
+                                        p=2
+                                     p premier
+                             p−s
+terme général 1−p1 −s − 1 = 1−p        1       1
+                                −s = ps −1 ∼ ps .
+                       X         −1
+    Comme la série                  converge normalement sur compact inclus dans U1 , la série de
+                                 ps
+                        p=2
+                     p premier
+terme général 1−p1 −s − 1 aussi, et d’après le théorème III.5.1 du cours, on obtient que le produit
+infini
+                                             +∞
+                                             Y        1
+                                                   1 − p−s
+                                                p=2
+                                             p premier
+
+converge vers une fonction holomorphe sur U1 .
+    (2) Soit N ∈ N\{0, 1}. D’après le théorème fondamental de l’arithmétique, tout entier n > 1
+s’écrit de façon unique comme produit de nombre premier n = pi11 · · · pikk . De plus si n ⩽ N ,
+chaque nombre premier apparaissant dans cette décomposition est lui même plus petit que N . De
+même tous les exposants apparaissant dans cette décomposition sont plus petit que N . On en
+déduit que pour tout n ⩽ N , le réel n1s apparaît exactement une fois dans le développement de
+    N                        
+   Y           1            1
+           1 + s + · · · + N s . Comme tous les termes de ce développement sont par ailleurs
+               p          p
+   p=2
+p premier

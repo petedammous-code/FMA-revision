@@ -1,0 +1,16 @@
+178                                                                         CHAPITRE IX. SOUS-VARIÉTÉS
+
+
+  On considère la fonction
+
+                      f : (Rn )n −→ R,            (v1 , v2 , . . . , vn ) 7→ det(v1 |v2 | . . . |vn ).
+
+      1. Pour tout (v1 , v2 , . . . , vn ) ∈ (Rn )n , donner la différentielle df(v1 ,v2 ,...,vn ) en l’évaluant
+         en (w1 , w2 , . . . , wn ) ∈ (Rn )n .
+      2. On note g la restriction de f à (Sn−1 )n . Montrer que si (v1 , v2 , . . . , vn ) ∈ (Sn−1 )n est un
+         point critique de g, et que de plus (v1 , v2 , . . . , vn ) est libre, alors pour tout i = 1, . . . , n,
+         Tvi Sn−1 ⊂ Vect(v1 , . . . , vi−1 , vi+1 , . . . vn ). En déduire que (v1 , v2 , . . . , vn ) ∈ (Sn−1 )n
+         est une base orthonormée de Rn .
+      3. Montrer que pour tout (v1 , v2 , . . . , vn ) ∈ (Rn )n , on a
+
+                                    det(v1 |v2 | . . . |vn ) ≤ ||v1 || ||v2 || . . . ||vn || .

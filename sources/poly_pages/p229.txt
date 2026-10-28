@@ -1,0 +1,67 @@
+226                                     ANNEXE A. SUJETS D’EXAMEN ET PROBLÈMES
+
+  4. Soit K(Λ) l’ensemble des fonctions de la forme R(℘) + ℘′ S(℘), pour certaines fonctions
+     rationnelles R, S. On souhaite montrer que E(Λ) = K(Λ).
+      (a) Cela découle essentiellement duP     fait que l’ensemble des fonctions méromorphes est
+          un corps. En effet, si Q(X) = dk=0 bk X k est un polynôme avec d ≥ 1 et bd =         ̸ 0
+          (le cas d = 0 étant trivial), alors leP  développement en série de Laurent de Q(℘) au
+          voisinage de 0 est de la forme zb2d
+                                            d
+                                               + k≥−(d−1) ck z 2k , donc 0 est un pôle de Q(℘). En
+          particulier, Q(℘) est une fonction méromorphe non-nulle, et puisque l’ensemble des
+                                                                             P
+          fonctions méromorphes est un corps, pour tout polynôme P , Q         (℘) est une fonction
+          méromorphe. Comme ℘ (donc ℘′ ) est Λ-périodique, et que l’ensemble des fonctions
+          méromorphes est un corps, on a bien que si R, S sont deux fonctions rationnelles, alors
+          R(℘) + ℘′ S(℘) est méromorphe, Λ-périodique, i.e., R(℘) + ℘′ S(℘) ∈ E(Λ).
+      (b) Soit f une telle fonction. Si f est constante, le résultat est évident (on prend P = f ).
+          Sinon, f a au moins un pôle λ∗ , qui par hypothèse doit appartenir à Λ. Par Λ-périodicité,
+          on conclut que l’ensemble des pôles de f est exactement λ∗ + Λ = Λ. Comme f est
+          supposée paire, elle admet donc un développement en série de Laurent au voisinage de
+          0 de la forme
+                                                       +∞
+                                                       X
+                                              f (z) =       αk z 2k ,
+                                                    k=−m
+
+          avec m ≥ 1 et α−m ̸= 0. Par le développement de ℘ rappelé dans l’énoncé, la fonction
+          f − α−m ℘m a donc un développement en série de Laurent au voisinage de 0 de la
+          forme :
+                                                        +∞
+                                                        X
+                                               m
+                                 f (z) − α−m ℘ (z) =          βk z 2k .
+                                                          k=−(m−1)
+
+          Par récurrence sur la multiplicité de 0 comme pôle, on peut donc construire un
+          polynôme P de degré m tel que f − P (℘) n’ait pas de pôle en 0. Comme f et ℘ sont
+          Λ-périodiques, on déduit que f − P (℘) n’a pas de pôle dans Λ ; par ailleurs, f et ℘ sont
+          holomorphes sur C \ Λ, donc f − P (℘) aussi. On conclut que f − P (℘) est elliptique,
+          sans pôle, donc constante (par Liouville), et le résultat s’ensuit.
+      (c) Soit f ∈ E(Λ) paire. On fixe z0 ∈ C tel que ∂Q ne contienne pas de pôle de f , et on
+          note P ′ l’ensemble des pôles de f à l’intérieur de Q qui ne sont pas contenus dans Λ. On
+          pose n := #P ′ ≥ 0. On va raisonner par récurrence sur l’entier n. Si n = 0 le résultat
+          découle immédiatement de la question précédente (la Λ-périodicité de f entraîne que
+          les pôles de f sont contenus dans Λ). Si n ≥ 1, on choisit z ′ ∈ P ′ . Notons m ≥ 1 l’ordre
+          du pôle de f en z ′ (rien n’impose qu’il soit pair : f est paire autour de 0, pas autour
+          de z ′ ). La fonction g : z 7→ (℘(z) − ℘(z ′ ))m est holomorphe au voisinage de z ′ (z ′ ∈
+                                                                                                   /Λ
+                                                                                               ′
+          donc n’est pas un pôle de ℘) et y a un zéro d’ordre ≥ m, donc au voisinage de z , on a
+          g(z) = (z − z ′ )m h(z) avec h holomorphe. On déduit que la fonction f g n’a pas de pôle
+          en z ′ . Comme les pôles de g sont contenus dans Λ, l’ensemble P ′′ des pôles de f g à
+          l’intérieur de Q qui ne sont pas contenus dans Λ satisfait #P ′′ ≤ n − 1. Par récurrence,
+          on peut donc construire un polynôme Q tel que les pôles de f Q(℘) à l’intérieur de Q
+          soient tous dans Λ. On a alors f Q(℘) = P (℘) par la question précédente (f Q(℘) est
+                                                                                    P
+          paire, elliptique pour Λ, et de pôles contenus dans Λ), et donc f = Q       (℘).
+      (d) Soit f ∈ E(Λ). On écrit f = f1 + f2 , avec f1 : z 7→ f (z)+f    2
+                                                                            (−z)
+                                                                                 paire, et f2 : z 7→
+          f (z)−f (−z)
+                2      impaire. On a évidemment f1 , f2 ∈ E(Λ). De plus, par la question précédente,
+          f1 = R(℘) pour une certaine fonction rationnelle R. Par ailleurs, f℘2′ est paire et dans
+          E(Λ) (comme quotient de fonctions impaires dans E(Λ)), donc f℘2′ = S(℘) pour une
+          certaine fonction rationnelle S. On déduit que
+
+                                       f = f1 + f2 = R(℘) + ℘′ S(℘),

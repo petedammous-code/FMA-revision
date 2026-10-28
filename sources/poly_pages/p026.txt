@@ -1,0 +1,55 @@
+I.8. THÉORÈMES DE MORERA ET DE GOURSAT                                                        23
+
+
+  Exercice I.7.7 — On considère les fonctions de variable complexe z définies par
+
+                               ez − 1                 sin(πz)
+                    f (z) :=          ,   g(z) :=             ,      h(z) := tan z.
+                                  z                    z2 − 1
+  sur leurs domaines de définition respectifs C× , C \ {−1, +1}, C \ ( π2 + πZ).
+      1. Montrer que f et g se prolongent en des fonctions holomorphes sur C, et que h est
+         holomorphe sur son domaine de définition mais ne peut pas se prolonger en une
+         fonction holomorphe sur un domaine plus grand.
+      2. Déterminer le rayon de convergence des séries de Taylor en 0 de ces fonctions.
+
+
+  Exercice I.7.8 — Soit f une fonction holomorphe sur un ouvert Ω de C.
+      1. Montrer que, pour tout z0 ∈ Ω et pour tout r > 0 tel que D̄(z0 , r) ⊂ Ω,
+                                          Z
+                                        1
+                              f (z0 ) = 2        f (z0 + x + iy) dx dy.
+                                       πr D(0,r)
+
+      2. En déduire que, si f est holomorphe et bornée sur C, f est constante.
+
+
+
+I.8    Théorèmes de Morera et de Goursat
+
+
+    Dans cette section, nous donnons deux exercices concernant la caractérisation des fonctions
+holomorphes. De la caractérisation des fonctions holomorphes obtenue dans le premier, on peut
+tirer un énoncé dû à Goursat, qui montre que dans la définition des fonctions holomorphes, on
+peut se passer de l’hypothèse de continuité de la dérivée au sens complexe.
+
+  Exercice I.8.1 : Théorème de Morera (1886) — Soit f une fonction continue sur un
+  ouvert Ω. On suppose que
+                       Z              Z            Z
+  (I.8.1)                  f (z) dz +   f (z) dz +   f (z) dz = 0,
+                          [a,b]           [b,c]              [c,a]
+
+  pour tous a, b, c ∈ Ω tels que le triangle plein de sommets a, b et c est inclus dans Ω.
+  1) Soit z0 ∈ Ω et r > 0 tel que D(z0 , r) ⊂ Ω. Pour tout z ∈ D(z0 , r), on note
+                                               Z
+                                       F (z) =       f (ζ) dζ.
+                                                  [z0 ,z]
+
+  Montrer que F est dérivable au sens complexe sur D(z0 , r) et calculer F ′ .
+  2) En déduire que f est holomorphe sur Ω.
+  3) Inversement, montrer que si f est holomorphe sur un ouvert Ω alors (I.8.1) est vérifié
+  pour tous a, b, c ∈ Ω tels que le triangle plein de sommets a, b et c est inclus dans Ω.
+
+
+  Exercice I.8.2 : Théorème de Goursat (1900) — En utilisant l’exercice précédent,
+  montrer que si f : Ω → C est une fonction continue admettant une dérivée au sens
+  complexe f ′ (z) en tout point z ∈ Ω, alors f est holomorphe.

@@ -1,0 +1,62 @@
+152                                                                       CHAPITRE IX. SOUS-VARIÉTÉS
+
+
+                                                z
+                                    x                                Ψ        z
+
+                         v
+                     U
+                                                        p                            y
+                     q = (u, v) u           S                    y                (R2 × {0}) ∩ W
+                                                                          x
+                                                    V
+                                        x
+
+
+
+
+                                    Redressement local (ici m = 2, N = 3)
+
+
+On étend x en une application F : U × RN −m → RN en posant
+                                                F (u, t) = x(u) + φ(t).
+L’application F est continûment différentiable et sa différentielle en un point (q, 0) étant donnée
+par
+                  dF(q,0) : Rm × RN −m −→ RN ,        (h, w) 7→ dxq (h) + φ(w).
+Ainsi, il est clair que dF(q,0) est une application linéaire surjective de Rm × RN −m dans RN , et
+par égalité des dimensions, c’est un isomorphisme.
+    Le théorème d’inversion locale garantit l’existence alors d’un voisinage W de (q, 0) dans
+U × RN −m (que l’on peut prendre de la forme W = U ′ × Y où U ′ est un ouvert de U contenant
+q et Y un ouvert de RN −m contenant 0) et d’un voisinage V ′ de p dans RN tel que F réalise
+un difféomorphisme entre U ′ × Y et V ′ . On peut aussi supposer que ces ouverts sont choisis
+suffisamment petits, de sorte que V ′ ⊂ V. Posons Φ = F −1 : V ′ → U ′ × Y. On a alors
+Φ(V ′ ∩ S ) = (Rm × {0}) ∩ (U ′ × Y). Ceci montre que la condition locale voulue est vérifiée en p.
+    Réciproquement, soient p un point de S , et Φ, W, V ′ comme dans l’énoncé de la proposition.
+On a donc V ′ ∩ S = Φ−1 ((Rm × {0}) ∩ W). Posons U = (Rm × {0}) ∩ W. C’est un ouvert du
+sous-espace Rm × {0} de RN . En identifiant R
+                                            5 m
+                                                × {0} et Rm , on voit U comme un ouvert de Rm
+et si x désigne la restriction de Φ à U, x : U → V ′ ∩ S est un paramétrage local de S en
+                                   −1
+
+p.
+
+
+
+IX.4      Sous-variétés définies par des équations
+
+
+    Certaines sous-variétés peuvent être définie comme l’ensemble des points de l’espace ambiant
+solutions d’une équation. Par exemple, le cercle unité dans R2 est l’ensemble des points (x, y) du
+plan tels que x2 + y 2 = 1. En revanche, l’ensemble des points (x, y) de R2 solutions de xy = 0
+n’est pas une sous-variété de R2 . La proposition suivante donne un critère sur l’équation pour
+que l’ensemble de ses solutions soit une sous-variété.
+
+      Proposition IX.4.1
+   Soient N et m deux entiers, N > m. Soit f : V → RN −m une fonction de classe C k définie
+   sur un ouvert V de RN .
+       1. Soit p ∈ V tel que dfp soit surjective. Posons a = f (p). Alors il existe un voisinage
+          ouvert V1 de p dans V tel que f −1 ({a}) ∩ V1 est une sous-variété de dimension m et
+          de classe C k de RN .
+       2. Soit a une valeur régulière de f . Alors S = f −1 ({a}) est une sous-variété de
+          dimension m et de classe C k de RN .

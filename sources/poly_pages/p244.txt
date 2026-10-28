@@ -1,0 +1,32 @@
+Bibliographie
+
+ [1] L. V. Ahlfors. Complex analysis : An introduction of the theory of analytic functions of one
+     complex variable. Second edition. McGraw-Hill Book Co., New York, 1966.
+ [2] J.-P. Bourguignon. Calcul variationnel. École Polytechnique, Palaiseau, 2007.
+ [3] H. Cartan. Théorie élémentaire des fonctions analytiques d’une ou plusieurs variables
+     complexes. Avec le concours de Reiji Takahashi. Enseignement des Sciences. Hermann, Paris,
+     1961.
+ [4] H. Cartan. Calcul différentiel.
+     Hermann , Paris, 1977.
+ [5] P. Colmez Eléments d’analyse et d’algèbre (et de théorie des nombres). Editions de l’Ecole
+     Polytechnique 2009.
+ [6] F. Golse Distributions, analyse de Fourier, équations aux dérivées partielles. Cours de l’Ecole
+     Polytechnique.
+ [7] R. C. Gunning. Introduction to holomorphic functions of several variables (Function theory
+     I Local theory II Homological theory III). Wadsworth & Brooks/Cole Advanced Books &
+     Software, Monterey, CA, 1990.
+ [8] S. G. Krantz. Complex analysis : the geometric viewpoint, volume 23 of Carus Mathematical
+     Monographs. Mathematical Association of America, Washington, DC, second edition, 2004.
+ [9] L.D. Landau et E.M. Lifschitz. Electrodynamics of Continuous media in Course of Theoretical
+     Physics, volume 8. Pergamon Press, Oxford, New-York, Beijing, Frankfurt, 1984.
+[10] R. Narasimhan. Several complex variables. Chicago Lectures in Mathematics. University of
+     Chicago Press, Chicago, IL, 1995. Reprint of the 1971 original.
+[11] F. Pacard. Analyse réelle et complexe. Cours de l’Ecole Polytechnique.
+[12] W. Rudin. Real and complex analysis. McGraw-Hill Book Co., New York, third edition,
+     1987.
+[13] C. Viterbo Equations différentielles et systèmes dynamiques. Cours de l’Ecole Polytechnique.
+
+
+
+
+                                               241

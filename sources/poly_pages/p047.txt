@@ -1,0 +1,59 @@
+44                                                             CHAPITRE II. FORMULE DES RÉSIDUS
+
+Démonstration. Les premières assertions ont été établies dans la remarque avant l’énoncé. Mon-
+trons le dernier point. On sait déjà que g est holomorphe sur Ω \ Z, où Z est l’ensemble des zéros
+de f , qui est formé de points isolés d’après le théorème I.11. Il s’agit donc de montrer que tout
+point z0 ∈ Z est un pôle de g. XMais au voisinage de z0 , f admet un développement en série entière
+                              N
+de la forme f (z) = (z − z0 )      an (z − z0 )n , avec N ≥ 1 et a0 ̸= 0. Ainsi, au voisinage de z0 ,
+                                 n≥0
+
+                                                                               −1
+                                                              X
+                              (z − z0 )N g(z) = a0 +               an (z − z0 )n 
+                                                              n≥1
+
+
+qui se prolonge par continuité en z0 et reste donc bornée dans un voisinage de z0 . Enfin g ne
+se prolonge pas holomorphiquement en z0 , puisque |g| tend vers +∞ en z0 : c’est donc bien un
+pôle.
+
+      Proposition II.4.6
+     Soit f une fonction méromorphe sur Ω et z0 ∈ Ω. Alors, il existe m ∈ N et r > 0 tels que
+                                           X
+                                  f (z) =       an (z − z0 )n ,
+                                                  n≥−m
+
+     sur D(z0 , r)× . On dira que f admet un développement de Laurent a dans un voisinage de
+     z0 . Ce développement est unique et l’on a convergence normale de la série sur la couronne
+
+                                   Cε,ε̄ := {z ∈ Ω : ε < |z − z0 | < ε̄},
+
+     pour tout 0 < ε < ε̄ < r.
+     Enfin, f admet un pôle en z0 si et seulement s’il existe n ≤ −1 tel que an ̸= 0, et la
+     multiplicité de ce pôle est alors − min{n ; an ̸= 0}.
+       a. Pierre Alphonse Laurent, X 1830 ;
+
+
+
+Démonstration. Soit P l’ensemble entrant dans la définition de la méromorphie de f sur Ω. Si
+z0 ∈ Ω \ P , f est holomorphe au voisinage de z0 , et l’assertion à démontrer est déjà connue.
+    Soit z0 ∈ P . Par définition, il existe un entier m ∈ N tel que la fonction g(z) := (z − z0 )m f (z)
+est holomorphe sur D× := D(z0 , r) \ {z0 } et est bornée sur D := D(z0 , r).
+    Maintenant, g est une fonction holomorphe sur D× dont le module, |g|, est borné sur D par
+une constante M > 0, on peut utiliser les estimées de Cauchy (voir le Corollaire I.7.5) appliquées
+à g sur le disque D(z, |z − z0 |/2) ⊂ D× pour obtenir la majoration
+
+                                                              2M
+                                              |g ′ (z)| ≤             ,
+                                                            |z − z0 |
+
+pour tout z ∈ D(z0 , r/2) − {z0 }. On en déduit que
+
+                               h(z) := (z − z0 )2 g(z) = (z − z0 )m+2 f (z),
+
+est de classe C 1 en z0 , de plus h′ (z0 ) = 0 de sorte que h ∈ Hol(D). Or on sait que les fonctions
+holomorphes admettent sur D un unique développement en série entière
+                                                   X
+                                         h(z) =          an (z − z0 )n ,
+                                                   n≥0

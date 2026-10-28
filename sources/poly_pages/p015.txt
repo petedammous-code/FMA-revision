@@ -1,0 +1,79 @@
+12                                                                   CHAPITRE I. FONCTIONS HOLOMORPHES
+
+sorte que z + ω ∈ D(0, ρ0 ). On a
+  f (z + ω) − f (z) X                  X  (z + ω)n − z n          
+                                 n−1                           n−1
+                   −      n an z     =     an             − nz
+          ω                                      ω
+                      n≥1              n≥1
+                 n                                     n−1
+                                    !         !                                        !
+      X         X                               X      X                            
+  =      an        (z + ω)n−k z k−1 − nz n−1 =     an       (z + ω)n−k z k−1 − z n−1
+         n≥1          k=1                                                 n≥1           k=1
+                                                                                                                              
+                    n−1                                                             n−1                 n−k
+                                                                 !
+         X          X                                                  X          X                   X
+     =         an          z k−1 (z + ω)n−k − z n−k                  =         an           z k−1 ω          (z + ω)j−1 z n−k−j 
+         n≥1        k=1                                                  n≥1           k=1               j=1
+                                                                                                                       
+          X             n−1
+                        XX  n−j                                         X           n−1
+                                                                                    X
+     =ω          an               z n−j−1 (z + ω)j−1  = ω                 an           (n − j) z n−j−1 (z + ω)j−1  .
+          n≥1           j=1 k=1                                      n≥1            j=1
+
+Par ailleurs, en posant ρ = max(|z|, |z + ω|), on a
+         n−1                                           n−1                                        n−1
+         X
+                           n−j−1             j−1
+                                                       X
+                                                                  j−1              n−j−1
+                                                                                                  X                n(n − 1) n−2
+               (n − j) z           (z + ω)         =         jz         (z + ω)               ≤         j ρn−2 ≤           ρ    .
+                                                                                                                      2
+         j=1                                           j=1                                        j=1
+
+D’où
+
+     f (z + ω) − f (z) X                  X       n(n − 1) n−2       X       n(n − 1) n−2
+                      −  n an z n−1 ≤ |ω|   |an |         ρ    ≤ |ω|   |an |         ρ0 ,
+             ω                                       2                          2
+                                n≥1                           n≥2                                         n≥2
+
+                                                                     X             n(n − 1) n−2
+et le membre de gauche tend vers 0 car la série                            |an |           ρ0 converge (on a ρ0 < R et le
+                                                                                      2
+                                                                     n≥2
+                                     X           n(n − 1) n−2
+rayon de convergence de                    |an |         z    est le même que celui de f , c’est-à-dire R).
+                                                    2
+                                     n≥2
+
+
+     Une récurrence immédiate donne le corollaire suivant :
+
+         Corollaire I.3.4
+     Une série entière                                               X
+                                                         f (z) :=           an z n ,
+                                                                     n≥0
+
+     à coefficients complexes, de rayon de convergence R > 0, admet des dérivées au sens
+     complexe de tout ordre, données par des séries entières de même rayon de convergence R
+     par les formules                 X
+                          f (k) (z) =   n(n − 1) . . . (n − k + 1) an z n−k .
+                                                   n≥k
+
+
+
+     Exemple I.3.5 — Bon nombre de fonctions usuelles sont des fonctions holomorphes. Par
+     exemple, la fonction exponentielle
+                                                   X zn
+                                        z 7→ ez :=      ,
+                                                     n!
+                                                                          n≥0
+
+     est une fonction holomorphe dont la dérivée complexe est z 7→ ez . On rappelle que le rayon
+     de convergence de cette série entière est infini et que ez1 +z2 = ez1 ez2 , pour tous z1 , z2 ∈ C.
+     Toutes les fonctions construites à partir de la fonction exponentielle comme par exemple les

@@ -1,0 +1,60 @@
+30                                                              CHAPITRE I. FONCTIONS HOLOMORPHES
+
+principe du prolongement analytique nous dit alors que f est constante sur Ω. Si f (z0 ) = 0, le
+résultat est alors évident, on suppose donc f (z0 ) ̸= 0.
+    Donnons une première démonstration du résultat. La fonction f est développable en série
+entière au voisinage de z0 et l’on peut écrire
+                                                   X
+                                 f (z) = f (z0 ) +   an (z − z0 )n .
+                                                                 n≥1
+
+On suppose que f n’est pas constante au voisinage de z0 , donc il existe au moins un an ̸= 0. Soit
+N le plus petit indice n ≥ 1 tel que an ̸= 0. Écrivons
+                                                      X
+                         f (z) = f (z0 ) + (z − z0 )N   an (z − z0 )n−N .
+                                                                     n≥N
+
+                     X
+On note g(z) :=             an (z − z0 )n−N , on a donc g(z0 ) ̸= 0, et l’on développe
+                    n≥N
+
+
+              |f (z)|2 = |f (z0 ) + (z − z0 )N g(z)|2
+                                                                
+                       = |f (z0 )|2 + 2ℜe (z − z0 )N g(z) f (z0 ) + |z − z0 |2N |g(z)|2 .
+
+On pose z = z0 + t eiβ où t, β ∈ R. Le développement limité de t 7→ |f (z0 + teiβ )|2 , en puissances
+de t est donné par la formule
+                                                                         
+               |f (z0 + t eiβ )|2 = |f (z0 )|2 + 2 ℜe eiN β g(z0 ) f (z0 ) tN + O(tN +1 ),
+                                                                                         
+Comme f (z0 )g(z0 ) ̸= 0, on peut choisir β ∈ R de telle sorte que ℜe eiN β g(z0 ) f (z0 ) > 0. Avec
+ce choix, on a |f (z0 + t eiβ )|2 > |f (z0 )|2 pour tout t > 0 proche de 0 ce qui contredit le fait que
+z0 est le point où |f | est maximale. En conclusion, f est constante au voisinage de z0 .
+   Donnons maintenant une autre démonstration de ce résultat qui, cette fois-ci s’appuie sur la
+formule de la moyenne. Fixons r avec 0 < r < R et définissons
+                                                       Z 2π
+                                                   1
+                                         cn :=                f (z0 + r eiθ ) e−inθ dθ,
+                                                  2π    0
+
+qui n’est rien d’autre que le n-ième coefficient de Fourier de la fonction périodique fr : θ 7→
+f (z0 + r eiθ ).
+     La formule de la moyenne (I.12.1) nous permet d’écrire que
+                                         Z 2π
+                                   1
+                          |c0 | =                f (z0 + r eiθ ) dθ = |f (z0 )| = sup |f (z)|.
+                                  2π       0                                            D̄(z0 ,r)
+
+D’autre part, d’après l’égalité de Parseval, nous avons
+                                         Z 2π                                   Z 2π
+                   X                 1                                      1
+        |c0 |2 ≤         |cn |2 =               |f (z0 + r eiθ )|2 dθ ≤                   sup        |f (z)|2 dθ = |c0 |2 ,
+                                    2π    0                                2π    0     z∈D̄(z0 ,r)
+                   n∈Z
+
+et donc nécessairement cn = 0 pour tout n ̸= 0, autrement dit fr ≡ c0 = f (z0 ). Ceci valant pour
+tout r ∈ ]0, R[, ce qui entraîne que f est constante sur D(z0 , R).
+
+
+     Le principe du maximum est souvent utilisé sous la forme du corollaire suivant.

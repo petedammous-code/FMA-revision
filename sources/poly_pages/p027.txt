@@ -1,0 +1,72 @@
+24                                                 CHAPITRE I. FONCTIONS HOLOMORPHES
+
+I.9      Fonctions holomorphes définies par une intégrale
+
+
+     Soit Ω un ouvert de C et soit X un sous-ensemble mesurable de RN (muni de la mesure de
+Lebesgue dx). Supposons que F soit une fonction définie sur Ω × X et que l’on veuille définir une
+fonction f sur Ω par la formule
+                                             Z
+(I.9.1)                              f (z) =    F (z, x) dx.
+                                                  X
+
+Il faut bien sûr s’assurer que l’intégrale est bien définie. Les théorèmes généraux de la théorie de
+Lebesgue fournissent facilement des conditions suffisantes pour que la fonction f soit holomorphe.
+Par exemple, en utilisant Fubini, on obtient le critère suivant.
+
+       Théorème I.9.1
+     Dans la situation ci-dessus, on suppose de plus que :
+     (i) F est mesurable sur Ω × X et, pour tout x ∈ X, z 7→ F (z, x) est holomorphe sur Ω
+     (ii) pour tout z0 ∈ Ω, il existe r0 > 0 tel que le disque D(z0 , r0 ) soit inclus dans Ω, et une
+     fonction gz0 intégrable sur X (au sens de Lebesgue) avec pour tout z ∈ D(z0 , r0 ) et tout
+     x ∈ X, |F (z, x)| ≤ gz0 (x).
+     Alors la fonction f définie par (I.9.1) est bien définie et holomorphe sur Ω. De plus, pour
+     tout k ∈ N,
+                                                     ∂kF
+                                                 Z
+                                         (k)
+                                       f (z) =          k
+                                                          (z, x) dx.
+                                                  X ∂z
+
+
+Démonstration. La condition (ii) assure que l’intégrale (I.9.1) est bien définie, et par le théorème
+de convergence dominée, on voit même facilement qu’elle est continue. L’holomorphie, comme la
+continuité, étant une propriété locale, il suffit de l’établir, pour tout z0 ∈ Ω sur un disque ouvert
+centré en z0 et inclus dans Ω. Fixons z0 et choisissons r0 > 0 comme dans (ii) et imposons même
+de plus (quitte à prendre un r0 un peu plus petit) que D̄(z0 , r0 ) ⊂ Ω. Comme z 7→ F (z, x) est
+holomorphe sur Ω, on a d’après la formule de Cauchy, pour tout z ∈ D(z0 , r0 ),
+                                         Z     Z                      !
+                                     1                     F (ω, x)
+                            f (z) =                                 dω dx.
+                                    2iπ X        C(z0 ,r0 ) ω − z
+
+On a pour tout (ω, x) ∈ C(z0 , r0 ) × X,
+                                        F (ω, x)      gz0 (x)
+                                                 ≤
+                                         ω−z       r0 − |z − z0 |
+
+et comme gz0 est intégrable sur X, la fonction (ω, x) 7→ Fω−z
+                                                           (ω,x)
+                                                                 est intégrable sur C(z0 , r0 ) × X.
+Par le théorème de Fubini, on peut écrire
+                                  Z                                  R
+                                                                        X F (ω, x) dx
+                      Z                                     Z
+                    1                  F (ω, x)          1
+           f (z) =                              dx dω =                               dω
+                   2iπ C(z0 ,r0 )    X ω−z              2iπ C(z0 ,r0 )     ω−z
+                      Z
+                    1             f (ω)
+                 =                      dω.
+                   2iπ C(z0 ,r0 ) ω − z
+
+   Ainsi f vérifie la formule de Cauchy. On en déduit par la démonstration du théorème I.7.4
+que f est analytique, donc holomorphe sur D(z0 , r0 ). On a de plus d’après la formule (I.7.1)
+                                                                        R
+                                                                          X F (ω, x) dx
+                             Z                                Z
+                          k!               f (ω)           k!
+           f (k) (z0 ) =                         k+1
+                                                     dω =                               dω.
+                         2iπ C(z0 ,r0 ) (ω − z0 )         2iπ C(z0 ,r0 ) (ω − z0 )k+1

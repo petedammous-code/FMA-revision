@@ -1,0 +1,61 @@
+108                                 CHAPITRE V. CALCUL DIFFÉRENTIEL DANS LES E.V.N.
+
+On a donc en particulier pour t assez petit,
+
+                                  ∥d2 fa (tu, .) − dfa+tu + dfa ∥ ≤ ϵ∥tu∥E
+
+et ainsi
+
+(V.5.2)            ∥d2 fa (tu, sv) − dfa+tu (sv) + dfa (sv)∥F ≤ ϵ∥tu∥E ∥sv∥ = ϵ|t||s|∥u∥E ∥v∥E
+
+      D’autre part, posons ktu,v (s) = f (a + tu + sv) − f (a + sv) − dfa+tu (sv) + dfa (sv). On a alors
+                          ′
+                        ktu,v (s) = dfa+tu+sv (v) − dfa+sv (v) − dfa+tu (v) + dfa (v)
+                       = dfa+tu+sv − dfa − d2 fa (tu + sv, .)
+                                                              
+
+                       − dfa+tu − dfa − d2 fa (tu, .)
+                                                     
+
+                       − dfa+sv − dfa − d2 fa (sv, .) (v)
+                                                      
+
+et ainsi pour s, t assez petit, d’après (V.5.1),
+       ′
+     ∥ktu,v (s)∥F ≤ ϵ∥tu + sv∥E ∥v∥E + ϵ∥tu∥E ∥v∥E + ϵ∥sv∥E ∥v∥E ≤ 2ϵ|t|∥u∥E ∥v∥E + 2ϵ|s|∥v∥2E
+
+Le théorème des accroissements finis donne alors
+
+                         ∥ktu,v (s) − ktu,v (0)∥F ≤ 2ϵ|t||s|∥u∥E ∥v∥E + 2ϵ|s|2 ∥v∥2E
+
+Or
+
+     ktu,v (s) − ktu,v (0) = f (a + tu + sv) − f (a + sv) − dfa+tu (sv) + dfa (sv) − f (a + tu) + f (a)
+      = gu,v (t, s) − dfa+tu (sv) + dfa (sv)
+
+      Par inégalité triangulaire, en utilisant (V.5.2), on obtient finalement la majoration
+
+           ∥gu,v (t, s) − d2 fa (tu, sv)∥F ≤ ϵ|t||s|∥u∥E ∥v∥E + 2ϵ|t||s|∥u∥E ∥v∥E + 2ϵ|s|2 ∥v∥2E
+
+qui donne pour s = t,
+
+             ∥gu,v (t, t) − d2 fa (tu, tv)∥F ≤ ϵ|t|2 ∥u∥E ∥v∥E + 2ϵ|t|2 ∥u∥E ∥v∥E + 2ϵ|t|2 ∥v∥2E
+
+et démontre l’assertion faite au début de la démonstration.
+
+     Exercice V.5.4 — Soit f : R2 → R une fonction de classe C 2 . Montrer que le théorème
+     ci-dessus est bien équivalent dans ce cas au fait que
+                                               ∂ ∂      ∂ ∂
+                                                     f=       f.
+                                               ∂x ∂y    ∂y ∂x
+
+    Le lemme de Schwarz admet une généralisation aux dérivées d’ordre supérieur, dont nous
+laissons la démonstration au lecteur.
+
+       Théorème V.5.5
+     Soit f : U → F une application d’un ouvert U d’un espace vectoriel normé E à valeurs
+     dans un espace vectoriel normé F de classe C p−1 (p ≥ 2). Soit a ∈ U tel que dp−1 f soit
+     différentiable en a. La différentielle dp fa est alors une application p-linéaire symétrique
+     de E p dans F , c’est-à-dire que pour tout h = (h1 , . . . , hp ) ∈ E p , pour toute permutation
+     σ ∈ Sp ,
+                               dp fa (h1 , . . . , hp ) = dp fa (hσ(1) , . . . , hσ(p) ).

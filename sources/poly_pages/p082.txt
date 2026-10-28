@@ -1,0 +1,49 @@
+IV.3. FILMS DE SAVON ET FONCTIONS MÉROMORPHES                                                         79
+
+
+   Au fond, la formule de Weierstrass–Enneper n’est donc rien d’autre que le paramétrage
+   rationnel de la quadrique Q : projectivement, Q est une conique lisse de P2 (C), donc
+   isomorphe à P1 (C), et (f, g) en sont respectivement le facteur d’échelle et le point. Signalons
+   pour finir que g possède une interprétation géométrique : c’est la projection stéréographique
+   de l’application de Gauss N , ce qui explique qu’elle soit naturellement méromorphe, ses
+   pôles étant les points où la normale pointe vers le pôle nord.
+
+
+
+
+                                             Catenoïde.
+
+
+    Les noms de plusieurs mathématiciens sont attachés aux surfaces minimales qu’ils ont décou-
+vertes. En prenant f (w) = 1/w2 et g(w) = w, on trouve la caténoïde découverte par L. Euler en
+1744, en prenant f (w) = i/w2 et g(w) = w, on trouve l’hélicoïde découvert par J.B. Meusnier en
+                                                                                              1
+1776. En prenant f (w) = 1 et g(w) = w on trouve la surface d’Enneper et en prenant f (w) = 1−w 4
+et g(w) = w on trouve la première surface de Scherk. Plus récemment, la découverte en 1984 par
+C. Costa de la surface qui porte maintenant son nom a initié toute une série de travaux sur ces
+surfaces.
+
+   Remarque IV.3.2 — La formule ci-dessus ne définit X sans ambiguïté que si l’intégrale ne
+   dépend pas du chemin suivi, ce qui n’a rien d’automatique dès que Ω n’est pas simplement
+   connexe. La condition exacte, dite condition de périodes, est
+                            I
+                          ℜe φ dw = 0         pour tout lacet γ de Ω,
+                                γ
+
+   où φ = (1 − g 2 )f, i(1 + g 2 )f, 2gf , et c’est le théorème des résidus qui permet de la
+                                            
+
+   vérifier en pratique. Ainsi, pour la caténoïde (f (w) = 1/w2 et g(w) = w sur C∗ ), les deux
+   premières composantes de φ ont un résidu nul en 0, tandis que la troisième, φ3 = 2/w, a
+   pour résidu 2 : sa période vaut donc 4iπ, qui est purement imaginaire, et la partie réelle
+   l’annule. Sur un ouvert simplement connexe la condition est vide, mais dans le cas général
+   c’est la difficulté centrale de la théorie : c’est elle que C. Costa a su surmonter en 1984, sur
+   un tore privé de trois points.
+
+   L’avènement des ordinateurs a permis de développer des outils de visualisation des surfaces
+minimales qui sont devenus essentiels pour la compréhension de ces objets géométriques mais qui
+ont ensuite trouvé de nombreuses applications à la réalité virtuelle et à l’architecture.
+
+   Remarque IV.3.3 : Difficile, sujet de réflexion — La caténoïde est une surface minimale
+   que l’on peut obtenir expérimentalement en prenant deux cercles parallèles et en les
+   plongeant dans de l’eau savonneuse. Si les deux cercles ne sont pas trop éloignés l’un de

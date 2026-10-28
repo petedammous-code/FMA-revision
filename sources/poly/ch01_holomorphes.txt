@@ -1,0 +1,1866 @@
+
+
+======== [PDF page 8 | page imprimée 5] ========
+                                                                                     Chapitre      I
+Fonctions holomorphes
+
+   Notations. Si z0 ∈ C et r ∈ R+ , on note :
+   D(z0 , r) = {z ∈ C, |z − z0 | < r} le disque ouvert de centre z0 et de rayon r,
+   D̄(z0 , r) = {z ∈ C, |z − z0 | ≤ r} le disque fermé de centre z0 et de rayon r,
+   D(z0 , r)× = D(z0 , r) \ {z0 } le disque ouvert privé de son centre z0 et de rayon r,
+   C(z0 , r) = {z ∈ C, |z − z0 | = r} le cercle de centre z0 et de rayon r,
+   ℜe(z) et ℑm(z) les parties réelles et imaginaires d’un nombre complexe z.
+
+
+
+I.1     Définition des fonctions holomorphes
+
+
+   Considérons une fonction continue f : I → R définie sur un intervalle ouvert I non vide de R.
+La définition de la dérivabilité en un point x ∈ I de la fonction f est l’existence de
+
+                                           f (x + t) − f (x)
+                                       lim                   .
+                                       t→0         t
+
+Remplaçons le corps de nombres réel par le corps des nombres complexes. Ce qui précède a
+toujours un sens, c’est-à-dire que si f : Ω → C, où Ω est un ouvert non vide de C, est une fonction
+continue, on dit que f est C-dérivable, ou encore dérivable au sens complexe, en un point z ∈ Ω si
+
+                                           f (z + ω) − f (z)
+                                       lim
+                                       ω→0         ω
+
+existe (dans C). Si tel est le cas, on note f ′ (z) cette limite, la dérivée au sens complexe de f au
+point z.
+
+      Définition I.1.1
+   Soit Ω un ouvert de C. On dit qu’une fonction continue f : Ω → C est holomorphe si elle
+   est C-dérivable en tout point de Ω et si z 7→ f ′ (z) est continue sur Ω. On note Hol(Ω)
+   l’espace vectoriel (sur C) des fonctions holomorphes sur Ω.
+
+   Ainsi, les fonctions holomorphes sont les fonctions « de classe C 1 au sens complexe ».
+   L’hypothèse de continuité de z 7→ f ′ (z) est en fait superflue. Nous verrons au paragraphe I.8,
+avec le théorème de Goursat, qu’elle est automatiquement satisfaite dès que f est C-dérivable
+en tout point de Ω. Nous la conservons dans la définition parce qu’elle simplifie les premières
+démonstrations.
+
+
+
+                                                 5
+
+
+======== [PDF page 9 | page imprimée 6] ========
+6                                                   CHAPITRE I. FONCTIONS HOLOMORPHES
+
+I.2       Conditions de Cauchy réelles. C-dérivabilité
+
+
+    Identifions C à R2 grâce à l’application z 7→ (x, y) où
+
+                                     x = ℜe(z),     et y = ℑm(z).
+
+Autrement dit, z = x + iy. Ainsi, une fonction f : Ω → C comme ci-dessus peut être vue comme
+une fonction d’un ouvert Ω de R2 à valeurs dans R2 . Notons aussi
+
+                                         f (z) = P (z) + iQ(z),
+
+où P (z) = ℜe(f (z)) et Q(z) = ℑm(f (z)) et avec l’identification entre C et R2
+
+                                      f (x, y) = (P (x, y), Q(x, y)).
+
+    Rappelons que f est dite différentiable en un point (x, y) de Ω s’il existe une application
+linéaire df(x,y) : R2 → R2 , telle que :
+
+(I.2.1)               ∥f (x + h, y + k) − f (x, y) − df(x,y) (h, k)∥ = o(∥(h, k)∥).
+
+Ici, la norme est la norme euclidienne usuelle de R2 (mais toutes les normes sur R2 étant
+équivalentes, le choix d’une autre norme ne changerait pas la définition). Si (h, k) est de norme
+suffisamment petite, (x + h, y + k) est bien dans Ω. De plus remarquons que (I.2.1) caractérise
+df(x,y) , c’est-à-dire que l’application linéaire df(x,y) est bien définie, elle est appelée différentielle
+de f en (x, y).
+     Dans la base canonique de R2 , l’application linéaire df(x,y) est représentée par la matrice
+                                                              !
+                                        ∂P          ∂P
+                                        ∂x (x, y)   ∂y (x, y)
+(I.2.2)                                 ∂Q          ∂Q
+                                        ∂x (x, y)   ∂y (x, y)
+
+
+   La fonction f est dite de classe C 1 si elle est différentiable en tout point de Ω et si les dérivées
+           ∂P ∂P ∂Q ∂Q
+partielles   ,    ,     ,     sont des fonctions continues sur Ω.
+           ∂x ∂y ∂x ∂y
+   Reprenons l’identification entre C et R2 pour écrire z = x + iy, ω = s + it, et (I.2.1) sous la
+forme
+
+(I.2.3)                          |f (z + ω) − f (z) − dfz (ω)| = o(|ω|).
+
+On voit maintenant dfz comme une application R-linéaire de C dans C. Une question naturelle
+qui se pose alors est : à quelle condition sur dfz la fonction f est-elle C-dérivable en z ? Le lemme
+élémentaire suivant, de nature purement algébrique, va donner la réponse et, du même coup, la
+bonne manière d’écrire une différentielle en variable complexe.
+
+      Lemme I.2.1
+    Toute application R-linéaire L : C → C s’écrit de manière unique
+
+                                    L(ω) = a ω + b ω̄,       (ω ∈ C),
+
+    avec a, b ∈ C donnés par
+
+                           a = 21 L(1) − i L(i) ,        b = 12 L(1) + i L(i) .
+                                                                            
+
+
+    De plus, L est C-linéaire si et seulement si b = 0, et elle est alors la multiplication par a.
+
+
+======== [PDF page 10 | page imprimée 7] ========
+I.2. CONDITIONS DE CAUCHY RÉELLES. C-DÉRIVABILITÉ                                                          7
+
+Démonstration. Écrivons ω = s + it, avec s = ω+ω̄     ω−ω̄
+                                              2 et t = 2i . Par R-linéarité,
+
+
+                                ω + ω̄        ω − ω̄        L(1) − i L(i)    L(1) + i L(i)
+    L(ω) = s L(1) + t L(i) =           L(1) +        L(i) =               ω+               ω̄,
+                                  2             2i               2                2
+
+d’où l’existence. Pour l’unicité, si a ω + b ω̄ = 0 pour tout ω ∈ C, le choix ω = 1 donne a + b = 0
+et le choix ω = i donne i(a − b) = 0, donc a = b = 0. Enfin, si b = 0, alors L est la multiplication
+par a, donc C-linéaire ; réciproquement, si L est C-linéaire, elle coïncide avec la multiplication
+par L(1), et l’unicité de la décomposition impose b = 0.
+
+
+
+   Remarque I.2.2 — Introduisons les opérateurs différentiels
+                                                                 
+                   ∂     1 ∂        ∂            ∂      1 ∂      ∂
+                      :=       −i          et        :=       +i     .
+                   ∂z    2 ∂x      ∂y           ∂ z̄    2 ∂x     ∂y
+
+   Supposons f différentiable en z et appliquons le lemme I.2.1 à L = dfz . Comme dfz (1) =
+   ∂f                  ∂f
+   ∂x (z) et dfz (i) = ∂y (z), les coefficients a et b sont précisément
+                                                                                
+                1       ∂f    ∂f             ∂f              1          ∂f    ∂f               ∂f
+             a=            −i          (z) =    (z),      b=               +i          (z) =        (z).
+                2       ∂x    ∂y             ∂z              2          ∂x    ∂y               ∂ z̄
+
+   Autrement dit, ces deux opérateurs ne sont rien d’autre que les coordonnées de la différentielle
+   dans la décomposition du lemme I.2.1 :
+                                          ∂f         ∂f
+  (I.2.4)                    dfz (ω) =       (z) ω +      (z) ω̄,        (ω ∈ C).
+                                          ∂z         ∂ z̄
+
+     Proposition I.2.3
+   Avec les notations ci-dessus, les conditions suivantes sont équivalentes :
+   (i) f est différentiable au point z et dfz est C-linéaire,
+   (ii) f est C-dérivable en z.
+   Lorsqu’elles sont réalisées, dfz est la multiplication par f ′ (z).
+
+
+
+Démonstration. Supposons (i). D’après le lemme I.2.1, il existe λz ∈ C tel que dfz (ω) = λz ω
+pour tout ω ∈ C. Le développement limité (I.2.3) s’écrit donc
+
+
+                                   |f (z + ω) − f (z) − λz ω| = o(|ω|),
+
+                              f (z + ω) − f (z)
+et ceci entraîne bien sûr que lim               = λz , c’est-à-dire (ii), avec f ′ (z) = λz .
+                               ω→0    ω
+                                                                    f (z + ω) − f (z)
+   Réciproquement, supposons maintenant (ii), et notons λz = lim                       . On a alors
+                                                               ω→0          ω
+
+                                   |f (z + ω) − f (z) − λz ω| = o(|ω|).
+
+
+Ceci nous dit que f est différentiable en z et que dfz est égale à la multiplication par λz , et est
+donc C-linéaire.
+
+
+======== [PDF page 11 | page imprimée 8] ========
+8                                                   CHAPITRE I. FONCTIONS HOLOMORPHES
+
+      Corollaire I.2.4
+    Soit f différentiable au point z. Alors f est C-dérivable en z si et seulement si
+                                                ∂f
+    (I.2.5)                                          (z) = 0,
+                                                ∂ z̄
+    c’est-à-dire, en écrivant f = P + iQ, si et seulement si
+                                ∂P       ∂Q                ∂P         ∂Q
+    (I.2.6)                        (z) =    (z) et            (z) = −    (z).
+                                ∂x       ∂y                ∂y         ∂x
+    On appelle ces dernières relations les conditions de Cauchy réelles. Lorsqu’elles sont
+    satisfaites, on a
+                                                         ∂f
+    (I.2.7)                                  f ′ (z) =      (z).
+                                                         ∂z
+
+Démonstration. D’après le lemme I.2.1 et (I.2.4), l’application dfz est C-linéaire si et seulement si
+le coefficient de ω̄ est nul, c’est-à-dire si et seulement si ∂f
+                                                              ∂ z̄ (z) = 0 ; elle est alors la multiplication
+par ∂f
+     ∂z (z). La proposition   I.2.3 donne  l’équivalence avec la C-dérivabilité, ainsi que (I.2.7). Enfin,
+en séparant parties réelle et imaginaire,
+                                                                                     
+                   ∂f        ∂       ∂                   ∂P      ∂Q            ∂P     ∂Q
+                 2      =        +i       (P + iQ) =         −          +i         +         ,
+                   ∂ z̄     ∂x      ∂y                   ∂x       ∂y           ∂y      ∂x
+
+de sorte que l’annulation de ∂f
+                             ∂ z̄ (z) équivaut à (I.2.6).
+
+
+    Remarque I.2.5 — Une application C-linéaire de C dans C est la multiplication par un
+    nombre complexe λ = α + iβ. Vue comme application de R2 dans R2 , c’est une similitude
+    directe, éventuellement nulle, dont la matrice dans la base canonique est
+                                                   
+                                             α −β
+    (I.2.8)                                           .
+                                              β α
+
+    Les conditions de Cauchy (I.2.6) expriment donc exactement que la matrice jacobienne
+                                                                           ∂Q
+    (I.2.2) de f au point z est de cette forme, avec α = ∂P  ∂x (z) et β = ∂x (z).
+    Lorsque λ = ̸ 0, une telle similitude est la composée de l’homothétie de rapport |λ| et de la
+    rotation d’angle arg λ : elle multiplie les longueurs par |λ| et conserve les angles orientés.
+    Ainsi, en tout point z où f ′ (z) ̸= 0, une fonction holomorphe conserve les angles orientés —
+    on dit qu’elle est conforme en z — et son déterminant jacobien y vaut α2 +β 2 = |f ′ (z)|2 > 0,
+    de sorte qu’elle préserve l’orientation. C’est le point de vue géométrique sur l’holomorphie ;
+    il est à la base du paragraphe IV.1 consacré aux transformations conformes.
+
+
+    Remarque I.2.6 — Enfin, z = x + iy 7→ f ′ (z) est continue si et seulement si f est C 1
+    comme fonction des deux variables réelles x et y. Ainsi, f est holomorphe sur Ω si et
+    seulement si f est de classe C 1 sur Ω et ∂f
+                                              ∂ z̄ = 0 en tout point de Ω.
+
+
+                                                                      ∂      ∂
+    Donnons maintenant quelques règles de calcul pour les opérateurs      et      . On suppose
+                                                                      ∂z     ∂ z̄
+les fonctions de classe C comme fonctions de deux variables réelles, mais pas nécessairement
+                         1
+
+holomorphes. En conjuguant les définitions, on obtient
+                                    ∂f   ∂ f¯                   ∂f     ∂ f¯
+(I.2.9)                                =            et               =     ,
+                                    ∂z   ∂ z̄                   ∂ z̄   ∂z
+
+
+======== [PDF page 12 | page imprimée 9] ========
+I.2. CONDITIONS DE CAUCHY RÉELLES. C-DÉRIVABILITÉ                                                     9
+
+pourvu que f ait des dérivées partielles d’ordre 1 au point où l’on effectue le calcul ; en particulier,
+la décomposition (I.2.4) de f¯ s’obtient en conjuguant celle de f . Les propriétés des dérivées
+partielles permettent d’obtenir immédiatement le formulaire habituel :
+
+                               ∂(λf + µg)    ∂f   ∂g            ∂(f g)   ∂f    ∂g
+(I.2.10)        (∀λ, µ ∈ C),              =λ    +µ ,                   =    g+f ,
+                                   ∂z        ∂z   ∂z             ∂z      ∂z    ∂z
+
+ainsi que les identités analogues pour l’opérateur différentiel ∂∂z̄ :
+
+                               ∂(λf + µg)    ∂f     ∂g          ∂(f g)   ∂f      ∂g
+(I.2.11)        (∀λ, µ ∈ C),              =λ      +µ ,                 =      g+f .
+                                   ∂ z̄      ∂ z̄   ∂ z̄         ∂ z̄    ∂ z̄    ∂ z̄
+
+    On en déduit :
+
+                                              ∂f                    ∂f
+                                 ∂(1/f )             ∂(1/f )
+(I.2.12)                                 = − ∂z2 ,           = − ∂ z̄2 .
+                                   ∂z        f         ∂ z̄      f
+
+
+   Exemple I.2.7 — Ces formules permettent de tester rapidement l’holomorphie. On a
+                                                                 
+                 ∂ z̄      ∂(z z̄)         ∂           ∂ z + z̄      1
+                      = 1,         = z,        ℜe z =               = .
+                 ∂ z̄       ∂ z̄          ∂ z̄         ∂ z̄   2       2
+
+   Les fonctions z 7→ z̄ et z 7→ ℜe z ne sont donc C-dérivables en aucun point. En revanche
+   z 7→ |z|2 = z z̄ est C-dérivable en 0, et en aucun autre point : elle n’est donc holomorphe
+   sur aucun ouvert non vide. Cet exemple montre que la C-dérivabilité en un point isolé est
+   une propriété bien plus faible que l’holomorphie sur un ouvert.
+
+
+   Remarque I.2.8 — Rappelons que le laplacien d’une fonction u de classe C 2 sur un ouvert
+   Ω de R2 , à valeurs réelles ou complexes, est la fonction
+
+                                                   ∂2u ∂2u
+                                         ∆u :=         + 2,
+                                                   ∂x2  ∂y
+   et qu’une telle fonction est dite harmonique sur Ω lorsque ∆u = 0 en tout point de Ω. Si f
+   est de classe C 2 comme fonction des deux variables réelles x et y, le théorème de Schwarz
+   donne
+                      ∂2f                                    ∂2f    ∂2f
+                                                    
+                                 ∂      ∂     ∂     ∂
+                   4         =      −i          +i       f=       +       = ∆f,
+                     ∂z ∂ z̄     ∂x    ∂y    ∂x     ∂y       ∂x2    ∂y 2
+                            ∂2
+   autrement dit ∆ = 4            . En particulier, si f = P + iQ est holomorphe et de classe C 2 ,
+                          ∂z ∂ z̄
+   la condition ∂f
+                ∂ z̄ = 0 entraîne ∆f = 0, c’est-à-dire
+
+                                          ∆P = ∆Q = 0 :
+
+   les parties réelle et imaginaire d’une fonction holomorphe sont des fonctions harmoniques.
+   Nous verrons au théorème I.7.4 que toute fonction holomorphe est automatiquement de
+   classe C ∞ , de sorte que l’hypothèse C 2 est ici superflue. Nous reviendrons longuement sur
+   les fonctions harmoniques au paragraphe IV.2.
+
+   Passons à la composition des fonctions. Supposons que g : Ω → Ω′ et f : Ω′ → C soient deux
+fonctions de classe C 1 comme fonctions de deux variables réelles.
+
+
+======== [PDF page 13 | page imprimée 10] ========
+10                                                       CHAPITRE I. FONCTIONS HOLOMORPHES
+
+      Lemme I.2.9
+     On a                                                              
+                     ∂(f ◦ g)             ∂f           ∂g         ∂f             ∂ḡ
+                              (z) =          ◦ g (z) ×    (z) +        ◦ g (z) ×     (z),
+                       ∂z                 ∂z           ∂z         ∂ z̄           ∂z
+     et                                                                  
+                     ∂(f ◦ g)             ∂f           ∂g           ∂f             ∂ḡ
+                              (z) =          ◦ g (z) ×      (z) +        ◦ g (z) ×      (z).
+                       ∂ z̄               ∂z           ∂ z̄         ∂ z̄           ∂ z̄
+
+
+Démonstration. La composition des différentielles donne d(f ◦ g)z = dfg(z) ◦ dgz . D’après (I.2.4)
+appliqué à g, puis à ḡ,
+
+                                          ∂g         ∂g                          ∂ḡ         ∂ḡ
+               (∀ω ∈ C),    dgz (ω) =        (z) ω +      (z) ω̄,   dḡz (ω) =       (z) ω +      (z) ω̄.
+                                          ∂z         ∂ z̄                        ∂z          ∂ z̄
+
+En appliquant (I.2.4) à f au point g(z), il vient
+
+                           ∂f                    ∂f
+           d(f ◦ g)z (ω) =    (g(z)) (dgz (ω)) +     (g(z)) (dgz (ω))
+                          ∂z                   ∂ z̄                                    
+              ∂f       ∂g       ∂f         ∂ḡ           ∂f         ∂g    ∂f         ∂ḡ
+          =      (g(z)) (z) +        (g(z)) (z) ω +          (g(z)) (z) +      (g(z)) (z) ω̄.
+              ∂z       ∂z       ∂ z̄       ∂z            ∂z         ∂ z̄  ∂ z̄       ∂ z̄
+
+La décomposition (I.2.4) de d(f ◦ g)z étant unique, l’identification des coefficients de ω et de ω̄
+donne l’énoncé du lemme.
+
+
+     Exercice I.2.10 —
+          1. Montrer qu’une fonction holomorphe définie sur un ouvert connexe Ω et à valeurs
+             réelles, est constante.
+          2. Trouver les fonctions holomorphes f , g et h sur C dont la partie réelle est :
+             (a) ℜef (x + iy) = 2 x y
+             (b) ℜe g(x + iy) = ex cos y,
+             (c) ℜe h(x + iy) = sin(x + y) cosh(x − y).
+
+
+
+I.3        Premières constructions de fonctions holomorphes
+
+
+    Les propriétés de stabilité par les opérations usuelles des fonctions C 1 , la formule (I.2.10) et
+les formules du Lemme I.2.9 donnent la proposition suivante :
+
+      Proposition I.3.1
+     Les combinaisons linéaires et produits de fonctions holomorphes définies sur un même
+     ouvert sont des fonctions holomorphes sur cet ouvert. Si f est holomorphe, alors 1/f est
+     holomorphe sur l’ouvert où f ne s’annule pas. Enfin, si f ∈ Hol(Ω), g ∈ Hol(Ω′ ) et si
+     g(Ω′ ) ⊂ Ω, alors f ◦ g ∈ Hol(Ω′ ).
+
+   Bien entendu, les dérivées complexes se calculent avec les formules habituelles. Par exemple,
+pour tout n ∈ N \ {0}, la dérivée complexe de z 7→ z n est donnée par z 7→ n z n−1 . On déduit de
+
+
+======== [PDF page 14 | page imprimée 11] ========
+I.3. PREMIÈRES CONSTRUCTIONS DE FONCTIONS HOLOMORPHES                                               11
+
+(I.2.10) et du lemme I.2.9 les formules :
+
+
+(I.3.1)                        (f + g)′ (z) = f ′ (z) + g ′ (z),
+(I.3.2)                           (f g)′ (z) = f ′ (z)g(z) + f (z)g ′ (z),
+                                  ′
+                                   f           f ′ (z)g(z) − f (z)g ′ (z)
+(I.3.3)                                  (z) =                            ,
+                                   g                     g(z)2
+(I.3.4)                         (f ◦ g)′ (z) = f ′ (g(z))g ′ (z).
+
+
+
+   Exemple I.3.2 — Tout polynôme P ∈ C[X] à coefficients complexes définit une fonction
+   z 7→ P (z) qui est holomorphe sur C dont la dérivée complexe est donnée par z 7→ P ′ (z) (où
+   P ′ est la dérivée de la fonction polynôme x 7→ P (x)). Pour tous P, Q ∈ C[X], les fractions
+   rationnelles
+                                                 P (z)
+                                            z 7→       ,
+                                                 Q(z)
+   sont des fonctions holomorphes en dehors de l’ensemble des zéros de Q, dont la dérivée
+   complexe est donnée par
+                                    P ′ (z)Q(z) − P (z)Q′ (z)
+                               z 7→                           .
+                                             Q2 (z)
+
+
+   Plus généralement, les séries entières définissent desX
+                                                         fonctions holomorphes. Rappelons que le
+rayon de convergence R ∈ [0, +∞] d’une série entière        an z n est le sup des ρ ≥ 0 tels que la
+                                                                 n≥0
+série est normalement convergente sur le disque fermé de rayon ρ. C’est aussi le sup des ρ ≥ 0
+tels que la suite (|an | ρn )n≥0 est bornée. Un théorème de Cauchy et Hadamard donne aussi la
+                                     1
+formule R−1 = lim supn→+∞ |an | n .
+
+
+      Proposition I.3.3
+    Une série entière                                X
+                                          f (z) :=         an z n ,
+                                                     n≥0
+
+    à coefficients complexes, de rayon de convergence R > 0 définit une fonction holomorphe
+    sur son disque ouvert de convergence et la dérivée complexe de f est donnée par
+                                                X
+                                      f ′ (z) =   n an z n−1 .
+                                                 n≥1
+
+
+
+
+                                                           X
+Démonstration. Remarquons d’abord que la série                   n an z n−1 a même rayon de convergence
+                                                           n≥1
+que la série f . En effet, si 0 < ρ < R, choisissons ρ < ρ′ < R ; la suite (|an |ρ′n ) est bornée par
+un M > 0, d’où n|an |ρn−1 ≤ M             ′ n−1 , terme général d’une série convergente : le rayon de
+                                 ρ′ n (ρ/ρ )
+la série dérivée est donc ≥ R. Réciproquement |an |ρn ≤ ρ n|an |ρn−1 pour n ≥ 1, d’où l’inégalité
+inverse. Soit z ∈ D(0, R) et fixons ρ0 > 0 avec |z| < ρ0 < R. Prenons ω suffisamment petit de
+
+
+======== [PDF page 15 | page imprimée 12] ========
+12                                                                   CHAPITRE I. FONCTIONS HOLOMORPHES
+
+sorte que z + ω ∈ D(0, ρ0 ). On a
+  f (z + ω) − f (z) X                  X  (z + ω)n − z n          
+                                 n−1                           n−1
+                   −      n an z     =     an             − nz
+          ω                                      ω
+                      n≥1              n≥1
+                 n                                     n−1
+                                    !         !                                        !
+      X         X                               X      X                            
+  =      an        (z + ω)n−k z k−1 − nz n−1 =     an       (z + ω)n−k z k−1 − z n−1
+         n≥1          k=1                                                 n≥1           k=1
+                                                                                                                              
+                    n−1                                                             n−1                 n−k
+                                                                 !
+         X          X                                                  X          X                   X
+     =         an          z k−1 (z + ω)n−k − z n−k                  =         an           z k−1 ω          (z + ω)j−1 z n−k−j 
+         n≥1        k=1                                                  n≥1           k=1               j=1
+                                                                                                                       
+          X             n−1
+                        XX  n−j                                         X           n−1
+                                                                                    X
+     =ω          an               z n−j−1 (z + ω)j−1  = ω                 an           (n − j) z n−j−1 (z + ω)j−1  .
+          n≥1           j=1 k=1                                      n≥1            j=1
+
+Par ailleurs, en posant ρ = max(|z|, |z + ω|), on a
+         n−1                                           n−1                                        n−1
+         X
+                           n−j−1             j−1
+                                                       X
+                                                                  j−1              n−j−1
+                                                                                                  X                n(n − 1) n−2
+               (n − j) z           (z + ω)         =         jz         (z + ω)               ≤         j ρn−2 ≤           ρ    .
+                                                                                                                      2
+         j=1                                           j=1                                        j=1
+
+D’où
+
+     f (z + ω) − f (z) X                  X       n(n − 1) n−2       X       n(n − 1) n−2
+                      −  n an z n−1 ≤ |ω|   |an |         ρ    ≤ |ω|   |an |         ρ0 ,
+             ω                                       2                          2
+                                n≥1                           n≥2                                         n≥2
+
+                                                                     X             n(n − 1) n−2
+et le membre de gauche tend vers 0 car la série                            |an |           ρ0 converge (on a ρ0 < R et le
+                                                                                      2
+                                                                     n≥2
+                                     X           n(n − 1) n−2
+rayon de convergence de                    |an |         z    est le même que celui de f , c’est-à-dire R).
+                                                    2
+                                     n≥2
+
+
+     Une récurrence immédiate donne le corollaire suivant :
+
+         Corollaire I.3.4
+     Une série entière                                               X
+                                                         f (z) :=           an z n ,
+                                                                     n≥0
+
+     à coefficients complexes, de rayon de convergence R > 0, admet des dérivées au sens
+     complexe de tout ordre, données par des séries entières de même rayon de convergence R
+     par les formules                 X
+                          f (k) (z) =   n(n − 1) . . . (n − k + 1) an z n−k .
+                                                   n≥k
+
+
+
+     Exemple I.3.5 — Bon nombre de fonctions usuelles sont des fonctions holomorphes. Par
+     exemple, la fonction exponentielle
+                                                   X zn
+                                        z 7→ ez :=      ,
+                                                     n!
+                                                                          n≥0
+
+     est une fonction holomorphe dont la dérivée complexe est z 7→ ez . On rappelle que le rayon
+     de convergence de cette série entière est infini et que ez1 +z2 = ez1 ez2 , pour tous z1 , z2 ∈ C.
+     Toutes les fonctions construites à partir de la fonction exponentielle comme par exemple les
+
+
+======== [PDF page 16 | page imprimée 13] ========
+I.4. BIHOLOMORPHISMES                                                                                  13
+
+
+  fonctions trigonométriques
+
+                          eiz + e−iz                eiz − e−iz                        sin z
+               cos z :=              ,   sin z :=                    et    tan z :=         ,
+                               2                        2i                            cos z
+  ou hyperboliques
+
+                          ez + e−z                                   ez − e−z
+              cosh z :=            = cos(iz),            sinh z :=            = −i sin(iz),
+                              2                                          2
+  et
+                                          sinh z
+                                     tanh z :=    = −i tan(iz),
+                                          cosh z
+  sont des fonctions holomorphes sur leurs domaines de définition respectifs. On laisse le soin
+  au lecteur de déterminer les domaines de définition des fonctions tan et tanh et les dérivées
+  complexes de toutes ces fonctions.
+
+
+  Remarque I.3.6 — Cette abondance de fonctions holomorphes ne doit pas nous faire
+  oublier qu’il convient de faire attention et, si f est une fonction holomorphe, alors z 7→ |f (z)|
+  (module de f ) ou z 7→ f (z) (fonction complexe conjuguée) ne sont essentiellement jamais
+  holomorphes (sauf si la fonction f est constante sur chaque composante connexe de son
+  domaine).
+
+
+
+
+I.4      Biholomorphismes
+
+
+  Introduisons la définition :
+
+
+
+       Définition I.4.1
+  Une fonction holomorphe h : Ω1 → Ω2 , où Ω1 et Ω2 sont deux ouverts de C, est un
+  biholomorphisme si h est une bijection de Ω1 sur Ω2 dont la réciproque h−1 est holomorphe
+  sur Ω2 . Un biholomorphisme d’un ouvert Ω de C sur lui-même est appelé un automorphisme
+  (holomorphe) de Ω.
+
+
+  Remarque I.4.2 — Il est clair que l’ensemble Authol (Ω) des automorphismes d’un ouvert Ω
+  forme un groupe pour la composition des fonctions. Déterminer Authol (Ω) est un problème
+  important, nous verrons certains exemples en exercices : Ω = C (cf. Exercice. II.7.5),
+  Ω = D(0, 1) (cf. Prop. I.13.3).
+
+
+  Exemple I.4.3 — Soit D = D(0, 1) le disque unité et soit H = {z ∈ C | ℑm(z) > 0} le
+                                      1−z
+  demi-plan de Poincaré. Alors z 7→ i 1+z est un biholomorphisme de D sur H.
+
+  Le résultat qui suit est une conséquence du théorème d’inversion locale.
+
+
+======== [PDF page 17 | page imprimée 14] ========
+14                                                CHAPITRE I. FONCTIONS HOLOMORPHES
+
+       Proposition I.4.4
+     Soit f ∈ Hol(Ω) et z0 ∈ Ω tel que f ′ (z0 ) ̸= 0. Alors, il existe un ouvert Ω1 ⊂ Ω contenant
+     z0 tel que :
+       (i) le sous-ensemble Ω2 := f (Ω1 ) est un ouvert de C ;
+
+      (ii) la restriction de f à Ω1 est une application biholomorphe de Ω1 sur Ω2 .
+
+
+Démonstration. Par hypothèse, la jacobienne de la fonction f au point z0 est une similitude
+de rapport non nul, c’est donc un isomorphisme. Le théorème d’inversion locale nous permet
+d’affirmer qu’il existe un ouvert Ω1 ⊂ Ω contenant z0 tel que le sous ensemble Ω2 := f (Ω1 ) est
+un ouvert de C et tel que la restriction de f à Ω1 est un C 1 -difféomorphisme de Ω1 sur Ω2 ,
+c’est-à-dire une bijection de Ω1 sur Ω2 dont la réciproque f −1 est une fonction de classe C 1 (au
+sens réel, comme fonction des deux variables x et y).
+    En particulier, pour tout z ∈ Ω1 , la matrice jacobienne de f −1 en f (z) est l’inverse de la
+matrice jacobienne de f en z (ce qui impose d’ailleurs que f ′ (z) ̸= 0 pour tout z ∈ Ω1 ). C’est donc,
+elle aussi, la matrice d’une similitude directe, à savoir celle de la multiplication par 1/f ′ (z), ce
+qui, d’après la proposition I.2.3, prouve que la fonction f −1 est holomorphe. Sa dérivée complexe
+est alors donnée par
+                                                       1
+                                         (f −1 )′ = ′       .
+                                                   f ◦ f −1
+
+
+
+    Une application intéressante du résultat que nous venons tout juste de démontrer est la
+suivante :
+
+       Corollaire I.4.5
+     L’exponentielle complexe z 7→ ez est un biholomorphisme local, dont l’image est C× :=
+     C\{0}. En particulier, pour tout point z0 ∈ C× , on peut définir localement (par exemple sur
+     un disque D(z0 , r) assez petit contenu dans C× ) un « logarithme complexe » z 7→ Log(z)
+     (dépendant du choix d’un antécédent de z0 par exp) holomorphe.
+
+
+Démonstration. Comme C× est connexe par arcs (donc connexe), il suffit de démontrer que Ω,
+l’image de C par l’application exponentielle, est à la fois non vide (facile), ouvert et fermé dans
+C× .
+   Remarquons d’abord que ez e−z = e0 = 1 : l’exponentielle ne s’annule donc pas et Ω est bien
+contenu dans C× . De plus 1 = e0 ∈ Ω, qui est ainsi non vide.
+    Étant donné que la dérivée de la fonction exponentielle ne s’annule jamais, Ω est d’après le
+théorème d’inversion locale un voisinage ouvert de chacun de ses points. Donc Ω est un ouvert de
+C× .
+     La relation
+                                           ez1 +z2 = ez1 ez2
+implique en particulier que Ω est un sous-groupe (multiplicatif) de C× .
+   Supposons maintenant que z ∈ C× \ Ω. Alors z Ω := {z w : w ∈ Ω} ⊂ C× \ Ω car si
+z0 ∈ z Ω ∩ Ω, on peut écrire z0 = z u = v avec u, v ∈ Ω et donc z = v/u ∈ Ω, ce qui nous
+donne une contradiction. Mais z Ω est un sous-ensemble ouvert (tout comme Ω) de sorte que le
+complémentaire de Ω,                            [
+                                    C× \ Ω =        z Ω,
+                                                   z∈C× \Ω
+
+
+======== [PDF page 18 | page imprimée 15] ========
+I.5. INTÉGRATION LE LONG D’UN CHEMIN                                                              15
+
+est un ouvert de C× (comme réunion d’ouverts de C× ). En particulier, son complémentaire Ω est
+donc un fermé de C× . Finalement, Ω est à la fois ouvert et fermé dans C× (et est non vide), c’est
+donc que Ω = C× .
+
+
+
+
+    Nous reviendrons un peu plus tard sur la question fondamentale de la définition globale du
+logarithme complexe (voir la Proposition II.9.3).
+
+  Remarque I.4.6 — Il est peut-être opportun de préciser ici la signification de l’adjectif
+  « local » dans un énoncé mathématique. Celui-ci concerne alors une propriété d’un espace
+  topologique X, et l’on veut dire que pour tout point x de X, il existe un voisinage de x tel
+  que la propriété en question y soit valide (mais celle-ci peut être en défaut sur l’espace X
+  en entier). Par exemple, une fonction numérique continue sur un espace topologique est
+  localement bornée (mais pas forcément bornée).
+
+
+
+
+I.5      Intégration le long d’un chemin
+
+
+      Commençons par rappeler la :
+
+       Définition I.5.1
+   Soit Ω un ouvert non vide de C. Un chemin γ (orienté) de Ω est une application continue
+   de classe C 1 par morceaux
+                                      γ : [a, b] −→ Ω,
+   où a < b. Si de plus γ(a) = γ(b), on dira que γ est un lacet. Le chemin opposé γ opp :
+   [a, b] → Ω est défini par
+                                  γ opp (t) := γ(a + b − t).
+
+
+   Remarque I.5.2 — Dans la définition de C 1 par morceaux, nous supposons que la dérivée
+   admet des limites à gauche et à droite en tout point de discontinuité. En particulier, cette
+   dérivée reste bornée.
+
+
+   Exemple I.5.3 — Le lacet γ(t) = z0 + r eit , pour t ∈ [0, 2π] est le cercle de centre z0 ∈ C
+   et de rayon r > 0, qui est parcouru dans le sens direct.
+
+    On dit que deux chemins γ1 : [a1 , b1 ] → Ω et γ2 : [a2 , b2 ] → Ω sont composables si γ1 (b1 ) =
+γ2 (a2 ). Auquel cas, on peut définir le chemin composé
+
+
+                                    γ1 ∨ γ2 : [a1 , b1 + b2 − a2 ] → Ω,
+
+
+par
+
+                                                            si t ∈ [a1 , b1 ]
+                                    (
+                                        γ1 (t)
+                   γ1 ∨ γ2 (t) :=
+                                        γ2 (t + a2 − b1 )   si t ∈ [b1 , b1 + b2 − a2 ].
+
+
+======== [PDF page 19 | page imprimée 16] ========
+16                                                         CHAPITRE I. FONCTIONS HOLOMORPHES
+
+       Définition I.5.4
+     Si f : Ω → C est une fonction continue et si γ : [a, b] → Ω est un chemin, on définit
+     l’intégrale de f le long du chemin γ par la formule
+                                      Z                  Z b
+                                           f (z) dz :=            f (γ(t)) γ ′ (t) dt.
+                                       γ                   a
+
+
+    Bien que γ ′ ne soit pas nécessairement continue, elle reste bornée (remarque I.5.2) et l’intégrale
+est bien définie.
+
+     Exemple I.5.5 — Si γ est le lacet qui décrit le cercle de centre z0 et de rayon r > 0 tel
+     qu’il est donné dans l’exemple précédent et si f est définie sur un ouvert contenant ce cercle,
+     nous avons                 Z               Z             2π
+                                     f (z) dz = i r                f (z0 + reit ) eit dt.
+                                 γ                        0
+
+
+     On vérifie immédiatement que les propriétés suivantes sont satisfaites :
+
+       Proposition I.5.6
+     Soit f une fonction continue définie sur Ω. Alors :
+       (i) si γ : [a, b] → Ω est un chemin et si φ : [ã, b̃] → [a, b] est un C 1 -difféomorphisme
+           croissant,                   Z              Z
+                                                      f (z) dz =             f (z) dz,
+                                                  γ                     γ̃
+
+           où γ̃ := γ ◦ φ ;
+
+      (ii) si γ : [a, b] → Ω est un chemin, alors
+                                        Z               Z
+                                           f (z) dz = −                         f (z) dz;
+                                              γ                         γ opp
+
+      (iii) Si γ1 : [a1 , b1 ] → Ω et γ2 : [a2 , b2 ] → Ω sont deux chemins composables alors
+                                     Z                   Z             Z
+                                             f (z) dz =     f (z) dz +   f (z) dz.
+                                     γ1 ∨γ2                    γ1                    γ2
+
+
+    La démonstration de ces trois propriétés ne pose aucune difficulté et est laissée en exercice au
+lecteur.
+     Donnons une majoration élémentaire qui sert souvent.
+
+       Proposition I.5.7
+     Soit γ : [a, b] → Ω un chemin. On appelle longueur de γ le nombre
+                                                          Z b
+                                              L(γ) :=              |γ ′ (t)| dt,
+                                                              a
+
+     qui est fini car γ ′ est bornée (remarque I.5.2). Alors, pour toute fonction continue f sur Ω,
+     on a
+                                  Z                              
+     (I.5.1)                          f (z) dz ≤    sup |f (γ(t))| L(γ).
+                                  γ                       t∈[a,b]
+
+
+======== [PDF page 20 | page imprimée 17] ========
+I.5. INTÉGRATION LE LONG D’UN CHEMIN                                                                                      17
+
+Démonstration. Il suffit d’écrire
+         Z b                       Z b                                         Z b
+             f (γ(t)) γ ′ (t) dt ≤     |f (γ(t))| |γ ′ (t)| dt ≤ sup |f (γ(t))|      |γ ′ (t)| dt.
+               a                             a                                   t∈[a,b]              a
+
+
+
+
+      Comme l’intégrale elle-même, la longueur L(γ) ne dépend pas du paramétrage choisi.
+
+     Remarque I.5.8 — La première propriété nous dit que la valeur de l’intégrale ne dépend
+     pas du paramétrage du chemin, mais seulement du sens de parcours. Ceci explique certains
+     abus de notations, par exemple dans l’exemple
+                                           R        I.5.5, on note RΓ = C(z0 , r) le cercle de centre
+     z0 et de rayon r, et on écrit souvent Γ f (z) dz plutôt que γ f (z) dz. Il faut comprendre
+     que l’on a choisi un paramétrage du cercle (par exemple γ) qui le parcourt dans le sens
+     trigonométrique.
+
+   Voici un premier résultat sur les intégrales le long de chemins qui fait intervenir la notion de
+fonction holomorphe.
+
+       Théorème I.5.9
+      Soit f : Ω → C continue et γ : [a, b] → Ω un chemin de Ω. On suppose que f admet une
+      primitive holomorphe F sur Ω, c’est-à-dire que F ∈ Hol(Ω) et que f = F ′ .
+      Alors                       Z
+                                      f (z) dz = F (γ(b)) − F (γ(a)).
+                                            γ
+                                                          Z
+      En particulier, si γ est un lacet, on a                  f (z) dz = 0.
+                                                           γ
+
+
+      Commençons par un simple calcul valable pour toutes les fonctions.
+
+       Lemme I.5.10
+      Soit f : Ω → C une fonction de classe C 1 et γ un chemin de classe C 1 de Ω. Alors
+
+                                  d (f ◦ γ)       ∂f                  ∂f
+                                            (t) =    (γ(t)) γ ′ (t) +      (γ(t)) γ̄ ′ (t).
+                                      dt          ∂z                  ∂ z̄
+      En particulier, si f est holomorphe, on a
+
+                                                 d (f ◦ γ)
+                                                           (t) = f ′ (γ(t))γ ′ (t).
+                                                     dt
+
+
+Démonstration. La démonstration utilise le lemme I.2.9. Les détails sont laissés en exercice au
+lecteur.
+
+Démonstration. (du Théorème I.5.9) On suppose pour simplifier que γ est un chemin de classe
+C 1 (le cas général où γ n’est que C 1 par morceaux se traite en décomposant γ en chemins de
+classe C 1 ). En appliquant la formule du lemme ci-dessus, on voit facilement que
+ Z                 Z b                           Z b                            Z b
+      f (z) dz =         f (γ(t)) γ ′ (t) dt =         F ′ (γ(t))γ ′ (t) dt =         (F ◦ γ)′ (t) dt = F (γ(b)) − F (γ(a)).
+  γ                 a                              a                             a
+
+Ce qui termine la démonstration de la formule.
+
+
+======== [PDF page 21 | page imprimée 18] ========
+18                                                       CHAPITRE I. FONCTIONS HOLOMORPHES
+
+I.6      La formule intégrale de Cauchy
+
+
+   La formule intégrale de Cauchy est une des formules les plus importantes – et certainement
+une des formules aux conséquences les plus surprenantes – de la théorie des fonctions holomorphes.
+
+      Théorème I.6.1 — Cauchy (1825–1831)
+     Soit z0 ∈ Ω et r > 0. On suppose que D̄(z0 , r) ⊂ Ω et l’on note Γ := C(z0 , r) le bord de ce
+     disque (que l’on suppose orienté positivement i.e. parcouru dans le sens trigonométrique).
+     Soit f ∈ Hol(Ω). Alors,                       Z
+                                               1      f (ω)
+                                      f (z) =               dω,
+                                              2iπ Γ ω − z
+     pour tout z ∈ D(z0 , r).
+
+
+
+Démonstration. Il est clair que le théorème est une conséquence des deux formules suivantes
+
+                            f (ω) − f (z)
+                        Z                                                     Z
+                                                                                   dω
+                                          dω = 0               et                     = 2iπ.
+                          Γ     ω−z                                             Γ ω−z
+
+
+Quitte à changer ω en z0 + r ω, on peut supposer que z0 = 0 et que r = 1.
+
+Étape 1. Calcul de la seconde intégrale. On pose ω := eiθ puis
+
+                                             Z 2π                        Z 2π
+                                                    ieiθ dθ
+                                Z
+                                    dω                                               dθ
+                                       =                    =i                               .
+                                 Γ ω−z         0    eiθ − z               0       1 − z e−iθ
+
+Comme |z| < 1, on a un développement en série normalement convergente pour θ ∈ [0, 2π]
+
+                                               1        X
+                                                      =   z n e−inθ ,
+                                           1 − z e−iθ
+                                                              n≥0
+
+
+que l’on peut donc intégrer terme à terme pour trouver
+
+                                Z 2π                    ∞           Z 2π
+                                          dθ          X
+                            i                     = i   zn                    e−inθ dθ = 2iπ,
+                                 0     1 − z e−iθ                    0
+                                                        n=0
+
+
+ce qui démontre la formule espérée.
+
+Étape 2. Calcul de la première intégrale. Pour tout t ∈ [0, 1[, on pose
+
+                                                       f (ω) − f (z)
+                                                    Z
+                                          I(t) :=                    dω,
+                                                    Γt     ω−z
+
+où Γt := C(tz, 1 − t), i.e. on rétracte continûment le cercle Γ0 = C(0, 1) sur le point z (c’est un
+cas particulier d’homotopie de lacets, notion sur laquelle nous reviendrons). On suppose bien
+entendu que Γt est parcouru dans le sens trigonométrique.
+
+
+======== [PDF page 22 | page imprimée 19] ========
+I.6. LA FORMULE INTÉGRALE DE CAUCHY                                                                     19
+
+
+                                                                           Γt
+
+
+
+                                                      ∗0
+
+
+                                                                           z
+
+
+     On pose ω = t z + (1 − t) eiθ , pour θ ∈ [0, 2π], de telle sorte que
+                          Z 2π                                        Z 2π
+                                f (tz + (1 − t) eiθ ) − f (z) iθ
+(I.6.1)          I(t) = i                                    e dθ =        F (t, θ) dθ,
+                           0              eiθ − z                      0
+où par définition
+                                               f (tz + (1 − t) eiθ ) − f (z) iθ
+                               F (t, θ) := i                                e .
+                                                         eiθ − z
+    On remarque que
+                                                    f (ω) − f (z)
+                                               ω 7→               ,
+                                                        ω−z
+est une fonction holomorphe sur Ω\{z} et continue sur Ω. En particulier, la fonction (t, θ) 7→ F (t, θ)
+est continue sur [0, 1] × [0, 2π] et C 1 sur ]0, 1[ ×]0, 2π[. On conclut que I est de classe C 1 sur ]0, 1[
+et que cette fonction, qui est a priori continue sur [0, 1[, se prolonge par continuité sur [0, 1] en
+prenant I(1) = 0 (dépendance en t de l’intégrale (I.6.1)). De plus, pour tout t ∈ ]0, 1[, la dérivée
+de I s’obtient en dérivant sous le signe somme :
+                                                   Z 2π
+                                                        ∂F
+                                         I ′ (t) =          (t, θ) dθ.
+                                                    0    ∂t
+Or, un simple calcul montre que
+                           ∂F                                          ∂G
+                              (t, θ) = −if ′ (tz + (1 − t) eiθ ) eiθ =    (t, θ),
+                           ∂t                                          ∂θ
+où nous avons défini
+                                                      f (tz + (1 − t) eiθ )
+                                         G(t, θ) :=                         .
+                                                             t−1
+Mais alors, pour tout t ∈ ]0, 1[
+                                    Z 2π
+                           ′               ∂G
+                          I (t) =             (t, θ) dθ = G(t, 2π) − G(t, 0) = 0.
+                                     0     ∂θ
+La fonction I est donc constante sur l’intervalle ]0, 1[, donc sur l’intervalle [0, 1] (par continuité)
+et I(1) = I(0) = 0.
+
+     Corollaire I.6.2 — Formule de la moyenne
+   Sous les hypothèses du théorème I.6.1, on a
+                                           Z 2π
+                                         1
+                                                f z0 + r eiθ dθ.
+                                                            
+   (I.6.2)                    f (z0 ) =
+                                        2π 0
+
+   Autrement dit, la valeur d’une fonction holomorphe au centre d’un disque est la moyenne
+   de ses valeurs sur le bord de ce disque. En particulier |f (z0 )| ≤ supC(z0 ,r) |f |.
+
+
+======== [PDF page 23 | page imprimée 20] ========
+20                                                      CHAPITRE I. FONCTIONS HOLOMORPHES
+
+Démonstration. Il suffit de faire z = z0 dans la formule intégrale de Cauchy et de paramétrer Γ
+par ω = z0 + r eiθ , θ ∈ [0, 2π], de sorte que dω = i r eiθ dθ et ω − z0 = r eiθ :
+                                 Z 2π                                     Z 2π
+                            1           f (z0 + r eiθ )               1
+                 f (z0 ) =                      iθ
+                                                        i r eiθ dθ =             f (z0 + r eiθ ) dθ.
+                           2iπ    0          re                      2π    0
+
+La majoration en découle immédiatement.
+
+
+    Cette formule, apparemment anodine, est le point de départ du principe du maximum
+(paragraphe I.12).
+   Comme nous allons maintenant le voir, la formule intégrale de Cauchy a de très nombreuses
+conséquences dont certaines sont assez surprenantes.
+
+
+I.7      Fonctions holomorphes vs fonctions analytiques
+
+
+    Nous nous intéressons aux fonctions analytiques, i.e. les fonctions qui sont développables en
+séries entières, et nous démontrons que l’ensemble de ces fonctions coïncide avec l’ensemble des
+fonctions holomorphes.
+
+       Définition I.7.1
+     Une fonction f est analytique sur Ω si, pour tout z0 ∈ Ω, la fonction f admet un dévelop-
+     pement en série entière de la forme
+                                              X
+                                      f (z) =    an (z − z0 )n ,
+                                                    n≥0
+
+     qui est convergente dans un voisinage de z0 (le rayon de convergence de la série est
+     strictement positif).
+
+
+     Remarque I.7.2 — Supposons que la série entière
+                                         X
+                                 f (z) =     an (z − z0 )n ,
+                                                    n≥0
+
+     ait un rayon de convergence ρ > 0. Alors f est analytique sur D(z0 , ρ) : en tout point
+     ω ∈ D(z0 , ρ), f (z) est développable en série entière avec un rayon de convergence au moins
+     égal à ρ − |ω − z0 |.
+
+
+     Exercice I.7.3 — Démontrer l’assertion de la remarque ci-dessus.
+
+   Le résultat suivant montre que les fonctions holomorphes et les fonctions analytiques ne
+forment qu’une seule et même catégorie.
+
+       Théorème I.7.4
+     Une fonction est holomorphe sur Ω si et seulement si elle est analytique sur Ω.
+
+   En particulier, les fonctions holomorphes sont de classe C ∞ , alors que leur définition ne leur
+demandait a priori que d’être de classe C 1 .
+
+
+======== [PDF page 24 | page imprimée 21] ========
+I.7. FONCTIONS HOLOMORPHES VS FONCTIONS ANALYTIQUES                                                                  21
+
+Démonstration. Supposons que f soit analytique sur Ω. En tout point z0 deX     Ω, la fonction
+f est donnée sur un certain disque ouvert D(z0 , ρ(z0 )) par une série entière   an (z − z0 )n .
+                                                                                                               n≥0
+
+        Xalors la proposition I.3.3 qui nous dit que f est holomorphe sur D(z0 , ρ(z0 )), avec
+On utilise
+ ′
+f (z) =    nan (z − z0 )n−1 sur ce disque. La propriété d’être holomorphe étant locale, ceci montre
+         n≥1
+que f ∈ Hol(Ω).
+    Inversement, supposons que la fonction f soit holomorphe sur Ω. Soient z0 ∈ Ω et r > 0 tel
+que D̄(z0 , r) ⊂ Ω. On note Γ le cercle bordant D̄(z0 , r), autrement dit Γ := C(z0 , r), cercle que
+l’on suppose toujours parcouru dans le sens trigonométrique. Alors, grâce à la formule intégrale
+de Cauchy, on a
+                                                                            Z
+                                                                       1        f (ω)
+                                 (∀z ∈ D(z0 , r)),         f (z) =                    dω.
+                                                                      2iπ     Γ ω−z
+
+
+
+En posant ω = z0 + r eiθ , on trouve que
+
+                                 Z 2π                                           Z 2π
+                             1          f (z0 + r eiθ ) iθ       1                        f (z0 + r eiθ )
+                  f (z) =                              r e dθ =                                           dθ
+                            2π    0     r eiθ + z0 − z          2π                0       1 − z−z 0 −iθ
+                                                                                                r e
+                                 Z 2π X                  n
+                          1                     z − z0
+                       =                                        f (z0 + r eiθ ) e−inθ dθ.
+                         2π       0               r
+                                        n≥0
+
+
+
+     La majoration
+
+                                     n                                                             n
+                            z − z0                    iθ     −inθ                         |z − z0 |
+                                           f (z0 + r e ) e           ≤ sup |f |                            ,
+                              r                                           Γ                  r
+
+
+et le fait que |z − z0 | < r assurent la convergence normale de la série, permettant d’intervertir
+l’intégration et la sommation pour conclure que
+
+                                                          X
+                                              f (z) =           an (z − z0 )n ,
+                                                          n≥0
+
+
+
+où
+                                                     Z 2π
+                                                 1
+                                   an rn =                  f (z0 + r eiθ ) e−inθ dθ,
+                                                2π    0
+
+
+ce qui termine la preuve.
+
+
+
+
+     La preuve précédente donne en fait le résultat plus précis suivant :
+
+
+======== [PDF page 25 | page imprimée 22] ========
+22                                                      CHAPITRE I. FONCTIONS HOLOMORPHES
+
+       Corollaire I.7.5 — Estimées de Cauchy
+     Supposons f holomorphe sur l’ouvert Ω. Soit z0 ∈ Ω. Alors, f admet un développement en
+     série entière au voisinage de z0 dont le rayon de convergence est au moins
+
+                                  ρ(z0 ) = sup{r > 0 | D̄(z0 , r) ⊂ Ω},
+
+     et pour tout z ∈ D(z0 , ρ(z0 ))
+                                                 X f (n) (z0 )
+                                       f (z) =                   (z − z0 )n .
+                                                          n!
+                                                 n≥0
+
+     Pour tout 0 < r < ρ(z0 ), et pour tout z ∈ D(z0 , r), on a
+
+                                 f (n) (z)
+                                                    Z
+                                              1                    f (ω)
+     (I.7.1)                               =                                dω.
+                                    n!       2iπ       C(z0 ,r) (ω −  z)n+1
+
+     De plus, on a les estimées de Cauchy
+
+                                        |f (n) (z0 )|   supC(z0 ,r) |f |
+                                                      ≤                  ,
+                                             n!             rn
+     pour tout n ≥ 0.
+
+
+Démonstration. La première assertion a en fait été établie dans la démonstration du théorème
+par l’utilisation du théorème de Cauchy. La seconde assertion est formelle, elle vient de la
+propriété de dérivabilité terme à terme des séries entières sur leurs disques de convergence : dans
+le développement                             X
+                                     f (z) =     an (z − z0 )n ,
+                                                    n≥0
+
+les coefficients an sont donnés par
+                                                        f (n) (z0 )
+                                                 an =               .
+                                                            n!
+La formule donnant f (n) (z) s’obtient en dérivant sous le signe somme la formule intégrale de
+Cauchy et la majoration de |an | s’en déduit immédiatement.
+
+    Ce résultat est assez étonnant dans la mesure où la formule (I.7.1) permet de calculer les
+dérivées complexes de f en fonction des valeurs de f . On déduit du Théorème I.7.4, le résultat
+très important suivant, dont une variante globale plus subtile sera donnée plus tard (voir le
+Théorème II.9.1).
+
+       Corollaire I.7.6 — Existence locale de primitives
+     Toute fonction holomorphe admet localement une primitive. Plus précisément, si f est une
+     fonction holomorphe sur un disque ouvert D, il existe F ∈ Hol(D) qui est une primitive de
+     f , i.e. F ′ = f sur D.
+
+
+Démonstration. Écrivons D = D(z0 , ρ). D’après le corollaire I.7.5, le développement de f en
+série entière au point z0 a un rayon de convergence au moins égal à ρ : ce n’est pas la simple
+analyticité de f qui est utilisée ici, mais le fait qu’une seule série entière représente f sur D tout
+entier. Il suffit alors de remarquer
+                                 P que toute série    entière convergeant surP D admet
+                                                                                    an
+                                                                                         une primitive
+convergeant sur D : si f (z) = n≥0 an (z − z0 ) sur D, la série F (z) = n≥0 n+1 (z − z0 )n+1 a le
+                                                   n
+
+même rayon de convergence et vérifie F ′ = f d’après la proposition I.3.3.
+
+
+======== [PDF page 26 | page imprimée 23] ========
+I.8. THÉORÈMES DE MORERA ET DE GOURSAT                                                        23
+
+
+  Exercice I.7.7 — On considère les fonctions de variable complexe z définies par
+
+                               ez − 1                 sin(πz)
+                    f (z) :=          ,   g(z) :=             ,      h(z) := tan z.
+                                  z                    z2 − 1
+  sur leurs domaines de définition respectifs C× , C \ {−1, +1}, C \ ( π2 + πZ).
+      1. Montrer que f et g se prolongent en des fonctions holomorphes sur C, et que h est
+         holomorphe sur son domaine de définition mais ne peut pas se prolonger en une
+         fonction holomorphe sur un domaine plus grand.
+      2. Déterminer le rayon de convergence des séries de Taylor en 0 de ces fonctions.
+
+
+  Exercice I.7.8 — Soit f une fonction holomorphe sur un ouvert Ω de C.
+      1. Montrer que, pour tout z0 ∈ Ω et pour tout r > 0 tel que D̄(z0 , r) ⊂ Ω,
+                                          Z
+                                        1
+                              f (z0 ) = 2        f (z0 + x + iy) dx dy.
+                                       πr D(0,r)
+
+      2. En déduire que, si f est holomorphe et bornée sur C, f est constante.
+
+
+
+I.8    Théorèmes de Morera et de Goursat
+
+
+    Dans cette section, nous donnons deux exercices concernant la caractérisation des fonctions
+holomorphes. De la caractérisation des fonctions holomorphes obtenue dans le premier, on peut
+tirer un énoncé dû à Goursat, qui montre que dans la définition des fonctions holomorphes, on
+peut se passer de l’hypothèse de continuité de la dérivée au sens complexe.
+
+  Exercice I.8.1 : Théorème de Morera (1886) — Soit f une fonction continue sur un
+  ouvert Ω. On suppose que
+                       Z              Z            Z
+  (I.8.1)                  f (z) dz +   f (z) dz +   f (z) dz = 0,
+                          [a,b]           [b,c]              [c,a]
+
+  pour tous a, b, c ∈ Ω tels que le triangle plein de sommets a, b et c est inclus dans Ω.
+  1) Soit z0 ∈ Ω et r > 0 tel que D(z0 , r) ⊂ Ω. Pour tout z ∈ D(z0 , r), on note
+                                               Z
+                                       F (z) =       f (ζ) dζ.
+                                                  [z0 ,z]
+
+  Montrer que F est dérivable au sens complexe sur D(z0 , r) et calculer F ′ .
+  2) En déduire que f est holomorphe sur Ω.
+  3) Inversement, montrer que si f est holomorphe sur un ouvert Ω alors (I.8.1) est vérifié
+  pour tous a, b, c ∈ Ω tels que le triangle plein de sommets a, b et c est inclus dans Ω.
+
+
+  Exercice I.8.2 : Théorème de Goursat (1900) — En utilisant l’exercice précédent,
+  montrer que si f : Ω → C est une fonction continue admettant une dérivée au sens
+  complexe f ′ (z) en tout point z ∈ Ω, alors f est holomorphe.
+
+
+======== [PDF page 27 | page imprimée 24] ========
+24                                                 CHAPITRE I. FONCTIONS HOLOMORPHES
+
+I.9      Fonctions holomorphes définies par une intégrale
+
+
+     Soit Ω un ouvert de C et soit X un sous-ensemble mesurable de RN (muni de la mesure de
+Lebesgue dx). Supposons que F soit une fonction définie sur Ω × X et que l’on veuille définir une
+fonction f sur Ω par la formule
+                                             Z
+(I.9.1)                              f (z) =    F (z, x) dx.
+                                                  X
+
+Il faut bien sûr s’assurer que l’intégrale est bien définie. Les théorèmes généraux de la théorie de
+Lebesgue fournissent facilement des conditions suffisantes pour que la fonction f soit holomorphe.
+Par exemple, en utilisant Fubini, on obtient le critère suivant.
+
+       Théorème I.9.1
+     Dans la situation ci-dessus, on suppose de plus que :
+     (i) F est mesurable sur Ω × X et, pour tout x ∈ X, z 7→ F (z, x) est holomorphe sur Ω
+     (ii) pour tout z0 ∈ Ω, il existe r0 > 0 tel que le disque D(z0 , r0 ) soit inclus dans Ω, et une
+     fonction gz0 intégrable sur X (au sens de Lebesgue) avec pour tout z ∈ D(z0 , r0 ) et tout
+     x ∈ X, |F (z, x)| ≤ gz0 (x).
+     Alors la fonction f définie par (I.9.1) est bien définie et holomorphe sur Ω. De plus, pour
+     tout k ∈ N,
+                                                     ∂kF
+                                                 Z
+                                         (k)
+                                       f (z) =          k
+                                                          (z, x) dx.
+                                                  X ∂z
+
+
+Démonstration. La condition (ii) assure que l’intégrale (I.9.1) est bien définie, et par le théorème
+de convergence dominée, on voit même facilement qu’elle est continue. L’holomorphie, comme la
+continuité, étant une propriété locale, il suffit de l’établir, pour tout z0 ∈ Ω sur un disque ouvert
+centré en z0 et inclus dans Ω. Fixons z0 et choisissons r0 > 0 comme dans (ii) et imposons même
+de plus (quitte à prendre un r0 un peu plus petit) que D̄(z0 , r0 ) ⊂ Ω. Comme z 7→ F (z, x) est
+holomorphe sur Ω, on a d’après la formule de Cauchy, pour tout z ∈ D(z0 , r0 ),
+                                         Z     Z                      !
+                                     1                     F (ω, x)
+                            f (z) =                                 dω dx.
+                                    2iπ X        C(z0 ,r0 ) ω − z
+
+On a pour tout (ω, x) ∈ C(z0 , r0 ) × X,
+                                        F (ω, x)      gz0 (x)
+                                                 ≤
+                                         ω−z       r0 − |z − z0 |
+
+et comme gz0 est intégrable sur X, la fonction (ω, x) 7→ Fω−z
+                                                           (ω,x)
+                                                                 est intégrable sur C(z0 , r0 ) × X.
+Par le théorème de Fubini, on peut écrire
+                                  Z                                  R
+                                                                        X F (ω, x) dx
+                      Z                                     Z
+                    1                  F (ω, x)          1
+           f (z) =                              dx dω =                               dω
+                   2iπ C(z0 ,r0 )    X ω−z              2iπ C(z0 ,r0 )     ω−z
+                      Z
+                    1             f (ω)
+                 =                      dω.
+                   2iπ C(z0 ,r0 ) ω − z
+
+   Ainsi f vérifie la formule de Cauchy. On en déduit par la démonstration du théorème I.7.4
+que f est analytique, donc holomorphe sur D(z0 , r0 ). On a de plus d’après la formule (I.7.1)
+                                                                        R
+                                                                          X F (ω, x) dx
+                             Z                                Z
+                          k!               f (ω)           k!
+           f (k) (z0 ) =                         k+1
+                                                     dω =                               dω.
+                         2iπ C(z0 ,r0 ) (ω − z0 )         2iπ C(z0 ,r0 ) (ω − z0 )k+1
+
+
+======== [PDF page 28 | page imprimée 25] ========
+I.9. FONCTIONS HOLOMORPHES DÉFINIES PAR UNE INTÉGRALE                                                25
+
+                  F (ω,x)        gz0 (x)
+La majoration   (ω−z0 )k+1
+                             ≤           permet d’appliquer Fubini dans l’autre sens, et l’on obtient en
+                                  r0k+1
+appliquant encore une fois (I.7.1) à z 7→ F (z, x)
+                                                            !
+                                                                      ∂kF
+                       Z          Z                                Z
+             (k)              k!              F (ω, x)
+            f (z0 ) =                                    dω   dx =         (z0 , x) dx.
+                        X    2iπ C(z0 ,r0 ) (ω − z0 )k+1            X ∂z
+                                                                         k
+
+
+
+
+   Exemple I.9.2 : La fonction Γ d’Euler —                Pour z ∈ C tel que ℜe (z) > 0, posons
+                         Z +∞
+                  Γ(z) =       tz−1 e−t dt,               où tz−1 := e(z−1) ln t (t > 0).
+                             0
+
+   Appliquons le théorème avec X = ]0, +∞[ et F (z, t) = tz−1 e−t . Pour tout t > 0, la fonction
+   z 7→ F (z, t) est holomorphe sur le demi-plan {ℜe (z) > 0}. Par ailleurs |tz−1 | = tℜe (z)−1 ,
+   de sorte que, pour 0 < α ≤ ℜe (z) ≤ β,
+
+                             |F (z, t)| ≤ gα,β (t) := tα−1 + tβ−1 e−t ,
+                                                                 
+
+
+   fonction intégrable sur ]0, +∞[ puisque α > 0. Tout point du demi-plan possède un disque
+   fermé le contenant et inclus dans une telle bande : le théorème s’applique donc, et Γ est
+   holomorphe sur {ℜe (z) > 0}, avec
+                                           Z +∞
+                                Γ(k) (z) =      (ln t)k tz−1 e−t dt.
+                                                0
+
+   Une intégration par parties donne Γ(z + 1) = z Γ(z), et Γ(1) = 1, d’où Γ(n + 1) = n! pour
+   tout n ∈ N : la fonction Γ prolonge la factorielle. L’équation fonctionnelle, écrite sous la
+   forme Γ(z) = Γ(z + 1)/z, permettra plus tard de prolonger Γ en une fonction méromorphe
+   sur C tout entier, dont les pôles sont les entiers négatifs ou nuls.
+
+
+   Remarque I.9.3 — On peut utiliser différentes variantes, sur le même principe. Par
+   exemple si la fonction F est donnée par une série entière
+                                             X
+                                  F (z, x) =   an (x)(z − z0 )n
+                                                    n∈N
+
+   de rayon de convergence au P   moins égal à R > 0 pour
+                                           n
+                                                         R tout x ∈ X, avec les fonctions an
+   intégrables sur X et la série n∈N An z , où An = X |anP    (x)| dx,
+                                                                   R de rayon de convergence
+   au moins R, on utilise le théorème d’inversion des signes    et (donc encore Fubini) pour
+   obtenir un développement en série entière
+                                       X Z               
+                               f (z) =          an (x) dx (z − z0 )n
+                                          n∈N       X
+
+   sur D(z0 , R).
+   On peut aussi voir F comme une fonction de trois variables, en remplaçant la variable
+   complexe z par deux variables réelles uR et v, montrer par les théorèmes de Lebesgue de
+   continuité et de dérivation sous le signe (en vérifiant leurs hypothèses) que f est de classe
+   C 1 comme fonction de deux variables réelles, avec
+                              Z                                Z
+                  ∂f             ∂F                ∂f              ∂F
+                     (u, v) =        (u, v, x) dx,    (u, v) =        (u, v, x) dx.
+                  ∂u           X ∂u                ∂v            X ∂v
+   On vérifie alors immédiatement les équations de RCauchy-Riemann qui montrent que f est
+   holomorphe. De plus on a alors f ′ (z) = ∂f         ∂F
+                                            ∂z (z) = X ∂z (z, x) dx.
+
+
+======== [PDF page 29 | page imprimée 26] ========
+26                                                CHAPITRE I. FONCTIONS HOLOMORPHES
+
+       Corollaire I.9.4
+     Soient Ω et U deux ouverts de C et soit (z, u) 7→ F (z, u) une fonction continue sur Ω × U ,
+     holomorphe en z pour tout u ∈ U , alors pour tout chemin γ dans U , la formule
+                                               Z
+                                      f (z) = F (z, u) du
+                                                 γ
+
+     définit une fonction holomorphe sur Ω.
+
+                                                                  Rb
+Démonstration. Écrivons γ : [a, b] → U , de sorte que f (z) = a F (z, γ(s)) γ ′ (s) ds : on est ramené
+au théorème précédent avec X = [a, b]. Fixons z0 ∈ Ω et r0 > 0 tel que D̄(z0 , r0 ) ⊂ Ω. Le produit
+D̄(z0 , r0 ) × γ([a, b]) est compact et F y est continue, donc majorée en module par un M > 0 ;
+comme γ ′ est bornée par un M ′ > 0 (remarque I.5.2), la fonction constante gz0 = M M ′ est
+intégrable sur [a, b] et domine s 7→ |F (z, γ(s)) γ ′ (s)| pour tout z ∈ D(z0 , r0 ). Les hypothèses du
+théorème sont donc satisfaites.
+
+     Exercice I.9.5 — Soit f une fonction mesurable bornée à support dans R+ . On définit la
+     fonction fˆ par                         Z
+                                    ˆ
+                                    f (z) :=   e−iz t f (t) dt.
+                                                R
+
+     1) Montrer que fˆ est une fonction holomorphe sur H− := {z ∈ C : ℑm(z) < 0}.
+     2) Montrer que si de plus f est à support compact, alors fˆ est holomorphe sur C.
+
+
+I.10        Théorème de Liouville et conséquences
+
+
+   Commençons par le Théorème de Liouville 1 (qui semble en fait être dû à Cauchy), une
+conséquence directe des estimées de Cauchy.
+
+       Théorème I.10.1 — Théorème de Liouville (Cauchy, 1844)
+     Soit f ∈ Hol(C) une fonction bornée sur C. Alors, f est constante.
+
+      Voici une application du Théorème de Liouville qui permet de démontrer un grand classique :
+
+       Corollaire I.10.2 — Théorème de d’Alembert-Gauss (Argand, 1806)
+     Tout polynôme non constant à coefficients complexes possède une racine dans C. En
+     d’autres termes, le corps C est algébriquement clos.
+
+    Nous laissons la démonstration du théorème de Liouville et du théorème de d’Alembert-Gauss
+au lecteur, ce sont les questions 2 et 3 de l’exercice suivant :
+
+     Exercice I.10.3 — Soit f une fonction holomorphe sur C et bornée.
+        1. Montrer que f (k) (0) = 0 pour tout k ≥ 1.
+        2. En déduire que f est constante.
+        3. Montrer que tout polynôme non constant admet un zéro dans C.
+     Soit h une fonction non constante, holomorphe sur C.
+
+     1. Joseph Liouville, X 1825
+
+
+======== [PDF page 30 | page imprimée 27] ========
+I.11. PRINCIPE DES ZÉROS ISOLÉS. PROLONGEMENT ANALYTIQUE                                                27
+
+
+       4. Montrer que h(C), l’image de C par h, est dense dans C.
+   Soit f une fonction holomorphe qui est définie sur C.
+       5. On suppose qu’il existe deux réels a, b > 0 et un entier m ∈ N tels que
+
+                                               |f (z)| ≤ a + b|z|m ,
+
+         pour tout z ∈ C. Montrer que f est un polynôme de degré ≤ m.
+
+   Ainsi les polynômes s’annulent sur C, mais pas très souvent... C’est un phénomène, qui se
+généralise aux fonctions holomorphes comme nous allons le voir dans la section suivante.
+
+
+I.11      Principe des zéros isolés. Prolongement analytique
+
+
+     Théorème I.11.1 — Principe des zéros isolés (Riemann 1851, Weierstrass 1877)
+   Soit Ω un ouvert connexe et f une fonction holomorphe sur Ω non identiquement nulle.
+   Alors, les zéros de f sont isolés. C’est-à-dire que, si f (z0 ) = 0, il existe ϵ > 0 tel que, pour
+   tout z ∈ Ω ∩ (D(z0 , ϵ) \ {z0 }), f (z) ̸= 0.
+
+
+Démonstration. L’ensemble
+
+                                U := {z ∈ Ω : f (n) (z) = 0, ∀n ≥ 0},
+
+est fermé (comme intersection de fermés) et ouvert (car f est somme de sa série de Taylor au
+voisinage de tout point, donc identiquement nulle en un voisinage d’un point de U ). Comme f
+est non identiquement nulle, U =  ̸ Ω de sorte que U = ∅ (c’est là que nous utilisons la connexité
+de Ω). Conclusion, pour tout z0 ∈ Ω, il existe un entier n ≥ 0 tel que f (n) (z0 ) ̸= 0. Soit z0 un
+zéro de f . Soit N le plus petit entier tel que f (N ) (z0 ) ̸= 0. On peut alors écrire au voisinage de z0
+                                                                               !
+                                                        X
+                                           N                             n−N
+                          f (z) = (z − z0 )      aN +         an (z − z0 )         ,
+                                                        n>N
+
+
+ce qui permet de conclure facilement que f ne s’annule pas dans un voisinage épointé de z0 .
+
+
+     Définition I.11.2
+   Soient Ω un ouvert connexe, f une fonction holomorphe sur Ω non identiquement nulle, et
+   z0 un zéro de f . La démonstration ci-dessus montre que l’entier
+
+                                m(z0 ) := min{n ≥ 0 : f (n) (z0 ) ̸= 0}
+
+   est bien défini, et m(z0 ) ≥ 1 puisque f (z0 ) = 0. On l’appelle la multiplicité (ou l’ordre) du
+   zéro z0 . De manière équivalente, m(z0 ) est l’unique entier m ≥ 1 tel que l’on puisse écrire
+
+                                         f (z) = (z − z0 )m h(z)
+
+   au voisinage de z0 , avec h holomorphe et h(z0 ) ̸= 0. Un zéro de multiplicité 1 est dit simple.
+
+
+======== [PDF page 31 | page imprimée 28] ========
+28                                                      CHAPITRE I. FONCTIONS HOLOMORPHES
+
+
+     Remarque I.11.3 — La connexité n’entre en jeu que pour avoir un joli énoncé. Dans le
+     cas général, la preuve permet de conclure que si les zéros ne sont pas isolés, la fonction
+     holomorphe est nulle sur une des composantes connexes (nécessairement ouverte) de Ω.
+
+
+     Remarque I.11.4 — L’ensemble des zéros d’une fonction holomorphe f sur Ω, que nous
+     noterons désormais Z(f, Ω), est donc discret et fermé. Il est donc localement fini (voir Prop.
+     II.4.1 plus loin).
+
+
+     Remarque I.11.5 — Attention, « isolé » ne signifie pas « en nombre fini » : une fonction
+     holomorphe non identiquement nulle peut très bien avoir une infinité de zéros isolés, par
+     exemple z 7→ sin(πz) sur C, dont les zéros sont exactement les entiers relatifs. C’est la
+     propriété, plus faible que la finitude, d’être localement finie qui est garantie par le principe
+     des zéros isolés (voir aussi la Remarque II.5.2, où cette même distinction entre « fini » et
+     « localement fini » joue un rôle clé pour la formule des résidus).
+
+       Corollaire I.11.6 — Principe du prolongement analytique
+     Deux fonctions holomorphes f et g sur un ouvert connexe Ω qui coïncident sur une partie
+     X de Ω ayant un point d’accumulation dans Ω, coïncident partout.
+
+
+Démonstration. Considérons f − g : l’ensemble de ses zéros contient X, et comme cet ensemble
+est fermé par continuité de f − g, il contient le point d’accumulation 2 donné par l’énoncé : ce
+point est un zéro non isolé de l’ensemble des zéros de f − g, et l’on en déduit que f − g est
+identiquement nulle par le principe des zéros isolés.
+
+    Souvent, dans les exemples, f et g coïncident sur un ouvert, ou bien sur un arc, et on peut
+alors conclure.
+    Voici un exemple de prolongement analytique d’une fonction holomorphe définie par une série
+entière.
+
+     Exemple I.11.7 — Par exemple la fonction holomorphe définie sur D(0, 1) par la série
+                                               X
+                                      f (z) :=    zn,
+                                                          n≥0
+
+                                                                                1
+     admet un prolongement analytique à C \ {1}. En effet, la fonction g(z) := 1−z est elle aussi
+     analytique et coïncide avec f sur le disque unité ouvert.
+
+    Nous donnerons dans la section III.5 un exemple plus subtil de prolongement analytique dans
+le cas de la fonction Gamma. Poursuivons par une application intéressante du principe des zéros
+isolés.
+
+       Proposition I.11.8
+                                                                    2
+     Les fonctions polynômes sont denses dans L2 (R, e−x dx). Elles sont aussi denses dans
+     L2 (]0, +∞[ , e−x dx).
+
+
+Démonstration. Montrons que l’espace des fonctions polynômes forme un sous-espace dense de
+          2                                                                2
+L2 (R, e−x dx). Pour ce faire, il suffit de démontrer que si f ∈ L2 (R, e−x dx) est orthogonale pour
+     2. Un point d’accumulation de X est un point a tel que tout voisinage de a intersecte X \ {a}.
+
+
+======== [PDF page 32 | page imprimée 29] ========
+I.12. PROPRIÉTÉ DE LA MOYENNE ET PRINCIPE DU MAXIMUM.                                               29
+
+                                    2
+le produit hermitien de L2 (R, e−x dx) à toutes les fonctions polynômes, alors c’est la fonction
+nulle.
+   Soit f une telle fonction. Définissons
+                                                    Z
+                                                                        2
+                                    F (z) :=              f (x) ezx e−x dx.
+                                                      R
+
+Nous laissons au lecteur le soin de vérifier la convergence de cette intégrale pour tout z. Les
+résultats de la section I.9 nous permettent d’affirmer sans trop de peine que F est une fonction
+holomorphe sur C. De plus la dérivée n-ième au sens complexe de la fonction F est donnée par
+                                          Z
+                                                              2
+                                   (n)
+                                 F (z) =      xn f (x) ezx e−x dx,
+                                                      R
+
+et par conséquent                                     Z
+                                                                         2
+                                   F    (n)
+                                              (0) =           xn f (x) e−x dx.
+                                                          R
+
+Par hypothèse F (n) (0) = 0 pour tout n ∈ N. On en déduit que F est identiquement nulle sur C.
+En particulier                                  Z
+                                                                   2
+                                F (−iξ) =             f (x) e−x e−iξx dx = 0,
+                                                 R
+                                                                                 2
+pour tout ξ ∈ R. Autrement dit, la transformée de Fourier de x 7→ f (x) e−x est nulle. On conclut
+que f = 0, ce qui termine la démonstration. Nous laissons le soin au lecteur d’adapter cette
+démonstration pour démontrer la deuxième assertion.
+
+
+I.12     Propriété de la moyenne et principe du maximum.
+
+
+    Le point de départ est la formule de la moyenne, obtenue au corollaire I.6.2 comme conséquence
+immédiate de la formule intégrale de Cauchy : c’est une propriété assez surprenante dont jouissent
+les fonctions holomorphes, puisqu’elle dit que la valeur d’une fonction holomorphe en un point
+z est égale à la moyenne de cette fonction sur tout cercle centré en z. Rappelons-la : si f est
+holomorphe sur Ω et si le disque fermé D̄(z, r), r > 0, est contenu dans Ω, alors
+                                              Z 2π
+                                            1
+(I.12.1)                          f (z) =          f (z + r eiθ ) dθ.
+                                           2π 0
+
+   On en déduit immédiatement le cas particulier suivant des estimées de Cauchy :
+
+                                     |f (z)| ≤ max |f (z + r eiθ )|.
+                                                        θ∈R
+
+Il n’y a pour l’instant rien de nouveau, mais nous allons voir que l’on dispose en fait d’énoncés
+beaucoup plus généraux qui constituent un point important de la théorie.
+
+     Théorème I.12.1 — Principe du maximum (Riemann 1851)
+   Soit f une fonction holomorphe sur un ouvert connexe Ω. On suppose que la fonction
+   z 7→ |f (z)| admet un maximum local en z0 ∈ Ω alors f est constante sur Ω.
+
+
+Démonstration. Supposons que |f | ait un maximum local en z0 ∈ Ω, i.e. qu’il existe R > 0 tel
+que le disque fermé D̄(z0 , R) soit contenu dans Ω et que |f (z)| ≤ |f (z0 )| pour tout z ∈ D̄(z0 , R).
+On va montrer qu’il existe un voisinage de z0 , où f est constante. L’ouvert Ω étant connexe, le
+
+
+======== [PDF page 33 | page imprimée 30] ========
+30                                                              CHAPITRE I. FONCTIONS HOLOMORPHES
+
+principe du prolongement analytique nous dit alors que f est constante sur Ω. Si f (z0 ) = 0, le
+résultat est alors évident, on suppose donc f (z0 ) ̸= 0.
+    Donnons une première démonstration du résultat. La fonction f est développable en série
+entière au voisinage de z0 et l’on peut écrire
+                                                   X
+                                 f (z) = f (z0 ) +   an (z − z0 )n .
+                                                                 n≥1
+
+On suppose que f n’est pas constante au voisinage de z0 , donc il existe au moins un an ̸= 0. Soit
+N le plus petit indice n ≥ 1 tel que an ̸= 0. Écrivons
+                                                      X
+                         f (z) = f (z0 ) + (z − z0 )N   an (z − z0 )n−N .
+                                                                     n≥N
+
+                     X
+On note g(z) :=             an (z − z0 )n−N , on a donc g(z0 ) ̸= 0, et l’on développe
+                    n≥N
+
+
+              |f (z)|2 = |f (z0 ) + (z − z0 )N g(z)|2
+                                                                
+                       = |f (z0 )|2 + 2ℜe (z − z0 )N g(z) f (z0 ) + |z − z0 |2N |g(z)|2 .
+
+On pose z = z0 + t eiβ où t, β ∈ R. Le développement limité de t 7→ |f (z0 + teiβ )|2 , en puissances
+de t est donné par la formule
+                                                                         
+               |f (z0 + t eiβ )|2 = |f (z0 )|2 + 2 ℜe eiN β g(z0 ) f (z0 ) tN + O(tN +1 ),
+                                                                                         
+Comme f (z0 )g(z0 ) ̸= 0, on peut choisir β ∈ R de telle sorte que ℜe eiN β g(z0 ) f (z0 ) > 0. Avec
+ce choix, on a |f (z0 + t eiβ )|2 > |f (z0 )|2 pour tout t > 0 proche de 0 ce qui contredit le fait que
+z0 est le point où |f | est maximale. En conclusion, f est constante au voisinage de z0 .
+   Donnons maintenant une autre démonstration de ce résultat qui, cette fois-ci s’appuie sur la
+formule de la moyenne. Fixons r avec 0 < r < R et définissons
+                                                       Z 2π
+                                                   1
+                                         cn :=                f (z0 + r eiθ ) e−inθ dθ,
+                                                  2π    0
+
+qui n’est rien d’autre que le n-ième coefficient de Fourier de la fonction périodique fr : θ 7→
+f (z0 + r eiθ ).
+     La formule de la moyenne (I.12.1) nous permet d’écrire que
+                                         Z 2π
+                                   1
+                          |c0 | =                f (z0 + r eiθ ) dθ = |f (z0 )| = sup |f (z)|.
+                                  2π       0                                            D̄(z0 ,r)
+
+D’autre part, d’après l’égalité de Parseval, nous avons
+                                         Z 2π                                   Z 2π
+                   X                 1                                      1
+        |c0 |2 ≤         |cn |2 =               |f (z0 + r eiθ )|2 dθ ≤                   sup        |f (z)|2 dθ = |c0 |2 ,
+                                    2π    0                                2π    0     z∈D̄(z0 ,r)
+                   n∈Z
+
+et donc nécessairement cn = 0 pour tout n ̸= 0, autrement dit fr ≡ c0 = f (z0 ). Ceci valant pour
+tout r ∈ ]0, R[, ce qui entraîne que f est constante sur D(z0 , R).
+
+
+     Le principe du maximum est souvent utilisé sous la forme du corollaire suivant.
+
+
+======== [PDF page 34 | page imprimée 31] ========
+I.12. PROPRIÉTÉ DE LA MOYENNE ET PRINCIPE DU MAXIMUM.                                               31
+
+     Corollaire I.12.2
+   Soit Ω un ouvert connexe non vide de C et supposons que son adhérence Ω soit bornée,
+   donc compacte. Soit f : Ω → C continue et holomorphe sur Ω. On a alors supΩ |f | < +∞
+   par compacité de Ω (et de plus ce sup est atteint). Le principe du maximum implique que
+   ce sup est atteint sur le bord du domaine ∂Ω = Ω \ Ω :
+
+                                          sup |f | = sup |f |.
+                                           Ω          ∂Ω
+
+
+
+
+Démonstration. Le sup est atteint, et s’il l’est sur le bord, on a la conclusion voulue. S’il l’est sur
+Ω, le principe du maximum dit que f est constante, et la conclusion voulue est aussi valide.
+
+
+
+   L’exercice suivant montre que si Ω est connexe, Hol(Ω) est une algèbre intègre, ce qui est rare
+pour une algèbre de fonctions.
+
+   Exercice I.12.3 — Soit D := {z ∈ C : |z| < 1} le disque unité ouvert et D̄ son adhérence.
+      1. Montrer que si le produit de deux fonctions holomorphes sur D est nul, l’une des
+         deux fonctions est nulle.
+      2. Soient f, g deux fonctions continues sur D̄, holomorphes sur D. Montrer que si f g est
+         nulle sur le cercle ∂ D̄ = D̄ \ D, alors f ou g est nulle sur D̄.
+      3. Généraliser à un ouvert connexe (borné) Ω quelconque.
+
+
+   Exercice I.12.4 — Soit P ∈ C[X] un polynôme de degré d ≥ 1. Pour r > 0, on pose
+   M (r) := sup|z|=r |P (z)|. Montrer que pour tout 0 < r ≤ R, on a
+
+                                           M (R)   M (r)
+                                              d
+                                                 ≤       .
+                                            R       rd
+
+   Exercice I.12.5 : Théorème des trois cercles d’Hadamard — Soient 0 < r < R, Ω ⊂ C
+   un ouvert connexe contenant la couronne C := {z ∈ C : r ≤ |z| ≤ R} et f ∈ Hol(Ω). Pour
+   tout ρ ∈ [r, R], on pose
+                                     M (ρ) := sup |f (z)|.
+                                                   |z|=ρ
+
+      1. Montrer que pour tout ρ ∈ [r, R] et tous p, q ∈ Z avec q > 0, on a
+
+                                 ρp M (ρ)q ≤ max {rp M (r)q , Rp M (R)q } .
+
+      2. En déduire que pour tout ρ ∈ [r, R] et tout α ∈ R, on a
+
+                                  ρα M (ρ) ≤ max {rα M (r), Rα M (R)} .
+
+      3. En déduire que pour tout t ∈ [0, 1], on a
+
+                                      M (rt R1−t ) ≤ M (r)t M (R)1−t .
+
+
+======== [PDF page 35 | page imprimée 32] ========
+32                                                  CHAPITRE I. FONCTIONS HOLOMORPHES
+
+I.13       Le lemme de Schwarz et les automorphismes du disque unité
+
+
+    On note D = D(0, 1) le disque unité, D̄ son adhérence et on pose D× = D \ {0}. Le lemme de
+Schwarz et la classification des automorphismes du disque unité jouent un rôle important dans la
+preuve du théorème de représentation conforme de Riemann III.4.1. La démonstration du lemme
+est laissée au lecteur ; celle de la classification fait l’objet de l’exercice I.13.2.
+
+       Lemme I.13.1 — Schwarz
+     Soit f ∈ Hol(D) telle que f (D) ⊂ D̄(0, 1) et telle que f (0) = 0. Alors
+        1. |f (z)| ≤ |z| pour tout z ∈ D et |f ′ (0)| ≤ 1.
+        2. S’il existe z ∈ D× tel que |f (z)| = |z| ou que |f ′ (0)| = 1 alors f est une rotation,
+           c’est-à-dire qu’il existe θ ∈ R tel que f (z) = eiθ z pour tout z ∈ D.
+        3. Si f est un automorphisme de D (cf. Définition I.4.1) alors f est une rotation.
+        4. Si f n’est pas un automorphisme de D, alors |f (z)| < |z| pour tout z ∈ D \ {0}.
+
+
+     On peut maintenant déterminer tous les automorphismes holomorphes de D.
+
+     Exercice I.13.2 — Pour a ∈ D et z ∈ D on note
+                                                        z−a
+                                             fa (z) =          .
+                                                        1 − az
+     1) Montrer que fa (D) ⊂ D.
+     2) Montrer que fa est une bijection holomorphe de D dans lui-même.
+     3) En utilisant le point 3 du lemme de Schwarz, en déduire que si f est un automorphisme
+     holomorphe de D, alors il existe θ ∈ R et a ∈ D tels que
+                                                           z−a
+                                            f (z) = eiθ          .
+                                                          1 − az
+
+     Notons le résultat de cet exercice :
+
+       Proposition I.13.3
+     Les automorphismes holomorphes du disque unité sont les fonctions de la forme λ · fa , avec
+     a ∈ D et |λ| = 1.
+
+     En complément, on pourra traiter l’exercice suivant :
+
+     Exercice I.13.4 — Pour a ∈ D et θ ∈ R, on note
+                                                            z−a
+                                          fa,θ (z) = eiθ          .
+                                                           1 − az
+     On a vu dans l’exercice précédent que ce sont exactement les automorphismes du disque
+     unité D.
+     1) On sait que Authol (D) est un groupe pour la composition des applications. Le vérifier ici
+     directement en explicitant la loi de groupe, c’est-à-dire en calculant fa,θ ◦ fb,ω
+     2) Montrer que ce groupe Authol (D) agit transitivement sur le disque unité. Déterminer le
+     sous-groupe des éléments qui fixent l’origine.
+
+
+======== [PDF page 36 | page imprimée 33] ========
+I.14. THÉORÈME DE L’APPLICATION OUVERTE                                                              33
+
+
+  3) Si γ : [0, 1] → D est un chemin dans D, on définit sa longueur hyperbolique par
+
+                                                           |γ ′ (t)|
+                                                   Z 1
+                                    lhyp (γ) =                       dt
+                                                    0    1 − |γ(t)|2
+
+  La distance hyperbolique entre deux points z1 et z2 de D est alors la longueur minimale
+  d’un chemin γ comme ci-dessus joignant z1 et z2 :
+
+                              dhyp (z1 , z2 ) =           inf           lhyp (γ).
+                                                  γ|γ(0)=z1 , γ(1)=z2
+
+  Montrer que l’action du groupe Authol (D) sur D préserve cette distance.
+
+
+
+I.14    Théorème de l’application ouverte
+
+
+  La démonstration du théorème suivant fait l’objet de l’exercice qui le suit.
+
+    Théorème I.14.1 — de l’application ouverte (Riemann 1851)
+  Soit Ω un ouvert connexe non vide de C et f : Ω → C une application holomorphe non
+  constante. Alors l’image f (Ω) est un ouvert de C.
+
+
+
+  Exercice I.14.2 — On se place dans les hypothèses du théorème. On raisonne par l’absurde
+  en supposant qu’il existe un point z0 de Ω tel que f (Ω) n’est pas un voisinage de f (z0 ),
+  c’est-à-dire qu’il existe une suite (αn )n∈N de nombres complexes qui ne sont pas dans f (Ω)
+  et qui converge vers f (z0 ).
+  1) Montrer qu’il existe r > 0 avec les propriétés suivantes :
+  (i) D̄(z0 , r) ⊂ Ω, (ii) pour tout z ∈ D̄(z0 , r) \ {z0 }, f (z) ̸= f (z0 ).
+                                                 1
+  2) On pose pour tout n ∈ N, gn (z) =                 . Montrer que pour tout n ∈ N, gn est bien
+                                           f (z) − αn
+  définie et holomorphe sur Ω et qu’il existe zn ∈ C(z0 , r) tel que pour tout z ∈ D̄(z0 , r),
+  |f (z) − αn | ≥ |f (zn ) − αn |.
+  3) Montrer qu’il existe ϵ > 0 tel que pour tout z ∈ C(z0 , r), |f (z) − f (z0 )| ≥ ϵ. En déduire
+  que pour n assez grand, |f (zn ) − αn | ≥ 2ϵ et aboutir à une contradiction avec le fait que la
+  suite αn tend vers f (z0 ).
+
+  Comme application, notons le fait suivant.
+
+  Remarque I.14.3 — Supposons que f : Ω1 → Ω2 soit une bijection holomorphe entre
+  les ouverts Ω1 et Ω2 de C. Alors f −1 est automatiquement holomorphe. En effet grâce au
+  théorème d’inversion locale et à la proposition I.4.4, il suffit de montrer que f ′ ne s’annule
+  pas. Montrons que l’annulation de f ′ en un point z0 contredit l’injectivité de f . On peut
+  quitte à translater, supposer     f (z0 ) = 0, et le développement
+                                queP                                 de f en z0 est alors de la
+                             N             aN +n         n
+  forme f (z) = aN (z − z0 )    1 + n≥1 aN (z − z0 ) avec aN ̸= 0 et N ≥ 2. La fonction
+                   aN +n
+  z 7→ 1 + n≥1 aN (z − z0 )n prend ses valeurs dans D(1, 1/2) sur D(z0 , ϵ) pour ϵ > 0
+            P
+
+  assez petit (par continuité), et donc cette fonction admet un logarithme (primitive de z1
+  s’annulant en 1 sur le disque D(1, 1/2) dont l’existence est garantie par le corollaire I.7.6),
+                                                  1
+  et donc une racine N -ième (par la formule e N Log(z) ). Ainsi f admet une racine N -ième h
+
+
+======== [PDF page 37 | page imprimée 34] ========
+34                                                CHAPITRE I. FONCTIONS HOLOMORPHES
+
+
+     sur D(z0 , ϵ). D’après le théorème de l’application ouverte, l’image de h contient un disque
+     D(0, η) pour un certain η > 0 et f ne peut être injective car z 7→ z N , N ≥ 2 n’est injective
+     sur aucun disque centré en 0.

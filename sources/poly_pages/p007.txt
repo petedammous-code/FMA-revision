@@ -1,0 +1,9 @@
+4
+
+   Le chapitre IV, enfin, rassemble des applications : transformations conformes, fonctions
+harmoniques, forme des films de savon via la représentation de Weierstrass–Enneper, et quelques
+problèmes de physique (écoulements plans, profils d’ailes par la transformation de Joukovski,
+propagation de la chaleur).
+    La forme actuelle de ce texte est le résultat des contributions des enseignants successifs de
+ce cours (sans remonter jusqu’à Cauchy), Y. Laszlo, F. Pacard, D. Renard, T. Gauthier et de
+nouveau D. Renard.

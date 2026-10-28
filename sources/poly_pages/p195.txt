@@ -1,0 +1,77 @@
+192                                         ANNEXE A. SUJETS D’EXAMEN ET PROBLÈMES
+
+         (d) Si z ∈ Zz0 ∪ PP               P un pôle, on note m(z) ≥ 1 sa multiplicité.
+                           z0 est un zéro ou
+             Montrer que z∈Zz m(z) = z∈Pz m(z).
+                                  0                0
+                                                   ′
+             Indication : considérer la fonction ff .
+                           P               P
+         (e) Montrer que     z∈Zz0 m(z) =      z∈Pz0 m(z) ≥ 2.
+       (f) Déduire des questions précédentes que la fonction f est surjective.
+                                                                   h           i
+                                                                     1
+On rappelle que la fonction de Weierstrass ℘ : z 7→ z12 + λ∈Λ\{0} (z+λ)     1
+                                                         P
+                                                                        2 − λ2   est paire, elliptique
+pour Λ, holomorphe sur C \ Λ, et qu’elle admet un développement en série de Laurent au voisinage
+de 0 de la forme :
+                                                     +∞
+                                               1    X
+                                      ℘(z) = 2 +         ak z 2k .
+                                               z
+                                                        k=1
+
+   2. Prouver, en utilisant les symétries de ℘′ , que ℘′ ( ω21 ) = ℘′ ( ω22 ) = ℘′ ( ω1 +ω
+                                                                                        2 ) = 0.
+                                                                                          2
+
+
+   3. La fonction ℘′ est holomorphe sur C \ Λ, non constante, donc on peut choisir z       0 tel que
+         ′
+        ℘ n’ait ni zéro ni pôle sur le bord ∂Qz0 , et un unique pôle, en 0, dans Qz0 . On note dans
+        cette question Zz0 , resp. Pz0 l’ensemble des zéros, resp. pôles de ℘′ dans Qz0 .
+                           P
+         (a) Montrer que     z∈Pz0 m(z) = 3.
+           Indication : utiliser un développement en série de Laurent de ℘′ .
+       (b) Montrer que l’ensemble des zéros de ℘′ est { ω21 , ω22 , ω1 +ω
+                                                                       2 } + Λ.
+                                                                         2
+
+           Indication : justifier à l’aide de la question (1d) que ℘′ admet exactement 3 zéros
+           simples dans Qz0 .
+   4. Montrer que pour tout w ∈ C, l’ensemble des solutions de l’équation ℘(z) = w est de la
+      forme {zw , −zw } + Λ pour un certain zw ∈ C.
+
+    Exercice 3. Soit n ≥ 1. On note ⟨·, ·⟩ le produit scalaire usuel sur Rn , ∥ · ∥ la norme associée,
+                                  n
+B n := {x ∈ Rn : ∥x∥ < 1}, resp. B := {x ∈ Rn : ∥x∥ ≤ 1} la boule unité ouverte, resp. fermée,
+et Sn−1 := {x ∈ Rn : ∥x∥ = 1} la sphère unité. On note également Leb la mesure de Lebesgue
+sur Rn .
+      Le but de cet exercice est de montrer la forme suivante du théorème du point fixe de Brouwer :
+                                                               n       n
+            Toute application f ∈ C 1 (Rn , Rn ) telle que f (B ) ⊂ B admet un point fixe.
+
+On raisonne par l’absurde, en supposant l’existence d’une application f ∈ C 1 (Rn , Rn ) satisfaisant
+     n      n                                           n
+f (B ) ⊂ B mais sans point fixe. Pour tout x ∈ B , on note ∆x la demi-droite ouverte
+                                                   n                                     n
+∆x := {f (x) + t(x − f (x)) : t > 0}. On note φ : B → Sn−1 l’application qui à x ∈ B associe le
+point d’intersection de ∆x avec la sphère Sn−1 , et pour tout t ∈ [0, 1], on définit l’application
+       n     n
+φt : B → B , x 7→ (1 − t)x + tφ(x).
+                                                                                                   n
+   1. (a) Montrer que φ est bien définie et qu’elle est de classe C 1 sur un voisinage de B .
+             Indication : on cherchera à résoudre l’équation polynomiale de degré 2 en t
+
+                                            ∥f (x) + t(x − f (x))∥2 = 1,
+
+           et on pourra montrer que son discriminant est strictement positif.
+       (b) Montrer que ∀v ∈ Rn , ⟨φ(x), dφ(x)v⟩ = 0, et en déduire que det dφ(x) = 0, pour tout
+           x ∈ Bn.
+                                                                              1
+   2. Soit M := supx∈B n |||dφ(x)||| = supx∈B n supv∈Sn−1 ∥dφ(x)v∥, et α := 1+M . Soit t ∈ [0, α[.
+
+         (a) Montrer que l’application φt est injective, et que φt (B n ) ⊂ B n .
+         (b) Prouver que pour tout x ∈ B n , la différentielle dφt (x) est inversible.
+         (c) En déduire que φt est un C 1 -difféomorphisme de B n sur son image φt (B n ).

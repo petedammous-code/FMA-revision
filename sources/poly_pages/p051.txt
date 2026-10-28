@@ -1,0 +1,59 @@
+48                                                            CHAPITRE II. FORMULE DES RÉSIDUS
+
+pour z proche dePs ∈ P(f, Ω) où les coefficients an et la fonction Qs dépendent du point s. La
+fonction f (z) − s∈S Qs (z) est holomorphe sur Ω qui est supposé simplement connexe donc,
+d’après le Corollaire II.2.2, on a
+                                   Z                  !
+                                             X
+                                     f (z) −    Qs (z) dz = 0.
+                                       γ            s∈S
+
+             ̸ −1, la fonction z 7→ (z − s)n a une primitive dans un voisinage de γ, on conclut
+Mais, pour n =
+que                           Z                           Z
+                         1                           1       dz
+                                  Qs (z) dz = a−1               = ress (f ) Inds (γ).
+                        2iπ   γ                     2iπ   γ z−s
+Ce qui termine la démonstration de la formule des résidus.
+
+     Remarque II.5.3 — La démonstration montre que l’hypothèse « Ω simplement connexe »
+     peut être remplacée par « le lacet γ est homotope à un lacet constant ».
+
+
+II.6      Formule des résidus et le calcul d’intégrales
+
+
+    La formule des résidus permet de calculer de nombreuses intégrales autrement inaccessibles.
+Elle est particulièrement utile pour les transformations de Fourier, bien que ce ne soit pas sa seule
+utilisation. Donnons — sans preuve — une méthode basée sur la formule des résidus, qui permet
+de calculer des intégrales. Le lecteur justifiera au cas par cas cette méthode sur les exemples.
+    On se donne un ouvert connexe borné U de C dont le bord est l’image d’un lacet simple
+γ de classe C 1 par morceaux. Par exemple, U pourra être un disque, un demi-disque ou plus
+généralement un secteur angulaire d’un disque, un triangle, un polygone . . . Le lacet γ étant
+simple, il tourne autour de chaque point de U une seule fois. On peut supposer (quitte à renverser
+le sens de parcours) que γ est orienté dans le sens direct, c’est-à-dire que l’intérieur est à gauche :
+γ(t) + iεγ ′ (t) est dans U pour tout ε > 0 assez petit. Dans ce cas, l’indice des points de U
+relativement à γ est égal à 1. En pratique, cette dernière assertion est très facile à justifier en
+utilisant l’invariance par homotopie de l’indice et en déformant continûment γ en un cercle par
+exemple.
+     Soit maintenant Ω un ouvert simplement connexe contenant U , l’adhérence de U , et f une
+fonction méromorphe sur Ω. On suppose que f n’a pas de pôle sur γ. On note S l’ensemble des
+pôles de f qui sont contenus dans U . C’est un ensemble fini (exercice). La formule des résidus
+s’écrit alors
+                                 Z                 X
+(II.6.1)                            f (z) dz = 2iπ   ress (f ),
+                                           γ                  s∈S
+
+ce qui permet de calculer l’intégrale de f le long de γ.
+
+     Exemple II.6.1 : Calcul d’une intégrale de Fourier —
+     Nous allons calculer l’intégrale suivante, pour k > 0 et a > 0 :
+                                             Z +∞
+                                                   cos(kx)
+                                         I=         2    2
+                                                           dx.
+                                              −∞ x + a
+                                                                                   ikz
+     Considérons la fonction de la variable complexe z définie par f (z) = z 2e+a2 . Cette fonction
+     est méromorphe sur C et possède deux pôles simples en ia et −ia. Pour utiliser le théorème
+     des résidus, nous intégrons f sur un lacet ΓR constitué du segment [−R, R] sur l’axe

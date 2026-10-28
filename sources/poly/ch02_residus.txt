@@ -1,0 +1,1427 @@
+
+
+======== [PDF page 38 | page imprimée 35] ========
+                                                                                    Chapitre       II
+Formule des résidus
+
+
+II.1      Homotopie - Ouverts simplement connexes
+
+
+   On formalise ici la notion de déformation continue de chemins que nous avons déjà rencontrée
+dans la preuve de la formule intégrale de Cauchy.
+
+       Définition II.1.1
+   Soient Ω un ouvert non vide de C et γ0 , γ1 : [0, 1] → Ω des applications continues. Une
+   homotopie entre γ0 et γ1 dans Ω, est une application γ ∈ C ([0, 1]2 ; Ω) telle que
+
+                             γ(0, t) = γ0 (t),    et     γ(1, t) = γ1 (t),
+
+   pour tout t ∈ [0, 1]. On dit que γ0 et γ1 sont homotopes.
+   Si γ0 et γ1 sont des chemins, on dit que γ est une homotopie de chemins. Si l’on demande de
+   plus γ(s, 0) = γ(s, 1) pour tout s ∈ [0, 1] (en particulier γ0 et γ1 sont des lacets), on dit que
+   γ est une homotopie de lacets : le point base γ(s, 0) a ici le droit de se déplacer avec s, c’est
+   pourquoi on parle aussi d’homotopie libre de lacets. C’est cette seconde notion, plus souple,
+   qu’utilisera le théorème d’invariance du paragraphe II.2. On dit que Ω est simplement
+   connexe s’il est connexe et si tout lacet γ de Ω est homotope à un lacet constant.
+
+
+
+
+                                     Homotopie entre γ0 et γ1 .
+
+
+
+  Remarque II.1.2 — On peut définir plus généralement la notion d’homotopie entre deux
+  applications continues f0 , f1 : X → Y entre espaces topologiques X et Y : c’est une
+  application continue F : [0, 1] × X → Y telle que F (0, x) = f0 (x) et F (1, x) = f1 (x)
+  pour tout x ∈ X. Lorsque f0 et f1 ont des propriétés supplémentaires, par exemple de
+  différentiabilité, on peut vouloir ou non selon le contexte que les applications partielles
+  x 7→ F (x, s) aient les mêmes propriétés pour tout s ∈ [0, 1].
+
+
+                                                  35
+
+
+======== [PDF page 39 | page imprimée 36] ========
+36                                                              CHAPITRE II. FORMULE DES RÉSIDUS
+
+
+     Dans la définition ci-dessus de l’homotopie entre chemins, remarquons que l’on n’exige pas
+     que t 7→ γ(s, t) soit un chemin pour tout s ∈ [0, 1], (c’est-à-dire C 1 par morceaux). Mais
+     dans le cas des lacets, on exige la condition γ(s, 0) = γ(s, 1).
+
+
+       Lemme II.1.3
+     La relation « il existe une homotopie de lacets entre γ0 et γ1 » est une relation d’équivalence
+     sur l’ensemble des lacets de Ω.
+
+Démonstration. La réflexivité est claire. Pour la symétrie, on observe que si γ est une homotopie
+de lacets entre γ0 et γ1 , alors, γ(1 − s, t) est une homotopie de lacets entre γ1 et γ0 .
+    Passons à la transitivité. On a donc trois lacets γ1 , γ2 et γ3 , et des homotopies de lacets
+γi,i+1 (s, t) entre γi et γi+1 , pour i = 1, 2. On définit alors
+                                                                 si s ≤ 1/2
+                                          (
+                                             γ1,2 (2s, t)
+                               γ(s, t) :=
+                                             γ2,3 (2s − 1, t)    si s ≥ 1/2,
+qui est une homotopie de lacets entre γ1 et γ3 .
+
+     Remarque II.1.4 — Donnons-nous un point z0 ∈ Ω d’un ouvert connexe. On peut définir
+     l’ensemble π1 (Ω) des classes d’équivalence d’homotopie de lacets de point de base z0 . On
+     peut montrer que la composition des lacets définit une structure de groupe sur π1 (Ω). C’est
+     le groupe fondamental de Poincaré de Ω. Comme on le voit, on peut le définir pour des
+     espaces beaucoup plus généraux que Ω. En ces termes, dire que l’ensemble connexe Ω est
+     simplement connexe, c’est dire que ce groupe est réduit à l’élément neutre. En particulier
+     π1 (C) est réduit à l’élément neutre. Le lecteur intéressé pourra démontrer que π1 (C \ {0})
+     est isomorphe à (Z, +) et (plus difficile) que π1 (C \ {−1, +1}) est isomorphe au groupe
+     libre à deux générateurs a .
+        a. Le groupe libre à deux générateurs x et y se compose du mot vide e, qui joue le rôle d’élément
+     neutre, et de tous les « mots » formés à partir des symboles x, x−1 , y et y −1 et dans lesquels n’apparaissent
+     pas les séquences xx−1 , x−1 x, yy −1 ou y −1 y (on dit que ces mots sont réduits). La « loi de composition
+     interne » est la concaténation de deux mots, étant entendu que les séquences xx−1 , x−1 x, yy −1 ou y −1 y qui
+     apparaissent sont simplifiées, de sorte que le résultat est encore un mot réduit. Par exemple la concaténation
+     de xyx−1 y et de y −1 xyx−1 est xy yx−1 , et la concaténation d’un mot avec e est le mot lui-même
+
+
+
+
+        Les courbes C0 et C1 sont homotopes. Les courbes C̃ et C0 ne sont pas homotopes.
+
+
+    Donnons un exemple simple et utile d’ouvert simplement connexe. Rappelons que Ω est dit
+étoilé s’il existe ω ∈ Ω tel que pour tout z ∈ Ω le segment [ω, z] est contenu dans Ω. On dit alors
+que Ω est étoilé en ω. En particulier, un ouvert convexe est étoilé.
+
+
+======== [PDF page 40 | page imprimée 37] ========
+II.2. INVARIANCE PAR HOMOTOPIE                                                                 37
+
+       Proposition II.1.5
+   Un ouvert étoilé est simplement connexe.
+
+
+Démonstration. Supposons Ω étoilé en ω. Soit γ0 un lacet de Ω. On vérifie que
+
+                                     γ(s, t) := s ω + (1 − s) γ0 (t),
+
+est une homotopie de lacets entre γ0 et le lacet constant de valeur ω.
+
+
+II.2      Invariance par homotopie de l’intégrale sur un lacet d’une
+          fonction holomorphe
+
+
+       Théorème II.2.1
+   Soient Ω un ouvert de C, γ une homotopie de lacets entre γ0 et γ1 dans Ω, et f ∈ Hol(Ω),
+   alors                          Z             Z
+                                     f (z) dz =   f (z) dz.
+                                           γ0                γ1
+
+
+
+Démonstration. Cette démonstration est technique : on pourra se contenter, en première lecture,
+de comprendre l’idée du « grillage » de la surface γ(K) exposée plus loin, et admettre les détails
+(choix du pas n, remplacement des chemins par des chemins affines par morceaux, etc.).
+                       (n)
+   Soit n > 0 et Ki,j le carré plein
+                                                                 
+                                    (n)             i i+1     j j+1
+                                   Ki,j :=           ,     ×   ,      .
+                                                    n n       n n
+
+On a
+                                                                         (n)
+                                                              [
+                                     K := [0, 1]2 =                    Ki,j .
+                                                           0≤i,j≤n−1
+
+                             (n)     (n)                                    (n)
+On note C := ∂K, et Ci,j := ∂Ki,j les bords de K et de Ki,j , pour tous 0 ≤ i, j ≤ n − 1. On
+considère ces bords comme des lacets orientés dans le sens direct. Soit
+
+                                                     γ : K → Ω,
+
+une homotopie entre γ0 et γ1 . On note v le chemin v(s) := γ(s, 0) = γ(s, 1).
+   On décompose l’arc image Γ = γ(C) de la manière suivante
+
+                                         Γ = γ0opp ∨ v ∨ γ1 ∨ v opp .
+
+On déduit la formule — du moins, dans le cas où v est également de classe C 1 par morceaux—,
+de l’intégrale de f le long de Γ
+                 Z               Z          Z          Z           Z
+(II.2.1)            f (z)dz = −    f (z)dz + f (z)dz +    f (z)dz − f (z)dz.
+                   Γ                γ0                 v               γ1         v
+
+
+   L’idée est maintenant, grâce à la compacité de K, de « grillager » la surface γ(K) en une
+réunion finie de surfaces contenues dans des ouverts assez petits dans lesquels f (z) dz a une
+primitive holomorphe grâce au Corollaire I.7.6. L’intégrale de f le long de Γ sera alors la somme
+
+
+======== [PDF page 41 | page imprimée 38] ========
+38                                                               CHAPITRE II. FORMULE DES RÉSIDUS
+
+                                                                         (n)
+des intégrales de f sur les bords des surfaces Γi,j = γ(Ki,j ) (on utilise ici la propriété d’additivité
+de l’intégrale sur une composée de chemins) et donc cette intégrale sera nulle en vertu du
+Théorème I.5.9. D’une certaine manière, on pourrait s’arrêter là, le reste n’étant que mise en
+forme technique de l’idée exposée. Expliquons malgré tout les détails.
+    On recouvre γ(K) par des disques ouverts Dα ⊂ Ω, α ∈ A, sur lesquels f admet une primitive
+holomorphe (voir le Corollaire I.7.6). Comme γ(K) est un compact—comme image d’un compact
+par une application continue—on peut choisir un nombre de Lebesgue δ > 0 du recouvrement.
+Par définition, on a
+
+                             ∀x ∈ γ(K),        ∃α ∈ A          tel que         D(x, δ) ⊂ Dα .
+
+Comme γ est continue, elle est uniformément continue sur le compact K (Théorème de Heine).
+Ceci permet de choisir n assez grand de sorte que pour tout x, y ∈ K contenus dans un carré de
+côté 1/n on ait |γ(x) − γ(y)| < δ. On a alors
+
+                                                                                          (n)
+                       ∀i, j ∈ {0, . . . , n − 1},   ∃α ∈ A         tel que          γ(Ki,j ) ⊂ Dα .
+
+On pourrait être tenté de prendre Γi,j comme étant le chemin image du bord orienté (dans le
+                  (n)
+sens direct) de Ci,j . Ceci est correct si l’on suppose de plus que γ est de classe C 1 . Mais, pour
+les applications, il est préférable de ne pas supposer que γ est de classe C 1 . L’idée est alors de
+remplacer les chemins intermédiaires par des chemins affines par morceaux.
+      On commence par remplacer γ(0, t), γ(1, t) par des chemins affines par morceaux, tout en
+restant dans les disques Dα dans chaque pas de la subdivision. Pour cela, on définit Γ−1,j
+comme le chemin orienté obtenu en composant le chemin γ restreint à {0} × [ nj , j+1           n ] avec le
+segment [γ(0, j+1
+                n  ), γ(0, j
+                           n )]. De même,   on définit     Γn,j comme l’opposé du chemin   orienté obtenu
+                                                  j j+1                          j+1        j
+en composant le chemin γ restreint à {1} × [ n , n ] avec le segment [γ(1, n ), γ(1, n )]. Enfin, on
+« grillage » en définissant Γi,j , pour i, j = 0, . . . , n − 1, comme étant le chemin orienté affine par
+morceaux dont l’image est un quadrilatère orienté de sommets γ( ni , nj ), γ( i+1      j      i+1 j+1
+                                                                                   n , n ), γ( n , n ) et
+       j+1
+γ( ni , n ).
+                                                         (n)
+   Comme le disque Dα qui contient γ(Ki,j ) est convexe, il contient Γi,j . Comme f a une
+primitive sur Dα , l’intégrale de f le long du lacet Γi,j est nulle. Par construction, les Γi,j , pour
+−1 ≤ i ≤ n et 0 ≤ j ≤ n − 1, grillagent γ(C) (remarquons que les bords de deux quadrilatères
+consécutifs ont un côté commun). Par additivité de l’intégrale, on a
+
+                                       Z                 n n−1
+                                                         X XZ
+                                            f (z) dz =                         f (z) dz
+                                        Γ                i=−1 j=0    Γi,j
+
+
+     car les contributions des côtés intérieurs se détruisent deux à deux et donc, grâce à la formule
+(II.2.1) 1
+                                  Z              Z             Z
+                             0=      f (z) dz =     f (z) dz −    f (z) dz,
+                                        Γ                 γ1                    γ0
+
+ce qui termine la démonstration.
+
+
+
+     On obtient le :
+
+  1. La formule (II.2.1) est maintenant valable ici car le chemin continu a été remplacé par un chemin affine par
+morceaux.
+
+
+======== [PDF page 42 | page imprimée 39] ========
+II.2. INVARIANCE PAR HOMOTOPIE                                                                                                                            39
+
+
+             t
+                         vopp
+
+                                                                                                                                                  v
+                 K0, 2   K1, 2   K2, 2                                                                                   1, 0
+                                                                                                                                 2, 0
+
+                                                                                                                                0, 0
+                                                                                                                                    0(0)
+         0       K0, 1   K1, 1   K2, 1             1                                                                                                       1(0)
+                                                                                                                                0
+                                                                                                                  0, 1
+                                                                                                    2, 1                                   0, 2   1, 2
+                                                                                                           1, 1
+                 K0, 0   K1, 0   K2, 0
+                                                                                                                                                   2, 2
+                                                            s                        zoom sur v
+                                                                                       v(23 )
+                                                                                                                          1
+                          v                                                 v(13 )
+
+                                                                                 v(0)             v(1)
+
+                                         v : continu, non régulier
+                                         chemin affine par morceaux qui le remplace (dans la preuve)
+
+Grillage orienté du carré K = [0, 1]2 (à gauche, n = 3) et de son image par l’homotopie γ (à
+                                                   (n)
+droite) : les quadrilatères curvilignes Γi,j = γ(Ki,j ), le chemin v = γ(·, 0) = γ(·, 1) (continu mais
+a priori non régulier, en noir) et le chemin affine par morceaux qui le remplace dans la preuve (en
+orange).
+
+
+
+     Corollaire II.2.2
+   On suppose Ω simplement connexe. Alors, pour tout lacet γ de Ω et pour toute fonction
+   holomorphe f ∈ Hol(Ω), on a      Z
+                                                           f (z) dz = 0.
+                                                       γ
+
+
+
+Démonstration. Considérer une homotopie de lacets entre le lacet γ et un lacet constant et
+appliquer le théorème précédent.
+
+   Remarque II.2.3 — Il peut être intéressant de faire le lien entre le résultat du Corol-
+   laire II.2.2 et le Théorème de la divergence (Formule de Green-Riemann) qui est d’un usage
+   fréquent en physique. Si f ∈ C 1 (Ω; C), on peut décomposer f = P + iQ où P et Q sont
+   deux fonctions à valeurs réelles. Supposons que Γ est le bord (orienté positivement) d’un
+   domaine compact U ⊂ Ω. Dans ce cas
+                          Z           Z                   Z
+                            f (z)dz = (P dx − Qdy) + i (Qdx + P dy).
+                           Γ                  Γ                                 Γ
+
+   Le Théorème de Green-Riemann nous donne alors
+             Z               Z                    Z          
+                                 ∂Q ∂P                  ∂P   ∂Q
+                 f (z)dz = −        +      dxdy + i        −      dxdy.
+               Γ              U  ∂x   ∂y             U  ∂x   ∂y
+
+   Supposons maintenant que f est une fonction holomorphe, les conditions de Cauchy réelles
+   nous assurent justement que les deux membres de droite sont nuls. On retrouve donc le fait
+
+
+======== [PDF page 43 | page imprimée 40] ========
+40                                                             CHAPITRE II. FORMULE DES RÉSIDUS
+
+
+     que, dans le cas particulier où Γ est le bord d’un domaine du plan U et où f est holomorphe
+     sur U , on a                             Z
+                                                        f (z)dz = 0.
+                                                    Γ
+
+
+   Nous avons utilisé dans la démonstration du théorème ci-dessus la notion de nombre de
+Lebesgue d’un recouvrement. Donnons quelques détails.
+
+       Proposition II.2.4
+     Soit K un compact de RN , et soit K ⊂ i∈I Ui un recouvrement de K par des ouverts Ui .
+                                              S
+     Alors il existe δ > 0 ayant la propriété suivante : pour tout k ∈ K, il existe i ∈ I tel que
+     B̄(k, δ) ⊂ Ui .
+
+
+Démonstration. Pour tout n ∈ N× , soit Fn l’ensemble des k ∈ K tels qu’il n’existe pas de i ∈ I
+vérifiant B̄(k, n1 ) ⊂ Ui . Si la conclusion de la proposition est fausse, Fn est non vide pour tout
+n ∈ N× . Soit alors (kn )n∈N× une suite de points de K telle que kn ∈ Fn pour tout n ∈ N× . Cette
+suite admet une valeur d’adhérence dans le compact K, et quitte à extraire une sous-suite, on
+peut tout aussi bien supposer que kn admet une limite k dans K.
+    Soit i ∈ I tel que k ∈ Ui , et soit ϵ tel que B̄(k, ϵ) ⊂ Ui . Il existe n0 ∈ N× tel que pour tout
+n ≥ n0 , kn ∈ B̄(k, ϵ/3). On a donc pour tout n ≥ n0 , B̄(kn , ϵ/3) ⊂ Ui . Or kn ∈ Fn , donc B̄(kn , n1 )
+n’est pas contenu dans Ui , d’où nécessairement n1 > ϵ/3. On aboutit à une contradiction pour n
+assez grand.
+
+
+              un nombre δ vérifiant la propriété de la proposition un nombre de Lebesgue du
+    On appelleS
+recouvrement i∈I Ui .
+
+
+II.3      Indice d’un lacet
+
+
+     Soit γ : [0, 1] → C un lacet dans C dont on note Γ l’image et soit z0 ̸∈ Γ.
+
+       Définition II.3.1
+     L’indice de γ en z0 est défini par
+
+                                                                               γ ′ (t)
+                                                Z                      Z 1
+                                           1        dz      1
+                           Indz0 (γ) :=                  =                             dt.
+                                          2iπ   γ z − z0   2iπ          0    γ(t) − z0
+
+     On vérifie que Indz0 (γ opp ) = − Indz0 (γ) (voir la Définition I.5.1).
+
+       Proposition II.3.2
+     Soit γ : [0, 1] → C un lacet dans C dont on note Γ l’image. Alors pour tout z ∈ C \ Γ,
+     Indz (γ) est dans Z. La fonction z 7→ Indz (γ) est constante sur les composantes connexes
+     de C \ Γ. Elle est nulle sur l’unique composante connexe non bornée.
+
+
+Démonstration. Pour tout t ∈ [0, 1], on note
+
+                                                              γ ′ (u)
+                                                        Z t            
+                                   f (t) := exp                       du .
+                                                          0 γ(u) − z0
+
+
+======== [PDF page 44 | page imprimée 41] ========
+II.3. INDICE D’UN LACET                                                                             41
+
+
+
+
+                             Lacet d’indice 2 par rapport à l’origine.
+
+
+
+On vérifie que
+                                          f′   (γ − z0 )′
+                                             =            ,
+                                          f     γ − z0
+sauf aux points où γ n’est pas C 1 , mais ces points sont en nombre fini. On a donc
+                                         f (t)   γ(t) − z0
+                                               =           .
+                                         f (0)   γ(0) − z0
+
+Comme f (0) = 1 et γ(0) = γ(1), on a f (1) = 1 et donc e2iπ Indz0 (γ) = 1, ce qui termine la
+démonstration du premier point. Ensuite, on vérifie facilement par le théorème de continuité
+                                                       1
+                                                          R 1 γ ′ (t)
+d’une fonction définie par une intégrale que z0 7→ 2iπ     0 γ(t)−z0 dt est continue. Etant à valeurs
+entières, elle est constante sur les composantes connexes de son ensemble de définition. Nous
+laissons la dernière assertion en exercice (facile) au lecteur.
+
+
+    Géométriquement parlant, l’indice de γ en z0 compte algébriquement le nombre de tours que
+fait γ autour de z0 .
+
+   Exemple II.3.3 — Soit D un disque (ouvert) de C et C = ∂D le bord de ce disque. On
+   suppose C parcouru dans le sens trigonométrique. La formule intégrale de Cauchy pour
+   f ≡ 1 donne alors
+                                       Indz0 (C) = 1,
+   pour tout z0 ∈ D.
+   Si z0 ∈ C\ D̄, en notant a le centre et r le rayon de D, le développement en série géométrique
+              1
+   de θ 7→    reiθ
+                    donne
+           1+ a−z
+                 0
+                                          Indz0 (C) = 0.
+
+     Proposition II.3.4
+   L’indice est invariant par homotopie de lacets. Plus précisément, s’il existe une homotopie
+   dans C \ {z0 } entre deux lacets γ0 et γ1 , alors Indz0 (γ0 ) = Indz0 (γ1 ).
+
+
+Démonstration. C’est une conséquence immédiate du théorème II.2.1. Il est bien sûr crucial
+qu’aucun des lacets γs de l’homotopie ne passe par z0 .
+
+   Remarque II.3.5 — Soit γ : [0, 1] → C une application continue, vérifiant γ(0) = γ(1).
+   Supposons d’autre part que cette courbe est simple, c’est-à-dire que si γ(x) = γ(y), alors
+
+
+======== [PDF page 45 | page imprimée 42] ========
+42                                                    CHAPITRE II. FORMULE DES RÉSIDUS
+
+
+
+
+                   Variation de l’indice d’un lacet par rapport à la position de z.
+
+
+
+     x = y ou bien {x, y} = {0, 1}. Un théorème célèbre dû à Jordan, et plus difficile qu’il n’y
+     paraît, affirme que le complémentaire de son image Γ possède deux composantes connexes,
+     l’une bornée (l’intérieur de la courbe), et l’autre non bornée (l’extérieur).
+     Supposons que γ soit de plus un lacet. Alors l’indice de ce lacet est une fonction constante
+     sur chaque composante connexe. Il vaut 0 sur la composante connexe non bornée. Sur la
+     composante bornée, il vaut −1 ou bien 1, selon l’orientation du lacet. Là encore, c’est un
+     résultat qui demande un certain travail d’analyse.
+
+
+
+II.4      Fonctions méromorphes, résidus
+
+
+   Commençons par définir la notion de fonction méromorphe. Pour cela, mettons tout d’abord
+au clair quelques notions topologiques :
+   - Un ensemble de points P de C est dit discret si tous les points de P sont isolés, c’est-à-dire
+que pour tout a dans P , il existe un voisinage ouvert de a dont l’intersection avec P est réduite à
+{a}. Ce voisinage peut être choisi de la forme D(a, r), r > 0.
+    - Un point d’accumulation d’une partie P de C est un point a ∈ C limite d’une suite
+d’éléments dans P \ {a}. De manière équivalente, tout voisinage de a rencontre P \ {a}.
+    - Une partie P d’un ouvert Ω de C est dite localement finie dans Ω si pour tout a ∈ Ω, il
+existe un voisinage de a dont l’intersection avec P est finie. De manière équivalente, P ∩ K est
+fini pour tout compact K de Ω. Dans un sens, on utilise le fait que C est localement compact,
+donc tout voisinage de a contient un voisinage de a compact (par exemple un disque fermé). Dans
+l’autre sens, on recouvre le compact K par des ouverts (par exemple en prenant en chaque point
+de K un voisinage de ce point dans Ω). On extrait un sous-recouvrement fini (compacité de K),
+on voit alors immédiatement que P ∩ K est fini.
+
+       Proposition II.4.1
+     Soit Ω un ouvert de C et P une partie de Ω. Les conditions suivantes sont équivalentes :
+       (1) P est discret et fermé dans Ω.
+       (2) P est localement fini dans Ω.
+       (3) P n’a pas de point d’accumulation dans Ω.
+
+
+Démonstration. (1) =⇒ (3) : si a est un point d’accumulation de P dans Ω, a ∈ P puisque P
+est fermée dans Ω ; c’est donc un point de P non isolé.
+     (3) =⇒ (2) : si P n’a pas de point d’accumulation dans Ω, et si K ⊂ Ω est compact, P ∩ K
+
+
+======== [PDF page 46 | page imprimée 43] ========
+II.4. FONCTIONS MÉROMORPHES, RÉSIDUS                                                                  43
+
+n’a pas de point d’accumulation dans K. Comme toute partie infinie d’un compact a un point
+d’accumulation dans ce compact, P ∩ K est nécessairement finie.
+     (2) =⇒ (1) : Soit a ∈ P . Pour tout D̄(a, r) ⊂ Ω, P ∩ D̄(a, r) est fini, donc P ∩ D(a, r) = {a}
+si r est assez petit et a est isolé. De plus si x ∈ Ω est limite d’une suite de points (xn )n∈N de P ,
+il existe un voisinage de x ne contenant qu’un nombre fini de points de P , et donc nécessairement
+x ∈ P , donc P est fermée dans Ω.
+
+
+
+     Définition II.4.2
+   Soit f : Ω \ {z0 } → C une fonction holomorphe. On dit que z0 est un pôle de f si :
+   (i)f ne se prolonge pas en une fonction holomorphe en z0 ,
+   (ii) il existe un entier m ∈ N \ {0} tel que (z − z0 )m f est bornée au voisinage de z0 .
+   Le plus petit entier m vérifiant (ii) est appelé la multiplicité (ou l’ordre) du pôle z0 , et
+   noté m(z0 ) . De manière équivalente, m(z0 ) est l’unique entier m ≥ 1 tel que l’on puisse
+   écrire f (z) = (z − z0 )−m h(z) sur un voisinage épointé de z0 , avec h holomorphe en z0 et
+   h(z0 ) ̸= 0. Un pôle de multiplicité 1 est dit simple.
+   Une fonction f est méromorphe sur Ω si f est holomorphe en dehors d’une partie P
+   localement finie de Ω et si les points de P vérifient la condition (ii) ci-dessus, de sorte que
+   ce sont soit des points où la fonction se prolonge en une fonction holomorphe, soit des
+   pôles de f .
+   On note M(Ω) l’espace des fonctions méromorphes sur Ω. Si f ∈ M(Ω), on note Z(f, Ω)
+   l’ensemble de ses zéros dans Ω et P(f, Ω) l’ensemble de ses pôles dans Ω. Lorsque ces
+   ensembles sont finis, on note
+                                 X                                    X
+                     Z(f, Ω) :=        m(s)       et     P (f, Ω) :=          m(s)
+                               s∈Z(f,Ω)                             s∈P(f,Ω)
+
+   le nombre de zéros et le nombre de pôles de f dans Ω, comptés avec leur multiplicité. Les
+   mêmes notations seront employées en remplaçant Ω par n’importe quel ouvert sur lequel f
+   est méromorphe.
+
+
+   Remarque II.4.3 — L’ensemble P(f, Ω) est donc inclus, mais pas nécessairement égal, à
+   la partie localement finie P ci-dessus. En effet, il est commode de pouvoir inclure dans P
+   de « fausses singularités », c’est-à-dire des points au voisinage desquels la fonction reste
+   bornée.
+
+   Les fonctions holomorphes sont évidemment méromorphes.
+
+   Remarque II.4.4 — La propriété pour la partie P de Ω d’être localement finie est plus
+   forte que d’être constituée de points isolés (il faut rajouter fermé). Par exemple, l’ensemble
+   { n1 , n ∈ N \ {0}} a un point limite dans C qui est 0, mais est constitué de points isolés dans
+   C. L’union de deux parties P1 et P2 localement finie est encore localement finie, et ainsi,
+   on voit facilement qu’une combinaison linéaire de fonctions méromorphes sur Ω est encore
+   méromorphe. De même un produit de deux fonctions méromorphes sur Ω est méromorphe.
+
+     Proposition II.4.5
+   Si f, g sont deux fonctions méromorphes sur Ω et si α, β ∈ C, alors les fonctions α f + β g et
+   f g sont elles aussi méromorphes sur Ω. Soit f une fonction holomorphe non identiquement
+                                                    1
+   nulle sur un ouvert connexe Ω de C. Alors g := est méromorphe sur Ω.
+                                                    f
+
+
+======== [PDF page 47 | page imprimée 44] ========
+44                                                             CHAPITRE II. FORMULE DES RÉSIDUS
+
+Démonstration. Les premières assertions ont été établies dans la remarque avant l’énoncé. Mon-
+trons le dernier point. On sait déjà que g est holomorphe sur Ω \ Z, où Z est l’ensemble des zéros
+de f , qui est formé de points isolés d’après le théorème I.11. Il s’agit donc de montrer que tout
+point z0 ∈ Z est un pôle de g. XMais au voisinage de z0 , f admet un développement en série entière
+                              N
+de la forme f (z) = (z − z0 )      an (z − z0 )n , avec N ≥ 1 et a0 ̸= 0. Ainsi, au voisinage de z0 ,
+                                 n≥0
+
+                                                                               −1
+                                                              X
+                              (z − z0 )N g(z) = a0 +               an (z − z0 )n 
+                                                              n≥1
+
+
+qui se prolonge par continuité en z0 et reste donc bornée dans un voisinage de z0 . Enfin g ne
+se prolonge pas holomorphiquement en z0 , puisque |g| tend vers +∞ en z0 : c’est donc bien un
+pôle.
+
+      Proposition II.4.6
+     Soit f une fonction méromorphe sur Ω et z0 ∈ Ω. Alors, il existe m ∈ N et r > 0 tels que
+                                           X
+                                  f (z) =       an (z − z0 )n ,
+                                                  n≥−m
+
+     sur D(z0 , r)× . On dira que f admet un développement de Laurent a dans un voisinage de
+     z0 . Ce développement est unique et l’on a convergence normale de la série sur la couronne
+
+                                   Cε,ε̄ := {z ∈ Ω : ε < |z − z0 | < ε̄},
+
+     pour tout 0 < ε < ε̄ < r.
+     Enfin, f admet un pôle en z0 si et seulement s’il existe n ≤ −1 tel que an ̸= 0, et la
+     multiplicité de ce pôle est alors − min{n ; an ̸= 0}.
+       a. Pierre Alphonse Laurent, X 1830 ;
+
+
+
+Démonstration. Soit P l’ensemble entrant dans la définition de la méromorphie de f sur Ω. Si
+z0 ∈ Ω \ P , f est holomorphe au voisinage de z0 , et l’assertion à démontrer est déjà connue.
+    Soit z0 ∈ P . Par définition, il existe un entier m ∈ N tel que la fonction g(z) := (z − z0 )m f (z)
+est holomorphe sur D× := D(z0 , r) \ {z0 } et est bornée sur D := D(z0 , r).
+    Maintenant, g est une fonction holomorphe sur D× dont le module, |g|, est borné sur D par
+une constante M > 0, on peut utiliser les estimées de Cauchy (voir le Corollaire I.7.5) appliquées
+à g sur le disque D(z, |z − z0 |/2) ⊂ D× pour obtenir la majoration
+
+                                                              2M
+                                              |g ′ (z)| ≤             ,
+                                                            |z − z0 |
+
+pour tout z ∈ D(z0 , r/2) − {z0 }. On en déduit que
+
+                               h(z) := (z − z0 )2 g(z) = (z − z0 )m+2 f (z),
+
+est de classe C 1 en z0 , de plus h′ (z0 ) = 0 de sorte que h ∈ Hol(D). Or on sait que les fonctions
+holomorphes admettent sur D un unique développement en série entière
+                                                   X
+                                         h(z) =          an (z − z0 )n ,
+                                                   n≥0
+
+
+======== [PDF page 48 | page imprimée 45] ========
+II.4. FONCTIONS MÉROMORPHES, RÉSIDUS                                                               45
+
+qui converge normalement sur tout compact contenu dans D (voir le Corollaire I.7.5). On a alors,
+                                             X
+                                   f (z) =         an (z − z0 )n−2−m ,
+                                             n≥0
+
+
+sur le disque épointé D× , ce qui est bien un développement de la forme annoncée (avec a0 =
+h(z0 ) = 0 et a1 = h′ (z0 ) = 0, les premiers termes effectifs correspondent bien à des exposants
+≥ −m). Pour la dernière assertion : si tous les an , n ≤ −1, sont nuls, le développement est une série
+entière et f se prolonge holomorphiquement en z0 , qui n’est donc pas un pôle ; réciproquement, si
+k = − min{n ; an ̸= 0} ≥ 1, alors (z − z0 )k f (z) est bornée au voisinage de z0 et (z − z0 )k−1 f (z)
+ne l’est pas, de sorte que z0 est un pôle de multiplicité k.
+
+     Corollaire II.4.7 — Singularité effaçable (Riemann)
+   Avec les notations ci-dessus, soit z0 ∈ P et supposons que la fonction f reste bornée au
+   voisinage de z0 (par exemple si f se prolonge par continuité en z0 ). Alors f se prolonge en
+   une fonction holomorphe en z0 .
+
+
+Démonstration. On considère le développement en série de Laurent en z0 pour étudier le com-
+portement asymptotique de |f | en z0 . Le terme prépondérant est celui de la puissance la plus
+négative de z, et l’on voit que pour que la fonction reste bornée au voisinage de z0 il faut qu’il
+n’y ait pas de puissance négative de z dans le développement. Autrement dit celui-ci est un
+développement en série entière donc holomorphe en z0 .
+
+
+   Complètons la proposition II.4.5 ci-dessus :
+
+     Proposition II.4.8
+   Si Ω est connexe, l’ensemble M(Ω) est un corps (une extension de dimension infinie de C).
+
+
+Démonstration. Il s’agit de montrer que si f ∈ M(Ω) est non identiquement nulle, alors g = f1
+est aussi méromorphe. Dans la définition de f entre en jeu l’existence d’une partie localement
+finie P . Vérifions que g est méromorphe. En dehors de P1 := P ∪ Z(f, Ω), qui est localement
+finie comme union de deux parties localement finies, g est holomorphe. Au voisinage d’un zéro z0
+de f , la fonction est holomorphe, et nous avons vu que z0 est alors un pôle de g. Au voisinage
+d’un point z0 de P , on considère la fonction h(z) = (z − z0 )n0 f (z) avec n0 assez grand pour avoir
+h(z) bornée. Cette fonction est alors holomorphe en z0 d’après ce qui précède et son inverse est
+méromorphe. Du développement en série de Laurent de h1 en z0 , on déduit immédiatement un
+développement en série de Laurent de g.
+
+     Définition II.4.9
+   Avec les notations précédentes, on définit resz0 (f ), le résidu de f en z0 , par la formule
+
+                                          resz0 (f ) := a−1 .
+
+   La propriété suivante est une conséquence directe du résultat de la Proposition II.4.6 :
+
+     Corollaire II.4.10
+   L’application f 7→ resz0 (f ) est une forme linéaire sur l’espace des fonctions méromorphes
+   sur Ω à valeurs dans C.
+
+
+======== [PDF page 49 | page imprimée 46] ========
+46                                                              CHAPITRE II. FORMULE DES RÉSIDUS
+
+   Le lien entre l’intégration sur un chemin fermé et le résidu d’une fonction méromorphe est
+donné par l’énoncé suivant :
+
+       Proposition II.4.11
+     Soit z0 ∈ Ω un pôle de la fonction méromorphe f . Alors, pour tout r > 0 assez petit, on a
+                                                   Z
+                                                 1
+                                   resz0 (f ) =              f (z) dz,
+                                                2iπ C(z0 ,r)
+
+     où C(z0 , r) désigne le cercle de centre z0 et de rayon r, que l’on suppose parcouru dans le
+     sens trigonométrique.
+
+
+Démonstration. Le développement de Laurent de f en z0
+                                                         X
+                                           f (z) =           an (z − z0 )n ,
+                                                     n≥−m
+
+
+est normalement convergent sur C(z0 , r) pourvu que r > 0 soit assez petit. Par conséquent, on
+peut intégrer terme à terme cette série. Or, on a
+                             Z                                       Z 2π
+                                         (z − z0 )n dz = i r1+n             ei(1+n)θ dθ,
+                              C(z0 ,r)                                0
+
+
+qui vaut 0 si n ̸= −1 et 2iπ sinon. Conclusion, on a
+                                                                                        
+                        Z                            Z              X
+                                    f (z) dz =                            an (z − z0 )n  dz
+                         C(z0 ,r)                    C(z0 ,r)       n≥−m
+                                                                Z                            !
+                                                     X
+                                                                                     n
+                                               =                           an (z − z0 ) dz
+                                                     n≥−m       C(z0 ,r)
+                                               = 2iπ a−1 ,
+
+ce qui termine la démonstration.
+
+
+     Remarque II.4.12 — Soit z0 ∈ Ω. Si f est une fonction holomorphe au voisinage de z0
+     et si g est une fonction méromorphe admettant un pôle simple en z0 , alors le résidu du
+     produit f g en z0 est donné par la formule :
+
+                                           resz0 (f g) = f (z0 ) resz0 (g).
+                                                                a−1
+     En effet, le développement de Laurent de g s’écrit g(z) = z−z 0
+                                                                     + h(z) où h est holomorphe
+     en z0 . Le développement de Taylor de f en z0 s’écrit f (z) = f (z0 ) + (z − z0 )f˜(z) avec f˜
+     holomorphe en z0 . Le produit donne alors :
+
+                                              f (z0 )a−1
+                             f (z)g(z) =                 + a−1 f˜(z) + f (z)h(z).
+                                                z − z0
+
+     La fonction z 7→ a−1 f˜(z) + f (z)h(z) étant holomorphe en z0 , le résidu de f g en z0 est bien
+     f (z0 )a−1 .
+
+
+======== [PDF page 50 | page imprimée 47] ========
+II.5. LA FORMULE DES RÉSIDUS                                                                         47
+
+II.5     La formule des résidus
+
+
+   Nous avons vu la formule,                 Z
+                                                   f (z) dz = 0,
+                                               γ
+
+qui est valable pour tout lacet γ ⊂ Ω pourvu que la fonction f soit holomorphe sur Ω et admette
+une primitive holomorphe F sur Ω (voir le Théorème I.5.9).
+   La formule des résidus est une vaste généralisation, à la fois de ce résultat, mais aussi de la
+formule de Cauchy, qui s’énonce comme suit :
+
+       Théorème II.5.1 — Formule des résidus (Cauchy, 1826)
+   On suppose que Ω est un ouvert simplement connexe. Soit f une fonction méromorphe sur
+   Ω. Soit γ un lacet inclus dans Ω \ P(f, Ω). Alors,
+                                Z
+                             1                 X
+                                  f (z) dz =         ress (f ) Inds (γ).
+                            2iπ γ
+                                                    s∈P(f,Ω)
+
+
+
+   Remarque II.5.2 — L’ensemble des pôles s ∈ P(f, Ω) tels que Inds (γ) ̸= 0 est fini. En
+   effet, notons Γ l’image de γ et V = {z ∈  / Γ ; Indz (γ) ̸= 0}. Comme Γ est compact, V
+   est borné (l’indice est nul sur la composante connexe non bornée de C \ Γ) ; comme γ est
+   homotope à un lacet constant dans Ω, l’indice est aussi nul en tout point de C \ Ω, de sorte
+   que V ⊂ Ω. Le bord de V étant contenu dans Γ, l’adhérence V̄ ⊂ V ∪ Γ est un compact de
+   Ω, qui ne contient donc qu’un nombre fini de pôles. La somme dans le terme de droite de la
+   formule est donc à support fini.
+
+
+Démonstration. Quitte à restreindre le domaine, on peut se ramener au cas où le nombre de pôles
+est fini. En effet, le lacet γ est homotope à un lacet constant, et si l’on note γ̃ une telle homotopie,
+son image est compacte. Soit K l’image dans Ω de cette homotopie. Pour tout z ∈ K, soit Dz un
+disque ouvert de centre z dont l’adhérence D̄z est incluse dans Ω. On recouvre le compact K par
+les Dz , et on en extrait un sous-recouvrement fini
+                                                       m
+                                                       [
+                                                 K⊂          D zi
+                                                       i=1
+           Sm
+Soit Ω′ = i=1 Dzi . L’homotopie γ̃ est à valeurs dans K ⊂ Ω′ : le lacet γ est donc homotope à
+un lacet constant dans Ω′ , et c’est tout ce dont nous aurons besoin (nous n’affirmons pas que
+Ω′ est simplement connexe, ce qui serait faux en général pour une réunion finie de disques). En
+particulier, d’après le corollaire II.2.2 appliqué dans Ω′ , Indz (γ) = 0 pour tout z ∈ / Ω′ , de sorte
+que les pôles de fSextérieurs à Ω′ ne contribuent pas à la somme. De plus l’adhérence de Ω′ étant
+dans le compact m   i=1 D̄zi et les pôles de f constituant une partie localement finie, il n’y a qu’un
+nombre fini de pôles de f dans Ω′ . Quitte à remplacer Ω par Ω′ , on suppose donc désormais que
+f n’a qu’un nombre fini de pôles, et l’on note S = P(f, Ω) cet ensemble fini. En pratique, si l’on
+ne veut utiliser que ce qui est complètement démontré, on peut aussi n’appliquer le théorème
+qu’à des fonctions n’ayant qu’un nombre fini de pôles dans l’ouvert Ω.
+   Écrivons le développement de Laurent de f au point s ∈ P(f, Ω)
+                                  X                                 X
+                        f (z) =          an (z − s)n = Qs (z) +           an (z − s)n ,
+                                  n≥−N                              n≥0
+
+
+======== [PDF page 51 | page imprimée 48] ========
+48                                                            CHAPITRE II. FORMULE DES RÉSIDUS
+
+pour z proche dePs ∈ P(f, Ω) où les coefficients an et la fonction Qs dépendent du point s. La
+fonction f (z) − s∈S Qs (z) est holomorphe sur Ω qui est supposé simplement connexe donc,
+d’après le Corollaire II.2.2, on a
+                                   Z                  !
+                                             X
+                                     f (z) −    Qs (z) dz = 0.
+                                       γ            s∈S
+
+             ̸ −1, la fonction z 7→ (z − s)n a une primitive dans un voisinage de γ, on conclut
+Mais, pour n =
+que                           Z                           Z
+                         1                           1       dz
+                                  Qs (z) dz = a−1               = ress (f ) Inds (γ).
+                        2iπ   γ                     2iπ   γ z−s
+Ce qui termine la démonstration de la formule des résidus.
+
+     Remarque II.5.3 — La démonstration montre que l’hypothèse « Ω simplement connexe »
+     peut être remplacée par « le lacet γ est homotope à un lacet constant ».
+
+
+II.6      Formule des résidus et le calcul d’intégrales
+
+
+    La formule des résidus permet de calculer de nombreuses intégrales autrement inaccessibles.
+Elle est particulièrement utile pour les transformations de Fourier, bien que ce ne soit pas sa seule
+utilisation. Donnons — sans preuve — une méthode basée sur la formule des résidus, qui permet
+de calculer des intégrales. Le lecteur justifiera au cas par cas cette méthode sur les exemples.
+    On se donne un ouvert connexe borné U de C dont le bord est l’image d’un lacet simple
+γ de classe C 1 par morceaux. Par exemple, U pourra être un disque, un demi-disque ou plus
+généralement un secteur angulaire d’un disque, un triangle, un polygone . . . Le lacet γ étant
+simple, il tourne autour de chaque point de U une seule fois. On peut supposer (quitte à renverser
+le sens de parcours) que γ est orienté dans le sens direct, c’est-à-dire que l’intérieur est à gauche :
+γ(t) + iεγ ′ (t) est dans U pour tout ε > 0 assez petit. Dans ce cas, l’indice des points de U
+relativement à γ est égal à 1. En pratique, cette dernière assertion est très facile à justifier en
+utilisant l’invariance par homotopie de l’indice et en déformant continûment γ en un cercle par
+exemple.
+     Soit maintenant Ω un ouvert simplement connexe contenant U , l’adhérence de U , et f une
+fonction méromorphe sur Ω. On suppose que f n’a pas de pôle sur γ. On note S l’ensemble des
+pôles de f qui sont contenus dans U . C’est un ensemble fini (exercice). La formule des résidus
+s’écrit alors
+                                 Z                 X
+(II.6.1)                            f (z) dz = 2iπ   ress (f ),
+                                           γ                  s∈S
+
+ce qui permet de calculer l’intégrale de f le long de γ.
+
+     Exemple II.6.1 : Calcul d’une intégrale de Fourier —
+     Nous allons calculer l’intégrale suivante, pour k > 0 et a > 0 :
+                                             Z +∞
+                                                   cos(kx)
+                                         I=         2    2
+                                                           dx.
+                                              −∞ x + a
+                                                                                   ikz
+     Considérons la fonction de la variable complexe z définie par f (z) = z 2e+a2 . Cette fonction
+     est méromorphe sur C et possède deux pôles simples en ia et −ia. Pour utiliser le théorème
+     des résidus, nous intégrons f sur un lacet ΓR constitué du segment [−R, R] sur l’axe
+
+
+======== [PDF page 52 | page imprimée 49] ========
+II.6. FORMULE DES RÉSIDUS ET LE CALCUL D’INTÉGRALES                                                   49
+
+
+                                       +
+   réel et du demi-cercle supérieur CR    de rayon R centré à l’origine, parcouru dans le sens
+   trigonométrique. Pour R > a, le seul pôle à l’intérieur du lacet est ia. Le résidu en ce pôle
+   simple est :
+                                                   eikz         eik(ia)   e−ka
+                   resia (f ) = lim (z − ia)                  =         =      .
+                                z→ia         (z − ia)(z + ia)    2ia       2ia
+   Le théorème des résidus donne alors :
+                                                            e−ka
+                        Z
+                                                                  π
+                            f (z) dz = 2iπ resia (f ) = 2iπ      = e−ka .
+                         ΓR                                  2ia  a
+
+   D’autre part, l’intégrale sur le lacet se décompose en :
+                                        Z R
+                                             eikx                   eikz
+                         Z                                   Z
+                             f (z) dz =     2     2
+                                                    dx +                  dz.
+                                                               + z 2 + a2
+                          ΓR            −R x + a              CR
+
+                        +
+   Sur le demi-cercle CR  , on pose z = Reiθ avec θ ∈ [0, π]. Puisque k > 0 et Im(z) = R sin θ ≥ 0,
+           ikz
+   on a |e | = e  −kR sin θ ≤ 1. Ainsi, pour R assez grand :
+
+                                          eikz
+                                  Z
+                                                          1
+                                                dz ≤ πR 2     ,
+                                     + z 2 + a2        R − a2
+                                    CR
+
+   qui tend vers 0 lorsque R → +∞. En passant à la limite R → +∞, on obtient :
+                                Z +∞
+                                        eikx        π
+                                       2     2
+                                               dx = e−ka .
+                                 −∞ x + a           a
+
+   En prenant la partie réelle de cette équation, on conclut que :
+                                   Z +∞
+                                          cos(kx)      π
+                                           2    2
+                                                  dx = e−ka .
+                                    −∞ x + a           a
+
+
+
+                                              ℑm
+
+
+                                                                  +
+                                                                 CR
+
+                                                  ia
+
+
+                                                                          ℜe
+                             −R                         ΓR            R
+
+
+                                                  −ia
+
+                    Contour d’intégration ΓR pour la transformée de Fourier.
+
+   Un troisième exemple, le « contour en trou de serrure », est traité dans la section II.9 : il
+nécessite le logarithme complexe, qui n’est pas encore à notre disposition (voir l’exemple II.9.7).
+
+
+======== [PDF page 53 | page imprimée 50] ========
+50                                                                 CHAPITRE II. FORMULE DES RÉSIDUS
+
+II.7      Exercices
+
+
+
+     Exercice II.7.1 — Déterminer si les fonctions suivantes de la variable complexe z sont
+     méromorphes sur C et déterminer leurs pôles éventuels
+
+                       z2                     1 − cos z                                                 1
+          f (z) :=          ,       g(z) :=             ,          h(z) := sin(1/z),      k(z) :=            .
+                     z4 + 1                      z2                                                   cosh z
+
+
+     Exercice II.7.2 — Soit f : C → C une fonction holomorphe. Montrer que z 7→ f (1/z) est
+     méromorphe en 0 si et seulement si f est une fonction polynomiale.
+
+
+     Exercice II.7.3 — Déterminer les pôles et résidus des fonctions suivantes
+
+                                      z2                                                   sin z
+                     f (z) :=                    ,     g(z) := cot z,          h(z) :=            .
+                                (z − 2)(z 2 + 1)                                         (z + 2)2
+
+
+     Exercice II.7.4 — Soit f : D(0, 1) \ {0} → C une fonction holomorphe.
+     1) Soit g une fonction holomorphe sur D(0, 1) \ {0}. Vérifier que
+                                              Z
+                                           1
+                                    r 7→              g(z) dz,
+                                          2iπ ∂D(0,r)
+
+     ne dépend pas de r ∈ ]0, 1[.
+     2) Soit z ∈ D(0, 1) \ {0}. Montrer que la fonction g définie sur D(0, 1) \ {0, z} par
+
+                                                         f (z) − f (ζ)
+                                               g(ζ) :=                 ,
+                                                             z−ζ
+
+     se prolonge en une fonction holomorphe sur D(0, 1) \ {0}.
+     3) En utilisant les questions précédentes, montrer que
+                                     Z                      Z
+                                  1          f (ζ)       1          f (ζ)
+                         f (z) =                   dζ −                   dζ,
+                                 2iπ ∂D(0,r) ζ − z      2iπ ∂D(0,s) ζ − z
+
+     pour tout 0 < s < |z| < r < 1.
+     4) En déduire que f admet un développement en série de Laurent
+                                               X
+                                       f (z) =   an z n
+                                                             n∈Z
+
+     dans D(0, 1) \ {0} avec                             Z
+                                                  1                 f (z)
+                                            an =                      n+1
+                                                                          dz
+                                                 2iπ        ∂D(0,r) z
+
+     cette quantité ne dépendant pas de r ∈ ]0, 1[ d’après la question 1).
+     5) Montrer que f possède un prolongement holomorphe dans D(0, 1) si et seulement si
+     |f (z)| reste borné quand |z| tend vers 0.
+     6) Montrer que f est méromorphe, non holomorphe, dans D(0, 1) si et seulement si |f (z)|
+     tend vers +∞ quand |z| tend vers 0.
+
+
+======== [PDF page 54 | page imprimée 51] ========
+II.7. EXERCICES                                                                                        51
+
+
+  7) Soit ϵ > 0. On suppose qu’il existe a ∈ C et r > 0 tels que D(a, r) n’intersecte pas
+  l’image de D(0, ϵ) \ {0} par f . Montrer que la fonction g définie sur D(0, ϵ) \ {0} par
+                                                          1
+                                         g(z) :=                ,
+                                                      f (z) − a
+
+  se prolonge en une fonction holomorphe en 0.
+  8) On suppose que f n’est pas méromorphe en 0 (on dit alors que f admet une singularité
+  essentielle en 0). Montrer que, pour tout ϵ > 0, l’image de D(0, ϵ) \ {0} par f est dense
+  dans C.
+  Remarque. En fait, un théorème (difficile !) de E. Picard dit que l’image de tout disque
+  D(0, ϵ) \ {0} par f est soit C tout entier, soit C privé d’un seul point.
+
+
+  Exercice II.7.5 : Automorphismes de C — Soit f : C → C un automorphisme de C,
+  c’est-à-dire une bijection holomorphe de C dans lui-même dont la réciproque f −1 est aussi
+  holomorphe. On suppose f (0) = 0. Montrer en utilisant la question (8) de l’exercice II.7.4
+  que z 7→ g(z) = f ( z1 ) est méromorphe en 0 et en déduire que f est de la forme z 7→ az pour
+  un certain a ∈ C× . Quelle est la forme générale d’un automorphisme de C ?
+
+
+  Exercice II.7.6 — Pour tout n ∈ N, calculer
+
+                                             1 n dz
+                                   Z          
+                                        z+          ,
+                                     Γ       z   z
+
+  où Γ désigne le cercle de centre 0 et de rayon 1 parcouru dans le sens direct. En déduire la
+  valeur de                              Z     2π
+                                                    (cos x)n dx.
+                                           0
+
+
+  Exercice II.7.7 — Pour tout n, m ∈ N tels que m ≥ n + 2, calculer
+                                        Z +∞
+                                                xn
+                                In,m :=              dx.
+                                         0    1 + xm
+
+
+
+  Exercice II.7.8 — Soient a, b deux réels strictement positifs. Calculer
+                                 Z 2π
+                                                dt
+                                                          .
+                                  0   a cos t + b2 sin2 t
+                                       2     2
+
+
+  On pourra utiliser la formule des résidus en prenant pour lacet l’ellipse t 7→ a cos t + ib sin t.
+
+
+
+  Exercice II.7.9 : Principe de réflexion de Schwarz —
+  Soit D le disque unité. Notons D+ = {z ∈ D| ℑm(z) ≥ 0} le demi-disque supérieur et
+  D− = {z ∈ D| ℑm(z) ≤ 0} le demi-disque inférieur.
+  1) On suppose que f : D → C est continue sur D et holomorphe sur D\] − 1, 1[. Montrer
+  que f est holomorphe sur D.
+  2) Soit f : D+ → C une fonction continue sur D+ et holomorphe sur D+ \] − 1, 1[ et
+
+
+======== [PDF page 55 | page imprimée 52] ========
+52                                                           CHAPITRE II. FORMULE DES RÉSIDUS
+
+
+     prenant des valeurs réelles sur ] − 1, 1[. On définit F sur D par F (z) = f (z) si z ∈ D+ et
+     F (z) = f (z̄) si z ∈ D− . Montrer que F est holomorphe sur D.
+     3) Généraliser l’énoncé (1) à un ouvert Ω rencontrant R quelconque et (2) à un ouvert Ω
+     rencontrant R et stable par conjugaison complexe.
+
+
+     Exercice II.7.10 : La fonction ℘ de Weierstrass — Soit Λ ⊂ C un réseau i.e. un sous-
+     groupe discret de la forme Zω1 ⊕ Zω2 où ω1 et ω2 sont linéairement indépendants sur R.
+     On rappelle, ou on admet, ou on le démontre que pour tout entier k ≥ 3 la série
+                                                    X        1
+                                                            |λ|k
+                                                  λ∈Λ\{0}
+
+     est convergente. 1) Soit f une fonction holomorphe sur C qui est Λ-périodique i.e. satisfait
+
+                                             f (z + λ) = f (z),
+
+     pour tout λ ∈ Λ. Montrer que f est constante.
+     2) Montrer que la série
+                                           1       X            1     1
+                                  ℘(z) =      +                      −    ,
+                                           z2                (z + λ)2 λ2
+                                                  λ∈Λ\{0}
+
+     définit une fonction méromorphe Λ-périodique sur C et paire dont on précisera les pôles.
+     Pour établir la périodicité, on calculera ℘′ (z).
+     3) Pour tout entier k ≥ 3, on pose
+                                                          X        1
+                                           Ek (Λ) =                   .
+                                                                   λk
+                                                         λ∈Λ\{0}
+
+     Etablir que
+                                                     ∞
+                                     1     1   X
+                                         −   =   (k + 1)λ−k−2 (−1)k z k
+                                 (z + λ)2 λ2
+                                                    k=1
+
+     en déduire le développement en série de Laurent de ℘(z) au voisinage de 0 en fonction des
+     Ek (Λ). Remarquer que les Ek avec k impair sont nuls.
+     4) Montrer que
+                           ℘′ (z)2 = 4℘(z)3 − 60E4 (Λ)℘(z) − 140E6 (Λ).
+
+
+
+
+II.8       Le théorème de Rouché
+
+
+   Le théorème de Rouché 2 est un résultat qui permet de comparer le nombre de zéros et de
+pôles de deux fonctions méromorphes qui sont, en un sens à préciser, proches. Ce théorème peut
+en particulier être utilisé pour localiser les pôles et les zéros des fonctions méromorphes. On
+commence par le :
+
+
+     2. Eugène Rouché, X 1852.
+
+
+======== [PDF page 56 | page imprimée 53] ========
+II.8. LE THÉORÈME DE ROUCHÉ                                                                       53
+
+     Lemme II.8.1 — Principe de l’argument (Cauchy, 1826)
+   Soit Ω un ouvert simplement connexe, soit g une fonction méromorphe sur Ω, non iden-
+   tiquement nulle, et soit γ un lacet dans Ω dont l’image ne contient ni pôle ni zéro de g.
+   Alors            Z ′
+                1      g (z)        X                      X
+                             dz =         Inds (γ) m(s) −       Inds (γ) m(s)
+               2iπ γ g(z)
+                                   s∈Z(g,Ω)                 s∈P(g,Ω)
+
+   où m(s) désigne la multiplicité de s comme zéro ou pôle de g. Comme pour la formule des
+   résidus, les deux sommes sont à support fini (remarque II.5.2).
+
+
+
+
+Démonstration. On écrit en un point z0 de Ω le développement en série de g sous la forme
+g(z) = (z − z0 )N g1 (z), avec g1 holomorphe ne s’annulant pas dans un voisinage de z0 , et l’on a
+alors
+
+                                     g ′ (z)     N    g ′ (z)
+                                             =       + 1
+                                     g(z)      z − z0 g1 (z)
+
+
+                                                                               ′
+On applique la formule des résidus, en constatant que l’ensemble des pôles de gg(z)
+                                                                                 (z)
+                                                                                     est exactement
+la réunion de l’ensemble des zéros et de l’ensemble des pôles de g, d’après la formule qui précède,
+valide aussi pour N = 0 et pour N < 0. Si N > 0 alors z0 est un zéro de multiplicité m(z0 ) = N
+et si N < 0 alors z0 est un pôle de multiplicité m(z0 ) = −N
+
+
+
+
+     Corollaire II.8.2
+   Soit g une fonction méromorphe sur un ouvert Ω et soit U un ouvert tel que U ⊂ Ω. On
+   suppose que le bord Γ de U est un lacet orienté positivement qui ne contient pas de pôles
+   ni de zéros de g. Alors
+                                 Z ′
+                              1     g (z)
+                                          dz = Z(g, U ) − P (g, U )
+                             2iπ Γ g(z)
+
+   où Z(g, U ) et P (g, U ) sont respectivement le nombre de zéros et de pôles de g dans U (les
+   zéros et pôles étant comptés avec multiplicité).
+
+
+   Remarque II.8.3 — On utilise aussi le fait non démontré que l’indice de Γ par rapport à
+   tout point de U est 1. Nous n’avons pas non plus démontré le théorème de Jordan qui dit
+   que si γ est un lacet simple d’image Γ, alors C \ Γ est un ouvert ayant deux composantes
+   connexes, l’une non bornée (voir la remarque II.3.5). On peut justifier cette omission en
+   disant qu’en pratique, on n’utilisera ces résultats que dans des cas où ils sont facilement
+   établis, par exemple sur un disque.
+
+   Nous pouvons maintenant démontrer le :
+
+
+======== [PDF page 57 | page imprimée 54] ========
+54                                                         CHAPITRE II. FORMULE DES RÉSIDUS
+
+       Théorème II.8.4 — Théorème de Rouché (1862)
+     Soient f et g deux fonctions méromorphes sur un ouvert Ω de C, et U un ouvert tel que
+     U ⊂ Ω. On suppose que le bord Γ de U est un lacet orienté positivement, ne contenant ni
+     pôle ni zéro des fonctions f et g, et que
+
+                           |f (z) − g(z)| < |g(z)|,        pour tout      z ∈ Γ.
+
+     Alors
+                              Z(f, U ) − P (f, U ) = Z(g, U ) − P (g, U ),
+     où Z(f, U ) et P (f, U ) (respectivement Z(g, U ) et P (g, U )) sont le nombre de zéros et de
+     pôles de f (respectivement de g) dans U (les zéros et pôles étant comptés avec multiplicité).
+
+
+Démonstration. Posons h = f /g : c’est une fonction méromorphe sur Ω. Remarquons que
+l’hypothèse implique que g ne s’annule pas sur Γ, et celle-ci se réécrit
+
+                                      |1 − h(z)| < 1,      (∀z ∈ Γ).
+
+La fonction h est holomorphe dans un voisinage de Γ et h(Γ) ⊂ D(1, 1) est une courbe fermée.
+Comme 0 ∈  / D(1, 1) et que D(1, 1), étant convexe, est simplement connexe, l’indice de 0 par
+rapport au lacet h(Γ) est nul (corollaire II.2.2 appliqué à z 7→ 1/z dans D(1, 1)). On a
+                                      Z ′                Z ′
+                                                             f (z)g(z) − f (z)g ′ (z)
+                 Z
+              1        dz         1       h (z)        1
+                          =0=                   dz =                                  dz
+             2iπ h(Γ) z          2iπ Γ h(z)           2iπ Γ        f (z)g(z)
+                                      Z ′                Z ′
+                                  1      f (z)        1     g (z)
+                              =                 dz −              dz
+                                 2iπ Γ f (z)         2iπ Γ g(z)
+Il suffit maintenant d’appliquer le principe de l’argument pour conclure.
+
+    Le Théorème de Rouché permet de donner une démonstration du théorème fondamental de
+l’algèbre. En effet, si P ∈ C[X] est un polynôme de degré n ≥ 1, on note
+
+                                f (z) := P (z)        et     g(z) = an z n ,
+
+où an est le coefficient du terme de plus haut degré de P . Si R > 0 est choisi assez grand,
+
+                                        |f (z) − g(z)| < |g(z)|,
+
+sur C(0, R). Le théorème de Rouché nous assure que f et g ont le même nombre de zéros (comptés
+en tenant compte de la multiplicité des zéros) dans D(0, R). Donc P a n zéros dans D(0, R).
+     Le lecteur trouvera dans les exercices suivants d’autres applications du Théorème de Rouché.
+
+
+     Exercice II.8.5 — On note D := {z ∈ C : |z| < 1} le disque unité ouvert dans C, D̄ son
+     adhérence et C := ∂D.
+     1) Soit f une fonction holomorphe sur un ouvert Ω qui contient D̄. On suppose que |f (z)| < 1
+     sur C. Montrer que f (D) ⊂ D et que f a un unique point fixe dans D.
+     2) Déterminer le nombre de racines de P (z) = z 7 − 2z 5 + 6z 3 − z − 1 dans D.
+     3) Déterminer le nombre de racines de Q(z) = z 4 − 6z + 3 dans l’anneau
+
+                                        {z ∈ C : 1 < |z| < 2}.
+
+
+======== [PDF page 58 | page imprimée 55] ========
+II.9. EXISTENCE DE PRIMITIVES - LOGARITHME COMPLEXE                                              55
+
+
+   Exercice II.8.6 — Soit n ∈ N× .
+   1) Montrer que
+                                          | sin z| < |z cos z|,
+   pour tout z = x + iy tel que max(|x|, |y|) = n π.
+   2) En déduire que toutes les solutions de tan z = z sont réelles.
+
+
+
+II.9     Existence de primitives - Logarithme Complexe
+
+
+   Nous avons déjà vu un résultat local d’existence de primitive holomorphe pour une fonction
+holomorphe (voir le Corollaire I.7.6). Démontrons maintenant le :
+
+       Théorème II.9.1
+   Toute fonction f qui est holomorphe sur un ouvert Ω simplement connexe admet sur cet
+   ouvert une primitive holomorphe, unique à une constante additive près (deux primitives
+   diffèrent d’une fonction de dérivée nulle sur l’ouvert connexe Ω, donc d’une constante).
+
+
+Démonstration. Donnons nous z0 ∈ Ω. L’ensemble des points de Ω qui peuvent être reliés à z0
+par un chemin (même polygonal par morceaux) est clairement un ouvert et un fermé non vide de
+Ω. Comme Ω est connexe, cet ensemble est égal à Ω. Pour tout ω ∈ Ω, choisissons γω un chemin
+reliant z0 à ω et définissons               Z
+                                        F (ω) :=          f (z) dz.
+                                                     γω
+
+Si γω′ est un autre chemin qui relie z0 à ω, le chemin γω′ ∨ γωopp est alors un lacet, homotope
+à un lacet constant (car, par hypothèse, Ω est simplement connexe). D’après l’invariance par
+homotopie de l’intégrale le long d’un lacet (voir le Théorème II.2.1), on a
+                                  Z                  Z
+                                        f (z) dz −        f (z) dz = 0.
+                                   γω                 ′
+                                                     γω
+
+
+Autrement dit, F (ω) ne dépend pas du choix du chemin qui relie z0 à ω. Soit r > 0 tel que
+D(ω, r) ⊂ Ω. Pour tout h ∈ D(0, r), puisque le choix du chemin est indifférent pour le calcul de
+F (ω + h), on peut choisir le chemin
+
+                                        γω+h := γω ∨ γ[ω,ω+h] ,
+
+où γ[ω,ω+h] (t) := ω + t h, pour t ∈ [0, 1]. Ce qui nous donne la formule
+                                                                       Z 1
+                    F (ω + h) − F (ω)
+                                             Z
+                                        1
+                                      =                   f (z) dz =         f (ω + th) dt.
+                            h           h     γ[ω,ω+h]                  0
+
+
+Donc                                                      Z 1
+                          F (ω + h) − F (ω)
+                      lim                   = lim               f (ω + th) dt = f (ω).
+                      h→0         h           h→0          0
+
+On en déduit immédiatement que F est C-dérivable en ω et que F ′ (ω) = f (ω). Grâce aux
+propriétés de dérivabilité des intégrales, la formule ci-dessus prouve également que F est de classe
+C 1 de sorte que F est bien une fonction holomorphe.
+
+
+======== [PDF page 59 | page imprimée 56] ========
+56                                                     CHAPITRE II. FORMULE DES RÉSIDUS
+
+   Cet énoncé permet de construire de nombreuses fonctions holomorphes. En particulier, nous
+pouvons définir le logarithme complexe d’une fonction holomorphe h sur un ouvert Ω ne s’annulant
+pas.
+
+       Définition II.9.2
+     Soit h ∈ Hol(Ω) ne s’annulant pas. On appelle logarithme de h et l’on note Log(h) toute
+     primitive holomorphe—lorsqu’elle existe—de la fonction h′ /h qui vérifie de plus eLog(h) = h.
+
+    Cette dernière normalisation est toujours réalisable sur un ouvert connexe : si F est une
+primitive de h′ /h, la fonction h e−F a une dérivée nulle, donc est une constante C ̸= 0, et il suffit
+de remplacer F par F + c où c est un nombre complexe tel que ec = C. Un logarithme complexe
+sur un ouvert connexe est donc bien défini à addition d’un multiple entier de 2iπ près. Le résultat
+qui suit est un corollaire immédiat du théorème d’existence de primitives.
+
+       Proposition II.9.3
+     Si Ω est un ouvert simplement connexe et si, h ∈ Hol(Ω) ne s’annule pas, alors la fonction
+     h admet un logarithme complexe.
+
+    En particulier, on peut définir z 7→ Log(z) sur l’ouvert Ω = C \ R− , obtenu en pratiquant la
+coupure R− , comme étant la primitive de z 7→ 1/z s’annulant en z = 1 ; cette fonction coïncide
+avec le logarithme usuel sur R×  + (noté log). On dira que c’est la détermination principale du
+logarithme complexe.
+
+     Exercice II.9.4 — Démontrer les propriétés suivantes de la détermination principale du
+     logarithme complexe sur C \ R− :
+     (i) exp(Log(z)) = z pour tout z ∈ C \ R− , Log(exp z) = z pour tout z tel que −π <
+     ℑm(z) < π.
+     (ii) Log(z) = log(r) + iArg(z), pour tout z = reiθ ∈ C \ R− , l’argument Arg(z) = θ étant
+     ici dans ] − π, π[.
+     (iii) Log(z1 ) + Log(z2 ) = Log(z1 z2 ) mod 2iπ, quels que soient z1 , z2 ∈ C \ R− tels que
+     z 1 z2 ∈ C \ R − .
+
+   Soit h une fonction holomorphe et Log(h) un logarithme de h. Pour tout α ∈ C, on peut
+maintenant définir
+                                   hα (z) := eα Log(h(z)) .
+Dans le cas de la détermination principale du logarithme, ceci permet par exemple de définir la
+                                                   √
+détermination principale de la racine carrée z 7→ z sur C \ R− qui prolonge la racine usuelle
+définie sur R×
+             + . Comme c’est déjà le cas pour la fonction logarithme, on ne peut pas prolonger la
+racine carrée en une fonction holomorphe sur tout le plan complexe (exercice).
+     Dans le cas particulier où h(z) = z, on définit ainsi, pour tout α ∈ C, la fonction z 7→ z α par
+                                           z α := eα Log(z) ,
+sur C \ R− . On vérifie que l’on a là une fonction holomorphe sur C \ R− . On vérifie aussi que la
+fonction
+                                              α 7→ z α ,
+est quant à elle holomorphe sur C.
+
+     Exercice II.9.5 — On note Ω := C \ [0, 1]. Montrer qu’il existe deux fonctions holomorphes
+     définies sur Ω et dont le carré est égal à z 7→ z (z − 1).
+
+
+======== [PDF page 60 | page imprimée 57] ========
+II.9. EXISTENCE DE PRIMITIVES - LOGARITHME COMPLEXE                                              57
+
+
+  Exercice II.9.6 — 1) Soit α ∈ C. Montrer que la fonction x 7→ xα définie sur ]0, +∞[ se
+  prolonge de manière unique en une fonction fα holomorphe sur C\ ] − ∞, 0].
+  2) Déterminer le développement en série entière de fα en 1 et la dérivée de fα .
+  3) Pour quels α peut-on prolonger fα à C∗ , à C ?
+
+
+    Nous pouvons maintenant traiter un troisième exemple de calcul d’intégrale par la formule
+des résidus (voir la section II.6), qui demandait le logarithme complexe.
+
+                                              ℑm
+
+
+
+
+                                                Cε          γ+
+                                                                             ℜe
+                                −1                          γ−          CR
+
+
+
+
+                        Contour d’intégration Γε,R en trou de serrure.
+
+
+  Exemple II.9.7 : Intégrale avec coupure (contour en trou de serrure) — Nous allons
+  calculer l’intégrale suivante, pour 0 < α < 1 :
+                                           Z +∞ α−1
+                                                  x
+                                       J=              dx.
+                                            0     1 +x
+                                     α−1
+  Considérons la fonction f (z) = z1+z . Pour définir rigoureusement z α−1 , nous choisissons
+  la détermination du logarithme sur C \ R+ telle que l’argument soit dans ]0, 2π[ (donc
+  Log(−1) = iπ pour cette détermination). Ainsi, z α−1 = e(α−1)Log(z) . L’ouvert C \ R+
+  étant simplement connexe, l’existence d’une telle détermination est garantie par la proposi-
+  tion II.9.3 ; ce n’est pas la détermination principale introduite ci-dessus, dont la coupure
+  est R− . La fonction f est méromorphe sur C \ R+ et possède un unique pôle simple en
+  z = −1 = eiπ . Le résidu en ce pôle est :
+
+                                              e(α−1)Log(z)
+                   res−1 (f ) = lim (z + 1)                = e(α−1)iπ = −eiαπ .
+                               z→−1              1+z
+  Nous intégrons f sur un contour Γε,R en "trou de serrure" constitué de :
+     — Un segment γ+ de ε à R juste au-dessus de l’axe réel (z = xei0 ).
+     — Un grand cercle CR de rayon R parcouru dans le sens trigonométrique.
+
+
+======== [PDF page 61 | page imprimée 58] ========
+58                                                        CHAPITRE II. FORMULE DES RÉSIDUS
+
+
+       — Un segment γ− de R à ε juste en dessous de l’axe réel (z = xe2iπ ).
+       — Un petit cercle Cε de rayon ε parcouru dans le sens horaire.
+     Le théorème des résidus donne :
+                                   Z
+                                               f (z) dz = 2iπ(−eiαπ ).
+                                        Γε,R
+
+     Étudions les limites des intégrales sur chaque portion lorsque R → +∞ et ε → 0 :
+                               α−1
+       — Sur CR , |f (z)| ∼ R R = Rα−2 . L’intégrale est majorée par 2πR · Rα−2 = 2πRα−1 ,
+         qui tend vers 0 car α < 1.
+       — Sur Cε , |f (z)| ∼ εα−1 . L’intégrale est majorée par 2πε · εα−1 = 2πεα , qui tend vers 0
+         car α > 0.
+       — Sur γ+ , l’argument de z est 0, donc z α−1 = xα−1 . L’intégrale tend vers J.
+       — Sur γ− , l’argument de z est 2π, donc z α−1 = xα−1 e2iπ(α−1) = xα−1 e2iπα . L’intégrale
+         (parcourue de R à ε) tend vers −e2iπα J.
+     En passant à la limite, la somme des intégrales donne :
+
+                                         J − e2iπα J = −2iπeiαπ .
+
+     On en déduit la valeur de l’intégrale :
+
+                                     −2iπeiαπ       2iπ           π
+                             J=          2iπα
+                                              = iαπ     −iαπ
+                                                             =         .
+                                     1−e       e    −e         sin(απ)

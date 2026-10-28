@@ -1,0 +1,61 @@
+184                                            ANNEXE A. SUJETS D’EXAMEN ET PROBLÈMES
+
+  3. On calcule dh0 = dr0 + dp0 − IdRn = 2p − IdRn . Or 2p − IdRn est un isomorphisme linéaire de
+     Rn dans Rn . En, effet, il suffit de montrer que le noyau est nul (nous sommes en dimension
+     finie), et 2p(x) − x = 0 implique x = 0 car 2 n’est pas valeur propre d’un projecteur. (Ou
+     bien applique p et on trouve 2p(x) = p(x), soit p(x) = 0 puis x = 0). On peut donc appliquer
+     le théorème d’inversion locale : il existe des ouverts U et W dans V contenant 0 tel que h
+     réalise un difféomorphisme de U sur W.
+       De la relation h ◦ r = p ◦ h, on tire r(x) = h−1 ◦ p ◦ h(x) dès lors que p ◦ h(x) ∈ W et
+       r(x) ∈ U (c’est là qu’il faut prendre garde : h−1 est l’inverse de la restriction de h à U). On
+       prend donc V0 = U ∩ (p ◦ h)−1 (W) ∩ r−1 (U), qui est bien un ouvert de V contenant 0, par
+       continuité de p ◦ h et de r et parce que r(0) = 0.
+       On a alors, pour x ∈ V0 , x ∈ X ⇐⇒ r(x) = x ⇐⇒ p(h(x)) = h(x), la seconde équivalence
+       utilisant l’injectivité de h sur U et le fait que x et r(x) y sont tous deux. Donc x ∈ X si et
+       seulement si h(x) est dans l’image du projecteur p qui est un sous-espace vectoriel de Rn .
+       Ainsi X ∩ V0 = h−1 (Im p ∩ W).
+
+
+      Exercice 6.
+  1. Soit α une courbe intégrale de X définie sur un intervalle , c’est-à-dire α′ (t) = X(α(t)) pour
+     tout t dans son intervalle de définition I. Considérons g(t) = F (α(t)). C’est une fonction
+     dérivable sur I et g ′ (t) = dFα(t) (α′ (t)) = ⟨∇F (α(t)), X(α(t))⟩ = 0. Ainsi g est constante.
+     Réciproquement si F est constante sur les courbes intégrales de X, on prend pour x ∈ V
+     fixé la courbe intégrale α de condition initiale α(0) = x (existe d’après Cauchy-Lipschitz).
+     On a alors F (α(t)) = F (α(0)) = F (x) sur l’intervalle de définition I de α, et en dérivant,
+     on obtient dFα(t) (α′ (t)) = ⟨∇F (α(t)), X(α(t))⟩ = 0. En évaluant en t = 0, on trouve
+     ⟨∇F (x), X(x)⟩ = 0.
+  2. La condition est la non annulation de ∂F     ∂z en un point (a, b) tel que F (a, b) = 0. On peut
+     alors écrire z = u(x) au voisinage de a. On a de plus
+
+                                                     ∂F
+                                                     ∂xi (x, z)   ∂u
+                                                   − ∂F         =     (x)
+                                                     ∂z (x, z)
+                                                                  ∂xi
+
+  3. On rappelle que F est intégrale première de X si ⟨∇F (x, z), X(x, z)⟩ = 0, ce qui s’écrit
+     pour le champ X donné
+                                 n
+                                 X                 ∂F                   ∂F
+                                       ai (x, z)       (x, z) + b(x, z)    (x, z) = 0.
+                                                   ∂xi                  ∂z
+                                 i=1
+
+
+     Au voisinage d’un point où ∂F     ∂z ne s’annule pas, on a z = u(x) et en divisant l’équation
+     précédente par ∂F∂z  (x, z),  on fait                ∂u
+                                           apparaître les ∂xi
+                                                              (x), et on obtient l’équation (E).
+  4. Le champ de vecteurs X s’écrit alors X(x1 , x2 , x3 ) = (a(x3 ), 1, 0), les courbes intégrales
+     α(t) = (α1 (t), α2 (t), α3 (t)) sont solutions de l’équation différentielle
+
+                                  α1′ (t) = a(α3 (t)),       α2′ (t) = 1,   α3′ (t) = 0
+
+     ce qui se résout facilement α3 est constante, égale à f (s), α2 (t) = t, et α1 (t) = a(f (s))t + s.
+  5. Il s’agit d’éliminer t et s dans les équations précédentes où l’on pose (α1 (t), α2 (t), α3 (t)) =
+     (x1 , x2 , z). On a donc t = x2 et z = f (s) d’où x1 = a(z)x2 + s, soit s = x1 − a(z)x2 et donc
+     z = f (x1 −a(z)x2 ). On pose donc F (x1 , x2 , z) = z −f (x1 −a(z)x2 ). On a F (x1 , 0, f (x1 )) = 0.
+       On calcule ∂F                      ′                  ′            ∂F
+                  ∂z (x1 , x2 , z) = 1 + f (x1 − a(z)x2 )x2 a (z) et donc ∂z (x1 , 0, f (x1 )) = 1. Le reste
+       découle donc des questions précédentes.

@@ -1,0 +1,54 @@
+26                                                CHAPITRE I. FONCTIONS HOLOMORPHES
+
+       Corollaire I.9.4
+     Soient Ω et U deux ouverts de C et soit (z, u) 7→ F (z, u) une fonction continue sur Ω × U ,
+     holomorphe en z pour tout u ∈ U , alors pour tout chemin γ dans U , la formule
+                                               Z
+                                      f (z) = F (z, u) du
+                                                 γ
+
+     définit une fonction holomorphe sur Ω.
+
+                                                                  Rb
+Démonstration. Écrivons γ : [a, b] → U , de sorte que f (z) = a F (z, γ(s)) γ ′ (s) ds : on est ramené
+au théorème précédent avec X = [a, b]. Fixons z0 ∈ Ω et r0 > 0 tel que D̄(z0 , r0 ) ⊂ Ω. Le produit
+D̄(z0 , r0 ) × γ([a, b]) est compact et F y est continue, donc majorée en module par un M > 0 ;
+comme γ ′ est bornée par un M ′ > 0 (remarque I.5.2), la fonction constante gz0 = M M ′ est
+intégrable sur [a, b] et domine s 7→ |F (z, γ(s)) γ ′ (s)| pour tout z ∈ D(z0 , r0 ). Les hypothèses du
+théorème sont donc satisfaites.
+
+     Exercice I.9.5 — Soit f une fonction mesurable bornée à support dans R+ . On définit la
+     fonction fˆ par                         Z
+                                    ˆ
+                                    f (z) :=   e−iz t f (t) dt.
+                                                R
+
+     1) Montrer que fˆ est une fonction holomorphe sur H− := {z ∈ C : ℑm(z) < 0}.
+     2) Montrer que si de plus f est à support compact, alors fˆ est holomorphe sur C.
+
+
+I.10        Théorème de Liouville et conséquences
+
+
+   Commençons par le Théorème de Liouville 1 (qui semble en fait être dû à Cauchy), une
+conséquence directe des estimées de Cauchy.
+
+       Théorème I.10.1 — Théorème de Liouville (Cauchy, 1844)
+     Soit f ∈ Hol(C) une fonction bornée sur C. Alors, f est constante.
+
+      Voici une application du Théorème de Liouville qui permet de démontrer un grand classique :
+
+       Corollaire I.10.2 — Théorème de d’Alembert-Gauss (Argand, 1806)
+     Tout polynôme non constant à coefficients complexes possède une racine dans C. En
+     d’autres termes, le corps C est algébriquement clos.
+
+    Nous laissons la démonstration du théorème de Liouville et du théorème de d’Alembert-Gauss
+au lecteur, ce sont les questions 2 et 3 de l’exercice suivant :
+
+     Exercice I.10.3 — Soit f une fonction holomorphe sur C et bornée.
+        1. Montrer que f (k) (0) = 0 pour tout k ≥ 1.
+        2. En déduire que f est constante.
+        3. Montrer que tout polynôme non constant admet un zéro dans C.
+     Soit h une fonction non constante, holomorphe sur C.
+
+     1. Joseph Liouville, X 1825

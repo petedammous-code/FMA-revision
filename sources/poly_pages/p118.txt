@@ -1,0 +1,50 @@
+                                                                                               Chapitre   VI
+Inversion locale et fonctions implicites
+
+
+VI.1      Théorème de point fixe de Banach
+
+
+    Le théorème de point fixe de S. Banach (également attribué à E. Picard) a de nombreuses
+applications, en particulier le théorème des fonctions implicites et le théorème de Cauchy-Lipschitz
+d’existence et d’unicité de solutions d’équations différentielles. Nous donnons ici la démonstration
+d’une version avec paramètre.
+
+    Soient (X, dX ) et (Y, dY ) des espaces métriques. Rappelons qu’une application T : X → Y
+est dite lipschitzienne s’il existe une constante réelle positive a telle quels que soient x, y ∈ X,
+                                        dY (T (x), T (y)) ≤ a dX (x, y).
+On dit alors que T est a-lipschitzienne. Une application lipschitzienne est en particulier continue.
+Si (Y, dY ) = (X, dX ) et que la constante a est strictement plus petite que 1, on dit que T : X → X
+est contractante.
+
+       Théorème VI.1.1 — Point fixe de Banach
+   Soient (X, d) un espace métrique complet, a ∈ [0 ; 1[ et
+
+                                                  T : X→X
+
+   une application a-lipschitzienne. Alors T admet un unique point fixe x ∈ X.
+
+
+Démonstration. En effet, soit x0 ∈ X. Montrons que la suite (xn )n∈N définie par récurrence par
+xn+1 = T (xn ) est de Cauchy. Quels que soient m, n ∈ N, n ≥ m,
+                  d(xn , xm ) = d(T m (T n−m (x0 )), T m (x0 )) ≤ am d(T n−m (x0 ), x0 ).
+Or on a aussi
+                                        n−m
+                                        X                                   n−m
+                                                                            X
+                d(T n−m (x0 ), x0 ) ≤         d(T j (x0 ), T j−1 (x0 )) ≤         aj−1 d(T (x0 ), x0 )
+                                        j=1                                 j=1
+                                        1 − an−m                          1
+                                  ≤                  d(T (x0 ), x0 ) ≤       d(T (x0 ), x0 ).
+                                          1−a                            1−a
+D’où
+                                                 am
+                                    d(xn , xm ) ≤    d(T (x0 ), x0 ),
+                                                1−a
+ce qui montre que la suite (xn )n∈N est de Cauchy. Comme X est complet, cette suite est convergente.
+Appelons x sa limite. Par continuité de T , on a
+                                 T (x) = lim T (xn ) = lim xn+1 = x,
+                                              n→∞             n→∞
+
+
+                                                        115

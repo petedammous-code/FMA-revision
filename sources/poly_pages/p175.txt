@@ -1,0 +1,56 @@
+172                                                                CHAPITRE IX. SOUS-VARIÉTÉS
+
+      Proposition IX.8.1
+   Soit S une sous-variété fermée de RN et X : I × U → RN un champ de vecteurs dépendant
+   du temps, vérifiant les conditions du théorème VII.2.12, où U est un ouvert de RN contenant
+   S et I un intervalle ouvert de R contenant 0. Supposons que pour tout t ∈ I, pour tout
+   x ∈ S , X(t, x) ∈ Tx S . Soit γ une courbe intégrale de X définie sur un intervalle ]a ; b[
+   contenant 0, telle que γ(0) ∈ S , alors pour tout t ∈ ]a ; b[, γ(t) ∈ S .
+
+
+Démonstration. Soit τ = sup{t ∈ [0 ; b[ | γ(s) ∈ S pour tout s ∈ [0 ; t]}. Supposons τ < b.
+Comme S est fermée, γ(τ ) ∈ S . Soit Φ une carte locale en γ(τ ), comme dans la proposition
+IX.3.1 i.e.
+                               Φ : V → RN = Rm × RN −m
+où V est un ouvert de RN contenant γ(τ ), W = Φ(V) est un ouvert de RN et
+                                                 ∼
+                                    Φ : V ∩ S → (Rm × {0}) ∩ W.
+
+Quitte à restreindre l’ouvert V, on le suppose inclus dans U. Soit Y le champ de vecteurs
+(dépendant du temps) sur W défini par
+
+                                Y (t, Φ(x)) = dΦx (X(t, x)),      (x ∈ V).
+
+La courbe σ(t) = Φ(γ(t)) vérifie
+
+(IX.8.1)               σ ′ (t) = dΦγ(t) (γ ′ (t)) = dΦγ(t) (X(t, γ(t))) = Y (t, σ(t))
+
+et σ(τ ) ∈ Rm × {0}. Si z ∈ (Rm × {0}) ∩ W, alors Y (t, z) ∈ Rm × {0} : en effet z = Φ(x) avec
+x ∈ V ∩ S , et dΦx envoie Tx S sur Rm × {0} puisque Φ redresse S . Posons σ(t) = (x(t), y(t))
+avec x(t) ∈ Rm et y(t) ∈ RN −m . L’équation (IX.8.1) s’écrit alors
+                                  (
+                                    x′ (t) = A(t, (x(t), y(t)))
+(IX.8.2)
+                                    y ′ (t) = B(t, (x(t), y(t)))
+
+où A(t, (x, y)) (resp. B(t, (x, y)) ) est la projection de Y (t, (x, y)) sur Rm (resp. RN −m ). On pose
+x(τ ) = x0 . On a y(τ ) = 0. Soit x la solution de
+
+                                   x′ (t) = A(t, x(t), 0),   x(τ ) = x0
+
+dont l’existence et l’unicité sur un certain intervalle ouvert contenant τ est garantie par le
+théorème de Cauchy-Lipschitz, on constate que (x(t), 0) est solution de (IX.8.2), et que, quitte
+à restreindre l’intervalle de définition, c’est la seule d’après le même théorème. On en conclut
+que y reste nul tant qu’il est défini, et donc γ(t) = Φ−1 (σ(t)) ∈ S ∩ V pour tout t dans un petit
+intervalle autour de τ . Ceci contredit la maximalité de τ , et ainsi τ = b et γ(t) ∈ S pour tout
+t ∈ [0 ; b[. On raisonne de même pour montrer que γ(t) ∈ S pour tout t ∈ ]a ; 0].
+
+   Exemples IX.8.2 —
+      1. Avec les notations ci-dessus, si X est tel que X(t, x) est toujours orthogonal à x, alors
+         γ(t) reste sur une sphère.
+      2. Soit H(q, p) une fonction sur Rn × Rn . Posons XH = ( ∂H    ∂H
+                                                               ∂p , − ∂q ). Comme
+
+                                            dH(q,p) (XH (q, p)) = 0,
+           XH est un champ de vecteurs tangents aux hypersurfaces H(q, p) = c (on suppose
+           que H est de classe C 1 et que c est une valeur régulière de H, de sorte que l’équation

@@ -1,0 +1,30 @@
+58                                                        CHAPITRE II. FORMULE DES RÉSIDUS
+
+
+       — Un segment γ− de R à ε juste en dessous de l’axe réel (z = xe2iπ ).
+       — Un petit cercle Cε de rayon ε parcouru dans le sens horaire.
+     Le théorème des résidus donne :
+                                   Z
+                                               f (z) dz = 2iπ(−eiαπ ).
+                                        Γε,R
+
+     Étudions les limites des intégrales sur chaque portion lorsque R → +∞ et ε → 0 :
+                               α−1
+       — Sur CR , |f (z)| ∼ R R = Rα−2 . L’intégrale est majorée par 2πR · Rα−2 = 2πRα−1 ,
+         qui tend vers 0 car α < 1.
+       — Sur Cε , |f (z)| ∼ εα−1 . L’intégrale est majorée par 2πε · εα−1 = 2πεα , qui tend vers 0
+         car α > 0.
+       — Sur γ+ , l’argument de z est 0, donc z α−1 = xα−1 . L’intégrale tend vers J.
+       — Sur γ− , l’argument de z est 2π, donc z α−1 = xα−1 e2iπ(α−1) = xα−1 e2iπα . L’intégrale
+         (parcourue de R à ε) tend vers −e2iπα J.
+     En passant à la limite, la somme des intégrales donne :
+
+                                         J − e2iπα J = −2iπeiαπ .
+
+     On en déduit la valeur de l’intégrale :
+
+                                     −2iπeiαπ       2iπ           π
+                             J=          2iπα
+                                              = iαπ     −iαπ
+                                                             =         .
+                                     1−e       e    −e         sin(απ)
