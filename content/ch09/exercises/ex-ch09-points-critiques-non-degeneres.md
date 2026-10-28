@@ -83,7 +83,7 @@ car $d(f\circ x)_q=0$ ($p$ critique) et par définition de $d^2f_p$ avec $\beta'
 
 Tous les points critiques sont non dégénérés, et il y en a bien un nombre fini (six), conformément à la question 3.
 
-**5.** *Sans compacité*, c'est faux : sur la sous-variété $S=\R$ (ouvert de $\R$), $f=\sin$ a pour points critiques $\frac\pi2+\pi\Z$, tous non dégénérés ($\sin''=-\sin=\mp1\ne0$ en ces points), en nombre infini. *Sans non-dégénérescence*, c'est faux aussi : une fonction constante sur $\mathbb S^2$ a tous ses points critiques (dégénérés). La non-dégénérescence ne sert d'ailleurs qu'à l'isolement : un point critique dégénéré peut être isolé ($t\mapsto t^4$ en $0$, ou $z\mapsto z^3-3z$ restreinte à $\mathbb S^2$, dont les seuls points critiques sont les pôles, dégénérés).
+**5.** *Sans compacité*, c'est faux : sur la sous-variété $S=\R$ (ouvert de $\R$), $f=\sin$ a pour points critiques $\frac\pi2+\pi\Z$, tous non dégénérés ($\sin''=-\sin=\mp1\ne0$ en ces points), en nombre infini. *Sans non-dégénérescence*, c'est faux aussi : pour une fonction constante sur $\mathbb S^2$, tous les points de $\mathbb S^2$ sont critiques (et dégénérés, la hessienne étant nulle), en nombre infini ; de même $f=z^2$ restreinte à $\mathbb S^2$ a pour points critiques les pôles et tout l'équateur $\{z=0\}$. La non-dégénérescence ne sert d'ailleurs qu'à l'isolement : un point critique dégénéré peut être isolé ($t\mapsto t^4$ en $0$, ou $z\mapsto z^3-3z$ restreinte à $\mathbb S^2$, dont les seuls points critiques sont les pôles, dégénérés).
 
 ## Pièges et variantes
 

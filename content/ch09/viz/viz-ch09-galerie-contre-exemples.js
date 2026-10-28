@@ -4,7 +4,7 @@ FMA.registerViz({
   title: "Galerie de contre-exemples : pourquoi ce n'est pas une sous-variété",
   description: String.raw`**Ce que l'on voit.** Six ensembles $S\subset\mathbb R^2$ (le premier est un témoin positif). À gauche : l'ensemble entier, le point $p\in S$ (à **glisser** le long de $S$, ou à faire défiler avec le curseur) et le disque $D(p,\rho)$. À droite : un **zoom** sur $S\cap D(p,\rho)$ **privé du point $p$**, chaque composante connexe étant coloriée d'une couleur différente.
 
-**Le test.** Si $S$ est une sous-variété de dimension $m$, la condition 2 de la Définition IX.2.1 (poly, p. 148) dit que $S$ est, près de $p$, homéomorphe à un ouvert connexe $W$ de $\mathbb R^m$. Or un intervalle ouvert privé d'un point a **2** composantes connexes ($m=1$), et un ouvert connexe de $\mathbb R^m$, $m\ge2$, privé d'un point reste **connexe**. Si, pour $\rho$ assez petit, on trouve un nombre de composantes différent de $2$ en dimension $1$, la condition 2 échoue (Exemples IX.2.11, IX.2.12, p. 150).
+**Le test.** Si $S$ est une sous-variété de dimension $m$, la condition 2 de la Définition IX.2.1 (poly, p. 148) donne un homéomorphisme $x : U\to V\cap S$ avec $U$ ouvert de $\mathbb R^m$ et $V$ voisinage de $p$. Pour $\rho$ petit, $D(p,\rho)\subset V$, et $S\cap D(p,\rho)=x(O)$ avec $O$ ouvert de $U$ contenant $q=x^{-1}(p)$. Dans toute la galerie, pour $\rho$ assez petit, chaque morceau de $S\cap D(p,\rho)$ passe par $p$ ou s'y accumule : $S\cap D(p,\rho)$ est **connexe**, donc $O$ aussi, et $S\cap D(p,\rho)\setminus\{p\}$ est homéomorphe à $O\setminus\{q\}$. Or un intervalle ouvert privé d'un point a **2** composantes connexes ($m=1$), un ouvert connexe de $\mathbb R^m$, $m\ge2$, privé d'un point reste **connexe** (1 composante), et pour $m=0$ un ouvert est discret (0 composante). Un compte différent de $2$ exclut donc $m=1$ (Exemples IX.2.11, IX.2.12, p. 150) ; chaque fiche dit ensuite comment exclure $m\ne1$.
 
 **Ce qu'il faut regarder.**
 * **Cercle** : partout $2$ composantes (pour $\rho$ petit ; trop grand, le disque « voit » le cercle entier et le compte change : le test est local).
@@ -34,30 +34,30 @@ FMA.registerViz({
       },
       demi: {
         name: 'demi-droite fermée [0 ; +∞[ ⊂ ℝ', view: [-1.2, 3.4, -1.6, 1.6], t0: 0, special: 'demi', hasT: true,
-        polys: () => [polyline(range(0, 3, 200), t => t, () => 0, () => 1, () => 0)],
-        info: String.raw`**Exemple IX.2.11.** $S=[0;+\infty[\ \subset\mathbb R$ (dessinée sur l'axe horizontal). En $p=0$ : **1** seule composante, alors qu'un intervalle ouvert privé d'un point en a 2 ; donc $m\ne1$. Pour $m=0$ un ouvert est discret, ce qui est faux près de $0$. Pour $m\ge2$ on prend un point $b>0$ voisin : $[0;a[\setminus\{b\}$ a 2 composantes (faites glisser $p$ : le compte vaut $2$), alors qu'un ouvert connexe de $\mathbb R^m$ privé d'un point reste connexe. Aucune dimension ne convient : le « bord » est interdit.`,
+        polys: () => [polyline(range(0, 6, 200), t => t, () => 0, () => 1, () => 0)],
+        info: String.raw`**Exemple IX.2.11.** $S=[0;+\infty[\ \subset\mathbb R$ (dessinée sur l'axe horizontal, tronquée à droite par la fenêtre). En $p=0$ : **1** seule composante, alors qu'un intervalle ouvert privé d'un point en a 2 ; donc $m\ne1$. Pour $m=0$ un ouvert est discret, ce qui est faux près de $0$. Pour $m\ge2$ on prend un point $b>0$ voisin : $[0;a[\setminus\{b\}$ a 2 composantes (faites glisser $p$ : le compte vaut $2$), alors qu'un ouvert connexe de $\mathbb R^m$ privé d'un point reste connexe. Aucune dimension ne convient : le « bord » est interdit.`,
       },
       croix: {
         name: 'croix  xy = 0', view: [-2.2, 2.2, -1.7, 1.7], t0: null, special: 'croix', hasT: false,
-        polys: () => [polyline(range(-2, 2, 200), t => t, () => 0), polyline(range(-2, 2, 200), () => 0, t => t)],
+        polys: () => [polyline(range(-3, 3, 200), t => t, () => 0), polyline(range(-3, 3, 200), () => 0, t => t)],
         info: String.raw`**Exemple IX.2.12.** $S=\{xy=0\}$ est $f^{-1}(0)$ pour $f(x,y)=xy$, et $0$ est valeur critique ($df_{(0,0)}=0$). Tout voisinage de l'origine dans $S$ est encore une croix : **4** composantes une fois l'origine retirée, alors qu'un ouvert connexe de $\mathbb R^m$ privé d'un point en a au plus 2. En tout autre point de la croix, $S$ est une droite : le compte vaut $2$.`,
       },
       cusp: {
         name: 'rebroussement  t ↦ (t², t³)', view: [-0.7, 1.7, -1.7, 1.7], t0: 0, special: 'cusp', hasT: true,
-        polys: () => [polyline(range(-1.2, 1.2, 300), t => t * t, t => t * t * t, t => 2 * t, t => 3 * t * t)],
+        polys: () => [polyline(range(-1.5, 1.5, 300), t => t * t, t => t * t * t, t => 2 * t, t => 3 * t * t)],
         info: String.raw`**Exercice IX.2.13.** $x(t)=(t^2,t^3)$ est un homéomorphisme $C^\infty$ de $\mathbb R$ sur $S=\{y^2=x^3\}$ : le test des composantes est réussi ($2$ branches en $(0,0)$). Mais $x'(t)=(2t,3t^2)$ s'annule en $t=0$ : $dx_0$ n'est pas injective, la condition 3 échoue, et aucun autre paramétrage local en $(0,0)$ n'est une immersion. Regardez la flèche vitesse se réduire à rien quand $p\to(0,0)$.`,
       },
       boucle: {
         name: 'boucle  t ↦ (t³−4t, t²−4)', view: [-5.2, 5.2, -4.7, 2.5], t0: 2, special: 'boucle', hasT: true,
-        polys: () => [polyline(range(-2.5, 2.5, 400), t => t * t * t - 4 * t, t => t * t - 4, t => 3 * t * t - 4, t => 2 * t)],
+        polys: () => [polyline(range(-2.8, 2.8, 400), t => t * t * t - 4 * t, t => t * t - 4, t => 3 * t * t - 4, t => 2 * t)],
         info: String.raw`**Exemple IX.2.14.** $x(t)=(t^3-4t,\,t^2-4)$ est une immersion en tout point ($x'(t)=(3t^2-4,\,2t)$ ne s'annule jamais) mais $x(2)=x(-2)=(0,0)$ : **point double**, avec **4** composantes une fois $(0,0)$ retiré. Le paramétrage global n'est pas un homéomorphisme sur son image ; l'image n'est pas une sous-variété (même si chaque *morceau* $x(]t_0-\varepsilon,t_0+\varepsilon[)$ en est une).`,
       },
       folium: {
-        name: 'folium de Descartes  t ↦ (3t, 3t²)/(1+t³)', view: [-3.2, 3.2, -2.4, 3.2], t0: 0, special: 'folium', hasT: true,
+        name: 'folium de Descartes  t ↦ (3t, 3t²)/(1+t³)', view: [-3.2, 3.2, -2.4, 3.2], t0: 0, special: 'folium', hasT: true, reachOk: s => s.t <= 300,
         polys: () => {
           const fx = t => 3 * t / (1 + t * t * t), fy = t => 3 * t * t / (1 + t * t * t);
           const dx = t => 3 * (1 - 2 * t * t * t) / Math.pow(1 + t * t * t, 2), dy = t => (6 * t - 3 * t * t * t * t) / Math.pow(1 + t * t * t, 2);
-          const ts = range(-0.9, 1, 400).concat(geom(1, 1e4, 900));
+          const ts = range(-0.95, 1, 400).concat(geom(1, 1e4, 900));
           return [polyline(ts, fx, fy, dx, dy)];
         },
         info: String.raw`**Exemple IX.2.15.** $x(t)=\bigl(\frac{3t}{1+t^3},\frac{3t^2}{1+t^3}\bigr)$, $t\in]-1;+\infty[$, est une immersion **injective**. Pourtant, près de $(0,0)=x(0)$, l'ensemble a **3** branches (venant de $t<0$, de $t>0$ et de $t\to+\infty$ qui s'accumule sur l'origine). Condition 2 en défaut : $x$ n'est pas un homéomorphisme sur son image, $x(t)\to(0,0)$ quand $t\to+\infty$ sans que $t\to0$. Cliquez **Parcourir**.`,
@@ -76,9 +76,17 @@ FMA.registerViz({
       const S = SETS[key];
       const polys = S.polys();
       const flat = []; polys.forEach((pl, a) => pl.forEach((s, b) => { s.poly = a; s.k = b; s.i = flat.length; flat.push(s); }));
-      data = { polys, flat, pts: polys.map(pl => pl.map(s => [s.x, s.y])) };
+      // indices atteignables par p : échantillons dans la fenêtre (marge 8 %), jamais les extrémités tronquées (hors fenêtre)
+      const v = S.view, mx = 0.08 * (v[1] - v[0]), my = 0.08 * (v[3] - v[2]);
+      let reach = flat.filter(s => s.x >= v[0] + mx && s.x <= v[1] - mx && s.y >= v[2] + my && s.y <= v[3] - my && (!S.reachOk || S.reachOk(s))).map(s => s.i);
+      if (!reach.length) reach = flat.map(s => s.i);
+      const rpos = new Map(); reach.forEach((idx, r) => rpos.set(idx, r));
+      data = { polys, flat, pts: polys.map(pl => pl.map(s => [s.x, s.y])), reach, rpos };
       pi = specialIndex();
     }
+    // position (fraction dans [0,1]) <-> indice atteignable
+    function fracToIdx(f) { const r = data.reach; return r[Math.max(0, Math.min(r.length - 1, Math.round(f * (r.length - 1))))]; }
+    function idxToFrac() { const r = data.reach; if (data.rpos.has(pi)) return data.rpos.get(pi) / (r.length - 1); let best = 0, bd = Infinity; r.forEach((idx, k) => { const d = Math.abs(idx - pi); if (d < bd) { bd = d; best = k; } }); return best / (r.length - 1); }
     function specialIndex() {
       const S = SETS[key]; const f = data.flat;
       if (key === 'croix') return f.findIndex(s => Math.abs(s.x) < 1e-12 && Math.abs(s.y) < 1e-12);
@@ -124,7 +132,7 @@ FMA.registerViz({
     fitSel(sel);
     const row = kit.row(controls);
     const rhoS = kit.slider(row, { label: '$\\rho$', min: 0.05, max: 2, step: 0.01, value: 0.35, onChange: draw });
-    const posS = kit.slider(row, { label: 'position de $p$', min: 0, max: 1, step: 0.001, value: 0, format: v => (+v).toFixed(2), onChange: v => { stop(); pi = Math.round(v * (data.flat.length - 1)); draw(); } });
+    const posS = kit.slider(row, { label: 'position de $p$', min: 0, max: 1, step: 0.001, value: 0, format: v => (+v).toFixed(2), onChange: v => { stop(); pi = fracToIdx(v); draw(); } });
     const row2 = kit.row(controls);
     kit.button(row2, { label: 'p = point singulier', onClick: () => { stop(); pi = specialIndex(); syncPos(); draw(); } });
     const playBtn = kit.button(row2, { label: 'Parcourir', primary: true, onClick: () => { if (playing) stop(); else start(); } });
@@ -133,12 +141,12 @@ FMA.registerViz({
     const infoEl = document.createElement('div'); infoEl.className = 'viz-note'; container.appendChild(infoEl);
 
     function setInfo() { infoEl.innerHTML = ''; kit.md(infoEl, SETS[key].info); }
-    function syncPos() { posS.value = pi / (data.flat.length - 1); }
+    function syncPos() { posS.value = idxToFrac(); }
     function stop() { if (playing) { playing.stop(); playing = null; } playBtn.textContent = 'Parcourir'; }
     function start() {
-      let f = pi / (data.flat.length - 1); if (f > 0.97) f = 0;
+      let f = idxToFrac(); if (f > 0.97) f = 0;
       playBtn.textContent = 'Pause';
-      playing = kit.animate(dt => { f += dt / 9; if (f >= 1) f = 0; pi = Math.round(f * (data.flat.length - 1)); syncPos(); draw(); });
+      playing = kit.animate(dt => { f += dt / 9; if (f >= 1) f = 0; pi = fracToIdx(f); syncPos(); draw(); });
     }
 
     // ---------------- dessin ----------------
@@ -166,7 +174,7 @@ FMA.registerViz({
       ctx.restore();
       ctx.fillStyle = t.muted; ctx.font = '12px system-ui, sans-serif'; ctx.textAlign = 'left'; ctx.textBaseline = 'top';
       ctx.fillText('S  (glisser p le long de S)', 8, 6);
-      if (isFinite(p.vx)) { ctx.fillStyle = t.accent2; ctx.fillText('flèche : vitesse x′(t)', 8, 22); }
+      if (isFinite(p.vx)) { ctx.fillStyle = t.accent2; ctx.fillText('flèche : vitesse x′(t) (longueur plafonnée)', 8, 22); }
     }
     function rho() { return rhoS.value; }
 
@@ -215,8 +223,11 @@ FMA.registerViz({
       ro.set(r);
       let msg, col;
       if (k === 2) { msg = '2 composantes : compatible avec une sous-variété de dimension 1 en ce point.'; col = ''; }
+      else if (k === 1) { msg = '1 composante ≠ 2 : impossible en dimension 1 (un intervalle ouvert privé d’un point en a 2). Compatible a priori avec m ≥ 2, mais alors S devrait aussi « ressembler » à ℝ^m aux points voisins : glissez p, le compte y vaut 2.'; col = '#d03030'; }
       else { msg = k + ' composante' + (k > 1 ? 's' : '') + ' ≠ 2 : impossible en dimension 1 (un intervalle ouvert privé d’un point en a 2) ; en dimension ≥ 2 il en faudrait 1, en dimension 0 aucune.'; col = '#d03030'; }
-      if (key === 'cusp' && Math.hypot(p.vx, p.vy) < 0.15) { msg = '2 composantes (test réussi) mais |x′(t)| ≈ 0 : dx_t non injective, la condition 3 échoue.'; col = '#d03030'; }
+      if (key === 'cercle' && k !== 2) { msg = k + ' composante' + (k > 1 ? 's' : '') + ' : ρ est trop grand, le disque contient le cercle entier. Le test ne vaut que pour ρ assez petit (réduisez ρ : on retrouve 2).'; col = '#b26a00'; }
+      if (key === 'cusp' && Math.abs(p.t) < 1e-12) { msg = '2 composantes (test réussi) mais x′(0) = (0,0) : dx_0 n’est pas injective, la condition 3 échoue pour ce paramétrage (et pour tout autre, Exercice IX.2.13).'; col = '#d03030'; }
+      else if (key === 'cusp' && Math.hypot(p.vx, p.vy) < 0.15) { msg = '2 composantes ; |x′(t)| → 0 à l’approche de (0,0). En p ≠ (0,0), x′(t) ≠ 0 et S est bien une sous-variété près de p ; c’est en (0,0) seulement que la condition 3 échoue.'; col = '#b26a00'; }
       verdict.textContent = msg; verdict.style.color = col;
     }
 
@@ -226,7 +237,7 @@ FMA.registerViz({
     function nearest(pos) {
       if (!L) return;
       let best = pi, bd = Infinity; const f = data.flat;
-      for (let i = 0; i < f.length; i += 1) { const [x, y] = L.toPx(f[i].x, f[i].y); const d = (x - pos.x) * (x - pos.x) + (y - pos.y) * (y - pos.y); if (d < bd) { bd = d; best = i; } }
+      for (const i of data.reach) { const [x, y] = L.toPx(f[i].x, f[i].y); const d = (x - pos.x) * (x - pos.x) + (y - pos.y) * (y - pos.y); if (d < bd) { bd = d; best = i; } }
       pi = best; syncPos(); draw();
     }
     const off = kit.drag(stL.canvas, { onDown: p => { stop(); nearest(p); }, onMove: (p, ev, down) => { if (down) nearest(p); } });

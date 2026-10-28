@@ -83,6 +83,6 @@ Pour $u=0$ l'inégalité est triviale. Elle équivaut, en posant $\alpha=x^2,\be
 
 * Lagrange ne fournit que des **candidats** : sans l'argument de compacité (question 1), rien ne garantit que le maximum existe. Toujours : existence (compacité), localisation (points critiques), comparaison des valeurs.
 * Ne pas oublier les points critiques « dégénérés » du cas $w=0$ (les six sommets de l'ellipsoïde) : ici ils ne donnent pas le maximum, mais un oubli peut fausser la liste dans d'autres problèmes.
-* Ne pas chercher les points où $\nabla g=0$ sur $\R^3$ (ce sont les axes) : ce ne sont pas les points critiques de $f$ sur $E$.
+* Ne pas confondre les points critiques de $g$ sur $\R^3$ (où $\nabla g=0$ : ce sont les trois axes de coordonnées, qui ne rencontrent $E$ qu'aux six sommets) avec les points critiques de $f=g_{|E}$ : les huit points $\frac1{\sqrt3}(\pm a,\pm b,\pm c)$, qui portent les extrema, vérifient $\nabla g(p)\neq0$ ; seule l'orthogonalité de $\nabla g(p)$ à $T_pE$ compte.
 * Variante : le rectangle d'aire maximale inscrit dans l'ellipse $\frac{x^2}{a^2}+\frac{y^2}{b^2}=1$ a pour sommets $(\pm\frac a{\sqrt2},\pm\frac b{\sqrt2})$ et pour aire $2ab$.
 * Variante : en dimension $n$, le pavé maximal inscrit dans $\sum x_i^2/a_i^2=1$ a pour demi-côtés $a_i/\sqrt n$ et pour volume $2^n\,n^{-n/2}\prod a_i$ ; on en déduit l'inégalité arithmético-géométrique à $n$ termes.

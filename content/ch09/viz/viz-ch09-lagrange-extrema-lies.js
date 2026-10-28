@@ -11,7 +11,7 @@ Pourquoi : $T_pS=\ker dF_p$ (Proposition IX.7.13), et $df_p=dg_p{}_{|T_pS}$ est 
 **Ce qu'il faut regarder.**
 * Le déterminant $\det(\nabla g,\nabla F)$ s'annule exactement aux points marqués (cercles) sur le graphe : ce sont les points où la dérivée de $g$ le long de $S$ s'annule. En un extremum local de $f$, c'est nécessaire (Théorème IX.7.31).
 * La condition est **nécessaire, pas suffisante** : avec $g=x^3$ sur l'ellipse, les points $(0,\pm1)$ vérifient la condition (même $\nabla g=0$) mais ne sont pas des extrema : le graphe y a un point d'inflexion.
-* **Hypothèse « $0$ valeur régulière »** : avec le rebroussement $F=y^2-x^3$ et $g=x$, le minimum de $g$ sur $S$ est en $(0,0)$, mais $\nabla F(0,0)=0$ et $\nabla g=(1,0)$ n'est pas proportionnel à $\nabla F$ : le théorème ne s'applique pas, on rate le minimum. La lemniscate a la même difficulté à son point double.
+* **Hypothèse « $0$ valeur régulière »** : avec le rebroussement $F=y^2-x^3$ et $g=x$, le minimum de $g$ sur $S$ est en $(0,0)$, mais $\nabla F(0,0)=0$ alors que $\nabla g(0,0)=(1,0)\neq0$ : aucun $w$ ne vérifie $\nabla g=w\,\nabla F$. Le point $(0,0)$ est critique pour $F$, donc $0=F(0,0)$ n'est pas valeur régulière : la Proposition IX.7.35 ne s'applique pas, et la recherche des seuls points « $\nabla g\parallel\nabla F$ » rate le minimum. (D'ailleurs $S$ n'est pas une sous-variété en $(0,0)$, Exercice IX.2.13.) La lemniscate a la même difficulté à son point double $(0,0)$, où $\nabla F=0$.
 * Le multiplicateur $w$ lu à l'écran est le rapport $\nabla g=w\,\nabla F$ aux points de Lagrange.`,
   related: ['ch09-multiplicateurs-lagrange', 'ch09-extremum-local-differentielle-nulle', 'ch09-espace-tangent-graphe-equation', 'ch09-point-critique-sous-variete-def'],
   height: 640,
@@ -52,7 +52,7 @@ Pourquoi : $T_pS=\ker dF_p$ (Proposition IX.7.13), et $df_p=dg_p{}_{|T_pS}$ est 
     const fitSel = x => { x.el.style.flex = '1 1 100%'; x.el.style.minWidth = '0'; x.el.style.maxWidth = '100%'; x.select.style.flex = '1 1 0'; x.select.style.width = '100%'; x.select.style.minWidth = '0'; };
     fitSel(selC); selC.el.style.flex = '1 1 230px'; fitSel(selG); selG.el.style.flex = '1 1 200px';
     const row = kit.row(controls);
-    const tS = kit.slider(row, { label: 'position $t$', min: 0, max: 2 * PI, step: 0.005, value: tcur, onChange: v => { stop(); tcur = v; draw(); } });
+    const tS = kit.slider(row, { label: 'position $t$', min: 0, max: 2 * PI, step: 0.005, value: tcur, onChange: v => { stop(); setT(v); } });
     const cLev = kit.checkbox(row, { label: 'lignes de niveau', checked: true, onChange: draw });
     const row2 = kit.row(controls);
     const btnL = kit.button(row2, { label: 'aller à un point de Lagrange', onClick: () => { stop(); gotoLagrange(); } });
@@ -183,7 +183,7 @@ Pourquoi : $T_pS=\ker dF_p$ (Proposition IX.7.13), et $df_p=dg_p{}_{|T_pS}$ est 
       let r = `p = (${px.toFixed(2)}, ${py.toFixed(2)}) &nbsp; ∇F = (${gF[0].toFixed(2)}, ${gF[1].toFixed(2)}) &nbsp; ∇g = (${gg[0].toFixed(2)}, ${gg[1].toFixed(2)}) &nbsp; det(∇g,∇F) = ${(Math.abs(det) < 5e-4 ? 0 : det).toFixed(3)}`;
       let m = '', col = '';
       if (nF < 1e-6) {
-        m = '∇F(p) = 0 : 0 n\u2019est pas valeur régulière de F en p. Le théorème des multiplicateurs ne s\u2019applique pas ici (et S n\u2019est pas une sous-variété en p).';
+        m = '∇F(p) = 0 : p est un point critique de F, donc 0 = F(p) n\u2019est pas une valeur régulière de F. La Proposition IX.7.35 ne s\u2019applique pas (ici, S n\u2019est d\u2019ailleurs pas une sous-variété en p).';
         col = '#d03030';
       } else if (Math.abs(det) < 0.02 * Math.max(1e-9, Math.hypot(gg[0], gg[1]) * nF) + 1e-9) {
         const w = (gg[0] * gF[0] + gg[1] * gF[1]) / (nF * nF);
@@ -194,14 +194,14 @@ Pourquoi : $T_pS=\ker dF_p$ (Proposition IX.7.13), et $df_p=dg_p{}_{|T_pS}$ est 
       } else {
         m = 'Gradients non colinéaires : la ligne de niveau coupe S transversalement, g|S varie en p (ni extremum ni point critique).';
       }
-      if (ck === 'cusp' && gk === 'x' && tcur !== 0 && Math.abs(tcur) < 0.1) m += ' Le minimum de g sur S est en (0,0), où ∇F = 0.';
+      if (ck === 'cusp' && gk === 'x' && tcur !== 0 && Math.abs(tcur) < 0.1) m += ' Le minimum de g sur S est en (0,0), où ∇F = 0 : le bouton « aller à un point de Lagrange » y mène (aucun point de Lagrange ailleurs).';
       ro.set(r); msg.textContent = m; msg.style.color = col;
     }
 
     function draw() { try { drawMain(); drawGraph(); updateText(); } catch (e) { console.error(e); } }
 
     // ------------ interactions ------------
-    function setT(tt) { tcur = tclamp(tt); tS.value = tcur; draw(); }
+    function setT(tt) { tcur = tclamp(tt); const sg = (sing || []).find(u => Math.abs(u - tcur) < 0.012); if (sg !== undefined) tcur = tclamp(sg); tS.value = tcur; draw(); }
     function gotoLagrange() {
       if (!lag.length) { if (ck === 'cusp') { setT(0); } return; }
       let best = null; const cs = lag.slice().sort((a, b) => a - b);
