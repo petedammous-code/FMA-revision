@@ -6,7 +6,7 @@ title: "Lagrangien $L=T-U$ avec $T=\tfrac12\lVert v\rVert^2$ : (E.L) est l'équa
 ref: "Question 7, p. 144 (non numérotée, section VIII)"
 page: 144
 importance: 2
-depends: [ch08-euler-lagrange, ch05-gradient-hilbert, ch05-differentielles-partielles]
+depends: [ch08-euler-lagrange, ch05-gradient-hilbert, ch05-differentielles-partielles, ch08-cadre-espace-courbes]
 tags: [newton, mecanique, potentiel, gradient, euler-lagrange, principe-moindre-action]
 ---
 ## Intuition

@@ -6,7 +6,7 @@ title: Multiplicité (ordre) d'un zéro ; zéro simple ; factorisation $f(z)=(z-
 ref: Définition I.11.2
 page: 27
 importance: 3
-depends: [ch01-zeros-isoles, ch01-estimees-cauchy, ch01-holomorphe-analytique]
+depends: [ch01-zeros-isoles, ch01-estimees-cauchy, ch01-holomorphe-analytique, ch01-serie-entiere-holomorphe]
 tags: [zeros, multiplicite, ordre, zero-simple, factorisation]
 ---
 ## Intuition
@@ -62,7 +62,7 @@ au voisinage de $z_0$, avec $h$ holomorphe et $h(z_0)\neq0$. Un zéro de multipl
 
 ## Pièges
 
-* > ⚠️ La multiplicité est définie pour un **zéro** : $m(z_0)\ge1$. Ne pas écrire $m(z_0)=0$ quand $f(z_0)\neq0$ (même si la formule $\min\{n\ge0 : f^{(n)}(z_0)\neq0\}$ donnerait $0$).
+* > ⚠️ Dans cette définition, la multiplicité est celle d'un **zéro** : $m(z_0)\ge1$. La formule $\min\{n\ge0 : f^{(n)}(z_0)\neq0\}$ donnerait $0$ en un point où $f(z_0)\neq0$ ; le chapitre II utilise effectivement cette convention ($m(z_0)=0$ si $f(z_0)\neq0$, et $m(z_0)=-N$ pour un pôle d'ordre $N$) dans le principe de l'argument. Toujours préciser la convention adoptée.
 * Dans la factorisation, il faut $h$ **holomorphe** et $h(z_0)\neq0$ ; $h$ n'est définie que **près** de $z_0$ (sur un disque), pas forcément sur tout $\Omega$ — bien que, ici, $h=f/(z-z_0)^m$ se prolonge en fait à tout $\Omega$.
 * Simple $\iff f'(z_0)\neq0$ : ne pas confondre avec « $f'$ ne s'annule pas sur $\Omega$ ».
 * Le même mot « multiplicité » sert pour les **pôles** au chapitre II, avec $f=(z-z_0)^{-m}h$ ; ne pas mélanger les signes.

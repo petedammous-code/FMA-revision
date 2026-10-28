@@ -13,7 +13,7 @@ tags: [principe-maximum, module, moyenne, parseval, rigidite, connexite]
 
 > 💡 Dessinons le « paysage » $z\mapsto|f(z)|$ au-dessus du domaine $\Omega$. Pour une fonction holomorphe non constante, ce paysage n'a **aucun sommet** à l'intérieur : seulement des pentes, des cols, et des « trous » (au niveau $0$, aux zéros de $f$). Les maxima ne peuvent se trouver que sur le bord.
 
-Raison n°1 (formule de la moyenne, [[ch01-formule-moyenne]]) : $f(z_0)$ est la **moyenne** des valeurs de $f$ sur tout petit cercle centré en $z_0$. Une moyenne ne peut être plus grande en module que toutes les valeurs moyennées que si celles-ci sont toutes égales.
+Raison n°1 (formule de la moyenne, [[ch01-formule-moyenne]]) : $f(z_0)$ est la **moyenne** des valeurs de $f$ sur tout petit cercle centré en $z_0$. Or le module d'une moyenne est toujours $\le$ au plus grand des modules moyennés ; s'il lui est **égal** (ce qu'impose un maximum en $z_0$), c'est que toutes les valeurs moyennées sont égales à $f(z_0)$ — c'est ce que Parseval rend rigoureux.
 
 Raison n°2 (développement local) : près de $z_0$, $f(z)\approx f(z_0)+a_N(z-z_0)^N$ ; quand $z$ tourne autour de $z_0$, le terme $a_N(z-z_0)^N$ prend **toutes les directions**, en particulier celle de $f(z_0)$, ce qui augmente $|f|$.
 

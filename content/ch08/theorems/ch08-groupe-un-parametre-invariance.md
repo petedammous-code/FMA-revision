@@ -44,6 +44,8 @@ $$
 
 **Rôle.** L'autonomie donne la propriété de groupe ; la régularité donne $F$ de classe $C^\infty$, en particulier $C^2$, ce qui servira (lemme de Schwarz) dans [[ch08-invariance-infinitesimale]]. Pour un champ dépendant du temps, le flot dépend de deux temps et $F_{s_1}\circ F_{s_2}\ne F_{s_1+s_2}$ en général (voir [[ch07-composition-flot]]).
 
+**Si on la retire.** *Sans régularité suffisante, pas de flot.* Si $X$ est seulement continu, les courbes intégrales peuvent ne pas être uniques : pour $X(x)=2\abs x^{1/2}$ sur $\R$, les courbes $x\equiv0$ et $x(s)=s^2$ ($s\ge0$) partent toutes deux de $0$ ([[ch07-peano-non-unicite]]), et $F_s(0)$ n'est pas défini. Si $X$ est seulement de classe $C^1$ (ou lipschitzien), $(F_s)$ existe encore, la propriété de groupe subsiste et chaque $F_s$ est un $C^1$-difféomorphisme d'inverse $F_{-s}$ : la classe $C^\infty$ ne sert qu'à disposer de $F$ de classe $C^2$ dans [[ch08-invariance-infinitesimale]] (hypothèse de confort). *Sans autonomie, pas de groupe.* Pour le champ $X(s,x)=s$ sur $\R$, la solution issue de $x$ au temps $0$ est $F_s(x)=x+\tfrac{s^2}2$, et $F_{s_1}\circ F_{s_2}(x)=x+\tfrac{s_1^2+s_2^2}2\ne x+\tfrac{(s_1+s_2)^2}2=F_{s_1+s_2}(x)$ dès que $s_1s_2\ne0$.
+
 ### H3 — L'invariance porte sur $(q,v)$ transportés **ensemble**
 
 **Rôle.** La vitesse est transportée par $d(F_s)_q$ : si $\gamma$ est une courbe, $F_s\circ\gamma$ a pour vitesse $d(F_s)_{\gamma(t)}(\gamma'(t))$. L'invariance signifie donc exactement que $L(t,F_s\circ\gamma,(F_s\circ\gamma)')=L(t,\gamma,\gamma')$ pour toute courbe : $\hat L(F_s\circ\gamma)=\hat L(\gamma)$.

@@ -50,7 +50,7 @@ est constante sur $[0;1]$.
 
 **Rôle.** Elle assure que $p(t)=\frac{\partial L}{\partial v}(t,\gamma(t),\gamma'(t))$ est dérivable et que $p'=\frac{\partial L}{\partial q}(t,\gamma,\gamma')$.
 
-**Si on la retire.** La conservation est une propriété des **mouvements**, pas de toutes les courbes : pour $L=\tfrac12\norm v^2$ (invariant par les translations $X\equiv e$) et $\gamma(t)=t^2e$, on a $Q(t)=\langle\gamma'(t),e\rangle=2t$.
+**Si on la retire.** La conservation est une propriété des **mouvements**, pas de toutes les courbes : pour $L=\tfrac12\norm v^2$ (invariant par les translations $X\equiv e$, $\norm e=1$) et $\gamma(t)=t^2e$, on a $Q(t)=\langle\gamma'(t),e\rangle=2t\norm e^2=2t$, qui n'est pas constante (la courbe $t^2e$ n'est pas une solution de (E.L), qui s'écrit ici $\gamma''=0$).
 
 ### H4 — $\gamma$ à valeurs dans $\mathcal U$
 

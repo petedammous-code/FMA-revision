@@ -15,7 +15,7 @@ tags: [euler-lagrange, changement-de-variables, coordonnees-polaires, covariance
 
 Le point clé est la façon dont se transforment les **vitesses** : si $\beta(t)=\phi(\gamma(t))$, la règle de la chaîne donne $\beta'(t)=d\phi_{\gamma(t)}(\gamma'(t))$. C'est pourquoi on pose $L_1(u,q_1,v_1)=L(u,\phi(q_1),d\phi_{q_1}(v_1))$ : ainsi $L_1(t,\gamma(t),\gamma'(t))=L(t,\beta(t),\beta'(t))$, et les deux actions coïncident, $\hat L_1(\gamma)=\hat L(\phi\circ\gamma)$.
 
-Vocabulaire : un **difféomorphisme** $\phi:\mathcal V\to\mathcal U$ entre deux ouverts est une bijection de classe $C^1$ dont la réciproque est de classe $C^1$ ; « au moins $C^2$ » signifie que $\phi$ est de classe $C^2$. La **différentielle seconde** $d^2\phi_{q}(k,\ell)=\big(d(d\phi)_q(k)\big)(\ell)$ est bilinéaire symétrique (lemme de Schwarz, [[ch05-lemme-schwarz]]). Équation (E.L) : [[ch08-euler-lagrange]] ; Lagrangien défini sur un ouvert : [[ch08-ouverture-courbes-confinees]].
+Vocabulaire : un **difféomorphisme** $\phi:\mathcal V\to\mathcal U$ entre deux ouverts est une bijection de classe $C^1$ dont la réciproque est de classe $C^1$ ([[ch06-diffeomorphisme-def]]) ; « au moins $C^2$ » signifie que $\phi$ est de classe $C^2$. La **différentielle seconde** $d^2\phi_{q}(k,\ell)=\big(d(d\phi)_q(k)\big)(\ell)$ est bilinéaire symétrique (lemme de Schwarz, [[ch05-lemme-schwarz]]). Équation (E.L) : [[ch08-euler-lagrange]] ; Lagrangien défini sur un ouvert : [[ch08-ouverture-courbes-confinees]].
 
 ## Énoncé
 

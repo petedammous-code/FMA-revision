@@ -53,7 +53,7 @@ est discret et fermé dans $\Omega$. Il est donc localement fini dans $\Omega$ :
 
 **Fermé dans $\Omega$.** $f$ est continue sur $\Omega$ et $\{0\}$ est fermé dans $\C$, donc $Z(f,\Omega)=f^{-1}(\{0\})$ est fermé dans $\Omega$. Concrètement : si $z_n\in Z(f,\Omega)$ et $z_n\to a\in\Omega$, alors $f(a)=\lim f(z_n)=0$, donc $a\in Z(f,\Omega)$.
 
-**Discret.** Par le principe des zéros isolés ([[ch01-zeros-isoles]]), pour tout $z_0\in Z(f,\Omega)$ il existe $\eps>0$ tel que $D(z_0,\eps)\subset\Omega$ et $D(z_0,\eps)\cap Z(f,\Omega)=\{z_0\}$ : chaque point de $Z(f,\Omega)$ est isolé.
+**Discret.** Par le principe des zéros isolés ([[ch01-zeros-isoles]]), pour tout $z_0\in Z(f,\Omega)$ il existe $\eps>0$ tel que $f$ ne s'annule pas sur $\Omega\cap\big(D(z_0,\eps)\setminus\{z_0\}\big)$ ; quitte à diminuer $\eps$ (ce qui conserve cette propriété), on peut supposer $D(z_0,\eps)\subset\Omega$ ($\Omega$ est ouvert), et alors $D(z_0,\eps)\cap Z(f,\Omega)=\{z_0\}$ : chaque point de $Z(f,\Omega)$ est isolé.
 
 **Localement fini.** C'est l'implication (1) $\Rightarrow$ (2) de [[ch02-localement-fini-caracterisations]] ; en voici une preuve directe. Montrons d'abord que tout $a\in\Omega$ possède un disque ouvert $D(a,r_a)\subset\Omega$ contenant **au plus un** zéro :
 
