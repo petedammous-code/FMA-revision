@@ -1,0 +1,1850 @@
+{
+  "chapter": {
+    "num": 5,
+    "nn": "05",
+    "roman": "V",
+    "title": "Calcul différentiel dans les espaces vectoriels normés",
+    "printed_pages": [
+      93,
+      114
+    ],
+    "summary": "Le chapitre V pose le cadre du calcul différentiel « sans coordonnées » : les fonctions vont d'un ouvert $U$ d'un espace vectoriel normé réel $E$ vers un espace vectoriel normé $F$, éventuellement de dimension infinie, et la différentielle $df_a$ est une application linéaire continue de $E$ dans $F$. Il commence par des rappels sur les espaces de Banach, les applications linéaires et multilinéaires continues (norme d'opérateur, isométrie $\\mathcal L(E_1,E_2;F)\\simeq\\mathcal L(E_1;\\mathcal L(E_2;F))$) et par trois théorèmes de la théorie des espaces de Banach reposant sur Baire : application ouverte, isomorphisme de Banach, graphe fermé. Il définit ensuite la différentiabilité (Définition V.3.1) par la condition $\\|f(a+h)-f(a)-df_a(h)\\|_F=o(h)$ et en tire les règles de calcul : linéarité, composition (Proposition V.3.12), différentiabilité composante par composante, différentielles partielles et formule $df_a(h)=\\sum_i \\frac{\\partial f}{\\partial x_i}(a)(h_i)$, matrice jacobienne. Le cœur analytique est le théorème des accroissements finis sous forme d'inégalité (Théorèmes V.4.1 et V.4.4), dont découlent le fait qu'une différentielle nulle sur un connexe donne une fonction constante et le théorème fondamental $f(x+y)=f(x)+\\int_0^1 df_{x+ty}(y)\\,dt$ (Théorème V.4.7). On définit enfin les classes $C^k$ par récurrence, on montre que $C^1$ équivaut à l'existence et la continuité des dérivées partielles (Proposition V.5.1), on prouve le lemme de Schwarz (symétrie de $d^2f_a$, Théorème V.5.3), on étudie l'exemple $f\\mapsto f^{-1}$ sur $\\mathrm{Iso}(E;F)$ qui est $C^\\infty$ (Théorème V.5.7, clé du chapitre VI) et on établit les trois formules de Taylor : reste intégral (V.5.11), inégalité de Taylor-Lagrange (V.5.12) et Taylor-Young (V.5.13). Les résultats à savoir énoncer par cœur sont la Définition V.3.1, la règle de composition, le TAF (V.4.4), la Proposition V.5.1, le lemme de Schwarz, le Théorème V.5.7 et les formules de Taylor ; le fil logique est : définition par $o(h)$ → règles de calcul → TAF → tout le reste (régularité, Schwarz, Taylor) se ramène à une fonction d'une variable réelle $t\\mapsto f(a+th)$ et au TAF.",
+    "sections": [
+      {
+        "num": "V.1",
+        "title": "Rappels sur les espaces vectoriels normés",
+        "page": 93
+      },
+      {
+        "num": "V.1.1",
+        "title": "Espaces de Banach",
+        "page": 93
+      },
+      {
+        "num": "V.1.2",
+        "title": "Applications linéaires continues",
+        "page": 93
+      },
+      {
+        "num": "V.1.3",
+        "title": "Applications multilinéaires continues",
+        "page": 94
+      },
+      {
+        "num": "V.1.4",
+        "title": "Un isomorphisme canonique entre espaces d'applications linéaires",
+        "page": 94
+      },
+      {
+        "num": "V.2",
+        "title": "Théorème de l'application ouverte et corollaires",
+        "page": 95
+      },
+      {
+        "num": "V.2.1",
+        "title": "Théorème de Baire",
+        "page": 95
+      },
+      {
+        "num": "V.2.2",
+        "title": "Théorème de l'application ouverte",
+        "page": 96
+      },
+      {
+        "num": "V.2.3",
+        "title": "Théorème d'isomorphisme de Banach",
+        "page": 97
+      },
+      {
+        "num": "V.2.4",
+        "title": "Théorème du graphe fermé",
+        "page": 97
+      },
+      {
+        "num": "V.3",
+        "title": "Applications différentiables, différentielle",
+        "page": 98
+      },
+      {
+        "num": "V.3.1",
+        "title": "Définition de la différentielle",
+        "page": 98
+      },
+      {
+        "num": "V.3.2",
+        "title": "Propriétés de la différentielle",
+        "page": 99
+      },
+      {
+        "num": "V.3.3",
+        "title": "Fonctions à valeurs dans un produit d'espaces vectoriels normés",
+        "page": 101
+      },
+      {
+        "num": "V.3.4",
+        "title": "Différentielles partielles",
+        "page": 102
+      },
+      {
+        "num": "V.3.5",
+        "title": "Applications de $\\mathbb R^m$ dans $\\mathbb R^n$",
+        "page": 102
+      },
+      {
+        "num": "V.4",
+        "title": "Théorèmes de la moyenne",
+        "page": 103
+      },
+      {
+        "num": "V.4.1",
+        "title": "Théorème des accroissements finis",
+        "page": 103
+      },
+      {
+        "num": "V.4.2",
+        "title": "Théorème fondamental du calcul différentiel",
+        "page": 105
+      },
+      {
+        "num": "V.5",
+        "title": "Classe $C^k$ et différentielles d'ordre supérieur",
+        "page": 106
+      },
+      {
+        "num": "V.5.1",
+        "title": "Définitions",
+        "page": 106
+      },
+      {
+        "num": "V.5.2",
+        "title": "Condition suffisante sur les dérivées partielles",
+        "page": 106
+      },
+      {
+        "num": "V.5.3",
+        "title": "Le lemme de Schwarz",
+        "page": 107
+      },
+      {
+        "num": "V.5.4",
+        "title": "Un exemple d'application infiniment différentiable",
+        "page": 109
+      },
+      {
+        "num": "V.5.5",
+        "title": "Formule de Taylor",
+        "page": 110
+      },
+      {
+        "num": "V.6",
+        "title": "Exercices",
+        "page": 112
+      }
+    ]
+  },
+  "results": [
+    {
+      "id": "ch05-banach-series-absolument-convergentes",
+      "kind": "proposition",
+      "ref": "Proposition V.1.1",
+      "title": "Caractérisation des espaces de Banach par les séries absolument convergentes",
+      "page": 93,
+      "statement": "Soit $E$ un espace vectoriel normé (sur $\\mathbb R$). Alors $E$ est complet si et seulement si toute série à valeurs dans $E$ absolument convergente (c'est-à-dire $\\sum_n \\|x_n\\|_E<+\\infty$) est convergente.",
+      "hypotheses": [
+        "$E$ espace vectoriel normé réel"
+      ],
+      "depends_on": [],
+      "used_by_hint": "Preuve du théorème de l'application ouverte (convergence de $\\sum x_n$) et du Théorème V.5.7 (série de Neumann $\\sum h^n$ dans $\\mathcal L(E)$).",
+      "importance": 1,
+      "proof_in_poly": "none",
+      "proof_length": "short",
+      "counterexample_hints": [
+        "Dans $E=$ polynômes $\\subset C([0,1])$ (non complet), la série $\\sum x^n/n!$ est absolument convergente mais sa somme $e^x$ n'est pas dans $E$."
+      ]
+    },
+    {
+      "id": "ch05-norme-operateur-def",
+      "kind": "definition",
+      "ref": "Formule (V.1.1)",
+      "title": "Applications linéaires continues, norme d'opérateur $\\|T\\|_{\\mathcal L(E;F)}$",
+      "page": 93,
+      "statement": "Soient $E$ et $F$ des espaces vectoriels normés. On note $\\mathcal L(E;F)$ l'ensemble des applications linéaires continues de $E$ dans $F$. Une application linéaire $T:E\\to F$ est continue si et seulement si elle est continue en $0$, et ceci a lieu si et seulement si $T$ est bornée, c'est-à-dire $$\\|T\\|_{\\mathcal L(E;F)}:=\\sup_{x\\in E\\setminus\\{0\\}}\\frac{\\|T(x)\\|_F}{\\|x\\|_E}<+\\infty. \\qquad \\text{(V.1.1)}$$ On a de plus $\\|T\\|=\\|T\\|_{\\mathcal L(E;F)}=\\sup_{x\\in E,\\ \\|x\\|_E\\le 1}\\|T(x)\\|_F=\\sup_{x\\in E,\\ \\|x\\|_E=1}\\|T(x)\\|_F$. Sauf mention explicite du contraire, $\\mathcal L(E;F)$ est muni de cette norme d'opérateur ; on note $\\mathcal L(E)=\\mathcal L(E;E)$. Les normes sont souvent notées simplement $\\|\\cdot\\|$ sans mention de l'espace.",
+      "hypotheses": [
+        "$E,F$ espaces vectoriels normés",
+        "$T$ linéaire"
+      ],
+      "importance": 2,
+      "proof_in_poly": "none",
+      "proof_length": "short",
+      "counterexample_hints": [
+        "En dimension infinie une application linéaire peut être non continue : la dérivation $D:P\\mapsto P'$ sur les polynômes munis de $\\|\\cdot\\|_\\infty$ sur $[0,1]$ vérifie $\\|D(x^n)\\|=n\\|x^n\\|$, donc n'est pas bornée."
+      ],
+      "depends_on": []
+    },
+    {
+      "id": "ch05-lef-banach-norme-algebre",
+      "kind": "proposition",
+      "ref": "non numéroté, section V.1.2, p. 93",
+      "title": "$\\mathcal L(E;F)$ est normé, de Banach si $F$ l'est ; norme d'algèbre sur $\\mathcal L(E)$",
+      "page": 93,
+      "statement": "Soient $E$ et $F$ des espaces vectoriels normés. $\\|\\cdot\\|_{\\mathcal L(E;F)}$ est une norme sur $\\mathcal L(E;F)$ ; si de plus $F$ est un espace de Banach, $(\\mathcal L(E;F),\\|\\cdot\\|_{\\mathcal L(E;F)})$ est lui aussi un espace de Banach. La norme d'opérateur sur $\\mathcal L(E)=\\mathcal L(E;E)$ est une norme d'algèbre : $\\|AB\\|\\le\\|A\\|\\,\\|B\\|$ pour $A,B\\in\\mathcal L(E)$. Plus généralement, si $A\\in\\mathcal L(F;G)$ et $B\\in\\mathcal L(E;F)$, alors $AB\\in\\mathcal L(E;G)$ et $\\|AB\\|\\le\\|A\\|\\,\\|B\\|$.",
+      "hypotheses": [
+        "$E,F$ evn",
+        "$F$ de Banach pour la complétude de $\\mathcal L(E;F)$"
+      ],
+      "importance": 2,
+      "proof_in_poly": "none",
+      "proof_length": "short",
+      "used_by_hint": "Complétude de $\\mathcal L(E)$ indispensable dans le Théorème V.5.7 (convergence de $\\sum h^n$) ; norme d'algèbre utilisée partout (composition, Prop. V.3.12, V.5.7).",
+      "counterexample_hints": [
+        "Si $F$ n'est pas complet, $\\mathcal L(E;F)$ ne l'est pas : $E=\\mathbb R$, $\\mathcal L(\\mathbb R;F)\\simeq F$ (Exercice V.1.2)."
+      ],
+      "depends_on": []
+    },
+    {
+      "id": "ch05-multilineaire-continue-caracterisation",
+      "kind": "proposition",
+      "ref": "Proposition V.1.3",
+      "title": "Continuité des applications multilinéaires",
+      "page": 94,
+      "statement": "Soient $E_1,E_2,\\dots,E_n$ et $F$ des espaces vectoriels normés et soit $f:E_1\\times E_2\\times\\cdots\\times E_n\\to F$ une application multilinéaire. Les conditions suivantes sont équivalentes : (a) $f$ est continue en tout point de $E_1\\times\\cdots\\times E_n$ ; (b) $f$ est continue en $0$ ; (c) $f$ est bornée sur le produit des boules unités $\\bar B_{E_1}(0,1)\\times\\cdots\\times\\bar B_{E_n}(0,1)$. (La continuité est une propriété topologique : l'espace produit est muni de la topologie produit, donnée par exemple par la norme $\\|(x_1,\\dots,x_n)\\|_{E_1\\times\\cdots\\times E_n}=\\sum_{i=1}^n\\|x_i\\|_{E_i}$ ou toute norme équivalente.)",
+      "hypotheses": [
+        "$f$ multilinéaire",
+        "$E_i$, $F$ evn"
+      ],
+      "importance": 1,
+      "proof_in_poly": "none",
+      "proof_length": "medium",
+      "counterexample_hints": [
+        "Pour une application seulement « linéaire en chaque variable » mais sans continuité : $E_1=E_2=$ polynômes avec $\\|\\cdot\\|_\\infty$ sur $[0,1]$, $f(P,Q)=\\int_0^1 P'Q$ n'est pas bornée sur le produit des boules unités."
+      ],
+      "depends_on": []
+    },
+    {
+      "id": "ch05-espace-multilineaires-norme",
+      "kind": "definition",
+      "ref": "non numéroté, section V.1.3, p. 94",
+      "title": "L'espace $\\mathcal L(E_1,\\dots,E_n;F)$ et sa norme",
+      "page": 94,
+      "statement": "On note $\\mathcal L(E_1,E_2,\\dots,E_n;F)$ l'espace des applications multilinéaires continues de $E_1\\times E_2\\times\\cdots\\times E_n$ dans $F$. On le munit de la norme $$\\|f\\|=\\sup_{(x_1,\\dots,x_n)\\in\\bar B_{E_1}(0,1)\\times\\cdots\\times\\bar B_{E_n}(0,1)}\\|f(x_1,\\dots,x_n)\\|_F,$$ de sorte que $\\|f(x_1,\\dots,x_n)\\|_F\\le\\|f\\|\\,\\|x_1\\|_{E_1}\\cdots\\|x_n\\|_{E_n}$. Si $F$ est un espace de Banach, $\\mathcal L(E_1,\\dots,E_n;F)$ muni de cette norme est encore un espace de Banach. On note $\\mathcal L(E^{\\otimes m};F):=\\mathcal L(E,E,\\dots,E;F)$ ($m$ facteurs $E$).",
+      "hypotheses": [
+        "$E_i$, $F$ evn",
+        "$F$ Banach pour la complétude"
+      ],
+      "importance": 1,
+      "proof_in_poly": "none",
+      "proof_length": "short",
+      "used_by_hint": "Différentielle d'une bilinéaire (Exemple V.3.6), différentielle seconde $d^2f_a\\in\\mathcal L(E,E;F)$ (section V.5.3).",
+      "depends_on": [],
+      "counterexample_hints": []
+    },
+    {
+      "id": "ch05-isometrie-bilineaire-curryfication",
+      "kind": "proposition",
+      "ref": "non numéroté, section V.1.4, p. 94",
+      "title": "Isométrie canonique $\\mathcal L(E_1,E_2;F)\\simeq\\mathcal L(E_1;\\mathcal L(E_2;F))$",
+      "page": 94,
+      "statement": "Soient $E_1$, $E_2$ et $F$ des espaces vectoriels normés. L'application $\\Phi:\\mathcal L(E_1,E_2;F)\\to\\mathcal L(E_1;\\mathcal L(E_2;F))$ définie par $\\Phi(f)(x)(y)=f(x,y)$ ($x\\in E_1$, $y\\in E_2$) est bien définie, linéaire, et c'est une isométrie (isomorphisme linéaire respectant les normes : $\\|\\Phi(f)\\|=\\|f\\|$), d'inverse $\\Psi:\\mathcal L(E_1;\\mathcal L(E_2;F))\\to\\mathcal L(E_1,E_2;F)$, $\\Psi(g)(x,y)=g(x)(y)$. En particulier $\\|\\Phi\\|\\le 1$, $\\|\\Psi\\|\\le 1$ et $\\Psi\\circ\\Phi=\\mathrm{Id}$.",
+      "hypotheses": [
+        "$E_1,E_2,F$ evn"
+      ],
+      "depends_on": [],
+      "importance": 2,
+      "proof_in_poly": "full",
+      "proof_length": "medium",
+      "used_by_hint": "Permet de voir $d^2f_a=d(df)_a\\in\\mathcal L(E;\\mathcal L(E;F))$ comme une application bilinéaire $E\\times E\\to F$ (section V.5.3, lemme de Schwarz).",
+      "viz_hint": "Pour $E_1=E_2=F=\\mathbb R^2$ : une forme bilinéaire $f(x,y)=x^\\top A y$ ↔ l'application $x\\mapsto (y\\mapsto x^\\top Ay)$ : montrer que fixer $x$ donne une forme linéaire en $y$.",
+      "counterexample_hints": []
+    },
+    {
+      "id": "ch05-baire",
+      "kind": "theorem",
+      "ref": "Théorème V.2.1",
+      "title": "Théorème de Baire (1899)",
+      "page": 96,
+      "statement": "Dans un espace métrique complet, la réunion d'une famille dénombrable de fermés d'intérieur vide est encore d'intérieur vide. De manière équivalente, une intersection dénombrable d'ouverts denses est dense.",
+      "hypotheses": [
+        "espace métrique complet",
+        "famille dénombrable de fermés d'intérieur vide"
+      ],
+      "importance": 2,
+      "proof_in_poly": "none",
+      "proof_length": "medium",
+      "used_by_hint": "Preuve du théorème de l'application ouverte V.2.2.",
+      "counterexample_hints": [
+        "Sans complétude : $\\mathbb Q=\\bigcup_{q\\in\\mathbb Q}\\{q\\}$ est réunion dénombrable de fermés d'intérieur vide mais est d'intérieur non vide dans $\\mathbb Q$.",
+        "Sans dénombrabilité : $\\mathbb R=\\bigcup_{x\\in\\mathbb R}\\{x\\}$."
+      ],
+      "depends_on": []
+    },
+    {
+      "id": "ch05-application-ouverte",
+      "kind": "theorem",
+      "ref": "Théorème V.2.2",
+      "title": "Théorème de l'application ouverte (Schauder, 1930)",
+      "page": 96,
+      "statement": "Soient $E$ et $F$ des espaces de Banach, et soit $f:E\\to F$ une application linéaire continue et surjective. Alors l'image par $f$ d'un ouvert de $E$ est un ouvert de $F$. (La preuve établit l'énoncé équivalent : il existe $c>0$ tel que $B_F(0,c)\\subset f(B_E(0,1))$.)",
+      "hypotheses": [
+        "$E$ de Banach (convergence de la série $\\sum x_n$)",
+        "$F$ de Banach (théorème de Baire dans $F$)",
+        "$f$ linéaire continue",
+        "$f$ surjective"
+      ],
+      "depends_on": [
+        "Théorème V.2.1",
+        "Proposition V.1.1"
+      ],
+      "importance": 2,
+      "proof_in_poly": "full",
+      "proof_length": "long",
+      "used_by_hint": "Théorème d'isomorphisme de Banach V.2.3, puis Corollaire V.2.4 et graphe fermé V.2.5 ; Remarque V.5.8.",
+      "counterexample_hints": [
+        "$F$ non complet : $\\mathrm{Id}:(C([0,1]),\\|\\cdot\\|_\\infty)\\to(C([0,1]),\\|\\cdot\\|_1)$ est linéaire continue bijective mais pas ouverte (son inverse n'est pas continue).",
+        "Non surjective : l'inclusion $\\ell^1\\hookrightarrow\\ell^2$ est continue injective mais l'image de la boule unité n'est pas ouverte dans $\\ell^2$."
+      ],
+      "viz_hint": "Schéma de la preuve : $F=\\bigcup_n n\\overline{f(B)}$, Baire donne une boule $\\bar B_F(0,\\alpha)\\subset\\overline{f(B)}$, puis approximations successives $x_1,x_2,\\dots$ avec $\\sum\\|x_n\\|<1$ pour atteindre exactement $y$."
+    },
+    {
+      "id": "ch05-isomorphisme-banach",
+      "kind": "theorem",
+      "ref": "Théorème V.2.3",
+      "title": "Théorème d'isomorphisme de Banach",
+      "page": 97,
+      "statement": "Soient $E$ et $F$ des espaces de Banach, et soit $f:E\\to F$ un isomorphisme linéaire, continu. Alors son inverse $f^{-1}:F\\to E$ est continu. Plus précisément, si $c>0$ vérifie $B_F(0,c)\\subset f(B_E(0,1))$, alors $\\|f^{-1}\\|\\le \\frac1c$.",
+      "hypotheses": [
+        "$E,F$ de Banach",
+        "$f$ linéaire bijective",
+        "$f$ continue"
+      ],
+      "depends_on": [
+        "Théorème V.2.2"
+      ],
+      "importance": 2,
+      "proof_in_poly": "full",
+      "proof_length": "short",
+      "used_by_hint": "Corollaire V.2.4 ; Remarque V.5.8 (dans $\\mathrm{Iso}(E;F)$ la bicontinuité est automatique) ; chapitre VI (inversion locale : $df_a$ inversible suffit).",
+      "counterexample_hints": [
+        "$\\mathrm{Id}:(C([0,1]),\\|\\cdot\\|_\\infty)\\to(C([0,1]),\\|\\cdot\\|_1)$ : bijection linéaire continue d'inverse non continu car l'espace d'arrivée n'est pas complet."
+      ]
+    },
+    {
+      "id": "ch05-normes-comparables-equivalentes",
+      "kind": "corollary",
+      "ref": "Corollaire V.2.4",
+      "title": "Deux normes complètes comparables sont équivalentes",
+      "page": 97,
+      "statement": "Soit $E$ un espace vectoriel muni de deux normes $\\|\\cdot\\|_1$ et $\\|\\cdot\\|_2$ telles que $E$ soit complet pour chacune d'elles. Alors si ces deux normes sont comparables (il existe $k>0$ tel que $\\|x\\|_1\\le k\\|x\\|_2$ pour tout $x\\in E$), elles sont équivalentes.",
+      "hypotheses": [
+        "$E$ complet pour les deux normes",
+        "normes comparables"
+      ],
+      "depends_on": [
+        "Théorème V.2.3"
+      ],
+      "importance": 1,
+      "proof_in_poly": "full",
+      "proof_length": "short",
+      "used_by_hint": "Preuve du théorème du graphe fermé V.2.5.",
+      "counterexample_hints": [
+        "$C([0,1])$ avec $\\|\\cdot\\|_1\\le\\|\\cdot\\|_\\infty$ : comparables, non équivalentes, car $\\|\\cdot\\|_1$ n'est pas complète."
+      ]
+    },
+    {
+      "id": "ch05-graphe-ferme",
+      "kind": "theorem",
+      "ref": "Théorème V.2.5",
+      "title": "Théorème du graphe fermé",
+      "page": 97,
+      "statement": "Soient $E$ et $F$ des espaces de Banach, et soit $f:E\\to F$ une application linéaire. Alors $f$ est continue si et seulement si son graphe $$\\mathrm{Graphe}(f)=\\{(x,f(x))\\in E\\times F,\\ x\\in E\\}$$ est fermé (dans $E\\times F$).",
+      "hypotheses": [
+        "$E,F$ de Banach",
+        "$f$ linéaire (définie sur tout $E$)"
+      ],
+      "depends_on": [
+        "Corollaire V.2.4"
+      ],
+      "importance": 2,
+      "proof_in_poly": "full",
+      "proof_length": "short",
+      "counterexample_hints": [
+        "$E=C^1([0,1])$ muni de $\\|\\cdot\\|_\\infty$ (non complet), $F=C([0,1])$, $f=D$ la dérivation : le graphe est fermé (si $u_n\\to u$ et $u_n'\\to v$ uniformément, alors $u'=v$) mais $D$ n'est pas continue."
+      ],
+      "viz_hint": "Idée de preuve : la norme $\\|x\\|_f=\\|x\\|_E+\\|f(x)\\|_F$ est complète ssi le graphe est fermé ; comparer avec $\\|\\cdot\\|_E$."
+    },
+    {
+      "id": "ch05-petit-o-def",
+      "kind": "definition",
+      "ref": "non numéroté, section V.3.1, p. 98",
+      "title": "Notation $o(x)$ dans un espace vectoriel normé",
+      "page": 98,
+      "statement": "Soit $f:U\\to\\mathbb R$ une fonction définie sur un ouvert $U$ d'un espace vectoriel normé $E$ contenant $0$. On écrit $f(x)=o(x)$ si pour tout $\\epsilon>0$, il existe $\\delta>0$ tel que pour tout $x\\in B_E(0,\\delta)\\cap U$, $|f(x)|<\\epsilon\\,\\|x\\|_E$. (Par extension, pour $r:U\\to F$ à valeurs dans un evn, $r(h)=o(h)$ signifie $\\|r(h)\\|_F=o(h)$ ; on écrit aussi $o(\\|h\\|^p_E)$ pour $\\|r(h)\\|_F\\le\\epsilon\\|h\\|_E^p$ près de $0$.)",
+      "hypotheses": [
+        "$U$ ouvert contenant $0$"
+      ],
+      "importance": 2,
+      "proof_in_poly": "none",
+      "proof_length": "short",
+      "used_by_hint": "Toutes les définitions et preuves du chapitre (Définition V.3.1, Proposition V.3.12, Taylor-Young).",
+      "depends_on": [],
+      "counterexample_hints": []
+    },
+    {
+      "id": "ch05-differentielle-def",
+      "kind": "definition",
+      "ref": "Définition V.3.1",
+      "title": "Application différentiable en un point, différentielle $df_a$, classe $C^1$",
+      "page": 98,
+      "statement": "Soient $E$ et $F$ des espaces vectoriels normés et $U$ un ouvert de $E$. On dit que l'application $f:U\\to F$ est **différentiable en $a\\in U$** s'il existe une application linéaire continue $df_a:E\\to F$ telle que $$\\|f(a+h)-f(a)-df_a(h)\\|_F=o(h). \\qquad\\text{(V.3.1)}$$ Cette application linéaire est unique ; on appelle $df_a$ la **différentielle** de $f$ au point $a$. On dit que $f$ est **différentiable sur $U$** si elle est différentiable en tout point de $U$. On dit que $f$ est **de classe $C^1$ sur $U$** si elle est différentiable en tout point de $U$ et si l'application $df:U\\to\\mathcal L(E;F)$, $a\\mapsto df_a$, est continue (pour la norme d'opérateur sur $\\mathcal L(E;F)$).",
+      "hypotheses": [
+        "$U$ ouvert de $E$ (pour que $a+h\\in U$ pour $h$ petit)",
+        "$df_a$ linéaire ET continue",
+        "reste en $o(h)$ pour la norme de $E$ et celle de $F$"
+      ],
+      "importance": 3,
+      "proof_in_poly": "none",
+      "proof_length": "short",
+      "used_by_hint": "Tout le chapitre et les chapitres VI à IX.",
+      "counterexample_hints": [
+        "$f(x)=|x|$ sur $\\mathbb R$ en $0$ : pas de $df_0$ linéaire.",
+        "$f(x,y)=\\sqrt{x^2+y^2}$ en $(0,0)$ : dérivées directionnelles existent toutes mais ne dépendent pas linéairement de $h$.",
+        "Oublier « continue » : en dimension infinie, si l'on admet $df_a$ non continue, $f$ peut être discontinue en $a$ (Remarque V.3.2)."
+      ],
+      "viz_hint": "Graphe d'une fonction $\\mathbb R^2\\to\\mathbb R$ et son plan tangent en $a$ ; zoomer autour de $a$ : la surface se confond avec le plan, l'erreur $f(a+h)-f(a)-df_a(h)$ est petite devant $\\|h\\|$ (afficher le rapport).",
+      "depends_on": []
+    },
+    {
+      "id": "ch05-derivee-directionnelle-unicite",
+      "kind": "formula",
+      "ref": "non numéroté, section V.3.1, p. 98",
+      "title": "$df_a(h)$ comme dérivée directionnelle ; unicité de la différentielle",
+      "page": 98,
+      "statement": "Fixons $h\\in E$. Pour $\\epsilon>0$ assez petit, $a+th\\in U$ pour tout $t\\in\\,]-\\epsilon;\\epsilon[$ car $U$ est ouvert, et si $df_a$ existe, on a $$df_a(h)=\\lim_{t\\to 0}\\frac{f(a+th)-f(a)}{t},$$ ce qui montre au passage l'unicité de $df_a$ (la différentielle est déterminée par les dérivées directionnelles).",
+      "hypotheses": [
+        "$f$ différentiable en $a$",
+        "$U$ ouvert"
+      ],
+      "depends_on": [
+        "Définition V.3.1"
+      ],
+      "importance": 2,
+      "proof_in_poly": "sketch",
+      "proof_length": "short",
+      "used_by_hint": "Méthode de calcul pratique de $df_a(h)$ ; Remarque V.5.6 ; exercices V.6.1, V.6.2.",
+      "counterexample_hints": [
+        "La réciproque est fausse : $f(x,y)=x^2y/(x^4+y^2)$ (prolongée par $0$) a toutes ses dérivées directionnelles en $0$, nulles, mais n'est pas continue en $0$ (regarder $y=x^2$)."
+      ]
+    },
+    {
+      "id": "ch05-differentiable-implique-continue",
+      "kind": "remark",
+      "ref": "Remarque V.3.2",
+      "title": "Différentiable en $a$ entraîne continue en $a$ ; rôle de la continuité de $df_a$",
+      "page": 98,
+      "statement": "Dans la définition de la différentielle, il est exigé que $df_a:E\\to F$ soit continue. Ceci entraîne la continuité de $f$ en $a$. Alternativement, on peut exiger la continuité de $f$ en $a$ dans la définition de la différentiabilité : une application linéaire $df_a$ vérifiant (V.3.1) est alors nécessairement continue. Rappelons qu'en dimension finie, une application linéaire est toujours continue.",
+      "hypotheses": [
+        "$f$ différentiable en $a$"
+      ],
+      "depends_on": [
+        "Définition V.3.1"
+      ],
+      "importance": 2,
+      "proof_in_poly": "none",
+      "proof_length": "short",
+      "counterexample_hints": [
+        "Continue n'implique pas différentiable : $x\\mapsto|x|$ en $0$."
+      ]
+    },
+    {
+      "id": "ch05-differentielle-normes-equivalentes",
+      "kind": "remark",
+      "ref": "Remarque V.3.3",
+      "title": "La différentiabilité ne dépend que des classes d'équivalence des normes",
+      "page": 98,
+      "statement": "La définition de la différentielle dépend des normes choisies sur $E$ et $F$. Si l'on remplace $\\|\\cdot\\|_E$ et $\\|\\cdot\\|_F$ par des normes équivalentes, l'ouvert $U$ reste ouvert pour la nouvelle topologie, et si $f$ est différentiable avec les anciennes normes, elle l'est encore, avec la même différentielle $df_a$, pour les nouvelles normes. En particulier, comme en dimension finie toutes les normes sont équivalentes, la différentiation ne dépend pas des normes en dimension finie.",
+      "depends_on": [
+        "Définition V.3.1"
+      ],
+      "importance": 1,
+      "proof_in_poly": "none",
+      "proof_length": "short",
+      "counterexample_hints": [
+        "En dimension infinie, avec des normes non équivalentes la notion change : $F:\\ell^1\\to\\ell^1$ de l'Exercice V.6.4 est $C^1$ pour $\\|\\cdot\\|_1$ mais le résultat tombe si l'on munit l'espace d'une norme non équivalente."
+      ],
+      "hypotheses": []
+    },
+    {
+      "id": "ch05-derivee-variable-reelle",
+      "kind": "example",
+      "ref": "Exemple V.3.4",
+      "title": "Fonctions d'une variable réelle : $f'(a)=df_a(1)$",
+      "page": 98,
+      "statement": "Soit $f:U\\to F$ une application d'un ouvert $U$ de $\\mathbb R$ dans un espace vectoriel normé $F$, différentiable au point $a\\in U$. Alors $df_a\\in\\mathcal L(\\mathbb R;F)$. Comme $\\mathcal L(\\mathbb R;F)$ est canoniquement isomorphe à $F$ par $T\\mapsto T(1)$ (Exercice V.1.2), on identifie $df_a$ au vecteur $df_a(1)\\in F$ (le vecteur tangent de $f$ en $a$). On note couramment $f'(a)$ le vecteur $df_a(1)$, de sorte que $df_a(t)=t\\,f'(a)$.",
+      "hypotheses": [
+        "$U$ ouvert de $\\mathbb R$",
+        "$f$ différentiable en $a$"
+      ],
+      "depends_on": [
+        "Exercice V.1.2"
+      ],
+      "importance": 2,
+      "proof_in_poly": "none",
+      "proof_length": "short",
+      "used_by_hint": "Théorèmes V.4.1, V.4.3, V.4.6 ; réduction $g(t)=f(a+th)$ dans tout le chapitre.",
+      "counterexample_hints": []
+    },
+    {
+      "id": "ch05-differentielle-lineaire",
+      "kind": "example",
+      "ref": "Exemple V.3.5",
+      "title": "Différentielle d'une application linéaire continue",
+      "page": 99,
+      "statement": "Soit $f:E\\to F$ une application linéaire continue entre deux espaces vectoriels normés. Alors $f$ est partout différentiable, et sa différentielle en tout point est $f$ : $df_{x_0}=f$ pour tout $x_0\\in E$. En effet $f(x_0+h)-f(x_0)-f(h)=0$ quels que soient $x_0$ et $h$ dans $E$.",
+      "hypotheses": [
+        "$f$ linéaire",
+        "$f$ continue"
+      ],
+      "depends_on": [
+        "Définition V.3.1"
+      ],
+      "importance": 2,
+      "proof_in_poly": "full",
+      "proof_length": "short",
+      "used_by_hint": "Propositions V.3.15, V.3.17 (les $p_i$, $\\iota_i$ sont linéaires continues) ; Exemple V.5.2.",
+      "counterexample_hints": [
+        "Une application linéaire non continue n'est pas différentiable (sa différentielle devrait être elle-même, qui n'est pas dans $\\mathcal L(E;F)$)."
+      ]
+    },
+    {
+      "id": "ch05-differentielle-bilineaire",
+      "kind": "example",
+      "ref": "Exemple V.3.6",
+      "title": "Différentielle d'une application bilinéaire continue",
+      "page": 99,
+      "statement": "Soient $E_1$, $E_2$ et $F$ des espaces vectoriels normés. On munit $E=E_1\\times E_2$ de la norme $\\|(x,y)\\|_E=\\|x\\|_{E_1}+\\|y\\|_{E_2}$. Soit $f:E_1\\times E_2\\to F$ une application bilinéaire continue. La différentielle de $f$ au point $(a,b)$ est donnée par $$df_{(a,b)}(h,k)=f(a,k)+f(h,b),\\qquad(h\\in E_1,\\ k\\in E_2).$$ En effet $f(a+h,b+k)-f(a,b)-df_{(a,b)}(h,k)=f(h,k)$ et $\\|f(h,k)\\|_F\\le\\|f\\|\\,\\|h\\|_{E_1}\\|k\\|_{E_2}=o((h,k))$.",
+      "hypotheses": [
+        "$f$ bilinéaire",
+        "$f$ continue (pour avoir $\\|f(h,k)\\|\\le\\|f\\|\\|h\\|\\|k\\|$)"
+      ],
+      "depends_on": [
+        "Définition V.3.1",
+        "non numéroté, section V.1.3, p. 94"
+      ],
+      "importance": 2,
+      "proof_in_poly": "full",
+      "proof_length": "short",
+      "used_by_hint": "Formule de Leibniz (Exemple V.3.16) ; continuité de $f\\mapsto d\\Psi_f$ dans le Théorème V.5.7 ; Exercice V.3.7 (cas multilinéaire).",
+      "viz_hint": "Pour $f(x,y)=xy$ sur $\\mathbb R^2$ : l'aire du rectangle $(a+h)(b+k)$ se décompose en $ab$ + deux bandes linéaires $ak+hb$ + le petit coin $hk$ (le $o$).",
+      "counterexample_hints": []
+    },
+    {
+      "id": "ch05-gradient-hilbert",
+      "kind": "definition",
+      "ref": "Exemple V.3.8",
+      "title": "Gradient $\\nabla f(a)$ dans un espace de Hilbert",
+      "page": 99,
+      "statement": "On suppose que $(E,\\langle\\cdot,\\cdot\\rangle_E)$ est un espace de Hilbert. Soit $f:U\\to\\mathbb R$ une application définie sur un ouvert $U$ de $E$, différentiable en $a$, de différentielle $df_a:E\\to\\mathbb R$. D'après le théorème de représentation de Riesz, il existe un unique vecteur $\\nabla f(a)\\in E$ tel que pour tout $h\\in E$, $$\\langle\\nabla f(a),h\\rangle_E=df_a(h).$$ On appelle le vecteur $\\nabla f(a)$ le **gradient** de $f$ en $a$.",
+      "hypotheses": [
+        "$E$ de Hilbert (Riesz : complétude + produit scalaire)",
+        "$f$ à valeurs réelles",
+        "$f$ différentiable en $a$"
+      ],
+      "depends_on": [
+        "Définition V.3.1"
+      ],
+      "importance": 2,
+      "proof_in_poly": "none",
+      "proof_length": "short",
+      "used_by_hint": "Exercices V.3.10, V.6.1 ; chapitre VIII (calcul des variations) et IX (extrema liés).",
+      "counterexample_hints": [
+        "Dans un espace de Banach non hilbertien ($\\ell^1$), $df_a$ est une forme linéaire continue mais il n'y a pas de gradient canonique."
+      ],
+      "viz_hint": "Lignes de niveau de $f:\\mathbb R^2\\to\\mathbb R$ et vecteur gradient, orthogonal aux lignes de niveau ; changer le produit scalaire (ellipses) change $\\nabla f$ mais pas $df_a$."
+    },
+    {
+      "id": "ch05-restriction-sous-espace",
+      "kind": "example",
+      "ref": "Exemple V.3.9",
+      "title": "Différentielle d'une restriction à un sous-espace",
+      "page": 99,
+      "statement": "Soit $f:U\\to F$ une application différentiable d'un ouvert $U$ d'un espace vectoriel normé $E$ dans un espace vectoriel normé $F$. Soit $E'$ un sous-espace de $E$, muni de la norme induite. Alors $U'=E'\\cap U$ est un ouvert de $E'$, la restriction $g$ de $f$ à $U'$ est différentiable, et pour tout $a\\in U'$, $dg_a$ est la restriction de $df_a$ à $E'$.",
+      "hypotheses": [
+        "$f$ différentiable sur $U$",
+        "$E'$ sous-espace muni de la norme induite"
+      ],
+      "depends_on": [
+        "Définition V.3.1"
+      ],
+      "importance": 1,
+      "proof_in_poly": "none",
+      "proof_length": "short",
+      "used_by_hint": "Exercice V.3.10 (gradient de la restriction = projection orthogonale du gradient).",
+      "counterexample_hints": []
+    },
+    {
+      "id": "ch05-linearite-differentielle",
+      "kind": "proposition",
+      "ref": "Proposition V.3.11",
+      "title": "Linéarité de la différentielle",
+      "page": 99,
+      "statement": "Soient $E$ et $F$ des espaces vectoriels normés, $U$ un ouvert de $E$ et $f,g:U\\to F$ des applications différentiables en un point $a$ de $U$. Alors toute combinaison linéaire $\\lambda f+\\mu g$ ($\\lambda,\\mu\\in\\mathbb R$) de $f$ et de $g$ est encore différentiable au point $a$, et $$d(\\lambda f+\\mu g)_a=\\lambda\\,df_a+\\mu\\,dg_a.$$",
+      "hypotheses": [
+        "$f,g$ différentiables en $a$"
+      ],
+      "depends_on": [
+        "Définition V.3.1"
+      ],
+      "importance": 2,
+      "proof_in_poly": "none",
+      "proof_length": "short",
+      "counterexample_hints": []
+    },
+    {
+      "id": "ch05-composition-differentielles",
+      "kind": "proposition",
+      "ref": "Proposition V.3.12",
+      "title": "Composition des différentielles (règle de la chaîne)",
+      "page": 100,
+      "statement": "Soient $E$, $F$ et $G$ des espaces vectoriels normés, $U$ un ouvert de $E$, $f:U\\to F$ une application différentiable en un point $a$ de $U$, $V$ un ouvert de $F$ contenant $f(a)$ et $g:V\\to G$ une application différentiable en $f(a)$. Alors $g\\circ f$ (définie sur l'ouvert $f^{-1}(V)\\cap U$ contenant $a$) est différentiable en $a$, et $$d(g\\circ f)_a=dg_{f(a)}\\circ df_a.$$",
+      "hypotheses": [
+        "$f$ différentiable en $a$",
+        "$g$ différentiable en $f(a)$",
+        "$V$ ouvert contenant $f(a)$"
+      ],
+      "depends_on": [
+        "Définition V.3.1",
+        "Remarque V.3.2"
+      ],
+      "importance": 3,
+      "proof_in_poly": "full",
+      "proof_length": "medium",
+      "used_by_hint": "Partout : Propositions V.3.15, V.3.17, Remarques V.3.13-14, TAF V.4.4 (via $h(t)=f((1-t)a+tb)$), V.4.7, Taylor V.5.11, V.5.7 ; chapitres VI et IX.",
+      "counterexample_hints": [
+        "Si $g$ est seulement différentiable en un autre point que $f(a)$, la formule échoue : $f(x)=x^2$, $g=|\\cdot|$, $a=0$ fonctionne ($g\\circ f=x^2$ dérivable) mais la formule $dg_{0}$ n'a pas de sens.",
+        "L'ordre de composition compte : $dg_{f(a)}\\circ df_a$ et non $df_a\\circ dg_{f(a)}$ (dimensions incompatibles en général)."
+      ],
+      "viz_hint": "Chaîne $E\\to F\\to G$ avec un petit déplacement $h$ : $f$ l'envoie sur $df_a(h)+o(h)$, puis $g$ sur $dg_{f(a)}(df_a(h))+o(h)$ ; montrer que les deux restes restent négligeables."
+    },
+    {
+      "id": "ch05-vecteur-tangent-courbe",
+      "kind": "remark",
+      "ref": "Remarque V.3.13",
+      "title": "Interprétation géométrique : $df_a$ transporte les vecteurs tangents aux courbes",
+      "page": 100,
+      "statement": "Soient $E$, $F$ des espaces vectoriels normés, $U$ un ouvert de $E$, $f:U\\to F$ différentiable en $a\\in U$. Soient $\\varepsilon>0$ et $\\alpha:\\,]-\\varepsilon;\\varepsilon[\\,\\to E$ une application de classe $C^1$ (une courbe paramétrée dans $E$) avec $\\alpha(0)=a$ ; posons $h=\\alpha'(0)=d\\alpha_0(1)$ (vecteur tangent à la courbe en $t=0$). Alors $\\beta=f\\circ\\alpha:\\,]-\\varepsilon;\\varepsilon[\\,\\to F$ est une courbe dans $F$, différentiable en $0$, et $$\\beta'(0)=d\\beta_0(1)=df_a(d\\alpha_0(1))=df_a(h).$$ La différentielle $df_a$ envoie donc le vecteur tangent $h$ à la courbe $\\alpha$ en $t=0$ sur le vecteur tangent en $t=0$ à la courbe image $\\beta=f\\circ\\alpha$.",
+      "hypotheses": [
+        "$\\alpha$ de classe $C^1$ avec $\\alpha(0)=a$",
+        "$f$ différentiable en $a$"
+      ],
+      "depends_on": [
+        "Proposition V.3.12",
+        "Exemple V.3.4"
+      ],
+      "importance": 2,
+      "proof_in_poly": "full",
+      "proof_length": "short",
+      "used_by_hint": "Chapitre IX : définition de l'espace tangent à une sous-variété et de la différentielle d'une application entre sous-variétés.",
+      "viz_hint": "Une courbe $\\alpha$ dans $\\mathbb R^2$ et son image par $f:\\mathbb R^2\\to\\mathbb R^2$ (par exemple $(x,y)\\mapsto(x^2-y^2,2xy)$) : afficher $h=\\alpha'(0)$ et $df_a(h)=\\beta'(0)$ ; faire varier la courbe à vecteur tangent fixé : $\\beta'(0)$ ne change pas.",
+      "counterexample_hints": []
+    },
+    {
+      "id": "ch05-application-tangente",
+      "kind": "remark",
+      "ref": "Remarque V.3.14",
+      "title": "Application tangente $Tf$",
+      "page": 100,
+      "statement": "Soient $E$, $F$ des espaces vectoriels normés, $U$ un ouvert de $E$, $f:U\\to F$ différentiable sur $U$. On pose $$Tf:U\\times E\\to F\\times F,\\qquad (x,h)\\mapsto(f(x),df_x(h)).$$ Cette application s'appelle l'**application tangente**. La règle de composition devient alors simplement $T(g\\circ f)=Tg\\circ Tf$.",
+      "hypotheses": [
+        "$f$ différentiable sur $U$"
+      ],
+      "depends_on": [
+        "Proposition V.3.12"
+      ],
+      "importance": 1,
+      "proof_in_poly": "none",
+      "proof_length": "short",
+      "counterexample_hints": []
+    },
+    {
+      "id": "ch05-projections-injections-canoniques",
+      "kind": "formula",
+      "ref": "Formule (V.3.2)",
+      "title": "Projections $p_i$ et injections $\\iota_i$ canoniques d'un produit",
+      "page": 101,
+      "statement": "Soient $F_1,\\dots,F_n$ des espaces vectoriels normés. On munit $F=F_1\\times\\cdots\\times F_n$ de la norme $\\|(x_1,\\dots,x_n)\\|_F=\\|x_1\\|_{F_1}+\\cdots+\\|x_n\\|_{F_n}$, qui donne la topologie produit. Pour $i=1,\\dots,n$ on considère la projection canonique $p_i:F\\to F_i$, $(x_1,\\dots,x_n)\\mapsto x_i$, et l'injection canonique $\\iota_i:F_i\\to F$, $x_i\\mapsto(0,\\dots,x_i,\\dots,0)$ (des $0$ partout sauf à la $i$-ème place). Ce sont des applications linéaires continues et $$p_i\\circ\\iota_i=\\mathrm{Id}_{F_i},\\qquad\\sum_{i=1}^n\\iota_i\\circ p_i=\\mathrm{Id}_F.\\qquad\\text{(V.3.2)}$$",
+      "hypotheses": [
+        "$F_i$ evn"
+      ],
+      "importance": 1,
+      "proof_in_poly": "none",
+      "proof_length": "short",
+      "used_by_hint": "Propositions V.3.15 et V.3.17, formule (V.3.4) de la jacobienne.",
+      "depends_on": [],
+      "counterexample_hints": []
+    },
+    {
+      "id": "ch05-differentiabilite-composantes",
+      "kind": "proposition",
+      "ref": "Proposition V.3.15",
+      "title": "Différentiabilité d'une application à valeurs dans un produit (composante par composante)",
+      "page": 101,
+      "statement": "Soient $E,F_1,\\dots,F_n$ des espaces vectoriels normés. Soit $f:U\\to F=F_1\\times\\cdots\\times F_n$ une application, où $U$ est un ouvert de $E$. Pour que $f$ soit différentiable au point $a\\in U$, il faut et il suffit que pour tout $i$, $f_i:=p_i\\circ f$ soit différentiable au point $a$, et l'on a alors $$df_a=\\sum_{i=1}^n\\iota_i\\circ(df_i)_a,\\qquad\\text{c'est-à-dire}\\qquad (df_i)_a=p_i\\circ df_a.$$",
+      "hypotheses": [
+        "$F$ produit fini muni de la norme somme",
+        "$U$ ouvert de $E$"
+      ],
+      "depends_on": [
+        "Proposition V.3.12",
+        "Exemple V.3.5",
+        "Formule (V.3.2)",
+        "Proposition V.3.11"
+      ],
+      "importance": 2,
+      "proof_in_poly": "full",
+      "proof_length": "short",
+      "used_by_hint": "Formule de Leibniz V.3.16 ; matrice jacobienne (V.3.4) ; calcul de différentielles de $\\mathbb R^m\\to\\mathbb R^n$ ligne par ligne.",
+      "counterexample_hints": [
+        "Attention : c'est une équivalence pour les composantes à l'ARRIVÉE ; pour les variables au DÉPART (Prop. V.3.17) ce n'est qu'une implication (Remarque V.3.18)."
+      ]
+    },
+    {
+      "id": "ch05-formule-leibniz",
+      "kind": "example",
+      "ref": "Exemple V.3.16",
+      "title": "Formule de Leibniz (différentielle d'un « produit » bilinéaire)",
+      "page": 101,
+      "statement": "Soient $E$, $F_1$, $F_2$ et $G$ des espaces vectoriels normés, $U$ un ouvert de $E$, $f_1:U\\to F_1$, $f_2:U\\to F_2$ et $b:F_1\\times F_2\\to G$ bilinéaire continue. On définit $g:U\\to G$ par $g(x)=b(f_1(x),f_2(x))$. Si $f_1$ et $f_2$ sont différentiables au point $a\\in U$, alors il en est de même de $g$, et $$dg_a(h)=b\\big((df_1)_a(h),f_2(a)\\big)+b\\big(f_1(a),(df_2)_a(h)\\big),\\qquad(h\\in E).$$",
+      "hypotheses": [
+        "$b$ bilinéaire continue",
+        "$f_1,f_2$ différentiables en $a$"
+      ],
+      "depends_on": [
+        "Proposition V.3.15",
+        "Proposition V.3.12",
+        "Exemple V.3.6"
+      ],
+      "importance": 2,
+      "proof_in_poly": "sketch",
+      "proof_length": "short",
+      "used_by_hint": "Exercices V.6.1 ($x/\\|x\\|$), V.6.2 ($A\\mapsto A^n$), V.6.5 ($\\int\\det(f,f')$) ; différentielle de $x\\mapsto\\|x\\|^2=\\langle x,x\\rangle$.",
+      "counterexample_hints": [
+        "Pour $b$ non symétrique (produit matriciel) l'ordre des facteurs est essentiel : $d(A\\mapsto A^2)_A(H)=AH+HA\\neq 2AH$."
+      ]
+    },
+    {
+      "id": "ch05-differentielles-partielles",
+      "kind": "proposition",
+      "ref": "Proposition V.3.17",
+      "title": "Différentielles (dérivées) partielles $\\frac{\\partial f}{\\partial x_i}(a)$ et formule $df_a=\\sum_i\\frac{\\partial f}{\\partial x_i}(a)(h_i)$",
+      "page": 102,
+      "statement": "Soit $E=E_1\\times\\cdots\\times E_m$ un produit d'espaces vectoriels normés, $U$ un ouvert de $E$, $f:U\\to F$ à valeurs dans un evn $F$. Fixons $a=(a_1,\\dots,a_m)\\in U$ et, pour $i=1,\\dots,m$, l'application partielle $f_{[i]}:x_i\\mapsto f(a_1,\\dots,a_{i-1},x_i,a_{i+1},\\dots,a_m)$, définie sur un voisinage ouvert de $a_i$ dans $E_i$. Si $f$ est différentiable au point $a\\in U$, alors pour tout $i=1,\\dots,m$, l'application partielle $f_{[i]}$ est différentiable en $a_i$. On note $\\frac{\\partial f}{\\partial x_i}(a)$ la différentielle de $f_{[i]}$ en $a_i$ : c'est un élément de $\\mathcal L(E_i;F)$ que l'on appelle la **dérivée partielle** de $f$ par rapport à la variable $x_i$. En outre, $\\frac{\\partial f}{\\partial x_i}(a)=df_a\\circ\\iota_i$ et $$df_a(h_1,\\dots,h_m)=\\sum_{i=1}^m\\frac{\\partial f}{\\partial x_i}(a)(h_i),\\qquad(h_1\\in E_1,\\dots,h_m\\in E_m).\\qquad\\text{(V.3.3)}$$",
+      "hypotheses": [
+        "$E$ produit fini d'evn",
+        "$f$ différentiable en $a$ (hypothèse forte : pas de réciproque)"
+      ],
+      "depends_on": [
+        "Proposition V.3.12",
+        "Exemple V.3.5",
+        "Formule (V.3.2)"
+      ],
+      "importance": 3,
+      "proof_in_poly": "full",
+      "proof_length": "short",
+      "used_by_hint": "Proposition V.5.1 (réciproque sous continuité), matrice jacobienne, chapitre VI (fonctions implicites : $\\partial f/\\partial y$ inversible).",
+      "counterexample_hints": [
+        "Réciproque fausse : $f(x,y)=\\frac{xy}{x^2+y^2}$ (et $f(0,0)=0$) a des dérivées partielles nulles en $0$ mais n'est pas continue, donc pas différentiable en $0$ (Remarque V.3.18)."
+      ],
+      "viz_hint": "Surface $z=f(x,y)$ : couper par les plans $y=a_2$ et $x=a_1$ donne les courbes partielles ; leurs pentes sont les dérivées partielles ; le plan tangent est engendré par les deux tangentes SI $f$ est différentiable."
+    },
+    {
+      "id": "ch05-partielles-sans-differentiabilite",
+      "kind": "remark",
+      "ref": "Remarque V.3.18",
+      "title": "L'existence des dérivées partielles n'implique pas la différentiabilité",
+      "page": 102,
+      "statement": "Contrairement à la Proposition V.3.15, la Proposition V.3.17 n'établit qu'une implication et non une équivalence : il est faux d'affirmer que l'existence des différentielles partielles en un point implique la différentiabilité de $f$ en ce point. (La question est reprise en section V.5.2 : la Proposition V.5.1 donne la réciproque sous hypothèse de continuité des dérivées partielles.)",
+      "depends_on": [
+        "Proposition V.3.17"
+      ],
+      "importance": 2,
+      "proof_in_poly": "none",
+      "proof_length": "short",
+      "counterexample_hints": [
+        "$f(x,y)=\\frac{xy}{x^2+y^2}$, $f(0,0)=0$ : $\\partial_xf(0,0)=\\partial_yf(0,0)=0$ mais $f(t,t)=1/2\\not\\to 0$.",
+        "$f(x,y)=\\frac{x^2y}{x^4+y^2}$ : toutes les dérivées directionnelles en $0$ existent (et sont nulles), pourtant $f(t,t^2)=1/2$.",
+        "$f(x,y)=\\frac{x^3}{x^2+y^2}$ : continue, dérivées directionnelles en $0$ existent mais $h\\mapsto\\partial_hf(0)=h_1^3/(h_1^2+h_2^2)$ n'est pas linéaire."
+      ],
+      "viz_hint": "Tracer la surface $z=xy/(x^2+y^2)$ : les deux courbes partielles en $0$ sont plates (axes) mais la surface a un « pli » le long des diagonales ; aucun plan tangent.",
+      "hypotheses": []
+    },
+    {
+      "id": "ch05-matrice-jacobienne",
+      "kind": "definition",
+      "ref": "non numéroté, section V.3.5, p. 103",
+      "title": "Matrice jacobienne, formule (V.3.4), jacobien $\\mathrm{Jac}(f)(a)$",
+      "page": 103,
+      "statement": "Soit $f:\\mathbb R^m\\to\\mathbb R^n$ (ou définie sur un ouvert) et $a\\in\\mathbb R^m$. Les applications partielles $f_{[i]}$ (section V.3.4) et les composantes $f_j$ (section V.3.3) permettent de définir $f_{[i]\\,j}=f_{j\\,[i]}$, fonction d'un ouvert de $\\mathbb R$ dans $\\mathbb R$, notée $f_{i,j}$. Si $f$ est différentiable en $a$, les $f_{i,j}$ sont dérivables en $a_i$, $f_{i,j}'(a_i)=\\frac{\\partial f_j}{\\partial x_i}(a)$ (en identifiant $\\mathcal L(\\mathbb R;\\mathbb R)$ et $\\mathbb R$ comme dans l'Exercice V.1.2) et $$df_a=\\sum_{i=1,\\dots,m}\\ \\sum_{j=1,\\dots,n}\\iota_j\\circ\\frac{\\partial f_j}{\\partial x_i}(a)\\circ p_i.\\qquad\\text{(V.3.4)}$$ Autrement dit $df_a$ est représentée dans les bases canoniques de $\\mathbb R^m$ et $\\mathbb R^n$ par la matrice à $n$ lignes et $m$ colonnes $\\big(\\frac{\\partial f_j}{\\partial x_i}(a)\\big)_{j,i}$, appelée **matrice jacobienne** de $f$ en $a$ : $df_a(h_1,\\dots,h_m)$ est le produit de cette matrice par le vecteur colonne $(h_1,\\dots,h_m)^\\top$. Si $n=m$, le déterminant de la matrice jacobienne, noté $\\mathrm{Jac}(f)(a)$, s'appelle le **déterminant jacobien** (ou jacobien) de $f$ en $a$.",
+      "hypotheses": [
+        "$f$ différentiable en $a$ (sinon la matrice des dérivées partielles peut exister sans représenter une différentielle)"
+      ],
+      "depends_on": [
+        "Proposition V.3.15",
+        "Proposition V.3.17",
+        "Exercice V.1.2"
+      ],
+      "importance": 2,
+      "proof_in_poly": "sketch",
+      "proof_length": "short",
+      "used_by_hint": "Chapitre VI (inversion locale : $\\mathrm{Jac}(f)(a)\\neq 0$), chapitre IX (rang de la jacobienne, immersions/submersions), changement de variables.",
+      "counterexample_hints": [
+        "Confusion lignes/colonnes : la ligne $j$ est le gradient de la composante $f_j$ ; la colonne $i$ est la dérivée partielle $\\partial f/\\partial x_i$ (vecteur de $\\mathbb R^n$)."
+      ],
+      "viz_hint": "Pour $f:\\mathbb R^2\\to\\mathbb R^2$, montrer l'image d'une petite grille autour de $a$ : elle est envoyée sur un petit parallélogramme donné par la matrice jacobienne ; $|\\mathrm{Jac}(f)(a)|$ = facteur d'aire."
+    },
+    {
+      "id": "ch05-accroissements-finis-vectoriel",
+      "kind": "theorem",
+      "ref": "Théorème V.4.1",
+      "title": "Inégalité des accroissements finis pour une fonction d'une variable réelle à valeurs vectorielles",
+      "page": 103,
+      "statement": "Soient $a$ et $b$ deux réels avec $a<b$, et $F$ un espace vectoriel normé. Soient $f:[a;b]\\to F$ et $g:[a;b]\\to\\mathbb R$ deux applications continues sur $[a;b]$ et différentiables sur $]a;b[$. Supposons que pour tout $t\\in\\,]a;b[$, $\\|f'(t)\\|_F\\le g'(t)$. Alors $$\\|f(b)-f(a)\\|_F\\le g(b)-g(a).$$",
+      "hypotheses": [
+        "$f,g$ continues sur le segment fermé $[a;b]$",
+        "$f,g$ différentiables sur l'ouvert $]a;b[$",
+        "majoration ponctuelle $\\|f'(t)\\|_F\\le g'(t)$ sur $]a;b[$",
+        "$F$ evn quelconque (pas besoin de complétude)"
+      ],
+      "depends_on": [
+        "Définition V.3.1"
+      ],
+      "importance": 2,
+      "proof_in_poly": "full",
+      "proof_length": "medium",
+      "used_by_hint": "Corollaire V.4.3, puis TAF V.4.4 ; Lemme V.5.10 (Taylor-Lagrange).",
+      "counterexample_hints": [
+        "Pas d'égalité des accroissements finis à valeurs vectorielles : $f(t)=e^{it}\\in\\mathbb C\\simeq\\mathbb R^2$ sur $[0;2\\pi]$ : $f(2\\pi)-f(0)=0$ mais $\\|f'(t)\\|=1$ pour tout $t$.",
+        "Sans continuité aux bornes : $f=\\mathbf 1_{\\{b\\}}$, $g=0$."
+      ],
+      "viz_hint": "Dichotomie de la preuve : on coupe $[u;v]$ en deux, on garde la moitié où l'excès $\\|f(v)-f(u)\\|-(g(v)-g(u))$ reste $\\ge M/2^k$, les intervalles emboîtés convergent vers $w$ où la différentiabilité donne la contradiction."
+    },
+    {
+      "id": "ch05-accroissements-finis-denombrable",
+      "kind": "remark",
+      "ref": "Remarque V.4.2",
+      "title": "Affaiblissement : exceptions dénombrables",
+      "page": 104,
+      "statement": "Dans le Théorème V.4.1, on peut affaiblir les hypothèses en supposant seulement que pour tout $t\\in\\,]a;b[$, sauf peut-être un nombre dénombrable de points, $f$ et $g$ sont différentiables et $\\|f'(t)\\|_F\\le g'(t)$ (voir [4]).",
+      "depends_on": [
+        "Théorème V.4.1"
+      ],
+      "importance": 1,
+      "proof_in_poly": "none",
+      "proof_length": "medium",
+      "counterexample_hints": [
+        "Un ensemble exceptionnel non dénombrable ne suffit pas : l'escalier de Cantor est continu, de dérivée nulle hors du Cantor (de mesure nulle, non dénombrable) mais n'est pas constant."
+      ],
+      "hypotheses": []
+    },
+    {
+      "id": "ch05-accroissements-finis-borne",
+      "kind": "corollary",
+      "ref": "Corollaire V.4.3",
+      "title": "Inégalité des accroissements finis avec borne constante",
+      "page": 104,
+      "statement": "Soient $a$ et $b$ deux réels avec $a<b$, et $F$ un espace vectoriel normé. Soit $f:[a;b]\\to F$ une application continue sur $[a;b]$ et différentiable sur $]a;b[$. Supposons que pour tout $t\\in\\,]a;b[$, $\\|f'(t)\\|_F\\le k$, pour une certaine constante $k$. Alors $$\\|f(b)-f(a)\\|_F\\le k\\,(b-a).$$",
+      "hypotheses": [
+        "$f$ continue sur $[a;b]$, différentiable sur $]a;b[$",
+        "$\\|f'\\|_F\\le k$ sur $]a;b[$"
+      ],
+      "depends_on": [
+        "Théorème V.4.1"
+      ],
+      "importance": 2,
+      "proof_in_poly": "none",
+      "proof_length": "short",
+      "used_by_hint": "TAF V.4.4 (via $h(t)=f((1-t)a+tb)$) ; Théorème V.4.7 (dérivée nulle ⇒ constante) ; preuve du lemme de Schwarz.",
+      "counterexample_hints": [
+        "Prendre $g(t)=kt$ dans le Théorème V.4.1 ; avec $k=0$ on obtient : dérivée nulle sur $]a;b[$ ⇒ $f$ constante sur $[a;b]$."
+      ]
+    },
+    {
+      "id": "ch05-accroissements-finis",
+      "kind": "theorem",
+      "ref": "Théorème V.4.4",
+      "title": "Théorème des accroissements finis (TAF) dans les espaces vectoriels normés",
+      "page": 104,
+      "statement": "Soient $E$ et $F$ des espaces vectoriels normés, $U$ un ouvert de $E$ et $f:U\\to F$ une application différentiable sur $U$. Soient $a$ et $b$ des points de $U$. Si le segment $[a,b]=\\{ta+(1-t)b\\ ;\\ t\\in[0,1]\\}$ est contenu dans $U$, alors $$\\|f(b)-f(a)\\|_F\\le\\sup_{t\\in[0,1]}\\big\\|df_{ta+(1-t)b}\\big\\|\\times\\|b-a\\|_E.$$ En particulier, si $U$ est convexe, et que $\\sup_{x\\in U}\\|df_x\\|\\le k$ pour une constante $k$, alors quels que soient $a$ et $b$ dans $U$, $$\\|f(b)-f(a)\\|_F\\le k\\,\\|b-a\\|_E.$$",
+      "hypotheses": [
+        "$f$ différentiable sur $U$ (pas besoin de $C^1$)",
+        "le segment $[a,b]$ est contenu dans $U$",
+        "pour la seconde partie : $U$ convexe et $\\sup_U\\|df_x\\|\\le k$",
+        "$F$ evn quelconque"
+      ],
+      "depends_on": [
+        "Corollaire V.4.3",
+        "Proposition V.3.12"
+      ],
+      "importance": 3,
+      "proof_in_poly": "sketch",
+      "proof_length": "short",
+      "used_by_hint": "Corollaire V.4.5 ; Proposition V.5.1 ; lemme de Schwarz V.5.3 ; Taylor-Young V.5.13 ; Exercice V.6.3 (variante $\\|f(b)-f(a)-df_c(b-a)\\|$) ; chapitre VI (point fixe, inversion locale : $f$ contractante si $\\|df\\|\\le k<1$) ; chapitre VII (Cauchy-Lipschitz : $C^1$ ⇒ localement lipschitzienne).",
+      "counterexample_hints": [
+        "Segment hors de $U$ : $U=\\mathbb C\\setminus\\mathbb R_-$, $f=$ argument principal, $a=-1+i\\epsilon$, $b=-1-i\\epsilon$ : $|f(b)-f(a)|\\approx 2\\pi$ alors que $\\|b-a\\|=2\\epsilon$ et $df$ est bornée près de $-1$.",
+        "Pas d'égalité $f(b)-f(a)=df_c(b-a)$ pour $F$ de dimension $\\ge 2$ : $t\\mapsto(\\cos t,\\sin t)$ sur $[0,2\\pi]$.",
+        "Le sup peut être infini si $df$ n'est pas bornée : l'inégalité est alors vide mais vraie."
+      ],
+      "viz_hint": "Dans $\\mathbb R^2\\to\\mathbb R^2$ : afficher $f(a)$, $f(b)$, le segment $[a,b]$ et la norme de $df$ le long du segment ; comparer $\\|f(b)-f(a)\\|$ avec $\\sup\\|df\\|\\cdot\\|b-a\\|$ ; montrer un ouvert non convexe où l'inégalité échoue."
+    },
+    {
+      "id": "ch05-differentielle-nulle-constante",
+      "kind": "corollary",
+      "ref": "Corollaire V.4.5",
+      "title": "Différentielle nulle sur un ouvert connexe ⇒ fonction constante",
+      "page": 104,
+      "statement": "Soient $E$, $F$ des espaces vectoriels normés, $U$ un ouvert de $E$ et $f:U\\to F$ différentiable sur $U$. Si $U$ est connexe, et que $df_x$ est nulle pour tout $x\\in U$, alors $f$ est constante sur $U$.",
+      "hypotheses": [
+        "$U$ ouvert connexe",
+        "$df_x=0$ pour tout $x\\in U$"
+      ],
+      "depends_on": [
+        "Théorème V.4.4"
+      ],
+      "importance": 2,
+      "proof_in_poly": "sketch",
+      "proof_length": "short",
+      "used_by_hint": "Théorème V.4.7 ; unicité dans les théorèmes d'inversion locale/fonctions implicites ; analogue de « $f'=0$ sur un ouvert connexe ⇒ $f$ constante » en analyse complexe (chapitre I).",
+      "counterexample_hints": [
+        "$U=\\,]0;1[\\,\\cup\\,]2;3[$ non connexe, $f=0$ sur le premier intervalle et $1$ sur le second : $df=0$ mais $f$ non constante."
+      ],
+      "viz_hint": "Ouvert connexe non convexe (couronne) : relier deux points par une chaîne de boules convexes où $f$ est constante."
+    },
+    {
+      "id": "ch05-integrale-fonctions-reglees",
+      "kind": "definition",
+      "ref": "non numéroté, section V.4.2, p. 105",
+      "title": "Intégrale d'une fonction réglée à valeurs dans un espace de Banach ; majoration $\\|\\int_a^b f\\|\\le(b-a)\\|f\\|_0$",
+      "page": 105,
+      "statement": "Soit $F$ un espace de Banach. On définit l'intégrale $\\int_a^b f(t)\\,dt\\in F$ d'une fonction en escalier $f:[a;b]\\to F$ par une somme finie, puis, par passage à la limite, celle des fonctions **réglées** (limites uniformes de fonctions en escalier) : c'est dans cette étape que la complétude de $F$ est indispensable. Les propriétés usuelles (relation de Chasles, linéarité, etc.) sont immédiates. Les fonctions continues sont réglées, et $$\\Big\\|\\int_a^b f(t)\\,dt\\Big\\|_F\\le(b-a)\\,\\|f\\|_0,\\qquad\\text{où }\\|f\\|_0=\\sup_{t\\in[a;b]}\\|f(t)\\|_F.$$",
+      "hypotheses": [
+        "$F$ de Banach (indispensable pour la limite des fonctions en escalier)",
+        "$f$ réglée (par exemple continue)"
+      ],
+      "importance": 1,
+      "proof_in_poly": "none",
+      "proof_length": "short",
+      "used_by_hint": "Théorèmes V.4.6, V.4.7, Lemme V.5.9, Théorème V.5.11 ; chapitre VII (équations différentielles : forme intégrale $x(t)=x_0+\\int_{t_0}^t X(x(s))ds$).",
+      "depends_on": [],
+      "counterexample_hints": []
+    },
+    {
+      "id": "ch05-primitive-integrale",
+      "kind": "theorem",
+      "ref": "Théorème V.4.6",
+      "title": "Dérivée d'une intégrale à paramètre borne (primitive)",
+      "page": 105,
+      "statement": "Soit $g:[a;b]\\to F$ une application continue de l'intervalle $[a;b]$ à valeurs dans un espace de Banach $F$. Soit $t_0\\in[a;b]$. Posons $G(t)=\\int_{t_0}^t g(u)\\,du$. Alors $G:[a;b]\\to F$ est continue sur $[a;b]$ et de classe $C^1$ sur $]a;b[$ et pour tout $t\\in\\,]a;b[$, $G'(t)=g(t)$.",
+      "hypotheses": [
+        "$g$ continue sur $[a;b]$",
+        "$F$ de Banach"
+      ],
+      "depends_on": [
+        "non numéroté, section V.4.2, p. 105"
+      ],
+      "importance": 2,
+      "proof_in_poly": "full",
+      "proof_length": "short",
+      "used_by_hint": "Théorème fondamental V.4.7 ; chapitre VII (une courbe intégrale est $C^1$ ssi elle vérifie l'équation intégrale).",
+      "counterexample_hints": [
+        "Si $g$ est seulement réglée (discontinue), $G$ est lipschitzienne mais pas dérivable aux discontinuités de $g$ : $g=\\mathbf 1_{[0,1]}$ sur $[-1,1]$."
+      ]
+    },
+    {
+      "id": "ch05-theoreme-fondamental",
+      "kind": "theorem",
+      "ref": "Théorème V.4.7",
+      "title": "Théorème fondamental du calcul différentiel : $f(x+y)=f(x)+\\int_0^1 df_{x+ty}(y)\\,dt$",
+      "page": 105,
+      "statement": "Soient $E$ un espace vectoriel normé, $F$ un espace de Banach, et $f:U\\to F$ une application définie sur un ouvert $U$ de $E$ et de classe $C^1$. Soient $x\\in U$, $y\\in E$, et supposons que pour tout $t\\in[0;1]$, $x+ty\\in U$. On a alors $$f(x+y)=f(x)+\\int_0^1 df_{x+ty}(y)\\,dt.$$",
+      "hypotheses": [
+        "$f$ de classe $C^1$ (continuité de $t\\mapsto df_{x+ty}(y)$ pour intégrer)",
+        "$F$ de Banach (existence de l'intégrale)",
+        "le segment $\\{x+ty,\\ t\\in[0;1]\\}$ est dans $U$"
+      ],
+      "depends_on": [
+        "Théorème V.4.6",
+        "Proposition V.3.12",
+        "Corollaire V.4.3"
+      ],
+      "importance": 3,
+      "proof_in_poly": "full",
+      "proof_length": "short",
+      "used_by_hint": "Lemme V.5.9 et formule de Taylor avec reste intégral V.5.11 ; chapitre VI (estimations dans l'inversion locale, différentiabilité du point fixe à paramètres) ; chapitre VII.",
+      "counterexample_hints": [
+        "Si $f$ est seulement différentiable (non $C^1$), $t\\mapsto df_{x+ty}(y)$ peut ne pas être réglée : $f(t)=t^2\\sin(1/t^2)$ a une dérivée non bornée sur $[0,1]$, l'intégrale de Riemann n'existe pas."
+      ],
+      "viz_hint": "Pour $f:\\mathbb R^2\\to\\mathbb R$ : le long du segment $x\\to x+y$, afficher $t\\mapsto df_{x+ty}(y)$ et son aire sous la courbe = $f(x+y)-f(x)$."
+    },
+    {
+      "id": "ch05-classe-ck-def",
+      "kind": "definition",
+      "ref": "non numéroté, section V.5.1, p. 106",
+      "title": "Applications de classe $C^k$ et $C^\\infty$ (définition par récurrence)",
+      "page": 106,
+      "statement": "Soient $E$ et $F$ des espaces vectoriels normés et $U$ un ouvert de $E$. Pour $f:U\\to F$, on définit par récurrence le fait d'être de classe $C^k$, $k\\in\\mathbb N\\cup\\{\\infty\\}$ : **classe $C^0$** : $f$ est continue ; **classe $C^1$** : $f$ est différentiable en tout point $x\\in U$ et $df:U\\to\\mathcal L(E;F)$, $x\\mapsto df_x$, est continue ; **classe $C^k$**, $k\\in\\mathbb N\\setminus\\{0,1\\}$ : $f$ est différentiable en tout point $x\\in U$ et $df$ est de classe $C^{k-1}$ ; **classe $C^\\infty$** : $f$ est de classe $C^k$ pour tout $k\\in\\mathbb N$. Les espaces $\\mathcal L(E;F)$, $\\mathcal L(E;\\mathcal L(E;F))$, $\\mathcal L(E;\\mathcal L(E;\\mathcal L(E;F)))$, etc. sont des espaces vectoriels normés, ce qui donne un sens à la différentiabilité successive de $f$, $df$, $d(df)$, etc.",
+      "hypotheses": [
+        "$U$ ouvert",
+        "normes d'opérateur sur les espaces itérés $\\mathcal L(E;\\mathcal L(E;F))$…"
+      ],
+      "depends_on": [
+        "Définition V.3.1",
+        "non numéroté, section V.1.2, p. 93"
+      ],
+      "importance": 2,
+      "proof_in_poly": "none",
+      "proof_length": "short",
+      "used_by_hint": "Tout le reste de la section V.5 ; hypothèses $C^k$ des chapitres VI à IX.",
+      "counterexample_hints": [
+        "$C^k$ est strictement plus fort que « $k$ fois différentiable » : $f(x)=x^2\\sin(1/x)$ est différentiable partout mais pas $C^1$ en $0$."
+      ]
+    },
+    {
+      "id": "ch05-c1-ssi-partielles-continues",
+      "kind": "proposition",
+      "ref": "Proposition V.5.1",
+      "title": "$f$ est $C^1$ si et seulement si ses dérivées partielles existent et sont continues",
+      "page": 106,
+      "statement": "Soit $E=E_1\\times\\cdots\\times E_m$ un produit d'espaces vectoriels normés, $U$ un ouvert de $E$ et $f:U\\to F$ une application à valeurs dans un evn $F$. Pour que $f$ soit de classe $C^1$ sur $U$, il faut et il suffit que $f$ admette des dérivées partielles $\\frac{\\partial f}{\\partial x_i}$ en tout point de $U$, et que celles-ci soient continues (comme applications $U\\to\\mathcal L(E_i;F)$). Pour que $f$ soit différentiable au point $a$, il suffit que les dérivées partielles existent en tout point $x$ d'un voisinage de $a$ et qu'elles soient continues en $a$.",
+      "hypotheses": [
+        "$E$ produit fini",
+        "dérivées partielles existant sur un VOISINAGE de $a$ (pas seulement en $a$)",
+        "continuité des dérivées partielles en $a$"
+      ],
+      "depends_on": [
+        "Proposition V.3.17",
+        "Théorème V.4.4"
+      ],
+      "importance": 3,
+      "proof_in_poly": "full",
+      "proof_length": "medium",
+      "used_by_hint": "Critère pratique de régularité $C^1$ (et $C^k$ par récurrence) en dimension finie ; Exercice V.5.4 ; chapitres VI-IX (vérifier qu'une application est $C^1$).",
+      "counterexample_hints": [
+        "Différentiable mais pas $C^1$ : $f(x,y)=(x^2+y^2)\\sin\\big(1/(x^2+y^2)\\big)$, $f(0)=0$ : différentiable en $0$ ($o(\\|h\\|)$ car $\\|h\\|^2$), mais $\\partial_xf$ n'est pas continue en $0$ (la condition est suffisante, pas nécessaire pour la différentiabilité en UN point).",
+        "Dérivées partielles existant partout mais discontinues en $0$ et $f$ non différentiable : $f(x,y)=xy/(x^2+y^2)$."
+      ],
+      "viz_hint": "Idée de preuve : aller de $a$ à $x$ en déplaçant une coordonnée à la fois (chemin en escalier) et appliquer le TAF à chaque segment ; animer le chemin $a\\to(x_1,a_2)\\to(x_1,x_2)$."
+    },
+    {
+      "id": "ch05-lineaire-c-infini",
+      "kind": "example",
+      "ref": "Exemple V.5.2",
+      "title": "Une application linéaire continue est $C^\\infty$",
+      "page": 107,
+      "statement": "Une application linéaire continue $f\\in\\mathcal L(E;F)$ est de classe $C^\\infty$. Elle est égale à sa différentielle en tout point ($df_x=f$, donc $df$ est constante). Ses différentielles d'ordre supérieur sont nulles : $d^kf_x=0$ pour $k\\ge 2$.",
+      "depends_on": [
+        "Exemple V.3.5"
+      ],
+      "importance": 1,
+      "proof_in_poly": "sketch",
+      "proof_length": "short",
+      "used_by_hint": "Les $p_i$, $\\iota_i$, les composées avec des applications linéaires ne changent pas la classe de régularité.",
+      "hypotheses": [],
+      "counterexample_hints": []
+    },
+    {
+      "id": "ch05-differentielle-seconde-def",
+      "kind": "definition",
+      "ref": "non numéroté, section V.5.3, p. 107",
+      "title": "Différentielle seconde $d^2f_a=d(df)_a$ vue comme application bilinéaire",
+      "page": 107,
+      "statement": "Soit $f:U\\to F$ une application de classe $C^1$ d'un ouvert $U$ d'un evn $E$ dans un evn $F$. L'application $df:U\\to\\mathcal L(E;F)$, $x\\mapsto df_x$, est définie et continue sur $U$. Si elle est différentiable en un point $a\\in U$, sa différentielle en $a$ est un élément $$d^2f_a=d(df)_a\\in\\mathcal L(E;\\mathcal L(E;F)),$$ et $x\\mapsto d^2f_x$ va de $U$ dans $\\mathcal L(E;\\mathcal L(E;F))$. Grâce à l'isomorphisme naturel $\\mathcal L(E;\\mathcal L(E;F))\\simeq\\mathcal L(E,E;F)$ (section V.1.4), la différentielle seconde $d^2f_a$ en un point $a$ peut être vue comme une application bilinéaire continue $E\\times E\\to F$ : $d^2f_a(u,v)=\\big(d(df)_a(u)\\big)(v)$. De même $d^pf_a$ s'identifie à une application $p$-linéaire continue $E^p\\to F$.",
+      "hypotheses": [
+        "$f$ de classe $C^1$",
+        "$df$ différentiable en $a$"
+      ],
+      "depends_on": [
+        "Définition V.3.1",
+        "non numéroté, section V.1.4, p. 94"
+      ],
+      "importance": 2,
+      "proof_in_poly": "none",
+      "proof_length": "short",
+      "used_by_hint": "Lemme de Schwarz V.5.3, Théorème V.5.5, formules de Taylor ; hessienne (chapitre IX, index p. 171).",
+      "counterexample_hints": [
+        "Dans $d^2f_a(u,v)$, la première variable $u$ est la direction dans laquelle on dérive $df$, la seconde $v$ celle où l'on évalue $df_x$ : $d^2f_a(u,v)=\\lim_{t\\to0}\\frac{df_{a+tu}(v)-df_a(v)}{t}$."
+      ]
+    },
+    {
+      "id": "ch05-lemme-schwarz",
+      "kind": "theorem",
+      "ref": "Théorème V.5.3",
+      "title": "Lemme de Schwarz : symétrie de la différentielle seconde",
+      "page": 107,
+      "statement": "Soit $f:U\\to F$ une application de classe $C^1$ d'un ouvert $U$ d'un espace vectoriel normé $E$ à valeurs dans un espace vectoriel normé $F$, telle que $df:U\\to\\mathcal L(E;F)$ soit différentiable en un point $a\\in U$. Alors la différentielle seconde $d(df)_a=d^2f_a$ est une application bilinéaire **symétrique** de $E\\times E$ dans $F$ : $$d^2f_a(u,v)=d^2f_a(v,u)\\qquad(u,v\\in E).$$",
+      "hypotheses": [
+        "$f$ de classe $C^1$ sur $U$",
+        "$df$ différentiable au point $a$ (en particulier vrai si $f$ est $C^2$)",
+        "$U$ ouvert"
+      ],
+      "depends_on": [
+        "Définition V.3.1",
+        "Théorème V.4.4",
+        "non numéroté, section V.1.4, p. 94"
+      ],
+      "importance": 3,
+      "proof_in_poly": "full",
+      "proof_length": "long",
+      "used_by_hint": "Théorème V.5.5 (symétrie de $d^pf_a$) ; Taylor-Young V.5.13 (dérivée de $h\\mapsto d^jf_a(h,\\dots,h)$) ; hessienne symétrique (chapitre IX) ; Exercice V.5.4 ($\\partial_x\\partial_yf=\\partial_y\\partial_xf$).",
+      "counterexample_hints": [
+        "$f(x,y)=\\frac{xy(x^2-y^2)}{x^2+y^2}$, $f(0)=0$ : $f$ est $C^1$, les dérivées secondes croisées existent en $0$ mais $\\partial_x\\partial_yf(0)=-1\\neq1=\\partial_y\\partial_xf(0)$ ; ici $df$ n'est pas différentiable en $0$.",
+        "L'existence des seules dérivées partielles secondes croisées ne suffit pas : il faut la différentiabilité de $df$ en $a$ (ou la continuité des dérivées secondes croisées)."
+      ],
+      "viz_hint": "Le « second accroissement » $g_{u,v}(t,s)=f(a+tu+sv)-f(a+sv)-f(a+tu)+f(a)$ sur les quatre coins d'un parallélogramme : il est symétrique en $(u,v)$ par construction et vaut $t s\\,d^2f_a(u,v)+o(t^2+s^2)$."
+    },
+    {
+      "id": "ch05-differentielle-ordre-p-symetrique",
+      "kind": "theorem",
+      "ref": "Théorème V.5.5",
+      "title": "Symétrie de la différentielle d'ordre $p$",
+      "page": 108,
+      "statement": "Soit $f:U\\to F$ une application d'un ouvert $U$ d'un espace vectoriel normé $E$ à valeurs dans un espace vectoriel normé $F$, de classe $C^{p-1}$ ($p\\ge2$). Soit $a\\in U$ tel que $d^{p-1}f$ soit différentiable en $a$. La différentielle $d^pf_a$ est alors une application $p$-linéaire symétrique de $E^p$ dans $F$, c'est-à-dire que pour tout $h=(h_1,\\dots,h_p)\\in E^p$ et toute permutation $\\sigma\\in\\mathfrak S_p$, $$d^pf_a(h_1,\\dots,h_p)=d^pf_a(h_{\\sigma(1)},\\dots,h_{\\sigma(p)}).$$",
+      "hypotheses": [
+        "$f$ de classe $C^{p-1}$",
+        "$d^{p-1}f$ différentiable en $a$"
+      ],
+      "depends_on": [
+        "Théorème V.5.3"
+      ],
+      "importance": 2,
+      "proof_in_poly": "none",
+      "proof_length": "medium",
+      "used_by_hint": "Taylor-Young V.5.13 ; formule pratique V.5.6 ; Exercice V.1.4 (une $p$-linéaire symétrique est déterminée par ses valeurs sur la diagonale $(h,\\dots,h)$ : d'où les termes $d^pf_a(h,\\dots,h)$ de Taylor).",
+      "counterexample_hints": []
+    },
+    {
+      "id": "ch05-formule-pratique-dpf",
+      "kind": "formula",
+      "ref": "Remarque V.5.6",
+      "title": "Formule pratique : $d^pf_a(h_1,\\dots,h_p)$ par dérivation partielle en $t_1,\\dots,t_p$",
+      "page": 109,
+      "statement": "Soit $f:U\\to F$ une application de classe $C^p$ d'un ouvert $U$ d'un evn $E$ dans un evn $F$, et $a\\in U$. Alors $$d^pf_a(h_1,\\dots,h_p)=\\frac{\\partial}{\\partial t_1}\\frac{\\partial}{\\partial t_2}\\cdots\\frac{\\partial}{\\partial t_p}\\Big[(t_1,\\dots,t_p)\\mapsto f\\Big(a+\\sum_{i=1}^pt_ih_i\\Big)\\Big]_{t_1=t_2=\\cdots=t_p=0}.\\qquad\\text{(V.5.3)}$$ En particulier $d^pf_a(h,\\dots,h)=\\frac{d^p}{dt^p}\\big[f(a+th)\\big]_{t=0}$.",
+      "hypotheses": [
+        "$f$ de classe $C^p$"
+      ],
+      "depends_on": [
+        "Proposition V.3.12",
+        "non numéroté, section V.3.1, p. 98"
+      ],
+      "importance": 2,
+      "proof_in_poly": "none",
+      "proof_length": "short",
+      "used_by_hint": "Calculs explicites de $d^2f_a$ (Exercice V.6.2, V.6.6) ; preuve de Taylor V.5.11 ($g^{(k)}(t)=d^kf_{a+th}(h,\\dots,h)$).",
+      "counterexample_hints": []
+    },
+    {
+      "id": "ch05-serie-neumann",
+      "kind": "lemma",
+      "ref": "non numéroté, section V.5.4, p. 109",
+      "title": "Série de Neumann : $\\mathrm{Id}_E-h$ est inversible si $\\|h\\|<1$",
+      "page": 109,
+      "statement": "Soit $E$ un espace de Banach et $h\\in\\mathcal L(E)$ avec $\\|h\\|<1$. Alors $\\mathrm{Id}_E-h$ est inversible dans $\\mathcal L(E)$, d'inverse donné par la série normalement convergente $$(\\mathrm{Id}_E-h)^{-1}=\\sum_{n=0}^{+\\infty}h^n,$$ et $\\|(\\mathrm{Id}_E-h)^{-1}-\\mathrm{Id}_E\\|\\le\\sum_{n\\ge1}\\|h\\|^n=\\frac{\\|h\\|}{1-\\|h\\|}$. (La complétude de $E$, donc de $\\mathcal L(E)$, est utilisée pour la convergence de la série.)",
+      "hypotheses": [
+        "$E$ de Banach",
+        "$\\|h\\|_{\\mathcal L(E)}<1$ (norme d'opérateur, norme d'algèbre)"
+      ],
+      "depends_on": [
+        "Proposition V.1.1",
+        "non numéroté, section V.1.2, p. 93"
+      ],
+      "importance": 2,
+      "proof_in_poly": "sketch",
+      "proof_length": "short",
+      "used_by_hint": "Théorème V.5.7 (ouverture de $\\mathrm{Iso}(E;F)$, continuité et différentiabilité de l'inversion) ; chapitre VI (inversion locale : $df_x$ reste inversible près de $a$).",
+      "counterexample_hints": [
+        "Si $E$ n'est pas complet : $E=$ suites à support fini dans $\\ell^1$, $h$ = shift pondéré… la série $\\sum h^n x$ peut sortir de $E$."
+      ],
+      "viz_hint": "Pour une matrice $2\\times2$ $h$ de norme $<1$ : sommes partielles $\\sum_{n\\le N}h^n$ convergeant vers $(I-h)^{-1}$ ; divergence si $\\|h\\|>1$ (mais convergence possible si le rayon spectral $<1$)."
+    },
+    {
+      "id": "ch05-inversion-c-infini",
+      "kind": "theorem",
+      "ref": "Théorème V.5.7",
+      "title": "$\\mathrm{Iso}(E;F)$ est ouvert et $f\\mapsto f^{-1}$ est $C^\\infty$, de différentielle $g\\mapsto-f^{-1}gf^{-1}$",
+      "page": 109,
+      "statement": "Soient $E$ et $F$ des espaces de Banach. L'ensemble $\\mathrm{Iso}(E;F)$ des isomorphismes linéaires bicontinus de $E$ dans $F$ est un ouvert de $\\mathcal L(E;F)$ et l'application $$\\Psi:\\mathrm{Iso}(E;F)\\to\\mathrm{Iso}(F;E),\\qquad f\\mapsto f^{-1}$$ est de classe $C^\\infty$, sa différentielle en $f$ étant donnée par $$d\\Psi_f(g)=-f^{-1}\\circ g\\circ f^{-1},\\qquad(g\\in\\mathcal L(E;F)).$$ (La preuve montre de plus : si $f_0\\in\\mathrm{Iso}(E;F)$ et $\\|f_0^{-1}g\\|<1$, alors $f_0+g\\in\\mathrm{Iso}(E;F)$ et $\\|(f_0+g)^{-1}-f_0^{-1}\\|\\le\\frac{\\|h\\|}{1-\\|h\\|}\\|f_0^{-1}\\|$ avec $h=-f_0^{-1}g$.)",
+      "hypotheses": [
+        "$E$ et $F$ de Banach (convergence de la série de Neumann dans $\\mathcal L(E)$)",
+        "$\\mathrm{Iso}(E;F)$ : isomorphismes linéaires continus d'inverse continu (bicontinuité automatique par Banach, Remarque V.5.8)"
+      ],
+      "depends_on": [
+        "non numéroté, section V.5.4, p. 109",
+        "Proposition V.1.1",
+        "non numéroté, section V.1.2, p. 93",
+        "Exemple V.3.6",
+        "Proposition V.3.12",
+        "Définition V.3.1"
+      ],
+      "importance": 3,
+      "proof_in_poly": "full",
+      "proof_length": "long",
+      "used_by_hint": "Chapitre VI : théorème d'inversion locale (régularité $C^k$ de l'inverse via $d(f^{-1})_y=(df_{f^{-1}(y)})^{-1}=\\Psi\\circ df\\circ f^{-1}$) ; Exercice V.6.2 (même technique pour $A\\mapsto A^n$).",
+      "counterexample_hints": [
+        "$\\mathrm{Iso}(E;F)$ peut être vide (dimensions différentes) : le théorème est alors trivial.",
+        "En dimension finie : $GL_n(\\mathbb R)=\\{\\det\\neq0\\}$ est ouvert et $A\\mapsto A^{-1}$ est $C^\\infty$ (fractions rationnelles) ; la preuve du poly ne dépend pas de la dimension.",
+        "Formule à retenir en dérivant $f\\circ f^{-1}=\\mathrm{Id}$ par Leibniz : $g\\,f^{-1}+f\\,d\\Psi_f(g)=0$."
+      ],
+      "viz_hint": "Dans $M_2(\\mathbb R)\\simeq\\mathbb R^4$, coupe 2D : la nappe $\\det=0$ (cône) et son complémentaire ouvert ; afficher $A^{-1}$ et l'approximation $A_0^{-1}-A_0^{-1}(A-A_0)A_0^{-1}$ quand $A\\to A_0$."
+    },
+    {
+      "id": "ch05-iso-bicontinu-automatique",
+      "kind": "remark",
+      "ref": "Remarque V.5.8",
+      "title": "Dans $\\mathrm{Iso}(E;F)$ la bicontinuité est automatique",
+      "page": 109,
+      "statement": "En vertu du théorème d'isomorphisme de Banach V.2.3, il suffit d'exiger la continuité et l'inversibilité (algébrique) dans la définition de $\\mathrm{Iso}(E;F)$ : la bicontinuité en découle (pour $E$, $F$ de Banach).",
+      "hypotheses": [
+        "$E,F$ de Banach"
+      ],
+      "depends_on": [
+        "Théorème V.2.3"
+      ],
+      "importance": 1,
+      "proof_in_poly": "none",
+      "proof_length": "short",
+      "counterexample_hints": []
+    },
+    {
+      "id": "ch05-taylor-reste-integral-1d",
+      "kind": "lemma",
+      "ref": "Lemme V.5.9",
+      "title": "Formule de Taylor avec reste intégral pour une fonction d'une variable réelle (à valeurs Banach)",
+      "page": 110,
+      "statement": "Soit $f$ une fonction d'un intervalle ouvert $I$ contenant $0$ et $1$, à valeurs dans un espace de Banach $F$ et de classe $C^{p+1}$. On a alors $$f(1)-f(0)-f'(0)-\\frac{f''(0)}{2!}-\\cdots-\\frac{f^{(p)}(0)}{p!}=\\int_0^1\\frac{(1-t)^p}{p!}f^{(p+1)}(t)\\,dt.$$",
+      "hypotheses": [
+        "$f$ de classe $C^{p+1}$ sur un intervalle ouvert contenant $[0;1]$",
+        "$F$ de Banach"
+      ],
+      "depends_on": [
+        "Théorème V.4.7"
+      ],
+      "importance": 2,
+      "proof_in_poly": "full",
+      "proof_length": "short",
+      "used_by_hint": "Théorème V.5.11 (appliqué à $g(t)=f(a+th)$).",
+      "counterexample_hints": [
+        "La fonction auxiliaire est $g(t)=\\sum_{k=0}^p\\frac{(1-t)^k}{k!}f^{(k)}(t)$, dont la dérivée se télescope en $g'(t)=\\frac{(1-t)^p}{p!}f^{(p+1)}(t)$."
+      ]
+    },
+    {
+      "id": "ch05-taylor-lagrange-1d",
+      "kind": "lemma",
+      "ref": "Lemme V.5.10",
+      "title": "Inégalité de Taylor-Lagrange pour une fonction d'une variable réelle",
+      "page": 111,
+      "statement": "Soit $f$ une fonction d'un intervalle ouvert $I$ contenant $0$ et $1$, à valeurs dans un espace de Banach $F$ et $(p+1)$ fois différentiable. Supposons de plus que pour tout $t\\in[0;1]$, $\\|f^{(p+1)}(t)\\|_F\\le C$ pour une certaine constante $C>0$. On a alors $$\\Big\\|f(1)-f(0)-f'(0)-\\frac{f''(0)}{2!}-\\cdots-\\frac{f^{(p)}(0)}{p!}\\Big\\|_F\\le\\frac{C}{(p+1)!}.$$",
+      "hypotheses": [
+        "$f$ $(p+1)$ fois différentiable (pas nécessairement $C^{p+1}$)",
+        "$\\|f^{(p+1)}\\|\\le C$ sur $[0;1]$"
+      ],
+      "depends_on": [
+        "Théorème V.4.1"
+      ],
+      "importance": 1,
+      "proof_in_poly": "sketch",
+      "proof_length": "short",
+      "used_by_hint": "Théorème V.5.12.",
+      "counterexample_hints": [
+        "Preuve : Théorème V.4.1 appliqué à la même $g$ que dans le Lemme V.5.9 et à $G(t)=-C(1-t)^{p+1}/(p+1)!$, qui vérifie $G'(t)=C(1-t)^p/p!\\ge\\|g'(t)\\|$."
+      ]
+    },
+    {
+      "id": "ch05-taylor-reste-integral",
+      "kind": "theorem",
+      "ref": "Théorème V.5.11",
+      "title": "Formule de Taylor avec reste intégral",
+      "page": 111,
+      "statement": "Soit $f$ une fonction de classe $C^{p+1}$ d'un ouvert $U$ d'un espace vectoriel normé $E$ à valeurs dans un espace de Banach $F$. Soient $a\\in U$, $h\\in E$ et supposons que le segment $\\{a+th,\\ t\\in[0;1]\\}$ soit contenu dans $U$. On a alors $$f(a+h)-f(a)-df_a(h)-\\frac{d^2f_a(h,h)}{2!}-\\cdots-\\frac{d^pf_a(h,h,\\dots,h)}{p!}=\\int_0^1\\frac{(1-t)^p}{p!}\\,d^{p+1}f_{a+th}(h,h,\\dots,h)\\,dt.$$",
+      "hypotheses": [
+        "$f$ de classe $C^{p+1}$",
+        "$F$ de Banach",
+        "segment $[a,a+h]\\subset U$"
+      ],
+      "depends_on": [
+        "Lemme V.5.9",
+        "Proposition V.3.12",
+        "Remarque V.5.6"
+      ],
+      "importance": 3,
+      "proof_in_poly": "sketch",
+      "proof_length": "short",
+      "used_by_hint": "Estimations fines du reste ; chapitre VI (inversion locale, point fixe à paramètres) ; chapitre VIII-IX (conditions d'extremum du second ordre).",
+      "counterexample_hints": [
+        "Pour $p=0$ on retrouve le théorème fondamental V.4.7.",
+        "Sans complétude de $F$ l'intégrale n'est pas définie ; sans $C^{p+1}$ l'intégrande n'est pas continue."
+      ],
+      "viz_hint": "Pour $f:\\mathbb R^2\\to\\mathbb R$ : graphes des approximations de Taylor d'ordre 1 (plan tangent), 2 (quadrique osculatrice), 3 et courbe du reste en fonction de $\\|h\\|$ en échelle log-log (pente $p+1$)."
+    },
+    {
+      "id": "ch05-taylor-lagrange",
+      "kind": "theorem",
+      "ref": "Théorème V.5.12",
+      "title": "Inégalité de Taylor-Lagrange",
+      "page": 111,
+      "statement": "Soit $f$ une fonction $(p+1)$ fois différentiable d'un ouvert $U$ d'un espace vectoriel normé $E$ à valeurs dans un espace vectoriel normé $F$. Supposons de plus que pour tout $x\\in U$, $\\|d^{(p+1)}f_x\\|\\le C$ pour une certaine constante $C>0$. Soient $a\\in U$, $h\\in E$ et supposons que le segment $\\{a+th,\\ t\\in[0;1]\\}$ soit contenu dans $U$. On a alors $$\\Big\\|f(a+h)-f(a)-df_a(h)-\\frac{d^2f_a(h,h)}{2!}-\\cdots-\\frac{d^pf_a(h,\\dots,h)}{p!}\\Big\\|_F\\le\\frac{C\\,\\|h\\|_E^{p+1}}{(p+1)!}.$$",
+      "hypotheses": [
+        "$f$ $(p+1)$ fois différentiable (pas besoin de $C^{p+1}$ ni de $F$ Banach)",
+        "$\\|d^{p+1}f_x\\|\\le C$ sur $U$ (norme de $(p+1)$-linéaire)",
+        "segment $[a,a+h]\\subset U$"
+      ],
+      "depends_on": [
+        "Lemme V.5.10",
+        "Proposition V.3.12"
+      ],
+      "importance": 2,
+      "proof_in_poly": "sketch",
+      "proof_length": "short",
+      "used_by_hint": "Majorations d'erreur ; pour $p=0$ c'est le TAF V.4.4.",
+      "counterexample_hints": [
+        "Pas d'égalité de Taylor-Lagrange ($f(a+h)=\\dots+\\frac{d^{p+1}f_c(h,\\dots,h)}{(p+1)!}$) pour $F$ de dimension $\\ge2$ : même contre-exemple $e^{it}$ qu'au TAF."
+      ]
+    },
+    {
+      "id": "ch05-taylor-young",
+      "kind": "theorem",
+      "ref": "Théorème V.5.13",
+      "title": "Formule de Taylor-Young",
+      "page": 111,
+      "statement": "Soit $p\\ge1$. Soit $f$ une fonction $(p-1)$ fois différentiable d'un ouvert $U$ d'un espace vectoriel normé $E$ à valeurs dans un espace vectoriel normé $F$. Supposons de plus que $f$ soit $p$ fois différentiable en $a\\in U$. On a alors $$\\Big\\|f(a+h)-f(a)-df_a(h)-\\frac{d^2f_a(h,h)}{2!}-\\cdots-\\frac{d^pf_a(h,h,\\dots,h)}{p!}\\Big\\|_F=o(\\|h\\|_E^p).$$",
+      "hypotheses": [
+        "$f$ $(p-1)$ fois différentiable sur $U$",
+        "$f$ $p$ fois différentiable AU POINT $a$ seulement",
+        "$E$, $F$ evn quelconques"
+      ],
+      "depends_on": [
+        "Définition V.3.1",
+        "Théorème V.5.5",
+        "Théorème V.4.4"
+      ],
+      "importance": 3,
+      "proof_in_poly": "full",
+      "proof_length": "medium",
+      "used_by_hint": "Développements limités ; conditions nécessaires/suffisantes d'extremum local (chapitres VIII-IX : $df_a=0$ et $d^2f_a$ définie positive) ; comparer avec le reste intégral (hypothèses plus faibles, conclusion seulement locale).",
+      "counterexample_hints": [
+        "Pour $p=1$ c'est exactement la Définition V.3.1.",
+        "Le $o(\\|h\\|^p)$ n'est pas uniforme en $a$ : Taylor-Young est un énoncé local, il ne donne aucune majoration explicite (contrairement à V.5.12)."
+      ],
+      "viz_hint": "Même visualisation que V.5.11 : le rapport reste$/\\|h\\|^p$ tend vers 0."
+    },
+    {
+      "id": "ch05-derivee-forme-diagonale",
+      "kind": "formula",
+      "ref": "non numéroté, preuve du Théorème V.5.13, p. 112",
+      "title": "Différentielle de $h\\mapsto d^jf_a(h,\\dots,h)$ (forme diagonale d'une application $j$-linéaire symétrique)",
+      "page": 112,
+      "statement": "Soit $\\phi(h)=d^jf_a(h,\\dots,h)$ où $d^jf_a$ est une application $j$-linéaire continue symétrique. Alors $\\phi$ est différentiable et, pour tout $k\\in E$, $$d\\phi_h(k)=d^jf_a(k,h,\\dots,h)+d^jf_a(h,k,h,\\dots,h)+\\cdots+d^jf_a(h,\\dots,h,k)=j\\,d^jf_a(k,h,\\dots,h).$$ Plus généralement, pour $b$ $j$-linéaire continue, $h\\mapsto b(h,\\dots,h)$ a pour différentielle $k\\mapsto\\sum_{i=1}^jb(h,\\dots,k,\\dots,h)$ ($k$ en $i$-ème position).",
+      "hypotheses": [
+        "$d^jf_a$ $j$-linéaire continue",
+        "symétrie pour la forme simplifiée $j\\,d^jf_a(k,h,\\dots,h)$"
+      ],
+      "depends_on": [
+        "Exemple V.3.6",
+        "Théorème V.5.5",
+        "Proposition V.3.12"
+      ],
+      "importance": 1,
+      "proof_in_poly": "sketch",
+      "proof_length": "short",
+      "used_by_hint": "Preuve de Taylor-Young ; Exercice V.3.7 ; Exercice V.6.2 ; différentielle de $x\\mapsto\\|x\\|^2$ et des formes quadratiques $q(x)=\\langle Ax,x\\rangle$ : $dq_x(k)=2\\langle Ax,k\\rangle$ si $A$ symétrique.",
+      "counterexample_hints": []
+    }
+  ],
+  "notations": [
+    {
+      "symbol": "$E$, $F$, $G$",
+      "meaning": "espaces vectoriels normés RÉELS (tout le chapitre est sur le corps $\\mathbb R$)",
+      "page": 93
+    },
+    {
+      "symbol": "$\\|\\cdot\\|_E$, $\\|\\cdot\\|$",
+      "meaning": "norme de $E$ ; souvent notée $\\|\\cdot\\|$ sans mention de l'espace",
+      "page": 93
+    },
+    {
+      "symbol": "$\\mathcal L(E;F)$",
+      "meaning": "espace des applications linéaires continues de $E$ dans $F$ (le poly écrit $L(E;F)$ avec un point-virgule)",
+      "page": 93
+    },
+    {
+      "symbol": "$\\|T\\|_{\\mathcal L(E;F)}=\\sup_{x\\neq0}\\frac{\\|T(x)\\|_F}{\\|x\\|_E}$",
+      "meaning": "norme d'opérateur (formule (V.1.1)) ; $=\\sup_{\\|x\\|\\le1}\\|T(x)\\|=\\sup_{\\|x\\|=1}\\|T(x)\\|$",
+      "page": 93
+    },
+    {
+      "symbol": "$\\mathcal L(E)$",
+      "meaning": "$=\\mathcal L(E;E)$, algèbre normée des endomorphismes continus ; $\\|AB\\|\\le\\|A\\|\\|B\\|$",
+      "page": 93
+    },
+    {
+      "symbol": "$\\bar B_E(0,1)$, $B_E(0,r)$, $\\bar B_F(0,\\alpha)$",
+      "meaning": "boule unité fermée, boule ouverte de centre $0$ et rayon $r$, boule fermée de rayon $\\alpha$",
+      "page": 94
+    },
+    {
+      "symbol": "$\\mathcal L(E_1,\\dots,E_n;F)$",
+      "meaning": "applications multilinéaires continues de $E_1\\times\\cdots\\times E_n$ dans $F$, normées par $\\|f\\|=\\sup_{\\bar B_{E_1}\\times\\cdots\\times\\bar B_{E_n}}\\|f(x_1,\\dots,x_n)\\|_F$",
+      "page": 94
+    },
+    {
+      "symbol": "$\\|(x_1,\\dots,x_n)\\|_{E_1\\times\\cdots\\times E_n}=\\sum_i\\|x_i\\|_{E_i}$",
+      "meaning": "norme produit (somme) donnant la topologie produit",
+      "page": 94
+    },
+    {
+      "symbol": "$\\Phi$, $\\Psi$",
+      "meaning": "isométries réciproques $\\mathcal L(E_1,E_2;F)\\leftrightarrow\\mathcal L(E_1;\\mathcal L(E_2;F))$, $\\Phi(f)(x)(y)=f(x,y)$, $\\Psi(g)(x,y)=g(x)(y)$",
+      "page": 95
+    },
+    {
+      "symbol": "$\\mathcal L(E^{\\otimes m};F)$",
+      "meaning": "$:=\\mathcal L(E,E,\\dots,E;F)$ ($m$ facteurs $E$), applications $m$-linéaires continues sur $E^m$",
+      "page": 95
+    },
+    {
+      "symbol": "$\\mathfrak S_m$, $\\mathfrak S_p$",
+      "meaning": "groupe des permutations de $\\{1,\\dots,m\\}$ (symétrie des applications multilinéaires)",
+      "page": 95
+    },
+    {
+      "symbol": "$f(B)$, $\\overline{f(B)}$",
+      "meaning": "image de la boule unité ouverte $B=B_E(0,1)$ et son adhérence (preuve de l'application ouverte)",
+      "page": 96
+    },
+    {
+      "symbol": "$\\mathrm{Graphe}(f)=\\{(x,f(x))\\in E\\times F,\\ x\\in E\\}$",
+      "meaning": "graphe d'une application linéaire",
+      "page": 97
+    },
+    {
+      "symbol": "$\\|x\\|_f=\\|x\\|_E+\\|f(x)\\|_F$",
+      "meaning": "norme du graphe (preuve du théorème du graphe fermé)",
+      "page": 97
+    },
+    {
+      "symbol": "$f(x)=o(x)$, $o(h)$",
+      "meaning": "$\\forall\\epsilon>0\\ \\exists\\delta>0$ : $x\\in B_E(0,\\delta)\\cap U\\Rightarrow|f(x)|<\\epsilon\\|x\\|_E$ ; négligeable devant $\\|h\\|$",
+      "page": 98
+    },
+    {
+      "symbol": "$df_a$",
+      "meaning": "différentielle de $f$ au point $a$ : élément de $\\mathcal L(E;F)$ tel que $\\|f(a+h)-f(a)-df_a(h)\\|_F=o(h)$",
+      "page": 98
+    },
+    {
+      "symbol": "$df:U\\to\\mathcal L(E;F)$, $a\\mapsto df_a$",
+      "meaning": "application différentielle ; $f$ est $C^1$ ssi $df$ est continue",
+      "page": 98
+    },
+    {
+      "symbol": "$C^1$",
+      "meaning": "différentiable sur $U$ et $df$ continue",
+      "page": 98
+    },
+    {
+      "symbol": "$f'(a)=df_a(1)$",
+      "meaning": "vecteur dérivé (vecteur tangent) d'une fonction d'une variable réelle à valeurs dans $F$, via $\\mathcal L(\\mathbb R;F)\\simeq F$",
+      "page": 98
+    },
+    {
+      "symbol": "$\\langle\\cdot,\\cdot\\rangle_E$",
+      "meaning": "produit scalaire d'un espace de Hilbert $E$",
+      "page": 99
+    },
+    {
+      "symbol": "$\\nabla f(a)$",
+      "meaning": "gradient de $f:U\\to\\mathbb R$ en $a$ (Hilbert) : $\\langle\\nabla f(a),h\\rangle_E=df_a(h)$",
+      "page": 99
+    },
+    {
+      "symbol": "$E'$, $U'=E'\\cap U$",
+      "meaning": "sous-espace de $E$ avec la norme induite et l'ouvert induit (restriction)",
+      "page": 99
+    },
+    {
+      "symbol": "$d(g\\circ f)_a=dg_{f(a)}\\circ df_a$",
+      "meaning": "règle de composition (chaîne)",
+      "page": 100
+    },
+    {
+      "symbol": "$\\alpha'(0)=d\\alpha_0(1)$",
+      "meaning": "vecteur tangent à la courbe paramétrée $\\alpha$ en $t=0$",
+      "page": 100
+    },
+    {
+      "symbol": "$Tf:U\\times E\\to F\\times F$, $(x,h)\\mapsto(f(x),df_x(h))$",
+      "meaning": "application tangente ; $T(g\\circ f)=Tg\\circ Tf$",
+      "page": 100
+    },
+    {
+      "symbol": "$p_i:F\\to F_i$, $\\iota_i:F_i\\to F$",
+      "meaning": "projection et injection canoniques d'un produit $F=F_1\\times\\cdots\\times F_n$ ; $p_i\\circ\\iota_i=\\mathrm{Id}_{F_i}$, $\\sum_i\\iota_i\\circ p_i=\\mathrm{Id}_F$ (V.3.2)",
+      "page": 101
+    },
+    {
+      "symbol": "$f_i:=p_i\\circ f$",
+      "meaning": "$i$-ème composante d'une application à valeurs dans un produit",
+      "page": 101
+    },
+    {
+      "symbol": "$\\mathrm{Id}_E$, $\\mathrm{Id}_F$",
+      "meaning": "application identité",
+      "page": 101
+    },
+    {
+      "symbol": "$f_{[i]}:x_i\\mapsto f(a_1,\\dots,a_{i-1},x_i,a_{i+1},\\dots,a_m)$",
+      "meaning": "$i$-ème application partielle au point $a$",
+      "page": 102
+    },
+    {
+      "symbol": "$\\frac{\\partial f}{\\partial x_i}(a)\\in\\mathcal L(E_i;F)$",
+      "meaning": "dérivée (différentielle) partielle de $f$ par rapport à $x_i$ : différentielle de $f_{[i]}$ en $a_i$ ; $=df_a\\circ\\iota_i$",
+      "page": 102
+    },
+    {
+      "symbol": "$\\lambda_i(x_i)=a+\\iota_i(x_i-a_i)$",
+      "meaning": "paramétrage affine de la $i$-ème droite partielle, $f_{[i]}=f\\circ\\lambda_i$",
+      "page": 102
+    },
+    {
+      "symbol": "$f_{i,j}=f_{[i]\\,j}=f_{j\\,[i]}$",
+      "meaning": "fonction réelle d'une variable réelle : $j$-ème composante de la $i$-ème application partielle",
+      "page": 103
+    },
+    {
+      "symbol": "$\\frac{\\partial f_j}{\\partial x_i}(a)$",
+      "meaning": "dérivée partielle de la composante $j$ par rapport à la variable $i$ (nombre réel, par identification $\\mathcal L(\\mathbb R;\\mathbb R)\\simeq\\mathbb R$)",
+      "page": 103
+    },
+    {
+      "symbol": "$\\big(\\frac{\\partial f_j}{\\partial x_i}(a)\\big)_{j,i}$",
+      "meaning": "matrice jacobienne de $f$ en $a$ ($n$ lignes, $m$ colonnes) représentant $df_a$ dans les bases canoniques",
+      "page": 103
+    },
+    {
+      "symbol": "$\\mathrm{Jac}(f)(a)$",
+      "meaning": "déterminant jacobien (jacobien) de $f:\\mathbb R^n\\to\\mathbb R^n$ en $a$",
+      "page": 103
+    },
+    {
+      "symbol": "$[a,b]=\\{ta+(1-t)b\\ ;\\ t\\in[0,1]\\}$",
+      "meaning": "segment joignant $a$ et $b$ dans $E$",
+      "page": 104
+    },
+    {
+      "symbol": "$[a;b]$, $]a;b[$",
+      "meaning": "intervalles fermé/ouvert de $\\mathbb R$ (notation avec point-virgule du poly)",
+      "page": 103
+    },
+    {
+      "symbol": "$\\int_a^b f(t)\\,dt$",
+      "meaning": "intégrale (de Riemann) d'une fonction réglée $[a;b]\\to F$, $F$ Banach",
+      "page": 105
+    },
+    {
+      "symbol": "$\\|f\\|_0=\\sup_{t\\in[a;b]}\\|f(t)\\|_F$",
+      "meaning": "norme uniforme ; $\\|\\int_a^bf\\|\\le(b-a)\\|f\\|_0$",
+      "page": 105
+    },
+    {
+      "symbol": "$G(t)=\\int_{t_0}^tg(u)\\,du$",
+      "meaning": "primitive de $g$ s'annulant en $t_0$ ; $G'=g$",
+      "page": 105
+    },
+    {
+      "symbol": "$C^k$, $C^\\infty$",
+      "meaning": "classes de régularité définies par récurrence ($f$ est $C^k$ si différentiable et $df$ est $C^{k-1}$)",
+      "page": 106
+    },
+    {
+      "symbol": "$d^2f_a=d(df)_a$",
+      "meaning": "différentielle seconde en $a$ : élément de $\\mathcal L(E;\\mathcal L(E;F))\\simeq\\mathcal L(E,E;F)$, vue comme bilinéaire symétrique",
+      "page": 107
+    },
+    {
+      "symbol": "$g_{u,v}(t,s)=f(a+tu+sv)-f(a+sv)-f(a+tu)+f(a)$",
+      "meaning": "second accroissement (preuve du lemme de Schwarz)",
+      "page": 107
+    },
+    {
+      "symbol": "$d^pf_a$, $d^pf_a(h_1,\\dots,h_p)$",
+      "meaning": "différentielle d'ordre $p$ en $a$, application $p$-linéaire symétrique $E^p\\to F$",
+      "page": 108
+    },
+    {
+      "symbol": "$d^pf_a(h,h,\\dots,h)$",
+      "meaning": "valeur sur la diagonale (termes de la formule de Taylor) ; $=\\frac{d^p}{dt^p}f(a+th)|_{t=0}$",
+      "page": 109
+    },
+    {
+      "symbol": "$\\mathrm{Iso}(E;F)$",
+      "meaning": "ensemble des isomorphismes linéaires bicontinus de $E$ sur $F$ ; ouvert de $\\mathcal L(E;F)$",
+      "page": 109
+    },
+    {
+      "symbol": "$\\Psi:\\mathrm{Iso}(E;F)\\to\\mathrm{Iso}(F;E)$, $f\\mapsto f^{-1}$",
+      "meaning": "application inversion, de classe $C^\\infty$, $d\\Psi_f(g)=-f^{-1}gf^{-1}$",
+      "page": 109
+    },
+    {
+      "symbol": "$\\sum_{n\\ge0}h^n$",
+      "meaning": "série de Neumann, inverse de $\\mathrm{Id}-h$ pour $\\|h\\|<1$",
+      "page": 109
+    },
+    {
+      "symbol": "$L\\times R(h_1,h_2):g\\mapsto h_1\\circ g\\circ h_2$",
+      "meaning": "application bilinéaire continue $\\mathcal L(F;E)^2\\to\\mathcal L(\\mathcal L(E;F);\\mathcal L(F;E))$ (preuve de V.5.7)",
+      "page": 110
+    },
+    {
+      "symbol": "$f^{(k)}$",
+      "meaning": "dérivée $k$-ième d'une fonction d'une variable réelle à valeurs dans $F$",
+      "page": 110
+    },
+    {
+      "symbol": "$M_m(\\mathbb R)$",
+      "meaning": "matrices carrées réelles de taille $m$ (Exercice V.6.2)",
+      "page": 112
+    },
+    {
+      "symbol": "$\\ell^1(\\mathbb R)$",
+      "meaning": "espace de Banach des suites réelles sommables, $\\|x\\|=\\sum_i|x_i|$",
+      "page": 113
+    },
+    {
+      "symbol": "$C^1([0,1],\\mathbb R^2)$, $C^0([0;1],\\mathbb R)$",
+      "meaning": "espaces de fonctions de classe $C^1$ (resp. continues) sur $[0,1]$ (Exercices V.6.5, V.6.6)",
+      "page": 113
+    }
+  ],
+  "poly_exercises": [
+    {
+      "ref": "Exercice V.1.2",
+      "page": 94,
+      "topic": "identification $\\mathcal L(\\mathbb R;F)\\simeq F$",
+      "statement_short": "Montrer que $\\mathcal L(\\mathbb R;F)$ s'identifie canoniquement à $F$ par $T\\mapsto T(1)$ ; comparer les normes $\\|\\cdot\\|_{\\mathcal L(\\mathbb R;F)}$ et $\\|\\cdot\\|_F$ (elles coïncident : $\\|T\\|=\\|T(1)\\|_F$).",
+      "chapters_involved": [
+        5
+      ]
+    },
+    {
+      "ref": "Exercice V.1.4",
+      "page": 95,
+      "topic": "polarisation d'une application multilinéaire symétrique",
+      "statement_short": "Soit $f\\in\\mathcal L(E^{\\otimes m};F)$ $m$-linéaire symétrique. Montrer que $f$ est entièrement déterminée par ses valeurs sur la diagonale $(v,\\dots,v)$, $v\\in E$ (formule de polarisation).",
+      "chapters_involved": [
+        5
+      ]
+    },
+    {
+      "ref": "Exercice V.3.7",
+      "page": 99,
+      "topic": "différentielle d'une application multilinéaire continue",
+      "statement_short": "Reprendre l'Exemple V.3.6 pour $f\\in\\mathcal L(E_1,\\dots,E_n;F)$ : $df_{(a_1,\\dots,a_n)}(h_1,\\dots,h_n)=\\sum_if(a_1,\\dots,h_i,\\dots,a_n)$.",
+      "chapters_involved": [
+        5
+      ]
+    },
+    {
+      "ref": "Exercice V.3.10",
+      "page": 99,
+      "topic": "gradient d'une restriction à un sous-espace fermé d'un Hilbert",
+      "statement_short": "$E$ Hilbert, $E'$ sous-espace fermé, $f:U\\to\\mathbb R$ différentiable, $g=f|_{E'\\cap U}$. Déterminer $\\nabla g(a)$ en fonction de $\\nabla f(a)$ (c'est la projection orthogonale de $\\nabla f(a)$ sur $E'$).",
+      "chapters_involved": [
+        5
+      ]
+    },
+    {
+      "ref": "Exercice V.5.4",
+      "page": 108,
+      "topic": "lemme de Schwarz en coordonnées",
+      "statement_short": "Pour $f:\\mathbb R^2\\to\\mathbb R$ de classe $C^2$, montrer que le lemme de Schwarz équivaut à $\\frac{\\partial}{\\partial x}\\frac{\\partial}{\\partial y}f=\\frac{\\partial}{\\partial y}\\frac{\\partial}{\\partial x}f$.",
+      "chapters_involved": [
+        5
+      ]
+    },
+    {
+      "ref": "Exercice V.6.1",
+      "page": 112,
+      "topic": "différentielle de $x\\mapsto x/\\|x\\|$ dans un Hilbert",
+      "statement_short": "$E$ Hilbert. Montrer que $f:E\\setminus\\{0\\}\\to E$, $x\\mapsto x/\\|x\\|_E$ est différentiable et calculer $df_x$ (réponse : $df_x(h)=\\frac{1}{\\|x\\|}\\big(h-\\langle\\frac{x}{\\|x\\|},h\\rangle\\frac{x}{\\|x\\|}\\big)$, projection orthogonale sur $x^\\perp$ divisée par $\\|x\\|$).",
+      "chapters_involved": [
+        5
+      ]
+    },
+    {
+      "ref": "Exercice V.6.2",
+      "page": 112,
+      "topic": "différentielles première et seconde de $A\\mapsto A^n$",
+      "statement_short": "$\\Phi:M_m(\\mathbb R)\\to M_m(\\mathbb R)$, $A\\mapsto A^n$ ($n\\ge2$). Justifier que $\\Phi$ est $C^\\infty$ et calculer $d\\Phi_A(H)=\\sum_{k=0}^{n-1}A^kHA^{n-1-k}$ et $d^2\\Phi_A(H,K)$.",
+      "chapters_involved": [
+        5
+      ]
+    },
+    {
+      "ref": "Exercice V.6.3",
+      "page": 112,
+      "topic": "variante utile du TAF",
+      "statement_short": "$U$ ouvert convexe d'un Banach $E$, $f:U\\to F$ de classe $C^1$ ($F$ Banach). Montrer que pour $a,b,c\\in U$ : $\\|f(b)-f(a)-df_c(b-a)\\|_F\\le\\big(\\sup_{u\\in[a,b]}\\|df_u-df_c\\|\\big)\\|b-a\\|_E$ (appliquer le TAF à $x\\mapsto f(x)-df_c(x)$). Résultat clé pour l'inversion locale au chapitre VI.",
+      "chapters_involved": [
+        5,
+        6
+      ]
+    },
+    {
+      "ref": "Exercice V.6.4",
+      "page": 113,
+      "topic": "application de Nemytskii sur $\\ell^1$",
+      "statement_short": "$f\\in C^1(\\mathbb R,\\mathbb R)$ avec $f(0)=0$ ; $F:\\ell^1(\\mathbb R)\\to\\ell^1(\\mathbb R)$, $(x_i)\\mapsto(f(x_i))$. Montrer que $F$ est bien définie, de classe $C^1$, et calculer $dF_x(h)=(f'(x_i)h_i)_i$.",
+      "chapters_involved": [
+        5
+      ]
+    },
+    {
+      "ref": "Exercice V.6.5",
+      "page": 113,
+      "topic": "différentielle d'une fonctionnelle intégrale (aire orientée)",
+      "statement_short": "$E=C^1([0,1],\\mathbb R^2)$, $T(f)=\\int_0^1\\det(f(t),f'(t))\\,dt$. Montrer que $T$ est $C^1$ et calculer $dT_f(h)=\\int_0^1\\det(h,f')+\\det(f,h')\\,dt$ (Leibniz + linéarité de l'intégrale).",
+      "chapters_involved": [
+        5,
+        8
+      ]
+    },
+    {
+      "ref": "Exercice V.6.6",
+      "page": 113,
+      "topic": "régularité $C^p$ d'une fonctionnelle $u\\mapsto\\int_0^1f(t,u(t))dt$",
+      "statement_short": "$f$ continue sur $[0;1]\\times\\mathbb R$, $C^p$ sur $]0;1[\\times\\mathbb R$. Montrer que $F:C^0([0;1],\\mathbb R)\\to\\mathbb R$, $u\\mapsto\\int_0^1f(t,u(t))dt$ est $C^p$ avec $d^kF_u(h_1,\\dots,h_k)=\\int_0^1\\frac{\\partial^kf}{\\partial y^k}(t,u(t))h_1(t)\\cdots h_k(t)\\,dt$. Prototype des fonctionnelles du calcul des variations (chapitre VIII).",
+      "chapters_involved": [
+        5,
+        8
+      ]
+    }
+  ],
+  "pitfalls": [
+    "Confondre $df_a$ (une application linéaire continue $E\\to F$), $df_a(h)$ (un vecteur de $F$) et $df$ (une application $U\\to\\mathcal L(E;F)$) : la continuité exigée pour « $C^1$ » est celle de $df$ pour la norme d'opérateur.",
+    "L'existence de toutes les dérivées partielles, voire de toutes les dérivées directionnelles, en un point n'implique PAS la différentiabilité (Remarque V.3.18) : $f(x,y)=xy/(x^2+y^2)$, ou $x^2y/(x^4+y^2)$. Il faut en plus la continuité des dérivées partielles au voisinage (Proposition V.5.1) ou une vérification directe du $o(h)$.",
+    "Le théorème des accroissements finis vectoriel est une INÉGALITÉ : pas de point $c$ avec $f(b)-f(a)=df_c(b-a)$ dès que $\\dim F\\ge2$ ($t\\mapsto e^{it}$). On raisonne toujours avec $\\sup\\|df\\|$ sur le segment.",
+    "Le TAF exige que le SEGMENT $[a,b]$ soit dans $U$ ; sur un ouvert non convexe on ne peut majorer $\\|f(b)-f(a)\\|$ par $\\sup_U\\|df\\|\\,\\|b-a\\|$ (argument sur $\\mathbb C\\setminus\\mathbb R_-$). Le Corollaire V.4.5 (différentielle nulle ⇒ constante) exige $U$ connexe.",
+    "Hypothèses de complétude : $\\mathcal L(E;F)$ est de Banach seulement si $F$ l'est ; l'intégrale à valeurs vectorielles (V.4.6, V.4.7, V.5.9, V.5.11) exige $F$ de Banach ; la série de Neumann et le Théorème V.5.7 exigent $E$ de Banach ; application ouverte/Banach/graphe fermé exigent $E$ ET $F$ de Banach. En revanche, les inégalités (V.4.1, V.4.4, V.5.12, V.5.13) n'exigent aucune complétude.",
+    "Dans la Définition V.3.1, $df_a$ doit être CONTINUE : en dimension infinie une application linéaire vérifiant (V.3.1) peut être non continue si $f$ ne l'est pas en $a$ (Remarque V.3.2). En dimension finie, cette précaution est automatique.",
+    "Lemme de Schwarz : l'hypothèse est la différentiabilité de $df$ au point $a$ (par exemple $f$ de classe $C^2$), pas seulement l'existence des dérivées secondes croisées : $f(x,y)=xy(x^2-y^2)/(x^2+y^2)$ a $\\partial_x\\partial_yf(0)\\neq\\partial_y\\partial_xf(0)$.",
+    "Matrice jacobienne : $n$ lignes (composantes $f_j$) et $m$ colonnes (variables $x_i$) ; le coefficient $(j,i)$ est $\\partial f_j/\\partial x_i$. La ligne $j$ est le gradient de $f_j$, la colonne $i$ est $\\partial f/\\partial x_i\\in\\mathbb R^n$. Le jacobien n'a de sens que si $n=m$.",
+    "Dans les formules de Taylor, le terme d'ordre $k$ est $\\frac{1}{k!}d^kf_a(h,\\dots,h)$ avec le MÊME $h$ répété $k$ fois ; pour $E=\\mathbb R^m$, $d^2f_a(h,h)=\\sum_{i,j}\\partial_i\\partial_jf(a)h_ih_j=h^\\top\\mathrm{Hess}f(a)\\,h$ (pas de facteur 2 oublié : le $1/2!$ est explicite).",
+    "Trois Taylor, trois jeux d'hypothèses : reste intégral (V.5.11) : $C^{p+1}$ et $F$ Banach, égalité exacte ; Taylor-Lagrange (V.5.12) : $(p+1)$ fois différentiable avec $d^{p+1}f$ bornée, inégalité globale sur le segment ; Taylor-Young (V.5.13) : $p$ fois différentiable AU POINT $a$, conclusion seulement locale $o(\\|h\\|^p)$ sans constante.",
+    "Composition : $d(g\\circ f)_a=dg_{f(a)}\\circ df_a$, la différentielle de $g$ est prise en $f(a)$, pas en $a$ ; en matrices jacobiennes c'est un PRODUIT $J_g(f(a))\\,J_f(a)$ dans cet ordre.",
+    "Leibniz pour une bilinéaire non commutative (produit matriciel, composition d'opérateurs) : $d(A\\mapsto A^2)_A(H)=AH+HA$ et non $2AH$ ; $d(f\\mapsto f^{-1})_f(g)=-f^{-1}gf^{-1}$ et non $-g/f^2$.",
+    "Dérivée partielle $\\partial f/\\partial x_i(a)$ : c'est un élément de $\\mathcal L(E_i;F)$, pas un nombre, sauf quand $E_i=F=\\mathbb R$ (identification $\\mathcal L(\\mathbb R;\\mathbb R)\\simeq\\mathbb R$) ; de même $f'(a)=df_a(1)$ est un VECTEUR de $F$.",
+    "Le gradient $\\nabla f(a)$ dépend du produit scalaire choisi (Riesz) alors que $df_a$ n'en dépend pas ; il n'existe que pour $F=\\mathbb R$ et $E$ de Hilbert.",
+    "Baire, application ouverte, graphe fermé : ne jamais les appliquer à des espaces non complets (polynômes, $C([0,1])$ muni de $\\|\\cdot\\|_1$, $C^1$ muni de $\\|\\cdot\\|_\\infty$) : la dérivation sur $C^1([0,1])\\subset C([0,1])$ a un graphe fermé mais n'est pas continue.",
+    "Dans la preuve de $C^1\\Leftrightarrow$ dérivées partielles continues (V.5.1), la différentiabilité en $a$ requiert les dérivées partielles sur tout un VOISINAGE de $a$ (pour appliquer le TAF aux applications partielles), pas seulement en $a$.",
+    "« Différentiable » et « de classe $C^1$ » ne sont pas synonymes ($x^2\\sin(1/x)$) ; de même « $p$ fois différentiable » et « $C^p$ »."
+  ],
+  "viz_opportunities": [
+    {
+      "title": "La différentielle comme meilleure approximation linéaire (plan tangent et zoom)",
+      "shows": "Surface $z=f(x,y)$ et son plan tangent en $a$ ; en zoomant autour de $a$ la surface se confond avec le plan ; un curseur $\\|h\\|$ affiche l'erreur $\\|f(a+h)-f(a)-df_a(h)\\|$ et le rapport erreur$/\\|h\\|\\to0$. Comparer avec $|x|$ ou $xy/(x^2+y^2)$ où aucun plan ne convient.",
+      "results": [
+        "Définition V.3.1",
+        "non numéroté, section V.3.1, p. 98",
+        "Remarque V.3.18"
+      ]
+    },
+    {
+      "title": "Image d'une petite grille et matrice jacobienne",
+      "shows": "Pour $f:\\mathbb R^2\\to\\mathbb R^2$ (ex. $(x,y)\\mapsto(x^2-y^2,2xy)$, coordonnées polaires…), l'image d'un petit quadrillage autour de $a$ devient un parallélogramme donné par la matrice jacobienne ; $|\\mathrm{Jac}(f)(a)|$ est le facteur d'aire ; les vecteurs tangents aux courbes sont transportés par $df_a$ (Remarque V.3.13). Fait le pont avec la représentation conforme du chapitre IV et l'inversion locale du chapitre VI.",
+      "results": [
+        "Remarque V.3.13",
+        "non numéroté, section V.3.5, p. 103",
+        "Proposition V.3.17"
+      ]
+    },
+    {
+      "title": "Dérivées partielles sans différentiabilité",
+      "shows": "Surface $z=xy/(x^2+y^2)$ (ou $x^2y/(x^4+y^2)$) : les coupes selon les axes sont plates (dérivées partielles nulles) mais la surface a un pli le long des diagonales / des paraboles $y=x^2$ ; aucun plan tangent. Choix de la direction/courbe d'approche par curseur.",
+      "results": [
+        "Remarque V.3.18",
+        "Proposition V.3.17",
+        "Proposition V.5.1"
+      ]
+    },
+    {
+      "title": "TAF vectoriel : pourquoi seulement une inégalité",
+      "shows": "Courbe $t\\mapsto(\\cos t,\\sin t)$ : la corde $f(b)-f(a)$ n'est jamais parallèle à un $f'(c)$ ; afficher $\\|f(b)-f(a)\\|$ et $\\sup\\|f'\\|\\cdot(b-a)$. Puis un ouvert non convexe (fente) où le segment sort de $U$ et l'inégalité échoue.",
+      "results": [
+        "Théorème V.4.1",
+        "Théorème V.4.4",
+        "Corollaire V.4.5"
+      ]
+    },
+    {
+      "title": "Preuve par dichotomie du Théorème V.4.1",
+      "shows": "Animation des intervalles emboîtés $[u_k;v_k]$ où l'excès $\\|f(v)-f(u)\\|-(g(v)-g(u))$ reste $\\ge M/2^k$ ; convergence vers $w$ et contradiction avec $\\|f'(w)\\|\\le g'(w)$.",
+      "results": [
+        "Théorème V.4.1"
+      ]
+    },
+    {
+      "title": "Chemin en escalier dans la preuve de « dérivées partielles continues ⇒ $C^1$ »",
+      "shows": "Aller de $a$ à $x$ en bougeant une coordonnée à la fois ; sur chaque segment on applique le TAF à l'application partielle de $g(x)=f(x)-f(a)-\\sum_k\\partial_kf(a)(x_k-a_k)$ ; la somme des erreurs est $\\le\\epsilon\\|x-a\\|$.",
+      "results": [
+        "Proposition V.5.1",
+        "Théorème V.4.4"
+      ]
+    },
+    {
+      "title": "Lemme de Schwarz : le second accroissement sur un parallélogramme",
+      "shows": "Les quatre points $a$, $a+tu$, $a+sv$, $a+tu+sv$ et la quantité $g_{u,v}(t,s)$, symétrique par construction ; tableau de $g_{u,v}(t,t)/t^2$ tendant vers $d^2f_a(u,v)$ ; contre-exemple $xy(x^2-y^2)/(x^2+y^2)$ où les dérivées croisées diffèrent.",
+      "results": [
+        "Théorème V.5.3",
+        "Théorème V.5.5"
+      ]
+    },
+    {
+      "title": "Approximations de Taylor d'ordre 1, 2, 3 d'une fonction de deux variables",
+      "shows": "Graphes superposés de $f$ et de ses polynômes de Taylor en $a$ (plan tangent, quadrique osculatrice…) ; courbe log-log du reste en fonction de $\\|h\\|$ avec pente $p+1$ (reste intégral/Lagrange) et illustration du $o(\\|h\\|^p)$ (Young).",
+      "results": [
+        "Théorème V.5.11",
+        "Théorème V.5.12",
+        "Théorème V.5.13"
+      ]
+    },
+    {
+      "title": "Inversion des matrices : $GL_2$ est ouvert et $A\\mapsto A^{-1}$ est lisse",
+      "shows": "Coupe 2D de $M_2(\\mathbb R)$ avec la nappe $\\det=0$ ; autour de $A_0$ inversible, comparer $A^{-1}$ et l'approximation linéaire $A_0^{-1}-A_0^{-1}(A-A_0)A_0^{-1}$ ; sommes partielles de la série de Neumann $\\sum h^n$ pour $\\|h\\|<1$.",
+      "results": [
+        "Théorème V.5.7",
+        "non numéroté, section V.5.4, p. 109"
+      ]
+    },
+    {
+      "title": "Gradient et lignes de niveau dans un Hilbert (dépendance au produit scalaire)",
+      "shows": "Lignes de niveau de $f:\\mathbb R^2\\to\\mathbb R$, vecteur $\\nabla f(a)$ orthogonal à la ligne de niveau pour le produit scalaire usuel ; changer la métrique (boules elliptiques) change $\\nabla f(a)$ mais pas $df_a$ (les hyperplans $\\ker df_a$ sont les mêmes).",
+      "results": [
+        "Exemple V.3.8",
+        "Exemple V.3.9"
+      ]
+    }
+  ],
+  "proof_techniques": [
+    "Retour à la définition par $o(h)$ : écrire $f(a+h)=f(a)+df_a(h)+r(h)$ et contrôler le reste par des inégalités triangulaires et la norme d'opérateur (composition V.3.12, bilinéaire V.3.6, inversion V.5.7).",
+    "Réduction à une variable réelle : poser $g(t)=f(a+th)$ ou $h(t)=f((1-t)a+tb)$, calculer $g'(t)=df_{a+th}(h)$ par la règle de composition, puis appliquer un résultat en une variable (TAF V.4.4, théorème fondamental V.4.7, Taylor V.5.11-12, formule pratique V.5.6).",
+    "Dichotomie et intervalles emboîtés (argument de compacité de $[u;v]$) avec raisonnement par l'absurde (Théorème V.4.1).",
+    "Soustraire l'approximation linéaire : étudier $g(x)=f(x)-f(a)-\\sum_k\\partial_kf(a)(x_k-a_k)$ (ou $g(h)=f(a+h)-$ polynôme de Taylor) qui a une « petite » différentielle, puis TAF pour majorer $g$ lui-même (Proposition V.5.1, Taylor-Young V.5.13).",
+    "Décomposition « composante par composante » et « variable par variable » via $p_i$, $\\iota_i$ et $\\sum_i\\iota_i\\circ p_i=\\mathrm{Id}$ (Propositions V.3.15, V.3.17, formule (V.3.4)) ; chemin en escalier coordonnée par coordonnée.",
+    "Série géométrique de Neumann $\\sum h^n$ dans l'algèbre de Banach $\\mathcal L(E)$ (norme d'algèbre + complétude) pour inverser $\\mathrm{Id}-h$ et contrôler $\\|(\\mathrm{Id}-h)^{-1}-\\mathrm{Id}-h\\|\\le\\|h\\|^2/(1-\\|h\\|)$ (Théorème V.5.7).",
+    "Récurrence sur l'ordre : $C^k\\Rightarrow C^{k+1}$ en écrivant $d\\Psi$ comme composée d'applications déjà régulières (V.5.7) ; récurrence sur $p$ en appliquant l'hypothèse à $df$ (Taylor-Young V.5.13) ; généralisation de Schwarz à l'ordre $p$ (V.5.5).",
+    "Fonction auxiliaire télescopique $g(t)=\\sum_{k=0}^p\\frac{(1-t)^k}{k!}f^{(k)}(t)$ dont la dérivée se réduit à $\\frac{(1-t)^p}{p!}f^{(p+1)}(t)$ (Lemmes V.5.9, V.5.10).",
+    "Baire + convexité symétrique de $\\overline{f(B)}$ + approximations successives sommables $\\sum\\|x_n\\|<1$ (application ouverte V.2.2) ; passage « adhérence → vrai ensemble » par série convergente dans un Banach.",
+    "Changer de norme sur le même espace : norme du graphe $\\|x\\|_E+\\|f(x)\\|_F$ complète ssi graphe fermé, puis Corollaire V.2.4 (graphe fermé V.2.5).",
+    "Curryfication $\\mathcal L(E;\\mathcal L(E;F))\\simeq\\mathcal L(E,E;F)$ pour interpréter $d^2f_a$ comme bilinéaire ; isométrie prouvée par double majoration $\\|\\Phi\\|\\le1$, $\\|\\Psi\\|\\le1$ et $\\Psi\\circ\\Phi=\\mathrm{Id}$.",
+    "Symétrisation par un second accroissement $g_{u,v}(t,s)$ invariant par échange $(u,v)\\leftrightarrow(v,u)$, et comparaison à $d^2f_a(tu,sv)$ via TAF en la variable $s$ (lemme de Schwarz V.5.3).",
+    "Utiliser que les $p$-linéaires symétriques sont déterminées par leur restriction à la diagonale (Exercice V.1.4) et dériver $h\\mapsto b(h,\\dots,h)$ (différentielle $j\\,b(k,h,\\dots,h)$)."
+  ]
+}
