@@ -21,7 +21,7 @@ Les flèches grises représentent le champ (à l'instant $0$ pour le champ non a
       rot: { label: 'rotation (−y, x)', auto: true, X: (t, x, y) => [-y, x] },
       selle: { label: 'selle (x, −y)', auto: true, X: (t, x, y) => [x, -y] },
       pend: { label: 'pendule (y, −sin x)', auto: true, X: (t, x, y) => [y, -Math.sin(x)] },
-      poly: { label: 'poly (y − y⁵, x)', auto: true, X: (t, x, y) => [y - Math.pow(y, 5), x] },
+      poly: { label: 'polynomial (y − y⁵, x)', auto: true, X: (t, x, y) => [y - Math.pow(y, 5), x] },
       vent: { label: 'non autonome : (−y + 1,2 cos 2t, x)', auto: false, X: (t, x, y) => [-y + 1.2 * Math.cos(2 * t), x] },
     };
     const sel = kit.select(controls, { label: 'champ $X$', options: Object.keys(fields).map(k => [fields[k].label, k]), value: 'vent', onChange: () => draw() });

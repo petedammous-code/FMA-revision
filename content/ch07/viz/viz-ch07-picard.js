@@ -6,8 +6,8 @@ FMA.registerViz({
 
 **Quoi regarder.**
 * **En haut** : la boîte $[-b\,;b]\times \bar B(x_0,2a)$ (rectangle bleu) et le « cône » $\vert x-x_0\vert\le \ell\vert t\vert$ (zone hachurée), où $\ell$ majore $\vert X\vert$ sur la boîte et $k$ est la constante de Lipschitz en $x$ sur la boîte (toutes deux calculées et affichées). Les itérées $\varphi_0,\dots,\varphi_n$ (de pâle à foncé, la dernière en rose épais) se rapprochent de la vraie solution (pointillés verts).
-* **En bas** : les écarts $\Vert\varphi_{j+1}-\varphi_j\Vert_\infty$ en échelle logarithmique (barres) et la borne géométrique $(bk)^j\,\Vert\varphi_1-\varphi_0\Vert_\infty\le 2^{-j}\Vert\varphi_1-\varphi_0\Vert_\infty$ (ligne orange) que donne le théorème du point fixe de Banach.
-* **Les deux conditions de la preuve** (poly, Lemme VII.2.7 et preuve du Théorème VII.2.1, p. 130-131) sont testées en direct : $b\ell< a$ assure que $S$ **envoie la boîte dans elle-même** (les itérées restent dans le cône), $bk\le \frac12$ assure que $S$ est **$\frac12$-contractante**. Augmente $b$ avec $\alpha'=\alpha^2$ : les conditions tombent, les itérées sortent de la boîte et finissent par diverger (la vraie solution $x/(1-tx)$ explose en $t=1/x$).
+* **En bas** : les écarts $\Vert\varphi_{j+1}-\varphi_j\Vert_\infty$ en échelle logarithmique (barres) et la borne géométrique $\Vert\varphi_{j+1}-\varphi_j\Vert_\infty\le(bk)^j\,\Vert\varphi_1-\varphi_0\Vert_\infty\le 2^{-j}\Vert\varphi_1-\varphi_0\Vert_\infty$ que donne le théorème du point fixe de Banach (ligne orange pleine pour $2^{-j}$, pointillée pour $(bk)^j$). Elle n'est une majoration que **si les deux conditions ci-dessous sont vérifiées** (c'est ce qui garantit que les itérées restent dans la boîte, où $k$ est la constante de Lipschitz) ; sinon les barres peuvent la dépasser.
+* **Les deux conditions de la preuve** (poly, Lemme VII.2.7 et preuve du Théorème VII.2.1, p. 130-131) sont testées en direct : $b\ell< a$ assure que $S$ **envoie la boîte dans elle-même** (les itérées restent dans le cône), $bk\le \frac12$ assure que $S$ est **$\frac12$-contractante**. (Ici $x=x_0$, donc $b\ell\le 2a$ suffirait pour la stabilité ; la marge $a$ sert dans le poly à faire varier la condition initiale $x\in B(x_0,a)$ avec le même $b$, c'est ce qui donne un $\epsilon$ uniforme.) Augmente $b$ avec $\alpha'=\alpha^2$ : les conditions tombent, les itérées sortent de la boîte et finissent par diverger (la vraie solution $x/(1-tx)$ explose en $t=1/x$).
 
 Les conditions sont **suffisantes**, pas nécessaires : pour une équation linéaire ($\alpha'=\alpha$) les itérées convergent même quand $b\ell\ge a$ ; c'est l'équation non linéaire qui montre pourquoi il faut un petit $b$. La convergence observée est même bien plus rapide que $2^{-j}$ (en $b^j k^j/j!$), la borne de Banach n'étant qu'une majoration.`,
   related: ['ch07-cauchy-lipschitz', 'ch07-lemme-operateur-integral', 'ch07-equation-integrale', 'ch06-point-fixe-banach', 'ch07-localement-lipschitzien-def'],
@@ -150,11 +150,11 @@ Les conditions sont **suffisantes**, pas nécessaires : pour une équation liné
         ctx.globalAlpha = 1; ctx.fillStyle = T.muted; ctx.fillText(String(j), x, bot + 3);
       }
       // geometric bound (bk)^j d0 and 2^-j d0
-      const q = Math.min(b * k, 0.5) > 0 ? b * k : 0;
+      const q = b * k > 0 ? b * k : 0; // (bk)^j line, drawn even when bk > 1/2 (it then grows : Banach gives nothing)
       ctx.strokeStyle = T.accent4; ctx.lineWidth = 2; ctx.beginPath();
       for (let j = 0; j < NMAX; j++) { const x = left + slot * (j + 0.5); const y = yOf(Math.max(lmin, Math.min(lmax, L(d0) + j * Math.log10(0.5)))); j ? ctx.lineTo(x, y) : ctx.moveTo(x, y); }
       ctx.stroke();
-      if (q > 0 && q < 0.5) { ctx.setLineDash([3, 3]); ctx.lineWidth = 1.3; ctx.beginPath();
+      if (q > 0 && Math.abs(q - 0.5) > 1e-9) { ctx.setLineDash([3, 3]); ctx.lineWidth = 1.3; ctx.beginPath();
         for (let j = 0; j < NMAX; j++) { const x = left + slot * (j + 0.5); const y = yOf(Math.max(lmin, Math.min(lmax, L(d0) + j * Math.log10(q)))); j ? ctx.lineTo(x, y) : ctx.moveTo(x, y); }
         ctx.stroke(); ctx.setLineDash([]); }
       ctx.textAlign = 'right'; ctx.textBaseline = 'top'; ctx.fillStyle = T.accent4;
