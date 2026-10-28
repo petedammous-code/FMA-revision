@@ -274,7 +274,7 @@ Quelles hypothèses du lemme de Morse sont nécessaires ? Que dire de la régula
 ### Q
 Contre-exemples au lemme de Morse sans non-dégénérescence.
 ### R
-$f(x,y)=x^2+y^3$ en $0$ (hessienne de rang $1$) : $f$ n'est conjuguée par aucun difféomorphisme local à une forme quadratique $\pm h_1^2\pm h_2^2$ ou $\pm h_1^2$ (son lieu de zéros, une cuspide $x^2=-y^3$, n'est pas un lieu de zéros de forme quadratique). De même $f(x)=x^4$ en $0$ : $x^4=h^2$ impose $h=\pm x^2$, qui n'est pas un difféomorphisme local en $0$.
+$f(x,y)=x^2+y^3$ en $0$ (hessienne $\mathrm{diag}(2,0)$, de rang $1$) : si l'on avait $f=Q\circ\varphi$ avec $\varphi$ difféomorphisme local, $\varphi(0)=0$, et $Q=\pm(h_1^2+h_2^2)$, alors $0$ serait un extremum local strict, or $f(0,y)=y^3$ change de signe ; et avec $Q=\pm(h_1^2-h_2^2)$, le lieu $\{f=0\}=\varphi^{-1}(\{Q=0\})$ serait deux arcs $C^\infty$ se coupant transversalement en $0$, or c'est la cuspide $x^2=-y^3$, i.e. $y=-|x|^{2/3}$, qui n'est même pas une courbe $C^1$ en $0$. De même $f(x)=x^4$ en $0$ : $x^4=h(x)^2$ impose $|h(x)|=x^2$, donc $h'(0)=0$ : $h$ n'est pas un difféomorphisme local en $0$.
 
 ## CARD id=fc-ch06-040 ref=ch06-point-fixe-iteree-contractante tags=enonce
 ### Q
@@ -294,7 +294,7 @@ Non, pas de continuité : $X=[0,1]$, $T(x)=0$ pour $x\ne1$, $T(1)=1/2$ : $T^2\eq
 ### Q
 Énoncer (hypothèses et conclusion) la méthode de Newton dans un espace de Banach.
 ### R
-Soit $U$ ouvert convexe d'un Banach $E$, $f:U\to F$ de classe $C^1$ ($F$ Banach), avec $df_{x_0}$ isomorphisme en un $x_0\in U$ et $\|df_b-df_a\|\le M\|b-a\|$ pour tous $a,b\in U$ ; $C=\|df_{x_0}^{-1}\|$. Si $\delta<(2MC)^{-1}$ et $\|f(x_0)\|_F$ sont assez petits (par ex. $C\|f(x_0)\|\le(1-K)\delta$), alors $\phi(r)=df_{x_0+r}^{-1}\big(f(x_0+r)-df_{x_0+r}(r)\big)$ est une contraction de rapport $K<1$ de $B_E(0,\delta)$ dans elle-même, la suite $x_{n+1}=x_n-df_{x_n}^{-1}(f(x_n))$ est bien définie, converge vers $z$ avec $f(z)=0$, et $\|x_{n+1}-z\|\le2CM\|x_n-z\|^2$ (convergence **quadratique**). (poly, Exercice VI.4.2, p. 121--122)
+Soit $U$ ouvert convexe d'un Banach $E$, $f:U\to F$ de classe $C^1$ ($F$ Banach), avec $df_{x_0}$ isomorphisme en un $x_0\in U$ et $\|df_b-df_a\|\le M\|b-a\|$ pour tous $a,b\in U$ ; $C=\|df_{x_0}^{-1}\|$. Si $\delta<(2MC)^{-1}$ (avec $\bar B_E(x_0,\delta)\subset U$) et $\|f(x_0)\|_F$ sont assez petits, alors $\phi(r)=df_{x_0+r}^{-1}\big(f(x_0+r)-df_{x_0+r}(r)\big)$ est $K$-lipschitzienne sur $B_E(0,\delta)$ avec $K<1$ ; si de plus $C\|f(x_0)\|_F\le(1-K)\delta$, on a $\|\phi(r)\|_E\le\delta$ pour $\|r\|_E<\delta$ ($\phi$ est une contraction de $B_E(0,\delta)$ « dans elle-même » ; pour conclure proprement on travaille sur la boule fermée, complète). Alors la suite $x_{n+1}=x_n-df_{x_n}^{-1}(f(x_n))$ est bien définie, converge vers $z$ avec $f(z)=0$, et $\|x_{n+1}-z\|\le2CM\|x_n-z\|^2$ (convergence **quadratique**). (poly, Exercice VI.4.2, p. 121--122)
 
 ## CARD id=fc-ch06-043 ref=ch06-methode-de-newton tags=formule
 ### Q
@@ -415,7 +415,7 @@ $B$ : boule **ouverte**, $\bar B$ : boule **fermée**, de centre et rayon indiqu
 ### Q
 Que signifie « isomorphisme bicontinu » ? Quand se simplifie-t-il ?
 ### R
-Une application linéaire **bijective, continue, d'inverse continu**. Entre espaces de Banach, bijective + continue suffit (théorème de l'application ouverte, Théorème V.2.3) ; en dimension finie cela se lit $\det\ne0$ (donc $\dim E=\dim F$). (poly, p. 118 ; notation $\mathrm{Iso}(E;F)$ au chapitre V)
+Une application linéaire **bijective, continue, d'inverse continu**. Entre espaces de Banach, bijective + continue suffit (Théorème V.2.3, dit de Banach, conséquence du théorème de l'application ouverte) ; en dimension finie cela se lit $\det\ne0$ (donc $\dim E=\dim F$). (poly, p. 118 ; notation $\mathrm{Iso}(E;F)$ au chapitre V)
 
 ## CARD id=fc-ch06-061 ref=none tags=notation
 ### Q
