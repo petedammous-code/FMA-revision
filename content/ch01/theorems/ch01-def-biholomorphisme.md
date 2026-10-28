@@ -21,9 +21,9 @@ Rappel : $\Hol(\Omega)$ désigne l'ensemble des fonctions holomorphes sur l'ouve
 
 **Définition (poly, Définition I.4.1, p. 13).** Une fonction holomorphe $h:\Omega_1\to\Omega_2$, où $\Omega_1$ et $\Omega_2$ sont deux ouverts de $\C$, est un **biholomorphisme** si $h$ est une bijection de $\Omega_1$ sur $\Omega_2$ dont la réciproque $h^{-1}$ est holomorphe sur $\Omega_2$.
 
-Un biholomorphisme d'un ouvert $\Omega$ de $\C$ sur lui-même est appelé un **automorphisme (holomorphe)** de $\Omega$. On note $\mathrm{Aut}_{hol}(\Omega)$ l'ensemble des automorphismes de $\Omega$ ; c'est un groupe pour la composition ([[ch01-groupe-automorphismes]]).
+Un biholomorphisme d'un ouvert $\Omega$ de $\C$ sur lui-même est appelé un **automorphisme (holomorphe)** de $\Omega$. On note $\mathrm{Aut}_{hol}(\Omega)$ l'ensemble des automorphismes de $\Omega$ ; c'est un groupe pour la composition (poly, Remarque I.4.2, p. 13 ; [[ch01-groupe-automorphismes]]).
 
-On dit que $\Omega_1$ et $\Omega_2$ sont **biholomorphes** s'il existe un biholomorphisme de $\Omega_1$ sur $\Omega_2$.
+*Vocabulaire usuel (non écrit dans la définition du poly) :* on dit que $\Omega_1$ et $\Omega_2$ sont **biholomorphes** s'il existe un biholomorphisme de $\Omega_1$ sur $\Omega_2$.
 
 ## Hypothèses
 
