@@ -44,14 +44,14 @@ Cauchy-Lipschitz : à quoi sert chaque hypothèse ($E$ Banach, $X$ continu, loca
 ### R
 * $E$ **Banach** : rend complet l'espace $\mathcal X=C^0([t_0-b\,;t_0+b],\bar B(x_0,2a))$ où l'on applique le point fixe de Banach.
 * $X$ **continu** : l'équation équivaut à l'équation intégrale (VII.2.2) et $X$ est borné (par $\ell$) près de $(\tau_0,x_0)$.
-* **Localement lipschitzien en $x$** : donne la contraction ($bk\le\frac12$) donc l'**unicité** ; sans elle, seule l'existence subsiste (Peano) et l'unicité tombe.
+* **Localement lipschitzien en $x$** : donne la contraction ($bk\le\frac12$) donc l'**unicité** ; sans elle, seule l'existence subsiste (théorème de Peano, valable en **dimension finie**) et l'unicité tombe.
 * Le $\epsilon$ est **uniforme** en $x\in B(x_0,\eta)$ et $t_0\in\,]\tau_0-\delta;\tau_0+\delta[$ : c'est ce qui permet de définir un flot local (poly, Remarque VII.2.3, p. 129).
 
 ## CARD id=fc-ch07-007 ref=ch07-peano-non-unicite tags=contre-exemple,enonce
 ### Q
 Donner le contre-exemple du poly montrant que la continuité de $X$ ne suffit pas pour l'unicité.
 ### R
-$\alpha'(t)=2\abs{\alpha(t)}^{1/2}$, $\alpha(0)=0$ : deux solutions $\alpha_1(t)=0$ et $\alpha_2(t)=\mathrm{signe}(t)\,t^2$ (en fait une infinité : $0$ pour $t\le c$, $(t-c)^2$ pour $t\ge c$, $c\ge0$). Le champ $x\mapsto 2\abs{x}^{1/2}$ est continu mais pas lipschitzien près de $0$. Un théorème de Peano affirme que la continuité suffit pour l'**existence** (le poly ne le démontre pas ; c'est un résultat de dimension finie). Le même exemple montre que le théorème tombe pour les équations implicites : $\alpha'(t)^2-4\alpha(t)=0$ a deux solutions avec $\alpha(0)=0$. (poly, Remarque VII.2.5, p. 129)
+$\alpha'(t)=2\abs{\alpha(t)}^{1/2}$, $\alpha(0)=0$ : deux solutions $\alpha_1(t)=0$ et $\alpha_2(t)=\mathrm{signe}(t)\,t^2$ (en fait une infinité : $0$ pour $t\le c$, $(t-c)^2$ pour $t\ge c$, $c\ge0$). Le champ $x\mapsto 2\abs{x}^{1/2}$ est continu mais pas lipschitzien près de $0$. Un théorème de Peano affirme que la continuité suffit pour l'**existence** (le poly ne le démontre pas ; c'est un résultat de dimension finie). Le même exemple montre que le théorème tombe pour les équations implicites : $\alpha'(t)^2-4\alpha(t)=0$ a deux solutions avec $\alpha(0)=0$, à savoir $\alpha\equiv0$ et $\alpha(t)=\max(t,0)^2$ (attention : $\mathrm{signe}(t)\,t^2$ n'en est **pas** une pour $t<0$, car $\alpha'^2=4\alpha$ impose $\alpha\ge0$). (poly, Remarque VII.2.5, p. 129)
 
 ## CARD id=fc-ch07-008 ref=ch07-cauchy-lipschitz tags=contre-exemple
 ### Q
@@ -295,7 +295,7 @@ Le domaine $D$ du flot est-il fermé ? Donner un exemple.
 ### R
 Non en général. Pour $X(x)=x^2$ sur $\R$ : $D_0=\{(t,x):tx\lt1\}$ est ouvert mais pas fermé (les points de l'hyperbole $tx=1$ sont adhérents sans y appartenir), et $F(t,x)=\dfrac{x}{1-tx}$ est $C^\infty$ sur $D_0$ mais n'a pas de limite finie au bord.
 
-## CARD id=fc-ch07-043 ref=ch07-proprietes-flot-formules tags=formule
+## CARD id=fc-ch07-043 ref=ch07-proprietes-flot-formules tags=enonce,formule
 ### Q
 Écrire les trois formules résumant les propriétés du flot global $F(s,t,x)$ d'un champ $X(t,x)$.
 ### R
@@ -337,7 +337,7 @@ Idée de la preuve du lemme des bouts.
 ### Q
 Pour montrer qu'une solution d'un champ autonome est définie pour tout temps, on ...
 ### R
-... cherche une information **a priori** qui confine la trajectoire dans un **compact de $U$**, puis on applique le lemme des bouts : quantité conservée (intégrale première) dont les lignes de niveau sont compactes (énergie, exercice VII.4.13), contrainte géométrique ($\alpha(t)$ orthogonale donc bornée dans $\Mat_n(\R)$, exercice VII.4.6), ou estimation de Gronwall. Pour un champ linéaire on conclut aussi par Gronwall (pas d'explosion).
+... cherche une information **a priori** qui confine la trajectoire dans un **compact de $U$**, puis on applique le lemme des bouts : quantité conservée (intégrale première) dont les lignes de niveau sont compactes (énergie, exercice VII.4.13), contrainte géométrique ($\alpha(t)$ orthogonale donc dans le compact $O(n)$ de $\Mat_n(\R)$, exercice VII.4.6 ; le champ $A(t)\alpha$ y dépend du temps : on utilise la version non autonome du lemme, « $(t,\alpha(t))$ reste dans un compact de $I\times U$ », ou simplement Gronwall), ou estimation de Gronwall. Pour un champ linéaire $\alpha'=A(t)\alpha$ ($A$ continue sur $I$) on conclut aussi par Gronwall : pas d'explosion, les solutions sont définies sur tout $I$.
 
 ## CARD id=fc-ch07-049 ref=none tags=formule
 ### Q
@@ -360,7 +360,7 @@ pour tout $t$ de l'intervalle commun. Elle se déduit de Gronwall appliqué à $
 ### Q
 Exponentielle de matrice et équation différentielle : quel problème de Cauchy $t\mapsto\exp(tX)$ résout-il ? Qu'est-ce qu'un sous-groupe à un paramètre de $\GL(n,K)$ ?
 ### R
-Pour $X\in\Mat_n(K)$, $\exp X=\sum_{n\ge0}\frac{X^n}{n!}$ et $t\mapsto\exp(tX)$ est l'**unique** solution différentiable de $a'(t)=X\,a(t)$, $a(0)=I_n$ ; de plus $\exp(sX)\exp(tX)=\exp((s+t)X)$. Un **sous-groupe à un paramètre** est un morphisme de groupes continu $\R\to\GL(n,K)$ ; tous sont de la forme $t\mapsto\exp(tX)$. (poly, Exercice VII.4.3, p. 138)
+Pour $X\in\Mat_n(K)$, $\exp X=\sum_{m\ge0}\frac{X^m}{m!}$ et $t\mapsto\exp(tX)$ est l'**unique** solution différentiable de $a'(t)=X\,a(t)$, $a(0)=I_n$ ; de plus $\exp(sX)\exp(tX)=\exp((s+t)X)$. Un **sous-groupe à un paramètre** est un morphisme de groupes continu $\R\to\GL(n,K)$ ; tous sont de la forme $t\mapsto\exp(tX)$. (poly, Exercice VII.4.3, p. 138)
 
 ## CARD id=fc-ch07-052 ref=none tags=formule
 ### Q
