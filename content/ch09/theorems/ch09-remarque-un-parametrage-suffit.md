@@ -42,7 +42,7 @@ Formule à retenir : si $x$ et $y$ sont deux paramétrages, $f\circ y=(f\circ x)
 
 **Rôle.** Un paramétrage $x$ ne voit que l'ouvert $x(U)$ de $S$.
 
-**Si on la retire.** On ne peut pas conclure sur tout $S$ avec un seul paramétrage local : sur $\mathbb S^1$, $f(X,Y)=|X+1|$ vérifie $f\circ x(t)=1+\cos t$, $C^\infty$, pour $x(t)=(\cos t,\sin t)$, $t\in]-\pi,\pi[$, mais $f$ n'est pas différentiable en $(-1,0)$ : avec $y(t)=(\cos t,\sin t)$, $t\in]0,2\pi[$, on a $f\circ y(t)=1+\cos t$ aussi... qui est $C^\infty$ ; prendre plutôt $f(X,Y)=|Y|\,\mathbb 1_{X<0}$ : nulle sur $\{X\ge0\}$, donc $f\circ x$ est $C^\infty$ pour $x(t)=(\cos t,\sin t)$, $t\in]-\frac\pi2,\frac\pi2[$, alors que $f\circ y(t)=|\sin t|$ près de $t=\pi$ pour $y(t)=(\cos t,\sin t)$, $t\in]0,2\pi[$, n'est pas dérivable en $\pi$.
+**Si on la retire.** On ne peut pas conclure sur tout $S$ avec un seul paramétrage local. Sur $\mathbb S^1$, soit $f(X,Y)=|Y|$. Avec $x(t)=(\cos t,\sin t)$, $t\in]0,\pi[$ (paramétrage du demi-cercle supérieur), $f\circ x(t)=\sin t$ est $C^\infty$ : $f$ est $C^\infty$ sur $x(U)=\mathbb S^1\cap\{Y>0\}$. Mais $f$ n'est pas différentiable en $(1,0)$ : avec $y(t)=(\cos t,\sin t)$, $t\in]-\pi,\pi[$, $f\circ y(t)=|\sin t|$ n'est pas dérivable en $0$.
 
 ## Idée de la preuve
 

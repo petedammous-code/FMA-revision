@@ -18,11 +18,11 @@ $$R(\rho)=\max_{\|h\|=\rho}\frac{\|f(a+h)-f(a)-\ell(h)\|}{\|h\|}$$
     const th = () => kit.theme();
     const FN = {
       smooth: { lab: 'sin x · cos y', f: (x, y) => Math.sin(x) * Math.cos(y), a0: [0.7, 0.4], vmax: 1, snap: null },
-      abs: { lab: '|x| + y²/2', f: (x, y) => Math.abs(x) + y * y / 2, a0: [0, 0.6], vmax: 2, snap: [0, 0], snapLine: true },
+      abs: { lab: '|x| + y²/2', f: (x, y) => Math.abs(x) + y * y / 2, a0: [0, 0.6], vmax: 4, snap: [0, 0], snapLine: true },
       xy: { lab: 'xy/(x²+y²)', f: (x, y) => { const r = x * x + y * y; return r === 0 ? 0 : x * y / r; }, a0: [0, 0], vmax: 0.5, snap: [0, 0] },
       x3: { lab: 'x³/(x²+y²)', f: (x, y) => { const r = x * x + y * y; return r === 0 ? 0 : x * x * x / r; }, a0: [0, 0], vmax: 2, snap: [0, 0] },
       x2y: { lab: 'x²y/(x⁴+y²)', f: (x, y) => { const r = x * x * x * x + y * y; return r === 0 ? 0 : x * x * y / r; }, a0: [0, 0], vmax: 0.5, snap: [0, 0] },
-      cone: { lab: '√(x²+y²)', f: (x, y) => Math.hypot(x, y), a0: [0, 0], vmax: 2.5, snap: [0, 0] },
+      cone: { lab: '√(x²+y²)', f: (x, y) => Math.hypot(x, y), a0: [0, 0], vmax: 4, snap: [0, 0] },
     };
     const keys = Object.keys(FN);
     let cur = 'xy';
