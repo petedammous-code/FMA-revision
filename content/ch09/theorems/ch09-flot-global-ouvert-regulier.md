@@ -103,15 +103,15 @@ Fermé : soit $b$ adhérent à $A$, $x_1=F(\tau_0,b,x_0)$, et $(E(J_1,2\epsilon_
 
 ## Exemples
 
-**Exemple 1 (un cercle privé d'un point).** $S=\mathbb S^1\setminus\{(1,0)\}$, sous-variété de $\R^2$ (ouvert de la sous-variété $\mathbb S^1$, [[ch09-ex-ouvert-de-sous-variete]]), non compacte. $X(p)=(-p_2,p_1)$, tangent (orthogonal à $p$), indépendant du temps. Tout $p\in S$ s'écrit $p=(\cos\theta(p),\sin\theta(p))$ avec $\theta(p)\in\,]0,2\pi[$, et $\theta : S\to\,]0,2\pi[$ est continue (c'est une carte). La courbe $\alpha(t)=(\cos(\theta(p)+t),\sin(\theta(p)+t))$ est la courbe intégrale issue de $p$ tant qu'elle reste dans $S$, c'est-à-dire pour $0<\theta(p)+t<2\pi$ ; elle ne se prolonge pas au-delà, car sa limite quand $t\to2\pi-\theta(p)$ est $(1,0)\notin S$. Donc
+**Exemple 1 (un cercle privé d'un point).** $S=\mathbb S^1\setminus\{(1,0)\}$, sous-variété de $\R^2$ (ouvert de la sous-variété $\mathbb S^1$, [[ch09-ex-ouvert-de-sous-variete]]), non compacte. $X(q)=(-q_2,q_1)$, tangent (orthogonal à $q$), indépendant du temps. Tout $q\in S$ s'écrit $q=(\cos\theta(q),\sin\theta(q))$ avec $\theta(q)\in\,]0,2\pi[$, et $\theta : S\to\,]0,2\pi[$ est continue (c'est une carte). La courbe $\alpha(t)=(\cos(\theta(q)+t),\sin(\theta(q)+t))$ est la courbe intégrale issue de $q$ tant qu'elle reste dans $S$, c'est-à-dire pour $0<\theta(q)+t<2\pi$ ; elle ne se prolonge pas au-delà, car sa limite quand $t\to2\pi-\theta(q)$ est $(1,0)\notin S$. Donc
 $$
-J(p)=\,]-\theta(p),\,2\pi-\theta(p)[,\qquad D_0=\{(t,p)\in\R\times S\mid0<\theta(p)+t<2\pi\},
+J(q)=\,]-\theta(q),\,2\pi-\theta(q)[,\qquad D_0=\{(t,q)\in\R\times S\mid0<\theta(q)+t<2\pi\},
 $$
-ouvert de $\R\times S$ par continuité de $\theta$ (et différent de $\R\times S$), et $F(t,p)=R_t\,p$ ($R_t$ rotation d'angle $t$), restriction d'une application $C^\infty$ de $\R\times\R^2$ : $F$ est $C^\infty$ sur $D_0$. Avec trois arguments : $D=\{(t_0,t,p)\mid0<\theta(p)+t-t_0<2\pi\}$.
+ouvert de $\R\times S$ par continuité de $\theta$ (et différent de $\R\times S$), et $F(t,q)=R_t\,q$ ($R_t$ rotation d'angle $t$), restriction d'une application $C^\infty$ de $\R\times\R^2$ : $F$ est $C^\infty$ sur $D_0$. Avec trois arguments : $D=\{(t_0,t,q)\mid0<\theta(q)+t-t_0<2\pi\}$.
 
 **Exemple 2 (explosion, $S=\R$, $X(x)=x^2$).** $F(t_0,t,x)=\dfrac{x}{1-(t-t_0)x}$ sur $D=\{(t_0,t,x)\in\R^3\mid(t-t_0)x<1\}$ : ouvert (image réciproque de $]-\infty,1[$ par une fonction continue) et $F$ est $C^\infty$ sur $D$, comme $X$. Le point $(0,1,1)$ n'est pas dans $D$, mais tout $(0,t,1)$ avec $t<1$ y est, avec une marge : pour $\abs{t_0}$, $\abs{t'-t}$, $\abs{x-1}$ petits, $(t'-t_0)x<1$.
 
-**Exemple 3 (champ dépendant du temps sur $\mathbb S^2$).** $X(t,p)=a(t)\,(e_3\wedge p)$ avec $a : I\to\R$ de classe $C^p$, et $A$ une primitive de $a$. Comme $\frac{d}{dt}R_{A(t)-A(\tau_0)}p=a(t)\,e_3\wedge R_{A(t)-A(\tau_0)}p$, on a $F(\tau_0,t,p)=R_{A(t)-A(\tau_0)}\,p$ sur $D=I\times I\times\mathbb S^2$, et $F$ est de classe $C^{p+1}$, donc a fortiori $C^p$.
+**Exemple 3 (champ dépendant du temps sur $\mathbb S^2$).** $X(t,z)=a(t)\,(e_3\wedge z)$ avec $a : I\to\R$ de classe $C^p$, et $A$ une primitive de $a$. Comme $\frac{d}{dt}R_{A(t)-A(\tau_0)}z=a(t)\,e_3\wedge R_{A(t)-A(\tau_0)}z$, on a $F(\tau_0,t,z)=R_{A(t)-A(\tau_0)}\,z$ sur $D=I\times I\times\mathbb S^2$, et $F$ est de classe $C^{p+1}$, donc a fortiori $C^p$.
 
 ## Pièges
 
