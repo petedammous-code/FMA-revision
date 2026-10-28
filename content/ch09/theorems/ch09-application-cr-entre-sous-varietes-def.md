@@ -53,6 +53,8 @@ $$
 
 **Rôle.** Rend la définition intrinsèque. Grâce à [[ch09-changement-parametrage]], il suffit en pratique d'un couple de paramétrages en chaque point ([[ch09-remarques-applications-cr]], point 1).
 
+**Si on la retire.** Remplacer « quels que soient les paramétrages » par « pour un couple de paramétrages en chaque point $p$ (en $p$ et en $\varphi(p)$) » donne **la même notion** : c'est le point 1 de [[ch09-remarques-applications-cr]]. Le « quels que soient » n'est donc pas restrictif ; il faut seulement que les paramétrages soient de vrais paramétrages (immersifs, homéomorphismes sur un ouvert), sans quoi le changement de paramétrage n'est plus un difféomorphisme (voir [[ch09-remarque-un-parametrage-suffit]], H1 : avec $t\mapsto t^3$ sur $S=\R$, la fonction $s\mapsto s^{1/3}$ semblerait $C^\infty$).
+
 ## Exemples
 
 * **Cas $S_2=\R$ (ou $\R^n$).** $\R$ est un ouvert de lui-même, paramétré par l'identité ; pour $x_2=\mathrm{id}_\R$, $x_2^{-1}\circ\varphi\circ x_1=\varphi\circ x_1$ : on retrouve la Définition IX.7.1 (pour $\varphi$ continue). Les autres paramétrages $x_2$ de $\R$ sont des $C^r$-difféomorphismes entre ouverts de $\R$, ce qui ne change rien.

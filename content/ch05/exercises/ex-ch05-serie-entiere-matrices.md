@@ -5,7 +5,7 @@ chapters: [5, 1]
 title: "Fonctions de matrices définies par une série entière : formule de Cauchy et différentielle"
 source: "Inventé (sur le thème classique du calcul fonctionnel holomorphe ; la formule de la question 8 est la formule de Daletskii–Krein)"
 difficulty: 4
-time: 80
+time: 60
 tools: [ch05-banach-series-absolument-convergentes, ch05-lef-banach-norme-algebre, ch05-serie-neumann, ch05-inversion-c-infini, ch05-integrale-fonctions-reglees, ch05-differentielle-def, ch05-vecteur-tangent-courbe, ch01-def-rayon-convergence, ch01-serie-entiere-holomorphe, ch01-serie-entiere-derivees-tout-ordre, ch01-estimees-cauchy, ch01-cauchy-formule-disque]
 ---
 ## Énoncé

@@ -37,7 +37,7 @@ La même définition vaut pour $f:S\to\R^n$ (Remarque IX.7.4, [[ch09-remarque-va
 
 **Rôle.** Rend la définition indépendante de tout choix. Pour la différentiabilité en $p$, seuls comptent les paramétrages dont l'image contient $p$ ; pour la classe $C^r$, tous les paramétrages, quel que soit leur point.
 
-**Si on la retire.** Si l'on testait avec une application qui n'est pas un vrai paramétrage (pas immersive), on obtiendrait des absurdités : sur $S=\R$, $x(t)=t^3$ est un homéomorphisme $C^\infty$, et $f(s)=s^{1/3}$ vérifie $f\circ x(t)=t$, $C^\infty$, alors que $f$ n'est pas dérivable en $0$ (lu dans le paramétrage $\mathrm{id}_\R$). C'est pourquoi le mot « paramétrage » est pris au sens strict.
+**Si on la retire.** Remplacer « pour tout paramétrage » par « pour un paramétrage (en $p$) » donne en fait **la même notion** : c'est exactement le contenu de [[ch09-remarque-un-parametrage-suffit]], conséquence du fait que les changements de paramétrage sont des $C^k$-difféomorphismes. Le « pour tout » est donc un choix de rédaction (il rend la définition visiblement intrinsèque), pas une hypothèse restrictive. Ce qui est en revanche indispensable, c'est le sens strict du mot « paramétrage » : si l'on testait avec une application qui n'est pas un vrai paramétrage (pas immersive), on obtiendrait des absurdités : sur $S=\R$, $x(t)=t^3$ est un homéomorphisme $C^\infty$, et $f(s)=s^{1/3}$ vérifie $f\circ x(t)=t$, $C^\infty$, alors que $f$ n'est pas dérivable en $0$ (lu dans le paramétrage $\mathrm{id}_\R$). C'est pourquoi le mot « paramétrage » est pris au sens strict.
 
 ## Exemples
 

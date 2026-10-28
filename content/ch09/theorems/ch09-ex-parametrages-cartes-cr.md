@@ -6,7 +6,7 @@ title: Les paramétrages locaux et les cartes sont de classe $C^r$
 ref: Exemple IX.7.6
 page: 160
 importance: 2
-depends: [ch09-application-cr-entre-sous-varietes-def, ch09-changement-parametrage, ch06-inversion-globale, ch09-ex-ouvert-sous-variete, ch09-ex-ouvert-de-sous-variete]
+depends: [ch09-application-cr-entre-sous-varietes-def, ch09-changement-parametrage, ch09-remarques-applications-cr, ch06-inversion-globale, ch09-ex-ouvert-sous-variete, ch09-ex-ouvert-de-sous-variete]
 tags: [sous-variete, parametrage-local, carte, application-cr, changement-de-parametrage]
 ---
 ## Intuition

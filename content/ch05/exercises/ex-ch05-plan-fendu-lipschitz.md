@@ -5,7 +5,7 @@ chapters: [5, 1]
 title: Différentielle bornée sans être lipschitzienne — l'argument sur le plan fendu
 source: Inventé
 difficulty: 3
-time: 45
+time: 40
 tools: [ch05-accroissements-finis-vectoriel, ch05-primitive-integrale, ch05-accroissements-finis, ch05-composition-differentielles, ch05-norme-operateur-def, ch05-differentielle-nulle-constante, ch01-c-derivable-ssi-df-c-lineaire, ch01-exp-trigo-hyperboliques, ch01-longueur-majoration-integrale]
 ---
 ## Énoncé

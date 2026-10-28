@@ -6,7 +6,7 @@ title: Un problème extrémal sur une bande (le cœur de la preuve de Riemann, e
 source: Inventé
 difficulty: 3
 time: 45
-tools: [ch03-montel, ch03-weierstrass, ch03-hurwitz, ch03-famille-normale, ch01-estimees-cauchy, ch01-principe-maximum, ch01-lemme-schwarz, ch01-bijection-holomorphe-reciproque-holomorphe]
+tools: [ch03-montel, ch03-weierstrass, ch03-hurwitz, ch03-famille-normale, ch03-convergence-uniforme-compacts, ch01-estimees-cauchy, ch01-principe-maximum, ch01-lemme-schwarz, ch01-bijection-holomorphe-reciproque-holomorphe]
 ---
 ## Énoncé
 

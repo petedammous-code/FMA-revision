@@ -49,7 +49,7 @@ Ici $m\le N$ et $k\ge 1$ sont **fixés** (les mêmes pour tous les points $p$) ;
 
 **Rôle.** Une sous-variété a **une** dimension (Définition IX.2.1) ; $m$ est la dimension des ouverts $U$ qui paramètrent.
 
-**Si on la retire.** $S=\{(0,0)\}\cup(\R\times\{1\})\subset\R^2$ est localement un graphe en tout point, mais avec $m=0$ près de $(0,0)$ (prendre $V=D((0,0),1/2)$, $U=\R^0$, $f$ constante égale à $(0,0)$) et $m=1$ près des points de la droite. Ce n'est pas une sous-variété au sens du poly : pas de dimension $0$ (la droite n'est pas discrète), ni de dimension $1$ (le point isolé $(0,0)$ n'est l'image d'aucun ouvert non vide de $\R$ par un homéomorphisme, un tel ouvert étant infini).
+**Si on la retire.** $S=\{(0,0)\}\cup(\R\times\{1\})\subset\R^2$ est localement un graphe en tout point, mais avec $m=0$ près de $(0,0)$ (prendre $V=D((0,0),1/2)$, $U=\R^0$, $f$ constante égale à $(0,0)$) et $m=1$ près des points de la droite. Ce n'est pas une sous-variété au sens du poly : pas de dimension $0$ (la droite n'est pas discrète), ni de dimension $1$ : un paramétrage local $x:U\to V\cap S$ en $(0,0)$ ($U$ ouvert non vide de $\R$) serait un homéomorphisme, et $\{(0,0)\}=V\cap S\cap D((0,0),1/2)$ est un ouvert de $V\cap S$ ; son image réciproque $x^{-1}(\{(0,0)\})$ serait un ouvert non vide de $\R$ réduit à un point, ce qui est impossible.
 
 ## Idée de la preuve
 

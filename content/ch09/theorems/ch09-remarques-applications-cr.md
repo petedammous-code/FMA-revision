@@ -6,7 +6,7 @@ title: Propriétés des applications $C^r$ entre sous-variétés (un couple de c
 ref: Remarques IX.7.7
 page: 160
 importance: 2
-depends: [ch09-changement-parametrage, ch09-remarque-valeurs-vectorielles, ch09-application-cr-entre-sous-varietes-def, ch09-redressement-local, ch05-composition-differentielles]
+depends: [ch09-changement-parametrage, ch09-remarque-valeurs-vectorielles, ch09-application-cr-entre-sous-varietes-def, ch09-redressement-local, ch06-inversion-locale, ch09-ex-ouvert-sous-variete, ch05-composition-differentielles]
 tags: [sous-variete, application-cr, composition, courbe, intrinseque-extrinseque, methode]
 ---
 ## Intuition

@@ -4,8 +4,8 @@ type: exercise
 chapters: [5]
 title: "L'application $A\mapsto{}^tA\,A$ et les courbes tracées dans le groupe orthogonal"
 source: "Classique (différentielle de $A\mapsto {}^tAA$, première étape de l'étude de $O(n)$)"
-difficulty: 1
-time: 15
+difficulty: 2
+time: 20
 tools: [ch05-formule-leibniz, ch05-differentielle-bilineaire, ch05-differentielle-lineaire, ch05-lineaire-c-infini, ch05-classe-ck-def, ch05-differentielle-seconde-def, ch05-formule-pratique-dpf, ch05-vecteur-tangent-courbe]
 ---
 ## Énoncé
