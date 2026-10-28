@@ -2110,8 +2110,11 @@ FMA.registerViz({
     let cur = 'circle', bb = null, hb = null;
     const controls = kit.controls(container);
     const sel = kit.select(controls, { label: 'courbe', options: keys.map(k => [CV[k].lab, k]), value: cur, onChange: (k) => { cur = k; reset(); } });
-    const aS = kit.slider(controls, { label: '$a$', min: 0, max: 6.28, step: 0.01, value: 0, onChange: v => { const t1 = CV[cur].t1; if (v > t1 - 0.05) { v = t1 - 0.05; aS.value = v; } if (v > bS.value - 0.05) bS.value = v + 0.05; draw(); } });
-    const bS = kit.slider(controls, { label: '$b$', min: 0, max: 6.28, step: 0.01, value: 6.28, onChange: v => { const t0 = CV[cur].t0; if (v < t0 + 0.05) { v = t0 + 0.05; bS.value = v; } if (v < aS.value + 0.05) aS.value = v - 0.05; draw(); } });
+    // les curseurs a, b sont normalisés dans [0,1] (les bornes t0, t1 de la courbe sont atteintes exactement, ex. b = 2π)
+    const tOf = s => CV[cur].t0 + s * (CV[cur].t1 - CV[cur].t0), fmtT = v => tOf(+v).toFixed(2);
+    const GAP = 0.01;
+    const aS = kit.slider(controls, { label: '$a$', min: 0, max: 1, step: 0.001, value: 0, format: fmtT, onChange: v => { if (v > 1 - GAP) { v = 1 - GAP; aS.value = v; } if (v > bS.value - GAP) bS.value = v + GAP; draw(); } });
+    const bS = kit.slider(controls, { label: '$b$', min: 0, max: 1, step: 0.001, value: 1, format: fmtT, onChange: v => { if (v < GAP) { v = GAP; bS.value = v; } if (v < aS.value + GAP) aS.value = v - GAP; draw(); } });
     const cS = kit.slider(controls, { label: '$c$', min: 0, max: 1, step: 0.005, value: 0.3, format: v => (+v).toFixed(2), onChange: () => { stopAnim(); draw(); } });
     let anim = null; let animBtn;
     function stopAnim() { if (anim) { anim.stop(); anim = null; if (animBtn) animBtn.textContent = 'animer c'; } }
@@ -2136,8 +2139,7 @@ FMA.registerViz({
       const c = CV[cur]; const N = 200; const pf = [], pd = [];
       for (let i = 0; i <= N; i++) { const t = c.t0 + (c.t1 - c.t0) * i / N; pf.push(c.f(t)); pd.push(c.d(t)); }
       bb = boxOf(pf); hb = boxOf(pd, [[0, 0]]);
-      aS.input.min = bS.input.min = c.t0; aS.input.max = bS.input.max = c.t1;
-      aS.value = c.a; bS.value = c.b; draw();
+      aS.value = (c.a - c.t0) / (c.t1 - c.t0); bS.value = (c.b - c.t0) / (c.t1 - c.t0); draw();
     }
     function hull(pts) {
       const p = pts.slice().sort((u, v) => u[0] - v[0] || u[1] - v[1]); if (p.length < 3) return p;
@@ -2161,7 +2163,7 @@ FMA.registerViz({
     function text(ctx, s, x, y, o = {}) { ctx.save(); ctx.fillStyle = o.color || th().muted; ctx.font = '11px system-ui, sans-serif'; ctx.textAlign = o.align || 'left'; ctx.textBaseline = o.base || 'top'; ctx.fillText(s, x, y); ctx.restore(); }
     function draw() {
       try {
-        const t = th(); const c = CV[cur]; const a = aS.value, b = bS.value, tc = a + cS.value * (b - a);
+        const t = th(); const c = CV[cur]; const a = tOf(aS.value), b = tOf(bS.value), tc = a + cS.value * (b - a);
         const fa = c.f(a), fb = c.f(b), fc = c.d(tc); const L = b - a;
         const chord = [fb[0] - fa[0], fb[1] - fa[1]]; const m = [chord[0] / L, chord[1] / L];
         const N = 160; const arc = [], hod = []; let sup = 0;
