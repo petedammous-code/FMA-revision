@@ -19,7 +19,7 @@ $$
 $$
 (développer $f$ à l'ordre 2 et moyenner : les termes du premier ordre et le terme croisé $\partial_x\partial_yf$ s'annulent, et la moyenne de $\cos^2\theta$ comme de $\sin^2\theta$ vaut $\tfrac12$). « Harmonique » veut dire $\Delta f=0$.
 
-Le lien avec l'analyse complexe est la factorisation $\Delta=4\,\partial_z\partial_{\bar z}$ ([[ch01-laplacien-harmonique]]), où $\partial_z=\frac12(\partial_x-i\partial_y)$ et $\partial_{\bar z}=\frac12(\partial_x+i\partial_y)$ sont les opérateurs de la Remarque I.2.2 du poly, ceux des conditions de Cauchy–Riemann ([[ch01-cauchy-riemann]] : $f$ holomorphe $\iff$ $f$ de classe $C^1$ et $\partial_{\bar z}f=0$). Elle dit immédiatement que les fonctions holomorphes sont harmoniques ([[ch04-holomorphe-implique-harmonique]]), et c'est elle qui permettra de décrire **toutes** les fonctions harmoniques ([[ch04-harmonique-f-plus-g-barre]]).
+Le lien avec l'analyse complexe est la factorisation $\Delta=4\,\partial_z\partial_{\bar z}$ ([[ch01-laplacien-harmonique]]), où $\partial_z=\frac12(\partial_x-i\partial_y)$ et $\partial_{\bar z}=\frac12(\partial_x+i\partial_y)$ sont les opérateurs de la Remarque I.2.2 du poly, ceux des conditions de Cauchy–Riemann ([[ch01-cauchy-riemann]] : $f$ différentiable en $z$ est $\C$-dérivable en $z$ $\iff$ $\partial_{\bar z}f(z)=0$ ; et, Remarque I.2.6, [[ch01-holomorphe-ssi-c1-et-dzbar-nul]] : $f$ holomorphe sur $\Omega$ $\iff$ $f$ de classe $C^1$ et $\partial_{\bar z}f=0$ sur $\Omega$). Elle dit immédiatement que les fonctions holomorphes sont harmoniques ([[ch04-holomorphe-implique-harmonique]]), et c'est elle qui permettra de décrire **toutes** les fonctions harmoniques ([[ch04-harmonique-f-plus-g-barre]]).
 
 ## Énoncé
 

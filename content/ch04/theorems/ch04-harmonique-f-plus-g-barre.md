@@ -6,7 +6,7 @@ title: Décomposition $h = f+\bar g$ des fonctions harmoniques sur un ouvert sim
 ref: Théorème IV.2.2
 page: 76
 importance: 3
-depends: [ch04-harmonique-def, ch01-holomorphe-ssi-c1-et-dzbar-nul, ch02-primitive-simplement-connexe, ch01-formulaire-dz-dzbar, ch01-laplacien-harmonique]
+depends: [ch04-harmonique-def, ch01-holomorphe-ssi-c1-et-dzbar-nul, ch02-primitive-simplement-connexe, ch01-formulaire-dz-dzbar, ch01-laplacien-harmonique, ch01-cauchy-riemann]
 tags: [harmonique, holomorphe, simplement-connexe, primitive, conjuguee, decomposition]
 ---
 ## Intuition
@@ -60,7 +60,7 @@ $$
 $$
 D'après la Remarque I.2.6 ([[ch01-holomorphe-ssi-c1-et-dzbar-nul]]) — une fonction de classe $C^1$ vérifiant $\partial_{\bar z}u = 0$ partout est holomorphe — on a $u\in\Hol(\Omega)$.
 
-*Étape 2 : on intègre.* L'ouvert $\Omega$ étant simplement connexe, le Théorème II.9.1 ([[ch02-primitive-simplement-connexe]]) fournit une primitive holomorphe $f\in\Hol(\Omega)$ de $u$ : $f' = u$. Pour une fonction holomorphe, $f' = \dfrac{\partial f}{\partial z}$ (formule (I.2.7), [[ch01-operateurs-dz-dzbar]]), donc
+*Étape 2 : on intègre.* L'ouvert $\Omega$ étant simplement connexe, le Théorème II.9.1 ([[ch02-primitive-simplement-connexe]]) fournit une primitive holomorphe $f\in\Hol(\Omega)$ de $u$ : $f' = u$. Pour une fonction holomorphe, $f' = \dfrac{\partial f}{\partial z}$ (formule (I.2.7), [[ch01-cauchy-riemann]]), donc
 $$
 \frac{\partial f}{\partial z} = \frac{\partial h}{\partial z} \quad\text{sur }\Omega .
 $$
@@ -73,7 +73,7 @@ La fonction $g := \bar k = \overline{h-f}$ est de classe $C^1$ et vérifie $\par
 
 *Conclusion.* $h = f+k = f+\bar g$ avec $f,g\in\Hol(\Omega)$. $\square$
 
-> ⚠️ Dans le texte extrait du PDF, la barre de conjugaison disparaît et l'on lit « $g := h-f$ est holomorphe » : c'est faux en général ($h-f$ est **anti**-holomorphe, c'est-à-dire que $\overline{h-f}$ est holomorphe). Le bon énoncé est $g := \overline{h-f}$.
+> ⚠️ Dans le poly imprimé (p. 77), la preuve conjugue toute l'équation : $0 = \overline{\partial_z h - \partial_z f} = \overline{\partial_z(h-f)} = \partial_{\bar z}\overline{(h-f)}$, puis pose $g := \overline{h-f}$. Dans une copie texte du PDF, la barre de conjugaison disparaît et l'on lit « $g := h-f$ est holomorphe » : c'est faux en général ($h-f$ est **anti**-holomorphe, c'est-à-dire que $\overline{h-f}$ est holomorphe). Le bon énoncé est bien $g := \overline{h-f}$.
 
 ## Preuve à trous
 

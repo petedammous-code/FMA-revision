@@ -33,11 +33,11 @@ $$
 
 ## Hypothèses
 
-### H1 — $g$ de classe $C^1$ (en fait : différentiable en $z$)
+### H1 — $g$ de classe $C^1$
 
-**Rôle.** On utilise la différentielle $dg_z$ et sa décomposition (I.2.4) ; la preuve ne se sert que de la différentiabilité de $g$ au point $z$. Le $C^1$ sert à ce que $f\circ g$ soit elle-même $C^1$.
+**Rôle.** La preuve du poly utilise la différentielle $dg_z$ et sa décomposition (I.2.4) ; le $C^1$ sert surtout à ce que $f\circ g$ soit elle-même $C^1$, cadre dans lequel on applique ensuite le critère d'holomorphie ([[ch01-holomorphe-ssi-c1-et-dzbar-nul]]).
 
-**Si on la retire.** Sans différentiabilité, la règle de la chaîne peut échouer même si toutes les dérivées partielles existent ; voir H2 (l'exemple s'adapte en échangeant les rôles).
+**Si on la retire.** Hypothèse de confort pour les **formules** : elles restent vraies en $z$ dès que $g$ admet des dérivées partielles en $z$ (et $f$ est différentiable en $g(z)$), mais la preuve change. En effet $t\mapsto g(z+t)$ ($t$ réel) est dérivable en $0$, de dérivée $\frac{\partial g}{\partial x}(z)$, et la règle de la chaîne « fonction différentiable $\circ$ courbe dérivable » donne $\frac{\partial (f\circ g)}{\partial x}(z) = df_{g(z)}\bigl(\frac{\partial g}{\partial x}(z)\bigr) = \frac{\partial f}{\partial z}(g(z))\frac{\partial g}{\partial x}(z) + \frac{\partial f}{\partial \bar z}(g(z))\frac{\partial \bar g}{\partial x}(z)$ ; de même en $y$, et l'on combine $\frac12(\partial_x \mp i\partial_y)$. En revanche on ne peut **pas** affaiblir l'hypothèse sur $f$ (H2).
 
 ### H2 — $f$ de classe $C^1$ (en fait : différentiable en $g(z)$)
 
@@ -61,7 +61,7 @@ Fixons $z\in\Omega$. Comme $g$ est différentiable en $z$ et $f$ en $g(z)$, la c
 $$
 d(f\circ g)_z = df_{g(z)}\circ dg_z
 $$
-(composition des différentielles, [[ch05-composition-differentielles]]). D'après (I.2.4) appliquée à $g$ puis à $\bar g$ (qui est différentiable avec $d\bar g_z(\omega) = \overline{dg_z(\omega)}$, la conjugaison étant $\R$-linéaire) : pour tout $\omega\in\C$,
+(composition des différentielles, [[ch05-composition-differentielles]] ; c'est ici que sert la différentiabilité de $f$ en $g(z)$). D'après (I.2.4) appliquée à $g$ puis à $\bar g$ (qui est différentiable avec $d\bar g_z(\omega) = \overline{dg_z(\omega)}$, la conjugaison étant $\R$-linéaire) : pour tout $\omega\in\C$,
 $$
 dg_z(\omega) = \frac{\partial g}{\partial z}(z)\,\omega + \frac{\partial g}{\partial \bar z}(z)\,\bar\omega, \qquad \overline{dg_z(\omega)} = d\bar g_z(\omega) = \frac{\partial \bar g}{\partial z}(z)\,\omega + \frac{\partial \bar g}{\partial \bar z}(z)\,\bar\omega.
 $$
@@ -90,7 +90,7 @@ $$
 \frac{\partial (f\circ g)}{\partial z} = \Bigl(\frac{\partial f}{\partial z}\circ g\Bigr)\, g', \qquad \frac{\partial (f\circ g)}{\partial \bar z} = \Bigl(\frac{\partial f}{\partial \bar z}\circ g\Bigr)\,\overline{g'}.
 $$
 Si de plus $f$ est holomorphe, $\frac{\partial(f\circ g)}{\partial\bar z} = 0$ et $(f\circ g)' = (f'\circ g)\,g'$ ([[ch01-formules-derivation]]).
-* **Laplacien d'une composée.** Si $f$ est $C^2$ et $g$ holomorphe, en dérivant encore ($\frac{\partial}{\partial z}\overline{g'} = \overline{\partial g'/\partial\bar z} = 0$, et le lemme appliqué à $\frac{\partial f}{\partial\bar z}$) :
+* **Laplacien d'une composée.** Si $f$ est $C^2$ et $g$ holomorphe (donc $g'$ holomorphe, [[ch01-holomorphe-analytique|Théorème I.7.4]]), en dérivant encore ($\frac{\partial}{\partial z}\overline{g'} = \overline{\partial g'/\partial\bar z} = 0$, et le lemme appliqué à $\frac{\partial f}{\partial\bar z}$) :
 $$
 \frac{\partial^2 (f\circ g)}{\partial z\partial\bar z} = \Bigl(\frac{\partial^2 f}{\partial z\partial \bar z}\circ g\Bigr)\,g'\,\overline{g'}, \qquad\text{donc}\qquad \Delta(f\circ g) = |g'|^2\,(\Delta f)\circ g
 $$

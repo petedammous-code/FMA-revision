@@ -6,7 +6,7 @@ title: Orthogonalité des lignes de niveau de $\Re f$ et $\Im f$
 ref: non numéroté, section IV.1, p. 75 (lignes de niveau orthogonales)
 page: 75
 importance: 2
-depends: [ch01-inversion-locale-holomorphe, ch04-holomorphe-conserve-angles, ch01-cauchy-riemann, ch04-transformation-conforme-def]
+depends: [ch01-inversion-locale-holomorphe, ch04-holomorphe-conserve-angles, ch01-cauchy-riemann, ch04-transformation-conforme-def, ch06-fonctions-implicites]
 tags: [conforme, lignes de niveau, orthogonalite, grillage, equipotentielles]
 ---
 ## Intuition
@@ -87,5 +87,5 @@ Comme $f'(z_0)\neq0$, <trou indice="Proposition I.4.4">il existe un voisinage ou
 * > ⚠️ Les lignes de niveau $\Re f=c$ sont les images des droites verticales par **$f^{-1}$**, pas par $f$. L'image par $f$ d'une droite verticale est une tout autre courbe (pour $z^2$ : une parabole, alors que la ligne de niveau est une hyperbole).
 * L'hypothèse $f'(z_0)\neq0$ est indispensable : pour $z^2$ en $0$, $\Re f=0$ et $\Im f=0$ se coupent à $45°$, et les ensembles de niveau ne sont pas des courbes régulières (croisements). Les zéros de $f'$ sont les points où le « quadrillage courbe » présente des singularités.
 * Deux lignes de niveau de la **même** fonction $\Re f$ (valeurs $c\neq c_1$) ne se coupent jamais ; l'orthogonalité concerne une ligne de $\Re f$ et une ligne de $\Im f$.
-* Pour le « grillage » image (point 3), l'orthogonalité est garantie au point $f(z_1)$ pour les images des deux droites passant par **un même** $z_1$. Si $f$ n'est pas injective sur $U$, deux courbes images peuvent aussi se croiser en l'image de deux points différents, sans angle droit : pour $f(z)=z^3$, l'image de la droite $x=1$ et celle de la droite $y=0$ se recoupent en $w=-8=f(1+i\sqrt3)=f(-2)$, avec les tangentes $i f'(1+i\sqrt3)=-6\sqrt3-6i$ et $f'(-2)=12$, qui font un angle de $30°$.
+* Pour le « grillage » image (point 3), l'orthogonalité est garantie au point $f(z_1)$ pour les images des deux droites passant par **un même** $z_1$. Si $f$ n'est pas injective sur $U$, deux courbes images peuvent aussi se croiser en l'image de deux points différents, sans angle droit : pour $f(z)=z^3$, l'image de la droite $x=1$ et celle de la droite $y=0$ se recoupent en $w=-8=f(1+i\sqrt3)=f(-2)$, avec les tangentes $i f'(1+i\sqrt3)=-6\sqrt3-6i$ (d'argument $-5\pi/6$) et $f'(-2)=12$ (d'argument $0$) : les deux droites tangentes font un angle de $30°$ (les vecteurs, un angle de $150°$), pas un angle droit.
 * La version réelle à retenir : par Cauchy–Riemann, $\nabla(\Im f)$ est $\nabla(\Re f)$ tourné de $+\pi/2$ et $|\nabla(\Re f)|=|\nabla(\Im f)|=|f'|$. C'est le point de départ de l'interprétation potentiel/lignes de champ du § IV.4 ([[ch04-ecoulement-potentiel]]).
