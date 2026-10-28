@@ -4077,7 +4077,11 @@ FMA.registerViz({
       let reach = flat.filter(s => s.x >= v[0] + mx && s.x <= v[1] - mx && s.y >= v[2] + my && s.y <= v[3] - my && (!S.reachOk || S.reachOk(s))).map(s => s.i);
       if (!reach.length) reach = flat.map(s => s.i);
       const rpos = new Map(); reach.forEach((idx, r) => rpos.set(idx, r));
-      data = { polys, flat, pts: polys.map(pl => pl.map(s => [s.x, s.y])), reach, rpos };
+      // recollements topologiques : la queue du folium (t -> +inf) s'accumule sur (0,0) = x(0) ; l'adhérence d'un connexe est connexe,
+      // donc queue ∪ {(0,0)} est connexe dès que (0,0) est dans le disque et n'est pas le point p retiré.
+      const glue = [];
+      if (key === 'folium') { let i0 = -1, bd = Infinity; flat.forEach(s => { if (Math.abs(s.t) < bd) { bd = Math.abs(s.t); i0 = s.i; } }); glue.push([flat.length - 1, i0]); }
+      data = { polys, flat, pts: polys.map(pl => pl.map(s => [s.x, s.y])), reach, rpos, glue };
       pi = specialIndex();
     }
     // position (fraction dans [0,1]) <-> indice atteignable
@@ -4109,6 +4113,7 @@ FMA.registerViz({
         const kx = Math.round(s.x * 1e6) + 0, ky = Math.round(s.y * 1e6) + 0, ks = kx + ',' + ky;
         if (seen.has(ks)) uni(i, seen.get(ks)); else seen.set(ks, i);
       }
+      for (const [a, b] of data.glue) if (inside[a] && inside[b]) uni(a, b);
       const ids = new Map(); const cid = new Int32Array(n).fill(-1);
       for (let i = 0; i < n; i++) if (inside[i]) { const r = find(i); if (!ids.has(r)) ids.set(r, ids.size); cid[i] = ids.get(r); }
       comp = { inside, cid, count: ids.size };
@@ -4435,11 +4440,11 @@ Pourquoi : $T_pS=\ker dF_p$ (Proposition IX.7.13), et $df_p=dg_p{}_{|T_pS}$ est 
       if (nF < 1e-6) {
         m = '∇F(p) = 0 : p est un point critique de F, donc 0 = F(p) n\u2019est pas une valeur régulière de F. La Proposition IX.7.35 ne s\u2019applique pas (ici, S n\u2019est d\u2019ailleurs pas une sous-variété en p).';
         col = '#d03030';
-      } else if (Math.abs(det) < 0.02 * Math.max(1e-9, Math.hypot(gg[0], gg[1]) * nF) + 1e-9) {
+      } else if (Math.abs(det) < 0.02 * Math.max(1e-9, Math.hypot(gg[0], gg[1]) * nF) + 1e-9 || Math.hypot(gg[0], gg[1]) < 1e-4) {
         const w = (gg[0] * gF[0] + gg[1] * gF[1]) / (nF * nF);
         r += ` &nbsp; w = ${(Math.abs(w) < 5e-4 ? 0 : w).toFixed(3)}`;
         m = 'Gradients colinéaires : ∇g(p) = w ∇F(p). C\u2019est un point critique de g|S ; la ligne de niveau est tangente à S.';
-        if (gk === 'x3' && Math.hypot(gg[0], gg[1]) < 1e-6) m += ' Ici ∇g(p) = 0 (w = 0) mais f a un point d\u2019inflexion : condition nécessaire, pas suffisante.';
+        if (gk === 'x3' && Math.hypot(gg[0], gg[1]) < 1e-4) m += ' Ici ∇g(p) = 0 (w = 0) mais f a un point d\u2019inflexion (voir le graphe) : la condition est nécessaire, pas suffisante.';
         col = '#1b9e77';
       } else {
         m = 'Gradients non colinéaires : la ligne de niveau coupe S transversalement, g|S varie en p (ni extremum ni point critique).';
@@ -4451,7 +4456,7 @@ Pourquoi : $T_pS=\ker dF_p$ (Proposition IX.7.13), et $df_p=dg_p{}_{|T_pS}$ est 
     function draw() { try { drawMain(); drawGraph(); updateText(); } catch (e) { console.error(e); } }
 
     // ------------ interactions ------------
-    function setT(tt) { tcur = tclamp(tt); const sg = (sing || []).find(u => Math.abs(u - tcur) < 0.012); if (sg !== undefined) tcur = tclamp(sg); tS.value = tcur; draw(); }
+    function setT(tt) { tcur = tclamp(tt); const sg = (sing || []).concat(lag || []).find(u => Math.abs(u - tcur) < 0.012); if (sg !== undefined) tcur = tclamp(sg); tS.value = tcur; draw(); }
     function gotoLagrange() {
       if (!lag.length) { if (ck === 'cusp') { setT(0); } return; }
       let best = null; const cs = lag.slice().sort((a, b) => a - b);
@@ -4533,8 +4538,10 @@ et le plan qu'ils engendrent est l'**espace tangent** $T_pS=dx_q(\mathbb R^2)$ (
     const fitSel = x => { x.el.style.flex = '1 1 100%'; x.el.style.minWidth = '0'; x.el.style.maxWidth = '100%'; x.select.style.flex = '1 1 0'; x.select.style.width = '100%'; x.select.style.minWidth = '0'; };
     fitSel(sel);
     const rowS = kit.row(controls);
-    const su = kit.slider(rowS, { label: '$u$', min: -3.14, max: 3.14, step: 0.01, value: q[0], onChange: v => { q[0] = clampU(v); draw(); } });
-    const sv = kit.slider(rowS, { label: '$v$', min: -3.14, max: 3.14, step: 0.01, value: q[1], onChange: v => { q[1] = clampV(v); draw(); } });
+    // le navigateur n'atteint pas toujours exactement la borne max d'un curseur (arrondi du pas) : on aimante sur les bornes
+    const snapEnds = (v, a, b) => (Math.abs(v - a) < 1.2 * (b - a) / 200 ? a : Math.abs(v - b) < 1.2 * (b - a) / 200 ? b : v);
+    const su = kit.slider(rowS, { label: '$u$', min: -3.14, max: 3.14, step: 0.01, value: q[0], onChange: v => { const S = SURF[cur]; q[0] = clampU(snapEnds(v, S.u0, S.u1)); draw(); } });
+    const sv = kit.slider(rowS, { label: '$v$', min: -3.14, max: 3.14, step: 0.01, value: q[1], onChange: v => { const S = SURF[cur]; q[1] = clampV(snapEnds(v, S.v0, S.v1)); draw(); } });
     const rowC = kit.row(controls);
     const cCurves = kit.checkbox(rowC, { label: 'courbes par $p$', checked: false, onChange: draw });
     const cNormal = kit.checkbox(rowC, { label: 'normale', checked: false, onChange: draw });
@@ -4549,6 +4556,7 @@ et le plan qu'ils engendrent est l'**espace tangent** $T_pS=dx_q(\mathbb R^2)$ (
     function syncSliders() {
       const S = SURF[cur];
       su.input.min = S.u0; su.input.max = S.u1; sv.input.min = S.v0; sv.input.max = S.v1;
+      su.input.step = (S.u1 - S.u0) / 200 * (1 - 1e-6); sv.input.step = (S.v1 - S.v0) / 200 * (1 - 1e-6);
       su.value = q[0]; sv.value = q[1];
     }
     syncSliders();

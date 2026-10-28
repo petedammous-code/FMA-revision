@@ -47,8 +47,10 @@ et le plan qu'ils engendrent est l'**espace tangent** $T_pS=dx_q(\mathbb R^2)$ (
     const fitSel = x => { x.el.style.flex = '1 1 100%'; x.el.style.minWidth = '0'; x.el.style.maxWidth = '100%'; x.select.style.flex = '1 1 0'; x.select.style.width = '100%'; x.select.style.minWidth = '0'; };
     fitSel(sel);
     const rowS = kit.row(controls);
-    const su = kit.slider(rowS, { label: '$u$', min: -3.14, max: 3.14, step: 0.01, value: q[0], onChange: v => { q[0] = clampU(v); draw(); } });
-    const sv = kit.slider(rowS, { label: '$v$', min: -3.14, max: 3.14, step: 0.01, value: q[1], onChange: v => { q[1] = clampV(v); draw(); } });
+    // le navigateur n'atteint pas toujours exactement la borne max d'un curseur (arrondi du pas) : on aimante sur les bornes
+    const snapEnds = (v, a, b) => (Math.abs(v - a) < 1.2 * (b - a) / 200 ? a : Math.abs(v - b) < 1.2 * (b - a) / 200 ? b : v);
+    const su = kit.slider(rowS, { label: '$u$', min: -3.14, max: 3.14, step: 0.01, value: q[0], onChange: v => { const S = SURF[cur]; q[0] = clampU(snapEnds(v, S.u0, S.u1)); draw(); } });
+    const sv = kit.slider(rowS, { label: '$v$', min: -3.14, max: 3.14, step: 0.01, value: q[1], onChange: v => { const S = SURF[cur]; q[1] = clampV(snapEnds(v, S.v0, S.v1)); draw(); } });
     const rowC = kit.row(controls);
     const cCurves = kit.checkbox(rowC, { label: 'courbes par $p$', checked: false, onChange: draw });
     const cNormal = kit.checkbox(rowC, { label: 'normale', checked: false, onChange: draw });
@@ -63,6 +65,7 @@ et le plan qu'ils engendrent est l'**espace tangent** $T_pS=dx_q(\mathbb R^2)$ (
     function syncSliders() {
       const S = SURF[cur];
       su.input.min = S.u0; su.input.max = S.u1; sv.input.min = S.v0; sv.input.max = S.v1;
+      su.input.step = (S.u1 - S.u0) / 200 * (1 - 1e-6); sv.input.step = (S.v1 - S.v0) / 200 * (1 - 1e-6);
       su.value = q[0]; sv.value = q[1];
     }
     syncSliders();

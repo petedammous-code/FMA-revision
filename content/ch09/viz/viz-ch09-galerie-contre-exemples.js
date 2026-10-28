@@ -81,7 +81,11 @@ FMA.registerViz({
       let reach = flat.filter(s => s.x >= v[0] + mx && s.x <= v[1] - mx && s.y >= v[2] + my && s.y <= v[3] - my && (!S.reachOk || S.reachOk(s))).map(s => s.i);
       if (!reach.length) reach = flat.map(s => s.i);
       const rpos = new Map(); reach.forEach((idx, r) => rpos.set(idx, r));
-      data = { polys, flat, pts: polys.map(pl => pl.map(s => [s.x, s.y])), reach, rpos };
+      // recollements topologiques : la queue du folium (t -> +inf) s'accumule sur (0,0) = x(0) ; l'adhérence d'un connexe est connexe,
+      // donc queue ∪ {(0,0)} est connexe dès que (0,0) est dans le disque et n'est pas le point p retiré.
+      const glue = [];
+      if (key === 'folium') { let i0 = -1, bd = Infinity; flat.forEach(s => { if (Math.abs(s.t) < bd) { bd = Math.abs(s.t); i0 = s.i; } }); glue.push([flat.length - 1, i0]); }
+      data = { polys, flat, pts: polys.map(pl => pl.map(s => [s.x, s.y])), reach, rpos, glue };
       pi = specialIndex();
     }
     // position (fraction dans [0,1]) <-> indice atteignable
@@ -113,6 +117,7 @@ FMA.registerViz({
         const kx = Math.round(s.x * 1e6) + 0, ky = Math.round(s.y * 1e6) + 0, ks = kx + ',' + ky;
         if (seen.has(ks)) uni(i, seen.get(ks)); else seen.set(ks, i);
       }
+      for (const [a, b] of data.glue) if (inside[a] && inside[b]) uni(a, b);
       const ids = new Map(); const cid = new Int32Array(n).fill(-1);
       for (let i = 0; i < n; i++) if (inside[i]) { const r = find(i); if (!ids.has(r)) ids.set(r, ids.size); cid[i] = ids.get(r); }
       comp = { inside, cid, count: ids.size };

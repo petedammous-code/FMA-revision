@@ -35,6 +35,28 @@
     return String(s).split(/(\$[^$\n]{1,200}\$)/g).map((seg, i) => i % 2 ? tex(seg.slice(1, -1).trim(), false) : escapeHtml(seg)).join('');
   }
   // Rend a posteriori les $...$ restés en texte brut dans un sous-arbre DOM (titres injectés comme texte par l'application).
+  // Titre en texte brut lisible (pour les étiquettes SVG, document.title, l'index de recherche) : $...$ → Unicode.
+  const PM_GREEK = { alpha:'α', beta:'β', gamma:'γ', delta:'δ', epsilon:'ε', varepsilon:'ε', eps:'ε', zeta:'ζ', eta:'η', theta:'θ', vartheta:'ϑ', iota:'ι', kappa:'κ', lambda:'λ', mu:'μ', nu:'ν', xi:'ξ', pi:'π', rho:'ρ', sigma:'σ', tau:'τ', upsilon:'υ', phi:'φ', varphi:'φ', chi:'χ', psi:'ψ', omega:'ω', Gamma:'Γ', Delta:'Δ', Theta:'Θ', Lambda:'Λ', Xi:'Ξ', Pi:'Π', Sigma:'Σ', Phi:'Φ', Psi:'Ψ', Omega:'Ω' };
+  const PM_SYM = { partial:'∂', infty:'∞', to:'→', rightarrow:'→', mapsto:'↦', Rightarrow:'⇒', Leftrightarrow:'⇔', iff:'⇔', implies:'⇒', le:'≤', leq:'≤', ge:'≥', geq:'≥', ne:'≠', neq:'≠', circ:'∘', in:'∈', notin:'∉', subset:'⊂', subseteq:'⊆', supset:'⊃', cup:'∪', cap:'∩', sum:'Σ', int:'∫', oint:'∮', prod:'Π', cdot:'·', times:'×', pm:'±', mp:'∓', nabla:'∇', forall:'∀', exists:'∃', setminus:'∖', emptyset:'∅', varnothing:'∅', simeq:'≃', sim:'∼', equiv:'≡', cong:'≅', ell:'ℓ', wedge:'∧', vee:'∨', oplus:'⊕', otimes:'⊗', langle:'⟨', rangle:'⟩', lVert:'‖', rVert:'‖', Vert:'‖', vert:'|', mid:'|', ldots:'…', cdots:'⋯', dots:'…', ddots:'⋱', vdots:'⋮', prime:'′', hbar:'ℏ', star:'⋆', ast:'∗', perp:'⊥', parallel:'∥', angle:'∠', triangle:'△', square:'□', top:'⊤', bot:'⊥', neg:'¬', lnot:'¬', land:'∧', lor:'∨', C:'ℂ', R:'ℝ', N:'ℕ', Z:'ℤ', Q:'ℚ', K:'𝕂', H:'ℍ', D:'𝔻', S:'𝕊', T:'𝕋', id:'id', Id:'Id', Re:'Re', Rea:'Re', Im:'Im', Log:'Log', log:'log', ln:'ln', exp:'exp', sin:'sin', cos:'cos', tan:'tan', cot:'cot', sinh:'sh', cosh:'ch', tanh:'th', arctan:'arctan', arcsin:'arcsin', arccos:'arccos', det:'det', tr:'tr', dim:'dim', ker:'ker', rg:'rg', rank:'rg', sup:'sup', inf:'inf', max:'max', min:'min', lim:'lim', limsup:'limsup', liminf:'liminf', deg:'deg', Res:'Res', Ind:'Ind', Hol:'Hol', GL:'GL', SL:'SL', SO:'SO', Sym:'Sym', Mat:'M', supp:'supp', dist:'dist', diag:'diag', sgn:'sgn', Arg:'Arg', arg:'arg', mod:'mod', dd:'d', iff:'⇔' };
+  const PM_ACC = { bar:'̄', overline:'̄', widehat:'̂', hat:'̂', tilde:'̃', widetilde:'̃', vec:'⃗', dot:'̇', ddot:'̈' };
+  function plainMathInner(m) {
+    let t = m;
+    t = t.replace(/\\(mathbb|mathcal|mathrm|mathbf|mathscr|mathfrak|operatorname\*?|text|textrm|textit|textbf|mathit|boldsymbol|bm|mathsf|mathtt)\s*\{([^{}]*)\}/g, '$2');
+    t = t.replace(/\\(mathbb|mathcal|mathrm|mathbf|mathscr|mathfrak|mathit|boldsymbol|bm|mathsf|mathtt)\s*([A-Za-z])/g, '$2');
+    t = t.replace(/\\(norm|abs)\s*\{([^{}]*)\}/g, (_, c, x) => (c === 'norm' ? '‖' + x + '‖' : '|' + x + '|'));
+    t = t.replace(/\\(bar|overline|widehat|hat|tilde|widetilde|vec|dot|ddot)\s*\{([^{}]*)\}/g, (_, c, x) => x + PM_ACC[c]);
+    t = t.replace(/\\(bar|hat|tilde|vec|dot|ddot)\s*(\\[A-Za-z]+|[A-Za-z0-9])/g, (_, c, x) => (x[0] === '\\' ? (PM_GREEK[x.slice(1)] || PM_SYM[x.slice(1)] || x.slice(1)) : x) + PM_ACC[c]);
+    t = t.replace(/\\(?:frac|tfrac|dfrac)\s*(?:\{([^{}]*)\}|(\d))\s*(?:\{([^{}]*)\}|(\d))/g, (_, a1, a2, b1, b2) => { const a = a1 != null ? a1 : a2, b = b1 != null ? b1 : b2; return (a.length > 1 ? '(' + a + ')' : a) + '/' + (b.length > 1 ? '(' + b + ')' : b); });
+    t = t.replace(/\\sqrt\s*\{([^{}]*)\}/g, '√($1)').replace(/\\sqrt\s*/g, '√');
+    t = t.replace(/\\(left|right|big|Big|bigl|bigr|Bigl|Bigr|bigg|Bigg|displaystyle|textstyle|scriptstyle|limits|nolimits)\b\s*/g, '');
+    t = t.replace(/\\(quad|qquad)\b/g, ' ').replace(/\\[,;:!> ]/g, ' ');
+    t = t.replace(/\\([A-Za-z]+)/g, (_, w) => { for (let k = w.length; k > 0; k--) { const c = w.slice(0, k); if (PM_GREEK[c] != null) return PM_GREEK[c] + w.slice(k); if (PM_SYM[c] != null) return PM_SYM[c] + w.slice(k); } return w; });
+    t = t.replace(/\\([{}|%&#$_])/g, '$1');
+    t = t.replace(/[{}]/g, '').replace(/\s+/g, ' ').trim();
+    return t;
+  }
+  function plainMath(s) { if (s == null) return ''; return String(s).replace(/\$\$?([^$\n]{1,400})\$\$?/g, (_, m) => plainMathInner(m)); }
+
   function fixStrayMath(root) {
     if (!root || !window.katex) return;
     const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, { acceptNode: n => {
@@ -111,5 +133,5 @@
   }
   function renderInto(el, md, opts) { el.innerHTML = render(md, opts); activate(el); return el; }
   window.FMA = window.FMA || {};
-  Object.assign(window.FMA, { render, renderInto, activate, tex, escapeHtml, xref, titleOf, hrefOf, inlineTitle, fixStrayMath, MACROS });
+  Object.assign(window.FMA, { render, renderInto, activate, tex, escapeHtml, xref, titleOf, hrefOf, inlineTitle, fixStrayMath, plainMath, MACROS });
 })();

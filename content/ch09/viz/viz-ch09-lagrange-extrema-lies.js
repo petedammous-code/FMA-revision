@@ -185,11 +185,11 @@ Pourquoi : $T_pS=\ker dF_p$ (Proposition IX.7.13), et $df_p=dg_p{}_{|T_pS}$ est 
       if (nF < 1e-6) {
         m = '∇F(p) = 0 : p est un point critique de F, donc 0 = F(p) n\u2019est pas une valeur régulière de F. La Proposition IX.7.35 ne s\u2019applique pas (ici, S n\u2019est d\u2019ailleurs pas une sous-variété en p).';
         col = '#d03030';
-      } else if (Math.abs(det) < 0.02 * Math.max(1e-9, Math.hypot(gg[0], gg[1]) * nF) + 1e-9) {
+      } else if (Math.abs(det) < 0.02 * Math.max(1e-9, Math.hypot(gg[0], gg[1]) * nF) + 1e-9 || Math.hypot(gg[0], gg[1]) < 1e-4) {
         const w = (gg[0] * gF[0] + gg[1] * gF[1]) / (nF * nF);
         r += ` &nbsp; w = ${(Math.abs(w) < 5e-4 ? 0 : w).toFixed(3)}`;
         m = 'Gradients colinéaires : ∇g(p) = w ∇F(p). C\u2019est un point critique de g|S ; la ligne de niveau est tangente à S.';
-        if (gk === 'x3' && Math.hypot(gg[0], gg[1]) < 1e-6) m += ' Ici ∇g(p) = 0 (w = 0) mais f a un point d\u2019inflexion : condition nécessaire, pas suffisante.';
+        if (gk === 'x3' && Math.hypot(gg[0], gg[1]) < 1e-4) m += ' Ici ∇g(p) = 0 (w = 0) mais f a un point d\u2019inflexion (voir le graphe) : la condition est nécessaire, pas suffisante.';
         col = '#1b9e77';
       } else {
         m = 'Gradients non colinéaires : la ligne de niveau coupe S transversalement, g|S varie en p (ni extremum ni point critique).';
@@ -201,7 +201,7 @@ Pourquoi : $T_pS=\ker dF_p$ (Proposition IX.7.13), et $df_p=dg_p{}_{|T_pS}$ est 
     function draw() { try { drawMain(); drawGraph(); updateText(); } catch (e) { console.error(e); } }
 
     // ------------ interactions ------------
-    function setT(tt) { tcur = tclamp(tt); const sg = (sing || []).find(u => Math.abs(u - tcur) < 0.012); if (sg !== undefined) tcur = tclamp(sg); tS.value = tcur; draw(); }
+    function setT(tt) { tcur = tclamp(tt); const sg = (sing || []).concat(lag || []).find(u => Math.abs(u - tcur) < 0.012); if (sg !== undefined) tcur = tclamp(sg); tS.value = tcur; draw(); }
     function gotoLagrange() {
       if (!lag.length) { if (ck === 'cusp') { setT(0); } return; }
       let best = null; const cs = lag.slice().sort((a, b) => a - b);
