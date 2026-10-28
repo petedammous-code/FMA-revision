@@ -3991,3 +3991,714 @@ et l'identité infinitésimale d'invariance ([[ch08-invariance-infinitesimale]])
 });
 
 } catch (e) { console.error('viz viz-ch08-noether-rotation failed to register', e); }
+
+// ---- content/ch09/viz/viz-ch09-galerie-contre-exemples.js ----
+try {
+FMA.registerViz({
+  id: 'viz-ch09-galerie-contre-exemples',
+  chapter: 9,
+  title: "Galerie de contre-exemples : pourquoi ce n'est pas une sous-variété",
+  description: String.raw`**Ce que l'on voit.** Six ensembles $S\subset\mathbb R^2$ (le premier est un témoin positif). À gauche : l'ensemble entier, le point $p\in S$ (à **glisser** le long de $S$, ou à faire défiler avec le curseur) et le disque $D(p,\rho)$. À droite : un **zoom** sur $S\cap D(p,\rho)$ **privé du point $p$**, chaque composante connexe étant coloriée d'une couleur différente.
+
+**Le test.** Si $S$ est une sous-variété de dimension $m$, la condition 2 de la Définition IX.2.1 (poly, p. 148) dit que $S$ est, près de $p$, homéomorphe à un ouvert connexe $W$ de $\mathbb R^m$. Or un intervalle ouvert privé d'un point a **2** composantes connexes ($m=1$), et un ouvert connexe de $\mathbb R^m$, $m\ge2$, privé d'un point reste **connexe**. Si, pour $\rho$ assez petit, on trouve un nombre de composantes différent de $2$ en dimension $1$, la condition 2 échoue (Exemples IX.2.11, IX.2.12, p. 150).
+
+**Ce qu'il faut regarder.**
+* **Cercle** : partout $2$ composantes (pour $\rho$ petit ; trop grand, le disque « voit » le cercle entier et le compte change : le test est local).
+* **Demi-droite, croix** : $1$ composante au bord $0$, $4$ au centre de la croix. Seuls ces points sont mauvais ; partout ailleurs le compte vaut $2$.
+* **Boucle** $t\mapsto(t^3-4t,\,t^2-4)$ : immersion ($x'(t)\neq0$ partout) mais $x(2)=x(-2)$ : au point double, $4$ composantes. Une immersion n'est pas un paramétrage (condition 2 : homéomorphisme *sur l'image*).
+* **Folium** $t\mapsto\bigl(\frac{3t}{1+t^3},\frac{3t^2}{1+t^3}\bigr)$, $t>-1$ : immersion **injective**, et pourtant $3$ composantes en $(0,0)=x(0)$. Lancez **Parcourir** : quand $t\to+\infty$, $x(t)$ revient s'écraser sur $(0,0)$ alors que $t$ est loin de $0$ (voir $|x(t)-x(0)|$ petit et $|t-0|$ grand) : $x^{-1}$ n'est pas continue.
+* **Rebroussement** $t\mapsto(t^2,t^3)$ : le test des composantes est *réussi* ($2$ branches), mais c'est la condition 3 qui échoue : la flèche vitesse $x'(t)=(2t,3t^2)$ s'éteint en $t=0$ ($dx_0$ n'est pas injective ; Exercice IX.2.13). Un ensemble peut passer un test et échouer à l'autre.`,
+  related: ['ch09-sous-variete-def', 'ch09-contre-ex-demi-droite', 'ch09-contre-ex-croix', 'ch09-contre-ex-point-multiple', 'ch09-contre-ex-folium'],
+  height: 640,
+  mount(container, kit) {
+    const T = () => kit.theme();
+    const PI = Math.PI;
+
+    // ---------------- définition des ensembles ----------------
+    // chaque ensemble : polys = liste de polylignes d'échantillons {x,y,t,vx,vy}
+    function polyline(ts, fx, fy, dfx, dfy) {
+      return ts.map(t => ({ x: fx(t), y: fy(t), t, vx: dfx ? dfx(t) : NaN, vy: dfy ? dfy(t) : NaN }));
+    }
+    const range = (a, b, d) => { const out = []; for (let k = Math.round(a * d); k <= Math.round(b * d); k++) out.push(k / d); return out; };
+    const geom = (a, b, n) => Array.from({ length: n }, (_, i) => a * Math.pow(b / a, (i + 1) / n));
+
+    const SETS = {
+      cercle: {
+        name: 'cercle (témoin : une vraie sous-variété)', view: [-1.7, 1.7, -1.5, 1.5], t0: 0, special: 'cercle', hasT: true,
+        polys: () => [polyline(Array.from({ length: 1201 }, (_, k) => 2 * PI * k / 1200), Math.cos, Math.sin, t => -Math.sin(t), Math.cos)],
+        info: String.raw`**Le cercle $\mathbb S^1$** est une sous-variété de dimension 1. En tout point, pour $\rho$ petit, $S\cap D(p,\rho)\setminus\{p\}$ a exactement **2** composantes connexes, comme un intervalle ouvert privé d'un point. Augmentez $\rho$ : le disque finit par contenir le cercle entier et le compte tombe à $1$ — le test ne vaut que pour $\rho$ assez petit.`,
+      },
+      demi: {
+        name: 'demi-droite fermée [0 ; +∞[ ⊂ ℝ', view: [-1.2, 3.4, -1.6, 1.6], t0: 0, special: 'demi', hasT: true,
+        polys: () => [polyline(range(0, 3, 200), t => t, () => 0, () => 1, () => 0)],
+        info: String.raw`**Exemple IX.2.11.** $S=[0;+\infty[\ \subset\mathbb R$ (dessinée sur l'axe horizontal). En $p=0$ : **1** seule composante, alors qu'un intervalle ouvert privé d'un point en a 2 ; donc $m\ne1$. Pour $m=0$ un ouvert est discret, ce qui est faux près de $0$. Pour $m\ge2$ on prend un point $b>0$ voisin : $[0;a[\setminus\{b\}$ a 2 composantes (faites glisser $p$ : le compte vaut $2$), alors qu'un ouvert connexe de $\mathbb R^m$ privé d'un point reste connexe. Aucune dimension ne convient : le « bord » est interdit.`,
+      },
+      croix: {
+        name: 'croix  xy = 0', view: [-2.2, 2.2, -1.7, 1.7], t0: null, special: 'croix', hasT: false,
+        polys: () => [polyline(range(-2, 2, 200), t => t, () => 0), polyline(range(-2, 2, 200), () => 0, t => t)],
+        info: String.raw`**Exemple IX.2.12.** $S=\{xy=0\}$ est $f^{-1}(0)$ pour $f(x,y)=xy$, et $0$ est valeur critique ($df_{(0,0)}=0$). Tout voisinage de l'origine dans $S$ est encore une croix : **4** composantes une fois l'origine retirée, alors qu'un ouvert connexe de $\mathbb R^m$ privé d'un point en a au plus 2. En tout autre point de la croix, $S$ est une droite : le compte vaut $2$.`,
+      },
+      cusp: {
+        name: 'rebroussement  t ↦ (t², t³)', view: [-0.7, 1.7, -1.7, 1.7], t0: 0, special: 'cusp', hasT: true,
+        polys: () => [polyline(range(-1.2, 1.2, 300), t => t * t, t => t * t * t, t => 2 * t, t => 3 * t * t)],
+        info: String.raw`**Exercice IX.2.13.** $x(t)=(t^2,t^3)$ est un homéomorphisme $C^\infty$ de $\mathbb R$ sur $S=\{y^2=x^3\}$ : le test des composantes est réussi ($2$ branches en $(0,0)$). Mais $x'(t)=(2t,3t^2)$ s'annule en $t=0$ : $dx_0$ n'est pas injective, la condition 3 échoue, et aucun autre paramétrage local en $(0,0)$ n'est une immersion. Regardez la flèche vitesse se réduire à rien quand $p\to(0,0)$.`,
+      },
+      boucle: {
+        name: 'boucle  t ↦ (t³−4t, t²−4)', view: [-5.2, 5.2, -4.7, 2.5], t0: 2, special: 'boucle', hasT: true,
+        polys: () => [polyline(range(-2.5, 2.5, 400), t => t * t * t - 4 * t, t => t * t - 4, t => 3 * t * t - 4, t => 2 * t)],
+        info: String.raw`**Exemple IX.2.14.** $x(t)=(t^3-4t,\,t^2-4)$ est une immersion en tout point ($x'(t)=(3t^2-4,\,2t)$ ne s'annule jamais) mais $x(2)=x(-2)=(0,0)$ : **point double**, avec **4** composantes une fois $(0,0)$ retiré. Le paramétrage global n'est pas un homéomorphisme sur son image ; l'image n'est pas une sous-variété (même si chaque *morceau* $x(]t_0-\varepsilon,t_0+\varepsilon[)$ en est une).`,
+      },
+      folium: {
+        name: 'folium de Descartes  t ↦ (3t, 3t²)/(1+t³)', view: [-3.2, 3.2, -2.4, 3.2], t0: 0, special: 'folium', hasT: true,
+        polys: () => {
+          const fx = t => 3 * t / (1 + t * t * t), fy = t => 3 * t * t / (1 + t * t * t);
+          const dx = t => 3 * (1 - 2 * t * t * t) / Math.pow(1 + t * t * t, 2), dy = t => (6 * t - 3 * t * t * t * t) / Math.pow(1 + t * t * t, 2);
+          const ts = range(-0.9, 1, 400).concat(geom(1, 1e4, 900));
+          return [polyline(ts, fx, fy, dx, dy)];
+        },
+        info: String.raw`**Exemple IX.2.15.** $x(t)=\bigl(\frac{3t}{1+t^3},\frac{3t^2}{1+t^3}\bigr)$, $t\in]-1;+\infty[$, est une immersion **injective**. Pourtant, près de $(0,0)=x(0)$, l'ensemble a **3** branches (venant de $t<0$, de $t>0$ et de $t\to+\infty$ qui s'accumule sur l'origine). Condition 2 en défaut : $x$ n'est pas un homéomorphisme sur son image, $x(t)\to(0,0)$ quand $t\to+\infty$ sans que $t\to0$. Cliquez **Parcourir**.`,
+      },
+    };
+
+    // ---------------- état ----------------
+    let key = 'cercle';
+    let data = null;      // {polys, flat, ptsPoly, view}
+    let pi = 0;           // indice du point p dans flat
+    let playing = null;
+    let L = null, Rz = null; // plans (gauche, droite)
+    let comp = null;
+
+    function build() {
+      const S = SETS[key];
+      const polys = S.polys();
+      const flat = []; polys.forEach((pl, a) => pl.forEach((s, b) => { s.poly = a; s.k = b; s.i = flat.length; flat.push(s); }));
+      data = { polys, flat, pts: polys.map(pl => pl.map(s => [s.x, s.y])) };
+      pi = specialIndex();
+    }
+    function specialIndex() {
+      const S = SETS[key]; const f = data.flat;
+      if (key === 'croix') return f.findIndex(s => Math.abs(s.x) < 1e-12 && Math.abs(s.y) < 1e-12);
+      if (S.t0 !== null && S.t0 !== undefined) { let best = 0, bd = Infinity; f.forEach((s, i) => { const d = Math.abs(s.t - S.t0); if (d < bd) { bd = d; best = i; } }); return best; }
+      return 0;
+    }
+
+    // ---------------- composantes connexes de S ∩ D(p,ρ) \ {p} ----------------
+    function compute(rho) {
+      const f = data.flat, n = f.length, p = f[pi];
+      const inside = new Uint8Array(n), par = new Int32Array(n);
+      const rr = rho * rho;
+      for (let i = 0; i < n; i++) {
+        par[i] = i; const s = f[i];
+        const dx = s.x - p.x, dy = s.y - p.y, d2 = dx * dx + dy * dy;
+        inside[i] = (d2 <= rr && d2 > 1e-18) ? 1 : 0;
+      }
+      const find = a => { while (par[a] !== a) { par[a] = par[par[a]]; a = par[a]; } return a; };
+      const uni = (a, b) => { a = find(a); b = find(b); if (a !== b) par[a] = b; };
+      const seen = new Map();
+      for (let i = 0; i < n; i++) {
+        if (!inside[i]) continue; const s = f[i];
+        if (i + 1 < n && inside[i + 1] && f[i + 1].poly === s.poly) uni(i, i + 1);
+        const kx = Math.round(s.x * 1e6) + 0, ky = Math.round(s.y * 1e6) + 0, ks = kx + ',' + ky;
+        if (seen.has(ks)) uni(i, seen.get(ks)); else seen.set(ks, i);
+      }
+      const ids = new Map(); const cid = new Int32Array(n).fill(-1);
+      for (let i = 0; i < n; i++) if (inside[i]) { const r = find(i); if (!ids.has(r)) ids.set(r, ids.size); cid[i] = ids.get(r); }
+      comp = { inside, cid, count: ids.size };
+    }
+
+    // ---------------- interface ----------------
+    const grid = document.createElement('div');
+    grid.style.cssText = 'display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:8px;align-items:start;';
+    container.appendChild(grid);
+    const cellL = document.createElement('div'), cellR = document.createElement('div');
+    grid.appendChild(cellL); grid.appendChild(cellR);
+    const stL = kit.canvas(cellL, { height: 290 });
+    const stR = kit.canvas(cellR, { height: 290 });
+    const controls = kit.controls(container);
+    const sel = kit.select(controls, { label: 'ensemble', options: Object.keys(SETS).map(k => [SETS[k].name, k]), value: key, onChange: v => { key = v; stop(); build(); setInfo(); syncPos(); draw(); } });
+    sel.el.style.flex = '1 1 100%'; sel.select.style.maxWidth = '100%';
+    const row = kit.row(controls);
+    const rhoS = kit.slider(row, { label: '$\\rho$', min: 0.05, max: 2, step: 0.01, value: 0.35, onChange: draw });
+    const posS = kit.slider(row, { label: 'position de $p$', min: 0, max: 1, step: 0.001, value: 0, format: v => (+v).toFixed(2), onChange: v => { stop(); pi = Math.round(v * (data.flat.length - 1)); draw(); } });
+    const row2 = kit.row(controls);
+    kit.button(row2, { label: 'p = point singulier', onClick: () => { stop(); pi = specialIndex(); syncPos(); draw(); } });
+    const playBtn = kit.button(row2, { label: 'Parcourir', primary: true, onClick: () => { if (playing) stop(); else start(); } });
+    const ro = kit.readout(controls, { label: '' }); ro.el.style.flex = '1 1 100%';
+    const verdict = document.createElement('div'); verdict.className = 'viz-note'; verdict.style.fontWeight = '600'; container.appendChild(verdict);
+    const infoEl = document.createElement('div'); infoEl.className = 'viz-note'; container.appendChild(infoEl);
+
+    function setInfo() { infoEl.innerHTML = ''; kit.md(infoEl, SETS[key].info); }
+    function syncPos() { posS.value = pi / (data.flat.length - 1); }
+    function stop() { if (playing) { playing.stop(); playing = null; } playBtn.textContent = 'Parcourir'; }
+    function start() {
+      let f = pi / (data.flat.length - 1); if (f > 0.97) f = 0;
+      playBtn.textContent = 'Pause';
+      playing = kit.animate(dt => { f += dt / 9; if (f >= 1) f = 0; pi = Math.round(f * (data.flat.length - 1)); syncPos(); draw(); });
+    }
+
+    // ---------------- dessin ----------------
+    const COLORS = () => { const t = T(); return [t.accent, t.accent2, t.accent3, t.accent4, t.accent5, '#8a8f98']; };
+
+    function drawLeft() {
+      const { ctx, W, H } = stL; const t = T(); const S = SETS[key]; const p = data.flat[pi];
+      ctx.clearRect(0, 0, W, H);
+      const v = S.view; L = kit.plane(ctx, { xmin: v[0], xmax: v[1], ymin: v[2], ymax: v[3], W, H });
+      ctx.save(); ctx.beginPath(); ctx.rect(0, 0, W, H); ctx.clip();
+      L.grid(1, t.grid); L.axes({ labels: false });
+      data.pts.forEach(pts => L.curve(pts, { color: t.fg, width: 2.2 }));
+      // point spécial (x(t0))
+      const sp = data.flat[specialIndex()];
+      L.point(sp.x, sp.y, { r: 4, color: t.bg, stroke: t.muted });
+      // disque
+      L.circle(p.x, p.y, rho(), { color: t.accent4, width: 1.8, dash: [5, 3], fill: 'rgba(224,139,26,0.10)' });
+      // vitesse
+      if (isFinite(p.vx)) {
+        let vx = p.vx, vy = p.vy; const m = Math.hypot(vx, vy); const cap = 1.0; const sc = m > cap ? cap / m : 1; vx *= sc * 0.8; vy *= sc * 0.8;
+        L.vector(p.x, p.y, vx, vy, { color: t.accent2, width: 2.4, head: 8 });
+      }
+      L.point(p.x, p.y, { r: 6, color: t.accent4, stroke: t.bg });
+      L.text(p.x, p.y, 'p', { dx: 9, dy: -6 });
+      ctx.restore();
+      ctx.fillStyle = t.muted; ctx.font = '12px system-ui, sans-serif'; ctx.textAlign = 'left'; ctx.textBaseline = 'top';
+      ctx.fillText('S  (glisser p le long de S)', 8, 6);
+      if (isFinite(p.vx)) { ctx.fillStyle = t.accent2; ctx.fillText('flèche : vitesse x′(t)', 8, 22); }
+    }
+    function rho() { return rhoS.value; }
+
+    function drawRight() {
+      const { ctx, W, H } = stR; const t = T(); const p = data.flat[pi]; const r = rho(); const h = 1.2 * r;
+      ctx.clearRect(0, 0, W, H);
+      Rz = kit.plane(ctx, { xmin: p.x - h, xmax: p.x + h, ymin: p.y - h, ymax: p.y + h, W, H });
+      ctx.save(); ctx.beginPath(); ctx.rect(0, 0, W, H); ctx.clip();
+      Rz.circle(p.x, p.y, r, { color: t.accent4, width: 1.8, dash: [5, 3] });
+      const cols = COLORS(); const f = data.flat; const n = f.length;
+      ctx.lineWidth = 3.4; ctx.lineCap = 'round';
+      const byColor = new Map();
+      for (let i = 0; i + 1 < n; i++) {
+        if (!comp.inside[i] || !comp.inside[i + 1] || f[i].poly !== f[i + 1].poly) continue;
+        const c = comp.cid[i]; if (!byColor.has(c)) byColor.set(c, []); byColor.get(c).push(i);
+      }
+      byColor.forEach((list, c) => {
+        ctx.strokeStyle = cols[c % cols.length]; ctx.beginPath();
+        for (const i of list) { const a = Rz.toPx(f[i].x, f[i].y), b = Rz.toPx(f[i + 1].x, f[i + 1].y); ctx.moveTo(a[0], a[1]); ctx.lineTo(b[0], b[1]); }
+        ctx.stroke();
+      });
+      // points isolés (composantes réduites à un échantillon)
+      // p retiré : cercle ouvert
+      const [px, py] = Rz.toPx(p.x, p.y);
+      ctx.fillStyle = t.bg; ctx.strokeStyle = t.fg; ctx.lineWidth = 2.2; ctx.beginPath(); ctx.arc(px, py, 6, 0, 2 * PI); ctx.fill(); ctx.stroke();
+      ctx.restore();
+      ctx.fillStyle = t.muted; ctx.font = '12px system-ui, sans-serif'; ctx.textAlign = 'left'; ctx.textBaseline = 'top';
+      ctx.fillText('zoom : S ∩ D(p,ρ) privé de p', 8, 6);
+      ctx.fillStyle = t.fg; ctx.font = 'bold 15px system-ui, sans-serif'; ctx.textBaseline = 'bottom';
+      ctx.fillText(comp.count + (comp.count > 1 ? ' composantes' : ' composante'), 8, H - 8);
+    }
+
+    function updateText() {
+      const p = data.flat[pi]; const S = SETS[key];
+      const k = comp.count;
+      let r = `p = (${p.x.toFixed(2)}, ${p.y.toFixed(2)})`;
+      if (isFinite(p.vx) && S.hasT) {
+        const tt = Math.abs(p.t) >= 100 ? p.t.toExponential(1) : p.t.toFixed(2);
+        r += ` &nbsp; t = ${tt} &nbsp; |x′(t)| = ${Math.hypot(p.vx, p.vy).toFixed(3)}`;
+      }
+      if (S.t0 !== null && S.t0 !== undefined && S.hasT && key !== 'cercle' && key !== 'demi') {
+        const s0 = data.flat[specialIndex()];
+        const d = Math.hypot(p.x - s0.x, p.y - s0.y), dt = Math.abs(p.t - S.t0);
+        r += ` &nbsp; |x(t)−x(${S.t0})| = ${d.toFixed(3)} &nbsp; |t−${S.t0}| = ${dt >= 100 ? dt.toExponential(1) : dt.toFixed(2)}`;
+      }
+      ro.set(r);
+      let msg, col;
+      if (k === 2) { msg = '2 composantes : compatible avec une sous-variété de dimension 1 en ce point.'; col = ''; }
+      else { msg = k + ' composante' + (k > 1 ? 's' : '') + ' ≠ 2 : impossible en dimension 1 (un intervalle ouvert privé d’un point en a 2) ; en dimension ≥ 2 il en faudrait 1, en dimension 0 aucune.'; col = '#d03030'; }
+      if (key === 'cusp' && Math.hypot(p.vx, p.vy) < 0.15) { msg = '2 composantes (test réussi) mais |x′(t)| ≈ 0 : dx_t non injective, la condition 3 échoue.'; col = '#d03030'; }
+      verdict.textContent = msg; verdict.style.color = col;
+    }
+
+    function draw() { try { compute(rho()); drawLeft(); drawRight(); updateText(); } catch (e) { console.error(e); } }
+
+    // ---------------- glisser p ----------------
+    function nearest(pos) {
+      if (!L) return;
+      let best = pi, bd = Infinity; const f = data.flat;
+      for (let i = 0; i < f.length; i += 1) { const [x, y] = L.toPx(f[i].x, f[i].y); const d = (x - pos.x) * (x - pos.x) + (y - pos.y) * (y - pos.y); if (d < bd) { bd = d; best = i; } }
+      pi = best; syncPos(); draw();
+    }
+    const off = kit.drag(stL.canvas, { onDown: p => { stop(); nearest(p); }, onMove: (p, ev, down) => { if (down) nearest(p); } });
+
+    stL.onResize = draw; stR.onResize = draw;
+    build(); setInfo(); syncPos(); draw();
+    return () => { stop(); off(); stL.destroy(); stR.destroy(); };
+  }
+});
+
+} catch (e) { console.error('viz viz-ch09-galerie-contre-exemples failed to register', e); }
+
+// ---- content/ch09/viz/viz-ch09-lagrange-extrema-lies.js ----
+try {
+FMA.registerViz({
+  id: 'viz-ch09-lagrange-extrema-lies',
+  chapter: 9,
+  title: "Extrema liés : gradients colinéaires et lignes de niveau tangentes",
+  description: String.raw`**Ce que l'on voit.** Une contrainte $S=\{F=0\}\subset\mathbb R^2$ (en bleu) et une fonction $g:\mathbb R^2\to\mathbb R$ dont on cherche les points critiques de la restriction $f=g_{|S}$. Le point $p$ est à **glisser le long de $S$** (ou à déplacer avec le curseur). On y dessine $\nabla F(p)$ (vert), $\nabla g(p)$ (rose), la tangente $T_pS=\ker dF_p$ (pointillés) et la **ligne de niveau de $g$ passant par $p$** (orange). Le graphe du bas montre la fonction d'une variable $t\mapsto g(\text{point de }S)$ le long de la contrainte.
+
+**Le théorème.** Si $0$ est valeur régulière de $F$, alors (poly, Proposition IX.7.35, p. 168)
+$$df_p=0\iff \exists\,w\in\mathbb R,\ dg_p=w\,dF_p\iff \nabla g(p)\parallel\nabla F(p).$$
+Pourquoi : $T_pS=\ker dF_p$ (Proposition IX.7.13), et $df_p=dg_p{}_{|T_pS}$ est nul si et seulement si $\ker dF_p\subset\ker dg_p$, c'est-à-dire si $dg_p$ est un multiple de $dF_p$. Géométriquement : la ligne de niveau de $g$ est **tangente** à la contrainte.
+
+**Ce qu'il faut regarder.**
+* Le déterminant $\det(\nabla g,\nabla F)$ s'annule exactement aux points marqués (cercles) sur le graphe : ce sont les points où la dérivée de $g$ le long de $S$ s'annule. En un extremum local de $f$, c'est nécessaire (Théorème IX.7.31).
+* La condition est **nécessaire, pas suffisante** : avec $g=x^3$ sur l'ellipse, les points $(0,\pm1)$ vérifient la condition (même $\nabla g=0$) mais ne sont pas des extrema : le graphe y a un point d'inflexion.
+* **Hypothèse « $0$ valeur régulière »** : avec le rebroussement $F=y^2-x^3$ et $g=x$, le minimum de $g$ sur $S$ est en $(0,0)$, mais $\nabla F(0,0)=0$ et $\nabla g=(1,0)$ n'est pas proportionnel à $\nabla F$ : le théorème ne s'applique pas, on rate le minimum. La lemniscate a la même difficulté à son point double.
+* Le multiplicateur $w$ lu à l'écran est le rapport $\nabla g=w\,\nabla F$ aux points de Lagrange.`,
+  related: ['ch09-multiplicateurs-lagrange', 'ch09-extremum-local-differentielle-nulle', 'ch09-espace-tangent-graphe-equation', 'ch09-point-critique-sous-variete-def'],
+  height: 640,
+  mount(container, kit) {
+    const T = () => kit.theme();
+    const PI = Math.PI;
+    const st = kit.canvas(container, { height: 300 });
+    const stG = kit.canvas(container, { height: 120 });
+    const controls = kit.controls(container);
+
+    // ------------ contraintes F(x,y) = 0, paramétrées par t ------------
+    const L2 = Math.sqrt(2);
+    const CONS = {
+      ellipse: { name: 'ellipse  x²/4 + y² = 1', t0: 0, t1: 2 * PI, closed: true,
+        F: (x, y) => x * x / 4 + y * y - 1, gF: (x, y) => [x / 2, 2 * y],
+        X: t => [2 * Math.cos(t), Math.sin(t)] },
+      lemn: { name: 'lemniscate  (x²+y²)² = x²−y²', t0: 0, t1: 2 * PI, closed: true,
+        F: (x, y) => Math.pow(x * x + y * y, 2) - (x * x - y * y), gF: (x, y) => [4 * x * (x * x + y * y) - 2 * x, 4 * y * (x * x + y * y) + 2 * y],
+        X: t => { const d = 1 + Math.sin(t) * Math.sin(t); return [Math.cos(t) / d, Math.sin(t) * Math.cos(t) / d]; } },
+      cusp: { name: 'rebroussement  y² = x³', t0: -1.35, t1: 1.35, closed: false,
+        F: (x, y) => y * y - x * x * x, gF: (x, y) => [-3 * x * x, 2 * y],
+        X: t => [t * t, t * t * t] },
+    };
+    const GS = {
+      'x+y': { name: 'g = x + y', g: (x, y) => x + y, gg: () => [1, 1] },
+      'xy': { name: 'g = x·y', g: (x, y) => x * y, gg: (x, y) => [y, x] },
+      'x': { name: 'g = x', g: (x, y) => x, gg: () => [1, 0] },
+      'x3': { name: 'g = x³', g: (x, y) => x * x * x, gg: (x) => [3 * x * x, 0] },
+      'd2': { name: 'g = (x−1.4)² + (y−0.9)²', g: (x, y) => (x - 1.4) * (x - 1.4) + (y - 0.9) * (y - 0.9), gg: (x, y) => [2 * (x - 1.4), 2 * (y - 0.9)] },
+    };
+    let ck = 'ellipse', gk = 'x+y';
+    let tcur = 0.6;
+    const VIEW = [-3, 3, -2.6, 2.6];
+
+    const selC = kit.select(controls, { label: 'contrainte', options: Object.keys(CONS).map(k => [CONS[k].name, k]), value: ck, onChange: v => { ck = v; if (v === 'cusp' && gk !== 'x') { gk = 'x'; selG.value = 'x'; } tcur = tclamp(tcur); if (v === 'cusp') tcur = 0.8; sync(); recompute(); draw(); } });
+    const selG = kit.select(controls, { label: 'fonction', options: Object.keys(GS).map(k => [GS[k].name, k]), value: gk, onChange: v => { gk = v; recompute(); draw(); } });
+    const row = kit.row(controls);
+    const tS = kit.slider(row, { label: 'position $t$', min: 0, max: 2 * PI, step: 0.005, value: tcur, onChange: v => { stop(); tcur = v; draw(); } });
+    const cLev = kit.checkbox(row, { label: 'lignes de niveau', checked: true, onChange: draw });
+    const row2 = kit.row(controls);
+    const btnL = kit.button(row2, { label: 'aller à un point de Lagrange', onClick: () => { stop(); gotoLagrange(); } });
+    const playBtn = kit.button(row2, { label: 'Parcourir', primary: true, onClick: () => { if (anim) stop(); else start(); } });
+    const ro = kit.readout(controls, { label: '' }); ro.el.style.flex = '1 1 100%';
+    const msg = document.createElement('div'); msg.className = 'viz-note'; msg.style.fontWeight = '600'; container.appendChild(msg);
+
+    function tclamp(t) { const C = CONS[ck]; return Math.max(C.t0, Math.min(C.t1, t)); }
+    function sync() { const C = CONS[ck]; tS.input.min = C.t0; tS.input.max = C.t1; tS.value = tcur; }
+
+    // ------------ données numériques ------------
+    let curve = [], fvals = [], lag = [], gridVals = null, G = { nx: 0, ny: 0, min: 0, max: 0, x0: 0, y0: 0, dx: 0, dy: 0 };
+    const N = 600;
+    const detAt = t => { const C = CONS[ck], g = GS[gk]; const [x, y] = C.X(t); const a = g.gg(x, y), b = C.gF(x, y); return a[0] * b[1] - a[1] * b[0]; };
+    function recompute() {
+      const C = CONS[ck], g = GS[gk];
+      curve = []; fvals = [];
+      for (let i = 0; i <= N; i++) { const t = C.t0 + (C.t1 - C.t0) * i / N; const p = C.X(t); curve.push(p); fvals.push(g.g(p[0], p[1])); }
+      // points de Lagrange : changements de signe du déterminant, ou zéros
+      lag = []; let prev = detAt(C.t0);
+      const tol = 1e-9;
+      for (let i = 1; i <= N; i++) {
+        const t = C.t0 + (C.t1 - C.t0) * i / N; const d = detAt(t);
+        if (prev * d < 0 || (Math.abs(d) < tol && Math.abs(prev) >= tol)) {
+          // bissection
+          let a = C.t0 + (C.t1 - C.t0) * (i - 1) / N, b = t, da = prev;
+          for (let k = 0; k < 40; k++) { const m = (a + b) / 2, dm = detAt(m); if (da * dm <= 0) b = m; else { a = m; da = dm; } }
+          const tt = (a + b) / 2; if (!lag.some(s => Math.abs(s - tt) < 0.02 || (C.closed && Math.abs(Math.abs(s - tt) - (C.t1 - C.t0)) < 0.02))) lag.push(tt);
+        }
+        prev = d;
+      }
+      // grille pour les lignes de niveau de g
+      G.nx = 90; G.ny = 78; G.x0 = VIEW[0]; G.y0 = VIEW[2]; G.dx = (VIEW[1] - VIEW[0]) / G.nx; G.dy = (VIEW[3] - VIEW[2]) / G.ny;
+      gridVals = new Float64Array((G.nx + 1) * (G.ny + 1)); let mn = Infinity, mx = -Infinity;
+      for (let j = 0; j <= G.ny; j++) for (let i = 0; i <= G.nx; i++) { const v = g.g(G.x0 + i * G.dx, G.y0 + j * G.dy); gridVals[j * (G.nx + 1) + i] = v; if (v < mn) mn = v; if (v > mx) mx = v; }
+      G.min = mn; G.max = mx;
+    }
+    function contour(level) {
+      const segs = [], nx = G.nx, ny = G.ny, V = gridVals;
+      const itp = (a, b, va, vb) => a + (b - a) * (va - level) / (va - vb);
+      for (let j = 0; j < ny; j++) for (let i = 0; i < nx; i++) {
+        const v0 = V[j * (nx + 1) + i], v1 = V[j * (nx + 1) + i + 1], v2 = V[(j + 1) * (nx + 1) + i + 1], v3 = V[(j + 1) * (nx + 1) + i];
+        const xa = G.x0 + i * G.dx, xb = xa + G.dx, ya = G.y0 + j * G.dy, yb = ya + G.dy; const e = [];
+        if ((v0 < level) !== (v1 < level)) e.push([itp(xa, xb, v0, v1), ya]);
+        if ((v1 < level) !== (v2 < level)) e.push([xb, itp(ya, yb, v1, v2)]);
+        if ((v3 < level) !== (v2 < level)) e.push([itp(xa, xb, v3, v2), yb]);
+        if ((v0 < level) !== (v3 < level)) e.push([xa, itp(ya, yb, v0, v3)]);
+        if (e.length === 2) segs.push(e); else if (e.length === 4) { segs.push([e[0], e[1]]); segs.push([e[2], e[3]]); }
+      }
+      return segs;
+    }
+
+    // ------------ dessin ------------
+    let P = null, PG = null;
+    function drawMain() {
+      const { ctx, W, H } = st; const t = T(); const C = CONS[ck], g = GS[gk];
+      ctx.clearRect(0, 0, W, H);
+      P = kit.plane(ctx, { xmin: VIEW[0], xmax: VIEW[1], ymin: VIEW[2], ymax: VIEW[3], W, H });
+      ctx.save(); ctx.beginPath(); ctx.rect(0, 0, W, H); ctx.clip();
+      P.grid(1, t.grid); P.axes({ labels: false });
+      const [px, py] = C.X(tcur); const gp = g.g(px, py);
+      // lignes de niveau de fond
+      const drawSegs = (segs, col, w, a) => { ctx.save(); ctx.globalAlpha = a; ctx.strokeStyle = col; ctx.lineWidth = w; ctx.beginPath(); for (const s of segs) { const A = P.toPx(s[0][0], s[0][1]), B = P.toPx(s[1][0], s[1][1]); ctx.moveTo(A[0], A[1]); ctx.lineTo(B[0], B[1]); } ctx.stroke(); ctx.restore(); };
+      if (cLev.value && G.max > G.min) {
+        const K = 11; for (let k = 1; k < K; k++) { const lv = G.min + (G.max - G.min) * k / K; drawSegs(contour(lv), t.muted, 1, 0.45); }
+      }
+      // ligne de niveau par p
+      drawSegs(contour(gp), t.accent4, 2.8, 1);
+      // contrainte
+      P.curve(curve, { color: t.accent, width: 3 });
+      // points de Lagrange
+      lag.forEach(s => { const q = C.X(s); const [a, b] = P.toPx(q[0], q[1]); ctx.strokeStyle = t.fg; ctx.lineWidth = 1.8; ctx.beginPath(); ctx.arc(a, b, 8, 0, 2 * PI); ctx.stroke(); });
+      // gradients et tangente
+      const gF = C.gF(px, py), gg = g.gg(px, py);
+      const nF = Math.hypot(gF[0], gF[1]), ng = Math.hypot(gg[0], gg[1]);
+      const mxn = Math.max(nF, ng, 1e-9); const sc = 1.1 / mxn;
+      if (nF > 1e-6) { const tx = -gF[1] / nF, ty = gF[0] / nF; ctx.save(); ctx.setLineDash([6, 4]); ctx.strokeStyle = t.fg; ctx.lineWidth = 1.4; ctx.beginPath(); const A = P.toPx(px - 2.2 * tx, py - 2.2 * ty), B = P.toPx(px + 2.2 * tx, py + 2.2 * ty); ctx.moveTo(A[0], A[1]); ctx.lineTo(B[0], B[1]); ctx.stroke(); ctx.restore(); }
+      if (nF > 1e-6) P.vector(px, py, gF[0], gF[1], { color: t.accent3, scale: sc, width: 3, head: 9 });
+      if (ng > 1e-6) P.vector(px, py, gg[0], gg[1], { color: t.accent2, scale: sc, width: 3, head: 9 });
+      P.point(px, py, { r: 6.5, color: t.accent4, stroke: t.bg });
+      ctx.restore();
+      ctx.font = '12px system-ui, sans-serif'; ctx.textAlign = 'left'; ctx.textBaseline = 'top';
+      ctx.fillStyle = t.accent; ctx.fillText('S = {F = 0}', 8, 6);
+      ctx.fillStyle = t.accent3; ctx.fillText('∇F(p)', 8, 22);
+      ctx.fillStyle = t.accent2; ctx.fillText('∇g(p)', 8, 38);
+      ctx.fillStyle = t.accent4; ctx.fillText('ligne de niveau de g par p', 8, 54);
+      ctx.fillStyle = t.fg; ctx.fillText('○ = points de Lagrange', 8, 70);
+    }
+    function drawGraph() {
+      const { ctx, W, H } = stG; const t = T(); const C = CONS[ck];
+      ctx.clearRect(0, 0, W, H);
+      let mn = Math.min(...fvals), mx = Math.max(...fvals); if (mx - mn < 1e-9) { mn -= 1; mx += 1; } const pad = (mx - mn) * 0.12; mn -= pad; mx += pad;
+      const L = 36, R = 10, Tt = 12, B = 22;
+      const X = tt => L + (tt - C.t0) / (C.t1 - C.t0) * (W - L - R), Y = v => H - B - (v - mn) / (mx - mn) * (H - B - Tt);
+      PG = { X, Y, L, R };
+      ctx.strokeStyle = t.axis; ctx.lineWidth = 1; ctx.strokeRect(L, Tt, W - L - R, H - B - Tt);
+      if (mn < 0 && mx > 0) { ctx.strokeStyle = t.grid; ctx.beginPath(); ctx.moveTo(L, Y(0)); ctx.lineTo(W - R, Y(0)); ctx.stroke(); }
+      ctx.strokeStyle = t.accent2; ctx.lineWidth = 2.2; ctx.beginPath();
+      for (let i = 0; i <= N; i++) { const tt = C.t0 + (C.t1 - C.t0) * i / N; const x = X(tt), y = Y(fvals[i]); i ? ctx.lineTo(x, y) : ctx.moveTo(x, y); } ctx.stroke();
+      lag.forEach(s => { const v = GS[gk].g(...C.X(s)); ctx.strokeStyle = t.fg; ctx.lineWidth = 1.8; ctx.beginPath(); ctx.arc(X(s), Y(v), 6, 0, 2 * PI); ctx.stroke(); });
+      const v = GS[gk].g(...C.X(tcur));
+      ctx.strokeStyle = t.accent4; ctx.lineWidth = 1; ctx.setLineDash([3, 3]); ctx.beginPath(); ctx.moveTo(X(tcur), Tt); ctx.lineTo(X(tcur), H - B); ctx.stroke(); ctx.setLineDash([]);
+      ctx.fillStyle = t.accent4; ctx.strokeStyle = t.bg; ctx.lineWidth = 2; ctx.beginPath(); ctx.arc(X(tcur), Y(v), 6, 0, 2 * PI); ctx.fill(); ctx.stroke();
+      ctx.fillStyle = t.muted; ctx.font = '11px system-ui, sans-serif'; ctx.textAlign = 'right'; ctx.textBaseline = 'middle';
+      ctx.fillText(kit.fmt(+mx.toFixed(2)), L - 4, Tt + 6); ctx.fillText(kit.fmt(+mn.toFixed(2)), L - 4, H - B - 6);
+      ctx.textAlign = 'center'; ctx.textBaseline = 'top'; ctx.fillStyle = t.fg; ctx.fillText('t  →   f(t) = g(point de S)', (L + W - R) / 2, H - B + 4);
+    }
+
+    function updateText() {
+      const C = CONS[ck], g = GS[gk];
+      const [px, py] = C.X(tcur);
+      const gF = C.gF(px, py), gg = g.gg(px, py);
+      const det = gg[0] * gF[1] - gg[1] * gF[0];
+      const nF = Math.hypot(gF[0], gF[1]);
+      let r = `p = (${px.toFixed(2)}, ${py.toFixed(2)}) &nbsp; ∇F = (${gF[0].toFixed(2)}, ${gF[1].toFixed(2)}) &nbsp; ∇g = (${gg[0].toFixed(2)}, ${gg[1].toFixed(2)}) &nbsp; det(∇g,∇F) = ${det.toFixed(3)}`;
+      let m = '', col = '';
+      if (nF < 1e-6) {
+        m = '∇F(p) = 0 : 0 n\u2019est pas valeur régulière de F en p. Le théorème des multiplicateurs ne s\u2019applique pas ici (et S n\u2019est pas une sous-variété en p).';
+        col = '#d03030';
+      } else if (Math.abs(det) < 0.02 * Math.max(1e-9, Math.hypot(gg[0], gg[1]) * nF) + 1e-9) {
+        const w = (gg[0] * gF[0] + gg[1] * gF[1]) / (nF * nF);
+        r += ` &nbsp; w = ${w.toFixed(3)}`;
+        m = 'Gradients colinéaires : ∇g(p) = w ∇F(p). C\u2019est un point critique de g|S ; la ligne de niveau est tangente à S.';
+        col = '#1b9e77';
+      } else {
+        m = 'Gradients non colinéaires : la ligne de niveau coupe S transversalement, g|S varie en p (ni extremum ni point critique).';
+      }
+      if (ck === 'cusp' && gk === 'x' && tcur !== 0 && Math.abs(tcur) < 0.1) m += ' Le minimum de g sur S est en (0,0), où ∇F = 0.';
+      ro.set(r); msg.textContent = m; msg.style.color = col;
+    }
+
+    function draw() { try { drawMain(); drawGraph(); updateText(); } catch (e) { console.error(e); } }
+
+    // ------------ interactions ------------
+    function setT(tt) { tcur = tclamp(tt); tS.value = tcur; draw(); }
+    function gotoLagrange() {
+      if (!lag.length) { if (ck === 'cusp') { setT(0); } return; }
+      let best = null; const cs = lag.slice().sort((a, b) => a - b);
+      const nxt = cs.find(s => s > tcur + 1e-3); best = nxt !== undefined ? nxt : cs[0];
+      setT(best);
+    }
+    function nearestT(pos, inGraph) {
+      const C = CONS[ck];
+      if (inGraph) { const tt = C.t0 + (pos.x - PG.L) / (stG.W - PG.L - PG.R) * (C.t1 - C.t0); setT(tt); return; }
+      let bi = 0, bd = Infinity;
+      for (let i = 0; i <= N; i++) { const [x, y] = P.toPx(curve[i][0], curve[i][1]); const d = (x - pos.x) ** 2 + (y - pos.y) ** 2; if (d < bd) { bd = d; bi = i; } }
+      setT(C.t0 + (C.t1 - C.t0) * bi / N);
+    }
+    const off1 = kit.drag(st.canvas, { onDown: p => { stop(); nearestT(p, false); }, onMove: (p, ev, down) => { if (down) nearestT(p, false); } });
+    const off2 = kit.drag(stG.canvas, { onDown: p => { stop(); nearestT(p, true); }, onMove: (p, ev, down) => { if (down) nearestT(p, true); } });
+    let anim = null;
+    function stop() { if (anim) { anim.stop(); anim = null; } playBtn.textContent = 'Parcourir'; }
+    function start() {
+      const C = CONS[ck]; playBtn.textContent = 'Pause';
+      anim = kit.animate(dt => { let tt = tcur + dt * (C.t1 - C.t0) / 14; if (tt > C.t1) tt = C.t0; setT(tt); });
+    }
+
+    st.onResize = draw; stG.onResize = draw;
+    sync(); recompute(); draw();
+    return () => { stop(); off1(); off2(); st.destroy(); stG.destroy(); };
+  }
+});
+
+} catch (e) { console.error('viz viz-ch09-lagrange-extrema-lies failed to register', e); }
+
+// ---- content/ch09/viz/viz-ch09-parametrage-plan-tangent.js ----
+try {
+FMA.registerViz({
+  id: 'viz-ch09-parametrage-plan-tangent',
+  chapter: 9,
+  title: "Paramétrage local, carte et plan tangent",
+  description: String.raw`**Ce que l'on voit.** À gauche, l'ouvert $U\subset\mathbb R^2$ des paramètres $q=(u,v)$ ; à droite, la surface $S\subset\mathbb R^3$ et le point $p=x(q)$. Le quadrillage de $U$ est envoyé par le paramétrage $x$ sur le « quadrillage » de $S$ : c'est la **carte** $x^{-1}$ qui permet de lire $S$ avec des coordonnées. Les deux courbes coordonnées passant par $p$, $u\mapsto x(u,v_0)$ et $v\mapsto x(u_0,v)$, ont pour vecteurs vitesses
+$$x_u(q)=dx_q(e_1)=\frac{\partial x}{\partial u}(q),\qquad x_v(q)=dx_q(e_2)=\frac{\partial x}{\partial v}(q),$$
+et le plan qu'ils engendrent est l'**espace tangent** $T_pS=dx_q(\mathbb R^2)$ (poly, Proposition IX.7.9 et Corollaire IX.7.11, p. 161). Dans la fenêtre de droite, **glissez** pour tourner la surface ; dans celle de gauche, **glissez le point $q$**.
+
+**Ce qu'il faut regarder.**
+* **Cochez « courbes par $p$ »** : on trace les images $t\mapsto x(q+tw)$ de huit droites de $U$ passant par $q$, avec leurs vecteurs vitesses $dx_q(w)=w_1x_u+w_2x_v$ en $p$ (Définition IX.7.8, p. 160). Tous sont dans le plan tangent, et ils le remplissent : c'est exactement $T_pS=dx_q(\mathbb R^2)$, un plan (dimension $m=2$) parce que $dx_q$ est **injective** (condition 3 de la Définition IX.2.1, p. 148).
+* **Sphère** : approchez-vous des pôles ($v\to\pm\pi/2$). Le vecteur $x_u$ s'écrase vers $0$, l'aire $\|x_u\times x_v\|$ tend vers $0$ et le plan tangent dégénère : $dx_q$ n'est plus injective, donc $x$ n'est **pas** un paramétrage local aux pôles (il faut y utiliser un autre paramétrage ; un seul ne suffit pas pour toute la sphère). Le domaine $U$ doit être *ouvert* : $]-\pi,\pi[\times]-\pi/2,\pi/2[$.
+* **Cône** $x(u,v)=(v\cos u,v\sin u,v)$ : sur la droite $v=0$ le paramétrage n'est pas une immersion ($x_u=0$). Ce n'est pas un hasard : le cône n'est pas une sous-variété au sommet (Exercice IX.7.12) ; en restreignant à $v>0$ (une seule nappe, sommet exclu) on retrouve un vrai paramétrage.
+* **Graphe** $x(u,v)=(u,v,h(u,v))$ : $x_u=(1,0,h_u)$, $x_v=(0,1,h_v)$ sont toujours indépendants, et le plan tangent est le graphe de $dh_q$ (Proposition IX.7.13 : c'est l'approximation affine de $h$).
+* **Toutes les surfaces** : le plan tangent (en couleur) est la meilleure approximation affine de $S$ en $p$ ; il est orthogonal à la normale $x_u\times x_v$ (case « normale »).`,
+  related: ['ch09-sous-variete-def', 'ch09-espace-tangent-image-dx', 'ch09-base-espace-tangent', 'ch09-vecteur-tangent-espace-tangent-def', 'ch09-espace-tangent-graphe-equation'],
+  height: 640,
+  mount(container, kit) {
+    const T = () => kit.theme();
+    const grid = document.createElement('div');
+    grid.style.cssText = 'display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:8px;align-items:start;';
+    container.appendChild(grid);
+    const cellL = document.createElement('div'), cellR = document.createElement('div');
+    grid.appendChild(cellL); grid.appendChild(cellR);
+    const stU = kit.canvas(cellL, { height: 260 });
+    const stS = kit.canvas(cellR, { height: 300 });
+    const controls = kit.controls(container);
+    const PI = Math.PI;
+
+    // ---------- surfaces ----------
+    const SURF = {
+      sphere: { name: 'sphère (coordonnées sphériques)', f: (u, v) => [Math.cos(v) * Math.cos(u), Math.cos(v) * Math.sin(u), Math.sin(v)],
+        u0: -PI, u1: PI, v0: -PI / 2, v1: PI / 2, R: 1.05, closed: true, q0: [0.6, 0.4], nu: 24, nv: 12,
+        warn: 'pôle : x_u = 0' },
+      tore: { name: 'tore', f: (u, v) => [(1.5 + 0.6 * Math.cos(v)) * Math.cos(u), (1.5 + 0.6 * Math.cos(v)) * Math.sin(u), 0.6 * Math.sin(v)],
+        u0: -PI, u1: PI, v0: -PI, v1: PI, R: 2.2, closed: true, q0: [0.5, 0.9], nu: 36, nv: 14, warn: '' },
+      graphe: { name: 'graphe  z = h(u,v)', f: (u, v) => [u, v, 0.55 * Math.sin(1.3 * u) * Math.cos(1.1 * v) + 0.045 * u * v],
+        u0: -2, u1: 2, v0: -2, v1: 2, R: 2.4, closed: false, q0: [0.4, -0.3], nu: 16, nv: 16, warn: '' },
+      cone: { name: 'cône (x = (v cos u, v sin u, v))', f: (u, v) => [v * Math.cos(u), v * Math.sin(u), v],
+        u0: -PI, u1: PI, v0: -1.2, v1: 1.2, R: 1.7, closed: false, q0: [0.8, 0.6], nu: 24, nv: 12, warn: 'sommet : x_u = 0' },
+    };
+    let cur = 'sphere';
+    let q = SURF.sphere.q0.slice();
+    let yaw = -0.7, pitch = 0.5;
+
+    const sel = kit.select(controls, { label: 'surface', options: Object.keys(SURF).map(k => [SURF[k].name, k]), value: cur, onChange: v => { cur = v; q = SURF[cur].q0.slice(); syncSliders(); draw(); } });
+    const rowS = kit.row(controls);
+    const su = kit.slider(rowS, { label: '$u$', min: -3.14, max: 3.14, step: 0.01, value: q[0], onChange: v => { q[0] = clampU(v); draw(); } });
+    const sv = kit.slider(rowS, { label: '$v$', min: -3.14, max: 3.14, step: 0.01, value: q[1], onChange: v => { q[1] = clampV(v); draw(); } });
+    const rowC = kit.row(controls);
+    const cCurves = kit.checkbox(rowC, { label: 'courbes par $p$', checked: false, onChange: draw });
+    const cNormal = kit.checkbox(rowC, { label: 'normale', checked: false, onChange: draw });
+    const cPlane = kit.checkbox(rowC, { label: 'plan tangent', checked: true, onChange: draw });
+    const scl = kit.slider(rowC, { label: 'taille du plan', min: 0.2, max: 1.2, step: 0.05, value: 0.6, onChange: draw });
+    const ro = kit.readout(controls, { label: '' });
+    ro.el.style.flex = '1 1 100%';
+    const warn = document.createElement('div'); warn.className = 'viz-note'; container.appendChild(warn);
+
+    function clampU(v) { const S = SURF[cur]; return Math.max(S.u0, Math.min(S.u1, v)); }
+    function clampV(v) { const S = SURF[cur]; return Math.max(S.v0, Math.min(S.v1, v)); }
+    function syncSliders() {
+      const S = SURF[cur];
+      su.input.min = S.u0; su.input.max = S.u1; sv.input.min = S.v0; sv.input.max = S.v1;
+      su.value = q[0]; sv.value = q[1];
+    }
+    syncSliders();
+
+    // ---------- helpers ----------
+    const sub = (a, b) => [a[0] - b[0], a[1] - b[1], a[2] - b[2]];
+    const add = (a, b) => [a[0] + b[0], a[1] + b[1], a[2] + b[2]];
+    const mulk = (a, k) => [a[0] * k, a[1] * k, a[2] * k];
+    const cross = (a, b) => [a[1] * b[2] - a[2] * b[1], a[2] * b[0] - a[0] * b[2], a[0] * b[1] - a[1] * b[0]];
+    const dot = (a, b) => a[0] * b[0] + a[1] * b[1] + a[2] * b[2];
+    const nrm = a => Math.hypot(a[0], a[1], a[2]);
+    function partials(u, v) {
+      const f = SURF[cur].f, h = 1e-5;
+      const xu = mulk(sub(f(u + h, v), f(u - h, v)), 1 / (2 * h));
+      const xv = mulk(sub(f(u, v + h), f(u, v - h)), 1 / (2 * h));
+      return [xu, xv];
+    }
+    // camera : yaw autour de z, puis inclinaison
+    function cam() {
+      const cy = Math.cos(yaw), sy = Math.sin(yaw), cp = Math.cos(pitch), sp = Math.sin(pitch);
+      // lignes : écran-x, profondeur, écran-haut
+      return {
+        rx: [cy, -sy, 0],
+        rd: [sy * cp, cy * cp, -sp],
+        ru: [sy * sp, cy * sp, cp],
+      };
+    }
+    function project(c, p, sc, W, H) { return [W / 2 + sc * dot(c.rx, p), H / 2 - sc * dot(c.ru, p) * 1.0, dot(c.rd, p)]; }
+
+    // ---------- dessin du domaine U ----------
+    let mapU = null;
+    function drawU() {
+      const { ctx, W, H } = stU; const t = T(); const S = SURF[cur];
+      ctx.clearRect(0, 0, W, H);
+      const mx = 30, my = 20;
+      const bx0 = mx, bx1 = W - 12, by0 = H - my - 6, by1 = 14;
+      const px = u => bx0 + (u - S.u0) / (S.u1 - S.u0) * (bx1 - bx0);
+      const py = v => by0 + (v - S.v0) / (S.v1 - S.v0) * (by1 - by0);
+      const qx = x => S.u0 + (x - bx0) / (bx1 - bx0) * (S.u1 - S.u0);
+      const qy = y => S.v0 + (y - by0) / (by1 - by0) * (S.v1 - S.v0);
+      mapU = { px, py, qx, qy, bx0, bx1, by0, by1 };
+      ctx.save();
+      ctx.fillStyle = t.accent5; ctx.globalAlpha = 0.07; ctx.fillRect(bx0, by1, bx1 - bx0, by0 - by1); ctx.globalAlpha = 1;
+      ctx.strokeStyle = t.grid; ctx.lineWidth = 1;
+      for (let i = 0; i <= S.nu; i++) { const u = S.u0 + (S.u1 - S.u0) * i / S.nu; ctx.beginPath(); ctx.moveTo(px(u), by0); ctx.lineTo(px(u), by1); ctx.stroke(); }
+      for (let j = 0; j <= S.nv; j++) { const v = S.v0 + (S.v1 - S.v0) * j / S.nv; ctx.beginPath(); ctx.moveTo(bx0, py(v)); ctx.lineTo(bx1, py(v)); ctx.stroke(); }
+      ctx.strokeStyle = t.axis; ctx.lineWidth = 1.4; ctx.setLineDash([]); ctx.strokeRect(bx0, by1, bx1 - bx0, by0 - by1);
+      // courbes coordonnées par q
+      ctx.lineWidth = 2.2;
+      ctx.strokeStyle = t.accent2; ctx.beginPath(); ctx.moveTo(bx0, py(q[1])); ctx.lineTo(bx1, py(q[1])); ctx.stroke();
+      ctx.strokeStyle = t.accent3; ctx.beginPath(); ctx.moveTo(px(q[0]), by0); ctx.lineTo(px(q[0]), by1); ctx.stroke();
+      // droites par q (courbes par p)
+      if (cCurves.value) {
+        const d = 0.2 * Math.min(bx1 - bx0, by0 - by1);
+        ctx.strokeStyle = t.accent4; ctx.lineWidth = 1.5;
+        for (let k = 0; k < 8; k++) { const a = k * PI / 8; ctx.beginPath(); ctx.moveTo(px(q[0]) - d * Math.cos(a), py(q[1]) + d * Math.sin(a)); ctx.lineTo(px(q[0]) + d * Math.cos(a), py(q[1]) - d * Math.sin(a)); ctx.stroke(); }
+      }
+      // axes labels
+      ctx.fillStyle = t.muted; ctx.font = '11px system-ui, sans-serif'; ctx.textAlign = 'center'; ctx.textBaseline = 'top';
+      ctx.fillText(kit.fmt(+S.u0.toFixed(2)), bx0, by0 + 3); ctx.fillText(kit.fmt(+S.u1.toFixed(2)), bx1, by0 + 3);
+      ctx.fillStyle = t.fg; ctx.fillText('u', (bx0 + bx1) / 2, by0 + 3);
+      ctx.textAlign = 'right'; ctx.textBaseline = 'middle'; ctx.fillStyle = t.muted;
+      ctx.fillText(kit.fmt(+S.v0.toFixed(2)), bx0 - 4, by0); ctx.fillText(kit.fmt(+S.v1.toFixed(2)), bx0 - 4, by1);
+      ctx.fillStyle = t.fg; ctx.fillText('v', bx0 - 4, (by0 + by1) / 2);
+      ctx.textAlign = 'left'; ctx.textBaseline = 'top'; ctx.fillStyle = t.fg; ctx.font = '12px system-ui, sans-serif';
+      ctx.fillText('ouvert U ⊂ ℝ²', bx0 + 6, by1 + 4);
+      // point q
+      const degenerate = currentArea() < 0.05;
+      ctx.fillStyle = degenerate ? '#d03030' : t.accent4; ctx.strokeStyle = t.bg; ctx.lineWidth = 2;
+      ctx.beginPath(); ctx.arc(px(q[0]), py(q[1]), 7, 0, 2 * PI); ctx.fill(); ctx.stroke();
+      ctx.fillStyle = t.fg; ctx.textAlign = 'left'; ctx.textBaseline = 'bottom'; ctx.fillText('q', px(q[0]) + 9, py(q[1]) - 6);
+      ctx.restore();
+    }
+    function currentArea() { const [xu, xv] = partials(q[0], q[1]); return nrm(cross(xu, xv)); }
+
+    // ---------- dessin de S ----------
+    function drawS() {
+      const { ctx, W, H } = stS; const t = T(); const S = SURF[cur]; const c = cam();
+      ctx.clearRect(0, 0, W, H);
+      const sc = 0.46 * Math.min(W, H * 1.15) / S.R;
+      const P = p => project(c, p, sc, W, H);
+      const seg = (a, b, col, w, alpha, dash) => { ctx.globalAlpha = alpha; ctx.strokeStyle = col; ctx.lineWidth = w; ctx.setLineDash(dash || []); ctx.beginPath(); ctx.moveTo(a[0], a[1]); ctx.lineTo(b[0], b[1]); ctx.stroke(); };
+      const f = S.f;
+      // maillage
+      const facing = (u, v) => { if (!S.closed) return true; const [xu, xv] = partials(u, v); const n = cross(xu, xv); return dot(n, c.rd) < 0; };
+      ctx.lineCap = 'round';
+      const NS = 60;
+      const lineOf = (fn, nPts, col, w, aFront, aBack) => {
+        let prev = null, pf = true;
+        for (let i = 0; i <= nPts; i++) {
+          const [u, v] = fn(i / nPts); const p3 = f(u, v); const s = P(p3); const fr = facing(u, v);
+          if (prev) seg(prev, s, col, w, (fr && pf) ? aFront : aBack);
+          prev = s; pf = fr;
+        }
+      };
+      for (let i = 0; i <= S.nu; i++) { const u = S.u0 + (S.u1 - S.u0) * i / S.nu; lineOf(s => [u, S.v0 + (S.v1 - S.v0) * s], NS, t.axis, 1, 0.65, 0.16); }
+      for (let j = 0; j <= S.nv; j++) { const v = S.v0 + (S.v1 - S.v0) * j / S.nv; lineOf(s => [S.u0 + (S.u1 - S.u0) * s, v], NS, t.axis, 1, 0.65, 0.16); }
+      ctx.globalAlpha = 1;
+      // courbes coordonnées par p
+      lineOf(s => [S.u0 + (S.u1 - S.u0) * s, q[1]], 80, t.accent2, 2.4, 1, 0.3);
+      lineOf(s => [q[0], S.v0 + (S.v1 - S.v0) * s], 80, t.accent3, 2.4, 1, 0.3);
+      ctx.globalAlpha = 1;
+      const [xu, xv] = partials(q[0], q[1]);
+      const p = f(q[0], q[1]); const sp = P(p);
+      const sz = scl.value;
+      // plan tangent
+      if (cPlane.value) {
+        const corners = [[-1, -1], [1, -1], [1, 1], [-1, 1]].map(([a, b]) => P(add(p, add(mulk(xu, a * sz), mulk(xv, b * sz)))));
+        ctx.globalAlpha = 0.22; ctx.fillStyle = t.accent5; ctx.beginPath(); corners.forEach((s, i) => i ? ctx.lineTo(s[0], s[1]) : ctx.moveTo(s[0], s[1])); ctx.closePath(); ctx.fill();
+        ctx.globalAlpha = 0.9; ctx.strokeStyle = t.accent5; ctx.lineWidth = 1.3; ctx.setLineDash([5, 3]); ctx.stroke(); ctx.setLineDash([]);
+        ctx.globalAlpha = 1;
+      }
+      // courbes x(q + t w) et vitesses
+      if (cCurves.value) {
+        const d = 0.2 * Math.min(S.u1 - S.u0, S.v1 - S.v0);
+        for (let k = 0; k < 8; k++) {
+          const a = k * PI / 8, w = [Math.cos(a), Math.sin(a)];
+          let prev = null;
+          for (let i = -20; i <= 20; i++) {
+            const tt = d * i / 20; const s = P(f(q[0] + tt * w[0], q[1] + tt * w[1]));
+            if (prev) seg(prev, s, t.accent4, 1.8, 0.95); prev = s;
+          }
+          const vel = add(mulk(xu, w[0]), mulk(xv, w[1])); const tip = P(add(p, mulk(vel, sz * 0.9)));
+          ctx.globalAlpha = 0.95; kit.arrow(ctx, sp[0], sp[1], tip[0], tip[1], { color: t.accent4, width: 1.2, head: 6 });
+        }
+        ctx.globalAlpha = 1;
+      }
+      // vecteurs x_u, x_v
+      const tu = P(add(p, mulk(xu, sz))), tv = P(add(p, mulk(xv, sz)));
+      kit.arrow(ctx, sp[0], sp[1], tu[0], tu[1], { color: t.accent2, width: 2.6, head: 9 });
+      kit.arrow(ctx, sp[0], sp[1], tv[0], tv[1], { color: t.accent3, width: 2.6, head: 9 });
+      ctx.font = '12px system-ui, sans-serif'; ctx.textBaseline = 'middle'; ctx.textAlign = 'left';
+      ctx.fillStyle = t.accent2; ctx.fillText('x_u', tu[0] + 5, tu[1]);
+      ctx.fillStyle = t.accent3; ctx.fillText('x_v', tv[0] + 5, tv[1]);
+      if (cNormal.value) {
+        let n = cross(xu, xv); const L = nrm(n);
+        if (L > 1e-6) { n = mulk(n, 0.5 * S.R / L); const tn = P(add(p, n)); ctx.setLineDash([4, 3]); kit.arrow(ctx, sp[0], sp[1], tn[0], tn[1], { color: t.fg, width: 1.6, head: 7 }); ctx.setLineDash([]); ctx.fillStyle = t.fg; ctx.fillText('x_u × x_v', tn[0] + 5, tn[1]); }
+      }
+      // point p
+      const degenerate = currentArea() < 0.05;
+      ctx.fillStyle = degenerate ? '#d03030' : t.accent4; ctx.strokeStyle = t.bg; ctx.lineWidth = 2;
+      ctx.beginPath(); ctx.arc(sp[0], sp[1], 6, 0, 2 * PI); ctx.fill(); ctx.stroke();
+      ctx.fillStyle = t.fg; ctx.textBaseline = 'bottom'; ctx.fillText('p = x(q)', sp[0] + 9, sp[1] - 6);
+      ctx.fillStyle = t.muted; ctx.textBaseline = 'top'; ctx.textAlign = 'left'; ctx.fillText('S ⊂ ℝ³  (glisser pour tourner)', 8, 6);
+    }
+
+    function updateReadout() {
+      const [xu, xv] = partials(q[0], q[1]);
+      const A = nrm(cross(xu, xv));
+      const p = SURF[cur].f(q[0], q[1]);
+      const f2 = a => a.map(z => (+z.toFixed(2)).toString()).join(', ');
+      ro.set(`q = (${q[0].toFixed(2)}, ${q[1].toFixed(2)}) &nbsp; p = (${f2(p)}) &nbsp; |x<sub>u</sub>×x<sub>v</sub>| = ${A.toFixed(3)}`);
+      if (A < 0.05) {
+        warn.style.color = '#d03030';
+        warn.textContent = 'Ici dx_q n’est PAS injective (' + (SURF[cur].warn || 'x_u et x_v presque colinéaires') + ') : x n’est pas un paramétrage local en ce point, le « plan tangent » dégénère.';
+      } else {
+        warn.style.color = '';
+        warn.textContent = 'dx_q est injective : (x_u, x_v) est une base de T_pS (plan tangent, dimension 2).';
+      }
+    }
+
+    function draw() { try { drawU(); drawS(); updateReadout(); } catch (e) { console.error(e); } }
+
+    // ---------- interactions ----------
+    const offU = kit.drag(stU.canvas, {
+      onDown: (p) => setQ(p), onMove: (p, ev, down) => { if (down) setQ(p); },
+    });
+    function setQ(p) {
+      if (!mapU) return; const S = SURF[cur];
+      q = [Math.max(S.u0, Math.min(S.u1, mapU.qx(p.x))), Math.max(S.v0, Math.min(S.v1, mapU.qy(p.y)))];
+      su.value = q[0]; sv.value = q[1]; draw();
+    }
+    let last = null;
+    const offS = kit.drag(stS.canvas, {
+      onDown: (p) => { last = p; },
+      onMove: (p, ev, down) => { if (!down || !last) return; yaw += (p.x - last.x) * 0.01; pitch = Math.max(-1.45, Math.min(1.45, pitch + (p.y - last.y) * 0.01)); last = p; draw(); },
+      onUp: () => { last = null; },
+    });
+    stU.onResize = draw; stS.onResize = draw;
+    draw();
+    return () => { offU(); offS(); stU.destroy(); stS.destroy(); };
+  }
+});
+
+} catch (e) { console.error('viz viz-ch09-parametrage-plan-tangent failed to register', e); }

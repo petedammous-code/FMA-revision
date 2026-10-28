@@ -406,7 +406,7 @@
 | $x_2^{-1}\circ\varphi\circ x_1$ | lecture dans les cartes d'une application $\varphi : S_1\to S_2$, définie sur $x_1^{-1}(\varphi^{-1}(x_2(U_2))\cap x_1(U_1))$ | IX | 160 |
 | $\vec v$ vecteur tangent, $\alpha : I\to S$, $\alpha(0)=p$, $\alpha'(0)=\vec v$ | vecteur tangent en $p$ = vitesse en $0$ d'une courbe $C^1$ tracée sur $S$ passant par $p$ | IX | 160 |
 | $T_pS$ | espace tangent (vectoriel) à $S$ en $p$ ; $T_pS=dx_q(\mathbb R^m)$, sous-espace de dimension $m$ de $\mathbb R^N$ | IX | 161 |
-| $\mathbf T_pS$ (gras) | espace tangent affine : sous-espace affine passant par $p$ et parallèle à $T_pS$ | IX | 161 |
+| $\mathcal T_pS$ (gras) | espace tangent affine : sous-espace affine passant par $p$ et parallèle à $T_pS$ | IX | 161 |
 | $x_{u_i}(u)=dx_u(e_i)=\dfrac{\partial x}{\partial u_i}(u)$ (IX.7.1) | vecteurs de base de $T_{x(u)}S$ associés au paramétrage $x$, $u=(u_1,\dots,u_m)$, $(e_i)$ base canonique de $\mathbb R^m$ | IX | 161 |
 | $T_pS=\ker dF_p$ | espace tangent d'une sous-variété $S=\{F=0\}$, $0$ valeur régulière | IX | 162 |
 | $d\varphi_p : T_pS_1\to T_{\varphi(p)}S_2$ | différentielle en $p$ d'une application entre sous-variétés ; $d\varphi_p(dx_q(\vec w))=d(\varphi\circ x)_q(\vec w)$, $d\varphi_p(\alpha'(0))=(\varphi\circ\alpha)'(0)$ | IX | 163 |

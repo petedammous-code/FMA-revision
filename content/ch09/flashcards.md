@@ -1,4 +1,4 @@
-## CARD id=fc-ch09-001 ref=ch09-immersion-submersion-def tags=definition
+## CARD id=fc-ch09-001 ref=ch09-immersion-submersion-def tags=definition,enonce
 ### Q
 Définition d'une immersion et d'une submersion en un point $a$ (pour $f : U\to\mathbb R^q$ différentiable, $U$ ouvert de $\mathbb R^p$).
 ### R
@@ -22,7 +22,7 @@ Comment complète-t-on une immersion $f : U\to\mathbb R^N$ (avec $df_a$ injectiv
 ### R
 On choisit un supplémentaire $H$ de $\mathrm{Im}\,df_a$ dans $\mathbb R^N$ et on pose $F : U\times H\to\mathbb R^N$, $F(q,t)=f(q)+t$. Alors $dF_{(a,0)}(h,t)=df_a(h)+t$ est **bijective** (injective par somme directe, et dimensions égales). L'inversion locale ([[ch06-inversion-locale|théorème VI.3.2]]) donne que $F$ est un difféomorphisme local en $(a,0)$ ; or $f=F(\cdot,0)$, d'où le résultat. (poly, p. 147)
 
-## CARD id=fc-ch09-005 ref=ch09-point-critique-valeur-reguliere-def tags=definition
+## CARD id=fc-ch09-005 ref=ch09-point-critique-valeur-reguliere-def tags=definition,enonce
 ### Q
 Définir point critique, valeur critique, point régulier, valeur régulière d'une fonction différentiable $f : V\to\mathbb R^N$, $V$ ouvert de $\mathbb R^m$.
 ### R
@@ -40,7 +40,7 @@ Il faut $df_x$ surjective en **tout** point de $f^{-1}(\{a\})$. Pour $f(x,y)=xy$
 ### R
 Si $f : U\to\mathbb R^m$ est de classe $C^p$ ($p\ge1$) sur un ouvert $U$ de $\mathbb R^n$ et si $df_x$ est de **rang constant** $r$ au voisinage de $a$, alors, à des difféomorphismes près à la source et au but, $f$ s'écrit localement $(x_1,\dots,x_n)\mapsto(x_1,\dots,x_r,0,\dots,0)$. (poly, Remarque IX.1.4, p. 148 ; exercice VI.4.9.) Le rang doit être constant au voisinage de $a$ : $f(x)=x^2$ a rang $0$ en $0$ et $1$ ailleurs.
 
-## CARD id=fc-ch09-008 ref=ch09-sous-variete-def tags=definition
+## CARD id=fc-ch09-008 ref=ch09-sous-variete-def tags=definition,enonce
 ### Q
 Définition d'une sous-variété de dimension $m$ et de classe $C^k$ de $\mathbb R^N$ (par paramétrages locaux).
 ### R
@@ -234,13 +234,13 @@ Le changement de paramétrage est-il différentiable sans condition d'immersion 
 ### R
 Non : $x_1(t)=t^3$ et $x_2(t)=t$ paramètrent tous deux $\mathbb R$ (homéomorphismes $C^\infty$) mais $x_1^{-1}\circ x_2(t)=t^{1/3}$ n'est pas dérivable en $0$ ; $x_1$ n'est pas une immersion en $0$. (poly, Proposition IX.6.1, p. 158)
 
-## CARD id=fc-ch09-039 ref=ch09-fonction-differentiable-sur-sous-variete-def tags=definition
+## CARD id=fc-ch09-039 ref=ch09-fonction-differentiable-sur-sous-variete-def tags=definition,enonce
 ### Q
 Définir une fonction $f : S\to\mathbb R$ différentiable (ou de classe $C^r$) sur une sous-variété $S$ de classe $C^k$.
 ### R
-$f$ est **différentiable en $p\in S$** si pour tout paramétrage $x : U\to S$ avec $p\in x(U)$, $f\circ x : U\to\mathbb R$ est différentiable en $q=x^{-1}(p)$. Elle est de **classe $C^r$**, $r\le k$, si $f\circ x$ est $C^r$ sur $U$ pour tout paramétrage $x$. Grâce à IX.6.1, **un seul** paramétrage en $p$ suffit (Remarque IX.7.2). La condition $r\le k$ est nécessaire. (poly, Définition IX.7.1 et Remarque IX.7.2, p. 159)
+$f$ est **différentiable en $p\in S$** si pour tout paramétrage $x : U\to S$ avec $p\in x(U)$, $f\circ x : U\to\mathbb R$ est différentiable en $q=x^{-1}(p)$. Elle est de **classe $C^r$**, $r\le k$, si $f\circ x$ est $C^r$ sur $U$ pour tout paramétrage $x$. Grâce à IX.6.1, **un seul** paramétrage en $p$ suffit (Remarque IX.7.2). On impose $r\le k$ : la classe de $f$ ne peut dépasser celle de $S$, car les changements de paramétrage ne sont que des $C^k$-difféomorphismes. (poly, Définition IX.7.1 et Remarque IX.7.2, p. 159)
 
-## CARD id=fc-ch09-040 ref=ch09-application-cr-entre-sous-varietes-def tags=definition
+## CARD id=fc-ch09-040 ref=ch09-application-cr-entre-sous-varietes-def tags=definition,enonce
 ### Q
 Définir une application $\varphi : S_1\to S_2$ de classe $C^r$ entre deux sous-variétés.
 ### R
@@ -252,7 +252,7 @@ Quelles propriétés élémentaires ont les applications $C^r$ entre sous-varié
 ### R
 Les paramétrages et les cartes d'une sous-variété $C^r$ sont de classe $C^r$ ($x^{-1}\circ x=\mathrm{Id}_U$). $\varphi : S_1\to S_2$ est $C^r$ au sens IX.7.5 si et seulement si $\varphi : S_1\to\mathbb R^{N_2}$ est $C^r$ au sens ambiant. La composée de deux applications $C^r$ est $C^r$ ; si $\alpha : I\to S_1$ est une courbe $C^r$ et $\varphi$ est $C^r$, alors $\varphi\circ\alpha$ est $C^r$. (poly, p. 160)
 
-## CARD id=fc-ch09-042 ref=ch09-vecteur-tangent-espace-tangent-def tags=definition
+## CARD id=fc-ch09-042 ref=ch09-vecteur-tangent-espace-tangent-def tags=definition,enonce
 ### Q
 Définition d'un vecteur tangent à une sous-variété $S$ en $p$ et de l'espace tangent $T_pS$.
 ### R
@@ -282,11 +282,11 @@ Pourquoi l'injectivité de $dx_q$ est-elle nécessaire pour la dimension de $T_p
 ### R
 C'est elle qui donne $\dim dx_q(\mathbb R^m)=m$ (et la régularité des cartes). Pour le cusp $x(t)=(t^2,t^3)$, qui n'est pas un paramétrage au sens de IX.2.1, $dx_0(\mathbb R)=\{0\}$ est de dimension $0$ au lieu de $1$. (poly, Proposition IX.7.9, p. 161)
 
-## CARD id=fc-ch09-047 ref=ch09-notation-tps tags=notation
+## CARD id=fc-ch09-047 ref=ch09-notation-tps tags=notation,definition,enonce
 ### Q
-Distinguer $T_pS$ et $\mathbf T_pS$ (gras).
+Distinguer $T_pS$ et $\mathcal T_pS$ (calligraphique).
 ### R
-$T_pS$ est l'espace tangent **vectoriel** (sous-espace de $\mathbb R^N$, passant par l'origine). $\mathbf T_pS$ est l'espace tangent **affine** : le sous-espace affine passant par $p$ et parallèle à $T_pS$, soit $p+T_pS$. (poly, Définition IX.7.10, p. 161)
+$T_pS$ est l'espace tangent **vectoriel** : le sous-espace vectoriel de $\mathbb R^N$ (passant par l'origine) formé des vecteurs $\alpha'(0)$ des courbes $C^1$ tracées sur $S$ avec $\alpha(0)=p$. $\mathcal T_pS$ est le sous-espace tangent **affine** : le sous-espace affine passant par $p$ et parallèle à $T_pS$, soit $\mathcal T_pS=p+T_pS$ (c'est lui que l'on dessine « collé » à $S$). (poly, Définition IX.7.10, p. 161)
 
 ## CARD id=fc-ch09-048 ref=ch09-base-espace-tangent tags=enonce,formule
 ### Q
@@ -315,15 +315,15 @@ $T_pS\subset\ker dF_p$ est **toujours** vraie : $F$ est constante sur $S$, donc 
 ### Q
 Espace tangent à la sphère $\mathbb S^n$ en $x$.
 ### R
-$T_x\mathbb S^n=\ker d(\|\cdot\|^2)_x=\{v\in\mathbb R^{n+1}\mid\langle x,v\rangle=0\}=x^\perp$, de dimension $n$ (Proposition IX.7.13 appliquée à l'Exemple IX.4.2). Plus généralement, si $S=\{F=0\}$ avec $0$ régulière, $T_pS=\bigcap_i\ker d(F_i)_p=\{\nabla F_i(p)\}^\perp$.
+$T_x\mathbb S^n=\ker d(\|\cdot\|^2)_x=\{v\in\mathbb R^{n+1}\mid\langle x,v\rangle=0\}=x^\perp$, de dimension $n$ (Proposition IX.7.13 appliquée à l'Exemple IX.4.2). Plus généralement, si $S=\{F=0\}$ avec $0$ régulière, $T_pS=\bigcap_i\ker d(F_i)_p=\{\nabla F_1(p),\dots,\nabla F_{N-m}(p)\}^\perp$ (orthogonal de la famille des gradients, qui est libre car $0$ est régulière).
 
-## CARD id=fc-ch09-052 ref=ch09-differentielle-entre-sous-varietes-def tags=definition
+## CARD id=fc-ch09-052 ref=ch09-differentielle-entre-sous-varietes-def tags=definition,enonce
 ### Q
 Définir la différentielle $d\varphi_p : T_pS_1\to T_{\varphi(p)}S_2$ d'une application différentiable entre sous-variétés.
 ### R
 C'est l'application linéaire caractérisée par l'une des propriétés : (1) si $\vec v=dx_q(\vec w)$ pour un paramétrage $x$ de $S_1$ en $p$, $x(q)=p$, alors $d\varphi_p(\vec v)=d(\varphi\circ x)_q(\vec w)$ ; (2) si $\vec v=\alpha'(0)$ pour une courbe $C^1$ $\alpha : I\to S_1$, $\alpha(0)=p$, alors $d\varphi_p(\vec v)=\beta'(0)$ avec $\beta=\varphi\circ\alpha$. (poly, Définition IX.7.15, p. 163) La valeur ne dépend ni de $\alpha$ ni de $x$.
 
-## CARD id=fc-ch09-053 ref=ch09-remarques-differentielle-cas-euclidien tags=formule
+## CARD id=fc-ch09-053 ref=ch09-remarques-differentielle-cas-euclidien tags=enonce,formule
 ### Q
 Quelles formules pour $d\varphi_p$ quand $S_2=\mathbb R^{N_2}$ (restriction d'une fonction ambiante, développement dans une carte) ?
 ### R
@@ -337,19 +337,19 @@ Si $\varphi_1 : S_1\to S_2$ est différentiable en $p$ et $\varphi_2 : S_2\to S_
 $$d(\varphi_2\circ\varphi_1)_p=d(\varphi_2)_{\varphi_1(p)}\circ d(\varphi_1)_p.$$
 (poly, Proposition IX.7.17, p. 163)
 
-## CARD id=fc-ch09-055 ref=ch09-ex-fonction-hauteur tags=formule
+## CARD id=fc-ch09-055 ref=ch09-ex-fonction-hauteur tags=enonce,formule
 ### Q
 Fonction hauteur sur $S$ : définition et différentielle.
 ### R
 Pour un hyperplan $P\ni p_0$ de normale unitaire $a$, $h : S\to\mathbb R$, $h(p)=\langle p-p_0,a\rangle$ (restriction d'une fonction $C^\infty$ de $\mathbb R^N$). Alors $dh_p : T_pS\to\mathbb R$, $v\mapsto\langle v,a\rangle$. Ainsi $p$ est critique pour $h$ si et seulement si $a\perp T_pS$. (poly, Exemple IX.7.20, p. 164)
 
-## CARD id=fc-ch09-056 ref=ch09-ex-distance-carre tags=formule
+## CARD id=fc-ch09-056 ref=ch09-ex-distance-carre tags=enonce,formule
 ### Q
 Fonction distance au carré sur $S$ : définition et différentielle.
 ### R
 Pour $p_0\in\mathbb R^N$, $f : S\to\mathbb R$, $f(p)=\|p-p_0\|^2$ ; alors $df_p : T_pS\to\mathbb R$, $v\mapsto2\langle v,p-p_0\rangle$. Un point critique de $f$ est donc un point $p$ où $p-p_0\perp T_pS$ (la droite $(p_0p)$ est normale à $S$). (poly, Exemple IX.7.21, p. 164)
 
-## CARD id=fc-ch09-057 ref=ch09-diffeomorphisme-sous-varietes-def tags=definition
+## CARD id=fc-ch09-057 ref=ch09-diffeomorphisme-sous-varietes-def tags=definition,enonce
 ### Q
 Définir un $C^k$-difféomorphisme entre sous-variétés.
 ### R
@@ -359,7 +359,7 @@ Une application $\varphi : S_1\to S_2$ est un **$C^k$-difféomorphisme** si c'es
 ### Q
 Que dit $d\varphi_p$ pour un difféomorphisme entre sous-variétés ? La réciproque est-elle vraie ?
 ### R
-Si $\varphi : S_1\to S_2$ est un difféomorphisme, $d\varphi_p : T_pS_1\to T_{\varphi(p)}S_2$ est un **isomorphisme** d'inverse $d(\varphi^{-1})_{\varphi(p)}$ ; en particulier $\dim S_1=\dim S_2$. (poly, Proposition IX.7.25, p. 165) Réciproque fausse globalement : $t\mapsto e^{it}$ de $\mathbb R$ sur $\mathbb S^1$ a $d\varphi$ isomorphisme partout sans être injective.
+Si $\varphi : S_1\to S_2$ est un difféomorphisme, $d\varphi_p : T_pS_1\to T_{\varphi(p)}S_2$ est un **isomorphisme** d'inverse $d(\varphi^{-1})_{\varphi(p)}$ ; en particulier $\dim S_1=\dim S_2$. (poly, Proposition IX.7.25, p. 165) Réciproque fausse globalement : $\varphi : t\mapsto(\cos t,\sin t)$ de $\mathbb R$ sur $\mathbb S^1$ a $d\varphi_t$ isomorphisme en tout point ($\varphi'(t)\neq0$ engendre $T_{\varphi(t)}\mathbb S^1$) sans être injective ($2\pi$-périodique).
 
 ## CARD id=fc-ch09-059 ref=ch09-inversion-locale-sous-varietes tags=enonce
 ### Q
@@ -385,7 +385,7 @@ On lit $\varphi$ dans des cartes : $\tilde\varphi=x_2^{-1}\circ\varphi\circ x_1$
 ### R
 Soit $S$ de dimension $m$ et $p\in S$ ; soit $P$ le sous-espace affine passant par $p$ et parallèle à $T_pS$. Il existe un voisinage ouvert $W$ de $p$ dans $S$, un voisinage ouvert $V$ de $p$ dans $P$, un sous-espace vectoriel $H$ de dimension $N-m$ (on peut prendre $H=(T_pS)^\perp$) et une fonction différentiable $h : V\to H$ tels que $W$ est le graphe de $h$, en identifiant $\mathbb R^N=T_pS\oplus H$. Preuve : la projection orthogonale $f : S\to P$ vérifie $df_p=\mathrm{Id}_{T_pS}$, donc l'inversion locale IX.7.26 donne un inverse local $g$, et $h(u)=\pi(g(u)-p)$ où $\pi$ est la projection orthogonale sur $H$. (poly, Corollaire IX.7.27, p. 166)
 
-## CARD id=fc-ch09-063 ref=ch09-immersion-submersion-sous-varietes-def tags=definition
+## CARD id=fc-ch09-063 ref=ch09-immersion-submersion-sous-varietes-def tags=definition,enonce
 ### Q
 Définir une immersion / submersion $\varphi : S_1\to S_2$ entre sous-variétés.
 ### R
@@ -429,7 +429,7 @@ Soit $S$ une sous-variété de dimension $m$ de $\mathbb R^N$ et $f : S\to\mathb
 ### Q
 Dans IX.7.31, la condition est-elle suffisante ? Et si $S$ a un bord ?
 ### R
-Non, seulement **nécessaire** : un point selle (col) du tore pour la fonction hauteur est critique sans être un extremum. Pour un ensemble à bord comme $[0;+\infty[$, l'extremum peut être au bord sans que la dérivée s'annule ; la Définition IX.2.1 exclut les bords. (poly, Théorème IX.7.31, p. 168)
+Non, seulement **nécessaire** : sur le tore $\mathbb T^2$ d'axe $Oz$ ($a=2$, $r=1$), la fonction hauteur $h(x,y,z)=x$ a quatre points critiques $(\pm3,0,0)$, $(\pm1,0,0)$ ; $(3,0,0)$ et $(-3,0,0)$ sont le maximum et le minimum, mais $(\pm1,0,0)$ sont des cols (critiques sans être des extrema). Pour un ensemble à bord comme $[0;+\infty[$, l'extremum peut être au bord sans que la dérivée s'annule ; la Définition IX.2.1 exclut les bords. (poly, Théorème IX.7.31, p. 168)
 
 ## CARD id=fc-ch09-070 ref=ch09-extremum-local-differentielle-nulle tags=methode
 ### Q
@@ -437,7 +437,7 @@ Preuve de IX.7.31 : comment se ramène-t-on au cas usuel ?
 ### R
 On lit $f$ dans un paramétrage $x$ en $p$ : $f\circ x$ a un extremum local en $q=x^{-1}(p)$, donc $d(f\circ x)_q=0$ (calcul différentiel usuel). Or $d(f\circ x)_q=df_p\circ dx_q$ et $dx_q(\mathbb R^m)=T_pS$ (Proposition IX.7.9), d'où $df_p=0$ sur $T_pS$.
 
-## CARD id=fc-ch09-071 ref=ch09-point-critique-sous-variete-def tags=definition
+## CARD id=fc-ch09-071 ref=ch09-point-critique-sous-variete-def tags=definition,enonce
 ### Q
 Définir point critique de $\varphi : S_1\to S_2$, et le cas d'une fonction $f : S\to\mathbb R$.
 ### R
@@ -475,7 +475,7 @@ Méthode : chercher les extrema d'une fonction $g$ sur une sous-variété $S=\{F
 ### R
 (1) Vérifier que $0$ est valeur régulière de $F$ (ou la fibre est bien une sous-variété). (2) **Existence** : si $S$ est compacte, $g$ continue atteint ses extrema ; Lagrange seul ne prouve jamais l'existence. (3) **Localisation** : résoudre $dg_p=\sum w_i\,d(F_i)_p$ avec $F(p)=0$. (4) Comparer les valeurs de $g$ aux points trouvés. (poly, Proposition IX.7.35 et exercices IX.7.36-IX.9.15)
 
-## CARD id=fc-ch09-077 ref=ch09-changement-parametrage-differentielle-seconde tags=formule
+## CARD id=fc-ch09-077 ref=ch09-changement-parametrage-differentielle-seconde tags=enonce,formule
 ### Q
 Formule (IX.7.2) : comment la différentielle seconde de $f\circ x$ change-t-elle quand on change de paramétrage ?
 ### R
@@ -483,7 +483,7 @@ Si $x_1=x\circ h$ avec $h : U_1\to U$ difféomorphisme et $p=x_1(q_1)=x(q)$ :
 $$d^2(f\circ x_1)_{q_1}=d(f\circ x)_q\circ d^2h_{q_1}+d^2(f\circ x)_q(dh_{q_1},dh_{q_1}).$$
 Le premier terme dépend du paramétrage ; il disparaît si $df_p=0$, ce qui permet de définir la hessienne (IX.7.3, IX.7.4). Exemple : sur $\mathbb R$, $f(x)=x$, $x(u)=u$ et $x_1(u)=u+u^2$ donnent $d^2(f\circ x)=0$ et $d^2(f\circ x_1)=2$. (poly, Formule IX.7.2, p. 170)
 
-## CARD id=fc-ch09-078 ref=ch09-hessienne-def tags=definition,formule
+## CARD id=fc-ch09-078 ref=ch09-hessienne-def tags=definition,enonce,formule
 ### Q
 Définir la hessienne $d^2f_p$ d'une fonction $f : S\to\mathbb R$ de classe $C^2$ en un point critique $p$.
 ### R
@@ -495,7 +495,7 @@ où $x$ est un paramétrage local en $p$ et $q=x^{-1}(p)$. Elle est **indépenda
 ### Q
 Pour $f=g_{|S}$, a-t-on $d^2f_p=d^2g_p{}_{|T_pS}$ ?
 ### R
-Non en général : il faut ajouter un terme de courbure, $d^2f_p(v,v)=d^2g_p(v,v)+dg_p(\alpha''(0))$ pour une courbe $\alpha$ de $S$ avec $\alpha(0)=p$, $\alpha'(0)=v$ (Exercice IX.7.39). Égalité seulement si $dg_p=0$. (poly, Définition IX.7.38, p. 170)
+Non en général ($p$ critique pour $f$, $g$ de classe $C^2$ sur un ouvert contenant $S$) : d'après l'Exercice IX.7.39, $d^2f_p(v,v)=\frac{d^2}{dt^2}_{|t=0}g(\alpha(t))=d^2g_p(v,v)+dg_p(\alpha''(0))$ pour toute courbe $\alpha$ de classe $C^2$ tracée sur $S$ avec $\alpha(0)=p$, $\alpha'(0)=v$ ; le terme $dg_p(\alpha''(0))$ (qui ne dépend que de la composante normale de $\alpha''(0)$, car $dg_p$ s'annule sur $T_pS$) est un terme de **courbure**. Il y a égalité dès que $dg_p=0$. Exemple : $S=\mathbb S^1$, $g(x,y)=y$, $p=(0,1)$ : $d^2g=0$ mais, avec $\alpha(t)=(\sin t,\cos t)$, $f(\alpha(t))=\cos t$ donne $d^2f_p(v,v)=-1$ pour $v=(1,0)$ (maximum de $f$ en $p$). (poly, Définition IX.7.38 et Exercice IX.7.39, p. 170-171)
 
 ## CARD id=fc-ch09-080 ref=ch09-hessienne-extrema-ordre-deux tags=enonce
 ### Q
@@ -527,7 +527,7 @@ Soit $S$ une sous-variété **fermée** de $\mathbb R^N$ et $X : I\times U\to\ma
 ### Q
 Dans IX.8.1, pourquoi « fermée » est-elle indispensable ? Et l'unicité ?
 ### R
-Sans fermeture : $S=(\mathbb R\times\{0\})\setminus\{(0,0)\}$, $X=(1,0)$ constant (tangent à $S$) : la courbe $\gamma(t)=(t-1,0)$ issue de $(-1,0)\in S$ passe par $(0,0)\notin S$ en $t=1$. Il faut aussi le caractère localement lipschitzien (unicité de Cauchy-Lipschitz) : sans unicité, une solution peut quitter $S$. (poly, Proposition IX.8.1, p. 172)
+Sans fermeture : $S=(\mathbb R\times\{0\})\setminus\{(0,0)\}$, $X=(1,0)$ constant (tangent à $S$) : la courbe $\gamma(t)=(t-1,0)$ issue de $(-1,0)\in S$ passe par $(0,0)\notin S$ en $t=1$. Il faut aussi le caractère localement lipschitzien (unicité de Cauchy-Lipschitz) : sans unicité, une solution peut quitter $S$. Exemple : $S=\mathbb R\times\{0\}$ (fermée), $X(x,y)=(1,3|y|^{2/3})$, continu, tangent à $S$ ($X(x,0)=(1,0)$) mais non lipschitzien en $y=0$ : $\gamma(t)=(t,t^3)$ est une courbe intégrale issue de $(0,0)\in S$ qui quitte $S$ pour $t\neq0$. (poly, Proposition IX.8.1, p. 172)
 
 ## CARD id=fc-ch09-085 ref=ch09-courbe-integrale-reste-dans-sous-variete-fermee tags=methode
 ### Q
@@ -541,7 +541,7 @@ Deux applications de la Proposition IX.8.1 : conservation d'une sphère, champ h
 ### R
 (1) Si $X(t,x)\perp x$ pour tout $(t,x)$, alors $\gamma(t)$ reste sur une sphère centrée en $0$. (2) Pour $H(q,p)$ de classe $C^1$ sur $\mathbb R^n\times\mathbb R^n$, $X_H=\big(\frac{\partial H}{\partial p},-\frac{\partial H}{\partial q}\big)$ vérifie $dH(X_H)=0$, donc est tangent aux hypersurfaces $H=c$ ($c$ valeur régulière) : l'énergie $H$ est conservée le long des trajectoires. (poly, Exemples IX.8.2, p. 172)
 
-## CARD id=fc-ch09-087 ref=ch09-champ-tangent-courbe-integrale-flot-local-def tags=definition
+## CARD id=fc-ch09-087 ref=ch09-champ-tangent-courbe-integrale-flot-local-def tags=definition,enonce
 ### Q
 Définir un champ de vecteurs tangents dépendant du temps sur $S$ et sa courbe intégrale.
 ### R
@@ -551,7 +551,7 @@ C'est une application continue $X : I\times S\to\mathbb R^N$ ($I$ intervalle ouv
 ### Q
 Définir un flot local $(E(J,\epsilon),U,F)$ de $X$ en $(\tau_0,x_0)$.
 ### R
-Donnée d'un voisinage ouvert $U$ de $x_0$ dans $S$, d'un intervalle ouvert $J\ni\tau_0$ et de $\epsilon>0$ tels que pour tous $t_0\in J$, $x\in U$ il existe une **unique** courbe intégrale $\alpha_{t_0,x}$ de condition initiale $(t_0,x)$ définie sur $]t_0-\epsilon,t_0+\epsilon[$. Avec $E=\{(t_0,t)\in J\times\mathbb R\mid t\in]t_0-\epsilon,t_0+\epsilon[\}$, $F : E\times U\to S$, $F(t_0,t,x)=\alpha_{t_0,x}(t)$. (poly, Définition IX.8.3, p. 173)
+Donnée d'un voisinage ouvert $U$ de $x_0$ dans $S$, d'un intervalle ouvert $J\subset I$ contenant $\tau_0$ et de $\epsilon>0$ tels que pour tous $t_0\in J$, $x\in U$ il existe une **unique** courbe intégrale $\alpha_{t_0,x}$ de condition initiale $(t_0,x)$ définie sur $]t_0-\epsilon,t_0+\epsilon[$. Avec $E=\{(t_0,t)\in J\times\mathbb R\mid t\in]t_0-\epsilon,t_0+\epsilon[\}$, $F : E\times U\to S$, $F(t_0,t,x)=\alpha_{t_0,x}(t)$. (poly, Définition IX.8.3, p. 173)
 
 ## CARD id=fc-ch09-089 ref=ch09-flot-local-sous-variete tags=enonce
 ### Q
@@ -565,19 +565,19 @@ Que devient le théorème IX.8.5 sans le caractère lipschitzien ? Quelle est la
 ### R
 Sans lipschitz, l'unicité tombe en défaut (analogue de $x'=\sqrt{|x|}$ sur $S=\mathbb R$). Cadre : dans IX.8.5 le champ n'est défini que sur $I\times S$, donc toute courbe intégrale est automatiquement tracée sur $S$ ; dans IX.8.1 le champ est défini sur un ouvert ambiant $U\supset S$ et on **démontre** qu'une courbe intégrale ambiante issue de $S$ y reste (avec $S$ fermée). (poly, Théorème IX.8.5, p. 174)
 
-## CARD id=fc-ch09-091 ref=ch09-courbe-integrale-maximale-sous-variete tags=definition
+## CARD id=fc-ch09-091 ref=ch09-courbe-integrale-maximale-sous-variete tags=definition,enonce
 ### Q
 Définir la courbe intégrale maximale d'un champ tangent sur $S$ et l'intervalle de vie $J_{\tau_0}(x_0)$.
 ### R
 $J_{\tau_0}(x_0)$ est la réunion de tous les intervalles ouverts $J\ni\tau_0$ portant une courbe intégrale de condition initiale $(\tau_0,x_0)$ (champ localement lipschitzien en la seconde variable). Il existe une unique courbe intégrale $\alpha_{\tau_0,x_0}$ de condition initiale $(\tau_0,x_0)$ définie sur $J_{\tau_0}(x_0)$ : la **courbe intégrale maximale**. (poly, section IX.8.1, p. 174, comme VII.3.3-VII.3.4)
 
-## CARD id=fc-ch09-092 ref=ch09-flot-global-sous-variete-def tags=definition
+## CARD id=fc-ch09-092 ref=ch09-flot-global-sous-variete-def tags=definition,enonce
 ### Q
 Définir le flot global et son domaine de définition $D$.
 ### R
 $D=\{(\tau_0,t,x_0)\in I\times I\times S\mid t\in J_{\tau_0}(x_0)\}$ et $F : D\to S$, $F(\tau_0,t,x_0)=\alpha_{\tau_0,x_0}(t)$ (courbe intégrale maximale). Cas autonome : $I=\mathbb R$, $\tau_0=0$, on note $J(x_0)$, $F(t,x_0)$ et $F_t\cdot x=F(t,x)$ ; $D_0=\{(t,x_0)\mid t\in J(x_0)\}$. (poly, Définition IX.8.7, p. 174)
 
-## CARD id=fc-ch09-093 ref=ch09-flot-propriete-groupe tags=formule
+## CARD id=fc-ch09-093 ref=ch09-flot-propriete-groupe tags=enonce,formule
 ### Q
 Propriété de groupe du flot : formule dans le cas dépendant du temps et dans le cas autonome.
 ### R
@@ -666,3 +666,15 @@ Si $\varphi$ est la restriction d'une fonction ambiante $F$ : $d\varphi_p=dF_p$ 
 Méthode : prouver qu'une quantité est conservée le long d'une courbe intégrale (type IX.8.1 / IX.8.2).
 ### R
 Montrer que le champ $X$ est tangent à la sous-variété $S=\{Q=c\}$ (c'est-à-dire $dQ(X)=0$, avec $c$ valeur régulière de $Q$) : si $S$ est fermée, toute courbe intégrale issue d'un point de $S$ y reste (Proposition IX.8.1). Exemples : $\langle X(t,x),x\rangle=0$ (norme conservée), $dH(X_H)=0$ (énergie), $\langle\Omega\wedge M,M\rangle=0$ (norme de $M$ conservée). (poly, Exemples IX.8.2)
+
+## CARD id=fc-ch09-108 ref=ch09-remarque-un-parametrage-suffit tags=enonce
+### Q
+Énoncer la Remarque IX.7.2 : combien de paramétrages faut-il tester pour la différentiabilité d'une fonction $f : S\to\mathbb R$ ?
+### R
+D'après la Proposition IX.6.1, pour que $f$ soit différentiable en $p\in S$, il **suffit** que $f\circ x : U\to\mathbb R$ soit différentiable en $q=x^{-1}(p)$ pour **un** paramétrage local $x$ de $S$ en $p$. De même, si $r\le k$, pour que $f$ soit de classe $C^r$ au voisinage de $p$, il suffit que $f\circ x$ soit de classe $C^r$ pour un paramétrage local $x$ en $p$. Raison : pour un autre paramétrage $x_1$, $f\circ x_1=(f\circ x)\circ(x^{-1}\circ x_1)$ et $x^{-1}\circ x_1$ est un $C^k$-difféomorphisme. (poly, Remarque IX.7.2, p. 159)
+
+## CARD id=fc-ch09-109 ref=ch09-ex-parametrages-cartes-cr tags=enonce
+### Q
+Les paramétrages locaux et les cartes d'une sous-variété de classe $C^r$ sont-ils de classe $C^r$ (au sens de la Définition IX.7.5) ?
+### R
+Oui. Un paramétrage local $x : U\to S$ (de l'ouvert $U\subset\mathbb R^m$, vu comme sous-variété, dans $S$) est de classe $C^r$ ; la carte $x^{-1} : x(U)\to U$ aussi, puisque lue dans le paramétrage $x$ elle devient $x^{-1}\circ x=\mathrm{Id}_U$, qui est $C^r$ (et un paramétrage suffit par la Remarque IX.7.7 (1)). (poly, Exemple IX.7.6, p. 160) C'est ce qui rend $\beta=x^{-1}\circ\alpha$ de classe $C^1$ dans la preuve de la Proposition IX.7.9.

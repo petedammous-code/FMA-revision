@@ -12994,7 +12994,7 @@
    "ref": "Définition IX.7.10",
    "title": "Notation $T_pS$ ; espace tangent affine",
    "page": 161,
-   "statement": "Soit $S$ une sous-variété. On note $T_pS$ l'espace tangent à $S$ en un point $p\\in S$. C'est un sous-espace vectoriel de l'espace ambiant $\\mathbb R^N$. On note $\\mathbf T_pS$ le sous-espace tangent affine à $S$ en $p$, c'est-à-dire le sous-espace affine passant par $p$ et parallèle à $T_pS$.",
+   "statement": "Soit $S$ une sous-variété. On note $T_pS$ l'espace tangent à $S$ en un point $p\\in S$. C'est un sous-espace vectoriel de l'espace ambiant $\\mathbb R^N$. On note $\\mathcal T_pS$ le sous-espace tangent affine à $S$ en $p$, c'est-à-dire le sous-espace affine passant par $p$ et parallèle à $T_pS$.",
    "hypotheses": [],
    "depends_on": [
     "Proposition IX.7.9"
