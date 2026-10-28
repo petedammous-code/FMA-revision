@@ -116,7 +116,7 @@ $$
 
 Conclusion : l'image de $\gamma$ est contenue dans un diamètre ou dans un arc de cercle orthogonal au cercle unité. (Vérification numérique : une géodésique intégrée depuis $\gamma(0)=0{,}3+0{,}2i$, $\gamma'(0)=0{,}5-0{,}7i$ reste sur un cercle à $10^{-13}$ près, de centre $\omega$ et rayon $R$ avec $|\omega|^2-R^2=1$ à $10^{-12}$ près.)
 
-**6.** Soit $\gamma$ un tel chemin et $x=\Re\gamma$, de classe $C^1$, à valeurs dans $]-1,1[$. Pour tout $t$, $|\gamma'(t)|\ge|x'(t)|\ge x'(t)$ et $0<1-|\gamma(t)|^2\le1-x(t)^2$. Donc
+**6.** Soit $\gamma$ un tel chemin et $x=\Re\gamma$, de classe $C^1$, à valeurs dans $]-1,1[$. Pour tout $t$, $|\gamma'(t)|\ge|x'(t)|\ge x'(t)$ et $0<1-|\gamma(t)|^2\le1-x(t)^2$, d'où $\dfrac{|\gamma'(t)|}{1-|\gamma(t)|^2}\ge\dfrac{x'(t)}{1-x(t)^2}$ (si $x'(t)\ge0$, on minore le numérateur puis on majore le dénominateur ; si $x'(t)<0$, le membre de droite est négatif). Donc
 $$
 \ell(\gamma)\ge\int_0^1\frac{x'(t)}{1-x(t)^2}\,dt=\operatorname{artanh}x(1)-\operatorname{artanh}x(0)=\operatorname{artanh}r .
 $$

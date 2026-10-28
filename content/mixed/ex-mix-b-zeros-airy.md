@@ -82,7 +82,7 @@ donc $\mathcal E(\rho)\le\mathcal E(0)e^{K(\rho)}$ : c'est la forme différentie
 $$
 |w(z)|\le\sqrt{|a|^2+|b|^2}\,e^{K(\rho)/2}=\sqrt{|a|^2+|b|^2}\exp\Big(\frac{|z|}2+\frac23\big((1+|z|)^{3/2}-1\big)\Big).
 $$
-La majoration est uniforme en $\varphi$. (Contrôle numérique sur les fonctions d'Airy classiques $\mathrm{Ai}$ et $\mathrm{Bi}$, pour 24 directions et $\rho\le40$ : le rapport $\mathcal E(\rho)/(\mathcal E(0)e^{K(\rho)})$ reste $\le0{,}48$. L'exposant $\frac23\rho^{3/2}$ est le bon : $\mathrm{Bi}(x)$ croît comme $e^{\frac23x^{3/2}}$ à un facteur polynomial près.)
+La majoration est uniforme en $\varphi$. (Contrôle numérique sur les fonctions d'Airy classiques $\mathrm{Ai}$ et $\mathrm{Bi}$, pour 24 directions et $0\le\rho\le40$ : le rapport $\mathcal E(\rho)/(\mathcal E(0)e^{K(\rho)})$ vaut $1$ en $\rho=0$, décroît, et reste $\le0{,}22$ pour $\rho\ge1$. L'exposant $\frac23\rho^{3/2}$ est le bon : $\mathrm{Bi}(x)$ croît comme $e^{\frac23x^{3/2}}$ à un facteur polynomial près.)
 
 **4. a)** La série $h(re^{i\theta})=\sum_k\alpha_kr^ke^{ik\theta}$ converge normalement en $\theta\in[0,2\pi]$ (rayon infini), de même que sa conjuguée $\sum_k\bar\alpha_kr^ke^{-ik\theta}$ ; on intègre terme à terme, avec $\frac1{2\pi}\int_0^{2\pi}e^{ij\theta}d\theta=1$ si $j=0$ et $0$ sinon. Pour $n\ge1$ :
 $$
