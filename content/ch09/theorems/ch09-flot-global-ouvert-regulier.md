@@ -111,7 +111,7 @@ ouvert de $\R\times S$ par continuité de $\theta$ (et différent de $\R\times S
 
 **Exemple 2 (explosion, $S=\R$, $X(x)=x^2$).** $F(t_0,t,x)=\dfrac{x}{1-(t-t_0)x}$ sur $D=\{(t_0,t,x)\in\R^3\mid(t-t_0)x<1\}$ : ouvert (image réciproque de $]-\infty,1[$ par une fonction continue) et $F$ est $C^\infty$ sur $D$, comme $X$. Le point $(0,1,1)$ n'est pas dans $D$, mais tout $(0,t,1)$ avec $t<1$ y est, avec une marge : pour $\abs{t_0}$, $\abs{t'-t}$, $\abs{x-1}$ petits, $(t'-t_0)x<1$.
 
-**Exemple 3 (champ dépendant du temps sur $\mathbb S^2$).** $X(t,z)=a(t)\,(e_3\wedge z)$ avec $a : I\to\R$ de classe $C^p$, et $A$ une primitive de $a$. Comme $\frac{d}{dt}R_{A(t)-A(\tau_0)}z=a(t)\,e_3\wedge R_{A(t)-A(\tau_0)}z$, on a $F(\tau_0,t,z)=R_{A(t)-A(\tau_0)}\,z$ sur $D=I\times I\times\mathbb S^2$, et $F$ est de classe $C^{p+1}$, donc a fortiori $C^p$.
+**Exemple 3 (champ dépendant du temps sur $\mathbb S^2$).** $X(t,z)=a(t)\,(e_3\wedge z)$ avec $a : I\to\R$ de classe $C^p$, et $A$ une primitive de $a$ ; on note $R_\theta$ la rotation d'axe $e_3$ et d'angle $\theta$, de sorte que $\frac{d}{d\theta}R_\theta z=e_3\wedge R_\theta z$. Comme $\frac{d}{dt}R_{A(t)-A(\tau_0)}z=a(t)\,e_3\wedge R_{A(t)-A(\tau_0)}z$, on a $F(\tau_0,t,z)=R_{A(t)-A(\tau_0)}\,z$ sur $D=I\times I\times\mathbb S^2$, et $F$ est de classe $C^{p+1}$, donc a fortiori $C^p$.
 
 ## Pièges
 
