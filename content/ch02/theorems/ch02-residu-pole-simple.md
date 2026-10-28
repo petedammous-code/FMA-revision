@@ -6,7 +6,7 @@ title: Résidu d'un produit $fg$ en un pôle simple de $g$
 ref: Remarque II.4.12
 page: 46
 importance: 2
-depends: [ch02-laurent-developpement, ch01-estimees-cauchy, ch02-residu-def, ch02-residu-forme-lineaire, ch01-serie-entiere-holomorphe]
+depends: [ch02-laurent-developpement, ch01-estimees-cauchy, ch02-residu-def, ch02-residu-forme-lineaire, ch01-serie-entiere-holomorphe, ch01-stabilite-operations]
 tags: [residu, pole simple, calcul, formule pratique, f/q']
 ---
 ## Intuition
