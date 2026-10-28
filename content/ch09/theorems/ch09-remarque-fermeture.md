@@ -31,7 +31,7 @@ est une sous-variété de dimension $1$ (de classe $C^\infty$) de $\R^2$, et a d
 
 **Rôle.** C'est lui qui fait que $S$ n'est pas fermée : $(0,0)\in\bar S\setminus S$.
 
-**Si on la retire.** $S\cup\{(0,0)\}$ est fermée, mais **n'est pas** une sous-variété : l'application $r\in[0;+\infty[\ \mapsto(r\cos\ln r,\ r\sin\ln r)$ (prolongée par $0\mapsto(0,0)$) est continue, injective, d'inverse $p\mapsto\norm p$ continu, donc $S\cup\{(0,0)\}$ est homéomorphe à $[0;+\infty[$, qui n'est homéomorphe à aucune sous-variété au voisinage de $0$ (argument topologique de [[ch09-contre-ex-demi-droite]] : un voisinage connexe de l'extrémité privé de celle-ci reste connexe). Ajouter le point limite détruit la structure de sous-variété.
+**Si on la retire.** $S\cup\{(0,0)\}$ est fermée, mais **n'est pas** une sous-variété : l'application $r\in[0;+\infty[\ \mapsto(r\cos\ln r,\ r\sin\ln r)$ (prolongée par $0\mapsto(0,0)$) est continue, injective, d'inverse $p\mapsto\norm p$ continu, donc $S\cup\{(0,0)\}$ est homéomorphe à $[0;+\infty[$. Or la condition 2 de [[ch09-sous-variete-def]] ne dépend que de la topologie de l'ensemble, et aucun voisinage ouvert de $0$ dans $[0;+\infty[$ n'est homéomorphe à un ouvert de $\R^m$ (argument topologique de [[ch09-contre-ex-demi-droite]] : un voisinage connexe de l'extrémité, de la forme $[0;a[$, privé de celle-ci reste connexe, alors qu'un ouvert connexe de $\R$ privé d'un point a deux composantes, et qu'un ouvert connexe de $\R^m$, $m\ge2$, privé d'un point reste connexe tandis que $[0;a[$ privé d'un point intérieur en a deux). Ajouter le point limite détruit la structure de sous-variété.
 
 ### H2 — $x$ est un homéomorphisme sur son image (le rayon $e^s$ est strictement croissant)
 

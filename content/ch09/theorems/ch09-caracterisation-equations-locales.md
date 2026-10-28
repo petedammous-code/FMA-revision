@@ -6,7 +6,7 @@ title: Un ensemble localement défini par une équation régulière est une sous
 ref: Proposition IX.4.5
 page: 155
 importance: 2
-depends: [ch09-sous-variete-equation-valeur-reguliere, ch09-sous-variete-def, ch09-point-critique-valeur-reguliere-def]
+depends: [ch09-sous-variete-equation-valeur-reguliere, ch09-sous-variete-def, ch09-point-critique-valeur-reguliere-def, ch09-ex-ouvert-sous-variete]
 tags: [sous-variete, equation-locale, valeur-reguliere, caracterisation]
 ---
 ## Intuition
