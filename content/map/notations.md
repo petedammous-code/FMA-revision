@@ -57,6 +57,7 @@
 | $K = [0,1]^2$, $K^{(n)}_{i,j} = [\frac in,\frac{i+1}n]\times[\frac jn,\frac{j+1}n]$, $C = \partial K$, $C^{(n)}_{i,j} = \partial K^{(n)}_{i,j}$ | carré paramètre de l'homotopie, grillage en $n^2$ petits carrés et leurs bords orientés (preuve de II.2.1) | II | 37 |
 | $\gamma^{\mathrm{opp}}$, $\gamma_1\vee\gamma_2$ | chemin opposé et composé de deux chemins composables (rappel : Définition I.5.1, p. 15) | II | 37 |
 | $\Gamma = \gamma(C) = \gamma_0^{\mathrm{opp}}\vee v\vee\gamma_1\vee v^{\mathrm{opp}}$, $v(s) = \gamma(s,0)=\gamma(s,1)$, $\Gamma_{i,j}$ | image du bord du carré par l'homotopie, chemin du point base, quadrilatères (affines par morceaux) du grillage | II | 37 |
+| Formule (II.2.1) : $\int_\Gamma f(z)\,dz = -\int_{\gamma_0} f + \int_v f + \int_{\gamma_1} f - \int_v f$ | décomposition de l'intégrale sur l'image du bord du carré (preuve de II.2.1 ; valable une fois $v$ remplacé par un chemin affine par morceaux) | II | 37 |
 | $\bar B(k,\delta)$ | boule fermée de centre $k$ et de rayon $\delta$ dans $\mathbb R^N$ | II | 40 |
 | nombre de Lebesgue $\delta$ | $\delta>0$ tel que toute boule $\bar B(k,\delta)$, $k\in K$, soit contenue dans un ouvert du recouvrement | II | 40 |
 | $\Gamma$ | image $\gamma([0,1])$ d'un lacet $\gamma$ (compact de $\mathbb C$) | II | 40 |
@@ -86,7 +87,7 @@
 | $D^+ = \{z\in D : \Im(z)\ge 0\}$, $D^-$ | demi-disques supérieur et inférieur fermés du disque unité (Exercice II.7.9) | II | 51 |
 | $\Lambda = \mathbb Z\omega_1\oplus\mathbb Z\omega_2$, $\wp$, $E_k(\Lambda) = \sum_{\lambda\in\Lambda\setminus\{0\}}\lambda^{-k}$ | réseau, fonction $\wp$ de Weierstrass, séries d'Eisenstein (Exercice II.7.10) | II | 52 |
 | $\frac{g'}{g}$ | dérivée logarithmique de $g$ (principe de l'argument) | II | 53 |
-| $\mathbb D$ ou $D := \{z : |z|<1\}$, $\bar D$, $C := \partial D$ | disque unité ouvert, son adhérence, le cercle unité (Exercice II.8.5) | II | 54 |
+| $D := \{z\in\mathbb C : |z|<1\}$, $\bar D$, $C := \partial D$ | disque unité ouvert, son adhérence, le cercle unité (Exercice II.8.5) | II | 54 |
 | $F(\omega) := \int_{\gamma_\omega} f(z)\,dz$, $\gamma_{[\omega,\omega+h]}(t) = \omega+th$ | primitive construite par intégration le long d'un chemin de $z_0$ à $\omega$ ; segment paramétré | II | 55 |
 | $\mathrm{Log}(h)$ | un logarithme de la fonction holomorphe $h$ sans zéro : primitive de $h'/h$ avec $e^{\mathrm{Log}(h)} = h$ | II | 56 |
 | $\mathrm{Log}(z)$, $\log$ | détermination principale du logarithme sur $\mathbb C\setminus\mathbb R_-$ (primitive de $1/z$ nulle en $1$) ; logarithme réel usuel sur $\mathbb R_+^\times$ | II | 56 |
@@ -95,6 +96,54 @@
 | $h^\alpha := e^{\alpha\mathrm{Log}(h)}$, $z^\alpha := e^{\alpha\mathrm{Log}(z)}$, $\sqrt z$ | puissances complexes et racine carrée (détermination principale) sur $\mathbb C\setminus\mathbb R_-$ | II | 56 |
 | $f_\alpha$ | prolongement holomorphe de $x\mapsto x^\alpha$ à $\mathbb C\setminus]-\infty,0]$ (Exercice II.9.6) | II | 57 |
 | $\Gamma_{\varepsilon,R}$, $\gamma_+$, $\gamma_-$, $C_R$, $C_\varepsilon$ | contour en trou de serrure : segments au-dessus/au-dessous de $\mathbb R_+$, grand cercle direct, petit cercle horaire | II | 57 |
+| $\mathrm{Log}$ sur $\mathbb C\setminus\mathbb R_+$, argument dans $]0,2\pi[$ | détermination du logarithme de coupure $\mathbb R_+$ ($\mathrm{Log}(-1) = i\pi$) utilisée pour le contour en trou de serrure ; différente de la détermination principale | II | 57 |
+| $\|f\|_{\infty, U} = \sup_{x\in U} \|f(x)\|_V$ | norme de la convergence uniforme sur $U$ d'une fonction $f : U \to (V, \\|\cdot\\|_V)$ ; pour $V = \mathbb C$, $\\|h\\|_{\infty,U} = \sup_{z\in U}\|h(z)\|$ ; écrit aussi $\\|f_n\\|_{\bar D(0,R)}$ (p. 69) | III | 59 |
+| $(f_n)_{n\in\mathbb N}$ converge localement uniformément | convergence uniforme sur un voisinage $U_x$ de chaque point $x \in \Omega$ ; équivaut à la convergence uniforme sur tout compact $K \subset \Omega$ (Proposition III.1.2) | III | 59 |
+| $(f_n)$ localement uniformément de Cauchy | uniformément de Cauchy sur un voisinage $U_x$ de chaque point ; équivaut à : uniformément de Cauchy sur tout compact | III | 59 |
+| $U_x$ | voisinage (ouvert) du point $x$ dans $\Omega$ | III | 59 |
+| $C(K)$, $C = C(K)$ | constante (de borne) dépendant du compact $K$ | III | 64 |
+| $f^{(k)}$, $f_n^{(k)}$ | dérivée complexe $k$-ième | III | 60 |
+| $C(z_0,r)$, $D(z_0,r)$, $\bar D(z_0,r)$ | cercle, disque ouvert, disque fermé de centre $z_0$ et de rayon $r$ (notations du chapitre I, utilisées partout) | III | 60 |
+| $\sum_{n\geq0} f_n$ converge normalement sur $U$ | la série numérique $\sum_{n\geq0}\\|f_n\\|_{\infty,U}$ converge ; « localement normalement » = normalement sur un voisinage de chaque point (sur tout compact) | III | 61 |
+| $\mathrm{Hol}^2(\mathbb D)$ | espace des fonctions holomorphes de carré sommable sur le disque unité $\mathbb D = D(0,1)$ (Exercice III.1.6) ; s'injecte dans $L^2(\mathbb D)$ | III | 62 |
+| $g_y$ | noyau de Bergman : $f(y) = \int_{\mathbb D} g_y(z) f(z)\,du\,dv$ pour $f \in \mathrm{Hol}^2(\mathbb D)$ ; explicitement $\frac{1}{\pi(1 - \bar z y)^2}$ (Exercice III.1.6) | III | 62 |
+| $Z(f, D)$, $Z(\cdot, D)$ | nombre de zéros de $f$ dans le disque $D$, comptés avec leur multiplicité | III | 63 |
+| $\mathcal F \subset \mathrm{Hol}(\Omega)$ | famille de fonctions holomorphes sur $\Omega$ ($\mathrm{Hol}(\Omega)$ = fonctions holomorphes sur $\Omega$, chapitre I) | III | 64 |
+| famille localement uniformément bornée | $\|f(z)\| \leq C$ pour tout $f \in \mathcal F$ et $z \in U_x$ (Définition III.3.1) | III | 64 |
+| famille normale | toute suite de $\mathcal F$ admet une sous-suite localement uniformément convergente (Définition III.3.3) | III | 64 |
+| $S = \{y_n, n \geq 0\}$ | sous-ensemble dénombrable dense de $\Omega$ (preuve de Montel) | III | 64 |
+| $\varphi_p : \mathbb N \to \mathbb N$, $f_{\varphi(n)} := f_{\varphi_0\circ\cdots\circ\varphi_n(n)}$ | extractrices (strictement croissantes) et extraction diagonale (preuve de Montel) | III | 64 |
+| $d(z, \partial K)$ | distance de $z$ au bord du compact $K$ | III | 64 |
+| $\mathscr C(X, Y)$ | espace des applications continues de $X$ dans $Y$, muni de la topologie de la convergence uniforme sur les compacts (Remarque III.3.5) | III | 65 |
+| $\mathcal H \subset \mathscr C(X,Y)$, $\mathcal H(x) = \{f(x), f \in \mathcal H\}$ | partie de $\mathscr C(X,Y)$ et ensemble de ses valeurs en $x$ (théorème d'Ascoli) | III | 65 |
+| équicontinue en $x_0$ | $(\forall\varepsilon>0)(\exists V \ni x_0)(\forall f\in\mathcal H)(\forall x\in V)\ \\|f(x)-f(x_0)\\|\leq\varepsilon$, le voisinage $V$ étant le même pour toute la famille | III | 65 |
+| $\sigma$-compact | réunion dénombrable de compacts (cas d'un ouvert de $\mathbb C$) | III | 65 |
+| transformation conforme ; $\Omega$ conformément équivalent à $\mathbb D$ | biholomorphisme de $\Omega$ sur $\mathbb D$ ; existence d'un tel biholomorphisme | III | 66 |
+| $\mathbb D = D(0,1)$ | disque unité ouvert | III | 66 |
+| $\Sigma = \{f \in \mathrm{Hol}(\Omega) : f(\Omega)\subset\mathbb D,\ f \text{ injective}\}$, $\Sigma_{z_0} = \{f\in\Sigma \mid f(z_0)=0\}$ | familles extrémales de la preuve du théorème de Riemann | III | 66 |
+| $f_\alpha : z \mapsto \dfrac{z-\alpha}{1-\bar\alpha z}$ ($\alpha\in\mathbb D$) | automorphisme du disque unité envoyant $\alpha$ sur $0$ (Proposition I.13.3 et exercice précédent) ; $f_\alpha^{-1} = f_{-\alpha}$ | III | 66 |
+| $\eta = \sup\{|\psi'(z_0)|,\ \psi\in\Sigma_{z_0}\}$ | quantité maximisée dans la preuve de Riemann ; finie par l'estimée de Cauchy ($\leq 1/\rho$) | III | 67 |
+| $s : z \mapsto z^2$, $F = f_{-\alpha}\circ s\circ f_{-\beta}$ | application non injective $\mathbb D\to\mathbb D$, $F(0)=0$, à laquelle on applique le lemme de Schwarz ($\|F'(0)\|<1$) | III | 67 |
+| $\mathbb H$ | demi-plan de Poincaré $\{z \in \mathbb C \mid \Im(z) > 0\}$ | III | 67 |
+| $g_n = 1 + f_n$, $G_n = \prod_{j=0}^n g_j$, $G = \prod_{j=0}^\infty (1+f_j)$ | facteurs, produits partiels et produit infini (Théorème III.5.1) | III | 68 |
+| $\tilde G_n = \prod_{k=m}^n g_k$, $\tilde G = \exp\big(\sum_{j\geq m}\mathrm{Log}(1+f_j)\big)$ | produit partiel et produit infini « queue » à partir du rang $m$ où $\sup_K\|f_n\| < 1/2$ (ne s'annule pas sur $K$) | III | 68 |
+| $\mathrm{Log}$ | détermination principale du logarithme complexe sur $\mathbb C\setminus\mathbb R_-$ (chapitre II, p. 55) | III | 68 |
+| $M = \sum_{k\geq m}\|f_k\|_{\infty,K}$ | somme des normes des queues, donne la minoration $\|\tilde G_n\| \geq e^{-CM}$ | III | 68 |
+| $\Re(z)$, $\Im(z)$ (poly : $\Re e(z)$, $\Im m(z)$) | parties réelle et imaginaire | III | 69 |
+| $B = \{z\in\mathbb C \mid \Re(z)\in[0,1]\}$ | bande verticale fondamentale d'une fonction $1$-périodique (Exemple III.6.1) | III | 69 |
+| $\lim_{z\in B\to\infty}$ | limite lorsque $\|z\|\to\infty$ en restant dans la bande $B$ (i.e. $\|\Im(z)\|\to\infty$) | III | 69 |
+| $\pi\cot(\pi z) = \pi\cos(\pi z)/\sin(\pi z)$ | cotangente, méromorphe sur $\mathbb C$, pôles simples en $\mathbb Z$ de résidu $1$ | III | 69 |
+| $\Gamma(z) = \int_0^\infty e^{-t}t^{z-1}\,dt$ | fonction Gamma d'Euler ($\Re(z)>0$), prolongée méromorphiquement à $\mathbb C$ ; $t^{z-1} = e^{(z-1)\ln t}$ | III | 71 |
+| $-\mathbb N$ | ensemble des entiers négatifs ou nuls $\{0,-1,-2,\dots\}$ (pôles de $\Gamma$) | III | 71 |
+| $\mathbf 1_{[0,n]}$ | fonction indicatrice de l'intervalle $[0,n]$ | III | 71 |
+| $\gamma := \lim_{n\to+\infty}\big(\sum_{k=1}^n \frac1k - \log n\big)$ | constante d'Euler ($\approx 0{,}5772$) | III | 72 |
+| $\mathbb N^\times$ | entiers strictement positifs | III | 72 |
+| $u_k(z) := (1 + z/k)e^{-z/k} - 1$ | terme général de la série normalement convergente définissant le produit de Weierstrass de $1/\Gamma$ | III | 72 |
+| $f^n = f\circ\cdots\circ f$, $f^0 = \mathrm{id}_\Omega$ | $n$-ième itérée de $f$ (systèmes dynamiques holomorphes, Exercices III.7.2 à III.7.5) — attention : ce n'est pas la puissance $n$-ième | III | 73 |
+| $D_r = D(0,r)$ | disque ouvert de centre $0$ et de rayon $r$ (Exercices III.7.3 à III.7.5) | III | 73 |
+| $\varphi_n := f^n/\lambda^n$ ; $\phi_n(z) = \frac1n\sum_{0\leq j\leq n-1}\lambda^{-j}f^j(z)$ | suites de fonctions de linéarisation (Kœnigs, $\|\lambda\|<1$ ; moyennes de Cesàro, $\|\lambda\|=1$) | III | 73 |
+| $A = \{z\in\mathbb C \mid (f^n(z))_{n\geq0} \to 0\}$ | bassin d'attraction de $0$ pour $f$ | III | 74 |
+| $f$ linéarisable en $0$ | il existe $\phi$ holomorphe au voisinage de $0$, non constante et injective près de $0$, telle que $\phi\circ f = \lambda\phi$ avec $\lambda = f'(0)$ | III | 74 |
 | $\gamma_1,\gamma_2 : ]-1,1[\to\mathbb C$ | arcs de classe $C^1$ passant par $z_0$ en $t=0$ ; **réguliers** si $\gamma_j'(0)\neq0$ ; $\gamma_j'(0)$ est le vecteur tangent en $z_0$ | IV | 75 |
 | $f\circ\gamma_j$ | arc image, de tangente $f'(z_0)\gamma_j'(0)$ en $t=0$ | IV | 75 |
 | transformation conforme | application qui conserve les angles entre courbes régulières ; les fonctions holomorphes à dérivée non nulle en sont (au § III.4 : synonyme de biholomorphisme) | IV | 75 |

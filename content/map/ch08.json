@@ -8,11 +8,11 @@
       143,
       146
     ],
-    "summary": "Chapitre court (4 pages) rédigé entièrement sous la forme d'un unique exercice en 15 questions, sans sections numérotées ni énoncés numérotés (Définition/Théorème) : les « résultats » listés ci-dessous sont les questions, dont la preuve est laissée au lecteur. On applique le calcul différentiel dans les espaces de Banach (chapitre V) à une fonctionnelle $\\hat L(\\gamma)=\\int_0^1 L(t,\\gamma(t),\\gamma'(t))\\,dt$ définie sur l'espace $E=C^1([0;1];V)$ des courbes d'un espace de Hilbert $V$ de dimension finie, ou plutôt sur l'espace affine $E_{a,b}$ des courbes à extrémités fixées. Fil logique : (1) cadre fonctionnel ($E_{a,b}$ complet, affine, d'espace directeur $E_{0,0}$) ; (2) $\\hat L$ est $C^1$ et l'on calcule $d\\hat L_\\gamma$ (intégrale à paramètre, différentielles partielles) ; (3) le lemme de du Bois-Reymond et sa variante avec dérivée permettent de passer d'une identité intégrale « contre toutes les variations $h$ » à une équation ponctuelle ; (4) on en déduit que tout point critique de $\\hat L|_{E_{a,b}}$ vérifie l'équation d'Euler-Lagrange (E.L) $\\frac{d}{dt}\\big[\\frac{\\partial L}{\\partial v}(t,\\gamma,\\gamma')\\big]=\\frac{\\partial L}{\\partial q}(t,\\gamma,\\gamma')$, dont on tire la conservation de l'énergie (Lagrangien autonome) et l'équation de Newton ($L=\\tfrac12\\lVert v\\rVert^2-U(q)$) ; (5) extension aux Lagrangiens définis sur des ouverts (via un lemme de compacité : un compact d'un ouvert a un $\\varepsilon$-voisinage dans l'ouvert) et covariance de (E.L) par changement de variables ; (6) théorème de Noether : si $L$ est invariant par le groupe à un paramètre de difféomorphismes $(F_s)$ engendré par un champ de vecteurs $X$, alors $Q(t)=\\frac{\\partial L}{\\partial v}(t,\\gamma,\\gamma')\\cdot X(\\gamma(t))$ est conservée le long des solutions ; (7) pour un Lagrangien $C^2$ régulier ($\\partial^2L/\\partial v^2$ non dégénérée), la transformation de Legendre $\\Phi(u,q,v)=(u,q,\\partial L/\\partial v)$ est un difféomorphisme local (inversion locale), ce qui réécrit (E.L) en un système du premier ordre en $(\\gamma,p)$ vérifiant Cauchy-Lipschitz : existence et unicité locale d'une solution de (E.L) de conditions initiales $(q_0,v_0)$ données. Résultats centraux : l'équation d'Euler-Lagrange (Q5), le lemme de du Bois-Reymond (Q3-Q4), le théorème de Noether (Q12), l'existence-unicité locale via Legendre + Cauchy-Lipschitz (Q13-Q15). Le chapitre croise ainsi les chapitres V (différentielle d'une intégrale, différentielles partielles, Schwarz), VI (inversion locale) et VII (flot d'un champ de vecteurs, Cauchy-Lipschitz). Le même texte constitue l'exercice 13 du TD de calcul différentiel 2022.",
+    "summary": "Chapitre court (4 pages) rédigé entièrement sous la forme d'un unique exercice en 15 questions, sans sections numérotées ni énoncés numérotés (Définition/Théorème) : les « résultats » listés ci-dessous sont les questions, dont la preuve est laissée au lecteur. On applique le calcul différentiel dans les espaces de Banach (chapitre V) à une fonctionnelle $\\hat L(\\gamma)=\\int_0^1 L(t,\\gamma(t),\\gamma'(t))\\,dt$ définie sur l'espace $E=C^1([0;1];V)$ des courbes d'un espace de Hilbert $V$ de dimension finie, ou plutôt sur l'espace affine $E_{a,b}$ des courbes à extrémités fixées. Fil logique : (1) cadre fonctionnel ($E_{a,b}$ complet, affine, d'espace directeur $E_{0,0}$) ; (2) $\\hat L$ est $C^1$ et l'on calcule $d\\hat L_\\gamma$ (intégrale à paramètre, différentielles partielles) ; (3) le lemme de du Bois-Reymond et sa variante avec dérivée permettent de passer d'une identité intégrale « contre toutes les variations $h$ » à une équation ponctuelle ; (4) on en déduit que tout point critique de $\\hat L|_{E_{a,b}}$ vérifie l'équation d'Euler-Lagrange (E.L) $\\frac{d}{dt}\\big[\\frac{\\partial L}{\\partial v}(t,\\gamma,\\gamma')\\big]=\\frac{\\partial L}{\\partial q}(t,\\gamma,\\gamma')$, dont on tire la conservation de l'énergie (Lagrangien autonome) et l'équation de Newton ($L=\\tfrac12\\lVert v\\rVert^2-U(q)$) ; (5) extension aux Lagrangiens définis sur des ouverts (via un lemme de compacité : un compact d'un ouvert a un $\\varepsilon$-voisinage dans l'ouvert) et covariance de (E.L) par changement de variables ; (6) théorème de Noether : si $L$ est invariant par le groupe à un paramètre de difféomorphismes $(F_s)$ engendré par un champ de vecteurs $X$, alors $Q(t)=\\frac{\\partial L}{\\partial v}(t,\\gamma,\\gamma')\\cdot X(\\gamma(t))$ est conservée le long des solutions ; (7) pour un Lagrangien $C^2$ régulier ($\\partial^2L/\\partial v^2$ non dégénérée), l'application $\\Phi(u,q,v)=(u,q,\\partial L/\\partial v)$ (la « transformation de Legendre », nom usuel que le poly n'emploie pas) est un difféomorphisme local (inversion locale), ce qui réécrit (E.L) en un système du premier ordre en $(\\gamma,p)$ vérifiant Cauchy-Lipschitz : existence et unicité locale d'une solution de (E.L) de conditions initiales $(q_0,v_0)$ données. Résultats centraux : l'équation d'Euler-Lagrange (Q5), le lemme de du Bois-Reymond (Q3-Q4), le théorème de Noether (Q12), l'existence-unicité locale via Legendre + Cauchy-Lipschitz (Q13-Q15). Le chapitre croise ainsi les chapitres V (différentielle d'une intégrale, différentielles partielles, Schwarz), VI (inversion locale) et VII (flot d'un champ de vecteurs, Cauchy-Lipschitz). Les questions 1 à 7 constituent (mot pour mot) l'exercice 13 du TD de calcul différentiel 2022 ; les questions 8 à 15 et la Remarque (Noether) ne figurent que dans le poly. Le poly n'a ni sections numérotées ni énoncés numérotés : le découpage en « sections » ci-dessous est thématique et indicatif.",
     "sections": [
       {
         "num": "VIII (Q1-Q2)",
-        "title": "Cadre : espace des courbes $E_{a,b}$, Lagrangien, fonctionnelle $\\hat L$ et sa différentielle (le poly n'a pas de sections numérotées ; découpage thématique indicatif)",
+        "title": "Cadre : espace des courbes $E_{a,b}$, Lagrangien, fonctionnelle $\\hat L$ et sa différentielle",
         "page": 143
       },
       {
@@ -50,8 +50,10 @@
         "courbes de classe $C^1$ sur $[0;1]$",
         "extrémités $a$, $b$ fixées"
       ],
-      "depends_on": [],
-      "used_by_hint": "Cadre de tout le chapitre ; l'identification $V\\simeq L(V;\\mathbb R)$ est ce qui permet d'écrire $\\frac{\\partial L}{\\partial q}$, $\\frac{\\partial L}{\\partial v}$ comme des vecteurs de $V$ et de les intégrer contre $h$, $h'$ via le produit scalaire.",
+      "depends_on": [
+        "Exemple V.3.8"
+      ],
+      "used_by_hint": "Cadre de tout le chapitre ; l'identification $V\\simeq L(V;\\mathbb R)$ (théorème de représentation de Riesz, cf. Exemple V.3.8 où le gradient $\\nabla f(a)$ est défini par $\\langle\\nabla f(a),h\\rangle=df_a(h)$) est ce qui permet d'écrire $\\frac{\\partial L}{\\partial q}$, $\\frac{\\partial L}{\\partial v}$ comme des vecteurs de $V$ et de les intégrer contre $h$, $h'$ via le produit scalaire.",
       "importance": 2,
       "proof_in_poly": "none",
       "proof_length": "short",
@@ -92,14 +94,17 @@
         "$V$ de dimension finie (donc complet)",
         "norme $C^1$ sur $E$"
       ],
-      "depends_on": [],
+      "depends_on": [
+        "Théorème V.4.7",
+        "Théorème V.4.6"
+      ],
       "used_by_hint": "Permet de parler de différentielle de $\\hat L|_{E_{a,b}}$ en $\\gamma$ : c'est une forme linéaire sur l'espace directeur $E_{0,0}$ ; un point critique de $\\hat L|_{E_{a,b}}$ est un $\\gamma$ tel que $d\\hat L_\\gamma(h)=0$ pour tout $h\\in E_{0,0}$ (Q5).",
       "importance": 1,
       "proof_in_poly": "exercise",
       "proof_length": "short",
       "counterexample_hints": [
         "$E_{a,b}$ n'est pas un sous-espace vectoriel si $(a,b)\\neq(0,0)$ ($0\\notin E_{a,b}$) : c'est pourquoi la différentielle est prise dans les directions $h\\in E_{0,0}$ seulement.",
-        "Complétude : une suite de Cauchy pour $\\lVert\\cdot\\rVert_E$ converge uniformément ainsi que ses dérivées ; la limite est $C^1$ par le théorème de dérivation des limites uniformes (convergence uniforme des $\\gamma_n'$)."
+        "Complétude : si $(\\gamma_n)$ est de Cauchy pour $\\lVert\\cdot\\rVert_E$, alors $\\gamma_n\\to\\gamma$ et $\\gamma_n'\\to\\delta$ uniformément ; écrire $\\gamma_n(t)=\\gamma_n(0)+\\int_0^t\\gamma_n'(s)\\,ds$ (Théorème V.4.7 appliqué à une fonction d'une variable réelle), passer à la limite uniforme, et conclure par le Théorème V.4.6 que $\\gamma$ est $C^1$ avec $\\gamma'=\\delta$. On utilise que $V$ est complet (dimension finie)."
       ],
       "viz_hint": ""
     },
@@ -145,7 +150,7 @@
         "Théorème V.4.6"
       ],
       "used_by_hint": "Sert à la Q4 (variante avec dérivée) puis, via celle-ci, à passer de $d\\hat L_\\gamma=0$ sur $E_{0,0}$ à l'équation ponctuelle (E.L) (Q5). Technique : choisir la fonction test $h(t)=\\int_0^t(B(s)-\\bar B)\\,ds$ avec $\\bar B=\\int_0^1B$, qui est $C^1$ et nulle en $0$ et $1$ ; on obtient $\\int_0^1\\lVert B-\\bar B\\rVert^2=0$.",
-      "importance": 2,
+      "importance": 3,
       "proof_in_poly": "exercise",
       "proof_length": "short",
       "counterexample_hints": [
@@ -184,16 +189,17 @@
       "ref": "Question 5, p. 144 (non numérotée, section VIII) — Formule (E.L)",
       "title": "Équation d'Euler-Lagrange : condition nécessaire de point critique de $\\hat L$ sur $E_{a,b}$",
       "page": 144,
-      "statement": "Soit $L:I\\times V\\times V\\to\\mathbb R$ de classe $C^1$ et $\\gamma\\in E_{a,b}$. Si $\\gamma$ est un point critique de la restriction de $\\hat L$ à $E_{a,b}$ (c'est-à-dire $d\\hat L_\\gamma(h)=0$ pour tout $h\\in E_{0,0}$), alors la fonction $t\\mapsto\\frac{\\partial L}{\\partial v}(t,\\gamma(t),\\gamma'(t))$ est dérivable et l'on a pour tout $t\\in[0;1]$, $$\\text{(E.L)}\\qquad \\frac{d}{dt}\\Big(t\\mapsto\\frac{\\partial L}{\\partial v}(t,\\gamma(t),\\gamma'(t))\\Big)=\\frac{\\partial L}{\\partial q}(t,\\gamma(t),\\gamma'(t)).$$ (Les deux membres sont des éléments de $V\\simeq L(V;\\mathbb R)$.) En particulier, toute courbe réalisant un extremum local de $\\hat L$ sur $E_{a,b}$ vérifie (E.L).",
+      "statement": "Soit $L:I\\times V\\times V\\to\\mathbb R$ de classe $C^1$ et $\\gamma\\in E_{a,b}$. Si $\\gamma$ est un point critique de la restriction de $\\hat L$ à $E_{a,b}$ (c'est-à-dire $d\\hat L_\\gamma(h)=0$ pour tout $h\\in E_{0,0}$, espace directeur de $E_{a,b}$), alors on a pour tout $t\\in[0;1]$, $$\\text{(E.L)}\\qquad \\frac{d}{dt}\\Big(t\\mapsto\\frac{\\partial L}{\\partial v}(t,\\gamma(t),\\gamma'(t))\\Big)=\\frac{\\partial L}{\\partial q}(t,\\gamma(t),\\gamma'(t)).$$ (Implicitement : la fonction $t\\mapsto\\frac{\\partial L}{\\partial v}(t,\\gamma(t),\\gamma'(t))$ est dérivable ; les deux membres sont des éléments de $V\\simeq L(V;\\mathbb R)$.)",
       "hypotheses": [
         "$L$ de classe $C^1$",
         "$\\gamma\\in E_{a,b}$ point critique de $\\hat L|_{E_{a,b}}$ : $d\\hat L_\\gamma$ s'annule sur l'espace directeur $E_{0,0}$ (variations nulles aux extrémités)"
       ],
       "depends_on": [
+        "Question 1, p. 143 (structure affine de $E_{a,b}$, espace directeur $E_{0,0}$)",
         "Question 2, p. 143 (formule de $d\\hat L_\\gamma$)",
         "Question 4, p. 144 (variante du lemme de du Bois-Reymond)"
       ],
-      "used_by_hint": "Résultat central du chapitre. Utilisé par Q6 (énergie), Q7 (Newton), Q10 (changement de variables), Q12 (Noether), Q14-Q15 (réduction à une EDO). Réciproque (non demandée mais vraie) : si $\\gamma\\in E_{a,b}$ vérifie (E.L) alors $\\gamma$ est point critique, par intégration par parties dans la formule de Q2.",
+      "used_by_hint": "Résultat central du chapitre. Utilisé par Q6 (énergie), Q7 (Newton), Q10 (changement de variables), Q12 (Noether), Q14-Q15 (réduction à une EDO). Hors poly mais utile : (i) tout extremum local de $\\hat L|_{E_{a,b}}$ est un point critique (développement limité de $s\\mapsto\\hat L(\\gamma+sh)$), donc vérifie (E.L) ; (ii) réciproque : si $\\gamma\\in E_{a,b}$ vérifie (E.L) alors $\\gamma$ est point critique, par intégration par parties dans la formule de Q2 ($h(0)=h(1)=0$).",
       "importance": 3,
       "proof_in_poly": "exercise",
       "proof_length": "short",
@@ -237,13 +243,14 @@
       "ref": "Question 7, p. 144 (non numérotée, section VIII)",
       "title": "Lagrangien $L=T-U$ avec $T=\\tfrac12\\lVert v\\rVert^2$ : (E.L) est l'équation de Newton $\\gamma''=-\\nabla U(\\gamma)$",
       "page": 144,
-      "statement": "On suppose $V=\\mathbb R^n$ muni du produit scalaire usuel et de la norme qui en découle. On suppose que $L=T-U$, où $T$ ne dépend que de $v$, $T(v)=\\tfrac12\\lVert v\\rVert^2$ (énergie cinétique), et $U$ ne dépend que de $q$ (un « potentiel », de classe $C^1$). Alors l'équation d'Euler-Lagrange (E.L) se réduit à l'équation de Newton $$\\gamma''(t)=-\\nabla U(\\gamma(t)),$$ où $\\nabla U$ désigne le gradient de $U$.",
+      "statement": "On suppose $V=\\mathbb R^n$ muni du produit scalaire usuel et de la norme qui en découle. On suppose que $L=T-U$, où $T$ ne dépend que de $v$, $T(v)=\\tfrac12\\lVert v\\rVert^2$ (énergie cinétique), et $U$ ne dépend que de $q$ (un « potentiel » ; $U$ est de classe $C^1$ puisque $L$ l'est). Alors l'équation d'Euler-Lagrange (E.L) se réduit à l'équation de Newton $$\\gamma''(t)=-\\nabla U(\\gamma(t)),$$ où $\\nabla U$ désigne le gradient de $U$.",
       "hypotheses": [
         "$V=\\mathbb R^n$ euclidien",
         "$L(u,q,v)=\\tfrac12\\lVert v\\rVert^2-U(q)$ avec $U$ de classe $C^1$"
       ],
       "depends_on": [
-        "Question 5, p. 144 (équation d'Euler-Lagrange)"
+        "Question 5, p. 144 (équation d'Euler-Lagrange)",
+        "Exemple V.3.8"
       ],
       "used_by_hint": "Exemple-pivot : $\\frac{\\partial L}{\\partial v}=v$ (identifié via le produit scalaire), $\\frac{\\partial L}{\\partial q}=-\\nabla U(q)$ ; (E.L) dit que $t\\mapsto\\gamma'(t)$ est dérivable de dérivée $-\\nabla U(\\gamma)$, donc $\\gamma$ est $C^2$. Repris dans la Remarque de Noether (potentiel à symétrie sphérique, moment cinétique) et motive l'extension aux ouverts ($U(q)=-1/\\lVert q\\rVert$ sur $V\\setminus\\{0\\}$).",
       "importance": 2,
@@ -285,7 +292,7 @@
         "$F=X\\setminus U$ non vide (sinon trivial)"
       ],
       "depends_on": [],
-      "used_by_hint": "Lemme de topologie réutilisé partout (tube autour d'une courbe compacte, lemme des bouts au chapitre VII, voisinages tubulaires au chapitre IX). Ici il donne l'ouverture de $E(U_1,U_2)$ (Q9). Preuve : si l'inf était nul, on aurait $x_n\\in K$, $y_n\\in F$ avec $d(x_n,y_n)\\to0$ ; extraire $x_{\\varphi(n)}\\to x\\in K$, alors $y_{\\varphi(n)}\\to x$ et $x\\in F$ ($F$ fermé), contradiction avec $K\\subset U$.",
+      "used_by_hint": "Lemme de topologie classique (argument de compacité du même type que celui du lemme des bouts, Théorème VII.3.10). Ici il donne l'ouverture de $E(U_1,U_2)$ (Q9). Preuve : si l'inf était nul, on aurait $x_n\\in K$, $y_n\\in F$ avec $d(x_n,y_n)\\to0$ ; extraire $x_{\\varphi(n)}\\to x\\in K$, alors $y_{\\varphi(n)}\\to x$ et $x\\in F$ ($F$ fermé), contradiction avec $K\\subset U$.",
       "importance": 2,
       "proof_in_poly": "exercise",
       "proof_length": "short",
@@ -335,6 +342,7 @@
       "depends_on": [
         "Proposition V.3.12",
         "Proposition V.3.17",
+        "Théorème V.5.3",
         "Question 5, p. 144 (équation d'Euler-Lagrange)",
         "Question 2, p. 143 (différentielle de $\\hat L$)"
       ],
@@ -344,7 +352,7 @@
       "proof_length": "medium",
       "counterexample_hints": [
         "Un $\\phi$ seulement $C^1$ ne donne qu'un $L_1$ continu en $q_1$ : la différentielle partielle $\\partial L_1/\\partial q_1$ fait intervenir $d^2\\phi$.",
-        "Si $\\phi$ n'est pas un difféomorphisme (par exemple non injectif), la réciproque « $\\gamma$ solution pour $L_1$ $\\Rightarrow$ $\\beta$ solution pour $L$ » peut tomber en défaut ; dans l'énoncé seul le sens direct est demandé."
+        "La réciproque « $\\gamma$ solution pour $L_1$ $\\Rightarrow$ $\\beta=\\phi\\circ\\gamma$ solution pour $L$ » est vraie dès que $d\\phi_{q_1}$ est inversible en tout point (le calcul donne $\\frac{d}{dt}\\partial_{v_1}L_1-\\partial_{q_1}L_1=\\big(\\frac{d}{dt}\\partial_vL-\\partial_qL\\big)\\circ d\\phi_{\\gamma}$) ; elle peut tomber en défaut là où $d\\phi$ est singulière (coordonnées polaires en $r=0$). Dans l'énoncé seul le sens direct est demandé."
       ],
       "viz_hint": "Même trajectoire vue en coordonnées cartésiennes et polaires ($\\phi(r,\\theta)=(r\\cos\\theta,r\\sin\\theta)$) avec les deux Lagrangiens $\\tfrac12(\\dot x^2+\\dot y^2)-U$ et $\\tfrac12(\\dot r^2+r^2\\dot\\theta^2)-U$ : les deux équations (E.L) décrivent la même courbe."
     },
@@ -361,11 +369,13 @@
         "invariance de $L$ pour tout $s$"
       ],
       "depends_on": [
+        "Définition VII.1.1",
         "Définition VII.3.4",
         "Théorème VII.3.5",
-        "Théorème VII.2.12"
+        "Remarque VII.3.6",
+        "Théorème VII.3.9"
       ],
-      "used_by_hint": "Hypothèse du théorème de Noether (Q11-Q12). Le flot $F$ est $C^\\infty$ en $(s,x)$ par le théorème VII.2.12 (régularité du flot) ; la propriété de groupe est la Remarque VII.3.6 / le théorème VII.3.5 ; $\\partial_sF(s,x)=X(F(s,x))$ par définition d'une courbe intégrale (Définition VII.1.1).",
+      "used_by_hint": "Hypothèse du théorème de Noether (Q11-Q12). Le flot global $F$ est de classe $C^\\infty$ sur son domaine (Théorème VII.3.9 b., $X$ étant $C^\\infty$) ; la propriété de groupe $F_{s_1}\\circ F_{s_2}=F_{s_1+s_2}$ est la formule (VII.3.1) de la Remarque VII.3.6 (reformulation du Théorème VII.3.5), qui dit aussi que si $D_0=\\mathbb R\\times U$, $s\\mapsto F_s$ est un morphisme de groupes de $(\\mathbb R,+)$ dans les bijections de $U$ ; $F_s$ est alors un difféomorphisme d'inverse $F_{-s}$. Enfin $\\partial_sF(s,x)=X(F(s,x))$ par définition d'une courbe intégrale (Définition VII.1.1).",
       "importance": 2,
       "proof_in_poly": "none",
       "proof_length": "short",
@@ -391,7 +401,7 @@
         "Proposition V.3.17",
         "Théorème V.5.3",
         "Définition VII.1.1",
-        "Théorème VII.2.12"
+        "Théorème VII.3.9"
       ],
       "used_by_hint": "Étape-clé de Noether (Q12) : c'est l'identité qui, évaluée en $(t,\\gamma(t),\\gamma'(t))$, annule $Q'(t)$. L'échange $\\partial_s d_q=d_q\\partial_s$ est le lemme de Schwarz appliqué au flot.",
       "importance": 2,
@@ -483,18 +493,19 @@
       "id": "ch08-legendre-inversion-locale",
       "kind": "proposition",
       "ref": "Question 13, p. 146 (non numérotée, section VIII)",
-      "title": "Transformation de Legendre $\\Phi(u,q,v)=(u,q,\\frac{\\partial L}{\\partial v}(u,q,v))$ : difféomorphisme local, $v=g(u,q,p)$",
+      "title": "Application $\\Phi(u,q,v)=(u,q,\\frac{\\partial L}{\\partial v}(u,q,v))$ (« transformation de Legendre », nom non employé par le poly) : difféomorphisme local, $v=g(u,q,p)$",
       "page": 146,
       "statement": "Soit $L$ de classe $C^2$ régulier sur $I\\times V\\times V$. On pose $$\\Phi:I\\times V\\times V\\to I\\times V\\times L(V;\\mathbb R),\\qquad (u,q,v)\\mapsto\\Big(u,q,\\frac{\\partial L}{\\partial v}(u,q,v)\\Big).$$ Alors en tout point $(u_0,q_0,v_0)$ de $I\\times V\\times V$, $d\\Phi_{(u_0,q_0,v_0)}$ est un isomorphisme. Par conséquent, si l'on pose $p=\\frac{\\partial L}{\\partial v}(u,q,v)\\in L(V;\\mathbb R)$, on peut localement autour de ce point $(u_0,q_0,v_0)$ exprimer $v$ comme une fonction de classe $C^1$ de $(u,q,p)\\in I\\times V\\times L(V;\\mathbb R)$ : $v=g(u,q,p)$ (c'est-à-dire : $\\Phi$ se restreint en un $C^1$-difféomorphisme d'un voisinage de $(u_0,q_0,v_0)$ sur un voisinage de $\\Phi(u_0,q_0,v_0)$, d'inverse $(u,q,p)\\mapsto(u,q,g(u,q,p))$).",
       "hypotheses": [
         "$L$ de classe $C^2$ (donc $\\Phi$ de classe $C^1$ seulement)",
         "$L$ régulier : $\\partial^2L/\\partial v^2$ isomorphisme $V\\to L(V;\\mathbb R)$ en tout point",
-        "dimension finie : tout isomorphisme linéaire est bicontinu"
+        "dimension finie : tout isomorphisme linéaire est bicontinu (en général : Théorème V.2.3 de Banach), ce qu'exige le Théorème VI.3.2"
       ],
       "depends_on": [
         "Théorème VI.3.2",
         "Proposition V.3.17",
-        "Proposition V.3.15"
+        "Proposition V.3.15",
+        "Théorème V.2.3"
       ],
       "used_by_hint": "Permet d'éliminer $v$ au profit de la « variable conjuguée » $p$ (impulsion) : c'est le passage du formalisme lagrangien au formalisme hamiltonien. Calcul : $d\\Phi_{(u,q,v)}(\\delta u,\\delta q,\\delta v)=\\big(\\delta u,\\delta q,\\partial^2_{uv}L\\,\\delta u+\\partial^2_{qv}L\\,\\delta q+\\partial^2_{vv}L\\,\\delta v\\big)$, « triangulaire » avec diagonale $(\\mathrm{Id},\\mathrm{Id},\\partial^2_{vv}L)$ inversible. Pour $L=\\tfrac12\\lVert v\\rVert^2-U(q)$ : $p=v$ et $g(u,q,p)=p$ (identification $V\\simeq L(V;\\mathbb R)$).",
       "importance": 2,
@@ -502,7 +513,7 @@
       "proof_length": "short",
       "counterexample_hints": [
         "Sans régularité, $\\Phi$ n'est pas un difféomorphisme local : pour $L=\\lVert v\\rVert$, $p=v/\\lVert v\\rVert$ ne détermine pas $v$.",
-        "Le résultat est local : $\\Phi$ peut ne pas être injective globalement ($L=\\cos v$ sur $V=\\mathbb R$ est régulier là où $\\sin v\\ne0$ ... et $p=-\\sin v$ n'est pas injective) ; l'inversion globale demanderait l'injectivité (Corollaire VI.3.3), assurée par exemple si $L$ est strictement convexe en $v$."
+        "Le résultat est local : $\\Phi$ peut ne pas être injective globalement. En dimension $\\dim V=1$ cela n'arrive pas (régulier $\\Rightarrow$ $v\\mapsto\\partial_vL$ strictement monotone), mais sur $V=\\mathbb R^2$ le Lagrangien $L(u,q,v)=e^{v_1}\\cos v_2$ est régulier ($\\det\\partial^2_{vv}L=-e^{2v_1}\\neq0$, hessienne d'une fonction harmonique) alors que $p=\\partial_vL=(e^{v_1}\\cos v_2,-e^{v_1}\\sin v_2)$ est $2\\pi$-périodique en $v_2$. L'inversion globale demanderait l'injectivité (Corollaire VI.3.3), assurée par exemple si $L$ est strictement convexe en $v$."
       ],
       "viz_hint": "Pour $V=\\mathbb R$ : $v\\mapsto p=\\partial_vL(u,q,v)$ et son inverse local $g$ ; animation du difféomorphisme local $\\Phi$ en dimension 1 ($u,q$ fixés)."
     },
@@ -512,7 +523,7 @@
       "ref": "Question 14, p. 146 (non numérotée, section VIII)",
       "title": "Réécriture locale de (E.L) en un système du premier ordre en $(\\gamma,p)$ vérifiant Cauchy-Lipschitz ; régularité $C^2$ des solutions",
       "page": 146,
-      "statement": "Soit $L$ de classe $C^2$ régulier sur $I\\times V\\times V$ et $g$ la fonction locale de la question 13 au voisinage de $(u_0,q_0,v_0)$. En remplaçant $(u,q,v)$ par $(t,\\gamma(t),\\gamma'(t))$ et $p$ par $p(t)=\\frac{\\partial L}{\\partial v}(t,\\gamma(t),\\gamma'(t))$, l'équation d'Euler-Lagrange se réécrit localement (pour les $t$ tels que $(t,\\gamma(t),\\gamma'(t))$ reste dans le voisinage de $(u_0,q_0,v_0)$ où $g$ est définie) sous la forme du système $$\\begin{cases}\\gamma'(t)=g(t,\\gamma(t),p(t))\\\\ p'(t)=\\dfrac{\\partial L}{\\partial q}\\big(t,\\gamma(t),g(t,\\gamma(t),p(t))\\big),\\end{cases}$$ c'est-à-dire $\\alpha'(t)=Y(t,\\alpha(t))$ avec $\\alpha=(\\gamma,p)$ à valeurs dans l'ouvert $U'$ de $V\\times L(V;\\mathbb R)$ image du voisinage par $\\Phi$ et $Y(u,q,p)=\\big(g(u,q,p),\\frac{\\partial L}{\\partial q}(u,q,g(u,q,p))\\big)$. Le champ de vecteurs $Y$ est de classe $C^1$ (car $g$ et $\\partial L/\\partial q$ sont $C^1$), donc localement lipschitzien en la seconde variable : les hypothèses du théorème de Cauchy-Lipschitz (VII.2.1) sont satisfaites. Au passage, une solution $\\gamma$ de l'équation d'Euler-Lagrange est de classe $C^2$ (car $\\gamma'=g(t,\\gamma,p)$ avec $g$, $\\gamma$, $p$ de classe $C^1$).",
+      "statement": "Soit $L$ de classe $C^2$ régulier sur $I\\times V\\times V$ et $g$ la fonction locale de la question 13 au voisinage de $(u_0,q_0,v_0)$. En remplaçant $(u,q,v)$ par $(t,\\gamma(t),\\gamma'(t))$ et $p$ par $p(t)=\\frac{\\partial L}{\\partial v}(t,\\gamma(t),\\gamma'(t))$, l'équation d'Euler-Lagrange se réécrit localement (pour les $t$ tels que $(t,\\gamma(t),\\gamma'(t))$ reste dans le voisinage de $(u_0,q_0,v_0)$ où $g$ est définie) sous la forme du système $$\\begin{cases}\\gamma'(t)=g(t,\\gamma(t),p(t))\\\\ p'(t)=\\dfrac{\\partial L}{\\partial q}\\big(t,\\gamma(t),g(t,\\gamma(t),p(t))\\big),\\end{cases}$$ c'est-à-dire $\\alpha'(t)=Y(t,\\alpha(t))$ avec $\\alpha=(\\gamma,p)$, où $(t,\\alpha(t))$ reste dans l'ouvert $W=\\Phi(\\text{voisinage de }(u_0,q_0,v_0))$ de $I\\times V\\times L(V;\\mathbb R)$ (quitte à réduire, un produit $J_0\\times U'$) et $Y(u,q,p)=\\big(g(u,q,p),\\frac{\\partial L}{\\partial q}(u,q,g(u,q,p))\\big)$. Le champ de vecteurs $Y$ est de classe $C^1$ (car $g$ et $\\partial L/\\partial q$ sont $C^1$), donc localement lipschitzien en la seconde variable : les hypothèses du théorème de Cauchy-Lipschitz (VII.2.1) sont satisfaites (Remarque VII.2.2 : un champ $C^1$ est localement lipschitzien en la seconde variable). Au passage, une solution $\\gamma$ de l'équation d'Euler-Lagrange est de classe $C^2$ (car $\\gamma'=g(t,\\gamma,p)$ avec $g$, $\\gamma$, $p$ de classe $C^1$).",
       "hypotheses": [
         "$L$ de classe $C^2$ régulier",
         "localisation au voisinage d'un point $(u_0,q_0,v_0)$ (Q13)",
@@ -522,6 +533,7 @@
         "Question 13, p. 146 (transformation de Legendre)",
         "Question 5, p. 144 (équation d'Euler-Lagrange)",
         "Théorème VII.2.1",
+        "Remarque VII.2.2",
         "Définition VII.1.1",
         "Théorème V.4.4"
       ],
@@ -531,7 +543,7 @@
       "proof_length": "medium",
       "counterexample_hints": [
         "Sans régularité, (E.L) est une équation implicite en $\\gamma''$ (cf. Remarque VII.1.2) : pas de forme normale, et des solutions non $C^2$ peuvent exister ($L=\\lVert v\\rVert$ : toute courbe $C^1$ parcourant un segment à vitesse variable est solution).",
-        "Avec $L$ seulement $C^1$, $p(t)$ est dérivable mais le second membre n'est pas lipschitzien : l'unicité peut tomber en défaut."
+        "L'hypothèse $L\\in C^2$ est indispensable deux fois : pour définir la régularité ($\\partial^2_{vv}L$) et pour que $Y$ soit $C^1$, donc localement lipschitzien ; avec $L$ seulement $C^1$ on ne peut même pas écrire le système, et l'unicité de Q15 n'a aucune raison de subsister."
       ],
       "viz_hint": "Champ de vecteurs $Y$ dans le plan de phase $(q,p)$ pour $V=\\mathbb R$ et trajectoires : la solution de (E.L) est une courbe intégrale ; comparer avec les lignes de niveau de $H$ (Q6)."
     },
@@ -544,15 +556,16 @@
       "statement": "Soit $L:I\\times V\\times V\\to\\mathbb R$ de classe $C^2$ et régulier. Si l'on se donne $(t_0,q_0,v_0)\\in\\,]0;1[\\times V\\times V$, il existe un intervalle ouvert $J\\subset\\,]0,1[$ contenant $t_0$ tel qu'il existe une unique courbe $\\gamma:J\\to V$ vérifiant l'équation d'Euler-Lagrange avec $\\gamma(t_0)=q_0$ et $\\gamma'(t_0)=v_0$.",
       "hypotheses": [
         "$L$ de classe $C^2$ sur $I\\times V\\times V$",
-        "$L$ régulier en tout point (en fait il suffit de la régularité en $(t_0,q_0,v_0)$ pour l'énoncé local)",
+        "$L$ régulier (seule la régularité au voisinage de $(t_0,q_0,v_0)$ intervient dans cet énoncé local ; $\\mathrm{Iso}$ étant ouvert, Théorème V.5.7, elle découle de la régularité au point)",
         "conditions initiales position-vitesse $(q_0,v_0)$ en $t_0\\in\\,]0;1[$"
       ],
       "depends_on": [
         "Question 14, p. 146 (système du premier ordre)",
         "Question 13, p. 146 (transformation de Legendre)",
-        "Théorème VII.2.1"
+        "Théorème VII.2.1",
+        "Proposition VII.3.1"
       ],
-      "used_by_hint": "Conclusion du chapitre : l'équation d'Euler-Lagrange d'un Lagrangien régulier est un problème de Cauchy bien posé (déterminisme de la mécanique lagrangienne). Preuve : Cauchy-Lipschitz pour $\\alpha=(\\gamma,p)$ avec $\\alpha(t_0)=(q_0,\\partial_vL(t_0,q_0,v_0))$ donne $\\gamma$ ; réciproquement toute solution de (E.L) avec ces conditions initiales fournit (Q14) une solution du système, d'où l'unicité. Noter la différence avec le problème aux deux bouts $\\gamma(0)=a$, $\\gamma(1)=b$ (points critiques de $\\hat L|_{E_{a,b}}$), pour lequel ni existence ni unicité ne sont garanties.",
+      "used_by_hint": "Conclusion du chapitre : l'équation d'Euler-Lagrange d'un Lagrangien régulier est un problème de Cauchy bien posé (déterminisme de la mécanique lagrangienne). Preuve : Cauchy-Lipschitz (VII.2.1) pour $\\alpha=(\\gamma,p)$ avec $\\alpha(t_0)=(q_0,\\partial_vL(t_0,q_0,v_0))$ donne une solution du système, donc (Q14) une solution $\\gamma$ de (E.L) ; réciproquement toute solution de (E.L) sur $J$ avec ces conditions initiales fournit (Q14) une solution du système au voisinage de tout point où elle coïncide avec la première, et l'argument de connexité de la Proposition VII.3.1 (l'ensemble de coïncidence est ouvert et fermé dans $J$) donne l'unicité sur $J$ tout entier. Noter la différence avec le problème aux deux bouts $\\gamma(0)=a$, $\\gamma(1)=b$ (points critiques de $\\hat L|_{E_{a,b}}$), pour lequel ni existence ni unicité ne sont garanties.",
       "importance": 3,
       "proof_in_poly": "exercise",
       "proof_length": "short",
@@ -925,7 +938,9 @@
     "Le théorème de Noether (Q12) traite des symétries agissant sur $q$ (et sur $v$ par la différentielle) ; l'invariance par translation du temps donne une loi de conservation différente (énergie, Q6), à ne pas confondre.",
     "Les hypothèses de Cauchy-Lipschitz portent sur le système en $(\\gamma,p)$ et non sur (E.L) brute, qui est implicite en $\\gamma''$ ; sans Lagrangien régulier (ex. $L=\\lVert v\\rVert$) il n'y a pas d'unicité.",
     "Confondre le problème de Cauchy (données $\\gamma(t_0)$, $\\gamma'(t_0)$ : existence et unicité locales, Q15) et le problème aux deux bouts ($\\gamma(0)=a$, $\\gamma(1)=b$ : ni existence ni unicité en général, cf. $\\gamma''=-\\pi^2\\gamma$).",
-    "L'inversion locale (Q13) ne donne que des résultats locaux : $\\Phi$ n'est pas globalement inversible sans hypothèse supplémentaire (convexité stricte en $v$, injectivité pour le Corollaire VI.3.3) ; $g$ est seulement $C^1$ car $\\Phi$ est $C^1$ ($L$ étant $C^2$)."
+    "L'inversion locale (Q13) ne donne que des résultats locaux : $\\Phi$ n'est pas globalement inversible sans hypothèse supplémentaire (convexité stricte en $v$, injectivité pour le Corollaire VI.3.3) ; $g$ est seulement $C^1$ car $\\Phi$ est $C^1$ ($L$ étant $C^2$).",
+    "Vocabulaire : le poly ne parle ni de « transformation de Legendre », ni d'« impulsion », ni de « hamiltonien » (noms usuels employés dans cette carte pour $\\Phi$, $p$, $H$) ; à l'examen, redéfinir explicitement $\\Phi$, $p=\\partial L/\\partial v$ et $g$ comme à la Q13.",
+    "Dans la Q6, l'hypothèse « $\\gamma$ de classe $C^2$ » est explicitement demandée par le poly : sans Lagrangien régulier (Q14) elle ne découle pas de (E.L), il faut la supposer."
   ],
   "viz_opportunities": [
     {
