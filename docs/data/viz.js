@@ -2707,6 +2707,470 @@ FMA.registerViz({
 
 } catch (e) { console.error('viz viz-ch05-taf-vectoriel failed to register', e); }
 
+// ---- content/ch06/viz/viz-ch06-banach-toile.js ----
+try {
+FMA.registerViz({
+  id: 'viz-ch06-banach-toile',
+  chapter: 6,
+  title: "Point fixe de Banach : la toile d'araignée des itérées",
+  description: String.raw`**Ce que l'on voit.** Le graphe de $T:\mathbb R\to\mathbb R$ (courbe bleue), la diagonale $y=x$ (grise) et l'ensemble $X$ (bande bleutée). On part de $x_0$ (**glissez-le** sur le graphe, ou utilisez le curseur) ; chaque itérée $x_{n+1}=T(x_n)$ se lit en montant verticalement jusqu'au graphe, puis horizontalement jusqu'à la diagonale (« toile d'araignée »). En bas : l'erreur $\log_{10}|x_n-x^*|$ (points roses) et, si le théorème s'applique, la **borne de Banach** (tirets orange).
+
+**Le théorème (poly, Théorème VI.1.1, p. 115).** Si $T:X\to X$ est $a$-lipschitzienne avec $a<1$ sur $X$ complet, alors $T$ a un unique point fixe $x^*$, et pour tout $x_0\in X$
+$$|x_n-x^*|\le \frac{a^n}{1-a}\,|x_1-x_0|.$$
+Ici $a=\sup_X|T'|$ (inégalité des accroissements finis sur l'intervalle $X$) : c'est la **pente maximale en valeur absolue** du graphe sur $X$.
+
+**Ce qu'il faut regarder.**
+* **Fonction affine, curseur $s$ (pente)** : pour $|s|<1$ l'escalier ($s>0$) ou la spirale ($s<0$) se resserre vers $x^*$ et la droite d'erreur est parallèle à la borne, de pente $\log_{10}|s|$ ; pour $|s|>1$ la toile s'évade ; à $|s|=1$ rien ne converge.
+* **Les deux hypothèses oubliées** : « $x/2+1$ sur $[0,1]$ » est $\frac12$-lipschitzienne mais $T(X)\not\subset X$ : les itérées sortent de $X$ et convergent vers $2\notin X$. Le théorème exige $T(X)\subset X$.
+* **Condition suffisante, pas nécessaire** : pour la logistique $T(x)=\mu x(1-x)$ sur $[0,1]$, $a=\mu$ ; pour $1<\mu<3$ la suite converge quand même vers $1-1/\mu$ (le théorème ne s'applique plus sur $X=[0,1]$), mais pour $\mu>3$ on obtient un cycle, puis du chaos.
+* **Newton, c'est un point fixe** : $T(x)=x-f(x)/f'(x)$ a $T'(x^*)=0$ en une racine simple : la contraction y est « infiniment forte » et l'erreur **s'effondre** (convergence quadratique, le nombre de chiffres exacts double). Mais pour $f=x^3-2x+2$ depuis $x_0$ proche de $0$, on tombe dans un cycle $0\leftrightarrow1$ : la convergence n'est que **locale** (poly, Exercice VI.4.2, p. 121).`,
+  related: ['ch06-point-fixe-banach', 'ch06-lipschitz-contractante-def', 'ch06-methode-de-newton', 'ch06-point-fixe-iteree-contractante'],
+  height: 560,
+  mount(container, kit) {
+    const st = kit.canvas(container, { height: 330 });
+    const stE = kit.canvas(container, { height: 150 });
+    const controls = kit.controls(container);
+    const NMAX = 40;
+    const FUNS = {
+      affine: { name: 'affine : T(x) = 0,6 + s(x − 0,6)', T: (x, p) => 0.6 + p * (x - 0.6), dT: (x, p) => p, win: [-0.25, 1.25, -0.25, 1.25], X: [0, 1], x0: 0.05,
+        param: { label: 's (pente)', min: -1.5, max: 1.5, step: 0.01, val: 0.7 } },
+      cos: { name: 'cos x sur [0,1]', T: x => Math.cos(x), dT: x => -Math.sin(x), win: [-0.25, 1.25, -0.25, 1.25], X: [0, 1], x0: 0.1 },
+      hors: { name: 'x/2 + 1 sur [0,1]  (T(X) ⊄ X)', T: x => x / 2 + 1, dT: () => 0.5, win: [-0.25, 2.4, -0.25, 2.4], X: [0, 1], x0: 0.2 },
+      newton2: { name: 'Newton pour x² − 2 sur [1,2]', T: x => x / 2 + 1 / x, dT: x => 0.5 - 1 / (x * x), win: [0.4, 2.4, 0.4, 2.4], X: [1, 2], x0: 2 },
+      newton3: { name: 'Newton pour x³ − 2x + 2', T: x => x - (x * x * x - 2 * x + 2) / (3 * x * x - 2), dT: x => (x * x * x - 2 * x + 2) * 6 * x / Math.pow(3 * x * x - 2, 2),
+        win: [-2.6, 1.8, -2.6, 1.8], X: [-2, 1], x0: 0.1 },
+      logi: { name: 'logistique : T(x) = μ x (1 − x)', T: (x, p) => p * x * (1 - x), dT: (x, p) => p * (1 - 2 * x), win: [-0.1, 1.1, -0.1, 1.1], X: [0, 1], x0: 0.2,
+        param: { label: 'μ', min: 0.2, max: 4, step: 0.01, val: 2.8 } },
+    };
+    const sel = kit.select(controls, { label: '$T$', options: Object.keys(FUNS).map(k => [FUNS[k].name, k]), value: 'affine', onChange: onFun });
+    const par = kit.slider(controls, { label: 's', min: -1.5, max: 1.5, step: 0.01, value: 0.7, onChange: draw });
+    const x0s = kit.slider(controls, { label: String.raw`$x_0$`, min: -2.5, max: 2.5, step: 0.005, value: 0.05, onChange: draw });
+    const ns = kit.slider(controls, { label: 'n', min: 0, max: NMAX, step: 1, value: 6, onChange: () => { stopPlay(); draw(); } });
+    const row = kit.row(controls);
+    const playBtn = kit.button(row, { label: '▶ Lecture', primary: true, onClick: () => { if (anim) stopPlay(); else startPlay(); } });
+    kit.button(row, { label: '+1 itération', onClick: () => { stopPlay(); ns.value = Math.min(NMAX, ns.value + 1); draw(); } });
+    kit.button(row, { label: 'Remise à 0', onClick: () => { stopPlay(); ns.value = 0; draw(); } });
+    const ro = kit.readout(controls, { label: '' });
+    const msg = kit.note(container, '');
+    let lastKey = null, P = null, anim = null;
+
+    function setLabel(sl, text) { const l = sl.el.querySelector('.viz-ctl-label'); if (l) l.textContent = text; }
+    function onFun() {
+      stopPlay();
+      const F = FUNS[sel.value];
+      if (F.param) { par.el.style.display = ''; setLabel(par, F.param.label); const i = par.input; i.min = F.param.min; i.max = F.param.max; i.step = F.param.step; par.value = F.param.val; }
+      else par.el.style.display = 'none';
+      const i = x0s.input; i.min = F.win[0]; i.max = F.win[1]; x0s.value = F.x0;
+      ns.value = 6;
+      draw();
+    }
+    function startPlay() {
+      if (ns.value >= NMAX) ns.value = 0;
+      playBtn.textContent = '⏸ Pause'; let acc = 0;
+      anim = kit.animate(dt => { acc += dt; if (acc > 0.4) { acc = 0; ns.value = Math.min(NMAX, ns.value + 1); draw(); if (ns.value >= NMAX) stopPlay(); } });
+    }
+    function stopPlay() { if (anim) { anim.stop(); anim = null; } playBtn.textContent = '▶ Lecture'; }
+
+    function draw() { try { drawInner(); } catch (e) { console.error(e); } }
+    function drawInner() {
+      const t = kit.theme(), ctx = st.ctx, Fd = FUNS[sel.value], p = par.value;
+      const T = x => Fd.T(x, p), dT = x => Fd.dT(x, p);
+      const w = Fd.win, X = Fd.X, n = ns.value, x0 = x0s.value;
+      // orbite
+      const orb = [x0]; for (let i = 0; i < NMAX; i++) { const y = T(orb[i]); orb.push(isFinite(y) && Math.abs(y) < 1e6 ? y : NaN); if (!isFinite(orb[i + 1])) break; }
+      while (orb.length < NMAX + 1) orb.push(NaN);
+      // constante de Lipschitz sur X, stabilité
+      let a = 0, stable = true;
+      for (let i = 0; i <= 400; i++) { const x = X[0] + (X[1] - X[0]) * i / 400; a = Math.max(a, Math.abs(dT(x))); const y = T(x); if (!(y >= X[0] - 1e-12 && y <= X[1] + 1e-12)) stable = false; }
+      const x0in = x0 >= X[0] && x0 <= X[1];
+      const banach = a < 1 && stable;
+      // point fixe : racine de T(x)-x la plus proche de la fin de l'orbite
+      const ref = orb.slice().reverse().find(v => isFinite(v));
+      const roots = []; { const N = 1600; let prev = T(w[0]) - w[0], xp = w[0];
+        for (let i = 1; i <= N; i++) { const x = w[0] + (w[1] - w[0]) * i / N, g = T(x) - x; if (isFinite(g) && isFinite(prev) && Math.sign(g) !== Math.sign(prev) && Math.abs(g - prev) < 1) { let lo = xp, hi = x; for (let k = 0; k < 60; k++) { const m = (lo + hi) / 2; if ((T(m) - m < 0) === (prev < 0)) lo = m; else hi = m; } roots.push((lo + hi) / 2); } prev = g; xp = x; } }
+      let xs = null; if (roots.length) xs = roots.reduce((b, r) => Math.abs(r - ref) < Math.abs(b - ref) ? r : b);
+
+      // ---- toile ----
+      st.clear(); ctx.fillStyle = t.bg; ctx.fillRect(0, 0, st.W, st.H);
+      P = kit.plane(ctx, { xmin: w[0], xmax: w[1], ymin: w[2], ymax: w[3], W: st.W, H: st.H });
+      const gstep = (w[1] - w[0]) > 3 ? 1 : 0.25;
+      P.grid(gstep); P.axes({ labels: true, step: gstep });
+      P.fill([[X[0], P.ymin], [X[1], P.ymin], [X[1], P.ymax], [X[0], P.ymax]], { color: t.accent, alpha: 0.08 });
+      P.curve([[X[0], P.ymin], [X[0], P.ymax]], { color: t.accent, width: 1, dash: [3, 3] });
+      P.curve([[X[1], P.ymin], [X[1], P.ymax]], { color: t.accent, width: 1, dash: [3, 3] });
+      P.curve([[w[0], w[0]], [w[1], w[1]]], { color: t.muted, width: 1.6 });
+      const gr = []; for (let i = 0; i <= 500; i++) { const x = w[0] + (w[1] - w[0]) * i / 500, y = T(x); gr.push(Math.abs(y) < 50 ? [x, y] : [NaN, NaN]); }
+      P.curve(gr, { color: t.accent, width: 2.6 });
+      // toile
+      const web = []; web.push([orb[0], 0]);
+      let last = 0; for (let i = 0; i < n && isFinite(orb[i + 1]); i++) { web.push([orb[i], orb[i + 1]]); web.push([orb[i + 1], orb[i + 1]]); last = i + 1; }
+      ctx.save(); ctx.globalAlpha = 0.9; P.curve(web, { color: t.accent2, width: 1.6 }); ctx.restore();
+      if (xs !== null) P.point(xs, xs, { r: 5, color: t.accent3, stroke: t.fg, label: 'x*' });
+      P.point(orb[0], 0, { r: 5, color: t.accent4, stroke: t.fg, label: 'x₀' });
+      for (let i = 1; i <= Math.min(last, 12); i++) if (isFinite(orb[i])) P.point(orb[i], orb[i], { r: 2.6, color: t.accent2 });
+      if (isFinite(orb[last]) && last > 0) P.point(orb[last], orb[last], { r: 4.5, color: t.accent2, stroke: t.fg, label: 'x' + String(last).split('').map(c => '₀₁₂₃₄₅₆₇₈₉'[+c]).join('') });
+      ctx.save(); ctx.fillStyle = t.fg; ctx.font = '12px system-ui, sans-serif'; ctx.fillText('y = T(x)  (bleu),  y = x  (gris),  bande = X', 8, 16); ctx.restore();
+
+      // ---- erreur ----
+      const e = stE.ctx; stE.clear(); e.fillStyle = t.bg; e.fillRect(0, 0, stE.W, stE.H);
+      const m = { l: 40, r: 10, t: 14, b: 22 }, WW = stE.W - m.l - m.r, HH = stE.H - m.t - m.b;
+      const ylo = -16, yhi = 1;
+      const X2 = k => m.l + WW * k / NMAX, Y2 = v => m.t + HH * (1 - (Math.max(ylo, Math.min(yhi, v)) - ylo) / (yhi - ylo));
+      e.save(); e.strokeStyle = t.grid; e.fillStyle = t.muted; e.font = '10px system-ui, sans-serif'; e.lineWidth = 1; e.textAlign = 'right'; e.textBaseline = 'middle';
+      for (let v = -16; v <= 0; v += 4) { e.beginPath(); e.moveTo(m.l, Y2(v)); e.lineTo(m.l + WW, Y2(v)); e.stroke(); e.fillText(String(v), m.l - 4, Y2(v)); }
+      e.textAlign = 'center'; e.textBaseline = 'top';
+      for (let k = 0; k <= NMAX; k += 10) e.fillText(String(k), X2(k), m.t + HH + 4);
+      e.fillStyle = t.fg; e.textAlign = 'left'; e.textBaseline = 'top'; e.fillText('log₁₀|xₙ − x*|  en fonction de n', m.l + 4, 2);
+      e.restore();
+      const bound = k => { if (!banach || !x0in || !isFinite(orb[1])) return NaN; return Math.log10(Math.pow(a, k) * Math.abs(orb[1] - orb[0]) / (1 - a)); };
+      if (xs !== null) {
+        if (banach && x0in) { e.save(); e.strokeStyle = t.accent4; e.lineWidth = 2; e.setLineDash([6, 4]); e.beginPath(); let f = true;
+          for (let k = 0; k <= NMAX; k++) { const v = bound(k); if (!isFinite(v)) continue; if (f) { e.moveTo(X2(k), Y2(v)); f = false; } else e.lineTo(X2(k), Y2(v)); } e.stroke(); e.restore(); }
+        e.save(); e.strokeStyle = t.accent2; e.fillStyle = t.accent2; e.lineWidth = 1.2; e.beginPath(); let f = true;
+        for (let k = 0; k <= n; k++) { if (!isFinite(orb[k])) break; const v = Math.log10(Math.abs(orb[k] - xs) + 1e-17); if (f) { e.moveTo(X2(k), Y2(v)); f = false; } else e.lineTo(X2(k), Y2(v)); }
+        e.stroke();
+        for (let k = 0; k <= n; k++) { if (!isFinite(orb[k])) break; const v = Math.log10(Math.abs(orb[k] - xs) + 1e-17); e.beginPath(); e.arc(X2(k), Y2(v), 3, 0, 2 * Math.PI); e.fill(); }
+        e.restore();
+      }
+
+      // ---- lectures ----
+      const f4 = v => (isFinite(v) ? String(+v.toPrecision(5)) : '∞');
+      ro.set(`a = sup_X |T′| = ${a.toFixed(3)} ; x${n === 0 ? '₀' : 'ₙ'} (n=${n}) = ${f4(orb[n])}${xs !== null ? ' ; x* ≈ ' + f4(xs) : ''}`);
+      let key, text;
+      if (banach) { key = 'banach' + (x0in ? 1 : 0); text = String.raw`**Théorème VI.1.1 applicable** sur $X=[${X[0]},${X[1]}]$ : $T(X)\subset X$ et $T$ est $a$-lipschitzienne avec $a<1$. La suite converge vers l'unique point fixe, avec l'erreur sous la borne $\dfrac{a^n}{1-a}|x_1-x_0|$ (tirets orange).`; }
+      else if (!stable) { key = 'unstable'; text = String.raw`**Stabilité violée** : $T(X)\not\subset X$. Le théorème ne s'applique pas à $T:X\to X$ (le point fixe, s'il existe, peut être hors de $X$).`; }
+      else { key = 'a>=1'; text = String.raw`**$a\ge1$ sur $X$** : $T$ n'est pas contractante sur $X$, le théorème ne dit rien. La suite peut quand même converger (si $|T'(x^*)|<1$ en un point fixe, la contraction est seulement locale), diverger ou cycler.`; }
+      if (key !== lastKey) { lastKey = key; kit.md(msg, text); }
+    }
+    const setX0 = pt => { if (!P) return; const q = P.toWorld(pt.x, pt.y); const F = FUNS[sel.value]; x0s.value = Math.max(F.win[0], Math.min(F.win[1], q[0])); stopPlay(); draw(); };
+    const off = kit.drag(st.canvas, { onDown: setX0, onMove: (pt, ev, down) => { if (down) setX0(pt); } });
+    st.onResize = draw; stE.onResize = draw;
+    onFun();
+    return () => { stopPlay(); off(); st.destroy(); stE.destroy(); };
+  }
+});
+
+} catch (e) { console.error('viz viz-ch06-banach-toile failed to register', e); }
+
+// ---- content/ch06/viz/viz-ch06-fonctions-implicites.js ----
+try {
+FMA.registerViz({
+  id: 'viz-ch06-fonctions-implicites',
+  chapter: 6,
+  title: "Fonctions implicites : une courbe de niveau est localement un graphe",
+  description: String.raw`**Ce que l'on voit.** La courbe de niveau $\{f(x,y)=c\}$ d'une fonction $f:\mathbb R^2\to\mathbb R$ (en gris). Le point orange $(x_0,y_0)$ est **à glisser le long de la courbe**. Le théorème des fonctions implicites (poly, Théorème VI.2.1, p. 118) dit : si $\dfrac{\partial f}{\partial y}(x_0,y_0)\neq 0$, il existe un rectangle $U_0\times V_0$ autour de $(x_0,y_0)$ dans lequel
+$$f(x,y)=f(x_0,y_0)\iff y=\varphi(x),\qquad \varphi'(x)=-\frac{\partial_x f(x,\varphi(x))}{\partial_y f(x,\varphi(x))}.$$
+Ce rectangle (bleu) est **calculé numériquement** : $V_0=\,]y_0-s,y_0+s[$ est fixé par le curseur $s$, et l'on cherche le plus large $U_0$ tel que, pour tout $x\in U_0$, $y\mapsto f(x,y)$ soit strictement monotone sur $V_0$ et change de signe (par rapport à $c$) entre les deux bords : la courbe y est alors exactement le graphe de $\varphi$ (en rouge). La tangente (orange, pointillée) a pour pente $\varphi'(x_0)$, et le gradient $\nabla f$ (violet) lui est orthogonal.
+
+**Ce qu'il faut regarder.**
+* **Réduisez $s$** : le rectangle s'élargit ($U_0$ grandit) ; **augmentez-le** : $U_0$ se rétrécit, car un autre morceau de la courbe finit par entrer dans $V_0$. Le théorème ne promet que *l'existence* d'un tel rectangle, pas sa taille.
+* **Approchez-vous d'un point à tangente verticale** (cercle en $(1,0)$, lemniscate en $(\sqrt2,0)$) : $\partial_yf\to0$, la pente explose et $U_0$ se réduit à rien : *aucun* rectangle ne convient. L'hypothèse $\partial_yf(x_0,y_0)\ne0$ est indispensable.
+* **Changez de variable** (« résoudre $x$ en fonction de $y$ ») : là où $\partial_yf=0$ mais $\partial_xf\ne0$, on obtient quand même un graphe $x=\psi(y)$. Le théorème s'applique avec les rôles échangés.
+* **Points doubles** ($\nabla f=0$ : lemniscate et folium en $(0,0)$) : les deux dérivées partielles s'annulent, aucun des deux graphes n'existe, la courbe se croise.
+* **$y^3-x=0$ en $(0,0)$** : $\partial_yf=3y^2=0$, mais la courbe est le graphe de $x\mapsto x^{1/3}$ (rectangle en pointillés) : $\varphi$ existe, continue, **mais n'est pas dérivable** en $0$ (pente $+\infty$). Sans $\partial_yf\neq0$, on perd la régularité.`,
+  related: ['ch06-fonctions-implicites', 'ch06-inversion-locale', 'ch06-point-fixe-parametre-cp'],
+  height: 520,
+  mount(container, kit) {
+    const st = kit.canvas(container, { height: 380 });
+    const controls = kit.controls(container);
+    const R = Math.SQRT2;
+    const CURVES = {
+      cercle: { name: 'cercle  x²+y² = 1', c: 1, f: (x, y) => x * x + y * y, fx: (x, y) => 2 * x, fy: (x, y) => 2 * y,
+        pts: [['point quelconque', Math.cos(0.7), Math.sin(0.7)], ['tangente verticale (1,0)', 1, 0], ['tangente horizontale (0,1)', 0, 1]] },
+      cubique: { name: 'y³ − x = 0', c: 0, f: (x, y) => y * y * y - x, fx: () => -1, fy: (x, y) => 3 * y * y,
+        pts: [['point quelconque', 1, 1], ['origine : ∂ᵧf = 0 mais graphe continu', 0, 0]] },
+      cusp: { name: 'y² − x³ = 0 (rebroussement)', c: 0, f: (x, y) => y * y - x * x * x, fx: (x, y) => -3 * x * x, fy: (x, y) => 2 * y,
+        pts: [['point quelconque', 1, 1], ['origine (point singulier)', 0, 0]] },
+      folium: { name: 'folium  x³ + y³ = 3xy', c: 0, f: (x, y) => x * x * x + y * y * y - 3 * x * y, fx: (x, y) => 3 * x * x - 3 * y, fy: (x, y) => 3 * y * y - 3 * x,
+        pts: [['point quelconque', 1.5, 1.5], ['point double (0,0)', 0, 0], ['tangente verticale', Math.pow(2, 2 / 3), Math.cbrt(2)], ['tangente horizontale', Math.cbrt(2), Math.pow(2, 2 / 3)]] },
+      lemn: { name: 'lemniscate  (x²+y²)² = 2(x²−y²)', c: 0, f: (x, y) => Math.pow(x * x + y * y, 2) - 2 * (x * x - y * y),
+        fx: (x, y) => 4 * x * (x * x + y * y - 1), fy: (x, y) => 4 * y * (x * x + y * y + 1),
+        pts: [['point quelconque', 1, 0.486], ['point double (0,0)', 0, 0], ['tangente verticale (√2,0)', R, 0]] },
+    };
+    const sel = kit.select(controls, { label: 'courbe', options: Object.keys(CURVES).map(k => [CURVES[k].name, k]), value: 'cercle', onChange: () => { rebuildPts(); setPoint(CURVES[sel.value].pts[0][1], CURVES[sel.value].pts[0][2]); } });
+    const ptsel = kit.select(controls, { label: 'aller à', options: [['—', '0']], onChange: v => { const p = CURVES[sel.value].pts[+v]; if (p) setPoint(p[1], p[2]); } });
+    const row2 = kit.row(controls);
+    const sSlider = kit.slider(row2, { label: String.raw`$s$ (demi-hauteur de $V_0$)`, min: 0.05, max: 1.5, step: 0.01, value: 0.45, onChange: draw });
+    const swap = kit.checkbox(row2, { label: String.raw`résoudre $x$ en fonction de $y$`, checked: false, onChange: draw });
+    const ro = kit.readout(controls, { label: '' });
+    const msg = kit.note(container, '');
+    let lastMsgKey = null;
+
+    let px = Math.cos(0.7), py = Math.sin(0.7), P = null;
+    function rebuildPts() {
+      const s = ptsel.select; s.innerHTML = '';
+      CURVES[sel.value].pts.forEach((p, i) => { const o = document.createElement('option'); o.value = i; o.textContent = p[0]; s.appendChild(o); });
+    }
+    rebuildPts();
+    function project(x, y) {
+      const C = CURVES[sel.value];
+      for (let i = 0; i < 40; i++) {
+        const v = C.f(x, y) - C.c, gx = C.fx(x, y), gy = C.fy(x, y), n2 = gx * gx + gy * gy;
+        if (n2 < 1e-14) break;
+        x -= v * gx / n2; y -= v * gy / n2;
+        if (Math.abs(v) < 1e-13) break;
+      }
+      return [x, y];
+    }
+    function setPoint(x, y) { const q = project(x, y); px = q[0]; py = q[1]; draw(); }
+
+    // marching squares for {F = c}
+    function levelSet(F, c, ctx, Pl, cell, color, width) {
+      const nx = Math.ceil(Pl.W / cell), ny = Math.ceil(Pl.H / cell);
+      const vals = new Float64Array((nx + 1) * (ny + 1));
+      for (let j = 0; j <= ny; j++) for (let i = 0; i <= nx; i++) { const w = Pl.toWorld(i * cell, j * cell); vals[j * (nx + 1) + i] = F(w[0], w[1]) - c; }
+      ctx.save(); ctx.strokeStyle = color; ctx.lineWidth = width; ctx.beginPath();
+      const interp = (a, b, va, vb) => a + (b - a) * (va / (va - vb));
+      for (let j = 0; j < ny; j++) for (let i = 0; i < nx; i++) {
+        const v0 = vals[j * (nx + 1) + i], v1 = vals[j * (nx + 1) + i + 1], v2 = vals[(j + 1) * (nx + 1) + i + 1], v3 = vals[(j + 1) * (nx + 1) + i];
+        const x0 = i * cell, x1 = (i + 1) * cell, y0 = j * cell, y1 = (j + 1) * cell;
+        const e = [];
+        if ((v0 < 0) !== (v1 < 0)) e.push([interp(x0, x1, v0, v1), y0]);
+        if ((v1 < 0) !== (v2 < 0)) e.push([x1, interp(y0, y1, v1, v2)]);
+        if ((v3 < 0) !== (v2 < 0)) e.push([interp(x0, x1, v3, v2), y1]);
+        if ((v0 < 0) !== (v3 < 0)) e.push([x0, interp(y0, y1, v0, v3)]);
+        if (e.length === 2) { ctx.moveTo(e[0][0], e[0][1]); ctx.lineTo(e[1][0], e[1][1]); }
+        else if (e.length === 4) { ctx.moveTo(e[0][0], e[0][1]); ctx.lineTo(e[3][0], e[3][1]); ctx.moveTo(e[1][0], e[1][1]); ctx.lineTo(e[2][0], e[2][1]); }
+      }
+      ctx.stroke(); ctx.restore();
+    }
+
+    function draw() {
+      try { drawInner(); } catch (e) { console.error(e); }
+    }
+    function drawInner() {
+      const t = kit.theme(), ctx = st.ctx, C = CURVES[sel.value];
+      st.clear(); ctx.fillStyle = t.bg; ctx.fillRect(0, 0, st.W, st.H);
+      P = kit.plane(ctx, { xmin: -2.4, xmax: 2.4, ymin: -2.1, ymax: 2.1, W: st.W, H: st.H });
+      P.grid(1); P.axes({ labels: true, xlabel: 'x', ylabel: 'y' });
+      levelSet(C.f, C.c, ctx, P, 4, t.muted, 2.2);
+
+      const sw = swap.value;
+      const G = sw ? (u, v) => C.f(v, u) : C.f;
+      const Gu = sw ? (u, v) => C.fy(v, u) : C.fx;
+      const Gv = sw ? (u, v) => C.fx(v, u) : C.fy;
+      const W2 = sw ? (u, v) => [v, u] : (u, v) => [u, v];
+      const u0 = sw ? py : px, v0 = sw ? px : py, s = sSlider.value, c = C.c;
+      const gv0 = Gv(u0, v0), gu0 = Gu(u0, v0);
+      const sg = Math.sign(gv0);
+      const du = 0.01, maxN = 250;
+      const okRect = (u, strict) => {
+        const lo = G(u, v0 - s) - c, hi = G(u, v0 + s) - c;
+        if (!(lo * hi < 0)) return false;
+        if (strict) for (let j = 0; j <= 14; j++) { const v = v0 - s + 2 * s * j / 14; if (Gv(u, v) * sg <= 0) return false; }
+        return true;
+      };
+      const width = strict => { if (strict && Math.abs(gv0) < 1e-6) return 0; if (!okRect(u0, strict)) return 0; let k = 0; while (k < maxN && okRect(u0 + (k + 1) * du, strict) && okRect(u0 - (k + 1) * du, strict)) k++; return k * du; };
+      const rStrict = width(true);
+      const rWeak = rStrict > 0 ? 0 : width(false);
+      const r = rStrict > 0 ? rStrict : rWeak;
+      const rectPts = rr => [W2(u0 - rr, v0 - s), W2(u0 + rr, v0 - s), W2(u0 + rr, v0 + s), W2(u0 - rr, v0 + s)];
+
+      if (r > 0) {
+        const col = rStrict > 0 ? t.accent : t.accent4;
+        P.fill(rectPts(r), { color: col, alpha: 0.12 });
+        P.curve(rectPts(r), { color: col, width: 2, close: true, dash: rStrict > 0 ? null : [6, 4] });
+        // fonction implicite : dichotomie dans V0
+        const pts = [];
+        for (let k = 0; k <= 80; k++) {
+          const u = u0 - r + 2 * r * k / 80; let a = v0 - s, b = v0 + s; const fa = G(u, a) - c;
+          for (let it = 0; it < 40; it++) { const m = (a + b) / 2; if (((G(u, m) - c) < 0) === (fa < 0)) a = m; else b = m; }
+          pts.push(W2(u, (a + b) / 2));
+        }
+        P.curve(pts, { color: t.accent2, width: 3.2 });
+        const lb = W2(u0 - r, v0 + s), lb2 = W2(u0, v0 - s);
+        P.text(lb[0], lb[1], sw ? 'V₀' : 'U₀×V₀', { color: col, dx: 4, dy: -3, font: 'bold 12px system-ui, sans-serif' });
+      }
+      // tangente et gradient
+      const n2 = Math.hypot(C.fx(px, py), C.fy(px, py));
+      if (n2 > 1e-9) {
+        const tx = -C.fy(px, py) / n2, ty = C.fx(px, py) / n2;
+        const L = 0.7;
+        P.curve([[px - L * tx, py - L * ty], [px + L * tx, py + L * ty]], { color: t.accent4, width: 1.6, dash: [5, 4] });
+        P.vector(px, py, C.fx(px, py) / n2, C.fy(px, py) / n2, { color: t.accent5, width: 2, head: 8, scale: 0.55 });
+      }
+      P.point(px, py, { r: 6, color: t.accent4, stroke: t.fg });
+
+      // lecture
+      const fxv = C.fx(px, py), fyv = C.fy(px, py);
+      const f4 = v => (Math.abs(v) < 5e-7 ? '0' : (+v.toFixed(3)).toString());
+      let slope = '';
+      if (!sw && Math.abs(fyv) > 1e-6) slope = ` ; pente φ′ = −∂ₓf/∂ᵧf = ${f4(-fxv / fyv)}`;
+      if (sw && Math.abs(fxv) > 1e-6) slope = ` ; pente ψ′ = −∂ᵧf/∂ₓf = ${f4(-fyv / fxv)}`;
+      ro.set(`(x₀,y₀) = (${f4(px)}, ${f4(py)}) ; ∂ₓf = ${f4(fxv)}, ∂ᵧf = ${f4(fyv)}${slope}${r > 0 ? ' ; demi-largeur de U₀ ≈ ' + r.toFixed(2) : ''}`);
+
+      let key, text;
+      const dv = sw ? String.raw`\partial_x f` : String.raw`\partial_y f`, dvName = sw ? 'x' : 'y', uName = sw ? 'y' : 'x';
+      const fn = sw ? String.raw`\psi` : String.raw`\varphi`;
+      if (Math.abs(fxv) < 1e-6 && Math.abs(fyv) < 1e-6) {
+        key = 'double'; text = String.raw`**Point singulier** : $\nabla f(x_0,y_0)=0$. Aucune des deux dérivées partielles n'est non nulle : on ne peut résoudre ni $y$ en fonction de $x$ ni $x$ en fonction de $y$, et la courbe se croise ou a un rebroussement.`;
+      } else if (rStrict > 0) {
+        key = 'ok' + (sw ? 's' : 'n'); text = String.raw`$${dv}(x_0,y_0)\neq 0$ : sur le rectangle bleu, $\{f=c\}$ est exactement le graphe de $${fn}$ ($${dvName}=${fn}(${uName})$, en rouge), avec $${fn}'=-\dfrac{\partial_${uName} f}{\partial_${dvName} f}$.`;
+      } else if (rWeak > 0) {
+        key = 'weak'; text = String.raw`$${dv}(x_0,y_0)=0$ : le théorème ne s'applique pas. Il existe encore une branche **continue** (rectangle en pointillés) mais sa pente est infinie : $${fn}$ n'est pas dérivable en ce point. Essayez de résoudre l'autre variable.`;
+      } else if (Math.abs(gv0) < 1e-6) {
+        key = 'none' + (sw ? 's' : 'n'); text = String.raw`$${dv}(x_0,y_0)=0$ : **aucun rectangle** $U_0\times V_0$ ne convient (la tangente est ${sw ? 'horizontale' : 'verticale'}). ${Math.abs(gu0) > 1e-6 ? 'Mais l\'autre dérivée partielle est non nulle : cochez / décochez « résoudre $x$ en fonction de $y$ ».' : ''}`;
+      } else {
+        key = 'small'; text = String.raw`$s$ est trop grand : un autre morceau de la courbe traverse $V_0$. Diminuez $s$ : le théorème garantit un rectangle assez petit.`;
+      }
+      if (key !== lastMsgKey) { lastMsgKey = key; kit.md(msg, text); }
+    }
+
+    const off = kit.drag(st.canvas, {
+      onDown: p => { if (P) { const w = P.toWorld(p.x, p.y); setPoint(w[0], w[1]); } },
+      onMove: (p, ev, down) => { if (down && P) { const w = P.toWorld(p.x, p.y); setPoint(w[0], w[1]); } },
+    });
+    st.onResize = draw;
+    draw();
+    return () => { off(); st.destroy(); };
+  }
+});
+
+} catch (e) { console.error('viz viz-ch06-fonctions-implicites failed to register', e); }
+
+// ---- content/ch06/viz/viz-ch06-inversion-locale.js ----
+try {
+FMA.registerViz({
+  id: 'viz-ch06-inversion-locale',
+  chapter: 6,
+  title: "Inversion locale : l'image d'un petit disque et la différentielle",
+  description: String.raw`**Ce que l'on voit.** À gauche, le plan de départ avec un disque $D(a,\rho)$ (centre $a$ **à glisser**, rayon $\rho$ au curseur) quadrillé en cercles concentriques et en rayons colorés. À droite, l'**image** de ce disque par l'application $f:\mathbb R^2\to\mathbb R^2$ choisie, avec les mêmes couleurs. La courbe tiretée est l'image du cercle par l'**approximation linéaire** $h\mapsto f(a)+df_a(h)$ (une ellipse). En rouge : le lieu critique $\{\det df=0\}$ et son image.
+
+**Ce qu'il faut regarder.**
+* **Avec $\rho$ petit et $\det df_a\neq0$** : l'image est un petit disque déformé, *injectif*, presque confondu avec l'ellipse tiretée. C'est le théorème d'inversion locale (poly, Théorème VI.3.2, p. 120) : $f$ est un difféomorphisme d'un voisinage de $a$ sur un voisinage de $f(a)$, et sa réciproque a pour différentielle $(df_a)^{-1}$.
+* **Faites grandir $\rho$** : le théorème est *local*. Pour $z\mapsto z^2$ (ou $\exp$) la différentielle est inversible là où l'on regarde, mais dès que le disque est assez grand l'image se recouvre elle-même : $f$ n'est plus injective (poly, Corollaire VI.3.3, p. 120 : il faut **aussi** l'injectivité pour avoir un difféomorphisme global). Le diagnostic, calculé en direct, utilise le fait que, si $df$ est inversible sur tout le disque, $f$ y est injective si et seulement si l'image du cercle est une courbe simple.
+* **Approchez-vous du lieu critique rouge** (là où $\det df=0$, c'est-à-dire $df_a$ non inversible) : l'ellipse tiretée s'aplatit en segment, et l'image du disque se **replie** (pli de $(x,y)\mapsto(x,y^2)$ : les deux moitiés du disque s'envoient sur la même région). Aucune réciproque locale n'existe autour de ces points.
+* **$(x,y)\mapsto(x^3,y)$** : $\det df=3x^2$ s'annule sur l'axe $x=0$, et pourtant $f$ y est injective. Mais sa réciproque $X\mapsto X^{1/3}$ n'est pas dérivable : l'hypothèse « $df_a$ isomorphisme » ne peut pas être remplacée par « $f$ bijective ».`,
+  related: ['ch06-inversion-locale', 'ch06-inversion-globale', 'ch06-diffeomorphisme-def'],
+  height: 540,
+  mount(container, kit) {
+    const wrap = document.createElement('div');
+    wrap.style.cssText = 'display:flex;flex-wrap:wrap;gap:8px;';
+    container.appendChild(wrap);
+    const mk = () => { const d = document.createElement('div'); d.style.cssText = 'flex:1 1 300px;min-width:0;'; wrap.appendChild(d); return d; };
+    const cL = mk(), cR = mk();
+    const stL = kit.canvas(cL, { height: 320 }), stR = kit.canvas(cR, { height: 320 });
+    const controls = kit.controls(container);
+    const cs = Math.cos, sn = Math.sin, ex = Math.exp;
+    const FUNS = {
+      z2: { name: 'z ↦ z²  (x,y)↦(x²−y², 2xy)', F: (x, y) => [x * x - y * y, 2 * x * y], J: (x, y) => [2 * x, -2 * y, 2 * y, 2 * x],
+        winL: [-2.4, 2.4, -2.1, 2.1], winG: [-5, 5, -5, 5], a0: [1, 0.5], rho0: 0.6, crit: { pt: [0, 0] }, critImg: { pt: [0, 0] }, critNote: "$f$ n'est pas inversible en $0$" },
+      exp: { name: 'exp : (x,y)↦(eˣcos y, eˣsin y)', F: (x, y) => [ex(x) * cs(y), ex(x) * sn(y)], J: (x, y) => [ex(x) * cs(y), -ex(x) * sn(y), ex(x) * sn(y), ex(x) * cs(y)],
+        winL: [-4.6, 4.6, -4, 4], winG: [-4, 4, -4, 4], a0: [0, 0], rho0: 1.5, crit: null, critImg: null, critNote: '' },
+      polar: { name: 'polaires : (r,θ)↦(r cosθ, r sinθ)', F: (x, y) => [x * cs(y), x * sn(y)], J: (x, y) => [cs(y), -x * sn(y), sn(y), x * cs(y)],
+        winL: [-1.8, 3.6, -3.4, 3.4], winG: [-4, 4, -4, 4], a0: [1.5, 0.8], rho0: 0.8, crit: { vline: 0 }, critImg: { pt: [0, 0] }, critNote: 'les polaires ne sont pas inversibles en $r=0$' },
+      fold: { name: 'pli : (x,y)↦(x, y²)', F: (x, y) => [x, y * y], J: (x, y) => [1, 0, 0, 2 * y],
+        winL: [-2.4, 2.4, -2.1, 2.1], winG: [-2.6, 2.6, -1.2, 4.6], a0: [0, 0.6], rho0: 0.9, crit: { hline: 0 }, critImg: { hline: 0 }, critNote: "le disque contient des points de l'axe $y=0$ où $\\det df=0$" },
+      cube: { name: 'cube : (x,y)↦(x³, y)', F: (x, y) => [x * x * x, y], J: (x, y) => [3 * x * x, 0, 0, 1],
+        winL: [-2.4, 2.4, -2.1, 2.1], winG: [-8, 8, -5, 5], a0: [0.6, 0.3], rho0: 0.9, crit: { vline: 0 }, critImg: { vline: 0 }, critNote: "le disque contient des points de l'axe $x=0$ où $\\det df=0$ (ici $f$ reste injective, mais sa réciproque n'est pas $C^1$)" },
+    };
+    let a = FUNS.z2.a0.slice();
+    const sel = kit.select(controls, { label: '$f$', options: Object.keys(FUNS).map(k => [FUNS[k].name, k]), value: 'z2', onChange: () => { const F = FUNS[sel.value]; a = F.a0.slice(); rho.value = F.rho0; draw(); } });
+    const rho = kit.slider(controls, { label: String.raw`$\rho$`, min: 0.05, max: 3.5, step: 0.05, value: 0.6, onChange: draw });
+    const view = kit.select(controls, { label: "vue de l'arrivée", options: [['zoom sur f(a)', 'zoom'], ['globale', 'glob']], value: 'zoom', onChange: draw });
+    const ro = kit.readout(controls, { label: '' });
+    const msg = kit.note(container, '');
+    let lastKey = null, PL = null;
+
+    function niceStep(range) { const raw = range / 4, p = Math.pow(10, Math.floor(Math.log10(raw))), m = raw / p; return (m < 1.5 ? 1 : m < 3.5 ? 2 : m < 7.5 ? 5 : 10) * p; }
+    function segInter(p1, p2, p3, p4) {
+      const d = (p2[0] - p1[0]) * (p4[1] - p3[1]) - (p2[1] - p1[1]) * (p4[0] - p3[0]);
+      if (Math.abs(d) < 1e-14) return false;
+      const t = ((p3[0] - p1[0]) * (p4[1] - p3[1]) - (p3[1] - p1[1]) * (p4[0] - p3[0])) / d;
+      const u = ((p3[0] - p1[0]) * (p2[1] - p1[1]) - (p3[1] - p1[1]) * (p2[0] - p1[0])) / d;
+      return t > 1e-9 && t < 1 - 1e-9 && u > 1e-9 && u < 1 - 1e-9;
+    }
+    function selfIntersects(poly) { // polygone fermé
+      const n = poly.length;
+      for (let i = 0; i < n; i++) for (let j = i + 2; j < n; j++) {
+        if (i === 0 && j === n - 1) continue;
+        if (segInter(poly[i], poly[(i + 1) % n], poly[j], poly[(j + 1) % n])) return true;
+      }
+      return false;
+    }
+    function drawCrit(P, crit, color) {
+      if (!crit) return;
+      if (crit.pt) P.point(crit.pt[0], crit.pt[1], { r: 4, color });
+      if (crit.vline !== undefined) P.curve([[crit.vline, P.ymin - 1], [crit.vline, P.ymax + 1]], { color, width: 2 });
+      if (crit.hline !== undefined) P.curve([[P.xmin - 1, crit.hline], [P.xmax + 1, crit.hline]], { color, width: 2 });
+    }
+    function draw() { try { drawInner(); } catch (e) { console.error(e); } }
+    function drawInner() {
+      const t = kit.theme(), Fd = FUNS[sel.value], F = Fd.F, r = rho.value;
+      const ctxL = stL.ctx, ctxR = stR.ctx;
+      const w = Fd.winL;
+      // --- points de la grille polaire du disque ---
+      const NR = 3, NA = 12, NS = 90;
+      const circles = [], rays = [];
+      for (let k = 1; k <= NR; k++) { const rr = r * k / NR, pts = []; for (let i = 0; i <= NS; i++) { const th = 2 * Math.PI * i / NS; pts.push([a[0] + rr * cs(th), a[1] + rr * sn(th)]); } circles.push(pts); }
+      for (let j = 0; j < NA; j++) { const th = 2 * Math.PI * j / NA, pts = []; for (let i = 0; i <= 30; i++) { const rr = r * i / 30; pts.push([a[0] + rr * cs(th), a[1] + rr * sn(th)]); } rays.push(pts); }
+      const img = L => L.map(p => F(p[0], p[1]));
+      const fa = F(a[0], a[1]);
+      const J = Fd.J(a[0], a[1]);
+      const det = J[0] * J[3] - J[1] * J[2];
+      const bd = []; for (let i = 0; i < 120; i++) { const th = 2 * Math.PI * i / 120; bd.push([a[0] + r * cs(th), a[1] + r * sn(th)]); }
+      const bdImg = bd.map(p => F(p[0], p[1]));
+      const lin = []; for (let i = 0; i <= 120; i++) { const th = 2 * Math.PI * i / 120, h0 = r * cs(th), h1 = r * sn(th); lin.push([fa[0] + J[0] * h0 + J[1] * h1, fa[1] + J[2] * h0 + J[3] * h1]); }
+      // --- vue gauche ---
+      stL.clear(); ctxL.fillStyle = t.bg; ctxL.fillRect(0, 0, stL.W, stL.H);
+      PL = kit.plane(ctxL, { xmin: w[0], xmax: w[1], ymin: w[2], ymax: w[3], W: stL.W, H: stL.H });
+      PL.grid(1); PL.axes({ labels: true, xlabel: 'x', ylabel: 'y' });
+      PL.fill(bd, { color: t.accent, alpha: 0.12 });
+      drawCrit(PL, Fd.crit, t.accent2);
+      const hueCol = j => { const c = kit.hsl2rgb(j / NA, 0.75, 0.5); return `rgb(${c[0]},${c[1]},${c[2]})`; };
+      circles.forEach(c => PL.curve(c, { color: t.muted, width: 1 }));
+      rays.forEach((c, j) => PL.curve(c, { color: hueCol(j), width: 1.6 }));
+      PL.curve(bd, { color: t.accent, width: 2.5, close: true });
+      PL.point(a[0], a[1], { r: 5, color: t.accent4, stroke: t.fg, label: 'a' });
+      ctxL.save(); ctxL.fillStyle = t.fg; ctxL.font = '12px system-ui, sans-serif'; ctxL.fillText('départ', 8, 16); ctxL.restore();
+      // --- vue droite ---
+      const cImgs = circles.map(img), rImgs = rays.map(img);
+      let win;
+      if (view.value === 'glob') win = Fd.winG.slice();
+      else {
+        let m = 1e-3; for (const L of cImgs.concat(rImgs)) for (const p of L) m = Math.max(m, Math.abs(p[0] - fa[0]), Math.abs(p[1] - fa[1]));
+        for (const p of lin) m = Math.max(m, Math.abs(p[0] - fa[0]), Math.abs(p[1] - fa[1]));
+        m *= 1.25; win = [fa[0] - m, fa[0] + m, fa[1] - m, fa[1] + m];
+      }
+      stR.clear(); ctxR.fillStyle = t.bg; ctxR.fillRect(0, 0, stR.W, stR.H);
+      const PR = kit.plane(ctxR, { xmin: win[0], xmax: win[1], ymin: win[2], ymax: win[3], W: stR.W, H: stR.H });
+      const step = niceStep(Math.min(PR.xmax - PR.xmin, PR.ymax - PR.ymin));
+      PR.grid(step); PR.axes({ labels: true, step, xlabel: 'X', ylabel: 'Y' });
+      PR.fill(bdImg, { color: t.accent, alpha: 0.12 });
+      drawCrit(PR, Fd.critImg, t.accent2);
+      cImgs.forEach(c => PR.curve(c, { color: t.muted, width: 1 }));
+      rImgs.forEach((c, j) => PR.curve(c, { color: hueCol(j), width: 1.6 }));
+      PR.curve(lin, { color: t.accent4, width: 2, dash: [6, 4] });
+      PR.curve(bdImg, { color: t.accent, width: 2.5, close: true });
+      PR.point(fa[0], fa[1], { r: 5, color: t.accent4, stroke: t.fg, label: 'f(a)' });
+      ctxR.save(); ctxR.fillStyle = t.fg; ctxR.font = '12px system-ui, sans-serif'; ctxR.fillText('arrivée  (tirets : f(a)+df_a(h))', 8, 16); ctxR.restore();
+
+      // --- diagnostic ---
+      const cr = Fd.crit; let hitsCrit = false;
+      if (cr) {
+        if (cr.pt) hitsCrit = Math.hypot(a[0] - cr.pt[0], a[1] - cr.pt[1]) < r;
+        if (cr.vline !== undefined) hitsCrit = Math.abs(a[0] - cr.vline) < r;
+        if (cr.hline !== undefined) hitsCrit = Math.abs(a[1] - cr.hline) < r;
+      }
+      let key, text;
+      if (hitsCrit) { key = 'crit' + sel.value + (Math.abs(det) < 1e-9 ? 'a' : ''); text = String.raw`**Le disque rencontre le lieu critique** (${Fd.critNote}) : $df$ n'est pas inversible en certains points du disque, le théorème d'inversion locale ne s'applique pas autour d'eux${Math.abs(det) < 1e-9 ? ", y compris en $a$ : l'ellipse tiretée est dégénérée" : ''}.`; }
+      else if (selfIntersects(bdImg)) { key = 'noninj'; text = String.raw`$df$ est inversible en tout point du disque (jacobien $\ne0$) **mais l'image du cercle se recoupe** : $f$ n'est pas injective sur ce disque. Le théorème est local : diminuez $\rho$. (Corollaire VI.3.3 : il faut l'injectivité *en plus*.)`; }
+      else { key = 'diffeo'; text = String.raw`$\det df_a\neq 0$ et l'image du cercle est une courbe simple : $f$ réalise un difféomorphisme du disque sur son image (ouvert), de réciproque de différentielle $(df_a)^{-1}$ en $f(a)$.`; }
+      const f3 = v => String(+v.toFixed(3));
+      ro.set(`a = (${f3(a[0])}, ${f3(a[1])}) ; df_a = [[${f3(J[0])}, ${f3(J[1])}], [${f3(J[2])}, ${f3(J[3])}]] ; det df_a = ${f3(det)}`);
+      if (key !== lastKey) { lastKey = key; kit.md(msg, text); }
+    }
+    const setA = p => { if (!PL) return; const q = PL.toWorld(p.x, p.y); a = [q[0], q[1]]; draw(); };
+    const off = kit.drag(stL.canvas, { onDown: setA, onMove: (p, ev, down) => { if (down) setA(p); } });
+    stL.onResize = draw; stR.onResize = draw;
+    sel.value = 'z2'; rho.value = FUNS.z2.rho0;
+    draw();
+    return () => { off(); stL.destroy(); stR.destroy(); };
+  }
+});
+
+} catch (e) { console.error('viz viz-ch06-inversion-locale failed to register', e); }
+
 // ---- content/ch07/viz/viz-ch07-flot-groupe.js ----
 try {
 FMA.registerViz({
