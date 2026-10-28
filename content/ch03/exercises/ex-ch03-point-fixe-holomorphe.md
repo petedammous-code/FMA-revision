@@ -5,7 +5,7 @@ chapters: [3, 6, 1]
 title: Résoudre une équation fonctionnelle holomorphe par le point fixe de Picard
 source: Inventé
 difficulty: 4
-time: 80
+time: 60
 tools: [ch03-weierstrass, ch03-cauchy-locale-equivaut-convergence, ch06-point-fixe-banach, ch06-lipschitz-contractante-def, ch01-estimees-cauchy, ch01-prolongement-analytique, ch01-stabilite-operations]
 ---
 ## Énoncé

@@ -3149,7 +3149,7 @@ FMA.registerViz({
       PR.curve(lin, { color: t.accent4, width: 2, dash: [6, 4] });
       PR.curve(bdImg, { color: t.accent, width: 2.5, close: true });
       PR.point(fa[0], fa[1], { r: 5, color: t.accent4, stroke: t.fg, label: 'f(a)' });
-      ctxR.save(); ctxR.fillStyle = t.fg; ctxR.font = '12px system-ui, sans-serif'; ctxR.fillText('arrivée   (tirets : approx. linéaire)', 8, 16); ctxR.restore();
+      ctxR.save(); ctxR.fillStyle = t.fg; ctxR.font = '12px system-ui, sans-serif'; ctxR.fillText('arrivée', 8, 16); ctxR.restore();
 
       // --- diagnostic ---
       const cr = Fd.crit; let hitsCrit = false;

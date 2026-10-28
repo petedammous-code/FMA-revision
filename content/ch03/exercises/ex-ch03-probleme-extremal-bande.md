@@ -3,9 +3,9 @@ id: ex-ch03-probleme-extremal-bande
 type: exercise
 chapters: [3, 1]
 title: Un problème extrémal sur une bande (le cœur de la preuve de Riemann, en explicite)
-source: Inventé
+source: "Inventé (variation sur le problème extrémal de la preuve de Riemann, poly § III.4 ; lemme de Schwarz)"
 difficulty: 3
-time: 45
+time: 40
 tools: [ch03-montel, ch03-weierstrass, ch03-hurwitz, ch03-famille-normale, ch03-convergence-uniforme-compacts, ch01-estimees-cauchy, ch01-principe-maximum, ch01-lemme-schwarz, ch01-bijection-holomorphe-reciproque-holomorphe]
 ---
 ## Énoncé
