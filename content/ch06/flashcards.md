@@ -61,7 +61,7 @@ On écrit $\varphi(\lambda_i)=g(\lambda_i,\varphi(\lambda_i))$, on **insère le 
 ### Q
 Dans VI.1.2, que devient la conclusion si la constante de Lipschitz $a(\lambda)<1$ dépend de $\lambda$ sans être uniformément $<1$ ? Exemple.
 ### R
-Le facteur $1-a$ dans l'inégalité clé n'est plus minoré, la preuve ne donne plus rien. Exemple : $g(\lambda,x)=\lambda x+1$ sur $X=\R$, $\Lambda=[0,1[$ : $g_\lambda$ est $\lambda$-lipschitzienne, $\varphi(\lambda)=\dfrac1{1-\lambda}$ est continue sur $\Lambda$ mais non bornée quand $\lambda\to1$ (aucune uniformité).
+L'existence et l'unicité de $\varphi(\lambda)$ subsistent pour chaque $\lambda$ (chaque $g_\lambda$ reste contractante), mais la preuve de la continuité ne s'applique plus telle quelle : le facteur $1-a(\lambda)$ dans l'inégalité clé n'est plus minoré et l'on perd toute estimation **uniforme** (la continuité reste vraie là où $a(\lambda)$ est localement majoré par un $a'<1$ : appliquer le théorème sur ce voisinage). Exemple : $g(\lambda,x)=\lambda x+1$ sur $X=\R$, $\Lambda=[0,1[$ : $g_\lambda$ est $\lambda$-lipschitzienne, $\varphi(\lambda)=\dfrac1{1-\lambda}$ est continue sur $\Lambda$ mais non bornée quand $\lambda\to1$, et $\varphi'(\lambda)=\dfrac1{(1-\lambda)^2}\to+\infty$ : aucune uniformité.
 
 ## CARD id=fc-ch06-010 ref=ch06-differentiable-sur-partie-def tags=definition
 ### Q
@@ -268,7 +268,7 @@ Pour $g:\mathrm M_m(\R)\to\mathrm{Sym}_m$, $g(C)={}^tCI_{r,s}C$ : $dg_{I_m}(X)={
 ### Q
 Quelles hypothèses du lemme de Morse sont nécessaires ? Que dire de la régularité de $\psi$ si $f$ n'est que $C^k$ ?
 ### R
-(i) $a$ **critique** : sinon $f$ est une submersion en $a$, donc localement une coordonnée, pas une forme quadratique. (ii) $d^2f_a$ **non dégénérée** (hessienne inversible) : sinon pas de forme normale quadratique. (iii) $f$ de classe $C^\infty$ pour avoir $\psi$ de classe $C^\infty$ ; avec $f$ de classe $C^k$, $k\ge3$, on perd deux ordres de dérivation (racine carrée $\eta$ et changement de variables) : $\psi$ de classe $C^{k-2}$. Conséquence : les points critiques non dégénérés sont **isolés**.
+(i) $a$ **critique** : sinon $f$ est une submersion en $a$, donc localement une coordonnée, pas une forme quadratique. (ii) $d^2f_a$ **non dégénérée** (hessienne inversible) : sinon pas de forme normale quadratique. (iii) $f$ de classe $C^\infty$ pour avoir $\psi$ de classe $C^\infty$ ; avec $f$ de classe $C^k$, $k\ge3$, on perd deux ordres de dérivation : $B(x)=\int_0^1(1-t)\,\mathrm{Hess}_{tx}f\,dt$ ne fait intervenir que $d^2f$, donc n'est que $C^{k-2}$ ; la racine carrée $\eta$ est $C^\infty$, donc $\varphi(x)=\eta(B(x))\,x$ est $C^{k-2}$ et $\psi=\varphi^{-1}$ aussi (inversion locale, qui exige $k-2\ge1$). Conséquence : les points critiques non dégénérés sont **isolés**.
 
 ## CARD id=fc-ch06-039 ref=ch06-lemme-de-morse tags=contre-exemple
 ### Q
@@ -346,7 +346,10 @@ Soit $A_0\in\mathrm M_n(\R)$ avec $n$ valeurs propres réelles **distinctes** $\
 ### Q
 Quelle équation implicite utilise-t-on pour (1), puis pour (2) ? Que se passe-t-il pour une valeur propre double ?
 ### R
-(1) $(A,\lambda)\mapsto\chi_A(\lambda)=\det(\lambda I-A)$, avec $\partial_\lambda\chi_{A_0}(\lambda_i(0))\ne0$ car racine **simple**. (2) $(A,v)\mapsto\big((A-\lambda_i(A)I)v,\ \langle v,v_i(0)\rangle\big)$ (normalisation du vecteur propre).
+(1) $(A,\lambda)\mapsto\chi_A(\lambda)=\det(\lambda I-A)$, de $\mathrm M_n(\R)\times\R$ dans $\R$, avec $\partial_\lambda\chi_{A_0}(\lambda_i(0))\ne0$ car racine **simple** ; $\lambda_i(A)$ est la racine de $\chi_A$ proche de $\lambda_i(0)$.
+(2) On résout en le **couple** $(v,\mu)\in\R^n\times\R$ ($n+1$ inconnues pour $n+1$ équations) :
+$$F(A,v,\mu)=\big((A-\mu I)v,\ \langle v,v_i(0)\rangle-\|v_i(0)\|^2\big)\in\R^n\times\R.$$
+En $(A_0,v_i(0),\lambda_i(0))$, $\partial_{(v,\mu)}F:(h,\nu)\mapsto\big((A_0-\lambda_i(0)I)h-\nu\,v_i(0),\ \langle h,v_i(0)\rangle\big)$ est injective, donc un isomorphisme de $\R^{n+1}$ : comme la valeur propre est simple, $v_i(0)\notin\mathrm{Im}(A_0-\lambda_i(0)I)$, d'où $\nu=0$ ; puis $h\in\ker(A_0-\lambda_i(0)I)=\R v_i(0)$ et $h\perp v_i(0)$ donnent $h=0$. Les fonctions implicites fournissent $(v_i(A),\mu(A))$ de classe $C^\infty$ avec $v_i(A)\ne0$ (normalisation) et $(A-\mu(A)I)v_i(A)=0$ ; $\mu(A)$ est une valeur propre de $A$ proche de $\lambda_i(0)$, donc $\mu(A)=\lambda_i(A)$. Attention : $(A,v)\mapsto\big((A-\lambda_i(A)I)v,\langle v,v_i(0)\rangle\big)$ ne convient **pas** tel quel ($n+1$ équations pour $n$ inconnues : la différentielle partielle en $v$ n'est jamais un isomorphisme).
 Valeur double : $A(t)=\begin{pmatrix}0&t\\1&0\end{pmatrix}$ a pour valeurs propres $\pm\sqrt t$, non lisses (ni réelles pour $t\lt0$) en $t=0$.
 
 ## CARD id=fc-ch06-051 ref=ch06-immersion-submersion-def tags=enonce,definition

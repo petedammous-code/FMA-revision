@@ -6,7 +6,7 @@ title: Hessienne d'une fonction en un point critique
 ref: Définition IX.7.38
 page: 170
 importance: 2
-depends: [ch09-changement-parametrage-differentielle-seconde, ch09-point-critique-sous-variete-def, ch05-lemme-schwarz]
+depends: [ch09-changement-parametrage-differentielle-seconde, ch09-point-critique-sous-variete-def, ch09-base-espace-tangent, ch09-changement-parametrage, ch05-differentielle-seconde-def, ch05-lemme-schwarz]
 tags: [hessienne, point-critique, differentielle-seconde, forme-quadratique, sous-variete, extrema]
 ---
 ## Intuition
