@@ -19,7 +19,7 @@ FMA.registerViz({
     const pw = (z, m) => { const r = Math.hypot(z[0], z[1]); if (r === 0) return m === 0 ? [1, 0] : [0, 0]; return C.fromPolar(Math.pow(r, m), m * Math.atan2(z[1], z[0])); };
     const tail = (n, z) => { // somme_{k>n} z^k/k!
       let t = [1, 0]; for (let k = 1; k <= n; k++) t = C.scale(C.mul(t, z), 1 / k);
-      let s = [0, 0]; for (let k = n + 1; k <= n + 90; k++) { t = C.scale(C.mul(t, z), 1 / k); s = C.add(s, t); if (C.abs(t) < 1e-300) break; }
+      let s = [0, 0]; for (let k = n + 1; k <= n + 90; k++) { t = C.scale(C.mul(t, z), 1 / k); s = C.add(s, t); if (C.abs(t) <= 1e-18 * C.abs(s) && k > n + 2 * Math.hypot(z[0], z[1])) break; }
       return s;
     };
     const FAM = {
@@ -70,7 +70,7 @@ FMA.registerViz({
     let heat = null, heatKey = '';
     function colorOf(t) { t = Math.max(0, Math.min(1, t)); return kit.hsl2rgb(0.66 * (1 - t) % 1, 0.85, 0.16 + 0.5 * t); }
     function buildHeat(P) {
-      const F = FAM[fam]; const W = sL.W, H = sL.H, step = 2;
+      const F = FAM[fam]; const W = sL.W, H = sL.H, step = fam === 'exp' ? 3 : 2;
       const img = sL.ctx.createImageData(Math.ceil(W / step), Math.ceil(H / step)); const d = img.data; let k = 0;
       for (let j = 0; j < img.height; j++) for (let i = 0; i < img.width; i++) {
         const [x, y] = P.toWorld(i * step + step / 2, j * step + step / 2);
@@ -96,14 +96,15 @@ FMA.registerViz({
       if (F.disk) P.circle(0, 0, 1, { color: t.fg, width: 1.5 });
       P.circle(0, 0, Math.max(r, 1e-3), { color: '#ffffff', width: 2.4, dash: [6, 4] });
       P.circle(0, 0, Math.max(r, 1e-3), { color: '#000000', width: 0.8, dash: [6, 4] });
-      // étiquettes
+      // étiquettes (sur fond semi-opaque pour rester lisibles)
+      ctx.save(); ctx.fillStyle = t.bg; ctx.globalAlpha = 0.78; ctx.fillRect(4, 4, 118, 36); ctx.fillRect(4, sL.H - 40, Math.min(sL.W - 8, 250), 36); ctx.restore();
       ctx.save(); ctx.font = '12px system-ui, sans-serif'; ctx.fillStyle = t.fg;
       ctx.textAlign = 'left'; ctx.textBaseline = 'top';
-      ctx.fillText(F.disk ? 'bord de D(0,1)' : 'plan complexe', 8, 6);
-      ctx.fillText('r = ' + r.toFixed(3), 8, 22);
+      ctx.fillText(F.disk ? 'bord de D(0,1)' : 'plan complexe', 8, 7);
+      ctx.fillText('r = ' + r.toFixed(3), 8, 23);
       ctx.restore();
       // légende (barre de couleur)
-      const bx = 8, by = sL.H - 22, bw = Math.min(180, sL.W - 16), bh = 8;
+      const bx = 8, by = sL.H - 16, bw = Math.min(150, sL.W - 16), bh = 8;
       for (let i = 0; i < bw; i++) { const c = colorOf(i / (bw - 1)); ctx.fillStyle = `rgb(${c[0]},${c[1]},${c[2]})`; ctx.fillRect(bx + i, by, 1, bh); }
       ctx.save(); ctx.fillStyle = t.fg; ctx.font = '10.5px system-ui, sans-serif'; ctx.textBaseline = 'bottom'; ctx.textAlign = 'left'; ctx.fillText(sup10(LO), bx, by - 1);
       ctx.textAlign = 'right'; ctx.fillText(sup10(HI), bx + bw, by - 1); ctx.textAlign = 'left'; ctx.fillText('|f_n − f|', bx + bw + 6, by + bh + 1); ctx.restore();

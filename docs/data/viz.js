@@ -1171,7 +1171,7 @@ FMA.registerViz({
     const pw = (z, m) => { const r = Math.hypot(z[0], z[1]); if (r === 0) return m === 0 ? [1, 0] : [0, 0]; return C.fromPolar(Math.pow(r, m), m * Math.atan2(z[1], z[0])); };
     const tail = (n, z) => { // somme_{k>n} z^k/k!
       let t = [1, 0]; for (let k = 1; k <= n; k++) t = C.scale(C.mul(t, z), 1 / k);
-      let s = [0, 0]; for (let k = n + 1; k <= n + 90; k++) { t = C.scale(C.mul(t, z), 1 / k); s = C.add(s, t); if (C.abs(t) < 1e-300) break; }
+      let s = [0, 0]; for (let k = n + 1; k <= n + 90; k++) { t = C.scale(C.mul(t, z), 1 / k); s = C.add(s, t); if (C.abs(t) <= 1e-18 * C.abs(s) && k > n + 2 * Math.hypot(z[0], z[1])) break; }
       return s;
     };
     const FAM = {
@@ -1222,7 +1222,7 @@ FMA.registerViz({
     let heat = null, heatKey = '';
     function colorOf(t) { t = Math.max(0, Math.min(1, t)); return kit.hsl2rgb(0.66 * (1 - t) % 1, 0.85, 0.16 + 0.5 * t); }
     function buildHeat(P) {
-      const F = FAM[fam]; const W = sL.W, H = sL.H, step = 2;
+      const F = FAM[fam]; const W = sL.W, H = sL.H, step = fam === 'exp' ? 3 : 2;
       const img = sL.ctx.createImageData(Math.ceil(W / step), Math.ceil(H / step)); const d = img.data; let k = 0;
       for (let j = 0; j < img.height; j++) for (let i = 0; i < img.width; i++) {
         const [x, y] = P.toWorld(i * step + step / 2, j * step + step / 2);
@@ -1248,14 +1248,15 @@ FMA.registerViz({
       if (F.disk) P.circle(0, 0, 1, { color: t.fg, width: 1.5 });
       P.circle(0, 0, Math.max(r, 1e-3), { color: '#ffffff', width: 2.4, dash: [6, 4] });
       P.circle(0, 0, Math.max(r, 1e-3), { color: '#000000', width: 0.8, dash: [6, 4] });
-      // étiquettes
+      // étiquettes (sur fond semi-opaque pour rester lisibles)
+      ctx.save(); ctx.fillStyle = t.bg; ctx.globalAlpha = 0.78; ctx.fillRect(4, 4, 118, 36); ctx.fillRect(4, sL.H - 40, Math.min(sL.W - 8, 250), 36); ctx.restore();
       ctx.save(); ctx.font = '12px system-ui, sans-serif'; ctx.fillStyle = t.fg;
       ctx.textAlign = 'left'; ctx.textBaseline = 'top';
-      ctx.fillText(F.disk ? 'bord de D(0,1)' : 'plan complexe', 8, 6);
-      ctx.fillText('r = ' + r.toFixed(3), 8, 22);
+      ctx.fillText(F.disk ? 'bord de D(0,1)' : 'plan complexe', 8, 7);
+      ctx.fillText('r = ' + r.toFixed(3), 8, 23);
       ctx.restore();
       // légende (barre de couleur)
-      const bx = 8, by = sL.H - 22, bw = Math.min(180, sL.W - 16), bh = 8;
+      const bx = 8, by = sL.H - 16, bw = Math.min(150, sL.W - 16), bh = 8;
       for (let i = 0; i < bw; i++) { const c = colorOf(i / (bw - 1)); ctx.fillStyle = `rgb(${c[0]},${c[1]},${c[2]})`; ctx.fillRect(bx + i, by, 1, bh); }
       ctx.save(); ctx.fillStyle = t.fg; ctx.font = '10.5px system-ui, sans-serif'; ctx.textBaseline = 'bottom'; ctx.textAlign = 'left'; ctx.fillText(sup10(LO), bx, by - 1);
       ctx.textAlign = 'right'; ctx.fillText(sup10(HI), bx + bw, by - 1); ctx.textAlign = 'left'; ctx.fillText('|f_n − f|', bx + bw + 6, by + bh + 1); ctx.restore();
@@ -1494,7 +1495,7 @@ FMA.registerViz({
 **Les trois produits.**
 * **Sinus (Euler).** $P_N(z)=\pi z\prod_{n\le N}\big(1-\tfrac{z^2}{n^2}\big)$, avec $u_n=-z^2/n^2$ : la série $\sum|u_n|$ converge **normalement sur tout compact**, donc $P_N\to\sin(\pi z)$ localement uniformément (poly, Théorème III.5.1, p. 68, et Exemple III.6.3, p. 70). Chaque facteur ajoute les deux zéros $\pm N$ ; les zéros lointains ne sont pas encore corrects, car la convergence n'est qu'**uniforme sur les compacts**.
 * **$1/\Gamma$ (Weierstraß).** $P_N(z)=z\,e^{\gamma z}\prod_{k\le N}\big(1+\tfrac zk\big)e^{-z/k}\to 1/\Gamma(z)$ (poly, Exemple III.6.4, p. 71-72). Le facteur correcteur $e^{-z/k}$ transforme $u_k=(1+z/k)e^{-z/k}-1=O(|z|^2/k^2)$ : la série $\sum|u_k|$ converge.
-* **Sans correction.** $P_N(z)=z\prod_{k\le N}(1+z/k)$, avec $u_k=z/k$ : $\sum|u_k|$ **diverge** (comme $\log N$) ; le produit se comporte comme $N^{z}/\Gamma(z)$ et n'a pas de limite : il tend vers $0$ pour $\Re z<0$ et explose pour $\Re z>0$ (poly, Remarque III.5.2, p. 68). Le fond du plan « s'éclaircit » à droite et « s'assombrit » à gauche quand $N$ augmente. Cochez « afficher la limite » pour comparer (rien à afficher dans ce cas).
+* **Sans correction.** $P_N(z)=z\prod_{k\le N}(1+z/k)$, avec $u_k=z/k$ : $\sum|u_k|$ **diverge** (comme $\log N$) ; le produit se comporte comme $N^{z}/\Gamma(z)$ : il tend vers $0$ pour $\Re z<0$ mais **explose** pour $\Re z>0$, donc il n'y a **pas de limite** sur le plan (poly, Remarque III.5.2, p. 68). Le fond « s'éclaircit » à droite et « s'assombrit » à gauche quand $N$ augmente. Glissez $z_0$ à droite de l'axe imaginaire pour voir $|P_k(z_0)|$ croître sans borne, alors que $S_k$ croît comme $|z_0|\ln k$.
 
 Comparez, pour $z_0$ fixé, la courbe du haut à son asymptote et la somme du bas : borne = produit convergent, croissance = produit divergent.`,
   related: ['ch03-produits-infinis', 'ch03-produits-infinis-remarque', 'ch03-produit-sinus', 'ch03-gamma-produit-weierstrass', 'ch03-log-estimation', 'ch03-exp-estimation'],
@@ -1530,8 +1531,9 @@ Comparez, pour $z_0$ fixé, la courbe du haut à son asymptote et la somme du ba
         u: (k, z) => C.sub(C.mul(C.add([1, 0], C.scale(z, 1 / k)), C.exp(C.scale(z, -1 / k))), [1, 0]),
         P0: z => C.mul(z, C.exp(C.scale(z, GAMMA_E))),
         factor: (k, z) => C.mul(C.add([1, 0], C.scale(z, 1 / k)), C.exp(C.scale(z, -1 / k))),
+        partial: (N, z) => { let H = 0; for (let k = 1; k <= N; k++) H += 1 / k; let p = C.mul(z, C.exp(C.scale(z, GAMMA_E - H))); for (let k = 1; k <= N; k++) p = C.mul(p, [1 + z[0] / k, z[1] / k]); return p; },
         limit: z => rgamma(z), limTxt: '1/\\Gamma(z)', zeros: N => { const a = [[0, 0]]; for (let k = 1; k <= N; k++) a.push([-k, 0]); return a; } },
-      naive: { lab: 'z ∏ (1 + z/k)  (sans correction : diverge)', xmax: 3.5, xmin: -7, ymax: 3.2, z0: [-2.4, 0.8],
+      naive: { lab: 'z ∏ (1 + z/k)  (sans correction : diverge)', xmax: 3.5, xmin: -7, ymax: 3.2, z0: [1.4, 0.6],
         u: (k, z) => C.scale(z, 1 / k),
         P0: z => z,
         factor: (k, z) => [1 + z[0] / k, z[1] / k],
@@ -1572,8 +1574,8 @@ Comparez, pour $z_0$ fixé, la courbe du haut à son asymptote et la somme du ba
       const F = FAM[fam], ctx = sL.ctx, t = th(); sL.clear();
       const xmin = F.xmin !== undefined ? F.xmin : -F.xmax; const asp = sL.W / sL.H;
       P = kit.plane(ctx, { xmin, xmax: F.xmax, ymin: -F.ymax, ymax: F.ymax, W: sL.W, H: sL.H });
-      const f = (showLim && F.limit) ? F.limit : (z => prodAt(F, N, z));
-      kit.domainColor(sL, P, f, { step: 3, lines: true });
+      const f = (showLim && F.limit) ? F.limit : (F.partial ? (z => F.partial(N, z)) : (z => prodAt(F, N, z)));
+      kit.domainColor(sL, P, f, { step: N > 60 ? 4 : 3, lines: true });
       P.axes({ labels: true, step: 1 });
       // zéros théoriques du produit partiel
       const zs = (showLim && F.limit) ? null : F.zeros(N);
