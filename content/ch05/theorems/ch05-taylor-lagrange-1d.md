@@ -30,7 +30,7 @@ $$
 
 **Rôle.** Elle rend la fonction auxiliaire $g(t)=\sum_{k=0}^p\frac{(1-t)^k}{k!}f^{(k)}(t)$ dérivable, avec $g'(t)=\frac{(1-t)^p}{p!}f^{(p+1)}(t)$, et donne un sens à l'hypothèse de borne.
 
-**Si on la retire.** On peut tolérer un ensemble **dénombrable** de points de non-dérivabilité ([[ch05-accroissements-finis-denombrable]]), mais pas plus : pour $p=0$, la fonction de Cantor $c$ (prolongée par $0$ sur $\left]-1,0\right[$ et par $1$ sur $\left]1,2\right[$) est continue, localement constante — donc dérivable de dérivée nulle — hors de l'ensemble de Cantor $K$ (non dénombrable, de mesure nulle), et pourtant $\abs{c(1)-c(0)}=1$, qui dépasse $C/1!$ dès que $C<1$.
+**Si on la retire.** Pour $p=0$ (où $g=f$), on peut tolérer un ensemble **dénombrable** de points de non-dérivabilité, pourvu que $f$ reste continue ([[ch05-accroissements-finis-denombrable]]) ; pour $p\ge1$ il faut de même que $f,\dots,f^{(p)}$ existent partout, $f^{(p)}$ soit continue et dérivable hors d'un ensemble dénombrable, et $\norm{f^{(p+1)}}\le C$ là où elle existe (la fonction $g$ est alors continue et dérivable hors d'un ensemble dénombrable). Mais on ne peut pas aller plus loin : pour $p=0$, la fonction de Cantor $c$ (prolongée par $0$ sur $\left]-1,0\right[$ et par $1$ sur $\left]1,2\right[$) est continue, localement constante — donc dérivable de dérivée nulle — hors de l'ensemble de Cantor $K$ (non dénombrable, de mesure nulle), et pourtant $\abs{c(1)-c(0)}=1$, qui dépasse $C/1!$ dès que $C<1$.
 
 ### H2 — $\norm{f^{(p+1)}(t)}_F\le C$ pour $t\in[0;1]$
 

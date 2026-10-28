@@ -13,7 +13,7 @@ calculée numériquement (paramétrage $\omega=tz+(1-t)e^{i\theta}$ et méthode 
 **Le lien avec la preuve du poly** (poly, Théorème I.6.1, p. 18). La formule $f(z)=\frac{1}{2i\pi}\int_\Gamma\frac{f(\omega)}{\omega-z}\,d\omega$ découle de $\int_\Gamma\frac{d\omega}{\omega-z}=2i\pi$ (étape 1) et de $I(0)=0$ (étape 2). Pour l'étape 2, le poly montre que $I$ est **constante** en $t$ (sa dérivée est l'intégrale en $\theta$ d'une dérivée en $\theta$ d'une fonction $2\pi$-périodique, donc nulle — c'est là que sert l'holomorphie de $f$) et que $I(t)\to0$ quand $t\to1$ (le cercle rétrécit et l'intégrande, un taux d'accroissement, reste borné). Donc $I(0)=I(1)=0$.
 
 **À faire.**
-* Avec $e^z$, $z^3-z$ ou $\frac{1}{z-3/2}$ (pôle **hors** du disque fermé, donc $f$ est holomorphe sur un ouvert $\Omega\supset\bar D(0,1)$) : la courbe du bas est plate, collée à $0$, quelle que soit la position de $z$ ; l'intégrale de Cauchy redonne $f(z)$ à $10^{-12}$ près. Placez $z$ au centre ($z$ s'aimante en $0$) : l'intégrale de Cauchy est alors la **moyenne** de $f$ sur le cercle (poly, Corollaire I.6.2, p. 19).
+* Avec $e^z$, $z^3-z$ ou $\frac{1}{z-3/2}$ (pôle **hors** du disque fermé, donc $f$ est holomorphe sur un ouvert $\Omega\supset\bar D(0,1)$) : la courbe du bas est plate, collée à $0$, quelle que soit la position de $z$ ; l'intégrale de Cauchy redonne $f(z)$ (l'écart affiché est de l'ordre de l'erreur d'arrondi, sauf si $z$ frôle le cercle $\Gamma$, où la quadrature numérique perd de la précision). Placez $z$ au centre ($z$ s'aimante en $0$) : l'intégrale de Cauchy est alors la **moyenne** de $f$ sur le cercle (poly, Corollaire I.6.2, p. 19).
 * Sortez $z$ du disque : la rétraction n'a plus de sens et l'intégrale de Cauchy vaut $0$, pas $f(z)$ (la fonction $\omega\mapsto\frac{f(\omega)}{\omega-z}$ est alors holomorphe au voisinage de $\bar D(0,1)$). La formule n'est valable que pour $z\in D(z_0,r)$.
 * Avec $\bar z$ ou $|z|^2$ (**non holomorphes**) : $|I(t)|$ n'est plus constante (pour $\bar z$, on trouve $I(t)=-2i\pi(1-t)\bar z$), donc $I(0)\neq0$ et la formule est fausse : pour $\bar z$, l'intégrale de Cauchy vaut $0$ au lieu de $\bar z$.
 * Avec $\frac{1}{z-p}$, $p$ **dans** le disque (croix) : l'hypothèse $\bar D(0,1)\subset\Omega$ est violée. La courbe du bas fait un **saut** exactement à l'instant où le cercle rose franchit le pôle $p$ : la rétraction ne peut pas « passer par-dessus » une singularité. Cette idée (déformer un lacet sans traverser de singularité) est celle de l'homotopie du chapitre II.`,
@@ -209,7 +209,7 @@ $$\omega\longmapsto\frac{f(z_0+h\omega)-f(z_0)}{h}$$
 * Avec $z^3-z$, approchez un point critique $\pm1/\sqrt3$ (le point s'y aimante) : $f'(z_0)=0$, la différentielle est nulle, le cercle se réduit à un point et l'échelle du microscope s'adapte au terme d'ordre $2$ (angles doublés).
 * Avec $\bar z$ : un cercle, mais le drapeau est retourné ($a=0$, $b=1$) : $\bar z$ n'est $\C$-dérivable nulle part (poly, Exemple I.2.7, p. 9). Avec $\Re z$ ou $|z|^2$ : un segment ($|a|=|b|$) ; pour $|z|^2$, on a $a=\bar z_0$, $b=z_0$, donc $b=0$ seulement en $z_0=0$ : $|z|^2$ est $\C$-dérivable en ce seul point, et n'est holomorphe sur aucun ouvert. Avec $z+\tfrac12\bar z$ : une vraie ellipse, orientation conservée.`,
   related: ['ch01-decomposition-r-lineaire', 'ch01-operateurs-dz-dzbar', 'ch01-c-derivable-ssi-df-c-lineaire', 'ch01-cauchy-riemann', 'ch01-similitude-conforme', 'ch01-exemple-zbar-rez-module', 'ch01-def-differentiable-r2'],
-  height: 560,
+  height: 420,
   mount(container, kit) {
     const C = kit.complex;
     const DEG = 180 / Math.PI;
@@ -282,7 +282,7 @@ $$\omega\longmapsto\frac{f(z_0+h\omega)-f(z_0)}{h}$$
     function snap() { // aimanter z0 vers un point remarquable
       const F = FNS[sel.value];
       for (const c of F.crit) if (Math.hypot(z0[0] - c[0], z0[1] - c[1]) < 0.09) { z0 = c.slice(); return; }
-      if (F.hole && Math.hypot(z0[0], z0[1]) < 0.12) { const n = Math.hypot(z0[0], z0[1]) || 1; z0 = [0.12 * (z0[0] || 1) / (n || 1), 0.12 * z0[1] / n]; }
+      if (F.hole) { const n = Math.hypot(z0[0], z0[1]); if (n < 1e-9) z0 = [0.12, 0]; else if (n < 0.12) z0 = [0.12 * z0[0] / n, 0.12 * z0[1] / n]; } // 1/z : on tient z0 à l'écart de 0 ∉ Ω
     }
 
     function drawZ() {
@@ -319,9 +319,9 @@ $$\omega\longmapsto\frac{f(z_0+h\omega)-f(z_0)}{h}$$
       if (!f0 || !D) { PW = kit.plane(ctx, { W: stW.W, H: stW.H }); label(ctx, 'f non définie en z₀', t); return; }
       const { a, b } = D, A = C.abs(a), B = C.abs(b);
       const Q = w => { const v = safe(F.f, [z0[0] + h * w[0], z0[1] + h * w[1]]); return v ? [(v[0] - f0[0]) / h, (v[1] - f0[1]) / h] : null; };
-      // échelle : fixée par df (|a|+|b|) ; si df ≈ 0 (point critique), par l'image réelle
+      // échelle : fixée par df (|a|+|b|) ; si df ≈ 0 (point critique), par l'image réelle (terme d'ordre 2)
       let R = 1.35 * (A + B);
-      if (A + B < 0.05) { let m = 0; for (const c of GRID.circles) for (const w of c) { const q = Q(w); if (q) m = Math.max(m, Math.hypot(q[0], q[1])); } R = Math.max(1.3 * m, 1e-6); }
+      if (A + B < 0.05) { let m = 0; for (const c of GRID.circles) for (const w of c) { const q = Q(w); if (q) m = Math.max(m, Math.hypot(q[0], q[1])); } R = Math.max(1.3 * m, 1.35 * (A + B), 1e-6); }
       PW = kit.plane(ctx, { xmin: -R, xmax: R, ymin: -R, ymax: R, W: stW.W, H: stW.H });
       const st = Math.pow(10, Math.floor(Math.log10(R))); const step = R / st > 5 ? 2 * st : R / st > 2.5 ? st : st / 2;
       PW.grid(step / 2); PW.axes({ labels: true, step });
@@ -330,13 +330,13 @@ $$\omega\longmapsto\frac{f(z_0+h\omega)-f(z_0)}{h}$$
       for (const c of GRID.circles) stroke(ctx, PW, c.map(Q), t.accent, 1.4);
       for (const r of GRID.radii) stroke(ctx, PW, r.map(Q), t.accent3, 1.4);
       // image par df : tirets
-      if (cbDf.value && A + B >= 0.05) {
+      if (cbDf.value && A + B > 0) {
         for (const c of GRID.circles) stroke(ctx, PW, c.map(w => L(a, b, w)), t.fg, 1.1, [5, 4]);
         for (const r of GRID.radii) stroke(ctx, PW, r.map(w => L(a, b, w)), t.fg, 0.8, [2, 4]);
       }
       // drapeau
       stroke(ctx, PW, flag1.map(Q), t.accent4, 3); stroke(ctx, PW, flag2.map(Q), t.accent5, 3);
-      if (A + B >= 0.05) {
+      if (A + B > 0) {
         const u = L(a, b, [1, 0]), v = L(a, b, [0, 1]);
         const [ox, oy] = PW.toPx(0, 0), [ux, uy] = PW.toPx(u[0], u[1]), [vx, vy] = PW.toPx(v[0], v[1]);
         kit.arrow(ctx, ox, oy, ux, uy, { color: t.accent4, width: 1.5, head: 8 });

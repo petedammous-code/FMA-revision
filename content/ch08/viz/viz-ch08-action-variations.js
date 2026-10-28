@@ -28,7 +28,7 @@ FMA.registerViz({
     };
     let parVals = { grav: 8, harm: 2 };
     const selU = kit.select(controls, { label: 'potentiel', options: Object.keys(pots).map(k => [pots[k].label, k]), value: 'harm', onChange: () => { syncPar(); draw(); } });
-    const par = kit.slider(controls, { label: 'paramètre', min: 0.5, max: 4.5, step: 0.05, value: 2, onChange: v => { parVals[selU.value] = v; draw(); } });
+    const par = kit.slider(controls, { label: 'paramètre', min: 0.5, max: 4.5, step: 0.05, value: 2, format: v => (+v).toFixed(selU.value === 'grav' ? 1 : 2), onChange: v => { parVals[selU.value] = v; draw(); } });
     const dirs = [['h = sin(πt)', 'sin1'], ['h = sin(2πt)', 'sin2'], ['h = sin(3πt)', 'sin3'], ['bosse en t₀', 'bump'], ['h adaptée au résidu', 'adapt']];
     const selH = kit.select(controls, { label: 'direction $h$', options: dirs, value: 'sin1', onChange: () => draw() });
     const sS = kit.slider(controls, { label: '$s$', min: -1, max: 1, step: 0.01, value: 0.4, onChange: () => { stopAnim(); draw(); } });
@@ -121,19 +121,19 @@ FMA.registerViz({
       frame(G.top);
 
       // ---- panneau du milieu : phi(s) ----
-      { const [x, y, w, h] = G.mid; const ns = 61, sv = kit.linspace(-1, 1, ns), ph = sv.map(action);
-        let a1 = Math.min(...ph, phi0 - Math.abs(dQ2)), a2 = Math.max(...ph, phi0 + Math.abs(dQ2)); if (a2 - a1 < 1e-6) { a1 -= 1; a2 += 1; } const m = 0.12 * (a2 - a1);
+      { const [x, y, w, h] = G.mid; const ns = 61, sv = kit.linspace(-1, 1, ns), phv = sv.map(action);
+        let a1 = Math.min(...phv, phi0 - Math.abs(dQ2)), a2 = Math.max(...phv, phi0 + Math.abs(dQ2)); if (a2 - a1 < 1e-6) { a1 -= 1; a2 += 1; } const m = 0.12 * (a2 - a1);
         panel(x, y, w, h, () => {
           const Q = kit.plane(ctx, { xmin: -1.12, xmax: 1.12, ymin: a1 - m, ymax: a2 + m * 2.2, W: w, H: h, keepAspect: false });
           const [, pyb] = Q.toPx(0, a1 - m); const [pz] = Q.toPx(0, 0);
           ctx.save(); ctx.strokeStyle = T.axis; ctx.lineWidth = 1; ctx.beginPath(); ctx.moveTo(pz, 0); ctx.lineTo(pz, h); ctx.stroke(); ctx.restore();
           ctx.save(); ctx.fillStyle = T.muted; ctx.font = '11px system-ui, sans-serif'; ctx.textAlign = 'center'; ctx.textBaseline = 'bottom'; for (const v of [-1, -0.5, 0.5, 1]) { const [px] = Q.toPx(v, 0); ctx.fillText(String(v), px, h - 2); } ctx.restore();
           Q.curve([[-1.1, phi0 - 1.1 * dQ2], [1.1, phi0 + 1.1 * dQ2]], { color: T.accent2, width: 1.5, dash: [5, 4] });
-          Q.curve(sv.map((v, i) => [v, ph[i]]), { color: T.accent, width: 2.2 });
+          Q.curve(sv.map((v, i) => [v, phv[i]]), { color: T.accent, width: 2.2 });
           Q.point(0, phi0, { r: 3.5, color: T.fg }); Q.point(s, phis, { r: 5, color: T.accent2 });
           // graduations verticales : min et max de φ sur [-1, 1], et φ(0)
           ctx.save(); ctx.fillStyle = T.muted; ctx.font = '11px system-ui, sans-serif'; ctx.textAlign = 'left'; ctx.textBaseline = 'middle';
-          const pmin = Math.min(...ph), pmax = Math.max(...ph); const ticks = [[pmin, 'min'], [pmax, 'max']]; if (Math.abs(phi0 - pmin) > 0.15 * (a2 - a1) && Math.abs(phi0 - pmax) > 0.15 * (a2 - a1)) ticks.push([phi0, 'φ(0)']);
+          const pmin = Math.min(...phv), pmax = Math.max(...phv); const ticks = [[pmin, 'min'], [pmax, 'max']]; if (Math.abs(phi0 - pmin) > 0.15 * (a2 - a1) && Math.abs(phi0 - pmax) > 0.15 * (a2 - a1)) ticks.push([phi0, 'φ(0)']);
           for (const [v, nm] of ticks) { const [, py] = Q.toPx(0, v); if (py < 18 || py > h - 14) continue; ctx.strokeStyle = T.grid; ctx.beginPath(); ctx.moveTo(0, py); ctx.lineTo(w, py); ctx.stroke(); ctx.fillText(nm + ' = ' + kit.fmt(+v.toFixed(3)), pz + 4, py - (nm === 'max' ? 7 : -7)); }
           ctx.fillStyle = T.fg; ctx.textAlign = 'right'; ctx.textBaseline = 'bottom'; ctx.fillText('s', w - 4, pyb - 14); ctx.restore();
         });
@@ -170,7 +170,7 @@ FMA.registerViz({
     let dragging = 0;
     const off = kit.drag(st.canvas, {
       onDown: p => { if (!P || !G) return; const M = model(); const lx = p.x - G.top[0], ly = p.y - G.top[1]; dragging = 0;
-        [[1 / 3, d1, 1], [2 / 3, d2, 2]].forEach(([tt, d, k]) => { const [px, py] = P.toPx(tt, M.sol(tt)[0] + d); if (Math.hypot(px - lx, py - ly) < 22) dragging = k; }); },
+        [[1 / 3, d1, 1], [2 / 3, d2, 2]].forEach(([tt, d, k]) => { const [px, py] = P.toPx(tt, M.sol(tt)[0] + d); if (Math.hypot(px - lx, py - ly) < 22) dragging = k; }); if (dragging) stopAnim(); },
       onMove: (p, ev, down) => { if (!down || !dragging || !P) return; const M = model(); const [, q] = P.toWorld(p.x - G.top[0], p.y - G.top[1]); const tt = dragging === 1 ? 1 / 3 : 2 / 3; const d = Math.max(-6, Math.min(6, q - M.sol(tt)[0])); if (dragging === 1) d1 = d; else d2 = d; draw(); },
       onUp: () => { dragging = 0; },
     });

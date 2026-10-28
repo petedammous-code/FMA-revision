@@ -29,9 +29,10 @@ On a une solution maximale $\alpha:J=\,]a,b[\,\to U$ de $\alpha'=X(t,\alpha)$ (e
 **Pourquoi ce n'est pas l'outil ici.** Il fournit une solution sur $]t_0-\epsilon,t_0+\epsilon[$ avec $\epsilon$ dépendant de bornes **locales** de $X$ : aucune information sur $b$.
 **Quand il le serait.** Pour la question précédente (existence et unicité), ou à l'intérieur de la preuve du lemme des bouts (uniformité de $\epsilon$ sur un compact).
 
-### [ ] Flot complet sur une sous-variété compacte — [[ch09-flot-complet-compacte]]
-**Pourquoi ce n'est pas l'outil ici.** Il demande un champ **tangent** à une sous-variété **compacte** $S$ et une condition initiale dans $S$ ; pour un champ quelconque sur $\R^N$ (sans ensemble invariant compact), il ne s'applique pas.
-**Quand il le serait.** Si l'on a montré que $X(x)\in T_xS$ pour $x\in S$, $S$ compacte (sphère, tore, $\mathrm{SO}(n)$) : toutes les courbes intégrales issues de $S$ sont définies sur $\R$ (poly, Théorème IX.8.9, p. 175). C'est un cas particulier du lemme des bouts.
+### [x] Flot complet sur une sous-variété compacte — [[ch09-flot-complet-compacte]]
+**Quand.** On dispose d'une sous-variété **compacte** $S\subset U$ (sphère, tore, $\mathrm{SO}(n)$, niveau compact d'une intégrale première régulière) à laquelle le champ **autonome** et localement lipschitzien est **tangent** ($X(x)\in T_xS$ pour $x\in S$), et la condition initiale est dans $S$. Alors le flot du champ tangent est défini sur $\R\times S$ (poly, Théorème IX.8.9, p. 175) ; comme $S$ est fermée, la courbe intégrale ambiante issue de $x_0\in S$ reste dans $S$ ([[ch09-courbe-integrale-reste-dans-sous-variete-fermee]]) et coïncide avec celle du champ tangent : elle est définie sur $\R$.
+**Justification.** C'est le lemme des bouts appliqué avec le compact $K=S$, dans les deux sens du temps.
+**Pièges.** La conclusion ne porte que sur les conditions initiales **dans $S$** ; pour un champ quelconque sur $\R^N$ sans ensemble invariant compact, il ne s'applique pas. Vérifier la tangence sur $S$ entier (par exemple $\langle X(x),x\rangle=0$ sur la sphère, [[rfx-edo-champ-tangent]]).
 
 ## Démarche
 
