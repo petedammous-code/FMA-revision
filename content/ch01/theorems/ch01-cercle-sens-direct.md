@@ -21,7 +21,7 @@ C'est **le** lacet de référence du cours : toutes les formules de Cauchy ([[ch
 $$
 \gamma:[0,2\pi]\to\C,\qquad \gamma(t)=z_0+r\,e^{it}
 $$
-est un lacet (de classe $C^1$), de chemin de tout ouvert $\Omega$ contenant $C(z_0,r)$ ; son image est le cercle $C(z_0,r)$ de centre $z_0$ et de rayon $r$, qui est **parcouru dans le sens direct** (trigonométrique) : l'angle polaire de $\gamma(t)-z_0$ est $t$, fonction croissante du temps. De plus $\gamma'(t)=i\,r\,e^{it}=i\,(\gamma(t)-z_0)$, et $\gamma$ est injective sur $[0,2\pi[$ (un seul tour).
+est un lacet (de classe $C^1$) de tout ouvert $\Omega$ contenant $C(z_0,r)$ ; son image est le cercle $C(z_0,r)$ de centre $z_0$ et de rayon $r$, qui est **parcouru dans le sens direct** (trigonométrique) : l'angle polaire de $\gamma(t)-z_0$ est $t$, fonction croissante du temps. De plus $\gamma'(t)=i\,r\,e^{it}=i\,(\gamma(t)-z_0)$, et $\gamma$ est injective sur $[0,2\pi[$ (un seul tour).
 
 ## Hypothèses
 

@@ -3,7 +3,7 @@ id: ch02-logarithme-determination-principale-def
 type: definition
 chapter: 2
 title: Détermination principale du logarithme complexe
-ref: non numéroté, section II.9, p. 56 (et Exercice II.9.4)
+ref: non numéroté, section II.9, p. 56
 page: 56
 importance: 3
 depends: [ch02-logarithme-existence, ch02-etoile-simplement-connexe, ch02-logarithme-def]
@@ -38,7 +38,7 @@ Pourquoi ça marche : $\C\setminus\R_-$ est étoilé en $1$ donc simplement conn
 
 **Rôle.** Elle rend l'ouvert simplement connexe, ce qui garantit l'existence de la primitive de $1/z$.
 
-**Si on la retire.** Aucun logarithme holomorphe (ni même continu) de $z$ n'existe sur $\C^\times$ : sinon $1/z$ aurait une primitive sur $\C^\times$ et $\int_{C(0,1)}\frac{dz}{z}$ serait nulle, alors qu'elle vaut $2i\pi$ ([[ch02-indice-cercle]]). Concrètement, $\mathrm{Log}$ ne se prolonge pas continûment à $\R_-^\times$ : pour $x<0$,
+**Si on la retire.** Aucun logarithme holomorphe de $z$ n'existe sur $\C^\times$ : sinon $1/z$ aurait une primitive sur $\C^\times$ et $\int_{C(0,1)}\frac{dz}{z}$ serait nulle, alors qu'elle vaut $2i\pi$ ([[ch02-indice-cercle]]). Pas même de logarithme continu : une $L$ continue avec $e^{L}=z$ coïnciderait au voisinage de chaque point, à une constante de $2i\pi\Z$ près, avec un logarithme local holomorphe ([[ch01-exp-image-c-etoile-log-local]]) — la différence est continue à valeurs dans $2i\pi\Z$ — donc serait holomorphe. Concrètement, $\mathrm{Log}$ ne se prolonge pas continûment à $\R_-^\times$ : pour $x<0$,
 $$
 \lim_{y\to0^+}\mathrm{Log}(x+iy)=\log|x|+i\pi,\qquad \lim_{y\to0^-}\mathrm{Log}(x+iy)=\log|x|-i\pi,
 $$
