@@ -13,7 +13,7 @@ tags: [liouville, bornee, entiere, cauchy, estimees]
 
 > 💡 Une fonction holomorphe sur tout $\C$ (on dit **entière**) qui reste bornée ne peut pas non plus osciller : elle est constante. En variable réelle, $\sin$ est bornée et non constante sur $\R$ ; en variable complexe c'est impossible, et d'ailleurs $\sin(iy)=i\sinh y$ explose quand $y\to\pm\infty$.
 
-La raison : la formule de Cauchy exprime $f^{(k)}(0)/k!$ comme une moyenne de $f$ sur le cercle $C(0,R)$ divisée par $R^k$ (estimées de Cauchy, [[ch01-estimees-cauchy]]). Si $f$ est bornée par $M$, cette quantité est $\le M/R^k$ ; en faisant grandir le cercle ($R\to+\infty$), toutes les dérivées d'ordre $k\ge1$ en $0$ s'annulent, et la série de Taylor se réduit à son terme constant.
+La raison : la formule de Cauchy exprime $f^{(k)}(0)/k!$ comme une moyenne pondérée de $f$ sur le cercle $C(0,R)$ (précisément $\frac1{2\pi}\int_0^{2\pi}f(Re^{i\theta})e^{-ik\theta}\,d\theta$) divisée par $R^k$ (estimées de Cauchy, [[ch01-estimees-cauchy]]). Si $f$ est bornée par $M$, cette quantité est $\le M/R^k$ ; en faisant grandir le cercle ($R\to+\infty$), toutes les dérivées d'ordre $k\ge1$ en $0$ s'annulent, et la série de Taylor se réduit à son terme constant.
 
 Rappel : $\Hol(\C)$ est l'ensemble des fonctions holomorphes sur $\C$ ([[ch01-def-holomorphe]]) ; « bornée sur $\C$ » signifie $\sup_{z\in\C}|f(z)|<+\infty$.
 
@@ -57,7 +57,7 @@ f(z)=\sum_{k\ge0}\frac{f^{(k)}(0)}{k!}z^k\qquad(z\in\C).
 $$
 Tous les coefficients d'indice $k\ge1$ sont nuls, donc $f(z)=f(0)$ pour tout $z\in\C$. $\square$
 
-*Variante :* on peut n'utiliser que $k=1$, en un point $z_0$ quelconque : les estimées de Cauchy sur $C(z_0,R)$ donnent $|f'(z_0)|\le M/R\to0$, donc $f'\equiv0$ sur $\C$, et $\C$ étant connexe, $f$ est constante.
+*Variante :* on peut n'utiliser que $k=1$, en un point $z_0$ quelconque : les estimées de Cauchy sur $C(z_0,R)$ donnent $|f'(z_0)|\le M/R\to0$, donc $f'\equiv0$ sur $\C$ ; alors, pour tout $z\in\C$, $f(z)-f(0)=\int_{[0,z]}f'(\zeta)\,d\zeta=0$ (Théorème I.5.9, [[ch01-integrale-primitive]], $f$ étant une primitive holomorphe de $f'$ sur $\C$) : $f$ est constante.
 
 ## Preuve à trous
 

@@ -13,7 +13,7 @@ tags: [dalembert-gauss, polynome, racine, algebriquement-clos, liouville]
 
 > 💡 Un polynôme non constant $P$ « monte » à l'infini comme $|a_d||z|^d$. S'il ne s'annulait jamais, $1/P$ serait une fonction holomorphe sur tout $\C$ qui tend vers $0$ à l'infini : elle serait bornée, donc constante par Liouville ([[ch01-liouville]]) — absurde, puisque $P$ ne l'est pas.
 
-Vocabulaire. Une **racine** (ou zéro) de $P\in\C[X]$ est un $z\in\C$ tel que $P(z)=0$. Un corps $K$ est **algébriquement clos** si tout polynôme non constant à coefficients dans $K$ a une racine dans $K$ ; c'est équivalent à : tout polynôme non nul de $K[X]$ se factorise en produit de facteurs de degré $1$.
+Vocabulaire. Une **racine** (ou zéro) de $P\in\C[X]$ est un $z\in\C$ tel que $P(z)=0$. Un corps $K$ est **algébriquement clos** si tout polynôme non constant à coefficients dans $K$ a une racine dans $K$ ; c'est équivalent à : tout polynôme $P\in K[X]$ de degré $d\ge1$ se factorise en $P=c\prod_{j=1}^d(X-z_j)$ avec $c\in K^\times$ et $z_1,\dots,z_d\in K$ (produit de facteurs de degré $1$).
 
 ## Énoncé
 
